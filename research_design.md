@@ -51,3 +51,8 @@ A general equity basket keeps the methodological claim clear. REITs can later su
 ## 8 Keywords
 
 Bounded basket derivatives; quantum mean estimation; interval probability; geometric control; finite precision; computational finance.
+
+
+## 9 Constructive stage update
+
+I completed the first reversible evaluator comparison in a separate stipulated two-asset common-loading instance. The [encoding study](reversible_encoding_study.md) records its scope, precision search and exact emitted counts. I use the stronger coordinatewise bounded-variation finite-grid bounds in the [supplement](finite_grid_supplement.md), with the earlier coupling bound retained where smaller. The three constructors receive their own finite widths and precision configurations. Half the requested price tolerance is reserved for unimplemented statistical estimation. I treat the favourable assigned T counts as constructor evidence and require stronger conditioned arithmetic before claiming a complete resource contribution.

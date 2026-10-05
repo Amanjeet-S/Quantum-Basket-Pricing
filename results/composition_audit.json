@@ -1,0 +1,133 @@
+{
+  "source": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/encoding_resources.py",
+  "status": "pass: six complete circuits; gate counts exact and space/depth bounds conservative",
+  "circuits": [
+    {
+      "kind": "direct",
+      "q": 8,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 734,
+        "CNOT": 16031,
+        "Toffoli": 14066
+      },
+      "actual_complete_wires": 959,
+      "composed_qubit_upper_bound": 959,
+      "actual_all_gate_depth": 5739,
+      "composed_serial_depth_bound": 6827,
+      "actual_T_depth_schedule": 10356,
+      "composed_T_depth_bound": 12318,
+      "finite_uniform_H_gates": 12,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    },
+    {
+      "kind": "interval",
+      "q": 8,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 484,
+        "CNOT": 19557,
+        "Toffoli": 19234
+      },
+      "actual_complete_wires": 1244,
+      "composed_qubit_upper_bound": 1244,
+      "actual_all_gate_depth": 6213,
+      "composed_serial_depth_bound": 7039,
+      "actual_T_depth_schedule": 10698,
+      "composed_T_depth_bound": 12114,
+      "finite_uniform_H_gates": 12,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    },
+    {
+      "kind": "full",
+      "q": 8,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 1116,
+        "CNOT": 49365,
+        "Toffoli": 50886
+      },
+      "actual_complete_wires": 2438,
+      "composed_qubit_upper_bound": 2438,
+      "actual_all_gate_depth": 13703,
+      "composed_serial_depth_bound": 14847,
+      "actual_T_depth_schedule": 23832,
+      "composed_T_depth_bound": 25950,
+      "finite_uniform_H_gates": 10,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    },
+    {
+      "kind": "direct",
+      "q": 10,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 838,
+        "CNOT": 22793,
+        "Toffoli": 20438
+      },
+      "actual_complete_wires": 1271,
+      "composed_qubit_upper_bound": 1271,
+      "actual_all_gate_depth": 6731,
+      "composed_serial_depth_bound": 8097,
+      "actual_T_depth_schedule": 12006,
+      "composed_T_depth_bound": 14358,
+      "finite_uniform_H_gates": 16,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    },
+    {
+      "kind": "interval",
+      "q": 10,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 550,
+        "CNOT": 27335,
+        "Toffoli": 26946
+      },
+      "actual_complete_wires": 1602,
+      "composed_qubit_upper_bound": 1602,
+      "actual_all_gate_depth": 7871,
+      "composed_serial_depth_bound": 8703,
+      "actual_T_depth_schedule": 12654,
+      "composed_T_depth_bound": 14130,
+      "finite_uniform_H_gates": 16,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    },
+    {
+      "kind": "full",
+      "q": 10,
+      "exact_gate_count_agreement": true,
+      "per_node_gate_count_agreement": true,
+      "arithmetic_inverse_counted_twice": true,
+      "clean_comparator_counted_once": true,
+      "actual_counts": {
+        "X": 1270,
+        "CNOT": 68677,
+        "Toffoli": 71278
+      },
+      "actual_complete_wires": 2979,
+      "composed_qubit_upper_bound": 2979,
+      "actual_all_gate_depth": 16477,
+      "composed_serial_depth_bound": 17689,
+      "actual_T_depth_schedule": 27702,
+      "composed_T_depth_bound": 29958,
+      "finite_uniform_H_gates": 13,
+      "H_gates_excluded_from_X_CNOT_Toffoli_counts": true
+    }
+  ],
+  "limitation": "The selected graphs have no aliased binary operand registers. Standalone block allocation presumes distinct operands; arbitrary Graph nodes with a repeated operand require a distinct cache key and emitted aliased operands for exact counts."
+}

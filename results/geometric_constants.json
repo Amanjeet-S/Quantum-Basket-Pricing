@@ -1,0 +1,28 @@
+{
+  "status": "independent offline geometric-correction enclosures",
+  "script_sha256": "db2719e1d32122a19edc6b1c286fbfb4b19266111575d189298093208f099108",
+  "continuous_geometric_corrections": [
+    {
+      "cap": 1,
+      "undiscounted_geometric_correction_decimal": "0.4469775843212661059173529366235780852848873255482795781757382080325529784026706380499459035811306138",
+      "absolute_monetary_enclosure": "1E-44",
+      "correction_float": 0.4469775843212661,
+      "float_representation_error_enclosure": "2.2520152442010984432881488782993766718242617919674470215973293619500540964188693862E-18"
+    },
+    {
+      "cap": 10,
+      "undiscounted_geometric_correction_decimal": "3.665713526083774142579253605813330169957668804963647816995480113290609964193774689255649702987992887",
+      "absolute_monetary_enclosure": "1E-44",
+      "correction_float": 3.665713526083774,
+      "float_representation_error_enclosure": "4.3927551672109013553899319205588647816995480113290609964193774689255649702987992887E-17"
+    },
+    {
+      "cap": 25,
+      "undiscounted_geometric_correction_decimal": "6.531038153958349748793688719112675440648424878775885134826584305743437697757356527640478819794969945",
+      "absolute_monetary_enclosure": "1E-44",
+      "correction_float": 6.53103815395835,
+      "float_representation_error_enclosure": "3.128997719565655839780199791119635134826584305743437697757356527640478819794969945E-18"
+    }
+  ],
+  "absolute_series_arithmetic_envelope": "1E-50"
+}

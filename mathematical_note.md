@@ -286,6 +286,12 @@ The [source record](SOURCES.md) retains the primary-source versions and sections
 
 The proposed contribution is the prospective implementation and comparison of a certified conditional interval evaluator. The first decisive test is whether its root-free common-loading form reduces complete reversible resources at a fixed monetary accuracy after accounting for strike randomisation, finite distributions and estimator variance. The comparison includes stable fully conditioned common-loading pricing and the direct geometric residual. General-direction root methods remain a later comparison. Selecting an existing cheapest method, reproducing a known identity or reporting a favourable classical runtime would not establish that contribution.
 
-## 9 Keywords
+## 9 Constructive representation update
+
+I now use the checked bounded-variation certificate in the [finite-grid supplement](finite_grid_supplement.md) as an additional, often sharper transfer bound. For positive baskets, each outer coordinate contributes at most 3H/(2N), while the direct common Gaussian coordinate and the controlled strike coordinate contribute at most H/N. The supplement proves these constants, handles the exact comparison-register probability and gives the primitive generator enclosures. I retain the earlier coupling derivations as valid alternative bounds rather than interpret their loose constants as inherent discretisation costs.
+
+The [reversible study](reversible_encoding_study.md) constructs all three evaluators for a stipulated two-asset instance and reports their matched bias budgets and emitted logical resources. These constructive results do not certify a statistical pricing interval or a literature novelty claim.
+
+## 10 Keywords
 
 Basket call spreads; Gaussian conditioning; geometric controls; residual certificates; reversible arithmetic; quantum mean estimation.
