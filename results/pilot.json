@@ -1,0 +1,897 @@
+{
+  "status": "classical feasibility screen; not compiled quantum resources",
+  "data": "fully stipulated synthetic GBM; no LSEG observations",
+  "confidence": "batch standard errors are diagnostics, not certified pricing intervals or variance bounds",
+  "numpy_version": "2.3.5",
+  "script_sha256": "f7b035325ae749b6a6af7d5ff728d4880e5136333982fa314088ea6586cd6291",
+  "scenarios": [
+    {
+      "dimension": 4,
+      "correlation": 0.1,
+      "strike": 100,
+      "cap": 1,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261005,
+      "common_loading": 0.13703095302895826,
+      "statistics": {
+        "direct": {
+          "mean": 0.4831141493144517,
+          "sd": 0.4950942790645598,
+          "batch_mean_se": 0.004060133437304478,
+          "price_estimate": 0.4688359683962967,
+          "price_batch_se": 0.0039401383598430826
+        },
+        "direct_geometric_residual": {
+          "mean": 0.05817298804879578,
+          "sd": 0.21535220634357735,
+          "batch_mean_se": 0.0012899205324180764,
+          "price_estimate": 0.4695223043886969,
+          "price_batch_se": 0.0012517976193176358
+        },
+        "full_conditional": {
+          "mean": 0.4834495161453687,
+          "sd": 0.1259203761243079,
+          "batch_mean_se": 0.0008145270082685807,
+          "price_estimate": 0.4691614236394604,
+          "price_batch_se": 0.0007904540971288729
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.0574478756683026,
+          "sd": 0.045602268906842526,
+          "batch_mean_se": 0.00020564997713569196,
+          "price_estimate": 0.4688186223177266,
+          "price_batch_se": 0.0001995721017856851
+        },
+        "random_strike_conditional": {
+          "mean": 0.48345359128840154,
+          "sd": 0.12617088123520628,
+          "batch_mean_se": 0.0008322898199741482,
+          "price_estimate": 0.4691653783438152,
+          "price_batch_se": 0.000807691938411804
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.057444716305191636,
+          "sd": 0.04559342626658256,
+          "batch_mean_se": 0.00020713031600990396,
+          "price_estimate": 0.4688155563279067,
+          "price_batch_se": 0.00020100869003430235
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.21171562177469344,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 4.723317021283362
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 0.9998060920986622,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 1.0001939455089044
+        }
+      },
+      "analytic_residual_sd_upper_bound": 0.5,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.1102230246251565e-16,
+        "midpoint_strike_grid_max_difference": 3.0072611068021615e-12,
+        "midpoint_strike_grid_bound": 0.0001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.1,
+      "strike": 100,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261006,
+      "common_loading": 0.13703095302895826,
+      "statistics": {
+        "direct": {
+          "mean": 3.7244250392619698,
+          "sd": 4.388332076347903,
+          "batch_mean_se": 0.02355186968793219,
+          "price_estimate": 3.6143516443880057,
+          "price_batch_se": 0.02285580674537029
+        },
+        "direct_geometric_residual": {
+          "mean": 0.5352501204513591,
+          "sd": 1.177377220739253,
+          "batch_mean_se": 0.00499958238330695,
+          "price_estimate": 3.5785107722217115,
+          "price_batch_se": 0.004851822393488035
+        },
+        "full_conditional": {
+          "mean": 3.6849124088266207,
+          "sd": 1.219604200283658,
+          "batch_mean_se": 0.006008236168499108,
+          "price_estimate": 3.5760067886632685,
+          "price_batch_se": 0.005830665954224561
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.5327741225505269,
+          "sd": 0.44442845219560173,
+          "batch_mean_se": 0.0016037716371747337,
+          "price_estimate": 3.576107951117774,
+          "price_batch_se": 0.0015563730221279989
+        },
+        "random_strike_conditional": {
+          "mean": 3.681971206153916,
+          "sd": 1.4125495092118192,
+          "batch_mean_se": 0.007254221440180293,
+          "price_estimate": 3.5731525116662812,
+          "price_batch_se": 0.007039826795994792
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.5324485887918655,
+          "sd": 0.448925292094033,
+          "batch_mean_se": 0.0018027284427065238,
+          "price_estimate": 3.575792038335661,
+          "price_batch_se": 0.0017494497654254038
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.38129265980885996,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 2.6226573585268986
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0101182538521456,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9899830996880227
+        }
+      },
+      "analytic_residual_sd_upper_bound": 4.649163581366682,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.7763568394002505e-15,
+        "midpoint_strike_grid_max_difference": 3.1772799946594432e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.1,
+      "strike": 100,
+      "cap": 25,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261007,
+      "common_loading": 0.13703095302895826,
+      "statistics": {
+        "direct": {
+          "mean": 5.7652576423609485,
+          "sd": 8.091556726151746,
+          "batch_mean_se": 0.033249235031321184,
+          "price_estimate": 5.594868528785585,
+          "price_batch_se": 0.032266571630050235
+        },
+        "direct_geometric_residual": {
+          "mean": 0.993261072953685,
+          "sd": 1.6696205038921716,
+          "batch_mean_se": 0.00316909579411285,
+          "price_estimate": 5.6130622182617715,
+          "price_batch_se": 0.0030754348587841776
+        },
+        "full_conditional": {
+          "mean": 5.762009422173728,
+          "sd": 2.378877838673573,
+          "batch_mean_se": 0.009506471733132514,
+          "price_estimate": 5.591716308012915,
+          "price_batch_se": 0.009225513033223593
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.9882341682584153,
+          "sd": 0.9297881410950977,
+          "batch_mean_se": 0.0048927973902199,
+          "price_estimate": 5.608183881052673,
+          "price_batch_se": 0.004748193373896699
+        },
+        "random_strike_conditional": {
+          "mean": 5.777307355643419,
+          "sd": 4.035902150690177,
+          "batch_mean_se": 0.02284512711069114,
+          "price_estimate": 5.606562119221099,
+          "price_batch_se": 0.02216995156791815
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.9864871238191285,
+          "sd": 1.0163229611273947,
+          "batch_mean_se": 0.004205132890685739,
+          "price_estimate": 5.606488469579657,
+          "price_batch_se": 0.004080852431743902
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.608714949749462,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 1.6428050607457316
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0930693952822166,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9148549985171003
+        }
+      },
+      "analytic_residual_sd_upper_bound": 7.350973065912136,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.1546319456101628e-14,
+        "midpoint_strike_grid_max_difference": 3.7606826985836506e-08,
+        "midpoint_strike_grid_bound": 0.0030517578125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.1,
+      "strike": 115,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261008,
+      "common_loading": 0.13703095302895826,
+      "statistics": {
+        "direct": {
+          "mean": 1.087986963894575,
+          "sd": 2.8209901072622476,
+          "batch_mean_se": 0.020172279833574957,
+          "price_estimate": 1.0558320896704922,
+          "price_batch_se": 0.01957609886598346
+        },
+        "direct_geometric_residual": {
+          "mean": 0.2644322585367128,
+          "sd": 0.9569047483514017,
+          "batch_mean_se": 0.005409110089658413,
+          "price_estimate": 1.0392958384286455,
+          "price_batch_se": 0.005249246726981177
+        },
+        "full_conditional": {
+          "mean": 1.0658758121898146,
+          "sd": 0.6934841912799496,
+          "batch_mean_se": 0.0029977577716169316,
+          "price_estimate": 1.034374421256994,
+          "price_batch_se": 0.00290916064012598
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.2605590389272322,
+          "sd": 0.31652841831018813,
+          "batch_mean_se": 0.0017526758740476183,
+          "price_estimate": 1.0355370897581728,
+          "price_batch_se": 0.001700876473727739
+        },
+        "random_strike_conditional": {
+          "mean": 1.0630684357551106,
+          "sd": 0.7611055165145065,
+          "batch_mean_se": 0.004416358918600971,
+          "price_estimate": 1.0316500153349462,
+          "price_batch_se": 0.004285835787103432
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.260127075821605,
+          "sd": 0.32301050700615486,
+          "batch_mean_se": 0.0019138190845488412,
+          "price_estimate": 1.035117893091659,
+          "price_batch_se": 0.0018572571826203177
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.33755763837795955,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 2.9624570334276097
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0204786942372248,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9799322667363164
+        }
+      },
+      "analytic_residual_sd_upper_bound": 4.649163581366682,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 8.881784197001252e-16,
+        "midpoint_strike_grid_max_difference": 2.3799182624628656e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.6,
+      "strike": 100,
+      "cap": 1,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261009,
+      "common_loading": 0.18962655406868179,
+      "statistics": {
+        "direct": {
+          "mean": 0.4640294612304683,
+          "sd": 0.4956579517855042,
+          "batch_mean_se": 0.003648924456747741,
+          "price_estimate": 0.4503153180860286,
+          "price_batch_se": 0.003541082441306762
+        },
+        "direct_geometric_residual": {
+          "mean": 0.017680176557884383,
+          "sd": 0.11022132331853364,
+          "batch_mean_se": 0.000848764254556112,
+          "price_estimate": 0.4527588282021472,
+          "price_batch_se": 0.0008236794798696079
+        },
+        "full_conditional": {
+          "mean": 0.467512682408212,
+          "sd": 0.16917483737602662,
+          "batch_mean_se": 0.0008199387869445903,
+          "price_estimate": 0.45369559452033154,
+          "price_batch_se": 0.0007957059335735595
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.017732088451515998,
+          "sd": 0.013577362494804155,
+          "batch_mean_se": 5.0424325628139975e-05,
+          "price_estimate": 0.45280920586746004,
+          "price_batch_se": 4.893406158802401e-05
+        },
+        "random_strike_conditional": {
+          "mean": 0.4675082178584923,
+          "sd": 0.16925411241786167,
+          "batch_mean_se": 0.0008046088515470142,
+          "price_estimate": 0.45369126191799675,
+          "price_batch_se": 0.0007808290662373945
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.01773239615484847,
+          "sd": 0.013580519079845251,
+          "batch_mean_se": 5.0275449369758176e-05,
+          "price_estimate": 0.4528095044767847,
+          "price_batch_se": 4.878958528802598e-05
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.12321135939003643,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 8.116134786196229
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.000232488824122,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9997675652143679
+        }
+      },
+      "analytic_residual_sd_upper_bound": 0.5,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.1102230246251565e-16,
+        "midpoint_strike_grid_max_difference": 1.969452378958181e-12,
+        "midpoint_strike_grid_bound": 0.0001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.6,
+      "strike": 100,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261010,
+      "common_loading": 0.18962655406868179,
+      "statistics": {
+        "direct": {
+          "mean": 3.8643005257035923,
+          "sd": 4.565828641911458,
+          "batch_mean_se": 0.01819932303094393,
+          "price_estimate": 3.750093185458203,
+          "price_batch_se": 0.017661451748986035
+        },
+        "direct_geometric_residual": {
+          "mean": 0.16358669091809352,
+          "sd": 0.46619581063041143,
+          "batch_mean_se": 0.002076508830468339,
+          "price_estimate": 3.745294106387339,
+          "price_batch_se": 0.002015138719902036
+        },
+        "full_conditional": {
+          "mean": 3.855255428975133,
+          "sd": 1.627288452133498,
+          "batch_mean_se": 0.006868441576610284,
+          "price_estimate": 3.7413154117375553,
+          "price_batch_se": 0.006665448450460324
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.16716964469121626,
+          "sd": 0.13283434811099482,
+          "batch_mean_se": 0.0005156840200769214,
+          "price_estimate": 3.7487711678733766,
+          "price_batch_se": 0.0005004432540059876
+        },
+        "random_strike_conditional": {
+          "mean": 3.856561030519922,
+          "sd": 1.7037873519812785,
+          "batch_mean_se": 0.007499873755274458,
+          "price_estimate": 3.74258242692529,
+          "price_batch_se": 0.007278218987983775
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.16717421590104464,
+          "sd": 0.1339695246553135,
+          "batch_mean_se": 0.0004810840130003869,
+          "price_estimate": 3.7487756039835376,
+          "price_batch_se": 0.0004668658316778179
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.28736750009433537,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 3.479864632123416
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0085458058134944,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9915266061648024
+        }
+      },
+      "analytic_residual_sd_upper_bound": 3.1701998492474806,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 8.881784197001252e-16,
+        "midpoint_strike_grid_max_difference": 1.7824757225781696e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.6,
+      "strike": 100,
+      "cap": 25,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261011,
+      "common_loading": 0.18962655406868179,
+      "statistics": {
+        "direct": {
+          "mean": 6.959653346794128,
+          "sd": 9.451609071887907,
+          "batch_mean_se": 0.029327578396751725,
+          "price_estimate": 6.753964505442288,
+          "price_batch_se": 0.02846081746492143
+        },
+        "direct_geometric_residual": {
+          "mean": 0.36281919213655145,
+          "sd": 0.7165561822656367,
+          "batch_mean_se": 0.0035674465937507254,
+          "price_estimate": 6.78363980394714,
+          "price_batch_se": 0.0034620126130782305
+        },
+        "full_conditional": {
+          "mean": 6.962418679675956,
+          "sd": 3.5278615783649316,
+          "batch_mean_se": 0.017949540433931984,
+          "price_estimate": 6.756648110386233,
+          "price_batch_se": 0.017419051343357646
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.3598368531481431,
+          "sd": 0.31932378243493975,
+          "batch_mean_se": 0.0014806848468335088,
+          "price_estimate": 6.780745606396311,
+          "price_batch_se": 0.0014369239962025355
+        },
+        "random_strike_conditional": {
+          "mean": 6.9728786866186585,
+          "sd": 4.389539552342693,
+          "batch_mean_se": 0.024899649568670326,
+          "price_estimate": 6.766798977404664,
+          "price_batch_se": 0.024163753710839155
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.35994056890737003,
+          "sd": 0.33298363376906065,
+          "batch_mean_se": 0.0020325958772932427,
+          "price_estimate": 6.7808462568916115,
+          "price_batch_se": 0.001972523590628339
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.4646999663253471,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 2.151926129686605
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.042777431827847,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9589774092513068
+        }
+      },
+      "analytic_residual_sd_upper_bound": 5.012526080772236,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 7.105427357601002e-15,
+        "midpoint_strike_grid_max_difference": 2.2580904257551992e-08,
+        "midpoint_strike_grid_bound": 0.0030517578125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.6,
+      "strike": 115,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261012,
+      "common_loading": 0.18962655406868179,
+      "statistics": {
+        "direct": {
+          "mean": 1.766781024436853,
+          "sd": 3.584071905987409,
+          "batch_mean_se": 0.02020146039374056,
+          "price_estimate": 1.7145647539230016,
+          "price_batch_se": 0.019604417010262613
+        },
+        "direct_geometric_residual": {
+          "mean": 0.11392594315562715,
+          "sd": 0.4313424993473368,
+          "batch_mean_se": 0.002317939631180829,
+          "price_estimate": 1.7283311209736334,
+          "price_batch_se": 0.002249434162114512
+        },
+        "full_conditional": {
+          "mean": 1.7812531121818624,
+          "sd": 1.1748765930700749,
+          "batch_mean_se": 0.00437853631902587,
+          "price_estimate": 1.7286091268362682,
+          "price_batch_se": 0.004249131014278581
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.11721991792919145,
+          "sd": 0.12444475005566488,
+          "batch_mean_se": 0.0006725202135342049,
+          "price_estimate": 1.7315277440802603,
+          "price_batch_se": 0.000652644237445358
+        },
+        "random_strike_conditional": {
+          "mean": 1.7798349514835574,
+          "sd": 1.21742053159784,
+          "batch_mean_se": 0.003316934653346642,
+          "price_estimate": 1.727232879120744,
+          "price_batch_se": 0.003218904419412518
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.11717766134660762,
+          "sd": 0.12530383814639676,
+          "batch_mean_se": 0.0006307921829517241,
+          "price_estimate": 1.7314867363684288,
+          "price_batch_se": 0.0006121494565428141
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.29049731555780767,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 3.4423726018941627
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0069033694900555,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9931439602853332
+        }
+      },
+      "analytic_residual_sd_upper_bound": 3.1701998492474806,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 6.661338147750939e-16,
+        "midpoint_strike_grid_max_difference": 1.3699159584490417e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.9,
+      "strike": 100,
+      "cap": 1,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261013,
+      "common_loading": 0.172388886784655,
+      "statistics": {
+        "direct": {
+          "mean": 0.45874998531521066,
+          "sd": 0.4955633726606584,
+          "batch_mean_se": 0.0011803564353251497,
+          "price_estimate": 0.4451918742645899,
+          "price_batch_se": 0.00114547163065653
+        },
+        "direct_geometric_residual": {
+          "mean": 0.004053447248978908,
+          "sd": 0.03709259103213698,
+          "batch_mean_se": 0.0001291510011246243,
+          "price_estimate": 0.445904591221721,
+          "price_batch_se": 0.00012533401219471
+        },
+        "full_conditional": {
+          "mean": 0.45892483352977775,
+          "sd": 0.28275135448355715,
+          "batch_mean_se": 0.0013880724783904815,
+          "price_estimate": 0.44536155493346546,
+          "price_batch_se": 0.0013470487368956508
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.003895510796803621,
+          "sd": 0.0030336911415177375,
+          "batch_mean_se": 1.3530139843784194e-05,
+          "price_estimate": 0.445751322497123,
+          "price_batch_se": 1.3130263779687081e-05
+        },
+        "random_strike_conditional": {
+          "mean": 0.4589499054012314,
+          "sd": 0.28279787708502074,
+          "batch_mean_se": 0.001388980232601626,
+          "price_estimate": 0.4453858858191353,
+          "price_batch_se": 0.001347929662915416
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.003895402478275598,
+          "sd": 0.003033978804625498,
+          "batch_mean_se": 1.3578674375837517e-05,
+          "price_estimate": 0.44575121737989126,
+          "price_batch_se": 1.3177363899541096e-05
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.0817947390624953,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 12.225725168411499
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0000948228063904,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9999051861841217
+        }
+      },
+      "analytic_residual_sd_upper_bound": 0.5,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.1102230246251565e-16,
+        "midpoint_strike_grid_max_difference": 2.3582802377575263e-12,
+        "midpoint_strike_grid_bound": 0.0001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.9,
+      "strike": 100,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261014,
+      "common_loading": 0.172388886784655,
+      "statistics": {
+        "direct": {
+          "mean": 3.851634359089423,
+          "sd": 4.6010277096242564,
+          "batch_mean_se": 0.022087701235013437,
+          "price_estimate": 3.7378013606403013,
+          "price_batch_se": 0.021434911009872656
+        },
+        "direct_geometric_residual": {
+          "mean": 0.03672775132153401,
+          "sd": 0.1167539788902068,
+          "batch_mean_se": 0.0003154242521698883,
+          "price_estimate": 3.778330476556042,
+          "price_batch_se": 0.0003061020566911464
+        },
+        "full_conditional": {
+          "mean": 3.8714280107344203,
+          "sd": 2.7278684351397757,
+          "batch_mean_se": 0.016396625385604328,
+          "price_estimate": 3.757010021471804,
+          "price_batch_se": 0.015912031870727806
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.03693725063590281,
+          "sd": 0.029921758848440363,
+          "batch_mean_se": 0.00014129172574158883,
+          "price_estimate": 3.778533784229953,
+          "price_batch_se": 0.00013711592417328566
+        },
+        "random_strike_conditional": {
+          "mean": 3.8700463524395743,
+          "sd": 2.7704227813580933,
+          "batch_mean_se": 0.016896380289291732,
+          "price_estimate": 3.7556691973506804,
+          "price_batch_se": 0.01639701678488021
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.036924004161844215,
+          "sd": 0.030468427070400577,
+          "batch_mean_se": 0.00014814803068387256,
+          "price_estimate": 3.7785209292483675,
+          "price_batch_se": 0.00014376959468117147
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.26096264435709293,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 3.831966074928456
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0182699227251044,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9820578784491539
+        }
+      },
+      "analytic_residual_sd_upper_bound": 1.745448159373405,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 1.3322676295501878e-15,
+        "midpoint_strike_grid_max_difference": 2.1183215181963533e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.9,
+      "strike": 100,
+      "cap": 25,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261015,
+      "common_loading": 0.172388886784655,
+      "statistics": {
+        "direct": {
+          "mean": 7.31495142005099,
+          "sd": 9.863295704008928,
+          "batch_mean_se": 0.03435624718149769,
+          "price_estimate": 7.098761933712801,
+          "price_batch_se": 0.03334086662677296
+        },
+        "direct_geometric_residual": {
+          "mean": 0.08440426935282072,
+          "sd": 0.18095157476427232,
+          "batch_mean_se": 0.000922697645907746,
+          "price_estimate": 7.123027285796844,
+          "price_batch_se": 0.0008954278092868951
+        },
+        "full_conditional": {
+          "mean": 7.350831704404547,
+          "sd": 6.10092167564406,
+          "batch_mean_se": 0.03649135219232945,
+          "price_estimate": 7.13358179540616,
+          "price_batch_se": 0.035412869748191675
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.08474619886751303,
+          "sd": 0.07914919764764541,
+          "batch_mean_se": 0.0004957828559112217,
+          "price_estimate": 7.123359109767166,
+          "price_batch_se": 0.0004811302581289687
+        },
+        "random_strike_conditional": {
+          "mean": 7.346843758976643,
+          "sd": 6.600105458810524,
+          "batch_mean_se": 0.04614094009694379,
+          "price_estimate": 7.129711711577616,
+          "price_batch_se": 0.044777269230808374
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.08470030859474588,
+          "sd": 0.08481886320583724,
+          "batch_mean_se": 0.0005181222909598782,
+          "price_estimate": 7.123314575756925,
+          "price_batch_se": 0.0005028094630939344
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.46873791132424103,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 2.133388351658776
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.071632634653252,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9331556054408232
+        }
+      },
+      "analytic_residual_sd_upper_bound": 2.759795860684268,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 7.105427357601002e-15,
+        "midpoint_strike_grid_max_difference": 2.6002542785619198e-08,
+        "midpoint_strike_grid_bound": 0.0030517578125
+      }
+    },
+    {
+      "dimension": 4,
+      "correlation": 0.9,
+      "strike": 115,
+      "cap": 10,
+      "paths_per_batch": 4096,
+      "independent_batches": 8,
+      "seed": 20261016,
+      "common_loading": 0.172388886784655,
+      "statistics": {
+        "direct": {
+          "mean": 2.0264059949918654,
+          "sd": 3.8164140026849473,
+          "batch_mean_se": 0.013702529517890284,
+          "price_estimate": 1.9665166469957762,
+          "price_batch_se": 0.013297558568953219
+        },
+        "direct_geometric_residual": {
+          "mean": 0.02887094776340427,
+          "sd": 0.11607959055063197,
+          "batch_mean_se": 0.0006482883198496117,
+          "price_estimate": 1.962826902390257,
+          "price_batch_se": 0.0006291285044497223
+        },
+        "full_conditional": {
+          "mean": 2.0330030528625502,
+          "sd": 2.1538011296452058,
+          "batch_mean_se": 0.011735580477497223,
+          "price_estimate": 1.9729187323409434,
+          "price_batch_se": 0.011388741657986248
+        },
+        "full_conditional_geometric_residual": {
+          "mean": 0.03002860282831026,
+          "sd": 0.036187271179253654,
+          "batch_mean_se": 0.00021465110293218817,
+          "price_estimate": 1.9639503435773848,
+          "price_batch_se": 0.00020830720411180308
+        },
+        "random_strike_conditional": {
+          "mean": 2.032523694016704,
+          "sd": 2.181289407709623,
+          "batch_mean_se": 0.013112494943293208,
+          "price_estimate": 1.972453540690025,
+          "price_batch_se": 0.012724962151396292
+        },
+        "random_strike_conditional_geometric_residual": {
+          "mean": 0.03001260459783202,
+          "sd": 0.036449257747463285,
+          "batch_mean_se": 0.0002261974949264407,
+          "price_estimate": 1.9639348181660725,
+          "price_batch_se": 0.00021951234865122572
+        }
+      },
+      "break_even_screen": {
+        "direct_geometric_residual": {
+          "candidate_sd_ratio": 0.31400229424107706,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 3.1846901068571314
+        },
+        "full_conditional_geometric_residual": {
+          "candidate_sd_ratio": 1.0072397436908653,
+          "maximum_oracle_overhead_for_leading_variance_sensitive_break_even": 0.9928122934621937
+        }
+      },
+      "analytic_residual_sd_upper_bound": 1.745448159373405,
+      "checks": {
+        "quadrature_order_48_96_max_difference": 4.440892098500626e-16,
+        "midpoint_strike_grid_max_difference": 1.612311395504662e-09,
+        "midpoint_strike_grid_bound": 0.001220703125
+      }
+    }
+  ],
+  "scalar_stress": [
+    {
+      "conditional_basket_base": 105,
+      "strike": 100,
+      "cap": 10,
+      "loading": 0.0001,
+      "random_strike_variance": 24.94076009348038,
+      "direct_payoff_variance": 0.00011025000191011713,
+      "mean_identity_difference": 6.217248937900877e-15
+    },
+    {
+      "conditional_basket_base": 105,
+      "strike": 100,
+      "cap": 10,
+      "loading": 0.01,
+      "random_strike_variance": 19.07573958435548,
+      "direct_payoff_variance": 1.1026605897991146,
+      "mean_identity_difference": 2.1316282072803006e-14
+    },
+    {
+      "conditional_basket_base": 105,
+      "strike": 100,
+      "cap": 10,
+      "loading": 0.1,
+      "random_strike_variance": 1.1514973620854079,
+      "direct_payoff_variance": 18.80506801916978,
+      "mean_identity_difference": 1.900701818158268e-13
+    },
+    {
+      "conditional_basket_base": 105,
+      "strike": 100,
+      "cap": 10,
+      "loading": 0.8,
+      "random_strike_variance": 0.018803195854015797,
+      "direct_payoff_variance": 24.20836612014342,
+      "mean_identity_difference": 2.0161650127192843e-13
+    }
+  ],
+  "quantum_correctness": {
+    "state_vector_qubits": 13,
+    "host_evaluated_probability_truth_table": true,
+    "finite_output_success_probability": 0.00634765625,
+    "pre_quantisation_success_probability": 0.008217433039134994,
+    "comparison_quantisation_bound": 0.00390625,
+    "maximum_grover_probability_error": 2.7755575615628914e-15,
+    "interpretation": "Quantum-mechanical correctness only; no gate cost or speedup claim."
+  },
+  "elapsed_cpu_workflow_seconds": 0.7943363749996024
+}
