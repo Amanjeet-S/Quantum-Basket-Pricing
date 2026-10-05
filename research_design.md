@@ -1,8 +1,8 @@
-# Research design for conditional interval encoding
+# Research design for certified scalar conditioning
 
 ## 1 Decision and estimand
 
-I ask whether interval probability encoding of a geometric-control residual reduces the complete coherent arithmetic required for pricing a bounded arithmetic basket derivative at a fixed monetary tolerance. I do not make direction selection the contribution. I begin with the established equal-loading Gaussian factor so that the proposed evaluator has explicit interval boundaries and avoids numerical root finding.
+I initially asked whether interval probability encoding of a geometric-control residual reduces the complete coherent arithmetic required for pricing a bounded arithmetic basket derivative at a fixed monetary tolerance. The [stronger-comparator audit](conditioning_benchmark.md) rejects that advantage in the initial evaluation family. I now investigate how certified scalar-function specialisation changes the comparative reversible cost of direct, fully conditioned and randomised-strike evaluation. I retain the established equal-loading Gaussian factor and the same financial target. I do not infer originality from selecting the lowest existing-method cost.
 
 The estimand is V = exp(-rT) E[F(A)] under a stipulated risk-neutral correlated GBM, with F(x) = min(max(x-K,0),H), positive normalised weights and K,H > 0. The initial basket value is 100. I use ex-dividend securities with stipulated dividend yields. The numerical target is model price accuracy, rather than observed exotic-option fit or hedging profitability.
 
@@ -48,11 +48,14 @@ I will retain a positive contribution claim only if the construction supplies ve
 
 A general equity basket keeps the methodological claim clear. REITs can later supply an illustrative scenario using existing LSEG access after auditing prices, corporate actions, dividend treatment and available history. Historical diffusion estimates may parameterise the stipulated GBM model but do not validate market-consistent exotic prices. Direct property valuation, mortgage default modelling and commodity convenience yields are outside this initial project.
 
-## 8 Keywords
-
-Bounded basket derivatives; quantum mean estimation; interval probability; geometric control; finite precision; computational finance.
-
-
-## 9 Constructive stage update
+## 8 Constructive stage update
 
 I completed the first reversible evaluator comparison in a separate stipulated two-asset common-loading instance. The [encoding study](reversible_encoding_study.md) records its scope, precision search and exact emitted counts. I use the stronger coordinatewise bounded-variation finite-grid bounds in the [supplement](finite_grid_supplement.md), with the earlier coupling bound retained where smaller. The three constructors receive their own finite widths and precision configurations. Half the requested price tolerance is reserved for unimplemented statistical estimation. I treat the favourable assigned T counts as constructor evidence and require stronger conditioned arithmetic before claiming a complete resource contribution.
+
+## 9 Stronger conditioning and revised decision
+
+I implemented a cap-specific normalised conditional-payoff kernel and allowed equivalent scalar specialisation for the interval method. Full conditioning is cheaper than both interval implementations in every retained cap and tolerance case. I therefore withdraw the proposed interval improvement and retain the failed test. The new [benchmark](conditioning_benchmark.md) derives the financial derivative and interpolation certificate and retains complete lookup, arithmetic, flag, inverse and setup costs. An original positive literature contribution remains unmet. Before building a large mean estimator, I require a checked project-specific cost or precision argument across a prespecified broader financial family, tested against equally specialised opponents and compared with the published literature. I will preserve the result as a feasibility finding if that argument does not survive.
+
+## 10 Keywords
+
+Bounded basket derivatives; quantum mean estimation; scalar conditioning; interval probability; geometric control; finite precision; computational finance.

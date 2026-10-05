@@ -1,12 +1,12 @@
 # Constructed reversible encodings of a controlled basket call spread
 
-## 1. Result and research status
+## 1. Initial comparison and superseded interpretation
 
-I have constructed complete finite residual flag evaluators for direct geometric control, conditional interval evaluation and a fully conditioned closed-form comparator. The circuits include Gaussian quantile lookup, financial arithmetic, primitive function lookup, output comparison and arithmetic uncomputation. In the retained two-asset instance, the interval construction uses fewer assigned logical T gates than both constructed comparators at each of three caps and two monetary targets. This is positive evidence for the feasibility of the construction. It is not evidence of theoretical novelty, superiority to the best available conditioned evaluator, or an end-to-end quantum pricing advantage.
+I initially constructed complete finite residual flag evaluators for direct geometric control, conditional interval evaluation and a fully conditioned closed-form comparator. The circuits include Gaussian quantile lookup, financial arithmetic, primitive function lookup, output comparison and arithmetic uncomputation. Against those initial comparators, the interval construction uses fewer assigned logical T gates at each of three caps and two monetary targets. The subsequent [stronger conditioning benchmark](conditioning_benchmark.md) reverses the interval/full ranking in all six cases. I retain this document as the initial construction record and withdraw its comparative interval-contribution interpretation.
 
 For the £10 cap and a requested total pricing tolerance of £0.01, the interval flag evaluator uses 822,654 assigned T gates, compared with 1,207,388 for direct evaluation and 4,346,902 for the implemented full-conditioning formula. The corresponding reduction against direct evaluation is approximately 31.9 per cent. The interval construction requires 3,573 logical qubits in the retained schedule, compared with 3,426 for direct evaluation. Its lower T count therefore does not establish a simultaneous improvement in every resource.
 
-I reserve half the requested tolerance for a future statistical estimator. The current work certifies evaluator and finite-representation bias allowances; it does not produce a pricing confidence interval. The strongest conclusion supported by this stage is that the proposed arithmetic survives a concrete, reproducible comparison within the specified compiler and certificate family.
+I reserve half the requested tolerance for a future statistical estimator. This initial work certifies evaluator and finite-representation bias allowances; it does not produce a pricing confidence interval. Its counts remain correct for their specified circuits, but the proposed arithmetic does not survive the subsequently strengthened conditioned comparison.
 
 ## 2. Financial instance and estimands
 
@@ -64,7 +64,7 @@ Hadamards, reversible permutations and measurement define a genuine coherent qua
 
 I assign the published exact seven-T, three-T-layer Toffoli decomposition documented by [Selinger](https://doi.org/10.1103/PhysRevA.87.042302). Gate totals are obtained by expanding each instantiated block, rather than applying an asymptotic primitive estimate. Large circuits are counted as compositions of emitted blocks and their exact inverses. Complete small tapes agree exactly with those composed counts. Reported complete depths are executable serial upper bounds, not optimised global T-depths. Uniform preparation adds its own Hadamards and one parallel layer.
 
-## 5. Retained resource comparison
+## 5. Initial retained resource comparison
 
 The table reports one clean residual flag evaluator. The monetary target includes a reserved statistical allowance which has not yet been realised. Qubit values are the upper bounds for the specified arithmetic schedule. All T counts use the same exact-Toffoli assignment.
 
@@ -81,7 +81,7 @@ The [machine-readable resource record](results/encoding_resources.json) contains
 
 The interval construction reduces the assigned T count against direct evaluation by approximately 13.2 to 42.6 per cent across these six financial cases. The comparison identifies a potential precision and arithmetic benefit within this architecture. It does not identify an asymptotic improvement or establish useful physical execution times.
 
-## 6. Verification and independent numerical evidence
+## 6. Initial verification and independent numerical evidence
 
 Seventeen arithmetic test groups check expanded gate replay, boundary values, constant and variable products, input preservation, comparator flags, lookup correctness, wire reuse, clean work and streamed-versus-retained counts. Six complete financial tapes at two toy precisions agree exactly with their composed X, CNOT and Toffoli counts. Coarse finite financial circuits retain the comparison flag and reset all work; their deliberately coarse precision is not presented as a financial accuracy demonstration.
 
@@ -91,7 +91,7 @@ Independent 100-digit calculations enclose all 61,786 generated function endpoin
 
 Independent positive-integral quadrature gives price diagnostics approximately £0.453422391, £3.745408049 and £6.740750694 for caps £1, £10 and £25. At cap £10, residual standard deviations are approximately 0.697912 for direct evaluation, 0.255281 for the interval construction and 0.254139 for full conditioning. Quadrature refinements do not certify those variance values. Full conditioning retains its statistical advantage; I do not use observed variance as a valid estimator stopping bound.
 
-## 7. Interpretation and next research gate
+## 7. Interpretation and subsequent research gate
 
 The favourable comparison is restricted to two assets, one stipulated covariance, terminal monitoring and the constructed arithmetic family. I have not established that this financial example is classically difficult. It is a numerical construction test, rather than evidence that adding a quantum device would improve practical pricing. REIT parameter scenarios and Asian monitoring remain later extensions.
 
@@ -99,10 +99,14 @@ The library's variable multiplier retains substantial arithmetic history. Its lo
 
 The full comparator's certificate is conservative. Its exact conditional payoff has bounded financial sensitivity, whereas direct propagation through the displayed formula can amplify CDF and argument errors. Sharper consistent-input certificates, stable specialised functions or certified positive quadrature could materially reduce its resource count. The measured gap therefore cannot be described as inherent instability or unavoidable expense of analytical conditioning.
 
-The next gate is to strengthen the best conditioning implementation and the arithmetic library, rerun the same comparisons, and only then implement a particular mean estimator with a certified monetary error and confidence schedule. A range-based estimator has no automatic variance gain from conditioning the same mean. A variance-sensitive estimator requires a valid bound and additional operations. I will stop any general savings claim if stronger constructed comparators eliminate the gap.
+The next gate at this stage was to strengthen conditioning and rerun the same comparisons. The [completed audit](conditioning_benchmark.md) implements a scalar conditioned-payoff kernel and comparable interval specialisation. Full conditioning becomes cheaper in all six cases, so the general interval savings claim stops. A range-based estimator has no automatic variance gain from conditioning the same mean. A variance-sensitive estimator requires a valid bound and additional operations.
 
 The useful project-specific result at this stage is a checked finite-grid and arithmetic construction with a positive gate comparison and retained evidence. The probability identities, variation inequality and standard gate decompositions are established methods. Whether the complete construction provides an original literature contribution remains a research question requiring comparison with the published conditioning and quantum-encoding literature.
 
-## 8. Keywords
+## 8. Stronger-comparator outcome
+
+For the £10 cap at £0.01 tolerance, the new full kernel uses 597,478 assigned T gates and 2,593 logical qubits, compared with 672,210 and 2,721 for the specialised interval kernel. Its total retained bias bound is approximately £0.004638. The new [30-configuration resource record](results/conditioning_resources.json) and [independent audit](results/conditioning_independent_audit.json) supersede the comparative interpretation of the earlier records without discarding them. The revised question concerns certified scalar conditioning and complete resource accounting; a positive original literature contribution remains unestablished.
+
+## 9. Keywords
 
 Quantum computational finance; capped basket options; geometric control; conditional probabilities; reversible arithmetic; bounded variation; logical resources; monetary bias certificates.

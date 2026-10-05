@@ -1,6 +1,7 @@
 """Independent cross-check of root's block composition against a complete tape."""
 
 import json
+import hashlib
 from pathlib import Path
 import sys
 
@@ -14,7 +15,7 @@ def run_audit():
     tables = {}
     for q, by, bz, bu, exp_bits, log_bits, cdf_bits in (
             (8, 2, 2, 2, 3, 3, 4), (10, 3, 3, 3, 3, 4, 4)):
-        for kind in ('direct', 'interval', 'full'):
+        for kind in ('direct', 'interval', 'full', 'interval_kernel', 'full_kernel'):
             graph = e.build_graph(kind, q, by, bz, bu, exp_bits, log_bits, cdf_bits, 10)
             e.make_tables(graph, tables)
             complete, _, _, _ = e.compile_small(graph, tables)
@@ -65,12 +66,14 @@ def run_audit():
                 'H_gates_excluded_from_X_CNOT_Toffoli_counts': True,
             })
     report = {
-        'source': str(ROOT_SCRIPT),
-        'status': 'pass: six complete circuits; gate counts exact and space/depth bounds conservative',
+        'source': ROOT_SCRIPT.name,
+        'encoding_source_sha256':hashlib.sha256(ROOT_SCRIPT.read_bytes()).hexdigest(),
+        'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'status': 'pass: ten complete circuits; gate counts exact and space/depth bounds conservative',
         'circuits': records,
         'limitation': 'The selected graphs have no aliased binary operand registers. Standalone block allocation presumes distinct operands; arbitrary Graph nodes with a repeated operand require a distinct cache key and emitted aliased operands for exact counts.',
     }
-    dest = ROOT_SCRIPT.parent/'results'/'composition_audit.json'
+    dest = ROOT_SCRIPT.parent/'results'/'conditioning_composition_audit.json'
     dest.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
 

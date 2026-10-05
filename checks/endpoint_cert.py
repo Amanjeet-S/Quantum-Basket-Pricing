@@ -65,6 +65,31 @@ def rounded_enclosure(value,error,p):
         return int(lo)
 
 
+def capped_kernel(m,cap):
+    """Independent enclosure of a cap-normalised conditional payoff.
+
+    The table input is m+1 on [0,2], with m=log(b/K). I evaluate the exact
+    capped-lognormal identity at100 significant digits and propagate each
+    independent normal-CDF enclosure. This is an offline table coefficient,
+    not a joint basket or input-index table. Positive quadrature is checked
+    separately by shadow_audit.py.
+    """
+    m=Decimal(m);cap=Decimal(str(cap))
+    if not (-1<=m<=1 and cap>0):raise ValueError('capped kernel domain exceeded')
+    with localcontext() as ctx:
+        ctx.prec=100
+        h=cap/100;lam=Decimal('.2')
+        t0=m/lam;t1=(m-(1+h).ln())/lam
+        p0,e0=decimal_cdf(t0);p1,e1=decimal_cdf(t1)
+        a0,ea0=decimal_cdf(t0+lam);a1,ea1=decimal_cdf(t1+lam)
+        growth=(m+lam*lam/2).exp()
+        value=(growth*(a0-a1)-(p0-p1)+h*p1)/h
+        # The propagated CDF allowance dominates correctly-rounded exp/ln
+        # and rational arithmetic at100 digits, including argument errors.
+        error=(growth*(ea0+ea1)+e0+e1+h*e1)/h+Decimal('1e-44')
+        return value,error
+
+
 def check_table(function,bits,p,radius=4):
     n=1<<bits
     lo,hi={'exp':(-radius,radius),'log':(1,2),'normal_cdf':(-8,8)}[function]

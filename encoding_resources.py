@@ -70,6 +70,27 @@ def rounded_scaled(value, q):
         return int((value * (1 << q)).to_integral_value())
 
 
+def function_span(kind):
+    if kind.startswith('strike_log_'): return 1
+    if kind.startswith('capped_') or kind=='scaled_cdf': return 2
+    return 4 if kind in ('exp','log') else 16
+
+
+def capped_kernel_decimal(m, cap):
+    """Known scalar conditional capped payoff, normalised by the cap.
+
+    This is not a financial-input lookup: basket log bases are computed by
+    the graph. The cap-specific table's whole programme and gates are costed.
+    On m in [-1,1], all formula CDF arguments remain inside [-8,8].
+    """
+    with localcontext() as ctx:
+        ctx.prec=70
+        h=D(cap)/100
+        t0=5*m; t1=t0-5*(1+h).ln()
+        p0,p1,a0,a1=[decimal_cdf(t) for t in (t0,t1,t0+D('.2'),t1+D('.2'))]
+        return +((m+D('.02')).exp()*(a0-a1)-(p0-p1)+h*p1)/h
+
+
 def function_table(kind, bits, q):
     """Packed endpoint and endpoint difference, with dyadic input domains."""
     n = 1 << bits
@@ -86,6 +107,15 @@ def function_table(kind, bits, q):
             elif kind == 'cdf':
                 x = D(-8)+D(16)*j/n
                 value = decimal_cdf(x)
+            elif kind.startswith('capped_'):
+                x = D(-1)+D(2)*j/n
+                value = capped_kernel_decimal(x, int(kind.split('_')[1]))
+            elif kind == 'scaled_cdf':
+                x = D(-1)+D(2)*j/n
+                value = decimal_cdf(5*x)
+            elif kind.startswith('strike_log_'):
+                h=D(int(kind.split('_')[-1]))/100
+                value=1+(1+h*D(j)/n).ln()
             else:
                 raise ValueError(kind)
             values.append(rounded_scaled(value, q))
@@ -208,7 +238,7 @@ class Graph:
             elif node.kind == 'uniform':
                 v=(2*a[0]+1)*(unit >> (node.bits+1))
             elif node.kind == 'function':
-                span = 4 if node.meta in ('exp','log') else 16
+                span = function_span(node.meta)
                 fractional = self.q+int(math.log2(span))-node.bits
                 index, rem = a[0] >> fractional, a[0] & ((1 << fractional)-1)
                 packed=tables[(node.meta,node.bits,self.q)][index]
@@ -244,7 +274,13 @@ def build_graph(kind,q,b_y,b_z,b_u,exp_bits,log_bits,cdf_bits,cap=10):
     ba=g.shift(g.add(*prices),1)
     ma=g.function('log',g.sub(ba,g.const('.25')),log_bits)
     mg=g.shift(g.add(*logs),1)
-    if kind=='interval':
+    if kind=='interval_kernel':
+        iu=g.inp('iu',b_u)
+        u=g.op('uniform',iu,bits=b_u)
+        mk=g.function(f'strike_log_{cap}',u,log_bits)
+        probs=[g.function('scaled_cdf',g.sub(m,mk),cdf_bits) for m in (ma,mg)]
+        g.output=g.clamp(g.sub(*probs),1)
+    elif kind=='interval':
         iu=g.inp('iu',b_u)
         u=g.op('uniform',iu,bits=b_u)
         k=g.add(g.const(1),g.scale(u,h))
@@ -253,6 +289,13 @@ def build_graph(kind,q,b_y,b_z,b_u,exp_bits,log_bits,cdf_bits,cap=10):
         for m in (ma,mg):
             t=g.scale(g.sub(g.add(m,g.const('1.6')),mk),5)
             probs.append(g.function('cdf',t,cdf_bits))
+        g.output=g.clamp(g.sub(*probs),1)
+    elif kind=='full_kernel':
+        # A specialised one-dimensional known function replaces the eight
+        # CDF calls and products. This computes the exact same full conditional
+        # expectation before rounding, without a direct input-payoff table.
+        probs=[g.function(f'capped_{cap}',g.sub(m,g.const(1)),cdf_bits)
+               for m in (ma,mg)]
         g.output=g.clamp(g.sub(*probs),1)
     elif kind=='full':
         with localcontext() as ctx:
@@ -315,7 +358,7 @@ def emit_node(c,node,args,q,width,table):
         for i,w in enumerate(args[0]):c.cnot(w,out[start+i])
         return out
     if node.kind=='function':
-        span=4 if node.meta in ('exp','log') else 16
+        span=function_span(node.meta)
         fractional=q+int(math.log2(span))-node.bits
         address=args[0][fractional:fractional+node.bits]
         packed=c.lookup(address,table,2*width)
@@ -441,7 +484,7 @@ def ideal_value(kind,iy,iz,iu,by,bz,bu,cap):
         z=NORMAL.inv_cdf((iz+.5)/(1 << bz))
         f=lambda x:min(max(math.exp(x+.2*z)-1,0),h)
         return min(max((f(ma)-f(mg))/h,0),1)
-    if kind=='interval':
+    if kind in ('interval','interval_kernel'):
         u=(iu+.5)/(1 << bu)
         mk=math.log(1+h*u)
         return min(max(cdf(5*(ma-mk))-cdf(5*(mg-mk)),0),1)
@@ -455,7 +498,7 @@ def ideal_value(kind,iy,iz,iu,by,bz,bu,cap):
 def check_small():
     results=[]; tables={}
     # Coarse precisions intentionally separate from the monetary configurations.
-    for kind in ('direct','interval','full'):
+    for kind in ('direct','interval','full','interval_kernel','full_kernel'):
         graph=build_graph(kind,8,2,2,2,3,3,4,10)
         make_tables(graph,tables)
         c,inputs,comparison,flag=compile_small(graph,tables)

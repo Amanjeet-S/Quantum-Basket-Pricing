@@ -1,0 +1,2355 @@
+{
+  "status": "independent retained integer replay and endpoint enclosure passed",
+  "config_sha256": "d8ad328417fd5fa02c60d732be5337141f734fd5e8b00115a5b2df7f229cf7bf",
+  "root_encoding_sha256": "d660f5dc8cd01808adb77d50c424da91786a8880618d871b0275a6591a0ef016",
+  "script_sha256": "c37886057a6fcd754ea272b3247d2e6b8168f8edbcd3048600842e8eb59362ea",
+  "seed": 20261005,
+  "random_samples_per_two_input_configuration": 262144,
+  "integer_replay": [
+    {
+      "method": "direct",
+      "cap": 1,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 22,
+      "table_address_bits": [
+        9,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        6,
+        6,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009358199525773069,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0007730750696026689,
+        "mean_signed_monetary_error": 2.1906482210003186e-06,
+        "mean_ideal_residual": 0.01997089507932164,
+        "mean_fixed_residual": 0.01997308572754264
+      },
+      "retained_grid_diagnostic": {
+        "states": 266240,
+        "maximum_absolute_monetary_error": 0.0007730750696026689,
+        "mean_signed_monetary_error": 2.0732251912409537e-06,
+        "mean_ideal_residual": 0.019746302991548177,
+        "mean_fixed_residual": 0.019748376216739416
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 1,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        7,
+        7,
+        6
+      ],
+      "production_input_bits": [
+        6,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.006889676137592216,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0011106831883661017,
+        "mean_signed_monetary_error": -5.172457824220298e-05,
+        "mean_ideal_residual": 0.020021223316888707,
+        "mean_fixed_residual": 0.019969498738646507
+      },
+      "retained_grid_diagnostic": {
+        "states": 266368,
+        "maximum_absolute_monetary_error": 0.0011170079599756577,
+        "mean_signed_monetary_error": -5.091745270655158e-05,
+        "mean_ideal_residual": 0.02001966431373864,
+        "mean_fixed_residual": 0.019968746861032085
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 1,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 24,
+      "table_address_bits": [
+        11,
+        12,
+        11
+      ],
+      "production_input_bits": [
+        6,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009064915351814518,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0003540234145812948,
+        "mean_signed_monetary_error": 7.040569149081556e-08,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.020021293312311172
+      },
+      "retained_grid_diagnostic": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0003540234145812948,
+        "mean_signed_monetary_error": 7.040569149081556e-08,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.020021293312311172
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 128,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 1,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        6,
+        7,
+        6
+      ],
+      "production_input_bits": [
+        6,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.00729649958482575,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.001075276415292814,
+        "mean_signed_monetary_error": 0.0004346120702219999,
+        "mean_ideal_residual": 0.020021223316888707,
+        "mean_fixed_residual": 0.02045583538711071
+      },
+      "retained_grid_diagnostic": {
+        "states": 266368,
+        "maximum_absolute_monetary_error": 0.0010831020286009574,
+        "mean_signed_monetary_error": 0.000433836626589678,
+        "mean_ideal_residual": 0.02004851138573876,
+        "mean_fixed_residual": 0.020482348012328434
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 1,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        6,
+        7,
+        6
+      ],
+      "production_input_bits": [
+        6,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.007281278100875802,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0008837812814277111,
+        "mean_signed_monetary_error": 0.00042817704150043554,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.020449399948120117
+      },
+      "retained_grid_diagnostic": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0008837812814277111,
+        "mean_signed_monetary_error": 0.00042817704150043554,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.020449399948120117
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 128,
+      "all_checks_passed": true
+    },
+    {
+      "method": "direct",
+      "cap": 1,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 25,
+      "table_address_bits": [
+        11,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        9,
+        10,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0007570400513647094,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 4.831740571376031e-05,
+        "mean_signed_monetary_error": 4.496832057762634e-08,
+        "mean_ideal_residual": 0.01997089507932164,
+        "mean_fixed_residual": 0.019970940047642216
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 5.062013936196763e-05,
+        "mean_signed_monetary_error": -1.0574843636280563e-07,
+        "mean_ideal_residual": 0.020639499717716326,
+        "mean_fixed_residual": 0.020639393969279964
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 1,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        9,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.000994017499062979,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.00010399647291797764,
+        "mean_signed_monetary_error": 1.9274798233608023e-05,
+        "mean_ideal_residual": 0.020021223316888707,
+        "mean_fixed_residual": 0.02004049811512232
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0001187601404712968,
+        "mean_signed_monetary_error": 1.755199165841904e-05,
+        "mean_ideal_residual": 0.02025524585589614,
+        "mean_fixed_residual": 0.020272797847554563
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 1,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 29,
+      "table_address_bits": [
+        13,
+        13,
+        12
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.000992779298993947,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 5.3521818392660014e-05,
+        "mean_signed_monetary_error": 3.730855282408464e-07,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.020021595992147923
+      },
+      "retained_grid_diagnostic": {
+        "states": 512,
+        "maximum_absolute_monetary_error": 7.700828149706518e-05,
+        "mean_signed_monetary_error": 9.395078120390332e-07,
+        "mean_ideal_residual": 0.02023175529778771,
+        "mean_fixed_residual": 0.02023269480559975
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 576,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 1,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        8,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009752081714560766,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 6.86556164146701e-05,
+        "mean_signed_monetary_error": -8.180591266056284e-06,
+        "mean_ideal_residual": 0.020021223316888707,
+        "mean_fixed_residual": 0.020013042725622654
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 9.237677278989276e-05,
+        "mean_signed_monetary_error": -9.787604207033965e-06,
+        "mean_ideal_residual": 0.02036183167216241,
+        "mean_fixed_residual": 0.020352044067955374
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 1,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        8,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.000959988970272168,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 4.902664819361486e-05,
+        "mean_signed_monetary_error": -8.009748965873076e-06,
+        "mean_ideal_residual": 0.02002122290661968,
+        "mean_fixed_residual": 0.02001321315765381
+      },
+      "retained_grid_diagnostic": {
+        "states": 512,
+        "maximum_absolute_monetary_error": 7.27986366381092e-05,
+        "mean_signed_monetary_error": -9.404342778249605e-06,
+        "mean_ideal_residual": 0.02023175529778771,
+        "mean_fixed_residual": 0.02022235095500946
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 576,
+      "all_checks_passed": true
+    },
+    {
+      "method": "direct",
+      "cap": 10,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 22,
+      "table_address_bits": [
+        9,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        9,
+        10,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009359272409379026,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0008486912735321539,
+        "mean_signed_monetary_error": 1.758802865538603e-05,
+        "mean_ideal_residual": 0.19137637223865,
+        "mean_fixed_residual": 0.19139396026730537
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0009220993313618919,
+        "mean_signed_monetary_error": 1.3750462056427444e-05,
+        "mean_ideal_residual": 0.19426328897100598,
+        "mean_fixed_residual": 0.1942770394330624
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 10,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        9,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009940174646031195,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0013631916546527623,
+        "mean_signed_monetary_error": 0.0001895624047120686,
+        "mean_ideal_residual": 0.19136768664960063,
+        "mean_fixed_residual": 0.1915572490543127
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0014634279176187204,
+        "mean_signed_monetary_error": 0.0001741484888592849,
+        "mean_ideal_residual": 0.19411317044399426,
+        "mean_fixed_residual": 0.19428731893285353
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 10,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 24,
+      "table_address_bits": [
+        11,
+        12,
+        11
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009190934388710539,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0002784824574646183,
+        "mean_signed_monetary_error": -5.152614332338151e-07,
+        "mean_ideal_residual": 0.1913673740418173,
+        "mean_fixed_residual": 0.19136685878038406
+      },
+      "retained_grid_diagnostic": {
+        "states": 512,
+        "maximum_absolute_monetary_error": 0.0002555018681405091,
+        "mean_signed_monetary_error": 8.164084834941915e-07,
+        "mean_ideal_residual": 0.19353657112276723,
+        "mean_fixed_residual": 0.19353738753125072
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 576,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 10,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        8,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        17
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.00975283502735373,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0007894444086492536,
+        "mean_signed_monetary_error": -7.136624101795003e-05,
+        "mean_ideal_residual": 0.19136768664960063,
+        "mean_fixed_residual": 0.1912963204085827
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0009453783179249609,
+        "mean_signed_monetary_error": -8.70483476756309e-05,
+        "mean_ideal_residual": 0.19432293800435801,
+        "mean_fixed_residual": 0.1942358896566824
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 10,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 18,
+      "table_address_bits": [
+        8,
+        8,
+        8
+      ],
+      "production_input_bits": [
+        9,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009599889702721682,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0005339285717637088,
+        "mean_signed_monetary_error": -7.401523902188738e-05,
+        "mean_ideal_residual": 0.1913673740418173,
+        "mean_fixed_residual": 0.1912933588027954
+      },
+      "retained_grid_diagnostic": {
+        "states": 512,
+        "maximum_absolute_monetary_error": 0.0006644786193986674,
+        "mean_signed_monetary_error": -8.433208620716247e-05,
+        "mean_ideal_residual": 0.19353657112276723,
+        "mean_fixed_residual": 0.19345223903656006
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 576,
+      "all_checks_passed": true
+    },
+    {
+      "method": "direct",
+      "cap": 10,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 25,
+      "table_address_bits": [
+        11,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        13,
+        13,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.000757174161815454,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 5.572935843645155e-05,
+        "mean_signed_monetary_error": -8.485203431933541e-07,
+        "mean_ideal_residual": 0.19137637223865,
+        "mean_fixed_residual": 0.1913755237183068
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 5.99323097674187e-05,
+        "mean_signed_monetary_error": -8.784212617353517e-07,
+        "mean_ideal_residual": 0.1938502401245368,
+        "mean_fixed_residual": 0.19384936170327507
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 10,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 22,
+      "table_address_bits": [
+        10,
+        10,
+        10
+      ],
+      "production_input_bits": [
+        12,
+        0,
+        21
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0007933126221923542,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 8.595353062246236e-05,
+        "mean_signed_monetary_error": -6.4187150473122325e-06,
+        "mean_ideal_residual": 0.19136768664960063,
+        "mean_fixed_residual": 0.19136126793455333
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 9.793542177916059e-05,
+        "mean_signed_monetary_error": -7.172955758626933e-06,
+        "mean_ideal_residual": 0.19486956297653346,
+        "mean_fixed_residual": 0.19486239002077485
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 10,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 30,
+      "table_address_bits": [
+        13,
+        13,
+        12
+      ],
+      "production_input_bits": [
+        12,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009507459337121727,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 4.201965576974831e-05,
+        "mean_signed_monetary_error": -3.3412433705826577e-06,
+        "mean_ideal_residual": 0.1913673740418173,
+        "mean_fixed_residual": 0.19136403279844671
+      },
+      "retained_grid_diagnostic": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 4.575321325070436e-05,
+        "mean_signed_monetary_error": 1.6591252686606722e-07,
+        "mean_ideal_residual": 0.19373879988711226,
+        "mean_fixed_residual": 0.19373896579963912
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 10,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 21,
+      "table_address_bits": [
+        10,
+        10,
+        9
+      ],
+      "production_input_bits": [
+        12,
+        0,
+        20
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009949350554790876,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0001247526350200978,
+        "mean_signed_monetary_error": -1.2959509904158565e-05,
+        "mean_ideal_residual": 0.19136768664960063,
+        "mean_fixed_residual": 0.19135472713969648
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.00014770432880362172,
+        "mean_signed_monetary_error": -1.373400709782339e-05,
+        "mean_ideal_residual": 0.19502412265160435,
+        "mean_fixed_residual": 0.1950103886445065
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 10,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 21,
+      "table_address_bits": [
+        10,
+        10,
+        9
+      ],
+      "production_input_bits": [
+        12,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009758644475258997,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.00012384861570902128,
+        "mean_signed_monetary_error": -1.0387280724157887e-05,
+        "mean_ideal_residual": 0.1913673740418173,
+        "mean_fixed_residual": 0.19135698676109314
+      },
+      "retained_grid_diagnostic": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.00013296446380972604,
+        "mean_signed_monetary_error": -1.3580890706650336e-05,
+        "mean_ideal_residual": 0.19373879988711226,
+        "mean_fixed_residual": 0.1937252189964056
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    },
+    {
+      "method": "direct",
+      "cap": 25,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 22,
+      "table_address_bits": [
+        9,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        11,
+        11,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009361060548722287,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0010090781648841585,
+        "mean_signed_monetary_error": 3.6241093118401235e-05,
+        "mean_ideal_residual": 0.4088636768726365,
+        "mean_fixed_residual": 0.40889991796575487
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0010559554421973871,
+        "mean_signed_monetary_error": 3.096711346205572e-05,
+        "mean_ideal_residual": 0.4186463631720164,
+        "mean_fixed_residual": 0.4186773302854785
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 25,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 20,
+      "table_address_bits": [
+        9,
+        9,
+        9
+      ],
+      "production_input_bits": [
+        10,
+        0,
+        19
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.007976317531045244,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0008527224676778411,
+        "mean_signed_monetary_error": -4.8581184849833385e-05,
+        "mean_ideal_residual": 0.40874910298737954,
+        "mean_fixed_residual": 0.4087005218025297
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0009393298729030997,
+        "mean_signed_monetary_error": -5.618235604601999e-05,
+        "mean_ideal_residual": 0.4145365032668451,
+        "mean_fixed_residual": 0.4144803209107991
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 25,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 24,
+      "table_address_bits": [
+        11,
+        12,
+        11
+      ],
+      "production_input_bits": [
+        10,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009400791409455357,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0003708861671263275,
+        "mean_signed_monetary_error": 1.838723697717401e-06,
+        "mean_ideal_residual": 0.4087466985783195,
+        "mean_fixed_residual": 0.4087485373020172
+      },
+      "retained_grid_diagnostic": {
+        "states": 1024,
+        "maximum_absolute_monetary_error": 0.0004510788523384157,
+        "mean_signed_monetary_error": 3.919950708343269e-06,
+        "mean_ideal_residual": 0.41471714827695527,
+        "mean_fixed_residual": 0.41472106822766364
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 25,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 19,
+      "table_address_bits": [
+        9,
+        9,
+        8
+      ],
+      "production_input_bits": [
+        10,
+        0,
+        18
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009994340667577848,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.0014408711002387165,
+        "mean_signed_monetary_error": -9.492030370304479e-05,
+        "mean_ideal_residual": 0.40874910298737954,
+        "mean_fixed_residual": 0.4086541826836765
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0014186594954876952,
+        "mean_signed_monetary_error": -0.00010040099104933034,
+        "mean_ideal_residual": 0.41562798056520484,
+        "mean_fixed_residual": 0.41552757957415554
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 25,
+      "price_tolerance": 0.1,
+      "retained_fraction_bits": 19,
+      "table_address_bits": [
+        9,
+        9,
+        8
+      ],
+      "production_input_bits": [
+        10,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.009801137812690503,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.0010811573070812486,
+        "mean_signed_monetary_error": -8.533306928629139e-05,
+        "mean_ideal_residual": 0.4087466985783195,
+        "mean_fixed_residual": 0.4086613655090332
+      },
+      "retained_grid_diagnostic": {
+        "states": 1024,
+        "maximum_absolute_monetary_error": 0.0011018809299871979,
+        "mean_signed_monetary_error": -9.662214198748898e-05,
+        "mean_ideal_residual": 0.41471714827695527,
+        "mean_fixed_residual": 0.4146205261349678
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    },
+    {
+      "method": "direct",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 25,
+      "table_address_bits": [
+        11,
+        0,
+        0
+      ],
+      "production_input_bits": [
+        14,
+        14,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0007573976792333618,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 6.611890933072573e-05,
+        "mean_signed_monetary_error": -1.6550045193117202e-06,
+        "mean_ideal_residual": 0.4088636768726365,
+        "mean_fixed_residual": 0.40886202186811715
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 6.882040362654607e-05,
+        "mean_signed_monetary_error": -1.8165499092915106e-06,
+        "mean_ideal_residual": 0.41583127249188073,
+        "mean_fixed_residual": 0.4158294559419714
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 25,
+      "table_address_bits": [
+        10,
+        11,
+        10
+      ],
+      "production_input_bits": [
+        14,
+        0,
+        24
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009896610419237728,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.000233927259665756,
+        "mean_signed_monetary_error": 3.433289963729562e-05,
+        "mean_ideal_residual": 0.40874910298737954,
+        "mean_fixed_residual": 0.4087834358870168
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.00023574011235039105,
+        "mean_signed_monetary_error": 3.107684062124151e-05,
+        "mean_ideal_residual": 0.4188451647905556,
+        "mean_fixed_residual": 0.41887624163117687
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 30,
+      "table_address_bits": [
+        13,
+        13,
+        12
+      ],
+      "production_input_bits": [
+        14,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009732079957338627,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 5.213177965328157e-05,
+        "mean_signed_monetary_error": 2.2869226867511e-06,
+        "mean_ideal_residual": 0.4087466985783195,
+        "mean_fixed_residual": 0.40874898550100625
+      },
+      "retained_grid_diagnostic": {
+        "states": 16384,
+        "maximum_absolute_monetary_error": 6.386171960759413e-05,
+        "mean_signed_monetary_error": 4.6977059025498347e-07,
+        "mean_ideal_residual": 0.41498749797644785,
+        "mean_fixed_residual": 0.41498796774703806
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 26,
+      "table_address_bits": [
+        10,
+        10,
+        10
+      ],
+      "production_input_bits": [
+        14,
+        0,
+        25
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009716198745307545,
+      "coarse_finite_grid": {
+        "states": 4096,
+        "maximum_absolute_monetary_error": 0.00012148123228333807,
+        "mean_signed_monetary_error": -1.6784521299332986e-06,
+        "mean_ideal_residual": 0.40874910298737954,
+        "mean_fixed_residual": 0.4087474245352496
+      },
+      "retained_grid_diagnostic": {
+        "states": 266500,
+        "maximum_absolute_monetary_error": 0.0001333952690334428,
+        "mean_signed_monetary_error": -3.137657144537476e-06,
+        "mean_ideal_residual": 0.4156537956996134,
+        "mean_fixed_residual": 0.4156506580424689
+      },
+      "retained_grid_exhaustive": false,
+      "scalar_graph_crosschecks": 2048,
+      "all_checks_passed": true
+    },
+    {
+      "method": "full_kernel",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "retained_fraction_bits": 26,
+      "table_address_bits": [
+        10,
+        10,
+        10
+      ],
+      "production_input_bits": [
+        14,
+        0,
+        0
+      ],
+      "parent_uniform_arithmetic_price_bound": 0.0009693906108205159,
+      "coarse_finite_grid": {
+        "states": 64,
+        "maximum_absolute_monetary_error": 0.00010315597618348882,
+        "mean_signed_monetary_error": 6.803912455393997e-07,
+        "mean_ideal_residual": 0.4087466985783195,
+        "mean_fixed_residual": 0.40874737896956503
+      },
+      "retained_grid_diagnostic": {
+        "states": 16384,
+        "maximum_absolute_monetary_error": 0.00011654685337569859,
+        "mean_signed_monetary_error": -3.3297344758716014e-06,
+        "mean_ideal_residual": 0.41498749797644785,
+        "mean_fixed_residual": 0.41498416824197193
+      },
+      "retained_grid_exhaustive": true,
+      "scalar_graph_crosschecks": 1088,
+      "all_checks_passed": true
+    }
+  ],
+  "function_tables": [
+    {
+      "function": "exp",
+      "address_bits": 9,
+      "fraction_bits": 22,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 7,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 129,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 7,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 129,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 65,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000368173176700886726020124436571052987987772967970181879763888215734520E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 11,
+      "fraction_bits": 24,
+      "enclosed_endpoint_count": 2049,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 12,
+      "fraction_bits": 24,
+      "enclosed_endpoint_count": 4097,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 11,
+      "fraction_bits": 24,
+      "enclosed_endpoint_count": 2049,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000398732271256659828475741484679029756634122731977146209494691092890622E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 65,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "strike_log_1",
+      "address_bits": 7,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 129,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 65,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000393359211042160270659483107773915979163787601632756052385123859962603E-50"
+    },
+    {
+      "function": "capped_1",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 65,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000755638952792859583359839955429193195436930757284965126989881358373832228109792139070919187514850E-44"
+    },
+    {
+      "function": "exp",
+      "address_bits": 11,
+      "fraction_bits": 25,
+      "enclosed_endpoint_count": 2049,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 9,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000395018778900746470235867169404345529414832022607966834976794275629139E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 13,
+      "fraction_bits": 29,
+      "enclosed_endpoint_count": 8193,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 13,
+      "fraction_bits": 29,
+      "enclosed_endpoint_count": 8193,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 12,
+      "fraction_bits": 29,
+      "enclosed_endpoint_count": 4097,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000398732271256659828475741484679029756634122731977146209494691092890622E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "strike_log_1",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000393359211042160270659483107773915979163787601632756052385123859962603E-50"
+    },
+    {
+      "function": "capped_1",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000755638952792859583359839955429193195436930757284965126989881358373832228109792139070919187514850E-44"
+    },
+    {
+      "function": "strike_log_10",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "capped_10",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000076463895279285958335983995542924177620376497137828149853705853424175557370567985641240599677025E-44"
+    },
+    {
+      "function": "exp",
+      "address_bits": 10,
+      "fraction_bits": 22,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 10,
+      "fraction_bits": 22,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 10,
+      "fraction_bits": 22,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000398732271256659828475741484679029756634122731977146209494691092890622E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 13,
+      "fraction_bits": 30,
+      "enclosed_endpoint_count": 8193,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 13,
+      "fraction_bits": 30,
+      "enclosed_endpoint_count": 8193,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 12,
+      "fraction_bits": 30,
+      "enclosed_endpoint_count": 4097,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000398732271256659828475741484679029756634122731977146209494691092890622E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 10,
+      "fraction_bits": 21,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 10,
+      "fraction_bits": 21,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "strike_log_10",
+      "address_bits": 10,
+      "fraction_bits": 21,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 9,
+      "fraction_bits": 21,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000393359211042160270659483107773915979163787601632756052385123859962603E-50"
+    },
+    {
+      "function": "capped_10",
+      "address_bits": 9,
+      "fraction_bits": 21,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000076463895279285958335983995542924177620376497137828149853705853424175557370567985641240599677025E-44"
+    },
+    {
+      "function": "exp",
+      "address_bits": 9,
+      "fraction_bits": 20,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 9,
+      "fraction_bits": 20,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 9,
+      "fraction_bits": 20,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000395572234374844740093710948600773896082653430982394005909632609838848E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 9,
+      "fraction_bits": 19,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 9,
+      "fraction_bits": 19,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "strike_log_25",
+      "address_bits": 9,
+      "fraction_bits": 19,
+      "enclosed_endpoint_count": 513,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 8,
+      "fraction_bits": 19,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000393359211042160270659483107773915979163787601632756052385123859962603E-50"
+    },
+    {
+      "function": "capped_25",
+      "address_bits": 8,
+      "fraction_bits": 19,
+      "enclosed_endpoint_count": 257,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000031185558111714383334393598217165985292488150486495538788015828710991870192411234496645630299958E-44"
+    },
+    {
+      "function": "exp",
+      "address_bits": 10,
+      "fraction_bits": 25,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 11,
+      "fraction_bits": 25,
+      "enclosed_endpoint_count": 2049,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "cdf",
+      "address_bits": 10,
+      "fraction_bits": 25,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000398732271256659828475741484679029756634122731977146209494691092890622E-50"
+    },
+    {
+      "function": "exp",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "log",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "strike_log_25",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1E-50"
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000000000000000000000000000000393359211042160270659483107773915979163787601632756052385123859962603E-50"
+    },
+    {
+      "function": "capped_25",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "enclosed_endpoint_count": 1025,
+      "monotone_integer_endpoints": true,
+      "independent_decimal_absolute_enclosure": "1.000031185558111714383334393598217165985292488150486495538788015828710991870192411234496645630299958E-44"
+    }
+  ],
+  "quantile_tables": [
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 22,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.384185791015625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 18,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 3.814697265625e-06,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 24,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 5.960464477539063e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 9,
+      "fraction_bits": 25,
+      "entries": 512,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.9802322387695312e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 10,
+      "fraction_bits": 25,
+      "entries": 1024,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.9802322387695312e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 25,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.9802322387695312e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 9,
+      "fraction_bits": 18,
+      "entries": 512,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 3.814697265625e-06,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 9,
+      "fraction_bits": 29,
+      "entries": 512,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.862645149230957e-09,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 29,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.862645149230957e-09,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 9,
+      "fraction_bits": 22,
+      "entries": 512,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.384185791015625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 10,
+      "fraction_bits": 22,
+      "entries": 1024,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.384185791015625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 9,
+      "fraction_bits": 24,
+      "entries": 512,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 5.960464477539063e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 13,
+      "fraction_bits": 25,
+      "entries": 8192,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.9802322387695312e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 12,
+      "fraction_bits": 22,
+      "entries": 4096,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.384185791015625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 12,
+      "fraction_bits": 30,
+      "entries": 4096,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 9.313225746154785e-10,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 30,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 9.313225746154785e-10,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 12,
+      "fraction_bits": 21,
+      "entries": 4096,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 4.76837158203125e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 21,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 4.76837158203125e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 11,
+      "fraction_bits": 22,
+      "entries": 2048,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.384185791015625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 10,
+      "fraction_bits": 20,
+      "entries": 1024,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 9.5367431640625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 20,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 9.5367431640625e-07,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 10,
+      "fraction_bits": 24,
+      "entries": 1024,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 5.960464477539063e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 10,
+      "fraction_bits": 19,
+      "entries": 1024,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.9073486328125e-06,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 19,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.9073486328125e-06,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 14,
+      "fraction_bits": 25,
+      "entries": 16384,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 2.9802322387695312e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 14,
+      "fraction_bits": 30,
+      "entries": 16384,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 9.313225746154785e-10,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 14,
+      "fraction_bits": 26,
+      "entries": 16384,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.4901161193847656e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    },
+    {
+      "gaussian_address_bits": 6,
+      "fraction_bits": 26,
+      "entries": 64,
+      "exhaustive_positive_half_and_exact_symmetric_negative_half": true,
+      "coordinate_error_enclosure": 1.4901161193847656e-08,
+      "independent_decimal_absolute_cdf_enclosure": "1E-50"
+    }
+  ],
+  "special_primitive_boundary_and_quadrature_checks": [
+    {
+      "function": "strike_log_1",
+      "address_bits": 7,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 384,
+      "maximum_absolute_output_error_diagnostic": 5.607233154680813e-06,
+      "global_interpolation_rounding_bound": 5.722808837890625e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 192,
+      "maximum_absolute_output_error_diagnostic": 5.536105049406127e-06,
+      "global_interpolation_rounding_bound": 0.0007441580948460186,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_1",
+      "address_bits": 6,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 192,
+      "maximum_absolute_output_error_diagnostic": 5.332155586068588e-06,
+      "global_interpolation_rounding_bound": 0.0007441580948460186,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 192,
+        "maximum_refinement_difference": 4.440892098500626e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 2.220446049250313e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    },
+    {
+      "function": "strike_log_1",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 5.6375241099804185e-06,
+      "global_interpolation_rounding_bound": 5.722236633300782e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 5.69129088578979e-06,
+      "global_interpolation_rounding_bound": 5.187429895766132e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_1",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 5.639140163160583e-06,
+      "global_interpolation_rounding_bound": 5.187429895766132e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 768,
+        "maximum_refinement_difference": 3.3306690738754696e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 3.3306690738754696e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    },
+    {
+      "function": "strike_log_10",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 5.3261088168721216e-06,
+      "global_interpolation_rounding_bound": 5.741119384765625e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_10",
+      "address_bits": 8,
+      "fraction_bits": 18,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 5.680175160893697e-06,
+      "global_interpolation_rounding_bound": 5.187429895766132e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 768,
+        "maximum_refinement_difference": 3.3306690738754696e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 3.3306690738754696e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    },
+    {
+      "function": "strike_log_10",
+      "address_bits": 10,
+      "fraction_bits": 21,
+      "cell_boundary_and_adjacent_unit_states": 3072,
+      "maximum_absolute_output_error_diagnostic": 6.684105546828079e-07,
+      "global_interpolation_rounding_bound": 7.164478302001953e-07,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 9,
+      "fraction_bits": 21,
+      "cell_boundary_and_adjacent_unit_states": 1536,
+      "maximum_absolute_output_error_diagnostic": 7.141172732653245e-07,
+      "global_interpolation_rounding_bound": 1.2253319002110642e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_10",
+      "address_bits": 9,
+      "fraction_bits": 21,
+      "cell_boundary_and_adjacent_unit_states": 1536,
+      "maximum_absolute_output_error_diagnostic": 7.096734452316511e-07,
+      "global_interpolation_rounding_bound": 1.2253319002110642e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 1536,
+        "maximum_refinement_difference": 3.3306690738754696e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 3.3306690738754696e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    },
+    {
+      "function": "strike_log_25",
+      "address_bits": 9,
+      "fraction_bits": 19,
+      "cell_boundary_and_adjacent_unit_states": 1536,
+      "maximum_absolute_output_error_diagnostic": 2.4670804654736145e-06,
+      "global_interpolation_rounding_bound": 2.8908252716064453e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 8,
+      "fraction_bits": 19,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 2.8400843029231153e-06,
+      "global_interpolation_rounding_bound": 4.901327600844257e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_25",
+      "address_bits": 8,
+      "fraction_bits": 19,
+      "cell_boundary_and_adjacent_unit_states": 768,
+      "maximum_absolute_output_error_diagnostic": 2.85981114023226e-06,
+      "global_interpolation_rounding_bound": 4.901327600844257e-05,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 768,
+        "maximum_refinement_difference": 3.3306690738754696e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 3.885780586188048e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    },
+    {
+      "function": "strike_log_25",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "cell_boundary_and_adjacent_unit_states": 3072,
+      "maximum_absolute_output_error_diagnostic": 1.924480508286308e-08,
+      "global_interpolation_rounding_bound": 2.9802322387695312e-08,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "scaled_cdf",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "cell_boundary_and_adjacent_unit_states": 3072,
+      "maximum_absolute_output_error_diagnostic": 2.22690037298545e-08,
+      "global_interpolation_rounding_bound": 2.90686755799226e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true
+    },
+    {
+      "function": "capped_25",
+      "address_bits": 10,
+      "fraction_bits": 26,
+      "cell_boundary_and_adjacent_unit_states": 3072,
+      "maximum_absolute_output_error_diagnostic": 2.2330692628358406e-08,
+      "global_interpolation_rounding_bound": 2.90686755799226e-06,
+      "monotone_integer_interpolator": true,
+      "scalar_graph_agreement": true,
+      "positive_quadrature": {
+        "orders": [
+          64,
+          192
+        ],
+        "states": 3072,
+        "maximum_refinement_difference": 4.440892098500626e-16,
+        "maximum_100_digit_formula_vs_positive_integral_difference": 3.885780586188048e-16,
+        "qualification": "quadrature is an independent numerical diagnostic, not a directed error enclosure"
+      }
+    }
+  ],
+  "new_variant_complete_gate_checks": [
+    {
+      "method": "full_kernel",
+      "cap": 1,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 12,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    },
+    {
+      "method": "full_kernel",
+      "cap": 10,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 12,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    },
+    {
+      "method": "full_kernel",
+      "cap": 25,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 11,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 1,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 46,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 10,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 47,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    },
+    {
+      "method": "interval_kernel",
+      "cap": 25,
+      "fraction_bits": 8,
+      "complete_basis_state_checks": 43,
+      "inputs_preserved": true,
+      "all_work_and_comparison_high_bit_reset": true,
+      "exact_flag_predicate": true,
+      "complete_vs_composed_X_CNOT_Toffoli_agreement": true,
+      "qualification": "coarse gate correctness, not financial price accuracy"
+    }
+  ],
+  "continuous_reference": [
+    {
+      "strike": 100.0,
+      "cap": 1.0,
+      "method": "positive nested Gauss-Legendre; orders and tail bound recorded",
+      "values": [
+        {
+          "outer_order": 48,
+          "price": 0.4534223906647111,
+          "residual_mean": 0.020253573935230085,
+          "residual_standard_deviations": {
+            "direct": 0.1251233078658458,
+            "random_interval": 0.026157880827872848,
+            "full_conditional": 0.026156746033853845
+          }
+        },
+        {
+          "outer_order": 96,
+          "price": 0.4534223906647136,
+          "residual_mean": 0.02025357393523022,
+          "residual_standard_deviations": {
+            "direct": 0.12492878337676332,
+            "random_interval": 0.02615788082786497,
+            "full_conditional": 0.02615674603384594
+          }
+        },
+        {
+          "outer_order": 192,
+          "price": 0.4534223906647082,
+          "residual_mean": 0.02025357393522961,
+          "residual_standard_deviations": {
+            "direct": 0.12493438911991349,
+            "random_interval": 0.02615788082786514,
+            "full_conditional": 0.02615674603384611
+          }
+        },
+        {
+          "outer_order": 384,
+          "price": 0.4534223906647206,
+          "residual_mean": 0.020253573935230106,
+          "residual_standard_deviations": {
+            "direct": 0.12493425083280897,
+            "random_interval": 0.026157880827865184,
+            "full_conditional": 0.02615674603384616
+          }
+        }
+      ],
+      "normal_outer_tail_bound": 1.478930466718548e-23,
+      "last_order_difference": 1.2434497875801753e-14,
+      "qualification": "refinement diagnostics are not a rigorous quadrature-error enclosure",
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "strike": 100.0,
+      "cap": 10.0,
+      "method": "positive nested Gauss-Legendre; orders and tail bound recorded",
+      "values": [
+        {
+          "outer_order": 48,
+          "price": 3.74540804891934,
+          "residual_mean": 0.19375917943117016,
+          "residual_standard_deviations": {
+            "direct": 0.6979216284495643,
+            "random_interval": 0.25528092856061696,
+            "full_conditional": 0.25413922187095334
+          }
+        },
+        {
+          "outer_order": 96,
+          "price": 3.745408048919361,
+          "residual_mean": 0.19375917943117188,
+          "residual_standard_deviations": {
+            "direct": 0.6979121846983459,
+            "random_interval": 0.255280928560469,
+            "full_conditional": 0.25413922187078075
+          }
+        },
+        {
+          "outer_order": 192,
+          "price": 3.7454080489193164,
+          "residual_mean": 0.19375917943116605,
+          "residual_standard_deviations": {
+            "direct": 0.6979124537031247,
+            "random_interval": 0.2552809285604703,
+            "full_conditional": 0.2541392218707821
+          }
+        },
+        {
+          "outer_order": 384,
+          "price": 3.7454080489194177,
+          "residual_mean": 0.1937591794311707,
+          "residual_standard_deviations": {
+            "direct": 0.6979124670481007,
+            "random_interval": 0.2552809285604709,
+            "full_conditional": 0.25413922187078275
+          }
+        }
+      ],
+      "normal_outer_tail_bound": 1.478930466718548e-22,
+      "last_order_difference": 1.0125233984581428e-13,
+      "qualification": "refinement diagnostics are not a rigorous quadrature-error enclosure",
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "strike": 100.0,
+      "cap": 25.0,
+      "method": "positive nested Gauss-Legendre; orders and tail bound recorded",
+      "values": [
+        {
+          "outer_order": 48,
+          "price": 6.740750694402662,
+          "residual_mean": 0.4149989613392119,
+          "residual_standard_deviations": {
+            "direct": 1.095494784628065,
+            "random_interval": 0.5979770914939819,
+            "full_conditional": 0.5818991630723922
+          }
+        },
+        {
+          "outer_order": 96,
+          "price": 6.740750694402701,
+          "residual_mean": 0.41499896133921604,
+          "residual_standard_deviations": {
+            "direct": 1.095494795291212,
+            "random_interval": 0.5979770914938871,
+            "full_conditional": 0.5818991630723443
+          }
+        },
+        {
+          "outer_order": 192,
+          "price": 6.740750694402617,
+          "residual_mean": 0.41499896133920383,
+          "residual_standard_deviations": {
+            "direct": 1.0954947946156153,
+            "random_interval": 0.5979770914938881,
+            "full_conditional": 0.5818991630723455
+          }
+        },
+        {
+          "outer_order": 384,
+          "price": 6.740750694402802,
+          "residual_mean": 0.41499896133921355,
+          "residual_standard_deviations": {
+            "direct": 1.0954947946536984,
+            "random_interval": 0.5979770914938912,
+            "full_conditional": 0.5818991630723481
+          }
+        }
+      ],
+      "normal_outer_tail_bound": 3.69732616679637e-22,
+      "last_order_difference": 1.8474111129762605e-13,
+      "qualification": "refinement diagnostics are not a rigorous quadrature-error enclosure",
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    }
+  ],
+  "finite_reference": [
+    {
+      "dimension": 2,
+      "strike": 100.0,
+      "cap": 10.0,
+      "bits": 4,
+      "grid_n": 16,
+      "outer_states": 16,
+      "loading": 0.2,
+      "direct_shared_finite_residual_mean": 0.18457264996163641,
+      "full_shared_finite_residual_mean": 0.18457264996163641,
+      "random_strike_shared_finite_Z_residual_mean": 0.17822265625,
+      "random_strike_continuous_Z_residual_mean": 0.1825626705589554,
+      "full_continuous_Z_residual_mean": 0.18255778448003443,
+      "direct_finite_total_price": 3.733058604636897,
+      "direct_residual_with_continuous_geometric_correction_price": 3.736493022426844,
+      "random_residual_with_continuous_geometric_correction_price": 3.7345424468929878,
+      "continuous_geometric_correction": 3.6657135260837848,
+      "full_outer_finite_continuous_price": 3.7345377052195223,
+      "standard_deviations": {
+        "direct_finite": 0.624143071763837,
+        "random_continuous_Z": 0.21348458997182215,
+        "full_continuous_Z": 0.21269269138998478,
+        "full_finite_Z": 0.21619576747476396
+      },
+      "monetary_target_bias_bounds_undiscounted": {
+        "direct_finite_Z_vs_full_continuous_Z": 0.625,
+        "random_continuous_Z_finite_U_vs_full_continuous_Z": 0.625,
+        "random_finite_Z_finite_U_vs_direct_finite_Z": 0.625
+      },
+      "diagnostics": {
+        "positive_quadrature_96_vs_192_max": 2.220446049250313e-16,
+        "stable_integral_vs_call_subtraction_max": 2.117230002429693e-14,
+        "inner_quantile_mean_difference": 0.03696583238092249,
+        "strike_midpoint_mean_difference": 2.5501619656975727e-05,
+        "shared_finite_strike_mean_difference": 0.06240944535314252
+      },
+      "outer_lipschitz_bound": 27.5,
+      "outer_quantile_coupling": {
+        "value": 0.08326744397168717,
+        "floating_aggregate_roundoff_allowance": 7.105427357601002e-15,
+        "qualification": "diagnostic, not a directed-rounding enclosure"
+      },
+      "outer_target_bias_bound_diagnostic": 2.2898547092213972,
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "dimension": 2,
+      "strike": 100.0,
+      "cap": 10.0,
+      "bits": 6,
+      "grid_n": 64,
+      "outer_states": 64,
+      "loading": 0.2,
+      "direct_shared_finite_residual_mean": 0.19137637223865,
+      "full_shared_finite_residual_mean": 0.19137637223865,
+      "random_strike_shared_finite_Z_residual_mean": 0.19168853759765625,
+      "random_strike_continuous_Z_residual_mean": 0.19136768664959952,
+      "full_continuous_Z_residual_mean": 0.1913673740418173,
+      "direct_finite_total_price": 3.7424815917137964,
+      "direct_residual_with_continuous_geometric_correction_price": 3.7430956643220763,
+      "random_residual_with_continuous_geometric_correction_price": 3.743087235430976,
+      "continuous_geometric_correction": 3.6657135260837848,
+      "full_outer_finite_continuous_price": 3.74308693206215,
+      "standard_deviations": {
+        "direct_finite": 0.6795950014980466,
+        "random_continuous_Z": 0.2436807002275856,
+        "full_continuous_Z": 0.24268886932760314,
+        "full_finite_Z": 0.24254027634128386
+      },
+      "monetary_target_bias_bounds_undiscounted": {
+        "direct_finite_Z_vs_full_continuous_Z": 0.15625,
+        "random_continuous_Z_finite_U_vs_full_continuous_Z": 0.15625,
+        "random_finite_Z_finite_U_vs_direct_finite_Z": 0.15625
+      },
+      "diagnostics": {
+        "positive_quadrature_96_vs_192_max": 2.220446049250313e-16,
+        "stable_integral_vs_call_subtraction_max": 3.7192471324942744e-14,
+        "inner_quantile_mean_difference": 0.002521958286759274,
+        "strike_midpoint_mean_difference": 2.311471461124981e-06,
+        "shared_finite_strike_mean_difference": 0.00823070966592665
+      },
+      "outer_lipschitz_bound": 27.5,
+      "outer_quantile_coupling": {
+        "value": 0.024202172518030807,
+        "floating_aggregate_roundoff_allowance": 2.842170943040401e-14,
+        "qualification": "diagnostic, not a directed-rounding enclosure"
+      },
+      "outer_target_bias_bound_diagnostic": 0.6655597442458472,
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "dimension": 2,
+      "strike": 100.0,
+      "cap": 10.0,
+      "bits": 8,
+      "grid_n": 256,
+      "outer_states": 256,
+      "loading": 0.2,
+      "direct_shared_finite_residual_mean": 0.19326635812771506,
+      "full_shared_finite_residual_mean": 0.19326635812771506,
+      "random_strike_shared_finite_Z_residual_mean": 0.19326746463775635,
+      "random_strike_continuous_Z_residual_mean": 0.19326565832575895,
+      "full_continuous_Z_residual_mean": 0.19326563878664538,
+      "direct_finite_total_price": 3.744787594964634,
+      "direct_residual_with_continuous_geometric_correction_price": 3.744929792686589,
+      "random_residual_with_continuous_geometric_correction_price": 3.7449291135669065,
+      "continuous_geometric_correction": 3.6657135260837848,
+      "full_outer_finite_continuous_price": 3.744929094605261,
+      "standard_deviations": {
+        "direct_finite": 0.6940339869422766,
+        "random_continuous_Z": 0.25235196315509395,
+        "full_continuous_Z": 0.2512615460969132,
+        "full_finite_Z": 0.2512635672580844
+      },
+      "monetary_target_bias_bounds_undiscounted": {
+        "direct_finite_Z_vs_full_continuous_Z": 0.0390625,
+        "random_continuous_Z_finite_U_vs_full_continuous_Z": 0.0390625,
+        "random_finite_Z_finite_U_vs_direct_finite_Z": 0.0390625
+      },
+      "diagnostics": {
+        "positive_quadrature_96_vs_192_max": 4.440892098500626e-16,
+        "stable_integral_vs_call_subtraction_max": 4.715759033269151e-14,
+        "inner_quantile_mean_difference": 0.0002020446954516114,
+        "strike_midpoint_mean_difference": 1.5770803463155403e-07,
+        "shared_finite_strike_mean_difference": 0.0010646166566464221
+      },
+      "outer_lipschitz_bound": 27.5,
+      "outer_quantile_coupling": {
+        "value": 0.0068087292402481125,
+        "floating_aggregate_roundoff_allowance": 1.1368683772161603e-13,
+        "qualification": "diagnostic, not a directed-rounding enclosure"
+      },
+      "outer_target_bias_bound_diagnostic": 0.1872400541068231,
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "dimension": 2,
+      "strike": 100.0,
+      "cap": 1.0,
+      "bits": 6,
+      "grid_n": 64,
+      "outer_states": 64,
+      "loading": 0.2,
+      "direct_shared_finite_residual_mean": 0.01997089507932164,
+      "full_shared_finite_residual_mean": 0.01997089507932164,
+      "random_strike_shared_finite_Z_residual_mean": 0.019947052001953125,
+      "random_strike_continuous_Z_residual_mean": 0.020021223316888596,
+      "full_continuous_Z_residual_mean": 0.02002122290661968,
+      "direct_finite_total_price": 0.45312753005336753,
+      "direct_residual_with_continuous_geometric_correction_price": 0.4531480662315691,
+      "random_residual_with_continuous_geometric_correction_price": 0.4531969070449274,
+      "continuous_geometric_correction": 0.44697758432126733,
+      "full_outer_finite_continuous_price": 0.4531969066467837,
+      "standard_deviations": {
+        "direct_finite": 0.12404675948753027,
+        "random_continuous_Z": 0.025017246887782948,
+        "full_continuous_Z": 0.025016265672179457,
+        "full_finite_Z": 0.02497432465698485
+      },
+      "monetary_target_bias_bounds_undiscounted": {
+        "direct_finite_Z_vs_full_continuous_Z": 0.015625,
+        "random_continuous_Z_finite_U_vs_full_continuous_Z": 0.015625,
+        "random_finite_Z_finite_U_vs_direct_finite_Z": 0.015625
+      },
+      "diagnostics": {
+        "positive_quadrature_96_vs_192_max": 2.7755575615628914e-17,
+        "stable_integral_vs_call_subtraction_max": 4.4103609653234344e-14,
+        "inner_quantile_mean_difference": 0.0020419830769055243,
+        "strike_midpoint_mean_difference": 1.8757736891528154e-09,
+        "shared_finite_strike_mean_difference": 0.00028570968693264476
+      },
+      "outer_lipschitz_bound": 25.25,
+      "outer_quantile_coupling": {
+        "value": 0.024202172518030807,
+        "floating_aggregate_roundoff_allowance": 2.842170943040401e-14,
+        "qualification": "diagnostic, not a directed-rounding enclosure"
+      },
+      "outer_target_bias_bound_diagnostic": 0.6111048560802779,
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    },
+    {
+      "dimension": 2,
+      "strike": 100.0,
+      "cap": 25.0,
+      "bits": 6,
+      "grid_n": 64,
+      "outer_states": 64,
+      "loading": 0.2,
+      "direct_shared_finite_residual_mean": 0.4088636768726365,
+      "full_shared_finite_residual_mean": 0.4088636768726365,
+      "random_strike_shared_finite_Z_residual_mean": 0.408172607421875,
+      "random_strike_continuous_Z_residual_mean": 0.40874910298737716,
+      "full_continuous_Z_residual_mean": 0.4087466985783197,
+      "direct_finite_total_price": 6.732400657834864,
+      "direct_residual_with_continuous_geometric_correction_price": 6.734796734995063,
+      "random_residual_with_continuous_geometric_correction_price": 6.7346855472798515,
+      "continuous_geometric_correction": 6.531038153958368,
+      "full_outer_finite_continuous_price": 6.734683213931821,
+      "standard_deviations": {
+        "direct_finite": 1.0467976776840748,
+        "random_continuous_Z": 0.563585150063669,
+        "full_continuous_Z": 0.5486123334006021,
+        "full_finite_Z": 0.5487543120919656
+      },
+      "monetary_target_bias_bounds_undiscounted": {
+        "direct_finite_Z_vs_full_continuous_Z": 0.390625,
+        "random_continuous_Z_finite_U_vs_full_continuous_Z": 0.390625,
+        "random_finite_Z_finite_U_vs_direct_finite_Z": 0.390625
+      },
+      "diagnostics": {
+        "positive_quadrature_96_vs_192_max": 2.6645352591003757e-15,
+        "stable_integral_vs_call_subtraction_max": 4.556173960248294e-14,
+        "inner_quantile_mean_difference": 0.006848877694760058,
+        "strike_midpoint_mean_difference": 3.336783694329881e-05,
+        "shared_finite_strike_mean_difference": 0.029103790340809788
+      },
+      "outer_lipschitz_bound": 31.25,
+      "outer_quantile_coupling": {
+        "value": 0.024202172518030807,
+        "floating_aggregate_roundoff_allowance": 2.842170943040401e-14,
+        "qualification": "diagnostic, not a directed-rounding enclosure"
+      },
+      "outer_target_bias_bound_diagnostic": 0.7563178911884627,
+      "instance": "specified covariance [[.05,.02],[.02,.08]]; not an equicorrelation input"
+    }
+  ],
+  "limitations": [
+    "empirical replay does not prove a uniform arithmetic error bound",
+    "retained parent analytical certificates still require a separate proof review",
+    "continuous quadrature and variance refinements are numerical diagnostics, not directed enclosures",
+    "no mean estimator or quantum speedup is tested"
+  ],
+  "elapsed_seconds": 27.606670584000312
+}

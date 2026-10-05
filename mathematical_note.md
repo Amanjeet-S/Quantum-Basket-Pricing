@@ -292,6 +292,10 @@ I now use the checked bounded-variation certificate in the [finite-grid suppleme
 
 The [reversible study](reversible_encoding_study.md) constructs all three evaluators for a stipulated two-asset instance and reports their matched bias budgets and emitted logical resources. These constructive results do not certify a statistical pricing interval or a literature novelty claim.
 
-## 10 Keywords
+## 10 Specialised conditioning update
+
+I now implement the scalar normalised conditional payoff \(P_h(m)=h^{-1}\int_1^{1+h}\Phi((m-\log k)/\lambda)\,dk\). Its log-level Lipschitz constant is at most \(1/(\lambda\sqrt{2\pi})\), and its second derivative is bounded by \(1/(\lambda^2\sqrt{2\pi e})\). The [certificate review](checks/kernel_certificate_review.md) checks differentiation, the interpolation remainder, financial input error, realised domains and amplified offline ordinate enclosures. The [stronger benchmark](conditioning_benchmark.md) applies analogous scalar specialisation to the interval method. The revised full comparator reverses the initial resource ranking in all six cases. These derivations use established mathematical ingredients and do not establish theoretical novelty or a complete statistical pricing guarantee.
+
+## 11 Keywords
 
 Basket call spreads; Gaussian conditioning; geometric controls; residual certificates; reversible arithmetic; quantum mean estimation.

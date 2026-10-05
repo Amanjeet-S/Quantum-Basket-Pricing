@@ -10,11 +10,13 @@ from pathlib import Path
 import time
 
 from encoding_resources import (Graph,build_graph,make_tables,counted_composition,
-                               check_small,decimal_cdf,PI,INV_SQRT_2PI)
+                               check_small,decimal_cdf,PI,INV_SQRT_2PI,
+                               function_span,capped_kernel_decimal)
 
 D=Decimal
 ROOT=Path(__file__).resolve().parent
 ALLOWANCE=D('1e-38')
+KERNEL_ALLOWANCE=D('1e-34')
 
 
 @dataclass
@@ -22,6 +24,40 @@ class Bound:
     lo: Decimal
     hi: Decimal
     error: Decimal
+
+
+def assert_ordered_cdf_difference(graph, first, second):
+    """Prove the retained ordered-CDF premise from exact integer structure.
+
+    Nonlinear/rounded nodes are independent atoms. Only exact addition,
+    subtraction and integer scaling are expanded. The accepted difference
+    must be a nonnegative constant smaller than the CDF input span; the
+    propagator separately checks both arguments are in [0,16).
+    """
+    def linear(name):
+        node=graph.nodes[name]
+        if node.kind=='constant':
+            value=node.meta
+            if value >= 1 << (graph.width-1):value-=1 << graph.width
+            return {'constant':value}
+        if node.kind in ('add','sub'):
+            left=linear(node.args[0]);right=linear(node.args[1])
+            sign=1 if node.kind=='add' else -1
+            for key,value in right.items():left[key]=left.get(key,0)+sign*value
+            return {key:value for key,value in left.items() if value}
+        if node.kind=='scale' and node.meta[1]==0:
+            return {key:value*node.meta[0] for key,value in linear(node.args[0]).items()}
+        return {name:1}
+    a,b=graph.nodes[first],graph.nodes[second]
+    if not (a.kind==b.kind=='function' and a.meta==b.meta=='cdf'):
+        raise AssertionError(('unproved ordered CDF subtraction',first,second))
+    difference=linear(a.args[0]);right=linear(b.args[0])
+    for key,value in right.items():difference[key]=difference.get(key,0)-value
+    difference={key:value for key,value in difference.items() if value}
+    delta=difference.pop('constant',0)
+    if difference or not 0<=delta<16*(1 << graph.q):
+        raise AssertionError(('unproved ordered CDF subtraction',first,second,delta,difference))
+    return delta
 
 
 def propagate(graph,cap):
@@ -54,6 +90,7 @@ def propagate(graph,cap):
                 if node.kind=='positive_sub':
                     # Both operands are CDFs at ordered arguments t0>=t1.
                     # The monotone integer interpolator retains that order.
+                    assert_ordered_cdf_difference(graph,*node.args)
                     lo=max(D(0),lo);hi=min(D(1),hi)
                 v=Bound(lo,hi,a[0].error+a[1].error+ALLOWANCE)
             elif node.kind=='scale':
@@ -81,7 +118,8 @@ def propagate(graph,cap):
                 v=Bound(lo,hi,a[0].error+unit/2)
             elif node.kind=='function':
                 aa=a[0]
-                span=D(4 if node.meta in ('exp','log') else 16)
+                generator_allowance=ALLOWANCE
+                span=D(function_span(node.meta))
                 spacing=span/D(1 << node.bits)
                 if aa.lo-aa.error < 0 or aa.hi+aa.error >= span:
                     raise AssertionError(('function address out of domain',name,node.meta,aa))
@@ -93,16 +131,32 @@ def propagate(graph,cap):
                     lo=(aa.lo+D('.25')).ln()+2;hi=(aa.hi+D('.25')).ln()+2
                     minimum=max(D('.25'),aa.lo-aa.error-spacing+D('.25'))
                     curvature=1/minimum**2;lip=1/(aa.lo-aa.error+D('.25'))
+                elif node.meta.startswith('capped_'):
+                    generator_allowance=KERNEL_ALLOWANCE
+                    kernel_cap=int(node.meta.split('_')[1])
+                    lo=capped_kernel_decimal(aa.lo-1,kernel_cap)
+                    hi=capped_kernel_decimal(aa.hi-1,kernel_cap)
+                    curvature=25/(2*PI*D(1).exp()).sqrt()+ALLOWANCE
+                    lip=5*INV_SQRT_2PI+ALLOWANCE
+                elif node.meta=='scaled_cdf':
+                    lo=decimal_cdf(5*(aa.lo-1));hi=decimal_cdf(5*(aa.hi-1))
+                    curvature=25/(2*PI*D(1).exp()).sqrt()+ALLOWANCE
+                    lip=5*INV_SQRT_2PI+ALLOWANCE
+                elif node.meta.startswith('strike_log_'):
+                    h=D(int(node.meta.split('_')[-1]))/100
+                    lo=1+(1+h*aa.lo).ln();hi=1+(1+h*aa.hi).ln()
+                    curvature=h*h+ALLOWANCE;lip=h+ALLOWANCE
                 else:
                     lo=decimal_cdf(aa.lo-8);hi=decimal_cdf(aa.hi-8)
                     curvature=1/(2*PI*D(1).exp()).sqrt()+ALLOWANCE
                     lip=INV_SQRT_2PI+ALLOWANCE
                 interpolation=curvature*spacing*spacing/8
-                error=lip*aa.error+interpolation+D('1.5')*unit+ALLOWANCE
-                v=Bound(lo-ALLOWANCE,hi+ALLOWANCE,error)
+                error=lip*aa.error+interpolation+D('1.5')*unit+generator_allowance
+                v=Bound(lo-generator_allowance,hi+generator_allowance,error)
                 domains.append({'node':name,'kernel':node.meta,'argument_min':float(aa.lo),
                     'argument_max':float(aa.hi),'argument_error':float(aa.error),
-                    'interpolation_error':float(interpolation),'output_error':float(error)})
+                    'interpolation_error':float(interpolation),'output_error':float(error),
+                    'generator_absolute_allowance':float(generator_allowance)})
             else:raise ValueError(node.kind)
             # All mathematical signed values and their perturbations stay in
             # the signed safe range; modular intermediate wraps are harmless.
@@ -123,7 +177,9 @@ def propagate(graph,cap):
         return {'arithmetic_price_error_upper':math.nextafter(float(bound),math.inf),
                 'domain_checks':domains,'register_absolute_limit':32,
                 'quantile_coordinate_error_upper':float(unit),
-                'endpoint_enclosure_allowance':float(ALLOWANCE)}
+                'endpoint_enclosure_allowance':float(ALLOWANCE),
+                'ordered_cdf_subtractions_structurally_verified':sum(
+                    n.kind=='positive_sub' for n in graph.nodes.values())}
 
 
 def coupling_bound(bits):
@@ -141,7 +197,7 @@ def choose_distribution(kind,cap,q,price_allowance):
         lr=D('.25')*(100+D(cap))
         lz=D('.4')*(100+D(cap))
         choices=[]
-        bu=q-1 if kind=='interval' else 0
+        bu=q-1 if kind in ('interval','interval_kernel') else 0
         for by in range(6,19):
             outer=min(lr*coupling_bound(by),D('1.5')*D(cap)/D(1 << by))
             if kind=='direct':
@@ -150,7 +206,7 @@ def choose_distribution(kind,cap,q,price_allowance):
                     if outer+inner <= price_allowance:
                         choices.append((2**by+2**bz,by,bz,bu,outer,inner))
             else:
-                inner=D(cap)/D(1 << bu) if kind=='interval' else D(0)
+                inner=D(cap)/D(1 << bu) if kind in ('interval','interval_kernel') else D(0)
                 if outer+inner <= price_allowance:
                     choices.append((2**by,by,0,bu,outer,inner))
         if not choices:return None
@@ -162,7 +218,8 @@ def choose_distribution(kind,cap,q,price_allowance):
 
 def gate_proxy(kind,q,e,l,c):
     # Search ranking only. Actual results are counted by emitting every block.
-    counts={'direct':(3,0,0,5),'interval':(2,2,2,8),'full':(3,1,8,12)}[kind]
+    counts={'direct':(3,0,0,5),'interval':(2,2,2,8),'full':(3,1,8,12),
+            'interval_kernel':(2,2,2,6),'full_kernel':(2,1,2,5)}[kind]
     ne,nl,nc,nm=counts
     return (ne*(2**e)+nl*(2**l)+nc*(2**c))*28+nm*28*(q+6)**2
 
@@ -182,7 +239,20 @@ def tune(kind,cap,epsilon):
             graph=build_graph(kind,q,dist['b_y'],dist['b_z'],dist['b_u'],*pp,cap)
             cert=propagate(graph,cap)
             return cert['arithmetic_price_error_upper'],graph,cert
-        current,graph,cert=evaluate(params)
+        # A domain-reduced kernel can reject a coarse prefix enclosure even
+        # when a finer prefix is valid. Refine that prefix before the ordinary
+        # search; do not silently discard a feasible specialised comparator.
+        for _ in range(14):
+            try:
+                current,graph,cert=evaluate(params)
+                break
+            except AssertionError as exc:
+                if not (kind.endswith('_kernel') and exc.args and
+                        exc.args[0][0]=='function address out of domain'):
+                    raise
+                for i in (0,1):params[i]+=1
+                if max(params[:2])>min(17,q-1):raise
+        else:raise AssertionError('prefix refinement did not certify kernel domain')
         for _ in range(45):
             if current <= float(price_arithmetic):break
             candidates=[]
@@ -203,10 +273,13 @@ def tune(kind,cap,epsilon):
     return graph, {'method':kind,'cap':cap,'price_tolerance':epsilon,
                    'discounted_error_conservative':True,'q':q,'exp_address_bits':params[0],
                    'log_address_bits':params[1],'cdf_address_bits':params[2],
+                   'probability_address_bits':params[2],
+                   'probability_kernel':('cap-specific conditional payoff' if kind=='full_kernel' else
+                                         'domain-reduced conditional CDF' if kind=='interval_kernel' else 'normal CDF' if kind!='direct' else 'none'),
                    **dist,**cert,'bias_allowance_fraction':.5,
                    'reserved_statistical_price_allowance':epsilon*.5,
                    'bias_bound_including_correction':math.nextafter(dist['distribution_price_bound']+cert['arithmetic_price_error_upper']+1e-12,math.inf),
-                   'precision_selection':'independent greedy table refinement across q=18..30; analytic gate proxy ranks feasible configurations; not globally optimal',
+                   'precision_selection':'independent greedy table refinement across q=18..30, with prefix-domain refinement for specialised kernels; analytic gate proxy ranks feasible configurations; not globally optimal',
                    'feasible_configurations':len(records)}
 
 
@@ -243,22 +316,30 @@ def check_decimal_certificates():
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument('--output',type=Path,default=ROOT/'results'/'encoding_resources.json')
+    p.add_argument('--output',type=Path,default=ROOT/'results'/'conditioning_resources.json')
     p.add_argument('--tune-only',action='store_true')
     p.add_argument('--certify-quantiles',action='store_true')
     p.add_argument('--small-checks',action='store_true')
     p.add_argument('--caps',type=int,nargs='+',default=[1,10,25])
     p.add_argument('--tolerances',type=float,nargs='+',default=[.1,.01])
+    p.add_argument('--methods',nargs='+',choices=['direct','interval','full','interval_kernel','full_kernel'],
+                   default=['direct','interval','full','interval_kernel','full_kernel'])
     args=p.parse_args()
     start=time.perf_counter()
     results=[];tables={};block_cache={};audits=[]
     checks=check_decimal_certificates()
     for cap in args.caps:
         for epsilon in args.tolerances:
-            for kind in ('direct','interval','full'):
+            for kind in args.methods:
                 graph,row=tune(kind,cap,epsilon)
                 if not args.tune_only:
+                    setup_start=time.perf_counter()
+                    previous_keys=set(tables)
                     audits+=make_tables(graph,tables,args.certify_quantiles)
+                    row['incremental_classical_table_setup']={
+                        'new_table_keys':[list(k) for k in sorted(set(tables)-previous_keys)],
+                        'measured_seconds':time.perf_counter()-setup_start,
+                        'scope':'cached classical constant generation and optional quantile enclosure; order-dependent diagnostic, not a quantum execution cost'}
                     row['resources']=counted_composition(graph,tables,block_cache)
                 results.append(row)
                 print(f'Completed {kind} cap={cap} epsilon={epsilon}: q={graph.q}',flush=True)

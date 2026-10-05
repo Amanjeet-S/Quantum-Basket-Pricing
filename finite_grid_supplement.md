@@ -291,7 +291,15 @@ The reflection is still an additional circuit. For \(m\geq3\) reflected register
 
 Because the compiled Boolean circuit is exact for its declared fixed tables and integers, the deterministic financial error is a bias in the represented mean. It is charged once in the price certificate. I do not multiply that bias by the number of ideal estimator calls. Physical gate error and approximate unitary synthesis would create different accumulation questions and are outside these logical constructor bounds.
 
-## 11. Contribution and comparison limits
+## 11. Specialised scalar conditioning and certificate premises
+
+I now use the cap-normalised scalar conditional payoff \(P_h(m)=h^{-1}\int_1^{1+h}\Phi((m-\log k)/\lambda)\,dk\), whose first derivative is at most \(1/(\lambda\sqrt{2\pi})\) and whose second derivative is bounded by \(1/(\lambda^2\sqrt{2\pi e})\). The [independent certificate review](checks/kernel_certificate_review.md) supplies the full derivation, financial input transfer and interpolation bound. The [stronger comparator study](conditioning_benchmark.md) retains a cap-specific function table on [-1,1] and analogous scalar specialisation for the interval method. Endpoint generation is enclosed at \(10^{-34}\) after division by the relative cap; I do not reuse the smaller per-CDF enclosure without accounting for that amplification.
+
+The old closed-form graph uses nonnegative differences between ordered CDF values. I now verify this premise structurally. I expand only exact integer additions, subtractions and integer scalings in the two CDF arguments, treating every nonlinear or rounded node as an independent atom. Their difference must reduce to a nonnegative constant below the CDF input span. Both arguments separately satisfy the perturbed [0,16) domain certificate, so modular arithmetic cannot reverse that ordering. The monotone rounded CDF interpolator preserves it. Reversed, unrelated or non-CDF operands are rejected before the ordered-difference range restriction is applied. Three regression groups cover this contract; the correctly constructed graphs retain their previous bounds.
+
+The [matched constructor argument](checks/kernel_dominance_review.md) explains the reversed interval/full ranking through endpoint ordering, zero-row lookup support, equal interpolation widths and the interval method's extra strike-log block. It proves a selected-constructor Toffoli cost identity under explicit premises. It does not order CNOTs, classical setup, physical resources or alternative quantum architectures.
+
+## 12. Contribution and comparison limits
 
 I retain a positive constructor when every table ordinate and inverse quantile is enclosed, every realised arithmetic range is checked, the entire flag evaluator and inverse are specified, and its resources refer to actual emitted blocks or a proved serial composition. I retain source hashes for both study scripts and their arithmetic dependency, and round monetary upper bounds outwards when exporting them to binary floating point. Numerical basis replay and sampled financial errors support implementation checks, but do not replace the uniform analytical certificate.
 
