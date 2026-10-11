@@ -1,0 +1,65 @@
+% Supporting fragment; main-paper definitions and bibliography apply.
+\section{An equally informed positive first-correction prior}
+Let $R_1=R_2+UP'(m)$ and let $c_1=\mathbb E_Q[UP'(m)]$ be the exact
+Gaussian-tilt coefficient already supplied to the second-correction method.
+For $M_2\geq\|C_2\|_\infty$, define
+$B_Q=M_2\mathbb E_Q U^2/2$. The global integral-remainder bound gives
+$|\mathbb E_Q R_2|\leq B_Q$. For a convex ordinary call it also gives
+$\mathbb E_Q R_2\geq0$. Hence an outward interval $[c_{1,-},c_{1,+}]$
+provides continuous first-mean bounds
+\[
+ [L_Q,U_Q]=
+ \begin{cases}
+ [c_{1,-}-B_Q,c_{1,+}+B_Q],&\text{capped call},\\
+ [c_{1,-},c_{1,+}+B_Q],&\text{ordinary call}.
+ \end{cases}
+\]
+The exact centring and positive weights give $U\geq0$; the monotone tested
+payoffs give $R_1\geq0$. Suppose the price-independent first-residual
+financial transfer proves
+$|\mathbb E_Q R_1-\alpha\mathbb E_N R_1|\leq\beta_1$, with certified
+$0<\alpha_-\leq\alpha\leq\alpha_+$. On the finite support $R_1\leq B_1$.
+Then
+\[
+ L_N=\max\{0,L_Q-\beta_1\}/\alpha_+,\qquad
+ U_N=\min\{B_1,(U_Q+\beta_1)/\alpha_-,U_{N,\rm previous}\}
+\]
+bound the exact finite first-correction mean. For the lower bound the
+positive part is divided by the largest mass; for the upper bound the
+nonnegative upper endpoint is divided by the smallest mass. Intersection
+with a separately proved upper mean is valid. All endpoints remain outward.
+
+If the represented probability differs pointwise from $R_1/B_1$ by at most
+$\eta_p$, its mean belongs to
+\[
+ [\ell,u]=[\max\{0,L_N/B_1-\eta_p\},
+ \min\{1,U_N/B_1+\eta_p,u_{\rm previous}\}].
+\]
+An exact rational midpoint requires no quantum estimation if its monetary
+radius $\alpha_+B_1(u-\ell)/2$, added to the complete deterministic budget,
+meets the requested tolerance. Otherwise the canonical amplitude plan uses
+$u$ for its Bernoulli variance envelope and retains the same full circuit,
+Fourier and confidence charges. The lower probability endpoint is not
+misused as a Bernoulli variance; it supports only valid interval stopping.
+The deterministic budget already encloses continuous-to-finite transfer
+and arithmetic, so charging the corresponding allowances again inside this
+prior can be conservative but cannot invalidate the final price certificate.
+
+The full Gaussian $\mathbb E_Q U^2$ is evaluated by finite multinomial
+Gaussian exponential moments, preserving every covariance term. Thus neither
+an observed option price nor a numerical basket-price answer enters this
+prior. This is a project-specific information-sharing improvement derived
+from the established conditional control and a proved remainder bound,
+rather than a claim to invent Taylor bounds or probability intervals.
+
+\section{A shared continuous screen before quantum evaluation}
+The same c0+c1 and B_Q determine a continuous price interval. For a capped
+call it is [c0+c1-B_Q,c0+c1+B_Q] intersected with [0,H]; for an ordinary
+call it is [c0+c1,c0+c1+B_Q] intersected with the nonnegative half-line.
+Every coefficient endpoint is enlarged outwards before these intersections.
+The global remainder theorem proves containment directly, without a
+financial grid, mass approximation or quantum circuit. Its exact rational
+midpoint has error no larger than half the interval width. If that radius
+meets the undiscounted target, every competing implementation receives the
+same zero-quantum decision. The underlying estimator plans remain retained
+as conditional diagnostics and are not counted as quantum gains.

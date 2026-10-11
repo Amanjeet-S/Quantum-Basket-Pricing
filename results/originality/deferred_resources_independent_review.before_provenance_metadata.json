@@ -1,0 +1,128 @@
+{
+  "schema": "qbp-deferred-resources-independent-review-v1",
+  "status": "passed",
+  "checked_architecture_profiles": 808,
+  "checked_qpe_plans": 1616,
+  "checked_complete_variant_charges": 3232,
+  "retained_rejections": 12,
+  "registered_settings": 416,
+  "selected_comparisons": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "variants": {
+        "deferred_B": {
+          "canonical_minima": {
+            "numerical_conditional_price": 11904194525,
+            "raw_payoff": 11630271225,
+            "shared_threshold": 10467507700
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "46510541/465210849"
+        },
+        "cancellation_optimised_clean": {
+          "canonical_minima": {
+            "numerical_conditional_price": 11927453125,
+            "raw_payoff": 11652992025,
+            "shared_threshold": 10487836300
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "46606229/466119681"
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "variants": {
+        "deferred_B": {
+          "canonical_minima": {
+            "numerical_conditional_price": 44122469300,
+            "raw_payoff": 44189729800,
+            "shared_threshold": 41861923075
+          },
+          "strongest_rival": "numerical_conditional_price",
+          "shared_threshold_saving_exact": "12917407/252128396"
+        },
+        "cancellation_optimised_clean": {
+          "canonical_minima": {
+            "numerical_conditional_price": 44165559050,
+            "raw_payoff": 44232883550,
+            "shared_threshold": 41902684625
+          },
+          "strongest_rival": "numerical_conditional_price",
+          "shared_threshold_saving_exact": "90514977/1766622362"
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "variants": {
+        "deferred_B": {
+          "canonical_minima": {
+            "numerical_conditional_price": 47622408050,
+            "raw_payoff": 46988300100,
+            "shared_threshold": 44709494725
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "13021745/268504572"
+        },
+        "cancellation_optimised_clean": {
+          "canonical_minima": {
+            "numerical_conditional_price": 47668919050,
+            "raw_payoff": 47034189850,
+            "shared_threshold": 44753031425
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "91246337/1881367594"
+        }
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "variants": {
+        "deferred_B": {
+          "canonical_minima": {
+            "numerical_conditional_price": 104771938000,
+            "raw_payoff": 104186984850,
+            "shared_threshold": 101750688975
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "2498765/106858446"
+        },
+        "cancellation_optimised_clean": {
+          "canonical_minima": {
+            "numerical_conditional_price": 104874306650,
+            "raw_payoff": 104288779950,
+            "shared_threshold": 101849977425
+          },
+          "strongest_rival": "raw_payoff",
+          "shared_threshold_saving_exact": "32517367/1390517066"
+        }
+      }
+    }
+  ],
+  "actual_controlled_reflection_source_guard": {
+    "status": "passed",
+    "clean_domain_basis_cases": 1016,
+    "checked_core_widths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "zero_phase_source_sha256": "b851566a937ca8d4ed4069cd3f01c2223394d5ec774aeae9ee835491b3b241ca",
+    "actual_controlled_tape_contract_is_restricted_to_zero_work": true,
+    "off_domain_controlled_uncontrolled_equality_claim": false
+  },
+  "proof_sha256": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+  "producer_sha256_read_without_import": "1e78f51c6ffc9f49a56ddf785a72424531b8261a69ce996b984f5561d254b477",
+  "producer_imported": false,
+  "confidence_or_charging_frontend_imported": false,
+  "reused_independent_helper": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/check_expanded_precision_resources.py",
+  "reused_independent_helper_sha256": "e86de2f5631165574e06f08d2415c3ff373ba03b1ecc3dd8d8afda3c9dac6d51",
+  "fresh_whole_financial_tape_emission_claim": false,
+  "scope": "Own integer primitive/reflection/QFT count formulas, exact profile decomposition, unchanged financial priors and canonical/half-alpha plans, all pool minima. Actual financial primitive correctness reuses retained earlier independent audits.",
+  "independent_checker_sha256": "3d6d8ee7d9f6e74fc4f0a7c72ee29cfab0b0412b3709906e73be5db675e0688b"
+}

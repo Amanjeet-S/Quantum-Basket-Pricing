@@ -1,0 +1,88 @@
+{
+  "schema": "qbp-independent-pricing-precision-figure-audit-v1",
+  "status": "passed",
+  "exact_cells_checked": 64,
+  "admitted_cells": 52,
+  "rejected_cells": 12,
+  "exact_winners": 4,
+  "native_coordinates_checked": 64,
+  "shared_colour_upper_ratio": 2.25,
+  "facts": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "minimum_T": 23789339125,
+      "event_T": 20855422300,
+      "event_to_minimum_exact": "834216892/951573565",
+      "admitted_cells": 16,
+      "rejected_cells": 0,
+      "exact_winner": [
+        10,
+        10
+      ]
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "minimum_T": 88203283550,
+      "event_T": 83560988725,
+      "event_to_minimum_exact": "3342439549/3528131342",
+      "admitted_cells": 12,
+      "rejected_cells": 4,
+      "exact_winner": [
+        10,
+        10
+      ]
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "minimum_T": 95203161050,
+      "event_T": 89247538825,
+      "event_to_minimum_exact": "3569901553/3808126442",
+      "admitted_cells": 12,
+      "rejected_cells": 4,
+      "exact_winner": [
+        10,
+        10
+      ]
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "minimum_T": 209495066950,
+      "event_T": 203322773325,
+      "event_to_minimum_exact": "8132910933/8379802678",
+      "admitted_cells": 12,
+      "rejected_cells": 4,
+      "exact_winner": [
+        10,
+        10
+      ]
+    }
+  ],
+  "plot_data_sha256": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+  "baseline_resource_sha256": "51763571fb159323e19148b7c8ca4f87f8863ef73234d728486c75a8da123af3",
+  "source_sha256": "8d1529c37ccdc054d6c1a0aaf7ee3bff0e9e67ca3999aae4b43a26d3c53f66c2",
+  "precision_plot_source_sha256": "a576dfd3b2acc4ccfa9557932047855cd81d71fa8445193acbf1dd332c09d35a",
+  "dispersion_plot_source_sha256": "6897d28009452fb8ae7a5344b4683cafe228124f02639a369cc34ffa349e0941",
+  "final_figure_artifact_sha256": {
+    "dispersion_separation.png": "b18333fbb6c22a41c876033ff005964b76a264de2b654a06656278633cb267d9",
+    "dispersion_separation.svg": "801accad9dd82d1900bd0f191fdf1876228a02e03df4f7bc00c1f6974da818e1",
+    "dispersion_separation_figure.tex": "d2a1dbadd374be70803310f07122ab79b8c02fdae08a3a44894d7543b7ffe7e3",
+    "dispersion_separation_coordinates.json": "567912b2c0e70d3fb96be88cc0b3b95ede539d519e12e1c95e0060640fefb48a",
+    "dispersion_separation_plot_data.json": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+    "dispersion_separation_render_record.json": "56a2abdcc06794f104ca59d0e1d4e0bf32db74f7c35e1bc96b160957d73765bf",
+    "pricing_precision.png": "c69be207417dac8d5a48a7696d9dadff4635440491878e14bea85e7b261facbe",
+    "pricing_precision.svg": "68c97cf5342e9869343d0cc596b198b9eb02390663fb14ccdab52f2c86d865d5",
+    "pricing_precision_figure.tex": "d3121c92094388290b16607ea46ee7afa15a68abc7680fec78de0e52ff8015bd",
+    "pricing_precision_coordinates.json": "87411bc3da2db740fcc2b88bba04a1c94d29f2d4a354b7ef4e9207ec17c18bb9",
+    "pricing_precision_plot_data.json": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+    "pricing_precision_render_record.json": "ba22f63c38ddf5842ee4c7485cea9df55a93b7848b835e1142043879d3a27c87"
+  },
+  "figure1_numerical_data_exactly_preserved": true,
+  "visual_review": {
+    "surface": "Final exported PNGs inspected directly; native PDF layout remains outside this check.",
+    "pricing_precision": "All Event/min footers now fully visible; all 64 cells and grey rejects readable; contrasting winner outlines clear; axes and colour legend legible.",
+    "dispersion_separation": "Colour/marker/legend distinctions are clear; both panels have a specific certificate-comparison purpose; axes and titles fit without clipping.",
+    "3D_disposition": "Rejected for this discrete precision pool because a surface would occlude cells or interpolate untested widths."
+  },
+  "figure_choice": "A colour 2D discrete four-panel heatmap is justified by the complete registered rival pool and cost cliffs. A 3D surface would hide discrete cells and imply untested interpolation. Rounded labels accompany exact retained ratios; grey denotes failed monetary certificates, not missing cost observations. No cost confidence intervals are appropriate for deterministic ideal-logical caps.",
+  "scope": "Exact data, admission, axis-coordinate and comparator mapping. Final exported PNGs have been visually reviewed, but this does not assert visual review of a native compiled PDF or infer theoretical priority/physical speed-up."
+}

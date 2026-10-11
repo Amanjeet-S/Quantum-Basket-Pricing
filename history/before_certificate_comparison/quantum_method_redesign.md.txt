@@ -1,0 +1,15 @@
+# 1 Current pricing development
+
+I develop the quantum numerical pricing method under the unchanged classical no-arbitrage GBM model. The construction uses conditional Gaussian controls, payoff-boundary curvature and positive or signed coherent corrections. It does not posit quantum asset dynamics.
+
+# 2 Complete financial certificates
+
+The positive Gaussian transport-MGF theorem completes all 36 frozen capped and ordinary-call targets, including the 24 formerly unsupported four- and eight-asset cases. The exact rounded nodes, full Gaussian tails, covariance shifts, raw masses and arithmetic/statistical allowances are retained. The main paper contains the essential derivation; expanded proofs and every failed global bound remain indexed.
+
+# 3 Fully informed comparison
+
+The first correction receives coefficient-informed probability intervals and the same shared low-order continuous price screen. Eighteen cases stop analytically. In the remaining 18, ten favour a second correction. The boundary method beats raw R2 by about 3.18 per cent in the eight-asset ordinary-call case at common scale 0.05; raw R2 wins the other active second-correction cases. The stable opponent is implemented and loses; the exact integer simplifier has no production effect.
+
+# 4 Contribution status
+
+The work supplies a mathematically complete project-specific certificate and original conditional computational evidence. Literature originality remains unestablished. The close antecedents and unresolved guarantee/cost comparison are specified in novelty_scope_review.md. Strong classical methods resolve all 36 prices; practical quantum advantage is not demonstrated. No new commit is created, and the prior documentation remains preserved in the phase snapshot.

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "payoff_records": 180,
+  "coordinates": 660,
+  "independently_reconstructed_block_records": 157476,
+  "reconstructed_component_values": 2047188,
+  "exact_canonical_semantic_hash_matches": 840,
+  "compressed_original_byte_recovery_claim": false,
+  "scope": "Own FTC, centred-first and Peano envelope formulas recover every omitted string exactly at original512-bit Arb precision; all aggregate coordinate sums recover exactly.",
+  "streaming_reader_audit": {
+    "small_chunk_nested_and_escaped_checks": 8,
+    "stress_entries": 80,
+    "maximum_stress_buffer_characters": 5119,
+    "largest_payload_characters": 4096,
+    "status": "passed"
+  },
+  "original_preservation_audit": {
+    "status": "passed",
+    "original_records_checked": 180,
+    "raw_geometry_records_checked": 15,
+    "other_top_level_fields_checked": 12,
+    "original_archive_sha256": "0f4fb697e8fb25b959c65eec67731d68677570e1f5a7a1be553c9d0457be0c9d",
+    "retention": "Only records[*].coordinates[*].blocks removed; every other original field compared literally."
+  },
+  "source_sha256": "793c4c1c410fff6166006c8a95379226eebacee2610f8627d8d565753b618635",
+  "helper_source_sha256": "7ec7af2f23689bd50ff1355f13fb4a89929a7d06ce063dffcdcc9d68bbef32f6",
+  "compact_sha256": "e74376713977a260315032c2776b60f4dfc1afe0753967b07e9133d069898a51"
+}

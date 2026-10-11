@@ -1,0 +1,62 @@
+\section{Continuous ordinary-call Taylor competitor}
+\label{sec:ordinary-call-taylor-competitor}
+The following argument is a finite Taylor application to the stipulated Gaussian model. It is included as a strong classical comparator and carries no claim of generic theoretical priority. Let $w_i>0$, $\sum_iw_i=1$, and retain exactly the project's frozen risk-neutral Gaussian exposures. Write $m(Y)=m_G+R_G\cdot Y$ and
+\[
+ T(Y)=\sum_iw_i\exp(d_i+s_i\cdot Y),\qquad U(Y)=T(Y)-1.
+\]
+The exact centring conditions $\sum_iw_id_i=0$ and $\sum_iw_is_i=0$ imply $T(Y)\geq1$ by Jensen's inequality, and hence $U(Y)\geq0$. The ordinary basket call, conditional on $Y$, equals $g_{m(Y)}(T(Y))$, where
+\[
+ P_{\lambda}(x)=K\bigl[e^{x+\lambda^2/2}\Phi(x/\lambda+\lambda)-\Phi(x/\lambda)\bigr],
+ \qquad g_m(t)=P_{\lambda}(m+\log t).
+\]
+For $r\geq2$, define
+\[
+ C_{r,\lambda}(x)=\prod_{j=1}^{r-1}(D-j)D P_{\lambda}(x),\qquad D=\frac{d}{dx}.
+\]
+The operator convention gives $C_2=P''-P'$ and $C_{r+1}=(D-r)C_r$. Direct differentiation yields
+\[
+ C_{2,\lambda}(x)=\frac K\lambda\phi(x/\lambda),\qquad
+ g_m^{(r)}(t)=t^{-r}C_{r,\lambda}(m+\log t).
+\]
+Writing $z=x/\lambda$, the polynomial representation $C_{r,\lambda}(x)=(K/\lambda)B_{r,\lambda}(z)\phi(z)$ follows from
+\[
+ B_{2,\lambda}=1,\qquad
+ B_{r+1,\lambda}=\lambda^{-1}(B'_{r,\lambda}-zB_{r,\lambda})-rB_{r,\lambda}.
+\]
+Every $M_r\geq\sup_x|C_{r,\lambda}(x)|$ is finite, because a polynomial times a Gaussian density tends to zero at both ends. The existing outward polynomial-root certificates provide such $M_r$ through $r=6$.
+
+For an integer $k\geq1$, finite Taylor's theorem with integral remainder gives
+\[
+ g_m(1+U)=\sum_{r=0}^{k}\frac{C_{r,\lambda}(m)}{r!}U^r+
+ \frac{U^{k+1}}{k!}\int_0^1(1-z)^k g_m^{(k+1)}(1+zU)\,dz,
+\]
+with $C_{0,\lambda}=P_\lambda$ and $C_{1,\lambda}=P'_\lambda$. Since $1+zU\geq1$, the expectation of the remainder has absolute value at most
+\[
+ \frac{M_{k+1}}{(k+1)!}\mathbb E[U^{k+1}].
+\]
+This is a finite-order result: neither convergence of an infinite lognormal Taylor series nor an asymptotic approximation is required. For $k=1$, $C_2\geq0$, so the remainder is nonnegative and the stronger interval $[c_0+c_1,c_0+c_1+M_2\mathbb E[U^2]/2]$ is valid.
+
+All coefficients and all remainder moments are obtained from finite Gaussian sums. For a multi-index $\alpha\in\mathbb N_0^n$ with $|\alpha|=j$, put
+\[
+ q_\alpha=\frac{j!}{\prod_i\alpha_i!}\prod_iw_i^{\alpha_i},\quad
+ v_\alpha=\sum_i\alpha_i s_i,\quad
+ a_\alpha=\sum_i\alpha_i d_i,\quad
+ \sigma^2=\lambda^2+\|R_G\|^2.
+\]
+Gaussian exponential tilting and convolution imply
+\[
+ \mathbb E[e^{v_\alpha\cdot Y}C_{r,\lambda}(m_G+R_G\cdot Y)]
+ =e^{\|v_\alpha\|^2/2}C_{r,\sigma}(m_G+R_G\cdot v_\alpha).
+\]
+For $r\geq2$, differentiating under the Gaussian integral is justified by the bounded Gaussian derivative kernels. For $r=0,1$, the lognormal growth is integrable under each finite Gaussian tilt, which supplies a dominating integrable exponential. Thus
+\[
+ c_r=\frac1{r!}\sum_{j=0}^{r}(-1)^{r-j}{r\choose j}
+ \sum_{|\alpha|=j}q_\alpha e^{a_\alpha+\|v_\alpha\|^2/2}
+ C_{r,\sigma}(m_G+R_G\cdot v_\alpha),
+\]
+where $c_0=P_\sigma(m_G)$. Likewise,
+\[
+ \mathbb E[U^r]=\sum_{j=0}^{r}(-1)^{r-j}{r\choose j}
+ \sum_{|\alpha|=j}q_\alpha e^{a_\alpha+\|v_\alpha\|^2/2}.
+\]
+The covariance shift $R_G\cdot v_\alpha$ is essential and is retained exactly. All alternating sums use outward ball arithmetic. The payoff is unbounded, but has at most linear growth in a finite sum of lognormal assets, so all moments used here are finite. Discounting the resulting intervals uses the exact model rate. No numerical arithmetic-basket price or prepared financial grid is an input.

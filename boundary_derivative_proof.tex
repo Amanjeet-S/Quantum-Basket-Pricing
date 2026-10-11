@@ -1,0 +1,277 @@
+\subsection{Payoff boundaries and falling log-price derivatives}
+\label{sec:payoff-boundary-derivatives}
+
+I use the falling log-price Greek operator already described by
+\citet{carr2001}. I derive its concrete Gaussian boundary kernels and certify
+payoff-specific constants. Neither the operator, Gaussian option pricing nor
+quantum pricing of an unbounded piecewise-affine payoff is presented as a
+new generic result.
+
+Let $\lambda>0$, let $Z$ have the standard normal distribution, and write
+$D=d/dm$. For a reference level $S_{\rm ref}>0$, define
+\[
+ P_F(m)=\mathbb E F(S_{\rm ref}e^{m+\lambda Z}),\qquad
+ C_r(m)=D(D-1)\cdots(D-r+1)P_F(m),\quad r\geq1.
+\]
+The product factors commute because each is a polynomial in $D$.
+If $s=S_{\rm ref}e^m$, repeated differentiation gives
+$D(D-1)\cdots(D-r+1)=s^r\partial_s^r$. For example,
+$D(s^r\partial_s^r)=r s^r\partial_s^r+s^{r+1}\partial_s^{r+1}$,
+which proves the recurrence by induction. Thus $C_1=P_F'$ and
+$C_2=P_F''-P_F'$.
+
+Suppose that $F$ is continuous and piecewise affine with finitely many
+positive kink levels $K_j$. Its representation is
+\[
+ F(s)=a+bs+\sum_j\alpha_j(s-K_j)_+.
+\]
+Every term has at most linear growth, so its price exists absolutely under
+the Gaussian model. Differentiation after Gaussian convolution is justified
+on every compact $m$ interval by a Gaussian density times an exponential
+and a polynomial, all of which are integrable. Equivalently, distributional
+second differentiation gives $F''=\sum_j\alpha_j\delta_{K_j}$, and
+\[
+ C_2(m)=\mathbb E\{S^2F''(S)\}
+ =\sum_j\frac{\alpha_jK_j}{\lambda}
+       \phi\!\left(\frac{m-\log(K_j/S_{\rm ref})}{\lambda}\right).
+\]
+Indeed, the lognormal density at $K_j$ is
+$\phi((\log(K_j/S_{\rm ref})-m)/\lambda)/(\lambda K_j)$,
+and multiplication by $K_j^2$ supplies the displayed coefficient.
+The affine components contribute zero to $C_2$.
+
+For a vanilla call with $S_{\rm ref}=K$,
+\[
+ C_2(m)=\frac K\lambda\phi(m/\lambda)\geq0,
+ \qquad \|C_2\|_\infty=\frac K{\lambda\sqrt{2\pi}}.
+\]
+The maximum occurs at $m=0$. More generally, $\alpha_j\geq0$ makes $C_2$
+nonnegative. If $g_m(t)=P_F(m+\log t)$ for $t>0$, then
+\[
+ g_m''(t)=t^{-2}C_2(m+\log t).
+\]
+Consequently, for any $U\geq0$,
+\[
+ g_m(1+U)-g_m(1)-Ug_m'(1)
+ =U^2\int_0^1(1-z)g_m''(1+zU)\,dz\geq0.
+\]
+On a finite support $0\leq U\leq U_*$, a certified upper norm $M_2$
+gives a bounded positive correction no larger than $M_2U_*^2/2$ before
+amplitude estimation. This concerns the correction on that support. The
+raw payoff can remain unbounded, and the omitted Gaussian tails require
+their own moment certificate. No stochastic asset law is changed by the
+algebraic subtraction of known price coefficients.
+
+\subsection{Sharp second derivative norm for the capped call}
+\label{sec:capped-second-boundary-norm}
+
+For $K,H>0$, let
+\[
+ P(m)=\mathbb E\min\{(Ke^{m+\lambda Z}-K)_+,H\},\quad
+ c=1+H/K,\quad\ell=\log c,\quad a=\ell/\lambda.
+\]
+The two payoff kink weights are $+1$ at $K$ and $-1$ at $K+H$. Therefore
+\[
+ C_2(m)=\frac K\lambda\{\phi(z)-c\phi(z-a)\},\qquad z=m/\lambda.
+\]
+This boundary expression retains cancellation between the two strikes.
+The generic positive threshold-mass envelope $H\overline D_2$ remains
+valid but need not be sharp for this particular cap.
+
+Put $q(z)=\phi(z)-c\phi(z-a)$. Its derivative is
+$q'(z)=-z\phi(z)+c(z-a)\phi(z-a)$. On $0\leq z\leq a$, this derivative
+is strictly negative, including both endpoints. Hence no stationary point
+lies in that interval. Outside it, $z$ and $z-a$ have the same sign and
+$q'(z)=0$ is equivalent to
+\[
+ f(z)=\log\!\left(\frac z{z-a}\right)-az-\ell+a^2/2=0.
+\]
+There is no loss of sign when taking the logarithm: the ratio of the two
+signed terms in the stationary equation is positive. Its derivative obeys
+\[
+ f'(z)=-\frac a{z(z-a)}-a<-a<0
+ \quad\hbox{on }(-\infty,0)\cup(a,\infty).
+\]
+The limits on the negative component are
+$f(-\infty)=+\infty$ and $f(0-)=-\infty$; on the positive component they
+are $f(a+)=+\infty$ and $f(+\infty)=-\infty$. Continuity and strict
+monotonicity establish exactly one root $z_-$ on the first component and
+one root $z_+$ on the second.
+
+At a stationary root,
+$\phi(z)=c(z-a)\phi(z-a)/z$, so
+\[
+ q(z)=-ca\phi(z-a)/z.
+\]
+It follows that $q(z_-)>0$ and $q(z_+)<0$. Moreover, the sign of $q'$
+changes from positive to negative at $z_-$, and from negative to positive
+at $z_+$. Both Gaussian tails tend to zero. Thus
+\[
+ \|C_2\|_\infty
+ =\frac K\lambda\max\{q(z_-),-q(z_+)\}.
+\]
+This proves the global extremum classification; a finite sample of the
+price derivative would not establish it.
+
+I enclose $\ell$ and $a$ with outward Arb arithmetic. Every retained root
+has rational endpoints within its stated component, with a strictly
+positive enclosure of $f$ at its left endpoint and a strictly negative
+enclosure at its right endpoint. The lower endpoint of the enclosure of
+$a$ is a proved decreasing-derivative margin. If an intermediate value
+enclosure is ambiguous, the mean-value inequality with that margin gives
+a smaller enclosing bracket, which I verify again at both endpoints.
+The stationary value is then enclosed on the whole root interval, with
+$\ell$ and $a$ uncertainty retained. A midpoint value provides a lower
+bound on the true global norm. The maximum of the two stationary upper
+bounds supplies its upper bound. I can intersect this upper bound with
+other independently valid global bounds without weakening the guarantee.
+
+\subsection{Unique global peak of the capped log-price slope}
+\label{sec:capped-first-boundary-norm}
+
+The positive first derivative can be written as
+\[
+ C_1(m)=P'(m)=\frac K\lambda\int_0^\ell e^x
+                \phi((m-x)/\lambda)\,dx
+ =Ke^{m+\lambda^2/2}
+   \left\{\Phi((m+\lambda^2)/\lambda)
+       -\Phi((m-\ell+\lambda^2)/\lambda)\right\}.
+\]
+The integral expression follows by differentiating the strike-integral
+price. Completing the square proves the closed form. In particular,
+$C_1(m)>0$ for every finite $m$.
+
+Normalise the integral density on $[0,\ell]$ and call its random variable
+$X$. Its density is proportional to
+$\exp\{-(x-(m+\lambda^2))^2/(2\lambda^2)\}$ on that interval.
+Differentiation of its normalising constant gives
+\[
+ \frac{d}{dm}\log C_1(m)=\frac{\mathbb E_m X-m}{\lambda^2},\qquad
+ \frac{d^2}{dm^2}\log C_1(m)
+ =-\frac1{\lambda^2}+\frac{\operatorname{Var}_m(X)}{\lambda^4}.
+\]
+The second identity follows by differentiating the tilted mean; the
+exponential-family parameter is $m/\lambda^2$, so its derivative is
+$\operatorname{Var}_m(X)/\lambda^2$.
+
+For completeness, let $p_m$ be this normalised truncated-normal density,
+let $\bar x=\mathbb E_m X$, and let $\mu=m+\lambda^2$. Since
+$p_m'(x)=-(x-\mu)p_m(x)/\lambda^2$, integration by parts yields
+\[
+ -\frac{\operatorname{Var}_m(X)}{\lambda^2}
+ =\int_0^\ell(x-\bar x)p_m'(x)\,dx
+ =(\ell-\bar x)p_m(\ell)+\bar x p_m(0)-1.
+\]
+Both endpoint densities are positive and $0<\bar x<\ell$. Therefore
+$\operatorname{Var}_m(X)<\lambda^2$, proving strict log-concavity.
+At $m=0$ the logarithmic derivative is positive; at $m=\ell$ it is
+negative. It consequently has exactly one zero $m_*\in(0,\ell)$.
+Because its sign remains positive before that zero and negative after
+it, $C_1(m_*)$ is the unique global maximum. Its Gaussian convolution
+also tends to zero in both tails.
+
+A rational root bracket with outward signs of
+$P''/P'=(C_1+C_2)/C_1$ therefore encloses the peak. A useful explicit
+monotonicity margin follows from the same integration-by-parts identity.
+For $m\in[0,\ell_+]$, where $\ell_+$ is a certified upper endpoint,
+both endpoint densities are at least
+\[
+ d_{\min}=\frac1{\lambda\sqrt{2\pi}}
+       \exp\!\left\{-\frac{(\ell_++\lambda^2)^2}{2\lambda^2}\right\}.
+\]
+The truncation probability is at most one, so normalising cannot lower
+this density bound. If $\ell_->0$ is a certified lower endpoint, then
+\[
+ \frac{d^2}{dm^2}\log C_1(m)
+ \leq-\frac{\ell_-d_{\min}}{\lambda^2}<0.
+\]
+I retain an outward lower enclosure of this positive margin and verify
+the final bracket signs. The peak enclosure can also be intersected with
+$H/(\lambda\sqrt{2\pi})$ and $K+H$, both valid independently.
+
+\subsection{Higher boundary derivatives and shared scalar bounds}
+\label{sec:higher-boundary-derivatives}
+
+For $r\geq2$, the recurrence is $C_{r+1}=(D-r)C_r$. Define
+\[
+ B_2(z)=1,\qquad
+ B_{r+1}(z)=\lambda^{-1}\{B_r'(z)-zB_r(z)\}-rB_r(z).
+\]
+A single call boundary satisfies
+\[
+ C_r(m)=\frac K\lambda B_r(m/\lambda)\phi(m/\lambda).
+\]
+The capped boundary has the difference of this expression and its
+$c$-weighted translate by $a$. Thus, with
+$N_r=\|B_r\phi\|_\infty$, the following bounds are valid:
+\[
+ M_r^{\rm vanilla}=\frac K\lambda N_r,\qquad
+ M_r^{\rm cap}\leq
+ \min\left\{H\overline D_r,\frac{2K+H}{\lambda}N_r\right\}.
+\]
+For $r=2$ I replace the latter triangle bound by the sharper two-root
+certificate. For $r=3,\ldots,6$, I isolate every real root of
+$B_r'-zB_r$ with the previously checked exact rational Sturm routine,
+and evaluate every stationary interval with outward Arb arithmetic.
+Polynomial times Gaussian tails vanish, so these intervals exhaust the
+possible nonzero extrema. Rational coefficients are available because
+$\lambda$ is rational in the frozen family. This is a certified finite
+application of established polynomial root isolation.
+
+The same constants are supplied to every financial competitor. Useful
+scalar bounds follow from $DC_2=C_3+2C_2$ and
+$D^2C_2=C_4+5C_3+4C_2$. In particular, for
+$h(m)=(1+C_2(m)/M_2)/2$,
+\[
+ \|h'\|_\infty\leq\frac{M_3+2M_2}{2M_2},\qquad
+ \|h''\|_\infty\leq\frac{M_4+5M_3+4M_2}{2M_2}.
+\]
+For the capped-price scalar, $\|P'\|_\infty\leq M_1$ and
+$\|P''\|_\infty\leq M_1+M_2$. For its first derivative,
+$\|P'''\|_\infty\leq M_1+3M_2+M_3$.
+Finally,
+\[
+ g_m^{(r)}(t)=t^{-r}C_r(m+\log t),\qquad t\geq1,
+\]
+so $M_6$ is a sixth derivative bound for the stable two-node Gaussian
+quadrature in the ratio variable, with no additional cap multiplier.
+A vanilla first log-price derivative is globally unbounded; its scalar
+tables require a finite-domain bound such as
+$Ke^{m_++\lambda^2/2}$ on $m\leq m_+$. The underlying Gaussian price
+still exists because every lognormal moment is finite.
+
+For scalar interpolation I also retain the independently valid
+strike-integral inequalities
+$\|P''\|_\infty\leq H\|\phi'\|_\infty/\lambda^2$ and
+$\|P'''\|_\infty\leq H\|\phi''\|_\infty/\lambda^3$.
+The boundary representation gives
+\[
+ \|C_2'\|_\infty\leq
+ \frac{2K+H}{\lambda^2}\|\phi'\|_\infty,\qquad
+ \|C_2''\|_\infty\leq
+ \frac{2K+H}{\lambda^3}\|\phi''\|_\infty.
+\]
+Its strike-integral representation supplies two further bounds,
+\[
+ \|C_2'\|_\infty\leq
+ H\left(\frac{\|\phi'\|_\infty}{\lambda^2}
+       +\frac{\|\phi''\|_\infty}{\lambda^3}\right),\qquad
+ \|C_2''\|_\infty\leq
+ H\left(\frac{\|\phi''\|_\infty}{\lambda^3}
+       +\frac{\|\phi'''\|_\infty}{\lambda^4}\right).
+\]
+Taking the minimum of these proved envelopes and the falling-Greek sum
+bounds is valid. The record identifies each bound's origin; every method
+can use the same improvement.
+
+For a vanilla first remainder, the useful ratio derivative remains bounded
+on a finite outer support even though $P'$ is globally unbounded. In fact,
+\[
+ g_m'(t)=t^{-1}P'(m+\log t)
+ \leq t^{-1}Ke^{m+\log t+\lambda^2/2}
+ =Ke^{m+\lambda^2/2}.
+\]
+Therefore $g_m(1+U)-g_m(1)\leq
+Ke^{m+\lambda^2/2}U$. This bound justifies a first-remainder normaliser
+based on the finite geometric-level maximum, rather than incorrectly
+postulating a global vanilla log-price slope norm.

@@ -1,0 +1,1876 @@
+{
+  "status": "independent positive-integral synthetic diagnostics; no confidence or advantage claim",
+  "protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "script_sha256": "1a3ef43efbc15e37a55e7573591d98cee40651cf8025ca01df423a1a49bdaf89",
+  "model_checks": [
+    {
+      "model_id": "n2_lambda0.05",
+      "assets": 2,
+      "outer_dimension": 1,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.0125,
+        0.018
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.004451138856767781,
+        0.05054886114323222
+      ],
+      "condition_number_diagnostic": 11.356388279456766,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 0.0,
+      "geometric_outer_variance": 0.0025,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          25.25
+        ],
+        "10": [
+          27.5
+        ],
+        "25": [
+          31.25
+        ]
+      }
+    },
+    {
+      "model_id": "n2_lambda0.2",
+      "assets": 2,
+      "outer_dimension": 1,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.05,
+        0.072
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.04000000000000001,
+        0.09
+      ],
+      "condition_number_diagnostic": 2.2499999999999996,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 0.0,
+      "geometric_outer_variance": 0.0025,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          25.25
+        ],
+        "10": [
+          27.5
+        ],
+        "25": [
+          31.25
+        ]
+      }
+    },
+    {
+      "model_id": "n2_lambda0.4",
+      "assets": 2,
+      "outer_dimension": 1,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.17,
+        0.08470588235294117
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.04419872159671277,
+        0.3258012784032872
+      ],
+      "condition_number_diagnostic": 7.37128284786224,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 0.0,
+      "geometric_outer_variance": 0.0025,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          25.25
+        ],
+        "10": [
+          27.5
+        ],
+        "25": [
+          31.25
+        ]
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05",
+      "assets": 4,
+      "outer_dimension": 3,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.026607142857142857,
+        0.025455417066155322,
+        0.023698547215496368,
+        0.020689655172413793
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.009999999999999995,
+        0.03214285714285714,
+        0.03214285714285714,
+        0.03214285714285714
+      ],
+      "condition_number_diagnostic": 3.2142857142857157,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 9.304931097066638e-72,
+      "geometric_outer_variance": 0.0016071428571428571,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          14.084495655050729,
+          17.00261902094582,
+          18.818087803266
+        ],
+        "10": [
+          15.339549723322575,
+          18.51770388419842,
+          20.49494711246792
+        ],
+        "25": [
+          17.431306503775655,
+          21.042845322952747,
+          23.289712627804455
+        ]
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2",
+      "assets": 4,
+      "outer_dimension": 3,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.06410714285714286,
+        0.048169518503780345,
+        0.04283722782793415,
+        0.0401673640167364
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.03214285714285714,
+        0.03214285714285715,
+        0.03214285714285716,
+        0.16000000000000003
+      ],
+      "condition_number_diagnostic": 4.97777777777778,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 9.304931097066638e-72,
+      "geometric_outer_variance": 0.0016071428571428571,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          14.084495655050729,
+          17.00261902094582,
+          18.818087803266
+        ],
+        "10": [
+          15.339549723322575,
+          18.51770388419842,
+          20.49494711246792
+        ],
+        "25": [
+          17.431306503775655,
+          21.042845322952747,
+          23.289712627804455
+        ]
+      }
+    },
+    {
+      "model_id": "n4_lambda0.4",
+      "assets": 4,
+      "outer_dimension": 3,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.18410714285714286,
+        0.05867396425107385,
+        0.04667716714741157,
+        0.04215148188803513
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.0321428571428571,
+        0.03214285714285714,
+        0.03214285714285718,
+        0.6400000000000001
+      ],
+      "condition_number_diagnostic": 19.911111111111143,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 9.304931097066638e-72,
+      "geometric_outer_variance": 0.0016071428571428571,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          14.084495655050729,
+          17.00261902094582,
+          18.818087803266
+        ],
+        "10": [
+          15.339549723322575,
+          18.51770388419842,
+          20.49494711246792
+        ],
+        "25": [
+          17.431306503775655,
+          21.042845322952747,
+          23.289712627804455
+        ]
+      }
+    },
+    {
+      "model_id": "n8_lambda0.05",
+      "assets": 8,
+      "outer_dimension": 7,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.02647990255785627,
+        0.02644754136752922,
+        0.02641283561050545,
+        0.026375520914279107,
+        0.026335291606631173,
+        0.026291792323174426,
+        0.026244607481699045,
+        0.02619324796274738
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.019999999999999987,
+        0.027405602923264303,
+        0.027405602923264306,
+        0.02740560292326431,
+        0.02740560292326431,
+        0.02740560292326431,
+        0.027405602923264317,
+        0.027405602923264334
+      ],
+      "condition_number_diagnostic": 1.3702801461632177,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 2.014474528599889e-71,
+      "geometric_outer_variance": 0.0014799025578562728,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          13.005251094432303,
+          15.017170440498331,
+          16.1694496484456,
+          16.5626484048691,
+          16.728653487446174,
+          16.87307191003538,
+          17.159643495306874
+        ],
+        "10": [
+          14.164134855322311,
+          16.355334143116995,
+          17.61029169632689,
+          18.03852796569902,
+          18.219325580386922,
+          18.37661297132566,
+          18.68872063845303
+        ],
+        "25": [
+          16.095607790138992,
+          18.585606980814767,
+          20.011695109462377,
+          20.49832723374889,
+          20.703779068621504,
+          20.882514740142796,
+          21.237182543696626
+        ]
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2",
+      "assets": 8,
+      "outer_dimension": 7,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.06397990255785627,
+        0.04307209650811642,
+        0.03737376647215074,
+        0.034715102550456095,
+        0.033176037968340524,
+        0.03217236415288313,
+        0.03146610543617142,
+        0.030942123188327942
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.027405602923264282,
+        0.027405602923264293,
+        0.027405602923264303,
+        0.027405602923264306,
+        0.02740560292326431,
+        0.027405602923264313,
+        0.02740560292326433,
+        0.3199999999999999
+      ],
+      "condition_number_diagnostic": 11.676444444444453,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 2.014474528599889e-71,
+      "geometric_outer_variance": 0.0014799025578562728,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          13.005251094432303,
+          15.017170440498331,
+          16.1694496484456,
+          16.5626484048691,
+          16.728653487446174,
+          16.87307191003538,
+          17.159643495306874
+        ],
+        "10": [
+          14.164134855322311,
+          16.355334143116995,
+          17.61029169632689,
+          18.03852796569902,
+          18.219325580386922,
+          18.37661297132566,
+          18.68872063845303
+        ],
+        "25": [
+          16.095607790138992,
+          18.585606980814767,
+          20.011695109462377,
+          20.49832723374889,
+          20.703779068621504,
+          20.882514740142796,
+          21.237182543696626
+        ]
+      }
+    },
+    {
+      "model_id": "n8_lambda0.4",
+      "assets": 8,
+      "outer_dimension": 7,
+      "exact_positive_weights_and_unit_sum": true,
+      "exact_covariance_factor_identity": true,
+      "exact_risk_neutral_drift_identity": true,
+      "exact_rational_LDL_positive_pivots": true,
+      "LDL_pivots_decimal_diagnostic": [
+        0.18397990255785626,
+        0.05072887369423582,
+        0.04000569141475493,
+        0.03603720032313891,
+        0.03396976797530239,
+        0.03270133826857831,
+        0.03184373382996867,
+        0.031225181808078973
+      ],
+      "covariance_eigenvalues_diagnostic": [
+        0.02740560292326407,
+        0.02740560292326428,
+        0.0274056029232643,
+        0.0274056029232643,
+        0.0274056029232643,
+        0.0274056029232643,
+        0.0274056029232643,
+        1.2799999999999996
+      ],
+      "condition_number_diagnostic": 46.705777777778174,
+      "weighted_residual_dispersion": 0.0225,
+      "dispersion_misfit_from_0.0225": 2.014474528599889e-71,
+      "geometric_outer_variance": 0.0014799025578562728,
+      "outer_price_Lipschitz_constants": {
+        "1": [
+          13.005251094432303,
+          15.017170440498331,
+          16.1694496484456,
+          16.5626484048691,
+          16.728653487446174,
+          16.87307191003538,
+          17.159643495306874
+        ],
+        "10": [
+          14.164134855322311,
+          16.355334143116995,
+          17.61029169632689,
+          18.03852796569902,
+          18.219325580386922,
+          18.37661297132566,
+          18.68872063845303
+        ],
+        "25": [
+          16.095607790138992,
+          18.585606980814767,
+          20.011695109462377,
+          20.49832723374889,
+          20.703779068621504,
+          20.882514740142796,
+          21.237182543696626
+        ]
+      }
+    }
+  ],
+  "configurations": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "model_id": "n2_lambda0.05",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4508922622980998,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.4845506100827951,
+          0.48458134182157775,
+          0.4845766975077246,
+          0.4846375493496069,
+          0.4845816246191596,
+          0.4846185229203471,
+          0.4845943054268483,
+          0.4845533492056232
+        ],
+        "mean": 0.4845867501167103,
+        "replicate_sample_standard_deviation": 2.98219815063308e-05,
+        "replicate_standard_error_diagnostic": 1.054366267577316e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.48481797202262794,
+          0.48455519204091313,
+          0.48432682781312875,
+          0.4848378390468438,
+          0.4846548747814607,
+          0.4844918213405925,
+          0.4843288456402513,
+          0.4852542717753455
+        ],
+        "mean": 0.4846584555576454,
+        "replicate_sample_standard_deviation": 0.0003093042193579889,
+        "replicate_standard_error_diagnostic": 0.00010935555547882267
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.02735810968814098,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.028827189055505e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.12889862017482337
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          0.4845795687674092,
+          0.4845795687712803
+        ],
+        "refinement_difference": 3.8710701311117646e-12,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "model_id": "n2_lambda0.05",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 2.4636605528313567,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          2.782376302149971,
+          2.7824879164917435,
+          2.782472344853893,
+          2.782720358187942,
+          2.7824888680747786,
+          2.782628848991585,
+          2.7825326159378907,
+          2.7823896539208497
+        ],
+        "mean": 2.7825121135760815,
+        "replicate_sample_standard_deviation": 0.00011561131713562154,
+        "replicate_standard_error_diagnostic": 4.0874773164253244e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          2.7758257618095117,
+          2.785802976046334,
+          2.7920907926366247,
+          2.785329038825999,
+          2.7799378769831122,
+          2.785628667177608,
+          2.7784828039985423,
+          2.7951900371846556
+        ],
+        "mean": 2.7847859943327986,
+        "replicate_sample_standard_deviation": 0.006624237418871684,
+        "replicate_standard_error_diagnostic": 0.00234202159953692
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.40212920330609275,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 4.440892098500626e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.67323965583455e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.37096891530101483
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          2.7824845338882773,
+          2.7824845339410316
+        ],
+        "refinement_difference": 5.275424541650864e-11,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "model_id": "n2_lambda0.05",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 2.754964015781308,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.3296163704158346,
+          3.329879559411589,
+          3.3299492567228883,
+          3.3296110473695366,
+          3.3298753583851797,
+          3.329570373508384,
+          3.3297061623110285,
+          3.3300525590898946
+        ],
+        "mean": 3.3297825859017918,
+        "replicate_sample_standard_deviation": 0.00017992180886507967,
+        "replicate_standard_error_diagnostic": 6.361196556592386e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.310363947206226,
+          3.344120692677418,
+          3.3620397314158117,
+          3.328115409438716,
+          3.308648216650883,
+          3.3522561679876652,
+          3.31995567891018,
+          3.342255115888044
+        ],
+        "mean": 3.3334693700218683,
+        "replicate_sample_standard_deviation": 0.019716143828524685,
+        "replicate_standard_error_diagnostic": 0.006970709499999552
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 1.1458504184880043,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 8.881784197001252e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.595524044110789e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.411298236263514
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          3.3299032505978876,
+          3.32990325093774
+        ],
+        "refinement_difference": 3.398525905140559e-10,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "model_id": "n2_lambda0.2",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4469775843212662,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.46721268105550917,
+          0.4672318972173212,
+          0.46722961002923363,
+          0.4672594683502293,
+          0.46723203822476395,
+          0.4672508958838102,
+          0.4672385269951695,
+          0.46721822491042286
+        ],
+        "mean": 0.46723416783330746,
+        "replicate_sample_standard_deviation": 1.551620829976485e-05,
+        "replicate_standard_error_diagnostic": 5.4858080535333575e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.46718732062360513,
+          0.4675315290317658,
+          0.4673182347072875,
+          0.4671579066766852,
+          0.4670222855137823,
+          0.4675561150522106,
+          0.46685531106275513,
+          0.46742045705384466
+        ],
+        "mean": 0.46725614496524204,
+        "replicate_sample_standard_deviation": 0.00024681330349060274,
+        "replicate_standard_error_diagnostic": 8.726168029262928e-05
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.02611170084003775,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.9053148775659565e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.005263903297867368
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          0.4672311582564961,
+          0.4672311582564961
+        ],
+        "refinement_difference": 0.0,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "model_id": "n2_lambda0.2",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.665713526083775,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.8594036180573585,
+          3.859461613664924,
+          3.8594539481641856,
+          3.8596395180520213,
+          3.8594621327269194,
+          3.8595714149915574,
+          3.8594913525589876,
+          3.8594380054894164
+        ],
+        "mean": 3.8594902004631715,
+        "replicate_sample_standard_deviation": 7.749002664069606e-05,
+        "replicate_standard_error_diagnostic": 2.7396861655981202e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.8584955440068365,
+          3.862489765871972,
+          3.8614183002069864,
+          3.85856519496848,
+          3.8568189989300468,
+          3.8631504088679085,
+          3.8558371184764146,
+          3.86130175498176
+        ],
+        "mean": 3.8597596357888007,
+        "replicate_sample_standard_deviation": 0.0027028650330977243,
+        "replicate_standard_error_diagnostic": 0.0009556070967677014
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.25356818021011646,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.55201978941011e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0017239625162665299
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          3.8594727055149436,
+          3.859472705514943
+        ],
+        "refinement_difference": 4.440892098500626e-16,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "model_id": "n2_lambda0.2",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 6.531038153958359,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          6.946389709320542,
+          6.945934855979853,
+          6.945969993023008,
+          6.946031482107045,
+          6.945932987424026,
+          6.945926131172816,
+          6.945880201359824,
+          6.946317185722168
+        ],
+        "mean": 6.94604781826366,
+        "replicate_sample_standard_deviation": 0.0001944302057655062,
+        "replicate_standard_error_diagnostic": 6.874145848214259e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          6.942387395189537,
+          6.9529702780513,
+          6.953503518341809,
+          6.943156088594783,
+          6.938281593597059,
+          6.955924461403304,
+          6.937925415757896,
+          6.9496139393655465
+        ],
+        "mean": 6.946720336287655,
+        "replicate_sample_standard_deviation": 0.00715345505177553,
+        "replicate_standard_error_diagnostic": 0.002529128288011821
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.5796243871939869,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 8.881784197001252e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 4.6629367034256575e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.033860884373929034
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          6.9460371152975675,
+          6.946037115297567
+        ],
+        "refinement_difference": 8.881784197001252e-16,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "model_id": "n2_lambda0.4",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4140986638679264,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.4247870202779074,
+          0.42477474822553757,
+          0.42477448892998004,
+          0.4247866357955084,
+          0.4247747702871308,
+          0.42478183149811083,
+          0.42477639425834285,
+          0.4247791576002689
+        ],
+        "mean": 0.42477938085909833,
+        "replicate_sample_standard_deviation": 5.24567468459149e-06,
+        "replicate_standard_error_diagnostic": 1.8546260706866232e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.4247508286066324,
+          0.42494474493163725,
+          0.4248423533454198,
+          0.42470772238396814,
+          0.42464481176247015,
+          0.42498802730655283,
+          0.42455774437787513,
+          0.4248430219831516
+        ],
+        "mean": 0.42478490683721337,
+        "replicate_sample_standard_deviation": 0.00014727612138354908,
+        "replicate_standard_error_diagnostic": 5.206997206858032e-05
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.014619395188353129,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.6267182873240813e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0011430154070449156
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          0.4247768872880249,
+          0.4247768872880249
+        ],
+        "refinement_difference": 0.0,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "model_id": "n2_lambda0.4",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.7296911371928108,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.833706356838289,
+          3.833545893040341,
+          3.8335461555792625,
+          3.833645133247514,
+          3.8335459466675577,
+          3.8336011499007707,
+          3.8335554741177886,
+          3.8336138784046425
+        ],
+        "mean": 3.833594998474521,
+        "replicate_sample_standard_deviation": 5.8643839129767564e-05,
+        "replicate_standard_error_diagnostic": 2.0733728161735823e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.8332459404602695,
+          3.8352161304545045,
+          3.834366513956023,
+          3.8328555248143656,
+          3.8321954379719094,
+          3.8357074865564567,
+          3.831430000037283,
+          3.834206094339762
+        ],
+        "mean": 3.8336528910738217,
+        "replicate_sample_standard_deviation": 0.0014806942043811637,
+        "replicate_standard_error_diagnostic": 0.0005235044563907703
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.14290507537714667,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.2586889922293195e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        9.35127166715309e-05
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          3.8335712377617086,
+          3.8335712377617086
+        ],
+        "refinement_difference": 0.0,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "model_id": "n2_lambda0.4",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 7.84090438205391,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          8.08364325123611,
+          8.083107226908899,
+          8.083118012296913,
+          8.08328057234457,
+          8.083106765715211,
+          8.083187330925705,
+          8.083106312687391,
+          8.083360532731417
+        ],
+        "mean": 8.083238750605776,
+        "replicate_sample_standard_deviation": 0.00018886152259986748,
+        "replicate_standard_error_diagnostic": 6.677263166779135e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          8.082180569313646,
+          8.087063000309678,
+          8.085588659592132,
+          8.081350361509736,
+          8.079656332898727,
+          8.08846535841782,
+          8.078146168908725,
+          8.08461688298083
+        ],
+        "mean": 8.083383416741412,
+        "replicate_sample_standard_deviation": 0.0036380936093666546,
+        "replicate_standard_error_diagnostic": 0.001286260330887302
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.3368979094089074,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 4.163336342344337e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0014993849205712426
+      ],
+      "one_dimensional_Gauss_Hermite": {
+        "orders": [
+          48,
+          96
+        ],
+        "prices": [
+          8.083183793564391,
+          8.083183793564391
+        ],
+        "refinement_difference": 0.0,
+        "qualification": "convergence diagnostic, not a directed quadrature error bound"
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "model_id": "n4_lambda0.05",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4486081247682998,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.5102414623339198,
+          0.5103529190265024,
+          0.510302960065594,
+          0.5103870330685197,
+          0.5103544949643207,
+          0.5103758441046492,
+          0.5103202680305731,
+          0.5103134161985416
+        ],
+        "mean": 0.5103310497240776,
+        "replicate_sample_standard_deviation": 4.692049900934017e-05,
+        "replicate_standard_error_diagnostic": 1.6588901513080557e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.5092518175791161,
+          0.510716925343615,
+          0.5100134591565032,
+          0.5107702321198232,
+          0.5100988754645579,
+          0.512333379264406,
+          0.508524992530948,
+          0.5098648823640954
+        ],
+        "mean": 0.5101968204778831,
+        "replicate_sample_standard_deviation": 0.0011342480268422383,
+        "replicate_standard_error_diagnostic": 0.00040101723566380394
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.05432131782452946,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.1835645231126364e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.003916191000910769,
+        0.0021117636926991272,
+        5.3745689916489445e-05
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "model_id": "n4_lambda0.05",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 2.2988907172706994,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          2.788814009667985,
+          2.7889469455386107,
+          2.789029140473828,
+          2.789179367916696,
+          2.788698606295542,
+          2.7888777654234858,
+          2.788860666251842,
+          2.7889406275194357
+        ],
+        "mean": 2.7889183911359283,
+        "replicate_sample_standard_deviation": 0.00014435451612366637,
+        "replicate_standard_error_diagnostic": 5.103702862297365e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          2.7741392671905496,
+          2.7917258713148363,
+          2.795140718985695,
+          2.7984538681860287,
+          2.7771829519893165,
+          2.798630447223022,
+          2.7808710703156603,
+          2.781424835647607
+        ],
+        "mean": 2.787196128856589,
+        "replicate_sample_standard_deviation": 0.00989354009127515,
+        "replicate_standard_error_diagnostic": 0.003497894644240816
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.504245110101369,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 4.440892098500626e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.861977570020827e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.027561955818180404,
+        0.06919611530097629,
+        0.09394987166094228
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "model_id": "n4_lambda0.05",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 2.492275584572279,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.118880223564163,
+          3.116302246147102,
+          3.1177209390353986,
+          3.117125434126019,
+          3.1163774307806524,
+          3.116709904401141,
+          3.117489840281566,
+          3.1173848070167343
+        ],
+        "mean": 3.117248853169097,
+        "replicate_sample_standard_deviation": 0.0008385303926659737,
+        "replicate_standard_error_diagnostic": 0.0002964652634425642
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.0981112932181922,
+          3.119210953352612,
+          3.131606247841984,
+          3.134696600040649,
+          3.096913590818945,
+          3.1204731374450905,
+          3.109564758357223,
+          3.10566943988926
+        ],
+        "mean": 3.114530752620494,
+        "replicate_sample_standard_deviation": 0.014335755273730148,
+        "replicate_standard_error_diagnostic": 0.005068454883742699
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.7769426314720537,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 8.881784197001252e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.46229728115577e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.051731444261185575,
+        0.10936332962508805,
+        0.1376189097006293
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "model_id": "n4_lambda0.2",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.44728048384032854,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.46885828820467296,
+          0.46885151258352803,
+          0.4688426257907739,
+          0.46886073993184674,
+          0.46884630100080443,
+          0.4688574354299759,
+          0.46884818703526815,
+          0.46886069812759124
+        ],
+        "mean": 0.4688532235130577,
+        "replicate_sample_standard_deviation": 7.013090219639903e-06,
+        "replicate_standard_error_diagnostic": 2.4795018256902144e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.46864879768351647,
+          0.46904248443832985,
+          0.4688983630729799,
+          0.4692508163049837,
+          0.4686649681828481,
+          0.4691234469514409,
+          0.46832216917723574,
+          0.4688190613385459
+        ],
+        "mean": 0.4688462633937351,
+        "replicate_sample_standard_deviation": 0.000299758525997837,
+        "replicate_standard_error_diagnostic": 0.00010598064322577726
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.018565606776737253,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.325117958752344e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.00014312154040452193,
+        4.308511894861762e-05,
+        4.632482516804433e-05
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "model_id": "n4_lambda0.2",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.6604266466479936,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.86600019878379,
+          3.8658348526355604,
+          3.8658344170969148,
+          3.865940996232762,
+          3.865794249232996,
+          3.8658970157437467,
+          3.8658623522358577,
+          3.8659488769090427
+        ],
+        "mean": 3.865889119858834,
+        "replicate_sample_standard_deviation": 7.001754959558091e-05,
+        "replicate_standard_error_diagnostic": 2.4754942060550334e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.8635455921623856,
+          3.8675491617468203,
+          3.8667340438425417,
+          3.8698904076551566,
+          3.863636733476136,
+          3.868280547699037,
+          3.861040888470146,
+          3.865225318082289
+        ],
+        "mean": 3.865737836641814,
+        "replicate_sample_standard_deviation": 0.0029161403242688104,
+        "replicate_standard_error_diagnostic": 0.0010310112990910066
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.1794643962968821,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.477773624638303e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0005333664185050247,
+        0.0015944190249602926,
+        0.0030849282988384247
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "model_id": "n4_lambda0.2",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 6.497746139596115,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          6.930480112419458,
+          6.929787834023733,
+          6.930069633587957,
+          6.930066889869183,
+          6.9297342393127375,
+          6.929935405809161,
+          6.930038119222194,
+          6.930108551294299
+        ],
+        "mean": 6.93002759819234,
+        "replicate_sample_standard_deviation": 0.0002289072666853862,
+        "replicate_standard_error_diagnostic": 8.093094026805703e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          6.924055365140877,
+          6.9331112790136835,
+          6.933036899430357,
+          6.939170947154164,
+          6.923956951499398,
+          6.934343799945319,
+          6.9205037468759665,
+          6.927720664500949
+        ],
+        "mean": 6.929487456695089,
+        "replicate_sample_standard_deviation": 0.006403206700074158,
+        "replicate_standard_error_diagnostic": 0.0022638754394807862
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.39133631386660195,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 4.701794509287538e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.003956246181582602,
+        0.009224533520003807,
+        0.013642855229100982
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "model_id": "n4_lambda0.4",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.41429812109315167,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.425186606193826,
+          0.4251776698305745,
+          0.42517707992134807,
+          0.42518268333573744,
+          0.4251755440608692,
+          0.42518064298897273,
+          0.42517805598198866,
+          0.42518294306233556
+        ],
+        "mean": 0.4251801531719565,
+        "replicate_sample_standard_deviation": 3.7286648997229615e-06,
+        "replicate_standard_error_diagnostic": 1.318282117683182e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.4250825456227591,
+          0.4252756161648256,
+          0.4252106424030136,
+          0.425392392326811,
+          0.42507965565765915,
+          0.42529644883034673,
+          0.4249228104395386,
+          0.42516627389267136
+        ],
+        "mean": 0.42517829816720315,
+        "replicate_sample_standard_deviation": 0.0001486271880784315,
+        "replicate_standard_error_diagnostic": 5.2547646279473646e-05
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.009534508801078232,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.6836172173361206e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        6.786661847682743e-05,
+        2.2556125376918343e-05,
+        0.00010643597306505912
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "model_id": "n4_lambda0.4",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.7305174560967522,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.8363262431569627,
+          3.8362246208318758,
+          3.836232142889081,
+          3.83627589918135,
+          3.8362053523663513,
+          3.836254236701369,
+          3.8362374593976125,
+          3.8362792635300873
+        ],
+        "mean": 3.836254402256836,
+        "replicate_sample_standard_deviation": 3.839030378253506e-05,
+        "replicate_standard_error_diagnostic": 1.3573022068221052e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.8352513497190404,
+          3.8371603326635473,
+          3.8366065999592136,
+          3.83834676023354,
+          3.835215641185463,
+          3.8373606794788317,
+          3.833780538605235,
+          3.836072195173442
+        ],
+        "mean": 3.8362242621272893,
+        "replicate_sample_standard_deviation": 0.001452959376268442,
+        "replicate_standard_error_diagnostic": 0.0005136987138739959
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.0929597482981512,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.9934388301455783e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        8.272017875768779e-05,
+        0.00017398617632225297,
+        0.0005272491625374026
+      ]
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "model_id": "n4_lambda0.4",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 7.839048373454796,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          8.085209366939553,
+          8.084919678493286,
+          8.084984696687176,
+          8.085047855726245,
+          8.084879826819995,
+          8.084990963838669,
+          8.084981697342434,
+          8.08505860092603
+        ],
+        "mean": 8.085009085846673,
+        "replicate_sample_standard_deviation": 0.00010031543256025171,
+        "replicate_standard_error_diagnostic": 3.546686131050788e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          8.08249135981201,
+          8.087042091359775,
+          8.086023022834429,
+          8.089984684022275,
+          8.082377413837007,
+          8.087492345971416,
+          8.079350521755838,
+          8.08442474685233
+        ],
+        "mean": 8.084898273305635,
+        "replicate_sample_standard_deviation": 0.003414497325733621,
+        "replicate_standard_error_diagnostic": 0.0012072071066847876
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.21762272534827518,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 4.168887457467463e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.00034655026213525,
+        0.0008768003758386613,
+        0.0017297398337128749
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "model_id": "n8_lambda0.05",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4481978481149409,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.5139585477206802,
+          0.5138261505766817,
+          0.513978504583198,
+          0.513854693868425,
+          0.5139147644272927,
+          0.5139407532250588,
+          0.513996009031378,
+          0.5141237278231817
+        ],
+        "mean": 0.513949143906987,
+        "replicate_sample_standard_deviation": 9.175034912261115e-05,
+        "replicate_standard_error_diagnostic": 3.243864702041577e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.5138883064062738,
+          0.5137267463132509,
+          0.5134481054081008,
+          0.5140248321434839,
+          0.5129453109918128,
+          0.5146565855881443,
+          0.5124571932335253,
+          0.5137747479313056
+        ],
+        "mean": 0.5136152285019873,
+        "replicate_sample_standard_deviation": 0.0006742635366865718,
+        "replicate_standard_error_diagnostic": 0.0002383881595489497
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.04048407028436196,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.1558089474970075e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.001662283624202802,
+        0.0006433687339768811,
+        0.00013529430365557407,
+        1.2394039157927284e-05,
+        7.11166381035942e-06,
+        1.863328755811098e-05,
+        4.7482205710252506e-05
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "model_id": "n8_lambda0.05",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 2.272228826049922,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          2.7754334722865925,
+          2.7749391331039246,
+          2.7755289845532967,
+          2.774839264167744,
+          2.774396640553924,
+          2.7740041287914647,
+          2.7755149844331464,
+          2.776377872762315
+        ],
+        "mean": 2.7751293100815513,
+        "replicate_sample_standard_deviation": 0.0007447952058715215,
+        "replicate_standard_error_diagnostic": 0.00026332487033349175
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          2.776364386278969,
+          2.7723820787608897,
+          2.779165090215926,
+          2.7772694480078166,
+          2.7645592600369535,
+          2.776400268230794,
+          2.7709629331919996,
+          2.764639734160095
+        ],
+        "mean": 2.7727178998604307,
+        "replicate_sample_standard_deviation": 0.005658778297011713,
+        "replicate_standard_error_diagnostic": 0.0020006802535241226
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.39114617566582055,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 4.440892098500626e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.784261958297066e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.04034374998148564,
+        0.046654865028427576,
+        0.05918265787081625,
+        0.04990063088090268,
+        0.03863005271855243,
+        0.033294312715299125,
+        0.0331325861993853
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "model_id": "n8_lambda0.05",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 2.452501377008461,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.069908734087627,
+          3.068748635639624,
+          3.0699819722671657,
+          3.069086596031835,
+          3.068220020494766,
+          3.0678914108775377,
+          3.0693449554893104,
+          3.069500302568077
+        ],
+        "mean": 3.0690853284319926,
+        "replicate_sample_standard_deviation": 0.0007567918547300647,
+        "replicate_standard_error_diagnostic": 0.0002675663262131866
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.0682803519183453,
+          3.0687571973021335,
+          3.0777550054604523,
+          3.0757881155389093,
+          3.059151150372834,
+          3.065044028402818,
+          3.0693428057505674,
+          3.0513331981736806
+        ],
+        "mean": 3.0669314816149673,
+        "replicate_sample_standard_deviation": 0.008568699568189305,
+        "replicate_standard_error_diagnostic": 0.0030294927853084497
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.592103158265413,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 1.3322676295501878e-15,
+      "maximum_per_state_signed_formula_vs_positive_96": 5.1736392947532295e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.060351101441492944,
+        0.06546741932213059,
+        0.08044004734777599,
+        0.06590284233275101,
+        0.05055342372355526,
+        0.043769650051806,
+        0.04353930704031506
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "model_id": "n8_lambda0.2",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.4473236924709259,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.4690580482659137,
+          0.46905809705637147,
+          0.4690538066724587,
+          0.46905856144052704,
+          0.46904870842532476,
+          0.46905050930769276,
+          0.46905713034726676,
+          0.4690614868175703
+        ],
+        "mean": 0.4690557935416407,
+        "replicate_sample_standard_deviation": 4.380497635999583e-06,
+        "replicate_standard_error_diagnostic": 1.548739791693473e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.4689568640992393,
+          0.46919966884843667,
+          0.46910288011870704,
+          0.46926811724204043,
+          0.4689205093247368,
+          0.46912300791929046,
+          0.46880181147093164,
+          0.46896746250580107
+        ],
+        "mean": 0.4690425401911479,
+        "replicate_sample_standard_deviation": 0.00015652899485708377,
+        "replicate_standard_error_diagnostic": 5.5341356857879073e-05
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.013193265053189098,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.896294315490877e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        5.567598074425621e-05,
+        2.072990298642221e-05,
+        2.8998601511732183e-05,
+        5.284222604281037e-05,
+        3.2209832604731094e-05,
+        6.0865095311380344e-05,
+        6.507401674861693e-05
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "model_id": "n8_lambda0.2",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.6596528335782006,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.8662314116837018,
+          3.8661769690614984,
+          3.8661765460144144,
+          3.866185936107571,
+          3.8660764096089424,
+          3.8660950248642205,
+          3.8661809716056617,
+          3.866222176316798
+        ],
+        "mean": 3.866168180657851,
+        "replicate_sample_standard_deviation": 5.5179536766721106e-05,
+        "replicate_standard_error_diagnostic": 1.9508912315240457e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.865251502298026,
+          3.867422249889222,
+          3.866808284746604,
+          3.868208887480338,
+          3.8647225000791674,
+          3.8665849496291496,
+          3.863971748924572,
+          3.864881673045642
+        ],
+        "mean": 3.86598147451159,
+        "replicate_sample_standard_deviation": 0.001485714636033146,
+        "replicate_standard_error_diagnostic": 0.0005252794470235704
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.12751671463207415,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.497202527569243e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0009564722163562929,
+        0.001230968680399084,
+        0.001908184046271508,
+        0.001743151844400989,
+        0.0012977622528058345,
+        0.0012955910293928328,
+        0.0013114999005281432
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "model_id": "n8_lambda0.2",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 6.492916950752796,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          6.925877312713875,
+          6.925556799466345,
+          6.925679265082206,
+          6.925590434045212,
+          6.925338711592077,
+          6.925397605768609,
+          6.925621646491732,
+          6.925689973412193
+        ],
+        "mean": 6.925593968571531,
+        "replicate_sample_standard_deviation": 0.00017014737545487048,
+        "replicate_standard_error_diagnostic": 6.015618149261622e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          6.923668242143218,
+          6.927996703973637,
+          6.927512694571433,
+          6.9300206514323,
+          6.922218132421887,
+          6.925762960392509,
+          6.921697467869214,
+          6.92160864643893
+        ],
+        "mean": 6.9250606874053915,
+        "replicate_sample_standard_deviation": 0.0032287507104816356,
+        "replicate_standard_error_diagnostic": 0.0011415357610712238
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.27857005203926627,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 8.881784197001252e-16,
+      "maximum_per_state_signed_formula_vs_positive_96": 4.54081217071689e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.005465788611843251,
+        0.006234859541165628,
+        0.008419466791012287,
+        0.007173342635667058,
+        0.005435106848752825,
+        0.005028014241419123,
+        0.005041461146582208
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "model_id": "n8_lambda0.4",
+      "cap": 1,
+      "undiscounted_geometric_correction_positive_integral": 0.41432658470558253,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          0.42524160992789733,
+          0.4252368880640502,
+          0.42523563681435955,
+          0.42523740495213536,
+          0.4252344091386632,
+          0.4252364545011171,
+          0.4252384843419026,
+          0.42523887675936145
+        ],
+        "mean": 0.4252374705624359,
+        "replicate_sample_standard_deviation": 2.211994001274556e-06,
+        "replicate_standard_error_diagnostic": 7.820579791226015e-07
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          0.4251817139586986,
+          0.42531811121824453,
+          0.42526614135362156,
+          0.42535279504459933,
+          0.4251786672915912,
+          0.42526333116897064,
+          0.42512051004535284,
+          0.4251878092452242
+        ],
+        "mean": 0.42523363491578786,
+        "replicate_sample_standard_deviation": 7.91818628378365e-05,
+        "replicate_standard_error_diagnostic": 2.7995016079808633e-05
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.006759521082346794,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.4792667918660527e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        4.2313618026363253e-05,
+        2.5788191690816115e-05,
+        6.149978188640442e-05,
+        7.817058881153526e-05,
+        4.834357009381054e-05,
+        8.272629861385308e-05,
+        8.13395791579141e-05
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "model_id": "n8_lambda0.4",
+      "cap": 10,
+      "undiscounted_geometric_correction_positive_integral": 3.730634835579896,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          3.8366410906565322,
+          3.8365863810612995,
+          3.836580058757656,
+          3.8365917497845947,
+          3.8365610021469574,
+          3.83658181197666,
+          3.836603718063694,
+          3.8366079246849374
+        ],
+        "mean": 3.8365942171415415,
+        "replicate_sample_standard_deviation": 2.3905667272950774e-05,
+        "replicate_standard_error_diagnostic": 8.451929718746406e-06
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          3.8360550507117317,
+          3.837361401866821,
+          3.8368963376696383,
+          3.837715804880377,
+          3.8360009741089196,
+          3.836814960792964,
+          3.8354857973570717,
+          3.8360525284031968
+        ],
+        "mean": 3.83654785697384,
+        "replicate_sample_standard_deviation": 0.0007684865230899469,
+        "replicate_standard_error_diagnostic": 0.0002717010158636869
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.06587688271181191,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 2.9427849046470556e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0001263608662277575,
+        0.0001543026907530905,
+        0.0003129678757625532,
+        0.00031449378206934407,
+        0.0002186187286483369,
+        0.00026991171501250896,
+        0.00026720976187083153
+      ]
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "model_id": "n8_lambda0.4",
+      "cap": 25,
+      "undiscounted_geometric_correction_positive_integral": 7.838780541766608,
+      "shifted_Sobol_positive_96": {
+        "replicate_estimates": [
+          8.0851716281861,
+          8.085011522718007,
+          8.085017264729846,
+          8.08502524218642,
+          8.084949206355024,
+          8.085001491502245,
+          8.085059205477938,
+          8.085069602806445
+        ],
+        "mean": 8.085038145495254,
+        "replicate_sample_standard_deviation": 6.526394096613413e-05,
+        "replicate_standard_error_diagnostic": 2.3074287612055977e-05
+      },
+      "plain_MC_positive_96": {
+        "replicate_estimates": [
+          8.083790009313134,
+          8.08677023801505,
+          8.085823109765649,
+          8.087654066772176,
+          8.083587523850642,
+          8.08544357547162,
+          8.082560417110987,
+          8.083573640192137
+        ],
+        "mean": 8.084900322561424,
+        "replicate_sample_standard_deviation": 0.0017895662092490103,
+        "replicate_standard_error_diagnostic": 0.0006327072009711396
+      },
+      "mean_plain_MC_residual_sample_standard_deviation": 0.15415460998630479,
+      "positive_strike_quadrature_orders": [
+        48,
+        96
+      ],
+      "maximum_paired_replicate_price_refinement": 0.0,
+      "maximum_per_state_signed_formula_vs_positive_96": 3.708144902248023e-14,
+      "first_order_linear_coordinate_correlation_squared_diagnostic": [
+        0.0005355203604126635,
+        0.0006419349193499152,
+        0.0010427211130759784,
+        0.000951115154138971,
+        0.000692349331674235,
+        0.0007367987508918781,
+        0.0007316286841773698
+      ]
+    }
+  ],
+  "design": {
+    "seed": 20261005,
+    "points_per_replicate": 4096,
+    "independent_digital_shifts": 8,
+    "shift_bits": 32,
+    "paired_cases": true,
+    "Sobol_author_fixture_matches": true,
+    "qualifications": [
+      "digital shift is not Owen scrambling",
+      "plain MC and shifted Sobol use the same sample count",
+      "replicate standard errors are diagnostic, not guaranteed confidence bounds",
+      "high-dimensional Gaussian state space is not exhaustively integrated",
+      "risk matching does not identify pure dimension causality"
+    ]
+  },
+  "source_record": {
+    "page": "https://web.maths.unsw.edu.au/~fkuo/sobol/",
+    "direction_set": "new-joe-kuo-6.21201; author page last update 16 September 2010",
+    "source_algorithm": "author-distributed sobol.cc; header updated 21 October 2008",
+    "licence": "author-distributed BSD licence retained alongside direction data",
+    "consulted_version": "author web page, direction file, algorithm source and licence; journal papers were not read",
+    "files": [
+      {
+        "path": "/private/tmp/qbp-generalisation-step/public_data/new-joe-kuo-6.21201",
+        "sha256": "68eedd2a4e3b659b9695e7aff0f8ac68718bcf620730fc3d3a8c65df2a067441"
+      },
+      {
+        "path": "/private/tmp/qbp-generalisation-step/public_data/sobol.cc",
+        "sha256": "5691246405d2ba06ce9240542b24fc9cf40f13f7595ff1dd4d713dc17b8a9952"
+      },
+      {
+        "path": "/private/tmp/qbp-generalisation-step/public_data/licence",
+        "sha256": "9d10226b50eeb34be0ab06bfa3392c7bd1f04bf602f9af4343295d1fd003d0e3"
+      }
+    ]
+  },
+  "elapsed_seconds": 75.13208812499943
+}

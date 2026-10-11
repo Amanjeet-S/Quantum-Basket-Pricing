@@ -1,0 +1,36 @@
+{
+  "schema": "qbp-before-bounded-chebyshev-snapshot-v1",
+  "date": "2026-10-09",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "documents": {
+    "generalisation_proofs.tex.txt": {
+      "original_path": "generalisation_proofs.tex",
+      "sha256": "70d526a71ca79cf8fd6c525af77a286103ca83be8adfa4ddb677aa70d92963d6"
+    },
+    "README.md": {
+      "original_path": "README.md",
+      "sha256": "c6ceefec45cae89f6a24e9cd0acfee1bd35c38c5f41056e926482b49463f7171"
+    },
+    "SOURCES.md": {
+      "original_path": "SOURCES.md",
+      "sha256": "3a3b4d754accf73daac011e08c19e6df13d24317e5c52db87ff5f87b83645a8a"
+    },
+    "supporting_proofs_index.md": {
+      "original_path": "supporting_proofs_index.md",
+      "sha256": "78f5bb08eb6e6ba51d28fb056ca289343b2534b36fc34544445fb9982b520600"
+    },
+    "quantum_method_redesign.md": {
+      "original_path": "quantum_method_redesign.md",
+      "sha256": "583c1f8d334b87125e5283121fcdafe5361e418e4f7c4f109b5a5d81ba645483"
+    },
+    "novelty_scope_review.md": {
+      "original_path": "novelty_scope_review.md",
+      "sha256": "d441a8db12e368bb54a7a474f93adf04e8889f1da8fb6a88bf9da7a679626eb3"
+    },
+    "qsp_source_ledger.md": {
+      "original_path": "qsp_source_ledger.md",
+      "sha256": "12c773ca72727c90daba153aff5acfbfc40d594232a9157c13b54ff97ea389a8"
+    }
+  }
+}

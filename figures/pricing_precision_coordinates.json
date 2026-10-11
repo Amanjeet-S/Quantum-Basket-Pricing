@@ -1,0 +1,1042 @@
+[
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 6,
+    "PG_bits": 6,
+    "x_mm": 8,
+    "y_mm": 29,
+    "colour": "QBPCell0_6_6",
+    "RGB": [
+      "0.742124",
+      "0.873494",
+      "0.149382"
+    ],
+    "ratio_exact_fraction": "988161610/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 348
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 6,
+    "PG_bits": 8,
+    "x_mm": 8,
+    "y_mm": 36,
+    "colour": "QBPCell0_6_8",
+    "RGB": [
+      "0.702182",
+      "0.867478",
+      "0.174293"
+    ],
+    "ratio_exact_fraction": "975525514/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 349
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 6,
+    "PG_bits": 10,
+    "x_mm": 8,
+    "y_mm": 43,
+    "colour": "QBPCell0_6_10",
+    "RGB": [
+      "0.694160",
+      "0.866213",
+      "0.179442"
+    ],
+    "ratio_exact_fraction": "973004842/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 350
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 6,
+    "PG_bits": 12,
+    "x_mm": 8,
+    "y_mm": 50,
+    "colour": "QBPCell0_6_12",
+    "RGB": [
+      "0.806928",
+      "0.882395",
+      "0.114034"
+    ],
+    "ratio_exact_fraction": "1008883498/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 351
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 8,
+    "PG_bits": 6,
+    "x_mm": 15,
+    "y_mm": 29,
+    "colour": "QBPCell0_8_6",
+    "RGB": [
+      "0.275364",
+      "0.040369",
+      "0.366909"
+    ],
+    "ratio_exact_fraction": "486624885/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 352
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 8,
+    "PG_bits": 8,
+    "x_mm": 15,
+    "y_mm": 36,
+    "colour": "QBPCell0_8_8",
+    "RGB": [
+      "0.270652",
+      "0.017893",
+      "0.344652"
+    ],
+    "ratio_exact_fraction": "480313013/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 353
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 8,
+    "PG_bits": 10,
+    "x_mm": 15,
+    "y_mm": 43,
+    "colour": "QBPCell0_8_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "479053909/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 354
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 8,
+    "PG_bits": 12,
+    "x_mm": 15,
+    "y_mm": 50,
+    "colour": "QBPCell0_8_12",
+    "RGB": [
+      "0.280555",
+      "0.076882",
+      "0.400430"
+    ],
+    "ratio_exact_fraction": "496975701/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 355
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 10,
+    "PG_bits": 6,
+    "x_mm": 22,
+    "y_mm": 29,
+    "colour": "QBPCell0_10_6",
+    "RGB": [
+      "0.273285",
+      "0.030054",
+      "0.356833"
+    ],
+    "ratio_exact_fraction": "483738757/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 356
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 10,
+    "PG_bits": 8,
+    "x_mm": 22,
+    "y_mm": 36,
+    "colour": "QBPCell0_10_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "477426885/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 357
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 10,
+    "PG_bits": 10,
+    "x_mm": 22,
+    "y_mm": 43,
+    "colour": "QBPCell0_10_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "1",
+    "admitted": true,
+    "winner": true,
+    "selected_record_index": 358
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 10,
+    "PG_bits": 12,
+    "x_mm": 22,
+    "y_mm": 50,
+    "colour": "QBPCell0_10_12",
+    "RGB": [
+      "0.279411",
+      "0.067326",
+      "0.391457"
+    ],
+    "ratio_exact_fraction": "494089573/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 359
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 12,
+    "PG_bits": 6,
+    "x_mm": 29,
+    "y_mm": 29,
+    "colour": "QBPCell0_12_6",
+    "RGB": [
+      "0.280232",
+      "0.074181",
+      "0.397893"
+    ],
+    "ratio_exact_fraction": "496158101/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 360
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 12,
+    "PG_bits": 8,
+    "x_mm": 29,
+    "y_mm": 36,
+    "colour": "QBPCell0_12_8",
+    "RGB": [
+      "0.277238",
+      "0.052277",
+      "0.377672"
+    ],
+    "ratio_exact_fraction": "489846229/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 361
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 12,
+    "PG_bits": 10,
+    "x_mm": 29,
+    "y_mm": 43,
+    "colour": "QBPCell0_12_10",
+    "RGB": [
+      "0.276507",
+      "0.047632",
+      "0.373474"
+    ],
+    "ratio_exact_fraction": "15760875/15360251",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 362
+  },
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "PA_bits": 12,
+    "PG_bits": 12,
+    "x_mm": 29,
+    "y_mm": 50,
+    "colour": "QBPCell0_12_12",
+    "RGB": [
+      "0.283090",
+      "0.111986",
+      "0.432800"
+    ],
+    "ratio_exact_fraction": "506508917/476167781",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 363
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 6,
+    "PG_bits": 6,
+    "x_mm": 47,
+    "y_mm": 29,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 364
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 6,
+    "PG_bits": 8,
+    "x_mm": 47,
+    "y_mm": 36,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 365
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 6,
+    "PG_bits": 10,
+    "x_mm": 47,
+    "y_mm": 43,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 366
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 6,
+    "PG_bits": 12,
+    "x_mm": 47,
+    "y_mm": 50,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 367
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 8,
+    "PG_bits": 6,
+    "x_mm": 54,
+    "y_mm": 29,
+    "colour": "QBPCell1_8_6",
+    "RGB": [
+      "0.670652",
+      "0.862369",
+      "0.194613"
+    ],
+    "ratio_exact_fraction": "3580909427/1764898772",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 368
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 8,
+    "PG_bits": 8,
+    "x_mm": 54,
+    "y_mm": 36,
+    "colour": "QBPCell1_8_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "444162749/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 369
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 8,
+    "PG_bits": 10,
+    "x_mm": 54,
+    "y_mm": 43,
+    "colour": "QBPCell1_8_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "442963793/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 370
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 8,
+    "PG_bits": 12,
+    "x_mm": 54,
+    "y_mm": 50,
+    "colour": "QBPCell1_8_12",
+    "RGB": [
+      "0.274233",
+      "0.034432",
+      "0.361217"
+    ],
+    "ratio_exact_fraction": "64198319/63032099",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 371
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 10,
+    "PG_bits": 6,
+    "x_mm": 61,
+    "y_mm": 29,
+    "colour": "QBPCell1_10_6",
+    "RGB": [
+      "0.271143",
+      "0.020162",
+      "0.346925"
+    ],
+    "ratio_exact_fraction": "445656329/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 372
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 10,
+    "PG_bits": 8,
+    "x_mm": 61,
+    "y_mm": 36,
+    "colour": "QBPCell1_10_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "442423649/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 373
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 10,
+    "PG_bits": 10,
+    "x_mm": 61,
+    "y_mm": 43,
+    "colour": "QBPCell1_10_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "1",
+    "admitted": true,
+    "winner": true,
+    "selected_record_index": 374
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 10,
+    "PG_bits": 12,
+    "x_mm": 61,
+    "y_mm": 50,
+    "colour": "QBPCell1_10_12",
+    "RGB": [
+      "0.272796",
+      "0.027797",
+      "0.354572"
+    ],
+    "ratio_exact_fraction": "447649133/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 375
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 12,
+    "PG_bits": 6,
+    "x_mm": 68,
+    "y_mm": 29,
+    "colour": "QBPCell1_12_6",
+    "RGB": [
+      "0.274877",
+      "0.037405",
+      "0.364196"
+    ],
+    "ratio_exact_fraction": "450169805/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 376
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 12,
+    "PG_bits": 8,
+    "x_mm": 68,
+    "y_mm": 36,
+    "colour": "QBPCell1_12_8",
+    "RGB": [
+      "0.272206",
+      "0.025073",
+      "0.351844"
+    ],
+    "ratio_exact_fraction": "446937125/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 377
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 12,
+    "PG_bits": 10,
+    "x_mm": 68,
+    "y_mm": 43,
+    "colour": "QBPCell1_12_10",
+    "RGB": [
+      "0.271211",
+      "0.020477",
+      "0.347240"
+    ],
+    "ratio_exact_fraction": "445738169/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 378
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "PA_bits": 12,
+    "PG_bits": 12,
+    "x_mm": 68,
+    "y_mm": 50,
+    "colour": "QBPCell1_12_12",
+    "RGB": [
+      "0.276149",
+      "0.045358",
+      "0.371418"
+    ],
+    "ratio_exact_fraction": "452162609/441224693",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 379
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 6,
+    "x_mm": 86,
+    "y_mm": 29,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 380
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 8,
+    "x_mm": 86,
+    "y_mm": 36,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 381
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 10,
+    "x_mm": 86,
+    "y_mm": 43,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 382
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 12,
+    "x_mm": 86,
+    "y_mm": 50,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 383
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 6,
+    "x_mm": 93,
+    "y_mm": 29,
+    "colour": "QBPCell2_8_6",
+    "RGB": [
+      "0.272110",
+      "0.024627",
+      "0.351397"
+    ],
+    "ratio_exact_fraction": "964527745/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 384
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 8,
+    "x_mm": 93,
+    "y_mm": 36,
+    "colour": "QBPCell2_8_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "957980545/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 385
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 10,
+    "x_mm": 93,
+    "y_mm": 43,
+    "colour": "QBPCell2_8_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "956491057/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 386
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 12,
+    "x_mm": 93,
+    "y_mm": 50,
+    "colour": "QBPCell2_8_12",
+    "RGB": [
+      "0.275608",
+      "0.041919",
+      "0.368310"
+    ],
+    "ratio_exact_fraction": "974201233/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 387
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 6,
+    "x_mm": 100,
+    "y_mm": 29,
+    "colour": "QBPCell2_10_6",
+    "RGB": [
+      "0.270553",
+      "0.017439",
+      "0.344198"
+    ],
+    "ratio_exact_fraction": "960484849/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 388
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 8,
+    "x_mm": 100,
+    "y_mm": 36,
+    "colour": "QBPCell2_10_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "136276807/136064023",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 389
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 10,
+    "x_mm": 100,
+    "y_mm": 43,
+    "colour": "QBPCell2_10_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "1",
+    "admitted": true,
+    "winner": true,
+    "selected_record_index": 390
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 12,
+    "x_mm": 100,
+    "y_mm": 50,
+    "colour": "QBPCell2_10_12",
+    "RGB": [
+      "0.274267",
+      "0.034587",
+      "0.361373"
+    ],
+    "ratio_exact_fraction": "970158337/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 391
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 6,
+    "x_mm": 107,
+    "y_mm": 29,
+    "colour": "QBPCell2_12_6",
+    "RGB": [
+      "0.273816",
+      "0.032507",
+      "0.359290"
+    ],
+    "ratio_exact_fraction": "968979841/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 392
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 8,
+    "x_mm": 107,
+    "y_mm": 36,
+    "colour": "QBPCell2_12_8",
+    "RGB": [
+      "0.271304",
+      "0.020906",
+      "0.347670"
+    ],
+    "ratio_exact_fraction": "962432641/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 393
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 10,
+    "x_mm": 107,
+    "y_mm": 43,
+    "colour": "QBPCell2_12_10",
+    "RGB": [
+      "0.270730",
+      "0.018256",
+      "0.345016"
+    ],
+    "ratio_exact_fraction": "960943153/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 394
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 12,
+    "x_mm": 107,
+    "y_mm": 50,
+    "colour": "QBPCell2_12_12",
+    "RGB": [
+      "0.276903",
+      "0.050148",
+      "0.375748"
+    ],
+    "ratio_exact_fraction": "978653329/952448161",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 395
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 6,
+    "x_mm": 125,
+    "y_mm": 29,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 396
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 8,
+    "x_mm": 125,
+    "y_mm": 36,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 397
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 10,
+    "x_mm": 125,
+    "y_mm": 43,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 398
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 6,
+    "PG_bits": 12,
+    "x_mm": 125,
+    "y_mm": 50,
+    "colour": "QBPRejected",
+    "RGB": null,
+    "ratio_exact_fraction": null,
+    "admitted": false,
+    "winner": false,
+    "selected_record_index": 399
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 6,
+    "x_mm": 132,
+    "y_mm": 29,
+    "colour": "QBPCell3_8_6",
+    "RGB": [
+      "0.642937",
+      "0.857512",
+      "0.212686"
+    ],
+    "ratio_exact_fraction": "8441985551/4190877520",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 400
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 8,
+    "x_mm": 132,
+    "y_mm": 36,
+    "colour": "QBPCell3_8_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "262803487/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 401
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 10,
+    "x_mm": 132,
+    "y_mm": 43,
+    "colour": "QBPCell3_8_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "262435207/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 402
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 8,
+    "PG_bits": 12,
+    "x_mm": 132,
+    "y_mm": 50,
+    "colour": "QBPCell3_8_12",
+    "RGB": [
+      "0.270329",
+      "0.016402",
+      "0.343159"
+    ],
+    "ratio_exact_fraction": "263979937/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 403
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 6,
+    "x_mm": 139,
+    "y_mm": 29,
+    "colour": "QBPCell3_10_6",
+    "RGB": [
+      "0.635569",
+      "0.856220",
+      "0.217491"
+    ],
+    "ratio_exact_fraction": "8425806063/4190877520",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 404
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 8,
+    "x_mm": 139,
+    "y_mm": 36,
+    "colour": "QBPCell3_10_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "52459625/52385969",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 405
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 10,
+    "x_mm": 139,
+    "y_mm": 43,
+    "colour": "QBPCell3_10_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "1",
+    "admitted": true,
+    "winner": true,
+    "selected_record_index": 406
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 10,
+    "PG_bits": 12,
+    "x_mm": 139,
+    "y_mm": 50,
+    "colour": "QBPCell3_10_12",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "52694915/52385969",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 407
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 6,
+    "x_mm": 146,
+    "y_mm": 29,
+    "colour": "QBPCell3_12_6",
+    "RGB": [
+      "0.651034",
+      "0.858931",
+      "0.207406"
+    ],
+    "ratio_exact_fraction": "8459802639/4190877520",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 408
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 8,
+    "x_mm": 146,
+    "y_mm": 36,
+    "colour": "QBPCell3_12_8",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "263359999/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 409
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 10,
+    "x_mm": 146,
+    "y_mm": 43,
+    "colour": "QBPCell3_12_10",
+    "RGB": [
+      "0.269944",
+      "0.014625",
+      "0.341379"
+    ],
+    "ratio_exact_fraction": "262991719/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 410
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "PA_bits": 12,
+    "PG_bits": 12,
+    "x_mm": 146,
+    "y_mm": 50,
+    "colour": "QBPCell3_12_12",
+    "RGB": [
+      "0.271109",
+      "0.020006",
+      "0.346768"
+    ],
+    "ratio_exact_fraction": "264536449/261929845",
+    "admitted": true,
+    "winner": false,
+    "selected_record_index": 411
+  }
+]

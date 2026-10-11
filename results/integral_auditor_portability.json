@@ -1,0 +1,86 @@
+{
+  "status": "portable audit defaults prepared",
+  "source_mappings": [
+    {
+      "file": "checks/audit_estimator_extension.py",
+      "original_sha256": "9b072bfb32b1b5a3dd4d457bc1ba5d99849ec95aeafc5c67ff32fce1bc63415e",
+      "portable_sha256": "602bfa863cb4df3a7956df1ec477c01a2d0cd266e80fd749d382aa422d9d50f3",
+      "original_source": "history/integral_audit_sources/audit_estimator_extension.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_integral_auxiliary_quadrature.py",
+      "original_sha256": "639e947bd9a402627807c65c09c37f6164d948cb93bca6620435c9d8ae067d73",
+      "portable_sha256": "ee11c3d25a8ef3f9c4582a5cfc4f4eafc3b0f80acc57ba186dde7b0817b43d08",
+      "original_source": "history/integral_audit_sources/audit_integral_auxiliary_quadrature.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_integral_precision_budget.py",
+      "original_sha256": "9f316870f32cdb0649d825a9a463cf25e844fc38807200786d7e3d9042f6de3f",
+      "portable_sha256": "3516311c5415ae2f1a8948bf9a4b59d5ec7d2f390eed373ff20797c225a4a95f",
+      "original_source": "history/integral_audit_sources/audit_integral_precision_budget.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_integral_production_profiles.py",
+      "original_sha256": "b5faa24e31ffd88455d0524d6764e5b7ce1901e14c16adc9d749b8ca08c8a0dc",
+      "portable_sha256": "da5f8586e68cd2077bd8189416bbbd5da124821e56ab5ebd2c3be6ee08dd6b87",
+      "original_source": "history/integral_audit_sources/audit_integral_production_profiles.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_integral_scalar_certificate.py",
+      "original_sha256": "f305fe45dea7d53260f5d9b1b4557011f4cdc861486f0669706ac31b54ef8d38",
+      "portable_sha256": "44050f2be0fd8fb1342dd4dc2bcc8bb9468ba98f403aa925411617f58f764ee9",
+      "original_source": "history/integral_audit_sources/audit_integral_scalar_certificate.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_integral_value_oracle.py",
+      "original_sha256": "a6df5284443e1c4b74f085fb999357c5476b59acbcb91b56c567766b90dd0afb",
+      "portable_sha256": "73cbcd971c30073bc365aa50ed1f3b2a6dda3e74e54536b42ea7333aac592d09",
+      "original_source": "history/integral_audit_sources/audit_integral_value_oracle.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/audit_precision_selector.py",
+      "original_sha256": "b6e324a9b834a6847a05c04ec64ba5b7aac93d4c067c673434e93717f39dc09c",
+      "portable_sha256": "cafa12d6a8b50a0122f822ab794fe574309eaf65294a5e7d95ac7d8a2e8999f0",
+      "original_source": "history/integral_audit_sources/audit_precision_selector.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/integral_audit_support.py",
+      "original_sha256": "045abfde21d1590450e1a80111043571380a0903a91e580ed2f768acf7a87916",
+      "portable_sha256": "045abfde21d1590450e1a80111043571380a0903a91e580ed2f768acf7a87916",
+      "original_source": "history/integral_audit_sources/integral_audit_support.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    },
+    {
+      "file": "checks/integral_phase_support.py",
+      "original_sha256": "8e09d3039e32e425e4669f2239cef06cb425297cfc51fe614c645718291f5d40",
+      "portable_sha256": "7060585594e62e6c242fbd89097b170b6ebad7337e848e14db5fd7e3022429c0",
+      "original_source": "history/integral_audit_sources/integral_phase_support.py",
+      "change": "Repository-relative default data roots and local helper imports only; mathematical and audit logic unchanged"
+    }
+  ],
+  "scope": "Historical full-emission results retain their original audit source hashes. The exact original audit sources are preserved under history. Portable replay results verify path-only revisions without repeating unchanged emission.",
+  "syntax_checks": "All nine portable audit modules parsed successfully",
+  "portable_replays": {
+    "integral_precision_budget_portable_replay.json": {
+      "sha256": "af726e82eeb6118006fd002a69225f23c3fe8cea830331227d4b88fa1624e324",
+      "status": "independent precision monetary and complete estimator audit passed"
+    },
+    "precision_selector_portable_replay.json": {
+      "sha256": "f24c813b99dee50315efe6097b0754e4cfbdd3cd569ce0ee47b098764f683a43",
+      "status": "passed"
+    },
+    "integral_auxiliary_quadrature_portable_replay.json": {
+      "sha256": "3367243b9005a466a014baae63eaf2e8f3f50e8bfdb6621a799b7731dec1093c",
+      "status": "independent auxiliary quadrature audit passed"
+    }
+  },
+  "historical_full_emission_result": "results/precision_selector_audit.json",
+  "historical_source_evidence": "history/integral_audit_sources/audit_precision_selector.py"
+}

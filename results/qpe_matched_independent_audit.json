@@ -1,0 +1,154 @@
+{
+  "schema": "qbp-independent-matched-qpe-audit-v1",
+  "status": "passed",
+  "cases": 27,
+  "scope": "Archive identities and every matched scalar field linked to independently audited full QPE records; exact upper-budget ratios. No new execution or hardware claim.",
+  "records": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "exact_ratio": "2870808677/20409761920",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "exact_ratio": "56663278441/549405678496",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "exact_ratio": "74639335551/655459978670",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "exact_ratio": "160564921/931134190",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "exact_ratio": "12372487809/85252366772",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "exact_ratio": "77292622891/679453034680",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "exact_ratio": "498106697/1771005888",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "exact_ratio": "13430539111/86394972420",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "exact_ratio": "3300002376/28328360551",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "exact_ratio": "1938864829/13783582970",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "exact_ratio": "196868630167/1906230161056",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "exact_ratio": "84914345032/745697214633",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "exact_ratio": "1606540837/7768177493",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "exact_ratio": "4315239235/29730459916",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "exact_ratio": "221319970091/1945561590080",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "exact_ratio": "161634319/617267571",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "exact_ratio": "14327837953/92168348992",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "exact_ratio": "22826879801/195933424732",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "exact_ratio": "9854748354/70063262075",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "exact_ratio": "62899048971/609037673764",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "exact_ratio": "530950374735/4662688344163",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "exact_ratio": "64553269/453972100",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "exact_ratio": "68436134723/540275532022",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "exact_ratio": "258206894627/1627946527356",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "exact_ratio": "144037663/344116800",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "exact_ratio": "94826447617/620632545158",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "exact_ratio": "664105471733/3743302315136",
+      "all_matched_inputs_and_scalar_metrics_identical": true
+    }
+  ],
+  "minimum_ratio_exact_fraction": "56663278441/549405678496",
+  "maximum_ratio_exact_fraction": "144037663/344116800",
+  "source_sha256": {
+    "qpe_comparison.py": "0e4f1582daf6be82cfe9c8d589bf374101cae297ed9af0fa6009e87f571a2570",
+    "checks/audit_qpe_matched_comparison.py": "430f744d996adc5e925540c1755b8fe93be4ae310f86041d52e6fa9294159d5e"
+  },
+  "input_sha256": {
+    "results/variance_oracle_comparison.json.gz": "bb65b3340bcfcd736ce95b6bc52f3ca155fa135cd78f411a27a791f48868aed8",
+    "results/qpe_benchmark.json.gz": "d50d5e919947099eb8e916e0fc62963dc044e4d12d3e9432a3f15dff17db045a",
+    "results/qpe_matched_comparison.json": "921c9b458fd6e33be7a907c101f822365e81d7ce177d0cd7d7b91d6ffc9e5355"
+  }
+}

@@ -1,0 +1,248 @@
+% Checked supporting fragment. This replaces any identical-map ordering
+% assertion for independently addressed PG and PA exponential tables.
+% It is a project-specific derivation, not a claim of theoretical priority.
+\section{Independent payoff-table precision and projected encoding}
+\label{sec:raw-asymmetric-projection}
+
+I allow the two exponential look-up tables in the common-normal payoff
+difference to use different address widths. The two represented maps can
+be individually monotone without preserving their mutual order. The
+financial target remains the original no-arbitrage conditional correction;
+the following projection makes the implemented asymmetric difference a
+valid probability without assuming an ordering that has not been proved.
+
+Throughout this section, $K=100$, $H=1$, $\lambda>0$, $q=28$ and
+$s=2^q$. Define
+\begin{equation}
+ f(x)=\min\{1,100(e^x-1)_+\},\qquad
+ \Pi(t)=\min\{1,\max\{0,t\}\},\qquad
+ \ell=\log(101/100).
+\end{equation}
+Since $\ell<1/64$, the exact bounded-argument decomposition is
+\begin{equation}
+ f(x)=\min\{1,100[\exp(\min\{1/64,x_+\})-1]_+\}.
+\end{equation}
+Indeed, the two expressions agree for $x\leq0$, for
+$0<x<\ell$, and for $x\geq\ell$. The last case follows because
+the clamped argument is at least $\ell$ whenever the unclamped
+argument is at least $\ell$. Consequently, the exponential only needs
+its certified domain $[0,1/64]$, with
+$1\leq e^t\leq64/63$ there, the last inequality following from
+$e^t\leq(1-t)^{-1}$ for $0\leq t<1$.
+
+\begin{lemma}[Exact projected integer difference]
+\label{lem:raw-asymmetric-projection}
+Suppose every unsigned operand and intermediate product satisfies the
+retained domain and overflow certificate. Let $a,b$ be the represented
+payoff words, decoded in $s^{-1}\mathbb Z\cap[0,1]$. Then the emitted
+operation \texttt{clamp(positive\_sub($a$,$b$),1)} decodes exactly to
+$\Pi(a-b)$. In particular, its range is $[0,1]$ even if $a<b$.
+The uniform $q$-bit comparator encodes this value as a flag probability
+exactly.
+\end{lemma}
+\begin{proof}
+Let the word width be $w$ and write $A=sa$, $B=sb$. The subtraction
+primitive produces $A-B$ modulo $2^w$ in temporary workspace. The
+comparison flag is one exactly when $B<A$. Controlled copies of the
+temporary difference to a zero output word therefore return $A-B$ when
+$A>B$, and zero when $A\leq B$. When $A>B$, the retained unsigned
+bounds ensure $0<A-B<2^w$, so the copied word is the ordinary integer
+difference. When $A<B$, the modular subtraction is never copied and is
+uncomputed with the comparison workspace. The temporary modular word
+does not become a financial value. The subsequent clamp at the exactly
+representable integer $s$ gives $\min\{s,\max\{0,A-B\}\}$.
+The guarded operands are nonnegative and fit their registers; the
+retained pre-mask magnitude guard also excludes an ambiguous overflow.
+Thus decoding gives exactly $\Pi(a-b)$. For an output integer
+$C\in\{0,\ldots,s\}$, exactly $C$ labels in the uniform set
+$\{0,\ldots,s-1\}$ satisfy $U<C$. The good-flag probability is
+$C/s$, including both endpoints. The clean inverse restores the
+workspace after the flag is copied.
+\end{proof}
+
+The projection is nondecreasing and $1$-Lipschitz. For example, if
+$u\leq v$, then its piecewise-linear definition gives
+$0\leq\Pi(v)-\Pi(u)\leq v-u$. Reversing the arguments gives the
+absolute-value inequality. For every $\Delta\geq0$,
+$h_{m,\Delta}(n)=f(m+\Delta+\lambda n)-f(m+\lambda n)$ lies in
+$[0,1]$, so $\Pi(h_{m,\Delta}(n))=h_{m,\Delta}(n)$.
+
+\begin{lemma}[Separate scalar errors survive projection]
+\label{lem:raw-asymmetric-scalar}
+Let $\widehat E_G$ and $\widehat E_A$ be the two guarded dyadic
+exponential implementations, with independently certified bounds
+\begin{equation}
+ \sup_{t\in[0,1/64]\cap s^{-1}\mathbb Z}
+ |\widehat E_i(t)-e^t|\leq e_{\exp,i},\qquad i\in\{G,A\}.
+\end{equation}
+Let $\widehat f_i$ denote the exact emitted clamps and positive
+subtractions around $\widehat E_i$. For any guarded decoded arguments
+$x_G,x_A$,
+\begin{equation}
+ \left|\Pi(\widehat f_A(x_A)-\widehat f_G(x_G))
+          -\Pi(f(x_A)-f(x_G))\right|
+ \leq100(e_{\exp,G}+e_{\exp,A}).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The constants zero, one and $1/64$ are exactly representable at
+$q=28$. All payoff clamps and positive subtractions implement their
+decoded real maps exactly, conditional on the whole-graph guards.
+Integer scaling by $100$ has no fixed-point floor. Since these clamps
+are $1$-Lipschitz, $|\widehat f_i(x)-f(x)|\leq100e_{\exp,i}$.
+The triangle inequality for the difference and the $1$-Lipschitz
+property of $\Pi$ give the claim. No comparison between
+$\widehat f_G$ and $\widehat f_A$ is required. Each $e_{\exp,i}$
+is the scalar's \texttt{output\_error\_upper}, comprising nodal
+rounding, interpolation error and interpolation floor. Its propagated
+argument-error charge is excluded here because that charge is treated
+separately below.
+\end{proof}
+
+Fix a realised outer-grid coordinate $y$. Let $m=m_G(y)$,
+$\Delta=\log T(y)\geq0$, and let the inherited shifted node have
+ideal value $M=m+B_G$ and represented value $\widehat M$.
+Write $\widehat\Delta$ for the represented logarithm. The guarded
+graph gives
+\begin{equation}
+ |\widehat M-M|\leq e_m,\qquad
+ |\widehat\Delta-\Delta|\leq e_\Delta,\qquad
+ \widehat\Delta\geq0.
+\end{equation}
+These errors treat the realised outer coordinates as exact inputs.
+Outer Gaussian-node rounding is already charged by the inherited
+continuous-to-finite financial transfer and is not charged again here.
+Let $C=J-B_G$, $O=J+\lambda L$ and let their represented constants
+be $\widehat C$, $\widehat O$. If
+$|\widehat C-C|\leq e_C$ and $|\widehat O-O|\leq e_O$, set
+\begin{equation}
+ \widehat m=\widehat M-B_G+(\widehat C-C)-(\widehat O-O),
+ \qquad E_m=e_m+e_C+e_O.
+\end{equation}
+Thus $|\widehat m-m|\leq E_m$.
+
+Let $(I_\lambda,d_\lambda)$ be the actual integer coefficient and
+drop count of the scaling emitter, and put
+\begin{equation}
+ \widehat\lambda=I_\lambda2^{-d_\lambda},\qquad
+ E_s=2L|\widehat\lambda-\lambda|
+       +s^{-1}\mathbf1_{\{d_\lambda>0\}}.
+\end{equation}
+For a realised quantile $\widetilde N\in[-L,L]$, the exact decoded
+scale node is
+$\widehat\lambda(\widetilde N+L)+\rho(\widetilde N+L)$,
+where $|\rho|\leq s^{-1}$ when $d_\lambda>0$, and $\rho=0$
+otherwise. The guarded endpoint additions are exact integer additions.
+Consequently their conceptual signed arguments are
+\begin{align}
+ \widehat X_G&=\widehat m+\lambda\widetilde N+
+                    \zeta(\widetilde N),\qquad |\zeta|\leq E_s,\label{eq:raw-asymmetric-arguments}\\
+ \widehat X_A&=\widehat X_G+\widehat\Delta.\nonumber
+\end{align}
+These are mathematical signed differences used to identify the financial
+target. The circuit obtains their positive parts by the guarded unsigned
+construction of Lemma~\ref{lem:raw-asymmetric-projection}; it does not
+store an unguarded signed log argument.
+
+\begin{theorem}[Conditional error for independently addressed tables]
+\label{thm:raw-asymmetric-conditional}
+Assume the whole-graph certificate passes and the realised finite normal
+law has Kolmogorov discrepancy at most $D_N$ from the standard normal
+law. Let $\nu_0\geq\sup_x\phi(x)$ and let $p(y)$ be the implemented
+good-flag probability conditional on the realised outer coordinate. Then
+\begin{equation}
+ |p(y)-R_1(y)|\leq\eta_{\rm smooth}:=
+ \min\left\{1,100(e_{\exp,G}+e_{\exp,A})+202E_s+2D_N+
+       \frac{\nu_0}{\lambda}(2E_m+e_\Delta)\right\}.
+\end{equation}
+The minimum of this bound and an independently valid pointwise
+graph/CDF bound is a valid uniform conditional certificate.
+\end{theorem}
+\begin{proof}
+The payoff is absolutely continuous, with almost-everywhere derivative
+$f'(x)=100e^x\mathbf1_{(0,\ell)}(x)$, and is globally
+$101$-Lipschitz. Replacing the two arguments in
+\eqref{eq:raw-asymmetric-arguments} by
+$\widehat m+\lambda\widetilde N$ and
+$\widehat m+\widehat\Delta+\lambda\widetilde N$ changes the exact
+payoff difference by at most $202E_s$ per normal label. Projection
+cannot enlarge this error and fixes the latter difference because
+$\widehat\Delta\geq0$. Lemma~\ref{lem:raw-asymmetric-scalar}
+adds at most $100(e_{\exp,G}+e_{\exp,A})$.
+
+The remaining finite-inner-law target is
+$\mathbb E h_{\widehat m,\widehat\Delta}(\widetilde N)$. The
+parameters $\widehat m$ and $\widehat\Delta$ depend only on outer
+labels, not on the inner normal label. Each summand of $h$ is
+continuous and nondecreasing with total variation one, so
+$\operatorname{TV}(h)\leq2$. Stieltjes integration by parts gives
+\begin{equation}
+ \mathbb E h(\widetilde N)-\mathbb E h(N)
+   =-\int_{\mathbb R}(F_{\widetilde N}(x)-\Phi(x))\,dh(x).
+\end{equation}
+The boundary term vanishes because $h$ is bounded and both CDFs tend
+to the same limits at infinity. The continuous function $h$ assigns
+no atom to its derivative measure, so the identity accommodates
+atoms of the finite law and duplicate quantiles. Its absolute value
+is at most $2D_N$. Normal rounding is charged solely within $D_N$.
+
+Define $P_\lambda(t)=\mathbb E f(t+\lambda N)$. The nonnegative
+measure $df$ has mass
+$100(e^\ell-1)=1$. Gaussian convolution gives
+\begin{equation}
+ P_\lambda'(t)=\int_{\mathbb R}
+       \frac1\lambda\phi\left(\frac{x-t}{\lambda}\right)df(x),
+ \qquad 0\leq P_\lambda'(t)\leq\frac{\nu_0}{\lambda}.
+\end{equation}
+Differentiation is justified by the bounded smooth Gaussian kernel
+against the finite measure $df$; equivalently, one may use the
+bounded derivative of $f$ and dominated convergence. Thus the two
+continuous endpoint perturbations contribute at most
+$\nu_0(2E_m+e_\Delta)/\lambda$. Adding the independently justified
+terms proves the uncapped bound. Both $p(y)$ and $R_1(y)$ lie in
+$[0,1]$, so capping the error at one is valid. The minimum of two
+valid uniform upper bounds remains valid.
+\end{proof}
+
+\begin{proposition}[Prospective common-shift refinement]
+\label{prop:raw-common-shift-refinement}
+For $R(m,\Delta)=P_\lambda(m+\Delta)-P_\lambda(m)$ with
+$\Delta\geq0$, the continuous outer perturbation above also satisfies
+\begin{equation}
+ |R(\widehat m,\widehat\Delta)-R(m,\Delta)|
+ \leq\frac{\nu_0}{\lambda}(E_m+e_\Delta).
+\end{equation}
+If $\nu_1\geq\sup_x|\phi'(x)|$ and a certified uniform bound
+$\Delta\leq\Delta_*$ is available, the common-shift coefficient
+can be replaced by
+\begin{equation}
+ \min\left\{\frac{\nu_0}{\lambda},
+              \frac{\nu_1\Delta_*}{\lambda^2}\right\}E_m
+       +\frac{\nu_0}{\lambda}e_\Delta.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The previous convolution identity bounds $P_\lambda'$ in
+$[0,\nu_0/\lambda]$. Hence
+$|\partial_mR|=|P_\lambda'(m+\Delta)-P_\lambda'(m)|
+\leq\nu_0/\lambda$, whereas
+$|\partial_\Delta R|=P_\lambda'(m+\Delta)\leq\nu_0/\lambda$.
+Split the perturbation into a gap change at $\widehat m$ followed by
+a common-shift change at the true nonnegative gap $\Delta$, and
+integrate these derivative bounds along the two intervals. Furthermore,
+differentiating the Gaussian convolution against the probability
+measure $df$ gives $|P_\lambda''|\leq\nu_1/\lambda^2$.
+Integrating $P_\lambda''$ between $m$ and $m+\Delta$ bounds
+$|\partial_mR|$ also by $\nu_1\Delta/\lambda^2$.
+The uniform upper bound $\Delta_*$ gives the refined coefficient.
+\end{proof}
+
+This refinement is an analytic error bound, not an automatic improvement
+in the full estimation plan. It must be selected and recorded in a
+protocol before any resource outcomes using it are generated. The
+financial coefficient, external outer-law mass, continuous transfer,
+mean prior, estimator accuracy, confidence and full clean circuit costs
+must be retained or rebuilt consistently. The projection argument
+justifies asymmetric scalar precision without claiming cancellation of
+the two distinct table errors, a new amplitude-estimation query law, or
+a physical quantum advantage.

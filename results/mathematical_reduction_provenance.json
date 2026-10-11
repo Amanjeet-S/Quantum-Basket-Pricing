@@ -1,0 +1,154 @@
+{
+  "schema": "qbp-residual-reduction-independent-review-v1",
+  "review_date": "2026-10-08",
+  "status": "completed independent derivation and three successful audits",
+  "repository_read_only_inputs": [
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/tensor_transfer_proof.tex",
+      "sha256": "18520d6eed46e1a9d429f2d86950ffdbdd5a473675385753cfc3a1ee17a7310f",
+      "bytes": 12083
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/block_transport_review.tex",
+      "sha256": "414fcaba0a9f9f91423d9bd443da32a103c3ee554badfb6d754c6cf7fb0192a3",
+      "bytes": 10080
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+      "sha256": "b775cf5a15bc03b464a9b638b79001ec91051ae98cbf0cf4f54b100790e7cade",
+      "bytes": 84166
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/tensor_transfer.py",
+      "sha256": "08ae8e3f748f38417e994db92de40b2a00924f579e2aaeaade124f0eae1af2a5",
+      "bytes": 12300
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/block_certificate_comparison.py",
+      "sha256": "f4920bb1aa8bc1ca1fb411d4e0b0fec375abb8d31606db3b014772afbaa7af2a",
+      "bytes": 16172
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/novelty_scope_review.md",
+      "sha256": "45706a76d65a7d9404c3a8e7c0c4b7cdc6f4f58de71733312c25a5cd2c7c845c",
+      "bytes": 13645
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/certificate_source_comparison.md",
+      "sha256": "0f5cb9dce3a088f4b0293266570be57b34ef30b8a641d9f4be5241909c05b834",
+      "bytes": 10801
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/taylor_pricing.py",
+      "sha256": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+      "bytes": 11217
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/boundary_derivative_certificate.py",
+      "sha256": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe",
+      "bytes": 13862
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/boundary_grid_certificate.py",
+      "sha256": "fe7ada516a74a0806b46ad7d08cdae208c75f110adc43951ae67702c82fe1087",
+      "bytes": 16933
+    }
+  ],
+  "frozen_benchmark_inputs": [
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/residual_same_information_taylor.py",
+      "sha256": "d590e6956a6927a1d23ce77b54a850d352fa00520f102f5cb1d1ab36a68aafeb",
+      "bytes": 6509
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/caldana_conditioning_benchmark.py",
+      "sha256": "208f5ce446d054848464cac1ed5fe5e465725e9f4ca85fa6fa508bdceb4d0ff3",
+      "bytes": 12753
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/results/residual_same_information_taylor.json",
+      "sha256": "549da9fc2d2f04e50b7c9c682e1e0cbcb5ca3edd8cdfa4eb0aa7be914c009f65",
+      "bytes": 704729
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/results/caldana_conditioning_benchmark.json",
+      "sha256": "273dfcbc470002864894088ec81a0b426b0cdb07e76d999fd6f652ba5b8cf284",
+      "bytes": 3211239
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/results/generalisation_protocol.json",
+      "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "bytes": 67135
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/cost_boundary/results/boundary_derivative_norms.json",
+      "sha256": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+      "bytes": 286933
+    }
+  ],
+  "retained_review_and_audit_files": [
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/abstract_transfer_reduction.tex",
+      "sha256": "ab11902a410741dd18e9bd58b9c9a7ae9b964bfca9dcf613f9a3f19f29e74e53",
+      "bytes": 10150
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/audit_conditioning_bounds.py",
+      "sha256": "c996abaf6f5b39f45ee7f583b3ae221ffa16b2fd1c1d05cbbc764481c00e6bc6",
+      "bytes": 13293
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/audit_continuous_degree3.py",
+      "sha256": "69b89cd139fdd7fa8b57e2039705e52783f8408a0d41810b090698c3423bc14d",
+      "bytes": 10950
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/audit_saved_price_endpoints.py",
+      "sha256": "bb41b86deaaf1e643e13799be8c73b2b1ec01195fddfe0a92a41f1f59b38c35c",
+      "bytes": 3499
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/audit_transport_counterexample.py",
+      "sha256": "373b06157c0509552993eeba7b326c248ce37d9f969e419bf12164cfad21360d",
+      "bytes": 6348
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/conditioning_bounds_independent_audit.json",
+      "sha256": "999cfbc53d9f74f71d04f6cf0952396f504bb5b0216984ee1044d3087ae4bbac",
+      "bytes": 1286
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/continuous_degree3_independent_audit.json",
+      "sha256": "446b7c80fc71b8aca8bf33f462b027ece3b7b80fc847af746c9910aaabadeac6",
+      "bytes": 1141
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/independent_reduction_review.md",
+      "sha256": "d4ad6a0a75dc4b83ec6d4fecb244c23a1bfb3cb1572b60e2c1525ab94ae162bf",
+      "bytes": 16147
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/saved_price_endpoint_audit.json",
+      "sha256": "34623217faa6557319dca67cf2bb2ab555911332260424afeb699a30911d224c",
+      "bytes": 56774
+    },
+    {
+      "path": "/private/tmp/qbp-residual-priority-step/math_reduction/transport_counterexample_audit.json",
+      "sha256": "929e90d7430edc624729d26bf8f707e07c4193c81f80f604703fd800d5baf6c5",
+      "bytes": 7226
+    }
+  ],
+  "external_access": "No additional external retrieval. Cerone attribution taken transparently from retained source mapping; no claim of independently consulting its final PDF in this review.",
+  "mathematical_finding": "Residual envelopes require argument, but their degree-four finite-transform closure follows from established positive transport, Cauchy, independence and exponential-polynomial algebra. Generic Gaussian-cell second-order superiority is false.",
+  "financial_audit_finding": "Independently reconstructed degree-three certificates pass 33/36 under radius 0.01. Independently reconstructed published conditioning/AG specialisation passes 0/36; all optimiser and valid spread propagation checks pass.",
+  "repository_edits": false,
+  "commits": false,
+  "audit_outputs": "Source, producer and financial result checksums are retained in each corresponding JSON. Counterexample is generic smooth-function mathematics, not another empirical or financial cohort.",
+  "additional_staged_proof_consulted": {
+    "path": "/private/tmp/qbp-residual-priority-step/classical_price_bounds_proof.tex",
+    "sha256": "1c4640f0b328cf6c4d084ab707f4c473dea6c0c0343f872b13cad16f501d5cef",
+    "bytes": 8502
+  },
+  "additional_proof_version_note": "This records the staged proof version actually read. Root intends to clarify the uncredited geometric lower bound and pre-serialization monetary radius; this hash does not assert the subsequently revised proof was read.",
+  "saved_endpoint_check": "All 108 degree/order rows and 36 conditioning rows retain the same admission from saved undiscounted and discounted interval half-widths; 33 and 0 distinct contracts respectively."
+}

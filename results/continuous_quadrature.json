@@ -1,0 +1,965 @@
+{
+  "status": "certified continuous two-asset deterministic comparator",
+  "data": "Frozen synthetic models only",
+  "protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "source_sha256": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046",
+  "models": [
+    {
+      "model_id": "n2_lambda0.05",
+      "assets": 2,
+      "outer_dimension": 1,
+      "lambda": "0.05",
+      "weights": [
+        "0.5",
+        "0.5"
+      ],
+      "loadings": [
+        [
+          "-0.1"
+        ],
+        [
+          "0.2"
+        ]
+      ],
+      "log_drifts": [
+        "0.00375",
+        "-0.01125"
+      ],
+      "covariance": [
+        [
+          "0.0125",
+          "-0.0175"
+        ],
+        [
+          "-0.0175",
+          "0.0425"
+        ]
+      ],
+      "weighted_residual_dispersion": "0.0225",
+      "geometric_outer_variance": "0.0025",
+      "spot": 100,
+      "strike": 100,
+      "maturity": 1,
+      "risk_free_rate": ".03",
+      "dividend_yield": ".02",
+      "parameter_interpretation": "frozen decimals define the exact synthetic risk-neutral model"
+    },
+    {
+      "model_id": "n2_lambda0.2",
+      "assets": 2,
+      "outer_dimension": 1,
+      "lambda": "0.2",
+      "weights": [
+        "0.5",
+        "0.5"
+      ],
+      "loadings": [
+        [
+          "-0.1"
+        ],
+        [
+          "0.2"
+        ]
+      ],
+      "log_drifts": [
+        "-0.015",
+        "-0.03"
+      ],
+      "covariance": [
+        [
+          "0.05",
+          "0.02"
+        ],
+        [
+          "0.02",
+          "0.08"
+        ]
+      ],
+      "weighted_residual_dispersion": "0.0225",
+      "geometric_outer_variance": "0.0025",
+      "spot": 100,
+      "strike": 100,
+      "maturity": 1,
+      "risk_free_rate": ".03",
+      "dividend_yield": ".02",
+      "parameter_interpretation": "frozen decimals define the exact synthetic risk-neutral model"
+    },
+    {
+      "model_id": "n2_lambda0.4",
+      "assets": 2,
+      "outer_dimension": 1,
+      "lambda": "0.4",
+      "weights": [
+        "0.5",
+        "0.5"
+      ],
+      "loadings": [
+        [
+          "-0.1"
+        ],
+        [
+          "0.2"
+        ]
+      ],
+      "log_drifts": [
+        "-0.075",
+        "-0.09"
+      ],
+      "covariance": [
+        [
+          "0.17",
+          "0.14"
+        ],
+        [
+          "0.14",
+          "0.20"
+        ]
+      ],
+      "weighted_residual_dispersion": "0.0225",
+      "geometric_outer_variance": "0.0025",
+      "spot": 100,
+      "strike": 100,
+      "maturity": 1,
+      "risk_free_rate": ".03",
+      "dividend_yield": ".02",
+      "parameter_interpretation": "frozen decimals define the exact synthetic risk-neutral model"
+    }
+  ],
+  "configurations": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "model_id": "n2_lambda0.05",
+      "cap": 1,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.0336873064731797747344182216466035365796521306 +/- 5.20e-17]",
+      "geometric_correction_ball": "[0.450892262298099764299898050178632623011781786 +/- 8.10e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-15 +/- 6.78e-52]",
+      "normal_tail_price_bound_upper_exact_fraction": "119169929249675104583494422309953738253/95780971304118053647396689196894323976171195136475136",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "329787765246037320417949243838694068017/680564733841876926926749214863536422912",
+        "upper_exact_fraction": "46413501771043950597023132078998164073989853330413069/95780971304118053647396689196894323976171195136475136",
+        "lower_decimal": "0.484579568771279487103977127846",
+        "upper_decimal": "0.484579568771280835156770270161",
+        "width_upper_decimal": "1.348052793142315E-15",
+        "midpoint_radius_upper_decimal": "6.74026396571158E-16"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "320041063801960849440645099775558175627/680564733841876926926749214863536422912",
+        "upper_exact_fraction": "320041063801961739763468805341139524091/680564733841876926926749214863536422912",
+        "lower_decimal": "0.470258078162950332800070969569",
+        "upper_decimal": "0.470258078162951641011883062120",
+        "width_upper_decimal": "1.308211812092550E-15",
+        "midpoint_radius_upper_decimal": "6.54105906046275E-16"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 384,
+        "analytic_verification_requests": 35,
+        "nonfinite_analytic_returns": 15
+      },
+      "integration_seconds_diagnostic": 0.019306375000041953,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "model_id": "n2_lambda0.05",
+      "cap": 10,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.318823981109668218513241712158604768791338522 +/- 5.28e-17]",
+      "geometric_correction_ball": "[2.46366055283135285767176723137882919272854761 +/- 5.38e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-14 +/- 6.78e-51]",
+      "normal_tail_price_bound_upper_exact_fraction": "297924823124187761458736055774884345633/23945242826029513411849172299223580994042798784118784",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "236707605782588742402583186299683646433/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "66627267824889608231450531061219201038007565174388513/23945242826029513411849172299223580994042798784118784",
+        "lower_decimal": "2.782484533941021023440529482567",
+        "upper_decimal": "2.782484533941033570850636948076",
+        "width_upper_decimal": "1.2547410107465509E-14",
+        "midpoint_radius_upper_decimal": "6.273705053732755E-15"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "229711838788674271554545897975453693821/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "114855919394337653711624903698964318513/42535295865117307932921825928971026432",
+        "lower_decimal": "2.700249688130866256711895377445",
+        "upper_decimal": "2.700249688130878433289991768755",
+        "width_upper_decimal": "1.2176578096391310E-14",
+        "midpoint_radius_upper_decimal": "6.088289048195655E-15"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 384,
+        "analytic_verification_requests": 35,
+        "nonfinite_analytic_returns": 15
+      },
+      "integration_seconds_diagnostic": 0.018700166999906287,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "model_id": "n2_lambda0.05",
+      "cap": 25,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.574939235156419386794197669203961268853441984 +/- 1.04e-16]",
+      "geometric_correction_ball": "[2.75496401578127543725594324539479731224784367 +/- 1.47e-36]",
+      "normal_tail_price_bound_ball": "[3.11048028713589206175799758629409421132305174e-14 +/- 1.72e-50]",
+      "normal_tail_price_bound_upper_exact_fraction": "186203014452617350911710034859302716021/5986310706507378352962293074805895248510699696029696",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "283276839961701615363140161501673062851/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "19933835482722234714496815225699393912664146092884597/5986310706507378352962293074805895248510699696029696",
+        "lower_decimal": "3.329903250937694720426106798978",
+        "upper_decimal": "3.329903250937726032477046389140",
+        "width_upper_decimal": "3.1312050939590161E-14",
+        "midpoint_radius_upper_decimal": "1.5656025469795081E-14"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "274904744098568886762644090198980833713/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "274904744098571471772087930778064461915/85070591730234615865843651857942052864",
+        "lower_decimal": "3.231489737021143064288733611176",
+        "upper_decimal": "3.231489737021173450928714179817",
+        "width_upper_decimal": "3.0386639980568640E-14",
+        "midpoint_radius_upper_decimal": "1.5193319990284320E-14"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 384,
+        "analytic_verification_requests": 35,
+        "nonfinite_analytic_returns": 15
+      },
+      "integration_seconds_diagnostic": 0.02007695799989051,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "model_id": "n2_lambda0.2",
+      "cap": 1,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.0202535739352293487016058303288345702338412063 +/- 7.82e-18]",
+      "geometric_correction_ball": "[0.446977584321266105917352936623578085107575933 +/- 4.07e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-15 +/- 6.78e-52]",
+      "normal_tail_price_bound_upper_exact_fraction": "119169929249675104583494422309953738253/95780971304118053647396689196894323976171195136475136",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "317981048861463700946112855310576440455/680564733841876926926749214863536422912",
+        "upper_exact_fraction": "44751854161355352071492894953641657027919469993661965/95780971304118053647396689196894323976171195136475136",
+        "lower_decimal": "0.467231158256495446802279188847",
+        "upper_decimal": "0.467231158256496706627753199414",
+        "width_upper_decimal": "1.259825474010566E-15",
+        "midpoint_radius_upper_decimal": "6.29912737005283E-16"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "154291644310338694917448884447611431781/340282366920938463463374607431768211456",
+        "upper_exact_fraction": "308583288620678221887899775380355271683/680564733841876926926749214863536422912",
+        "lower_decimal": "0.453422390664712185405454932706",
+        "upper_decimal": "0.453422390664713407997459236893",
+        "width_upper_decimal": "1.222592004304186E-15",
+        "midpoint_radius_upper_decimal": "6.11296002152093E-16"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 174,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.005978624999897875,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "model_id": "n2_lambda0.2",
+      "cap": 10,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.193759179431163517375082204776824770561539161 +/- 7.90e-18]",
+      "geometric_correction_ball": "[3.66571352608377414257925360581333016970201117 +/- 4.66e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-14 +/- 6.78e-51]",
+      "normal_tail_price_bound_upper_exact_fraction": "297924823124187761458736055774884345633/23945242826029513411849172299223580994042798784118784",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "328327626824845273945183165900383250347/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "92416011113988575959226601627677351605877602194241313/23945242826029513411849172299223580994042798784118784",
+        "lower_decimal": "3.859472705514937652058563354888",
+        "upper_decimal": "3.859472705514950109771256809861",
+        "width_upper_decimal": "1.2457712693454972E-14",
+        "midpoint_radius_upper_decimal": "6.228856346727486E-15"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "159312039496376228771271831827181959459/42535295865117307932921825928971026432",
+        "upper_exact_fraction": "318624078992753486006154155444936302705/85070591730234615865843651857942052864",
+        "lower_decimal": "3.745408048919348046836592375938",
+        "upper_decimal": "3.745408048919360136368233969872",
+        "width_upper_decimal": "1.2089531641593934E-14",
+        "midpoint_radius_upper_decimal": "6.044765820796967E-15"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 174,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.006098166000128913,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "model_id": "n2_lambda0.2",
+      "cap": 25,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.414998961339197461079603280379581697485869811 +/- 8.03e-18]",
+      "geometric_correction_ball": "[6.53103815395834974879368871911267544026250565 +/- 3.33e-36]",
+      "normal_tail_price_bound_ball": "[3.11048028713589206175799758629409421132305174e-14 +/- 1.72e-50]",
+      "normal_tail_price_bound_upper_exact_fraction": "186203014452617350911710034859302716021/5986310706507378352962293074805895248510699696029696",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "147725871894633556497651742058221554871/21267647932558653966460912964485513216",
+        "upper_exact_fraction": "41581136351103518360249667151575416401241921241875061/5986310706507378352962293074805895248510699696029696",
+        "lower_decimal": "6.946037115297547201845698180217",
+        "upper_decimal": "6.946037115297578322703757177688",
+        "width_upper_decimal": "3.1120858058997471E-14",
+        "midpoint_radius_upper_decimal": "1.5560429029498736E-14"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "35839978142426557563435734548156733647/5316911983139663491615228241121378304",
+        "upper_exact_fraction": "71679956284853436280028037062506321263/10633823966279326983230456482242756608",
+        "lower_decimal": "6.740750694402668802905343010992",
+        "upper_decimal": "6.740750694402699004003046562183",
+        "width_upper_decimal": "3.0201097703551191E-14",
+        "midpoint_radius_upper_decimal": "1.5100548851775596E-14"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 174,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.006342916999983572,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "model_id": "n2_lambda0.4",
+      "cap": 1,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.0106782234200980728310088992409163981162882777 +/- 3.83e-21]",
+      "geometric_correction_ball": "[0.414098663867926283141211712590993539968653846 +/- 3.73e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-15 +/- 6.78e-52]",
+      "normal_tail_price_bound_upper_exact_fraction": "119169929249675104583494422309953738253/95780971304118053647396689196894323976171195136475136",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "144544084619677625208340134334224489491/340282366920938463463374607431768211456",
+        "upper_exact_fraction": "40685542851986968853398107063392588195177969514059277/95780971304118053647396689196894323976171195136475136",
+        "lower_decimal": "0.424776887288024355968395735936",
+        "upper_decimal": "0.424776887288025600168160342084",
+        "width_upper_decimal": "1.244199764606147E-15",
+        "midpoint_radius_upper_decimal": "6.22099882303074E-16"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "140272161320023767624602362636144656809/340282366920938463463374607431768211456",
+        "upper_exact_fraction": "280544322640048356982191232278011337397/680564733841876926926749214863536422912",
+        "lower_decimal": "0.412222833023301316694159847905",
+        "upper_decimal": "0.412222833023302524122264252046",
+        "width_upper_decimal": "1.207428104404141E-15",
+        "midpoint_radius_upper_decimal": "6.03714052202071E-16"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 146,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.004671584000107032,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "model_id": "n2_lambda0.4",
+      "cap": 10,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.103880100568893356956876020813776842789072738 +/- 3.85e-21]",
+      "geometric_correction_ball": "[3.72969113719280956013458946812617016664817415 +/- 4.15e-36]",
+      "normal_tail_price_bound_ball": "[1.24419211485435682470319903451763768453423213e-14 +/- 6.78e-51]",
+      "normal_tail_price_bound_upper_exact_fraction": "297924823124187761458736055774884345633/23945242826029513411849172299223580994042798784118784",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "81531043409099001131082971715980726369/21267647932558653966460912964485513216",
+        "upper_exact_fraction": "91795794179086796764736054216111166992603423426426657/23945242826029513411849172299223580994042798784118784",
+        "lower_decimal": "3.833571237761702917087621682314",
+        "upper_decimal": "3.833571237761715359016457839134",
+        "width_upper_decimal": "1.2441928836156820E-14",
+        "midpoint_radius_upper_decimal": "6.220964418078410E-15"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "316485747687638644744612567247086892403/85070591730234615865843651857942052864",
+        "upper_exact_fraction": "39560718460954958988145625582339176661/10633823966279326983230456482242756608",
+        "lower_decimal": "3.720272085225870685126399689369",
+        "upper_decimal": "3.720272085225882759340667466144",
+        "width_upper_decimal": "1.2074214267776774E-14",
+        "midpoint_radius_upper_decimal": "6.037107133888387E-15"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 146,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.004643750000013824,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "model_id": "n2_lambda0.4",
+      "cap": 25,
+      "representation": "common-factor residual plus exact geometric conditional price",
+      "precision_bits": 128,
+      "normal_truncation": 8,
+      "requested_absolute_integration_tolerance": "1e-16",
+      "integral_ball": "[0.242279411510469477969571463096844016916522469 +/- 3.88e-21]",
+      "geometric_correction_ball": "[7.84090438205390693347413302312223113264173426 +/- 3.90e-36]",
+      "normal_tail_price_bound_ball": "[3.11048028713589206175799758629409421132305174e-14 +/- 1.72e-50]",
+      "normal_tail_price_bound_upper_exact_fraction": "186203014452617350911710034859302716021/5986310706507378352962293074805895248510699696029696",
+      "undiscounted_price_interval": {
+        "lower_exact_fraction": "1343049274185086152996368532019005333/166153499473114484112975882535043072",
+        "upper_exact_fraction": "48388449686081539094947153914643340184248023055729269/5986310706507378352962293074805895248510699696029696",
+        "lower_decimal": "8.083183793564376411439829158024",
+        "upper_decimal": "8.083183793564407516250451173335",
+        "width_upper_decimal": "3.1104810622015310E-14",
+        "midpoint_radius_upper_decimal": "1.5552405311007655E-14"
+      },
+      "discounted_price_interval": {
+        "lower_exact_fraction": "333659179383931540815180140942929087247/42535295865117307932921825928971026432",
+        "upper_exact_fraction": "333659179383932824765397293897658379289/42535295865117307932921825928971026432",
+        "lower_decimal": "7.844289609316235642830907010300",
+        "upper_decimal": "7.844289609316265828355447017253",
+        "width_upper_decimal": "3.0185524540006952E-14",
+        "midpoint_radius_upper_decimal": "1.5092762270003476E-14"
+      },
+      "confidence": 1,
+      "requested_undiscounted_price_error": ".01",
+      "statistical_error": 0,
+      "integration_diagnostics": {
+        "calls": 146,
+        "analytic_verification_requests": 11,
+        "nonfinite_analytic_returns": 7
+      },
+      "integration_seconds_diagnostic": 0.004648833999908675,
+      "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+      "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+    }
+  ],
+  "independent_representation_checks": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.05_cap1",
+        "model_id": "n2_lambda0.05",
+        "cap": 1,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[0.484579568771280161106690508450070837808665477 +/- 3.84e-32]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-23 +/- 4.41e-68]",
+        "normal_tail_price_bound_upper_exact_fraction": "13786229708575458029665203119639885985557033751152675/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "92827003542087772071703569768212807742454495145467321/191561942608236107294793378393788647952342390272950272",
+          "upper_exact_fraction": "438363130232377130465600694216219761688194821903434952357910903611167344675/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "lower_decimal": "0.484579568771280161106690508450",
+          "upper_decimal": "0.484579568771280161106705748157",
+          "width_upper_decimal": "1.5239707E-23",
+          "midpoint_radius_upper_decimal": "7.619854E-24"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "11260443872513828297985850087885404489089668870006223/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "90083550980110626383889633771029352720325936657414289/191561942608236107294793378393788647952342390272950272",
+          "lower_decimal": "0.470258078162950986882993769351",
+          "upper_decimal": "0.470258078162950986883008558657",
+          "width_upper_decimal": "1.4789305E-23",
+          "midpoint_radius_upper_decimal": "7.394653E-24"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 626,
+          "analytic_verification_requests": 31,
+          "nonfinite_analytic_returns": 15
+        },
+        "integration_seconds_diagnostic": 0.018858624999893436,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "92827003542087772071703569768212807742454495145467321/191561942608236107294793378393788647952342390272950272",
+        "upper_exact_fraction": "438363130232377130465600694216219761688194821903434952357910903611167344675/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "lower_decimal": "0.484579568771280161106690508450",
+        "upper_decimal": "0.484579568771280161106705748157",
+        "width_upper_decimal": "1.5239707E-23",
+        "midpoint_radius_upper_decimal": "7.619854E-24"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.05_cap10",
+        "model_id": "n2_lambda0.05",
+        "cap": 10,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[2.78248453394102727920512544686871578559775523 +/- 4.61e-32]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-22 +/- 4.41e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "68931148542877290148326015598199429927785168755763375/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "66627267824889457576470982866156206717289927683386281/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "1258553505685748417519445486246184537280105590272969936420981280677518649519/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "lower_decimal": "2.782484533941027279205125446868",
+          "upper_decimal": "2.782484533941027279205277843930",
+          "width_upper_decimal": "1.52397061E-22",
+          "midpoint_radius_upper_decimal": "7.6198531E-23"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "64658134473204201532504691263768327402269287542616421/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "64658134473204201532508232598685307160725135888344685/23945242826029513411849172299223580994042798784118784",
+          "lower_decimal": "2.700249688130872327590706461889",
+          "upper_decimal": "2.700249688130872327590854354937",
+          "width_upper_decimal": "1.47893047E-22",
+          "midpoint_radius_upper_decimal": "7.3946524E-23"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 626,
+          "analytic_verification_requests": 31,
+          "nonfinite_analytic_returns": 15
+        },
+        "integration_seconds_diagnostic": 0.017173167000009926,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "66627267824889457576470982866156206717289927683386281/23945242826029513411849172299223580994042798784118784",
+        "upper_exact_fraction": "1258553505685748417519445486246184537280105590272969936420981280677518649519/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "lower_decimal": "2.782484533941027279205125446868",
+        "upper_decimal": "2.782484533941027279205277843930",
+        "width_upper_decimal": "1.52397061E-22",
+        "midpoint_radius_upper_decimal": "7.6198531E-23"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.05_cap25",
+        "model_id": "n2_lambda0.05",
+        "cap": 25,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[3.32990325093770809826114403977823451829336781 +/- 4.70e-32]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[3.80992651208026303298667162579965418175201664e-22 +/- 1.03e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "43081967839298306342703759748874643704865730472352109/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "79735341930888509418832584707344163539521001829767549/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "376539506234578515831090546595929355406342406499829506532526800945645001069/113078212145816597093331040047546785012958969400039613319782796882727665664",
+          "lower_decimal": "3.329903250937708098261144039778",
+          "upper_decimal": "3.329903250937708098261525032430",
+          "width_upper_decimal": "3.80992652E-22",
+          "midpoint_radius_upper_decimal": "1.90496326E-22"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "77378806442793835726137949268483242699668047000812043/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "77378806442793835726146802605772523886290410740667947/23945242826029513411849172299223580994042798784118784",
+          "lower_decimal": "3.231489737021156046748994050250",
+          "upper_decimal": "3.231489737021156046749363782868",
+          "width_upper_decimal": "3.69732617E-22",
+          "midpoint_radius_upper_decimal": "1.84866309E-22"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 626,
+          "analytic_verification_requests": 31,
+          "nonfinite_analytic_returns": 15
+        },
+        "integration_seconds_diagnostic": 0.018168291999927533,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "79735341930888509418832584707344163539521001829767549/23945242826029513411849172299223580994042798784118784",
+        "upper_exact_fraction": "376539506234578515831090546595929355406342406499829506532526800945645001069/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "lower_decimal": "3.329903250937708098261144039778",
+        "upper_decimal": "3.329903250937708098261525032430",
+        "width_upper_decimal": "3.80992652E-22",
+        "midpoint_radius_upper_decimal": "1.90496326E-22"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.2_cap1",
+        "model_id": "n2_lambda0.2",
+        "cap": 1,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[0.467231158256495972232548547740530517051145986 +/- 1.60e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-23 +/- 4.41e-68]",
+        "normal_tail_price_bound_upper_exact_fraction": "13786229708575458029665203119639885985557033751152675/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "22375927080677640865203428519508320279073334829559523/47890485652059026823698344598447161988085597568237568",
+          "upper_exact_fraction": "422669312275709275825582760563656731662885368283555989931871335398300190755/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "lower_decimal": "0.467231158256495972232548388097",
+          "upper_decimal": "0.467231158256495972232563947090",
+          "width_upper_decimal": "1.5558993E-23",
+          "midpoint_radius_upper_decimal": "7.779497E-24"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "86858473977802904643250425528403496312954804896681513/191561942608236107294793378393788647952342390272950272",
+          "upper_exact_fraction": "43429236988901452321626658975947964853560525272108743/95780971304118053647396689196894323976171195136475136",
+          "lower_decimal": "0.453422390664712695306912868308",
+          "upper_decimal": "0.453422390664712695306927967464",
+          "width_upper_decimal": "1.5099156E-23",
+          "midpoint_radius_upper_decimal": "7.549578E-24"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 243,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.007002583000030427,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "22375927080677640865203428519508320279073334829559523/47890485652059026823698344598447161988085597568237568",
+        "upper_exact_fraction": "422669312275709275825582760563656731662885368283555989931871335398300190755/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "lower_decimal": "0.467231158256495972232548388097",
+        "upper_decimal": "0.467231158256495972232563947090",
+        "width_upper_decimal": "1.5558993E-23",
+        "midpoint_radius_upper_decimal": "7.779497E-24"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.2_cap10",
+        "model_id": "n2_lambda0.2",
+        "cap": 10,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[3.85947270551494259001288241808358823639474185 +/- 1.62e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-22 +/- 4.41e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "68931148542877290148326015598199429927785168755763375/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "92416011113988395896786329891962269363545955844539805/23945242826029513411849172299223580994042798784118784",
+          "upper_exact_fraction": "1745689093460829695416414858260071048535931150997732906318055947290057910447/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "lower_decimal": "3.859472705514942590012882257063",
+          "upper_decimal": "3.859472705514942590013034976165",
+          "width_upper_decimal": "1.52719101E-22",
+          "midpoint_radius_upper_decimal": "7.6359551E-23"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "2802647037935604074605683642387546781935022220560307/748288838313422294120286634350736906063837462003712",
+          "upper_exact_fraction": "22421176303484832596846356343687239613398096733615007/5986310706507378352962293074805895248510699696029696",
+          "lower_decimal": "3.745408048919352838852306021120",
+          "upper_decimal": "3.745408048919352838852454226690",
+          "width_upper_decimal": "1.48205570E-22",
+          "midpoint_radius_upper_decimal": "7.4102785E-23"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 243,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.006329999999934444,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "92416011113988395896786329891962269363545955844539805/23945242826029513411849172299223580994042798784118784",
+        "upper_exact_fraction": "1745689093460829695416414858260071048535931150997732906318055947290057910447/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "lower_decimal": "3.859472705514942590012882257063",
+        "upper_decimal": "3.859472705514942590013034976165",
+        "width_upper_decimal": "1.52719101E-22",
+        "midpoint_radius_upper_decimal": "7.6359551E-23"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.2_cap25",
+        "model_id": "n2_lambda0.2",
+        "cap": 25,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[6.94603711529755853796851593886022529619295036 +/- 1.64e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[3.80992651208026303298667162579965418175201664e-22 +/- 1.03e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "43081967839298306342703759748874643704865730472352109/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "83162272702206799845354532264426576888668705435020743/11972621413014756705924586149611790497021399392059392",
+          "upper_exact_fraction": "785445458496333262875524491687138085036484337782895392443168213583241845101/113078212145816597093331040047546785012958969400039613319782796882727665664",
+          "lower_decimal": "6.946037115297558537968515775565",
+          "upper_decimal": "6.946037115297558537968897094806",
+          "width_upper_decimal": "3.81319240E-22",
+          "midpoint_radius_upper_decimal": "1.90659620E-22"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "2522014253237487960675081771983113899074824083040913/374144419156711147060143317175368453031918731001856",
+          "upper_exact_fraction": "20176114025899903685401761791666268005493680951355079/2993155353253689176481146537402947624255349848014848",
+          "lower_decimal": "6.740750694402679803995099103728",
+          "upper_decimal": "6.740750694402679803995469153282",
+          "width_upper_decimal": "3.70049554E-22",
+          "midpoint_radius_upper_decimal": "1.85024777E-22"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 243,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.006568125000057989,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "83162272702206799845354532264426576888668705435020743/11972621413014756705924586149611790497021399392059392",
+        "upper_exact_fraction": "785445458496333262875524491687138085036484337782895392443168213583241845101/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "lower_decimal": "6.946037115297558537968515775565",
+        "upper_decimal": "6.946037115297558537968897094806",
+        "width_upper_decimal": "3.81319240E-22",
+        "midpoint_radius_upper_decimal": "1.90659620E-22"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.4_cap1",
+        "model_id": "n2_lambda0.4",
+        "cap": 1,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[0.424776887288024799554311906168170406670416098 +/- 1.28e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-23 +/- 4.41e-68]",
+        "normal_tail_price_bound_upper_exact_fraction": "13786229708575458029665203119639885985557033751152675/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "20342771425993446084913026051427679044001974214152319/47890485652059026823698344598447161988085597568237568",
+          "upper_exact_fraction": "384264087803159148587991430168270790522883878870025169487075650011586103331/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "lower_decimal": "0.424776887288024799554311778370",
+          "upper_decimal": "0.424776887288024799554327273672",
+          "width_upper_decimal": "1.5495302E-23",
+          "midpoint_radius_upper_decimal": "7.747651E-24"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "78966206681414225236027920149099449330074692290051971/191561942608236107294793378393788647952342390272950272",
+          "upper_exact_fraction": "19741551670353556309007700183088672930709773413210349/47890485652059026823698344598447161988085597568237568",
+          "lower_decimal": "0.412222833023301747170130816308",
+          "upper_decimal": "0.412222833023301747170145853655",
+          "width_upper_decimal": "1.5037347E-23",
+          "midpoint_radius_upper_decimal": "7.518674E-24"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 215,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.005149250000158645,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "20342771425993446084913026051427679044001974214152319/47890485652059026823698344598447161988085597568237568",
+        "upper_exact_fraction": "384264087803159148587991430168270790522883878870025169487075650011586103331/904625697166532776746648320380374280103671755200316906558262375061821325312",
+        "lower_decimal": "0.424776887288024799554311778370",
+        "upper_decimal": "0.424776887288024799554327273672",
+        "width_upper_decimal": "1.5495302E-23",
+        "midpoint_radius_upper_decimal": "7.747651E-24"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.4_cap10",
+        "model_id": "n2_lambda0.4",
+        "cap": 10,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[3.83357123776170739011324108381837034548119007 +/- 1.48e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[1.52397060483210521319466865031986167270080666e-22 +/- 4.41e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "68931148542877290148326015598199429927785168755763375/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "45897897089543302973706734177721209354946497888141759/11972621413014756705924586149611790497021399392059392",
+          "upper_exact_fraction": "1733973526798876265385961151913981164977927488584762402491284898386232486063/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "lower_decimal": "3.833571237761707390113240936526",
+          "upper_decimal": "3.833571237761707390113393628171",
+          "width_upper_decimal": "1.52691645E-22",
+          "midpoint_radius_upper_decimal": "7.6345823E-23"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "44541409229816371238521512753215750933015823929003667/11972621413014756705924586149611790497021399392059392",
+          "upper_exact_fraction": "89082818459632742477046573686755643204970386376723157/23945242826029513411849172299223580994042798784118784",
+          "lower_decimal": "3.720272085225875025954133342669",
+          "upper_decimal": "3.720272085225875025954281521594",
+          "width_upper_decimal": "1.48178925E-22",
+          "midpoint_radius_upper_decimal": "7.4089463E-23"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 215,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.004988874999980908,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "45897897089543302973706734177721209354946497888141759/11972621413014756705924586149611790497021399392059392",
+        "upper_exact_fraction": "1733973526798876265385961151913981164977927488584762402491284898386232486063/452312848583266388373324160190187140051835877600158453279131187530910662656",
+        "lower_decimal": "3.833571237761707390113240936526",
+        "upper_decimal": "3.833571237761707390113393628171",
+        "width_upper_decimal": "1.52691645E-22",
+        "midpoint_radius_upper_decimal": "7.6345823E-23"
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "residual_and_direct_enclosures_overlap": true,
+      "reference": {
+        "case_id": "n2_lambda0.4_cap25",
+        "model_id": "n2_lambda0.4",
+        "cap": 25,
+        "representation": "direct common-factor conditional arithmetic price",
+        "precision_bits": 176,
+        "normal_truncation": 10,
+        "requested_absolute_integration_tolerance": "1e-24",
+        "integral_ball": "[8.08318379356438767149450352886091129375339483 +/- 1.78e-25]",
+        "geometric_correction_ball": "0",
+        "normal_tail_price_bound_ball": "[3.80992651208026303298667162579965418175201664e-22 +/- 1.03e-67]",
+        "normal_tail_price_bound_upper_exact_fraction": "43081967839298306342703759748874643704865730472352109/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "undiscounted_price_interval": {
+          "lower_exact_fraction": "48388449686081420298072155440744074509457677730921135/5986310706507378352962293074805895248510699696029696",
+          "upper_exact_fraction": "914031971822300419225006389928903003287336651206165543281519390339579943277/113078212145816597093331040047546785012958969400039613319782796882727665664",
+          "lower_decimal": "8.083183793564387671494503351153",
+          "upper_decimal": "8.083183793564387671494884699220",
+          "width_upper_decimal": "3.81348067E-22",
+          "midpoint_radius_upper_decimal": "1.90674034E-22"
+        },
+        "discounted_price_interval": {
+          "lower_exact_fraction": "93916709746388853848927090867917137737019801651554459/11972621413014756705924586149611790497021399392059392",
+          "upper_exact_fraction": "46958354873194426924465760833025555517537856298495403/5986310706507378352962293074805895248510699696029696",
+          "lower_decimal": "7.844289609316246570100673093024",
+          "upper_decimal": "7.844289609316246570101043170553",
+          "width_upper_decimal": "3.70077528E-22",
+          "midpoint_radius_upper_decimal": "1.85038764E-22"
+        },
+        "confidence": 1,
+        "requested_undiscounted_price_error": ".01",
+        "statistical_error": 0,
+        "integration_diagnostics": {
+          "calls": 215,
+          "analytic_verification_requests": 14,
+          "nonfinite_analytic_returns": 9
+        },
+        "integration_seconds_diagnostic": 0.004888333000053535,
+        "premises": "Exact frozen rational parameters; Arb/Acb outward ball arithmetic and a finite validated integral enclosure; log analytic flag forwarded; capped residual tail in [0,H].",
+        "claim_limit": "Synthetic two-asset Gaussian model. No market calibration, empirical validation, quantum runtime comparison or theoretical novelty claim."
+      },
+      "intersection": {
+        "lower_exact_fraction": "48388449686081420298072155440744074509457677730921135/5986310706507378352962293074805895248510699696029696",
+        "upper_exact_fraction": "914031971822300419225006389928903003287336651206165543281519390339579943277/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "lower_decimal": "8.083183793564387671494503351153",
+        "upper_decimal": "8.083183793564387671494884699220",
+        "width_upper_decimal": "3.81348067E-22",
+        "midpoint_radius_upper_decimal": "1.90674034E-22"
+      }
+    }
+  ],
+  "python_flint_version": "0.9.0",
+  "python_version": "3.13.9",
+  "elapsed_seconds_diagnostic": 0.1847083330001169,
+  "runtime_qualification": "Already installed authorised python-flint runtime; no new package, subscription or entitlement.",
+  "novelty_boundary": "Validated deterministic quadrature is established. This is a stronger matched classical comparator, not a new pricing model or proof of quantum advantage."
+}

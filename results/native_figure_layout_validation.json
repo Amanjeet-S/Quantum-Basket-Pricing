@@ -1,0 +1,83 @@
+{
+  "schema": "qbp-native-figure-layout-repair-v1",
+  "status": "passed_source_checks_and_native_compilation",
+  "paper_before_sha256": "b4de98aab1836d119f5856ea3e9c9ee147acf469429fdb3d69a6150059c4edf0",
+  "paper_after_sha256": "b13b9d37dad5e9568333fd3810dfdf041e02c9b717d7897cb05bed1cd21e964f",
+  "only_figure_blocks_changed_in_paper": true,
+  "figures": [
+    {
+      "figure": "dispersion_separation",
+      "before_sha256": "d2a1dbadd374be70803310f07122ab79b8c02fdae08a3a44894d7543b7ffe7e3",
+      "after_sha256": "a36084edf49adc8d7972a8ee8c312068057b2cb39f6068755b8368a63a77f68d",
+      "drawing_tokens_preserved": true,
+      "canvas": "(160,75)(0,10)",
+      "caption_word_count": 99,
+      "retained_data": {
+        "_coordinates.json": "567912b2c0e70d3fb96be88cc0b3b95ede539d519e12e1c95e0060640fefb48a",
+        "_plot_data.json": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+        ".png": "b18333fbb6c22a41c876033ff005964b76a264de2b654a06656278633cb267d9",
+        ".svg": "801accad9dd82d1900bd0f191fdf1876228a02e03df4f7bc00c1f6974da818e1"
+      }
+    },
+    {
+      "figure": "pricing_precision",
+      "before_sha256": "d3121c92094388290b16607ea46ee7afa15a68abc7680fec78de0e52ff8015bd",
+      "after_sha256": "a6a54a8346d10408f8d681b5e73473e7d65db9ed6cf4b79df66733507f40498f",
+      "drawing_tokens_preserved": true,
+      "canvas": "(162,84)(-2,4)",
+      "caption_word_count": 111,
+      "retained_data": {
+        "_coordinates.json": "87411bc3da2db740fcc2b88bba04a1c94d29f2d4a354b7ef4e9207ec17c18bb9",
+        "_plot_data.json": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+        ".png": "c69be207417dac8d5a48a7696d9dadff4635440491878e14bea85e7b261facbe",
+        ".svg": "68c97cf5342e9869343d0cc596b198b9eb02390663fb14ccdab52f2c86d865d5"
+      }
+    }
+  ],
+  "git_index_before_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "no_commit_or_staging_authorised": true,
+  "native_PDF_pixel_review": "Unavailable: the rendered PDF could not be inspected visually in the desktop editor. No alternative PDF was compiled or exported.",
+  "changed_files": {
+    "generalisation_proofs.tex": {
+      "before": "b4de98aab1836d119f5856ea3e9c9ee147acf469429fdb3d69a6150059c4edf0",
+      "after": "b13b9d37dad5e9568333fd3810dfdf041e02c9b717d7897cb05bed1cd21e964f"
+    },
+    "reviews/figure_selection_review.md": {
+      "before": "2c177a1c1e755b4a7c9c9df1f5fdd2a57e8b41130dfe47e1e420d1240d0fe0d8",
+      "after": "bb05f50e9def0bbbf9a70e1395f17877e38f95c857606ac2db3bcde2df3f01c6"
+    },
+    "figures/dispersion_separation_figure.tex": {
+      "before": "d2a1dbadd374be70803310f07122ab79b8c02fdae08a3a44894d7543b7ffe7e3",
+      "after": "a36084edf49adc8d7972a8ee8c312068057b2cb39f6068755b8368a63a77f68d"
+    },
+    "figures/plot_dispersion_separation_v2.py": {
+      "before": "6897d28009452fb8ae7a5344b4683cafe228124f02639a369cc34ffa349e0941",
+      "after": "988b9f72689b751063459376a64cb7ede7ef8559a24ca534e9f4693cdb0af58f"
+    },
+    "figures/dispersion_separation_render_record.json": {
+      "before": "56a2abdcc06794f104ca59d0e1d4e0bf32db74f7c35e1bc96b160957d73765bf",
+      "after": "56e6306f3222c551a168cde6762cbdafbf33439872b3e605c8775e7a6392fb0a"
+    },
+    "figures/pricing_precision_figure.tex": {
+      "before": "d3121c92094388290b16607ea46ee7afa15a68abc7680fec78de0e52ff8015bd",
+      "after": "a6a54a8346d10408f8d681b5e73473e7d65db9ed6cf4b79df66733507f40498f"
+    },
+    "figures/plot_pricing_precision.py": {
+      "before": "a576dfd3b2acc4ccfa9557932047855cd81d71fa8445193acbf1dd332c09d35a",
+      "after": "e3a3efa0bd1d6cdb3b96ef4d402e4504a9986cbcf2b16ffe9d5f1d041970491e"
+    },
+    "figures/pricing_precision_render_record.json": {
+      "before": "ba22f63c38ddf5842ee4c7485cea9df55a93b7848b835e1142043879d3a27c87",
+      "after": "61ebb264f6f16533e38e8cf0f900cae60a9328bed5ed4115ef96038c171d47c8"
+    }
+  },
+  "native_compilation": {
+    "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+    "kind": "success",
+    "compiler": "Desktop editor's built-in compiler",
+    "source_sha256": "b13b9d37dad5e9568333fd3810dfdf041e02c9b717d7897cb05bed1cd21e964f",
+    "date": "2026-10-10",
+    "message": "The current source compiled successfully with the desktop editor's compiler."
+  },
+  "verification_scope": "Drawing tokens, data, coordinates, colours and exports preserved; source group structure and whitespace checked; main source compiled successfully. Native PDF pixels and final page placement were not independently observed."
+}

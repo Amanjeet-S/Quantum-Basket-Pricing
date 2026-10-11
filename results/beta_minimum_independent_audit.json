@@ -1,0 +1,668 @@
+{
+  "status": "passed",
+  "independent_dirty_basis_cases": 38828,
+  "exact_PMF_cases": [
+    {
+      "r": 1,
+      "m": 1,
+      "exact_probabilities": [
+        "1/2",
+        "1/2"
+      ],
+      "passed": true
+    },
+    {
+      "r": 1,
+      "m": 3,
+      "exact_probabilities": [
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8"
+      ],
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 1,
+      "exact_probabilities": [
+        "3/4",
+        "1/4"
+      ],
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 2,
+      "exact_probabilities": [
+        "7/16",
+        "5/16",
+        "3/16",
+        "1/16"
+      ],
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 3,
+      "exact_probabilities": [
+        "15/64",
+        "13/64",
+        "11/64",
+        "9/64",
+        "7/64",
+        "5/64",
+        "3/64",
+        "1/64"
+      ],
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 2,
+      "exact_probabilities": [
+        "37/64",
+        "19/64",
+        "7/64",
+        "1/64"
+      ],
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 3,
+      "exact_probabilities": [
+        "169/512",
+        "127/512",
+        "91/512",
+        "61/512",
+        "37/512",
+        "19/512",
+        "7/512",
+        "1/512"
+      ],
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 1,
+      "exact_probabilities": [
+        "15/16",
+        "1/16"
+      ],
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 2,
+      "exact_probabilities": [
+        "175/256",
+        "65/256",
+        "15/256",
+        "1/256"
+      ],
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 3,
+      "exact_probabilities": [
+        "1695/4096",
+        "1105/4096",
+        "671/4096",
+        "369/4096",
+        "175/4096",
+        "65/4096",
+        "15/4096",
+        "1/4096"
+      ],
+      "passed": true
+    }
+  ],
+  "emitted_profiles": [
+    {
+      "r": 1,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 1
+      },
+      "wires": 2,
+      "retained_input_output_qubits": 2,
+      "T_count": 0,
+      "passed": true
+    },
+    {
+      "r": 1,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 2
+      },
+      "wires": 4,
+      "retained_input_output_qubits": 4,
+      "T_count": 0,
+      "passed": true
+    },
+    {
+      "r": 1,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 4
+      },
+      "wires": 8,
+      "retained_input_output_qubits": 8,
+      "T_count": 0,
+      "passed": true
+    },
+    {
+      "r": 1,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 8
+      },
+      "wires": 16,
+      "retained_input_output_qubits": 16,
+      "T_count": 0,
+      "passed": true
+    },
+    {
+      "r": 1,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 16
+      },
+      "wires": 32,
+      "retained_input_output_qubits": 32,
+      "T_count": 0,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 25,
+        "1": 4,
+        "3": 14
+      },
+      "wires": 8,
+      "retained_input_output_qubits": 3,
+      "T_count": 98,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 48,
+        "1": 8,
+        "3": 28
+      },
+      "wires": 14,
+      "retained_input_output_qubits": 6,
+      "T_count": 196,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 94,
+        "1": 16,
+        "3": 56
+      },
+      "wires": 26,
+      "retained_input_output_qubits": 12,
+      "T_count": 392,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 186,
+        "1": 32,
+        "3": 112
+      },
+      "wires": 50,
+      "retained_input_output_qubits": 24,
+      "T_count": 784,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 370,
+        "1": 64,
+        "3": 224
+      },
+      "wires": 98,
+      "retained_input_output_qubits": 48,
+      "T_count": 1568,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 49,
+        "1": 8,
+        "3": 28
+      },
+      "wires": 12,
+      "retained_input_output_qubits": 4,
+      "T_count": 196,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 94,
+        "1": 16,
+        "3": 56
+      },
+      "wires": 21,
+      "retained_input_output_qubits": 8,
+      "T_count": 392,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 184,
+        "1": 32,
+        "3": 112
+      },
+      "wires": 39,
+      "retained_input_output_qubits": 16,
+      "T_count": 784,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 364,
+        "1": 64,
+        "3": 224
+      },
+      "wires": 75,
+      "retained_input_output_qubits": 32,
+      "T_count": 1568,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 724,
+        "1": 128,
+        "3": 448
+      },
+      "wires": 147,
+      "retained_input_output_qubits": 64,
+      "T_count": 3136,
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 73,
+        "1": 12,
+        "3": 42
+      },
+      "wires": 16,
+      "retained_input_output_qubits": 5,
+      "T_count": 294,
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 140,
+        "1": 24,
+        "3": 84
+      },
+      "wires": 28,
+      "retained_input_output_qubits": 10,
+      "T_count": 588,
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 274,
+        "1": 48,
+        "3": 168
+      },
+      "wires": 52,
+      "retained_input_output_qubits": 20,
+      "T_count": 1176,
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 542,
+        "1": 96,
+        "3": 336
+      },
+      "wires": 100,
+      "retained_input_output_qubits": 40,
+      "T_count": 2352,
+      "passed": true
+    },
+    {
+      "r": 4,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 1078,
+        "1": 192,
+        "3": 672
+      },
+      "wires": 196,
+      "retained_input_output_qubits": 80,
+      "T_count": 4704,
+      "passed": true
+    },
+    {
+      "r": 5,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 97,
+        "1": 16,
+        "3": 56
+      },
+      "wires": 20,
+      "retained_input_output_qubits": 6,
+      "T_count": 392,
+      "passed": true
+    },
+    {
+      "r": 5,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 186,
+        "1": 32,
+        "3": 112
+      },
+      "wires": 35,
+      "retained_input_output_qubits": 12,
+      "T_count": 784,
+      "passed": true
+    },
+    {
+      "r": 5,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 364,
+        "1": 64,
+        "3": 224
+      },
+      "wires": 65,
+      "retained_input_output_qubits": 24,
+      "T_count": 1568,
+      "passed": true
+    },
+    {
+      "r": 5,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 720,
+        "1": 128,
+        "3": 448
+      },
+      "wires": 125,
+      "retained_input_output_qubits": 48,
+      "T_count": 3136,
+      "passed": true
+    },
+    {
+      "r": 5,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 1432,
+        "1": 256,
+        "3": 896
+      },
+      "wires": 245,
+      "retained_input_output_qubits": 96,
+      "T_count": 6272,
+      "passed": true
+    },
+    {
+      "r": 6,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 121,
+        "1": 20,
+        "3": 70
+      },
+      "wires": 24,
+      "retained_input_output_qubits": 7,
+      "T_count": 490,
+      "passed": true
+    },
+    {
+      "r": 6,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 232,
+        "1": 40,
+        "3": 140
+      },
+      "wires": 42,
+      "retained_input_output_qubits": 14,
+      "T_count": 980,
+      "passed": true
+    },
+    {
+      "r": 6,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 454,
+        "1": 80,
+        "3": 280
+      },
+      "wires": 78,
+      "retained_input_output_qubits": 28,
+      "T_count": 1960,
+      "passed": true
+    },
+    {
+      "r": 6,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 898,
+        "1": 160,
+        "3": 560
+      },
+      "wires": 150,
+      "retained_input_output_qubits": 56,
+      "T_count": 3920,
+      "passed": true
+    },
+    {
+      "r": 6,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 1786,
+        "1": 320,
+        "3": 1120
+      },
+      "wires": 294,
+      "retained_input_output_qubits": 112,
+      "T_count": 7840,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 145,
+        "1": 24,
+        "3": 84
+      },
+      "wires": 28,
+      "retained_input_output_qubits": 8,
+      "T_count": 588,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 278,
+        "1": 48,
+        "3": 168
+      },
+      "wires": 49,
+      "retained_input_output_qubits": 16,
+      "T_count": 1176,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 544,
+        "1": 96,
+        "3": 336
+      },
+      "wires": 91,
+      "retained_input_output_qubits": 32,
+      "T_count": 2352,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 1076,
+        "1": 192,
+        "3": 672
+      },
+      "wires": 175,
+      "retained_input_output_qubits": 64,
+      "T_count": 4704,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 2140,
+        "1": 384,
+        "3": 1344
+      },
+      "wires": 343,
+      "retained_input_output_qubits": 128,
+      "T_count": 9408,
+      "passed": true
+    },
+    {
+      "r": 8,
+      "m": 1,
+      "raw_gate_counts": {
+        "2": 169,
+        "1": 28,
+        "3": 98
+      },
+      "wires": 32,
+      "retained_input_output_qubits": 9,
+      "T_count": 686,
+      "passed": true
+    },
+    {
+      "r": 8,
+      "m": 2,
+      "raw_gate_counts": {
+        "2": 324,
+        "1": 56,
+        "3": 196
+      },
+      "wires": 56,
+      "retained_input_output_qubits": 18,
+      "T_count": 1372,
+      "passed": true
+    },
+    {
+      "r": 8,
+      "m": 4,
+      "raw_gate_counts": {
+        "2": 634,
+        "1": 112,
+        "3": 392
+      },
+      "wires": 104,
+      "retained_input_output_qubits": 36,
+      "T_count": 2744,
+      "passed": true
+    },
+    {
+      "r": 8,
+      "m": 8,
+      "raw_gate_counts": {
+        "2": 1254,
+        "1": 224,
+        "3": 784
+      },
+      "wires": 200,
+      "retained_input_output_qubits": 72,
+      "T_count": 5488,
+      "passed": true
+    },
+    {
+      "r": 8,
+      "m": 16,
+      "raw_gate_counts": {
+        "2": 2494,
+        "1": 448,
+        "3": 1568
+      },
+      "wires": 392,
+      "retained_input_output_qubits": 144,
+      "T_count": 10976,
+      "passed": true
+    }
+  ],
+  "coherent_primitive_diagnostics": [
+    {
+      "r": 2,
+      "m": 1,
+      "full_complex_reference_state_error_diagnostic": 2.7003119207123386e-15,
+      "actual_uniform_preparation_PMF_error_diagnostic": 3.774758283725532e-15,
+      "literal_primitive_gate_count": 239,
+      "passed": true
+    },
+    {
+      "r": 3,
+      "m": 1,
+      "full_complex_reference_state_error_diagnostic": 5.60949419574751e-15,
+      "actual_uniform_preparation_PMF_error_diagnostic": 8.992806499463768e-15,
+      "literal_primitive_gate_count": 477,
+      "passed": true
+    },
+    {
+      "r": 2,
+      "m": 2,
+      "full_complex_reference_state_error_diagnostic": 5.571091909258703e-15,
+      "actual_uniform_preparation_PMF_error_diagnostic": 4.6629367034256575e-15,
+      "literal_primitive_gate_count": 476,
+      "passed": true
+    }
+  ],
+  "source_sha256": "5140a8d2137127132c09ee5da670d1193190df7094c64fbceddabc7419cb940f",
+  "dependency_sha256": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+  "auditor_sha256": "6bd7edc23621019a331184836edbecfb5c8a46df5c3ab5d79cd99a39ba1f57ae",
+  "scope": "Exact basis permutations and rational PMFs are exhaustive over the stated cases. Floating primitive-phase replay is a diagnostic; the standard exact CCX identity and linearity supply the mathematical coherent extension."
+}

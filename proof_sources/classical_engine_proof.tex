@@ -1,0 +1,141 @@
+\section{Exact classical evaluation of the finite quantum target}
+\label{sec:exactclassical}
+
+I construct an exact classical comparator for the retained finite graph. I use
+unsigned 64-bit NumPy arrays to execute integer operations and retain Python
+integers for sample moments. This comparator uses the same financial graph
+and the same one-dimensional tables as the coherent evaluator. It does not
+establish that these tables are the strongest classical discretisation of the
+continuous financial model. I make no novelty claim for the following
+elementary integer identities.
+
+\begin{lemma}[Safe product after the financial truncation]
+Let $18\leq q\leq30$, $w\leq q+7$, and $0\leq a,b<2^w$. Define
+$a_H=\lfloor a/2^q\rfloor$, $a_L=a\bmod2^q$ and similarly $b_H,b_L$.
+Then
+\[
+ \left\lfloor\frac{ab}{2^q}\right\rfloor
+ =2^q a_Hb_H+a_Hb_L+a_Lb_H
+   +\left\lfloor\frac{a_Lb_L}{2^q}\right\rfloor .
+\]
+Every product, shift and addition on the right-hand side fits in an unsigned
+64-bit word. Its final reduction modulo $2^w$ is the retained unsigned
+fixed-point multiplication.
+\end{lemma}
+\begin{proof}
+Expanding $(2^q a_H+a_L)(2^q b_H+b_L)$ gives the identity, since the first
+three terms after division by $2^q$ are integers. The high limbs are smaller
+than $2^7$ and the low limbs are smaller than $2^q$. Hence the unshifted
+low-limb product is smaller than $2^{60}$, each cross product is smaller than
+$2^{37}$ and the shifted high-limb product is smaller than $2^{44}$.
+The sum is exactly $\lfloor ab/2^q\rfloor<2^{2w-q}\leq2^{44}$.
+Every partial sum is nonnegative and bounded by this sum. All operations
+therefore fit in 64 bits. The output bit mask is exactly reduction modulo
+$2^w$. For a known $k<2^q$, the high limb of $k$ vanishes and the formula
+reduces to $a_Hk+\lfloor a_Lk/2^q\rfloor$. A binary-power multiplier reduces
+to a shift. A native unsigned product is used for a positive drop only when
+$(2^w-1)k<2^{64}$ has been checked. With zero drop, native wrap followed by
+the $w$-bit mask remains exact because $2^w$ divides $2^{64}$.
+\end{proof}
+
+\begin{lemma}[Exact unsigned product windows]
+Put $B=2^{32}$ and write unsigned 64-bit inputs as $a=a_0+Ba_1$ and
+$b=b_0+Bb_1$, with all limbs smaller than $B$. Let $p_{ij}=a_i b_j$ and
+\[
+ m=\lfloor p_{00}/B\rfloor+(p_{01}\bmod B)+(p_{10}\bmod B),
+\]
+\[
+ L=(p_{00}\bmod B)+B(m\bmod B),\qquad
+ U=p_{11}+\lfloor p_{01}/B\rfloor+\lfloor p_{10}/B\rfloor
+       +\lfloor m/B\rfloor .
+\]
+Then $ab=L+2^{64}U$. For $0\leq d<128$ and $1\leq v\leq64$, the
+implementation in \texttt{multiply\_shift\_u64} returns
+$\lfloor ab/2^d\rfloor\bmod2^v$ exactly.
+\end{lemma}
+\begin{proof}
+Expand $ab=p_{00}+B(p_{01}+p_{10})+B^2p_{11}$ and carry its central limb.
+This gives the asserted decomposition. Each $p_{ij}<2^{64}$ and $m<3B$.
+Moreover $U<2^{64}$ because $ab<2^{128}$, so every nonnegative partial sum
+forming $U$ fits in 64 bits. If $0<d<64$, the low 64-bit window is the bitwise
+OR of $L\gg d$ and $U\ll(64-d)$, where the latter is reduced modulo
+$2^{64}$. The first term occupies only the low $64-d$ bits and the second
+only the remaining bits. Their OR is therefore their sum in that window.
+If $64\leq d<128$, the low window is $U\gg(d-64)$. If $d=0$, it is the
+native low product word. Masking the final $v$ bits gives the required result.
+\end{proof}
+
+\begin{proposition}[Equality of the finite classical and quantum targets]
+For a retained graph with valid function addresses and the same stored
+tables, \texttt{FiniteEvaluator.evaluate} equals the scalar integer graph
+output for every valid input tuple. Under independent uniform finite input
+addresses, let $a$ be that output and $X=a/2^q$. Then the coherent comparator
+flag has success probability $\E X$, and an independent classical sample
+mean of $X$ estimates the same finite target without bias.
+\end{proposition}
+\begin{proof}
+Addition and subtraction followed by the register mask give their specified
+modular results, since $2^w$ divides $2^{64}$. The preceding lemmas prove the
+unsigned multiplication and constant-product branches. A quantile operation
+gathers its stored integer word. A midpoint uniform operation returns
+$(2i+1)2^{q-b-1}$, as specified. For an interpolation fractional width $f$,
+the gathered cell is $j=\lfloor x/2^f\rfloor$, the remainder is
+$r=x\bmod2^f$, and the returned value is
+\[
+ \left(b_j+\left\lfloor\delta_jr/2^f\right\rfloor\right)\bmod2^w.
+\]
+The native product branch is used only after checking
+$\max_j\delta_j(2^f-1)<2^{64}$; otherwise the product-window lemma applies.
+If a register's sign bit is set, its signed interpretation is $a-2^w<0$
+and the lower clipping branch returns zero. Otherwise its signed value is
+$a\geq0$ and the unsigned minimum with the cap is exactly the upper clip.
+Every node consequently agrees with its scalar rule. Induction in the
+topological graph order proves equality of outputs. Releasing a last-used
+array changes no value consumed later.
+
+Conditioned on an address tuple, there are exactly $a$ good comparison
+integers among the $2^q$ equally likely comparison integers. The flag's
+conditional success probability is therefore $a/2^q$. Averaging over the
+uniform address law gives $\E X$. Linearity of expectation gives the same
+expectation for an independent classical sample mean. Existing distribution,
+arithmetic and geometric-correction bounds are still required to transfer
+this finite target to the continuous financial price. A seeded NumPy
+pseudorandom run is an implementation diagnostic; its seed is not a proof of
+the independent random-bit premise of a confidence theorem.
+\end{proof}
+
+\begin{proposition}[Exact accumulated sample moments]
+Let $0\leq a_i\leq2^q$ with $q\leq30$. The class
+\texttt{ExactMoments} retains $N$, $S=\sum_i a_i$ and $Q=\sum_i a_i^2$
+exactly, including when $Q>2^{64}$. For $N>1$, its normalised sample mean
+and unbiased sample variance are the exact fractions
+\[
+ \overline X=\frac{S}{N2^q},\qquad
+ s_X^2=\frac{NQ-S^2}{N(N-1)2^{2q}}.
+\]
+\end{proposition}
+\begin{proof}
+Write $a_i=\ell_i+2^{16}h_i$, with $\ell_i<2^{16}$ and
+$h_i\leq2^{14}$. Each reduction chunk contains at most $2^{20}$ outputs.
+The low-square, high-square and cross-product sums are respectively smaller
+than $2^{52}$, at most $2^{48}$ and smaller than $2^{50}$. The first-moment
+sum is at most $2^{50}$. They therefore fit in unsigned 64-bit words. Their
+assembly is performed with arbitrary-precision Python integers using
+\[
+ Q=\sum_i\ell_i^2+2^{17}\sum_i\ell_i h_i+2^{32}\sum_i h_i^2.
+\]
+Summing chunks and merging accumulators preserve these integer identities.
+The mean formula follows directly. Expanding
+$\sum_i(a_i-S/N)^2=Q-S^2/N$ and dividing by $(N-1)2^{2q}$ gives the variance
+formula. A floating rendering of either exact fraction is a diagnostic. The
+sample variance is not substituted for a proved variance upper bound in a
+fixed confidence certificate.
+\end{proof}
+
+The operation profile reports conservative scalar-lane counts for this
+particular NumPy implementation, table bytes and separate setup timing. It
+also charges scalar broadcasts to every lane. A complete classical workflow
+must additionally charge table generation, random generation, input validation,
+allocation and exact-moment reduction. These counts do not describe CPU
+instructions or an optimised classical lower bound. Comparing them directly
+with logical T gates cannot establish physical quantum speed-up.

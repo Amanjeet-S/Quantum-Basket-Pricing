@@ -1,0 +1,142 @@
+{
+  "schema": "qbp-documentation-consolidation-v1",
+  "status": "passed",
+  "original_sha256": {
+    "novelty_scope_review.md": "763e6d6ba38878e0049bba4c0e6c92f2f42a73999c102bba92881a7f44e8df88",
+    "check_matched_deferred_chebyshev.py": "759623b628382d61caf853b0272589676bdb7c41e0b7e58233eb86ae5a18d4c1",
+    "generalisation_proofs.tex": "28173af5ea32a9ea02c98d006f144af17926a693b343d871a5252e91ecd805eb",
+    "supporting_proofs_index.md": "1be2f588b554bb2e55e5d1850f7680536f65108848242d803e0d8f9f34eeab99",
+    "quantum_method_redesign.md": "6472ead5fa4e8ee059e28fb93af097e12510e387e147b85f4acf35709fe00284",
+    "raw_payoff_proof.tex": "7b3ede45f7da8a880f7cbe30c88718f59b5463c9ba52e85b0716f4779bc03562",
+    "originality_assessment.md": "955300c524b7d9ab417ba91a95d611680aa78cec2ffc21c1d648c1a8b5c9d2f7",
+    "README.md": "d975230cf1eafffb9f92adc519fe1c37e2e6609d8d2d37499357cd3fc89ebc34",
+    "SOURCES.md": "0eeaadd9e6b5cef0be8a90a3b85b7960af8230c5ab971f9d1fa967d2b54fbf8d"
+  },
+  "current_sha256": {
+    "novelty_scope_review.md": "dc5aceaa320ddaac44c858a54b94bbef94a0db582ecd21058a5017dd62e477c5",
+    "check_matched_deferred_chebyshev.py": "3b7fd0b6565290c6a64ee3e8e2c2c696772607779c50b308f95808202bbd24df",
+    "generalisation_proofs.tex": "0761733b57af35cceb3a6e2cc707670844e46df78ec94436d1844d3c31a1572b",
+    "supporting_proofs_index.md": "c1dce2b04f820623ab7e4401a731d909ce19ace02a691a1758de641350a91d1c",
+    "quantum_method_redesign.md": "a6cd4f27a02fc8c07b6a51d40efb18f064fa83dafcbd74f0aeaa0a44d14c280c",
+    "raw_payoff_proof.tex": "b4f0b50bb5f5e71014dbaa9d2df7dccb4d67bd6f4bd23b1592804d8b8e6ec5b9",
+    "originality_assessment.md": "955300c524b7d9ab417ba91a95d611680aa78cec2ffc21c1d648c1a8b5c9d2f7",
+    "README.md": "1a5be6364d4e9f232ccb79ef7062eef12dbf98827d5c7f4df6670c8a8dc2a692",
+    "SOURCES.md": "f16421fe3916dcc9187fc53490b445e9827ccd84d59201a628fe07be8d238153"
+  },
+  "retained_evidence_sha256": {
+    "results/documentation/portable_checker_test_results.json": "22916144c1c45e5dd4450d130fa8b164e6c992ca6cca1c3c5fc326777a5ff8ea",
+    "results/documentation/matched_portable_review.json": "f71e3747d914582c703c09532396a60ceca7a38ec9bd187b31abaf525dd86d11",
+    "results/documentation/matched_default_review.json": "8f9348def6907164a3124704839731fe5bcc89f93bc5d2d66f23cd5e09615580",
+    "results/documentation/installed_portable_matched_replay.json": "f71e3747d914582c703c09532396a60ceca7a38ec9bd187b31abaf525dd86d11"
+  },
+  "before_words": {
+    "README.md": 3800,
+    "SOURCES.md": 5887,
+    "supporting_proofs_index.md": 4819,
+    "novelty_scope_review.md": 3619,
+    "quantum_method_redesign.md": 1922,
+    "originality_assessment.md": 512
+  },
+  "after_words": {
+    "README.md": 586,
+    "SOURCES.md": 714,
+    "supporting_proofs_index.md": 642,
+    "novelty_scope_review.md": 203,
+    "quantum_method_redesign.md": 300,
+    "originality_assessment.md": 512
+  },
+  "before_total_words": 20559,
+  "after_total_words": 2957,
+  "fraction_removed": 0.8561700471812832,
+  "validated_local_links": 70,
+  "main_bibliography": {
+    "entries": 28,
+    "entry_texts_unchanged": true,
+    "first_author_order": [
+      "babbush",
+      "bayer",
+      "blair",
+      "brassard",
+      "caldana",
+      "carr",
+      "carreravazquez",
+      "cerone",
+      "chakrabarti",
+      "chen",
+      "curran",
+      "dingecc",
+      "duchi",
+      "glasserman",
+      "herman",
+      "hoeffding",
+      "imai",
+      "johansson",
+      "ju",
+      "marinelli",
+      "montanaro",
+      "olivares",
+      "rall",
+      "rebentrost",
+      "ross",
+      "stamatopoulos",
+      "stamatopoulos",
+      "suzuki"
+    ]
+  },
+  "supporting_bibliography": {
+    "entries": 11,
+    "entry_texts_unchanged": true,
+    "first_author_order": [
+      "bayer",
+      "brassard",
+      "carreravazquez",
+      "curran",
+      "duchi",
+      "glasserman",
+      "marinelli",
+      "rall",
+      "rebentrost",
+      "stamatopoulos",
+      "suzuki"
+    ]
+  },
+  "mathematical_proofs_removed": false,
+  "registered_protocol_or_numerical_result_modified": false,
+  "checker_change": "Optional exact-checksum relocation of only the registered absolute supplied-input key; original protocol remains unchanged.",
+  "originality_assessment_unchanged": true,
+  "paper_status": "Working paper, not the final version.",
+  "final_paper_delivery_instruction": "The paper is to be finalised on project completion; it remains a working paper.",
+  "git_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_staging_pushes": false,
+  "native_PDF_pixel_review": false,
+  "exact_PDF_page_count_verified": false,
+  "source_and_native_compilation_checks": {
+    "generalisation_proofs.tex": {
+      "source_sha256": "0761733b57af35cceb3a6e2cc707670844e46df78ec94436d1844d3c31a1572b",
+      "native_compiler_kind": "success",
+      "abstract_words": 173,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "em_dashes": 0,
+      "proofs_preserved": true
+    },
+    "raw_payoff_proof.tex": {
+      "source_sha256": "b4f0b50bb5f5e71014dbaa9d2df7dccb4d67bd6f4bd23b1592804d8b8e6ec5b9",
+      "native_compiler_kind": "success",
+      "abstract_words": 144,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "em_dashes": 0,
+      "proofs_preserved": true
+    }
+  },
+  "frozen_scientific_files_rechecked": 14,
+  "all_frozen_scientific_hashes_unchanged": true,
+  "installed_matched_audit_scientific_fields_unchanged": true,
+  "portable_audit_histories": 1200,
+  "portable_audit_fresh_batches": 1968,
+  "final_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "final_git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "statement": "Concision changes presentation and navigation only. Original documents, full proofs, adverse outcomes, protocols and numerical evidence are preserved."
+}

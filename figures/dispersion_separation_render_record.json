@@ -1,0 +1,22 @@
+{
+  "source_sha256": "988b9f72689b751063459376a64cb7ede7ef8559a24ca534e9f4693cdb0af58f",
+  "data_sha256": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+  "matplotlib_version": "3.10.6",
+  "python_version": "3.14.6",
+  "format": "PNG/SVG plus self-contained standard-LaTeX vector picture; no external graphic dependency for native compilation",
+  "export_generation_source_sha256": "6897d28009452fb8ae7a5344b4683cafe228124f02639a369cc34ffa349e0941",
+  "native_figure_sha256": "a36084edf49adc8d7972a8ee8c312068057b2cb39f6068755b8368a63a77f68d",
+  "native_layout_revision": {
+    "date": "2026-10-10",
+    "previous_native_sha256": "d2a1dbadd374be70803310f07122ab79b8c02fdae08a3a44894d7543b7ffe7e3",
+    "native_drawing_tokens_preserved": true,
+    "native_width": "linewidth",
+    "float_placement": "!htb",
+    "inter_command_whitespace_suppressed": true,
+    "caption_font": "small",
+    "caption_above_skip_pt": 6,
+    "PNG_SVG_regenerated": false,
+    "scope": "Only native LaTeX layout and captions were revised. Exported PNG/SVG files and exact plot data remain unchanged; their earlier rendering provenance is preserved."
+  },
+  "caption": "Financial-transfer and price certificates under a controlled dispersion stress. Panel (a) uses the eight-asset ordinary-call family at $\\lambda=0.2$, selected before outcomes. Transfer allowances are divided by $0.005$ and complete Taylor-price intersection radii by $0.01$; the dashed line marks admission at one. These are different error targets. Joined points guide the eye between tested scales. Panel (b) counts transfer-admitted contracts whose strengthened Taylor-price intervals fail, among all 36 contracts per scale. Degree five is evaluated only for provisional degree-three separators. Price intervals include lower-order intersections and intrinsic bounds. These are synthetic certified allowances, not observed errors, quantum prices or speed-ups."
+}

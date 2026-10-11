@@ -1,0 +1,230 @@
+% Independent supporting proof fragment. No standalone preamble.
+\section{Matched positive-transport certificates and block refinement}
+\label{supp:block-transport-review}
+
+I retain the actual rounded midpoint-quantile nodes throughout this
+comparison. Let $\nu(dy)=\phi(y)\mathbf1_{[-L,L]}dy$, let its mass be
+$a$, and divide its CDF range into $N$ cells $I_c=[a_c,b_c]$ of mass
+$a/N$. The node $c_c$ is the actual dyadic rounded node, with
+$a_c\leq c_c\leq b_c$ established by an outward interval certificate.
+The finite measure $\tau=(a/N)\sum_c\delta_{c_c}$ has the same raw
+mass $a$ as $\nu$. The grid, retained region and mass are identical
+for both certificates below.
+
+\subsection{A competent first-order comparator}
+
+For a continuously differentiable function $f$, the fundamental theorem
+of calculus on each side of a node gives
+\[
+ \int_{I_c}\{f(y)-f(c_c)\}\phi(y)dy
+ =\int_{a_c}^{c_c} f'(z)\{\Phi(a_c)-\Phi(z)\}dz
+  +\int_{c_c}^{b_c} f'(z)\{\Phi(b_c)-\Phi(z)\}dz.
+\]
+The exchange of integrals is justified on the two compact integration
+triangles. Consequently
+\[
+ |(\nu-\tau)(f)|\leq\int|f'(z)|\rho_0(dz),
+\quad
+ \frac{d\rho_{0,c}}{dz}=
+ \begin{cases}
+ \Phi(z)-\Phi(a_c),&a_c\leq z<c_c,\\
+ \Phi(b_c)-\Phi(z),&c_c<z\leq b_c.
+ \end{cases}
+\]
+The density is nonnegative. Its value at the single node is irrelevant.
+The total mass is $\sum_c\int_{I_c}|y-c_c|\phi(y)dy$. Thus this
+comparator preserves local transport distances and the same dispersion
+moments as the second-order method. It is more informative than a
+whole-box supremum times a maximal coordinate displacement.
+
+For $v\neq0$, integration by parts gives the cell transform
+\[
+ \mathcal M_{\rho_{0,c}}(v)=\frac{
+ e^{vc_c}\{2\Phi(c_c)-\Phi(a_c)-\Phi(b_c)\}
+ +\mathcal M_{\nu|[c_c,b_c]}(v)
+ -\mathcal M_{\nu|[a_c,c_c]}(v)}{v},
+\]
+where
+$\mathcal M_{\nu|[u,t]}(v)=e^{v^2/2}\{\Phi(t-v)-\Phi(u-v)\}$.
+At zero its exact value is
+\[
+ c_c\{2\Phi(c_c)-\Phi(a_c)-\Phi(b_c)\}
+ +2\phi(c_c)-\phi(a_c)-\phi(b_c).
+\]
+The sign of the denominator is retained for negative rates. For tiny
+nonzero rates, positivity and support provide
+$e^{-|v|L}\mathcal M_{\rho_0}(0)\leq
+ \mathcal M_{\rho_0}(v)\leq
+ e^{|v|L}\mathcal M_{\rho_0}(0)$ instead of an unstable quotient.
+The zero-rate formula is not substituted for a nonzero transform.
+
+\subsection{The second-order certificate on the same law}
+
+For $f\in C^2([-L,L])$, finite Taylor expansion about each actual node
+gives
+\[
+ (\nu-\tau)(f)=\sum_c\mu_{1,c}f'(c_c)+\int f''d\rho_2,
+\quad
+ \mu_{1,c}=\int_{I_c}(y-c_c)\phi(y)dy.
+\]
+Here $\rho_2$ is positive, with density
+$\int_{a_c}^z(z-y)\phi(y)dy$ below the node and
+$\int_z^{b_c}(y-z)\phi(y)dy$ above it. In particular,
+$\rho_{2,c}(I_c)=\frac12\int_{I_c}(y-c_c)^2\phi(y)dy$.
+Choose rational $\bar\mu_{1,c}\geq|\mu_{1,c}|$ and put
+$\rho_1=\sum_c\bar\mu_{1,c}\delta_{c_c}$. Then
+\[
+ |(\nu-\tau)(f)|\leq\int |f'|d\rho_1+\int |f''|d\rho_2.
+\]
+The absolute first-moment allowance does not assert favourable
+cancellation between cells. For any block $D$ of complete consecutive
+cells, define $\nu_D,\tau_D,\rho_{k,D}$ by restriction. Applying
+the exact Taylor identity to $e^{vy}$ proves
+\[
+ \mathcal M_{\rho_{2,D}}(v)=
+ \frac{\mathcal M_{\nu_D}(v)-\mathcal M_{\tau_D}(v)
+   -v\sum_{c\subset D}\mu_{1,c}e^{vc_c}}{v^2}
+ \quad(v\neq0).
+\]
+At zero the half-second-moment formula is used. Positivity, support and
+outward arithmetic remain necessary when cancellation widens this
+quotient. A rigorous support enclosure is an available fallback.
+
+Both certificates follow from established Taylor transport. The second
+cell identity is a specialisation of Cerone (2002, Theorem~3,
+equations~(2.13)--(2.15), with $n=1$, $\alpha=a_c$, $\beta=b_c$,
+$x=c_c$ and $w=\phi$; the endpoint choice is explicitly permitted in
+the accompanying remark. I use the published identity as an antecedent,
+rather than presenting the positive Peano measure as a new theorem.
+The second-order certificate
+uses additional smoothness and may be sharper for a particular
+residual, but there is no uniform ordering of the two error allowances
+merely because they share a rounded law. A matched comparison must
+report both, using the same available derivative information and tail.
+
+\subsection{Positive conditional moments and monotone refinement}
+
+For any $p$ the finite-measure telescope is
+\[
+ \nu^{\otimes p}-\tau^{\otimes p}
+ =\sum_{j=1}^p\nu^{\otimes(j-1)}\otimes(\nu-\tau)
+                \otimes\tau^{\otimes(p-j)}.
+\]
+For a block partition $\mathcal P$ and $k\in\{0,1,2\}$, write
+\[
+ \Lambda_{j,k,D}=\nu^{\otimes(j-1)}\otimes\rho_{k,D}
+                            \otimes\tau^{\otimes(p-j)}.
+\]
+Every measure is positive and finite. Its other coordinates contribute
+their raw retained mass, including when their exponential rate is zero.
+For the classically specified basket set
+$X_i=e^{d_i+s_i\cdot y}$,
+$T=\sum_iw_iX_i$, $U=T-1\geq0$,
+$u=T_j$ and $v=T_{jj}\geq0$.
+The previously derived residual derivative envelopes contain direct
+nonnegative moments and Cauchy closures of $U|u|$ and $U^2|u|$.
+Under any such block measure, put $\langle h\rangle_D=\int h\,d\Lambda_{j,k,D}$.
+Then
+\[
+ \langle U|u|\rangle_D\leq
+ \sqrt{\langle U^2\rangle_D\langle u^2\rangle_D},
+\]
+\[
+ \langle U^2|u|\rangle_D\leq\min\left\{
+ \sqrt{\langle U^2\rangle_D\langle U^2u^2\rangle_D},
+ \sqrt{\langle U^4\rangle_D\langle u^2\rangle_D}\right\}.
+\]
+No probability normalisation or mass divisor occurs in these bounds.
+If $D$ is the disjoint union of children $D_1,\ldots,D_m$, all
+moments add exactly. Discrete Cauchy gives, for nonnegative $A_i,B_i$,
+\[
+ \sum_i\sqrt{A_iB_i}\leq
+ \sqrt{\left(\sum_iA_i\right)\left(\sum_iB_i\right)}.
+\]
+For the two alternative closures, writing their child values $a_i,b_i$
+gives
+\[
+ \sum_i\min(a_i,b_i)\leq
+ \min\left(\sum_i a_i,\sum_i b_i\right)
+ \leq\min(a_D,b_D).
+\]
+All coefficients in the residual derivative envelopes are nonnegative.
+Direct moments are additive. Therefore each exact certificate envelope
+is nonincreasing under a refinement of its transported-coordinate
+blocks. Strict improvement can arise from failure of the relevant
+Cauchy proportionality conditions or from a different preferred
+alternative closure on different blocks.
+Refining just this coordinate is sufficient; no $p$-dimensional block
+Cartesian grid is required.
+
+Raw outward numerical upper bounds need not display this exact
+monotonicity, because independent intervals need not add tightly. For a
+parent envelope with certified upper bound $b_D$ and children with
+upper bounds $b_i$, the value
+$\min\{b_D,\sum_i b_i\}$ is again a valid upper bound for the
+parent integrand integral. Applying this operation recursively gives a
+certified monotone numerical hierarchy. The same construction may be
+used componentwise before summing positive envelope coefficients.
+It does not justify intersecting unrelated interval quantities or
+claiming that an interval midpoint is an upper bound.
+
+\subsection{Exact factorisation, full tails and cost scope}
+
+A required geometry polynomial has the form
+$h=\sum_\alpha b_\alpha\prod_iX_i^{\alpha_i}$, with degree at
+most four. For every block hybrid, independence gives
+\[
+ \langle h\rangle_D=\sum_\alpha b_\alpha
+ e^{\sum_i\alpha_id_i}
+ \mathcal M_{\rho_{k,D}}\!\left(\sum_i\alpha_is_{ij}\right)
+ \prod_{\ell<j}\mathcal M_\nu\!\left(\sum_i\alpha_is_{i\ell}\right)
+ \prod_{\ell>j}\mathcal M_\tau\!\left(\sum_i\alpha_is_{i\ell}\right).
+\]
+Signed polynomial coefficients are retained before taking outward
+interval upper endpoints. The underlying polynomial's nonnegativity
+permits intersecting an enclosure with $[0,\infty)$; it does not
+permit changing a negative upper endpoint to zero. Positive rational
+dominating first-moment weights are fixed across partitions so that
+their aggregate measure is exactly additive.
+
+All retained-grid transfer bounds require the same full continuous
+Gaussian tail. For a second correction with global curvature bound
+$M_2$, $|R_2|\leq M_2U^2/2$ yields
+$\frac12M_2\mathbb E[U^2\mathbf1_{Y\notin[-L,L]^p}]$.
+For the first correction $0\leq R_1\leq K e^{m_G+r\cdot Y+\lambda^2/2}U$,
+so its corresponding tilted outside moment is used. For a cap the
+minimum with $H\mathbb P(Y\notin[-L,L]^p)$ is valid. Gaussian
+tilting evaluates each outside exponential monomial by
+\[
+ e^{b+\|s\|^2/2}
+ \left[1-\prod_{j=1}^p\{\Phi(L-s_j)-\Phi(-L-s_j)\}\right].
+\]
+This tail is added once. Block refinement does not reduce, omit or
+renormalise it. No price answer is an input.
+
+Let $M\leq\binom{n+4}{4}$ be the number of distinct monomials and
+let $B$ be the number of blocks. Rebuilding all $p$ factors for every
+coordinate, block and monomial would require $O(Bp^2M)$ arithmetic
+products, in addition to transform construction and polynomial
+combination. The implementation caches the other-coordinate factors and
+groups monomials by their transported-coordinate rate before evaluating
+any partition. This requires $O(p^2M)$ product formation for a fixed
+number of geometry polynomials, followed by $O(BpM)$ block dot products;
+coincident rates reduce the latter count. Rational rate construction,
+scalar-transform queries, factorial-series prefix preparation and
+memory are additional costs. The retained operation counters identify
+these costs rather than replacing them by a claim of linear dependence
+on dimension. The finite one-
+dimensional grid still has $N$ nodes. There is no $N^p$ price
+enumeration in the certificate construction, nor a dimension-free
+error or a quantum advantage theorem. The one-block envelope is the
+aggregate certificate; the $N$-block endpoint is the competent
+cellwise Cauchy certificate. Intermediate partitions provide a
+measured construction-cost versus bound-tightness trade-off.
+
+The refinement argument is an elementary conditioning consequence of
+positive measures and Cauchy's inequality. The defensible research
+question is whether its project-specific implementation supplies a
+useful, evidenced pricing certificate trade-off against these matched
+endpoints. The existence of a block hierarchy alone does not establish
+a new general theory or literature priority.

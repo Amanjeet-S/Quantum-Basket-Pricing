@@ -1,0 +1,98 @@
+{
+  "schema": "qbp-reflection-originality-source-access-v1",
+  "consultation_date": "2026-10-11",
+  "source_policy": "Primary published papers preferred; free sources and existing authorised institutional access only; actual text version recorded.",
+  "discovery_attempt": {
+    "tool": "Paper-index search",
+    "query": "amplitude estimation Chebyshev reflection sampling Rall Fuller",
+    "status": "failed",
+    "error": "DNS lookup failure (getaddrinfo ENOTFOUND)",
+    "fallback": "Primary publisher web retrieval and authorised desktop Safari"
+  },
+  "records": [
+    {
+      "citation": "Rall, P. and Fuller, B. (2023). Amplitude estimation from quantum signal processing. Quantum, 7, 937.",
+      "doi": "10.22331/q-2023-03-02-937",
+      "status": "published peer-reviewed journal paper",
+      "actual_text_version": "Final publisher PDF; acceptance stamp 20 February 2023 and arXiv v3 stamp 27 February 2023.",
+      "url": "https://quantum-journal.org/papers/q-2023-03-02-937/pdf/",
+      "fresh_consultation": ["Publisher PDF text through primary web retrieval", "Final PDF in Safari"],
+      "sections_consulted": ["Sections 1.1 and 1.2", "Equations (5)–(7) and (16)–(21)", "Proposition 3 and Figure 1", "Theorem 6", "Section 3 opening and ChebAE discussion"],
+      "supported_claims": ["Preparation-conjugated zero reflection and good-subspace reflection", "Parity-specific observation and polynomial Bernoulli law", "Degree-dependent query counts and fault-tolerant phase-rotation caveat"],
+      "limits": "No exhaustive full-paper reading claim; financial gate costs and equality of separately rounded representations are not established by this source."
+    },
+    {
+      "citation": "Suzuki, Y., Uno, S., Raymond, R., Tanaka, T., Onodera, T. and Yamamoto, N. (2020). Amplitude estimation without phase estimation. Quantum Information Processing, 19, 75.",
+      "doi": "10.1007/s11128-019-2565-2",
+      "status": "published peer-reviewed journal paper",
+      "actual_text_version": "Final Springer publisher PDF, published 9 January 2020.",
+      "url": "https://link.springer.com/content/pdf/10.1007/s11128-019-2565-2.pdf",
+      "fresh_consultation": ["Publisher PDF through primary web retrieval", "Final PDF in Safari"],
+      "sections_consulted": ["Section 2, equations (1)–(3)", "Section 3.2, equations (10)–(13)", "Sections 4.1–4.2"],
+      "supported_claims": ["Grover iteration uses preparation and inverse", "Odd shot count 2m+1 and complete batch query sum", "Fisher-information and finite-sample caveat"],
+      "limits": "Its asymptotic information calculation does not supply the project's certified complete finite-confidence estimator bound."
+    },
+    {
+      "citation": "Grinko, D., Gacon, J., Zoufal, C. and Woerner, S. (2021). Iterative quantum amplitude estimation. npj Quantum Information, 7, 52.",
+      "doi": "10.1038/s41534-021-00379-1",
+      "status": "published peer-reviewed journal paper",
+      "actual_text_version": "Final publisher HTML.",
+      "url": "https://www.nature.com/articles/s41534-021-00379-1",
+      "fresh_consultation": ["Publisher HTML through primary web retrieval"],
+      "sections_consulted": ["Equations (4)–(5)", "Algorithms 1–2", "Theorem 1"],
+      "supported_claims": ["Odd-degree Bernoulli signal", "Adaptive amplification powers chosen from confidence information"],
+      "limits": "Supplementary proof was not freshly read; no fresh Safari reading is claimed."
+    },
+    {
+      "citation": "Stamatopoulos, N. et al. (2020). Option pricing using quantum computers. Quantum, 4, 291.",
+      "doi": "10.22331/q-2020-07-06-291",
+      "status": "published peer-reviewed journal paper",
+      "actual_text_version": "Final publisher PDF; acceptance stamp 24 June 2020 and arXiv v5 stamp 2 July 2020.",
+      "url": "https://quantum-journal.org/papers/q-2020-07-06-291/pdf/",
+      "fresh_consultation": ["Publisher PDF through primary web retrieval"],
+      "sections_consulted": ["Appendix B, printed pages 17–18", "Preparation/adjoint and good-reflection circuit equations", "Figure 19"],
+      "supported_claims": ["Cross-boundary circuit optimisation", "Rotation absorption/commutation and adjacent CNOT cancellation in complete pricing circuit"],
+      "limits": "Earlier source-ledger financial-section/Safari consultation is separate; no fresh Safari reading is claimed here."
+    },
+    {
+      "citation": "Carrera Vazquez, A. and Woerner, S. (2021). Efficient state preparation for quantum amplitude estimation. Physical Review Applied, 15, 034027.",
+      "doi": "10.1103/PhysRevApplied.15.034027",
+      "status": "Published peer-reviewed successor exists and metadata verified; detailed consulted text is an earlier author version.",
+      "published_record_url": "https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.15.034027",
+      "attempted_final_pdf_url": "https://journals.aps.org/prapplied/pdf/10.1103/PhysRevApplied.15.034027",
+      "final_pdf_access": "Primary retrieval failed; Safari returned an authorisation requirement. No final full text was obtained.",
+      "actual_text_version": "arXiv:2005.07711v1, 15 May 2020, body dated 19 May 2020; author version preceding publication.",
+      "actual_text_url": "https://arxiv.org/pdf/2005.07711v1",
+      "fresh_consultation": ["Final publisher metadata and abstract", "Author-version PDF through primary web retrieval", "Safari final PDF access attempt only"],
+      "sections_consulted": ["Section IV, equations (19)–(25)", "Figure 2", "Section V opening"],
+      "supported_claims": ["Author text derives spin-echo reduction of 2k+1 preparation applications to k+1 for its rotation structure", "Separate accounting of discretisation and amplitude-estimation errors"],
+      "limits": "The final published detailed text was not read and is not claimed identical to the consulted author version. The rotation-specific identity does not directly compile the financial table graphs."
+    }
+  ],
+  "safari_scope": {
+    "authorisation": "User academic-access preferences and root coordination",
+    "own_source_tabs_created": 1,
+    "own_source_tab_closed": true,
+    "other_tabs_preserved": true,
+    "unexpected_other_tabs": "No effect on the recorded sources.",
+    "purchases_or_entitlement_upgrades": false,
+    "credentials_requested_or_entered": false
+  },
+  "priority_conclusion": "Generic reflection signal, query counts, affine gate-cost substitution, common-outcome coupling and preparation-boundary cancellation are not demonstrated to be original. Any retained positive contribution must be the checked project-specific financial certificate and fully charged representation result, with exact scope and comparisons.",
+  "frozen_proof": {
+    "path": "cancellation_aware_preparation_fragment.tex",
+    "sha256": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+    "status": "Proof clarified after independent internal review feedback before producer registration or cost replay; independent internal review approval confirmed for the final hash. Canonical integration and resource outcomes are recorded separately in the main project records.",
+    "independent_review_clarification": "Global uncontrolled conjugacy uses identical actual borrowed-scratch unitary S0tilde; agreement with ideal I−2E_C is required only on clean invariant M. The actual controlled tape R0c has a separate clean-work contract; actual K_A/K_B conjugacy uses that identical tape globally and implements mathematical controlled Q only on the reached Grover invariant. The conservative old depth upper bounds may be retained without claiming improvement.",
+    "earlier_preserved_draft": {
+      "path": "cancellation_aware_preparation_fragment.before_physical_reflection_clarification.tex",
+      "sha256": "1e9e786e7488ea3e4be8c0430b5ab0ca796eba81724488119f5211df572899f9",
+      "used_for_producer_registration": false
+    },
+    "second_preserved_draft": {
+      "path": "cancellation_aware_preparation_fragment.before_controlled_tape_clarification.tex",
+      "sha256": "97605b7dab319ececec3a6e3152ffe41e7653ddf9c5f7692e7193ef19f9df90f",
+      "used_for_producer_registration": false
+    }
+  }
+}

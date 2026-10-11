@@ -71,6 +71,9 @@ def rounded_scaled(value, q):
 
 
 def function_span(kind):
+    if kind.startswith('general_'):
+        from general_kernels import function_span as general_span
+        return general_span(kind)
     if kind.startswith('strike_log_'): return 1
     if kind.startswith('capped_') or kind=='scaled_cdf': return 2
     return 4 if kind in ('exp','log') else 16

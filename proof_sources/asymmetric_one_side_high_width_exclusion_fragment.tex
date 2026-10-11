@@ -1,0 +1,218 @@
+% Prospective resource exclusion, separate from registered numerical outcomes.
+% Applies only to the retained literal graph/compiler/certification policy.
+\section{A one-sided exclusion for independently addressed payoff tables}
+\label{sec:raw-asymmetric-high-width-exclusion}
+
+I extend the previous common-width exclusion to independently addressed
+payoff exponential nodes. This argument is a lower bound on the logical
+T count charged by the specified compiler and certification controller.
+It is not a lower bound on derivative-pricing algorithms or amplitude
+estimation in general. The four financial models, chosen factor bases,
+$q=28$, outer precisions, inner normal widths $\{8,10,12\}$, complete
+raw-payoff graph, clean unary-look-up architectures and canonical-QPE
+controller are fixed. Only the two narrow exponential address widths,
+denoted by $b_G$ and $b_A$, are allowed to vary independently.
+
+\begin{lemma}[Width and non-exponential invariance]
+\label{lem:raw-asymmetric-fixed-width}
+Within this graph, changing either narrow exponential address width in
+$\{1,\ldots,22\}$ leaves all ideal node ranges, all global arithmetic
+word widths, all other scalar tables, every non-exponential emitted block
+and the final $q$-bit flag comparator unchanged at fixed financial case
+and inner normal width.
+\end{lemma}
+\begin{proof}
+The narrow exponential input is exactly clamped to $[0,1/64]$. Its
+dyadic arguments have integer words $t\in\{0,\ldots,2^{22}\}$.
+An address width $b$ has $2^b$ interpolation cells and remainder width
+$28-6-b=22-b$. The emitted scalar takes the address slice beginning
+at bit $22-b$ and ending at bit $22$, inclusive. This is a feasible
+slice of every retained word precisely for $1\leq b\leq22$.
+The ideal exponential output range remains $[1,64/63]$, irrespective
+of $b$. All subsequent ideal payoff ranges and their arithmetic
+operations are therefore unchanged.
+
+The graph finaliser determines its global headroom from the largest
+absolute ideal range endpoint, with a fixed safety factor, and not from
+scalar address widths. Every retained node is assigned this same global
+word width. Consequently, changing $b_G$ or $b_A$ cannot change that
+width or any non-exponential node's operand widths, alias pattern,
+operation, constants or table. The two variable scalar nodes still
+return words of that fixed width. Their privately allocated temporary
+workspace is cleaned before another node is evaluated; it cannot alter
+the arithmetic operand widths of another node. The complete preparation
+is reconstructed as the unchanged forward non-exponential blocks and
+their inverses, together with the variable scalar blocks and the same
+final comparator. Its comparator operates on $q+1$ wires per operand,
+with $q$ fixed, so its T charge is also unchanged.
+
+The independent evidence check additionally compares the full retained
+non-exponential graph and block records across all 504 fresh architecture
+profiles and 96 referenced diagonal profiles. At each case/normal-width/
+architecture combination their hashes and counts coincide exactly.
+These comparisons corroborate the source-level invariance; they do not
+replace its argument for omitted address widths.
+\end{proof}
+
+\begin{lemma}[Per-side selector charge]
+\label{lem:raw-asymmetric-one-side-selector}
+For a narrow exponential address width $b\in\{1,\ldots,22\}$,
+the retained complete preparation $A$ contains four unary look-ups for
+that side. Discarding all other operations inside that scalar node, its
+selector T contribution is
+\begin{equation}
+ c_{\rm side}(2^b+b),\qquad
+ c_{\rm side}=\begin{cases}
+ 56,&\text{exact seven-T Toffoli architecture},\\
+ 32,&\text{unitary eight-T selector-pair architecture}.
+ \end{cases}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Each packed table word contains a base ordinate equal to the nearest
+nonnegative dyadic integer representing $e^x$, for $0\leq x\leq1/64$.
+The base is at least $2^{28}$, so every one of the first $2^b+1$
+packed words is nonzero. The last endpoint word has a zero interpolation
+delta but its base remains nonzero. Thus the pruned selector tree sees
+the complete left half with $2^b$ leaves and one nonzero leaf in the
+right half. The left half contributes $2^b-1$ internal nodes; the
+right path contributes $b$; the root contributes one. The total is
+$2^b+b$. Each internal selector compute/erase pair costs fourteen T
+gates in the exact-Toffoli architecture or eight T gates in the coherent
+unitary architecture.
+
+The scalar emitter performs a look-up for its packed interpolation data
+and uncomputes that look-up after its output has been copied. There
+are therefore two invocations per forward scalar node, also recorded
+in every retained block profile. Cleanup of the complete preparation
+includes the inverse scalar node and doubles this count to four.
+Multiplying fourteen or eight by four gives the stated coefficients.
+Word writes and branch changes are Clifford operations. Interpolation
+and all other scalar arithmetic have been discarded, so reducing the
+remainder width at larger $b$ cannot invalidate this lower bound.
+\end{proof}
+
+Let $a^{\rm fixed}_{j,k,\mathcal A}$ be the complete preparation's
+T charge of every block other than the two narrow exponential nodes,
+including its final comparator, for financial case $j$, normal width
+$k$ and architecture $\mathcal A$. This includes forward execution
+and cleanup. For either side with address width $b$, the preceding
+lemmas imply
+\begin{equation}
+ T_A(b_G,b_A)\geq a^{\rm fixed}_{j,k,\mathcal A}
+                         +c_{\rm side,\mathcal A}(2^b+b).
+\label{eq:raw-asymmetric-one-side-A-floor}
+\end{equation}
+This discards the other side completely. Hence it is valid for every
+feasible other address width from one to twenty-two, including equal
+or unequal widths and without assuming represented payoff ordering.
+
+I next give the prospective wider implementation the optimistic uniform
+arithmetic and inner-law error $\eta=0$. Let $A_j$ be the unchanged
+upper outer-law mass factor, $e_{0,j}$ the coefficient radius,
+$\beta_j$ the financial-transfer allowance, $a_{r,j}$ the outer
+mass radius and $[l_j,u_j]$ the unchanged ideal finite-mean prior.
+Define
+\begin{equation}
+ d_{0,j}=e_{0,j}+\beta_j+a_{r,j},\qquad
+ \varepsilon_{0,j}=\frac{1/100-d_{0,j}}{A_j}.
+\end{equation}
+Every admitted graph has deterministic monetary allowance at least
+$d_{0,j}$ and probability tolerance at most $\varepsilon_{0,j}$.
+Its implemented prior upper endpoint is at least $u_j$, while its
+implemented prior interval is at least as wide as $[l_j,u_j]$.
+The retained inequalities
+\begin{equation}
+ \frac{A_j(u_j-l_j)}2>\frac1{100}-d_{0,j},\qquad
+ u_j>2\varepsilon_{0,j}
+\label{eq:raw-asymmetric-zero-shot-exclusions}
+\end{equation}
+hold exactly for all four cases. The first excludes the two-sided
+prior-midpoint controller decision, and the second excludes the
+one-sided prior-midpoint decision. No zero-shot price decision within
+this retained policy can evade the active-estimation charge below.
+
+Put $\pi_+=355/113$ and
+\begin{equation}
+ v(u)=\begin{cases}u(1-u),&u\leq1/2,\\1/4,&u>1/2.\end{cases}
+\end{equation}
+The controller's outward dyadic square root of $v(u)$ is monotone in
+$u$. Let $M_{0,j}$ be the first supported power of two satisfying
+\begin{equation}
+ \frac{2\pi_+\,\overline{\sqrt{v(u_j)}}}{M_{0,j}}
+       +\frac{\pi_+^2}{M_{0,j}^2}+10^{-60}
+       \leq\varepsilon_{0,j}.
+\end{equation}
+Because both the prior upper endpoint and the outward square root
+cannot decrease, and the available tolerance cannot increase, every
+admitted active plan has $M\geq M_{0,j}$. The independent exact
+calculation gives $M_{0,j}=256,512,512,512$ in case order.
+
+For repetitions, give the Fourier circuit the optimistic zero norm
+error. The maximal certified single-shot success is
+$s_0=8/\pi_+^2$. For every odd $r$, its majority-failure expression is
+\begin{equation}
+ B_r(s_0)=\sum_{k=(r+1)/2}^{r}\binom rk(1-s_0)^ks_0^{r-k}.
+\end{equation}
+Exact rational evaluation gives $B_r(s_0)>1/3600$ for all odd
+$r\in\{1,3,\ldots,23\}$ and $B_{25}(s_0)\leq1/3600$.
+Thus $r_0=25$ is the least admitted odd repeat count, even with perfect
+Fourier synthesis. For any smaller success guarantee, coupling the
+Bernoulli outcomes with common independent uniforms proves that
+majority failure cannot improve. Every active plan therefore has
+$r\geq25$. This is a floor imposed by the specified certification
+controller, rather than by all quantum estimators.
+
+\begin{theorem}[Either-side high-address exclusion]
+\label{thm:raw-asymmetric-high-width-exclusion}
+Under the fixed graph and controller above, if either $b_G$ or $b_A$
+belongs to $\{15,\ldots,22\}$, no feasible choice of the other
+address width in $\{1,\ldots,22\}$ improves the retained PG/PA
+nine-bit incumbent in any of the four cases.
+\end{theorem}
+\begin{proof}
+Each canonical-QPE repetition has one initial preparation call and
+$M-1$ controlled Grover calls containing one $A$ and one
+$A^\dagger$. Discarding all reflections, Fourier operations and
+other T gates gives
+\begin{equation}
+ T_{\rm complete}(b_G,b_A)
+ \geq25(2M_{0,j}-1)
+    \left(\min_{k\in\{8,10,12\}}a^{\rm fixed}_{j,k,\mathcal A}
+           +c_{\rm side,\mathcal A}(2^b+b)\right).
+\label{eq:raw-asymmetric-complete-floor}
+\end{equation}
+The fixed counts for the exact-Toffoli architecture are no smaller
+than those for the unitary architecture at each normal width; both
+use identical arithmetic and the latter has the lower selector charge.
+It therefore suffices to use the more optimistic unitary architecture
+with coefficient thirty-two. Its fixed-block minima are
+$1\,494\,706$, $3\,129\,342$, $3\,348\,190$ and
+$7\,808\,330$, respectively, all attained at normal width eight.
+At $b=15$, equation~\eqref{eq:raw-asymmetric-complete-floor} gives
+the four respective T floors
+\begin{equation}
+ 32\,496\,559\,550,\quad106\,862\,528\,850,\quad
+ 112\,459\,566\,450,\quad226\,527\,646\,950.
+\end{equation}
+The retained PG/PA nine-bit incumbents are respectively
+\begin{equation}
+ 23\,240\,600\,025,\quad88\,336\,016\,050,\quad
+ 93\,933\,514\,350,\quad208\,323\,372\,150.
+\end{equation}
+Every floor strictly exceeds its incumbent. Since $2^b+b$ is strictly
+increasing, the same holds for all feasible $b\geq15$. The other
+side was discarded from the floor and remains unrestricted throughout
+its feasible range. This proves the result for either side separately
+and hence whenever at least one side has such an address width.
+\end{proof}
+
+This prospective exclusion does not evaluate new wider financial
+certificates and does not modify any registered numerical outcome.
+It leaves asymmetric widths thirteen and fourteen and omitted lower
+widths unresolved. It also does not cover other normal widths,
+word precisions, shared scalar arithmetic, non-unary look-ups, other
+mean estimators, hardware implementations or optimisations that change
+the retained graph. Consequently, it provides no global precision
+optimum, generic quantum query lower bound, theoretical-priority claim
+or practical quantum advantage.

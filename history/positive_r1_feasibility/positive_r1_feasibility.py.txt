@@ -1,0 +1,151 @@
+"""Price-independent rejection screen for two positive R1 representations.
+
+This is not an emitted quantum circuit or an advantage claim. Register before
+fresh outward evaluations. All writes are confined to this staged directory.
+"""
+from pathlib import Path
+from fractions import Fraction as F
+from datetime import datetime, timezone
+from itertools import product
+import hashlib, json, sys, argparse
+from flint import arb, ctx
+
+ROOT = Path('/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing')
+STAGE = Path(__file__).resolve().parent
+RESOURCE = STAGE.parents[1] / 'resources/results/factor_basis_quantum_resources.json'
+NORMS = ROOT / 'results/gaussian_derivative_norms.json'
+PROTOCOL = STAGE / 'positive_r1_feasibility_protocol.json'
+RESULT = STAGE / 'positive_r1_feasibility.json'
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(ROOT))
+from taylor_pricing import model_parameters
+from continuous_quadrature import exact_endpoint
+from qpe_estimator import plan
+
+def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def ball(x):
+    x=F(x); return arb(x.numerator)/arb(x.denominator)
+def ends(x):
+    if not x.is_finite(): raise ArithmeticError('Nonfinite ball')
+    return exact_endpoint(x, False), exact_endpoint(x, True)
+def ser(x):
+    lo,hi=ends(x);return {'lower_exact_fraction':str(lo),'upper_exact_fraction':str(hi)}
+def output(p,x):
+    if p.exists(): raise FileExistsError('Preserve existing frozen evidence')
+    p.write_text(json.dumps(x,indent=2,default=str)+'\n')
+def signature():
+    return {str(p):sha(p) for p in (Path(__file__),RESOURCE,NORMS,
+        ROOT/'taylor_pricing.py',ROOT/'continuous_quadrature.py',ROOT/'qpe_estimator.py',
+        ROOT/'certified_scalar.py')}
+def register():
+    d=json.loads(RESOURCE.read_text())
+    output(PROTOCOL,{'schema':'qbp-positive-r1-feasibility-protocol-v1',
+      'registered_before_fresh_outward_execution':True,
+      'registration_utc':datetime.now(timezone.utc).isoformat(),
+      'research_record_date':'2026-10-10','precision_bits':512,
+      'inputs_sha256':signature(),
+      'pairs':[[p['original_model_id'],p['candidate_id']] for p in d['preparations']],
+      'prior_information': 'Existing resource study and rounded orientation from identity-basis normalisers were inspected. This fixes a prospective mathematical rejection screen, not a blind first-outcome experiment.',
+      'raw_integral':'R1=Delta integral_0^1 Pprime(m+t Delta) dt, Delta=log T; global B=Delta_max M1.',
+      'raw_auxiliary_bits':[0,4,8],
+      'threshold_interval':'R1=H Pr{m<log(1+Hs/K)-lambda N<=m+Delta}; same shared threshold draw; H fixed.',
+      'threshold_normal_bits':10,'threshold_strike_bits':[4,8],
+      'threshold_normal_domain':'Conditional N(0,1) on [-6,6]; missing mass charged by total variation.',
+      'threshold_arithmetic_screen':'Ideal midpoints and exact comparisons only; no threshold arithmetic error or circuit emission is supplied.',
+      'monetary_radius':'1/100','alpha_per_price':'1/3600',
+      'statistical_screen':'Canonical QPE phase sizes using ideal prior plus certified auxiliary error, zero new arithmetic. These are optimistic phase screens, not complete resources.',
+      'no_price_answers':True,'data_origin':'Exact synthetic models, synthetic existing certificates; no licensed observations.'})
+
+def execute():
+    protocol=json.loads(PROTOCOL.read_text())
+    if protocol['inputs_sha256']!=signature():raise RuntimeError('Frozen inputs changed')
+    d=json.loads(RESOURCE.read_text());norms=json.loads(NORMS.read_text());ctx.prec=512
+    nu={r:F(next(x['norm_upper'] for x in norms['unit_norms'] if x['unit_derivative_order']==r and x['passed'])) for r in (0,1,2)}
+    rows=[];vertices=0
+    for prep in d['preparations']:
+        original,candidate=prep['original_model_id'],prep['candidate_id']
+        model=prep['model'];w,drifts,exposures,mg,rg,lam=model_parameters(model)
+        bounds=tuple(map(F,prep['domain']['coordinate_bounds']));lo,hi=bounds
+        vrows=[]
+        for signs in product((0,1),repeat=len(rg)):
+            y=tuple(hi if sign else lo for sign in signs)
+            t=sum((ball(wi)*ball(di+sum(a*b for a,b in zip(si,y))).exp()
+                   for wi,di,si in zip(w,drifts,exposures)),arb(0))
+            vrows.append({'signs':list(signs),'T_interval':ser(t)});vertices+=1
+        max_lower=max(F(v['T_interval']['lower_exact_fraction']) for v in vrows)
+        max_upper=max(F(v['T_interval']['upper_exact_fraction']) for v in vrows)
+        retained=F(prep['domain']['T_star'])
+        if max_upper>retained: raise ArithmeticError('Fresh box maximum exceeds retained domain certificate')
+        delta_lo=ends(ball(max_lower).log())[0];delta_hi=ends(ball(max_upper).log())[1]
+        m1=F(prep['payoff_norms']['M1_upper']);B=m1*delta_hi
+        moments={int(k):F(v['upper_exact_fraction']) for k,v in prep['finite_moments']['centred_U_moments'].items()}
+        old=next(x for x in d['records'] if x['original_model_id']==original and x['factor_basis_candidate_id']==candidate and x['kind']=='positive_r1')
+        prior=old['coefficient_informed_prior'];r1lo=F(prior['finite_ideal_mean_lower']);r1hi=F(prior['finite_ideal_mean_upper'])
+        budget=old['complete_deterministic_budget'];mass=F(budget['external_factor_upper']);mass_radius=F(budget['external_factor_radius'])
+        transfer=F(budget['financial_transfer_upper']);coeff=F(budget['coefficient_radius_upper'])
+        olddet=F(budget['total_deterministic_undiscounted_price_error_upper'])
+        pold=old['selected_strategy']['result']['flags'][0]['plan']
+        raw=[]
+        for bits in protocol['raw_auxiliary_bits']:
+            # Composite midpoint over t: f''(t)=Delta^3 P'''(m+t Delta).
+            aux=nu[2]*moments[3]/(24*lam**3*(1<<(2*bits)))
+            det=coeff+transfer+mass*aux+mass_radius*B
+            remaining=F(1,100)-det
+            rec={'auxiliary_bits':bits,'auxiliary_bias_upper':str(aux),'optimistic_deterministic_error_lower_of_full_certificate':str(det),
+                 'no_new_arithmetic_included':True,'admissible_before_new_arithmetic':remaining>0}
+            if remaining>0:
+                probability_hi=min(F(1),(r1hi+aux)/B)
+                optimistic=plan(remaining/(mass*B),F(1,3600),probability_hi)
+                rec.update(optimistic_probability_tolerance=str(remaining/(mass*B)),
+                    ideal_midpoint_flag_prior_upper=str(probability_hi),optimistic_QPE_phase_M=optimistic.M,
+                    optimistic_QPE_repetitions=optimistic.repetitions,
+                    phase_M_ratio_to_retained=F(optimistic.M,pold['M']))
+            raw.append(rec)
+        tail_hi=ends(1-(ball(6)/arb(2).sqrt()).erf())[1]
+        threshold=[]
+        for bits in protocol['threshold_strike_bits']:
+            strike=F(1,100)**2*(nu[1]/lam**2+nu[0]/lam)/(12*(1<<(2*bits)))
+            normal=F(1,1<<protocol['threshold_normal_bits'])+tail_hi
+            aux=strike+normal
+            det=coeff+transfer+mass*aux+mass_radius
+            remaining=F(1,100)-det
+            rec={'strike_bits':bits,'strike_midpoint_bias_upper':str(strike),
+                 'normal_midpoint_interval_bias_upper':str(normal),'total_inner_bias_upper':str(aux),
+                 'optimistic_deterministic_error_lower_of_full_certificate':str(det),
+                 'admissible_before_new_arithmetic':remaining>0,'normaliser':'1'}
+            if remaining>0:
+                p_hi=min(F(1),r1hi+aux)
+                optimistic=plan(remaining/mass,F(1,3600),p_hi)
+                rec.update(optimistic_probability_tolerance=str(remaining/mass),
+                    ideal_finite_flag_prior_upper=str(p_hi),optimistic_QPE_phase_M=optimistic.M,
+                    optimistic_QPE_repetitions=optimistic.repetitions,
+                    phase_M_ratio_to_retained=F(optimistic.M,pold['M']))
+            threshold.append(rec)
+        profile=old['profiles']['unitary8t']['centred']; capT=sum(b['logical_T_count'] for b in profile['blocks'] if isinstance(b.get('function'),dict) and b['function'].get('name')=='cap')
+        rows.append({'original_model_id':original,'candidate_id':candidate,
+          'fresh_box_vertices':vrows,'maximum_T_interval':{'lower_exact_fraction':str(max_lower),'upper_exact_fraction':str(max_upper)},
+          'Delta_max_interval':{'lower_exact_fraction':str(delta_lo),'upper_exact_fraction':str(delta_hi)},
+          'raw_integral_normaliser_upper':str(B),'raw_integral_normaliser_diagnostic':float(B),
+          'raw_integral_normaliser_exceeds_H':B>1,
+          'raw_integrand_second_moment_upper':str(min(m1*m1*moments[2],B*r1hi)),
+          'raw_integrand_second_moment_bound_scope':'E h^2 <= min(M1^2 E U^2, B E R1). This upper bound does not prove variance domination; conditional variance identity does.',
+          'retained_direct_financial_A_T':profile['logical_T_count'],
+          'retained_cap_tables_forward_T':capT,
+          'hypothetical_fraction_of_A_T_removed_if_only_two_cap_tables_were_free':str(F(2*capT,profile['logical_T_count'])),
+          'retained_direct_normaliser':'1','retained_direct_QPE_phase_M':pold['M'],
+          'retained_direct_deterministic_error_upper':str(olddet),
+          'raw_integral_screen':raw,'threshold_interval_screen':threshold})
+    if protocol['inputs_sha256']!=signature():raise RuntimeError('Frozen inputs changed during execution')
+    output(RESULT,{'schema':'qbp-positive-r1-feasibility-v1','status':'completed with every screen outcome retained',
+      'protocol_sha256':sha(PROTOCOL),'source_sha256':sha(__file__),'inputs_sha256':protocol['inputs_sha256'],
+      'rows':rows,'vertices_rebuilt':vertices,'no_financial_price_evaluations':True,
+      'scope':'Necessary arithmetic-free financial feasibility and canonical phase-size screens only. No new emitted graph, arithmetic guarantee, quantum price or physical advantage.',
+      'interpretation':'The shared threshold interval retains normaliser H and can remove two cap tables, whereas uniformly sampling Delta Pprime can enlarge the normaliser. Either must be fully emitted and certified before comparing costs.'})
+    for x in rows:
+        print(x['original_model_id'],x['candidate_id'],'B',x['raw_integral_normaliser_diagnostic'],
+              'rawM',[a.get('optimistic_QPE_phase_M') for a in x['raw_integral_screen']],
+              'thresholdM',[a.get('optimistic_QPE_phase_M') for a in x['threshold_interval_screen']])
+
+if __name__=='__main__':
+    args=argparse.ArgumentParser();args.add_argument('mode',choices=('register','run'));a=args.parse_args()
+    register() if a.mode=='register' else execute()

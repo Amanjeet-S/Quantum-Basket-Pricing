@@ -1,0 +1,29 @@
+{
+  "schema": "qbp-boundary-production-family-v1",
+  "status": "passed",
+  "created_utc": "2026-10-07T21:52:46.006211+00:00",
+  "dependency_sha256": {
+    "boundary_value_oracle.py": "46eca98514ede256390a3f0244ea2293a9d09ed64d800c84068a7b0378a95b31",
+    "boundary_value_certificate.py": "2647275ac121c1c56ed362c0500c88c8822c72762163687755be69fc05c4d405",
+    "boundary_derivative_certificate.py": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe",
+    "integral_value_oracle.py": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+    "integral_value_certificate.py": "06e4533321c489669acbbc6e3796e1b09d80f45bf35d8d7dc3b7db9ce96a89a4",
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f",
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "results/boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+    "results/generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+    "results/integral_finite_input_domains.json": "3a460a45c8ee1ddb637167ebcc388ce06c874c1e5e024f4506ba48d5ee2528c0"
+  },
+  "source_sha256": "b82b4621057114381a261bdc3fdc708f1795645a22dc2122d1643735965536d8",
+  "unique_scalar_certificates": 52,
+  "unique_counted_blocks": 307,
+  "profile_count": 204,
+  "financial_graph_count": 102,
+  "configuration": "All nine n2 capped cases and all three n2 vanilla cases, all four methods and all capped R2 flag encodings, both coherent lookup architectures, q28/b_y10/Beta8/table12.",
+  "scope": "Complete emitted financial A preparations and arithmetic certificates. Continuous transfer, coefficients, auxiliary discrepancy and complete mean estimation are separate required certificates.",
+  "runtime_seconds_diagnostic": 259.90679191700474,
+  "archive_sha256": "5e794bd6fcee57648ca65d8fd1c03167324d5fae6b88655e241dd00b648670f8"
+}

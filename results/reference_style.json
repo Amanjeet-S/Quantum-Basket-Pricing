@@ -1,0 +1,15 @@
+{
+  "source_chat": "Map quant finance prerequisites",
+  "thread_id": "01a09d32-252a-7712-8408-334b419a596e",
+  "inspected_source": "/Users/amanjeetsingh/Projects/Option-Exercise-Policy-Evaluation/paper/main.tex",
+  "inspected_sha256": "b2170b25fd526bd74465fca94294b8d3e497340419c44b0f2e97e30780fddccb",
+  "date": "2026-10-05",
+  "citation_package": "\\usepackage[round,authoryear]{natbib}",
+  "narrative": "citet",
+  "parenthetical": "citep",
+  "bibliography_order": "alphabetical",
+  "bibhang": "1.5em",
+  "bibsep": "2pt",
+  "bibfont": "small",
+  "entry_style": "surname initials (year). Title. Italic journal, volume(issue), pages or article number. DOI URL."
+}

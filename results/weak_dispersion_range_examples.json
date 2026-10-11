@@ -1,0 +1,519 @@
+{
+  "status": "passed",
+  "date": "2026-10-06",
+  "edge_case_checks": 6113,
+  "zero_support_controller_checks": {
+    "three_five": true,
+    "miqae": true
+  },
+  "bounded_support_examples": [
+    {
+      "n": 1,
+      "epsilon": "1/2",
+      "q": 5,
+      "rho": "17/64",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/4",
+      "finite_mean_tolerance": "1/128",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/16",
+      "finite_variance": "1/256",
+      "canonical_flag_variance": "15/256",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 2,
+      "epsilon": "1/4",
+      "q": 7,
+      "rho": "17/256",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/16",
+      "finite_mean_tolerance": "1/512",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/64",
+      "finite_variance": "1/4096",
+      "canonical_flag_variance": "63/4096",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 3,
+      "epsilon": "1/8",
+      "q": 9,
+      "rho": "17/1024",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/64",
+      "finite_mean_tolerance": "1/2048",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/256",
+      "finite_variance": "1/65536",
+      "canonical_flag_variance": "255/65536",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 4,
+      "epsilon": "1/16",
+      "q": 11,
+      "rho": "17/4096",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/256",
+      "finite_mean_tolerance": "1/8192",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/1024",
+      "finite_variance": "1/1048576",
+      "canonical_flag_variance": "1023/1048576",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 5,
+      "epsilon": "1/32",
+      "q": 13,
+      "rho": "17/16384",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/1024",
+      "finite_mean_tolerance": "1/32768",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/4096",
+      "finite_variance": "1/16777216",
+      "canonical_flag_variance": "4095/16777216",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 6,
+      "epsilon": "1/64",
+      "q": 15,
+      "rho": "17/65536",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/4096",
+      "finite_mean_tolerance": "1/131072",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/16384",
+      "finite_variance": "1/268435456",
+      "canonical_flag_variance": "16383/268435456",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 7,
+      "epsilon": "1/128",
+      "q": 17,
+      "rho": "17/262144",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/16384",
+      "finite_mean_tolerance": "1/524288",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/65536",
+      "finite_variance": "1/4294967296",
+      "canonical_flag_variance": "65535/4294967296",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 8,
+      "epsilon": "1/256",
+      "q": 19,
+      "rho": "17/1048576",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/65536",
+      "finite_mean_tolerance": "1/2097152",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/262144",
+      "finite_variance": "1/68719476736",
+      "canonical_flag_variance": "262143/68719476736",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 9,
+      "epsilon": "1/512",
+      "q": 21,
+      "rho": "17/4194304",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/262144",
+      "finite_mean_tolerance": "1/8388608",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/1048576",
+      "finite_variance": "1/1099511627776",
+      "canonical_flag_variance": "1048575/1099511627776",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 10,
+      "epsilon": "1/1024",
+      "q": 23,
+      "rho": "17/16777216",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/1048576",
+      "finite_mean_tolerance": "1/33554432",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/4194304",
+      "finite_variance": "1/17592186044416",
+      "canonical_flag_variance": "4194303/17592186044416",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 11,
+      "epsilon": "1/2048",
+      "q": 25,
+      "rho": "17/67108864",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/4194304",
+      "finite_mean_tolerance": "1/134217728",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/16777216",
+      "finite_variance": "1/281474976710656",
+      "canonical_flag_variance": "16777215/281474976710656",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 12,
+      "epsilon": "1/4096",
+      "q": 27,
+      "rho": "17/268435456",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/16777216",
+      "finite_mean_tolerance": "1/536870912",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/67108864",
+      "finite_variance": "1/4503599627370496",
+      "canonical_flag_variance": "67108863/4503599627370496",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 13,
+      "epsilon": "1/8192",
+      "q": 29,
+      "rho": "17/1073741824",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/67108864",
+      "finite_mean_tolerance": "1/2147483648",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/268435456",
+      "finite_variance": "1/72057594037927936",
+      "canonical_flag_variance": "268435455/72057594037927936",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 14,
+      "epsilon": "1/16384",
+      "q": 31,
+      "rho": "17/4294967296",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/268435456",
+      "finite_mean_tolerance": "1/8589934592",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/1073741824",
+      "finite_variance": "1/1152921504606846976",
+      "canonical_flag_variance": "1073741823/1152921504606846976",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 15,
+      "epsilon": "1/32768",
+      "q": 33,
+      "rho": "17/17179869184",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/1073741824",
+      "finite_mean_tolerance": "1/34359738368",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/4294967296",
+      "finite_variance": "1/18446744073709551616",
+      "canonical_flag_variance": "4294967295/18446744073709551616",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 16,
+      "epsilon": "1/65536",
+      "q": 35,
+      "rho": "17/68719476736",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/4294967296",
+      "finite_mean_tolerance": "1/137438953472",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/17179869184",
+      "finite_variance": "1/295147905179352825856",
+      "canonical_flag_variance": "17179869183/295147905179352825856",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 17,
+      "epsilon": "1/131072",
+      "q": 37,
+      "rho": "17/274877906944",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/17179869184",
+      "finite_mean_tolerance": "1/549755813888",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/68719476736",
+      "finite_variance": "1/4722366482869645213696",
+      "canonical_flag_variance": "68719476735/4722366482869645213696",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 18,
+      "epsilon": "1/262144",
+      "q": 39,
+      "rho": "17/1099511627776",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/68719476736",
+      "finite_mean_tolerance": "1/2199023255552",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/274877906944",
+      "finite_variance": "1/75557863725914323419136",
+      "canonical_flag_variance": "274877906943/75557863725914323419136",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 19,
+      "epsilon": "1/524288",
+      "q": 41,
+      "rho": "17/4398046511104",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/274877906944",
+      "finite_mean_tolerance": "1/8796093022208",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/1099511627776",
+      "finite_variance": "1/1208925819614629174706176",
+      "canonical_flag_variance": "1099511627775/1208925819614629174706176",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    },
+    {
+      "n": 20,
+      "epsilon": "1/1048576",
+      "q": 43,
+      "rho": "17/17592186044416",
+      "certificate_integer_maximum": 8,
+      "attained_maximum_integer": 4,
+      "range_R": "1/1099511627776",
+      "finite_mean_tolerance": "1/35184372088832",
+      "flag_tolerance": "1/32",
+      "finite_mean": "1/4398046511104",
+      "finite_variance": "1/19342813113834066795298816",
+      "canonical_flag_variance": "4398046511103/19342813113834066795298816",
+      "range_flag_probability": "1/4",
+      "controller_caps": {
+        "three_five": {
+          "shots": 6000,
+          "Q_calls": 28000
+        },
+        "miqae": {
+          "shots": 2468,
+          "Q_calls": 9402
+        }
+      }
+    }
+  ],
+  "scope": "Exact rational range and controller planning. Gap-rounding values are checked at 220-digit Decimal precision as an illustration, not a new outward transcendental certificate or market-calibrated price. The analytic range bound and nearest-rounding error establish the stated conservative support certificate.",
+  "proof_sha256": "48e84837e0656499e9afbd53d90310cb0b5690fd4c634cbf1fd232cb22cd7974",
+  "controller_hashes": {
+    "iterative_estimator.py": "eabb3aa525106d84ada530e2f9d92fa827562fac5937c112b04e549ff496f77a",
+    "full_batch_miqae.py": "5bfacd3f6e988bfb494b75507e43a23dae1aa566d504bc6a04caa49ff798f954"
+  },
+  "check_source_sha256": "a46ab93344307e6aed6659feeea74f9375bc5a34438661d5fb51bc9999d0c10b",
+  "limitations": "Mathematical test function P(m)=m only. No benchmark result, novelty assertion, uniform Gaussian range or total constant pricing cost is inferred."
+}

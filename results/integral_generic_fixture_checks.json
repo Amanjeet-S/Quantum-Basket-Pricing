@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "assets": 4,
+      "kind": "integral_r2",
+      "nodes": 96,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 399718,
+      "passed": true
+    },
+    {
+      "assets": 4,
+      "kind": "direct_r2",
+      "nodes": 87,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 271264,
+      "passed": true
+    },
+    {
+      "assets": 4,
+      "kind": "positive_r1",
+      "nodes": 81,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 163582,
+      "passed": true
+    },
+    {
+      "assets": 8,
+      "kind": "integral_r2",
+      "nodes": 224,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 613722,
+      "passed": true
+    },
+    {
+      "assets": 8,
+      "kind": "direct_r2",
+      "nodes": 215,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 489496,
+      "passed": true
+    },
+    {
+      "assets": 8,
+      "kind": "positive_r1",
+      "nodes": 209,
+      "value_and_flag_cases": 4,
+      "actual_T_count": 339646,
+      "passed": true
+    }
+  ],
+  "oracle_source_sha256": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+  "scope": "Genericfour/eightasset integer and clean-flag construction checks,notmonetary accuracy atthese deliberately smallwidths."
+}

@@ -1,0 +1,21 @@
+% Insertion into the existing proof document, without preamble or bibliography.
+
+\section{Per-wire reinitialisation of a reusable ideal shot}
+\label{sec:shot-reinitialisation}
+
+The final flag measurement and a complete reinitialisation event are distinct resource counts. I make the event concrete. Let the retained logical register \(S\) contain the financial input wires, the uniform comparison wires and the flag, with \(n_S=L+c+1\) wires for a scalar comparison of width \(c\). The financial and predicate scratch returns to its clean state by the proved logical A/Q contract, including on inputs entangled with an external reference, so it need not be reset after every shot in the ideal model.
+
+After measuring the flag in the computational basis, I measure each of the \(L+c\) remaining retained wires in that basis, and apply X to every retained wire whose recorded bit is one, including the already measured flag. For an outcome string \(z\in\{0,1\}^{n_S}\), the combined measurement and conditional reset has Kraus operator
+\(K_z=|0\rangle\langle z|\). For any possibly entangled joint state \(\omega_{SR}\),
+\[
+ \sum_z(K_z\otimes I_R)\omega_{SR}(K_z^\dagger\otimes I_R)
+ =|0\rangle\langle0|_S\otimes\operatorname{Tr}_S\omega_{SR}.
+\]
+This follows by expanding \(\omega_{SR}=\sum_{z,z'}|z\rangle\langle z'|\otimes\omega_{zz'}\): only equal measurement indices survive and their reference blocks sum to the partial trace. The channel therefore returns the retained register to zero and removes its correlation with previous quantum or classical records. Applying the same ideal preparation to this state supplies the fresh-shot premise of the confidence calculation.
+
+For a scalar plan with shot cap \(\overline N\), the reset protocol adds at most
+\[
+ \overline N(L+c)\ \text{nonflag Z measurements},\qquad
+ \overline N(L+c+1)\ \text{conditional Clifford X resets}.
+\]
+The \(\overline N\) flag observations were already counted and are not counted a second time. For dyadic buckets, the comparison width is \(b+1\) on ordinary buckets and zero on the top atom, so these expressions are summed with each bucket's separate shot cap and width. All added operations have zero T cost; their measurement and feedback costs are retained separately. These are ideal logical operations, not an assertion that device reset latency or physical noise is zero. A platform-specific reset primitive can replace the explicit protocol only with its own stated cost and channel guarantee.

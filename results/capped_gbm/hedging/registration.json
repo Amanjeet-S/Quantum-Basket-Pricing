@@ -1,0 +1,71 @@
+{
+  "protocol_sha256": "c0c7d0934747960badaaedfdbe14de5f9cce1290ce387e35d932a90c504a30f0",
+  "protocol": {
+    "registration_time_utc": "2026-10-11T21:23:43.942759+00:00",
+    "data": "synthetic constant-coefficient GBM only; no raw simulated paths saved",
+    "cases": [
+      "lower_kink",
+      "upper_kink",
+      "inside_spread",
+      "deep_cap",
+      "low_vol_short_dated",
+      "negative_rate_dividend",
+      "high_volatility"
+    ],
+    "physical_total_returns": [
+      0.03,
+      0.06,
+      0.12
+    ],
+    "budget_multipliers": [
+      0,
+      0.25,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "instruments": [
+      "reinvested-dividend stock",
+      "vanilla call at lower strike"
+    ],
+    "bounds": [
+      0,
+      1
+    ],
+    "budget": "initial instrument cost <= kappa*analytic risk-neutral capped premium",
+    "objective": "physical-law mean-square discounted terminal replication error, including mean residual",
+    "primary_solver": "two-dimensional unconstrained, five boundary stationary points, ten boundary intersections with numerical KKT diagnostics",
+    "comparators": [
+      "no hedge",
+      "unconstrained mean-square hedge",
+      "same-constraint centred-variance hedge",
+      "Euclidean projection of unconstrained centred-variance hedge",
+      "SciPy SLSQP mean-square solver",
+      "exact call-spread reference with absent upper call, a different instrument set"
+    ],
+    "population_oracle": "truncated Gaussian lognormal moments; independent Gaussian quadrature split at payoff kinks; non-negative residual-square integration for cancellation audit",
+    "simulation_paths_per_regime": 65536,
+    "simulation_seed": 674193,
+    "simulation_seed_rule": "seed+1009*(3*case_index+mu_index)",
+    "expected_primary_rows": 126,
+    "expected_unconstrained_rows": 21,
+    "expected_nohedge_rows": 21,
+    "expected_constrained_variance_rows": 126,
+    "expected_projected_variance_rows": 126,
+    "expected_monte_carlo_rows": 420,
+    "no_exclusions": "retain numerical failures, negative quadratic cancellations, adverse rankings and unresolved risk floors",
+    "software": {
+      "python": "3.13",
+      "numpy": "2.3.5",
+      "scipy": "1.16.3"
+    },
+    "claims": "exact mathematical results distinguished from non-certified numerical and floating-point diagnostics; no empirical market validation or novelty claimed"
+  },
+  "code_sha256": {
+    "run_hedging_study.py": "64769ef60da40b8aa3d9a3080837285dda07ce98953b652564ba10a10cf0ddbb",
+    "gbm_hedging.py": "e60f8c364434eae28e7a160ebe146eb6f5243005551998cc93cc162df9ab4b8a",
+    "capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+  },
+  "registration_status": "written before any study outcome is computed"
+}

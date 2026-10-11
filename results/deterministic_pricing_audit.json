@@ -1,0 +1,390 @@
+{
+  "status": "passed",
+  "complete_grid_configurations": 47,
+  "independently_replayed_outputs": 330752,
+  "exact_tensor_inventory_configurations": 273,
+  "selected_price_certificates": 9,
+  "checks": [
+    {
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "case_id": "n2_lambda0.05_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "f0709d0c12c826af02e8",
+      "case_id": "n2_lambda0.05_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "1603961b85a48b3764af",
+      "case_id": "n2_lambda0.05_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "da427e1b1d7fb0165de6",
+      "case_id": "n2_lambda0.05_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "b9b6d87dbf2fc82eec77",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "b0610e55cad4bf95a01a",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "d46a924f101e1669666f",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "5055802178c3aaf01e50",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "649eb9608734f5385f05",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "a07fff9aade4aeba351a",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "49f55fdd946209e873ef",
+      "case_id": "n2_lambda0.05_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "1325ccf44c615b21d26e",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "44874e2b6d441c138ce9",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "f4e7a46c0fa7c523eb2a",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "8ff0e2e2471023a0bfee",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "b27c31f4a3e09a789030",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "dc95f116ef9cb0fcb7c7",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "12bc8cbaa9aaf1d57aa9",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "a04bd4dadb955a0d2bfa",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "01bf79abfaaffaf6def9",
+      "case_id": "n2_lambda0.05_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "93c7731d047c58aec4c6",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "df7670daae1853038130",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "fd3c33d9c9a6721a1ca7",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "94a91f1653f7e6974f7a",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "c587bc277b94e6b87c2c",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "2f0ee2ae1c9e554964a4",
+      "case_id": "n2_lambda0.2_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "00fc3669335efc07b6aa",
+      "case_id": "n2_lambda0.2_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "3591a23115ddde7a87e0",
+      "case_id": "n2_lambda0.2_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "46cad66ced5c326f0385",
+      "case_id": "n2_lambda0.2_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "a54809fb532404834c3e",
+      "case_id": "n2_lambda0.2_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "c424c2232f509d3d0304",
+      "case_id": "n2_lambda0.2_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "df414bd8a38290002b14",
+      "case_id": "n2_lambda0.2_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "e3f89c8f5e2d64a11058",
+      "case_id": "n2_lambda0.2_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "3ab5cfa688e977f7f4fb",
+      "case_id": "n2_lambda0.2_cap25",
+      "states": 16384,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "78789ee62d2360cf3106",
+      "case_id": "n2_lambda0.4_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "9512261bc26fa262e4ca",
+      "case_id": "n2_lambda0.4_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "861695a0bd452715ee95",
+      "case_id": "n2_lambda0.4_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "69d67d2af601db512e6e",
+      "case_id": "n2_lambda0.4_cap1",
+      "states": 512,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "39d0f052db103626e8ad",
+      "case_id": "n2_lambda0.4_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "c159fe485b38a6b6200c",
+      "case_id": "n2_lambda0.4_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "3392136b899a92b5303a",
+      "case_id": "n2_lambda0.4_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "b25c306b29065e3cddf1",
+      "case_id": "n2_lambda0.4_cap10",
+      "states": 4096,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "1357a4f8217d38cfe889",
+      "case_id": "n2_lambda0.4_cap25",
+      "states": 8192,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "8735694e218391b1bf4d",
+      "case_id": "n2_lambda0.4_cap25",
+      "states": 8192,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "c75977d2c043d4ca739b",
+      "case_id": "n2_lambda0.4_cap25",
+      "states": 8192,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    },
+    {
+      "candidate_id": "a351474bcf769ba6a874",
+      "case_id": "n2_lambda0.4_cap25",
+      "states": 8192,
+      "all_outputs_match_independent_Python_integer_interpreter": true,
+      "exact_sum_matches": true,
+      "continuous_Arb_enclosure_contained_in_finite_grid_certificate": true
+    }
+  ],
+  "result_sha256": "e1f4fd64f3ab692eb53a247cd54116960f9b2b113ef56a3b0fa9d66cc85ca8de",
+  "continuous_result_sha256": "5b1128770daf29973b761884cee920a6cb002055f0716939712f66049e0d3d26",
+  "audit_source_sha256": "3823ed4f9a14cfbe779f81c23750db201a482d10aff8e4adc17cf06e6c68cc77",
+  "elapsed_seconds_diagnostic": 19.139640584000063,
+  "claim_limit": "Independent execution and exact summation check. Continuous accuracy remains conditional on the retained bias proof and validated Arb integration assumptions."
+}

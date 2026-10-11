@@ -1,0 +1,83 @@
+{
+  "schema": "qbp-tensor-project-validation-v1",
+  "status": "passed",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_created": 0,
+  "installed_files": 71,
+  "protected_prior_files": 517,
+  "prior_sources_and_results_unchanged": 509,
+  "verbatim_document_snapshots": 8,
+  "main_source_sha256": "23c2ba1d29d3d55bfe6f94de6c914c67f57ecdd09fc23b4eaee61dd967d1f8fb",
+  "main_source_words": 9257,
+  "main_reference_count": 19,
+  "main_label_count": 65,
+  "native_compilation": "Success confirmed by compile_latex_document on this final saved existing main source. No separate document or PDF was compiled/exported.",
+  "exact_pdf_page_count": "Not exposed by the native compiler; no exact page-count claim is made.",
+  "archive_portability": {
+    "canonical_absent": true,
+    "original_compressed_sha256": "c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370",
+    "original_records_streamed": 329,
+    "every_installed_file_under100MiB": true
+  },
+  "audits": {
+    "higherdim_preparation_audit.json": {
+      "status": "passed",
+      "sha256": "652426fdaab65ec26d154b60f79e7425a80b72e36b52f3e3d46e30d25f2648db"
+    },
+    "tensor_transport_transform_audit.json": {
+      "status": "passed",
+      "sha256": "0d529ddeec0dbfe7c313b7e5a6efd4e70e667647a2c1bdb1bd2980be82ab50e7"
+    },
+    "tensor_transport_weight_audit.json": {
+      "status": "passed",
+      "sha256": "156bc892971d4283f8bd13123eaa2dad090f15a0409a6d8c90aa57567239c274"
+    },
+    "tensor_curvature_envelope_audit.json": {
+      "status": "passed",
+      "sha256": "194e24ac3a1c80c392c37e1f00208722bcde1b35ea0de83faea09d694fa52dc1"
+    },
+    "tensor_parameter_provenance_audit.json": {
+      "status": "passed",
+      "sha256": "12deb701836a0e11e91c21e726553175e7ca8002f83229ba41d5c85c91dfcdf3"
+    },
+    "boundary_integer_optimisation_audit.json": {
+      "status": "passed",
+      "sha256": "27e08cb66bb625cce4f0c7c9e8f47b8f50a0f1e883f6c8c9e48e77e146abe4f5"
+    },
+    "boundary_integer_constant_table_audit.json": {
+      "status": "passed",
+      "sha256": "d592ab8ea99e5d54cf7f5dbd9bcf609c52f132f2878e9b29ce8226c01383c2ef"
+    },
+    "higherdim_classical_taylor_audit.json": {
+      "status": "passed",
+      "sha256": "7bf2690a16fb0463d296864022d4c3808a340f3e932703ddf867008a736a6891"
+    },
+    "higherdim_precision_independent_audit.json": {
+      "status": "passed",
+      "sha256": "cfe0cc525b4616469c202296965cc8c9300b830fce88440f7d5ada8cd5922ab6"
+    },
+    "complete_information_independent_audit.json": {
+      "status": "passed",
+      "sha256": "5c78380535d03bf051b406fe45e7a3d5905d38c7be58a828933f6de37d879549"
+    },
+    "artifact_archive_audit.json": {
+      "status": "passed",
+      "sha256": "37015525c44568d7dddf468feb628d781199005d470b03478a35c3505fd10dab"
+    },
+    "higherdim_precision_packaging_audit.json": {
+      "status": "passed",
+      "sha256": "e8ceefc525c572a8ab38e16b6c4859492f4844e98a7f7f85e5e8f05bcec87746"
+    },
+    "higherdim_precision_auditor_archive_access.json": {
+      "status": "passed",
+      "sha256": "727da24d546a6b87475d3e47300e6c74f561ceba655b86114f13c4f99bd2640d"
+    }
+  },
+  "completed_cases": 36,
+  "candidate_programs": 502,
+  "recorded_allocation_decisions": 141676,
+  "shared_analytical_stops": 18,
+  "active_quantum_comparisons": 18,
+  "second_correction_wins_vs_informed_first": 10,
+  "contribution_status": "Mathematically checked project-specific certificate and original conditional computational evidence; originality in the literature and practical quantum advantage remain unestablished."
+}

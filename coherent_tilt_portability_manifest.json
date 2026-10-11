@@ -1,0 +1,133 @@
+{
+  "schema": "qbp-tilt-portability-v1",
+  "status": "regenerated and independently checked",
+  "source_version_mapping": {
+    "coherent_tilt_derivation.tex": {
+      "original_sha256": "6dea54ea88e0880f7b5e21ef5c338d6a35c352d791f6967e028a2b8adbf13ed8",
+      "portable_path": "coherent_tilt_derivation.tex",
+      "portable_sha256": "6dea54ea88e0880f7b5e21ef5c338d6a35c352d791f6967e028a2b8adbf13ed8",
+      "content_changed": false
+    },
+    "coherent_tilt_toy.py": {
+      "original_sha256": "f0f7170f7df4b1fbe1d3c00d0f4b9f5a96cfe30278261293f45e729de2ac8e72",
+      "portable_path": "coherent_tilt_toy.py",
+      "portable_sha256": "aa7c566914abc49c635f122b00b8f5a599d5edfeea53a3eed92985bfdb113f23",
+      "content_changed": true
+    },
+    "synthesise_tilt_toy.py": {
+      "original_sha256": "9924734d881b672b131f983ce8a9b4d85089bcca23b76abae9b2e462ee098741",
+      "portable_path": "synthesise_tilt_toy.py",
+      "portable_sha256": "b05746e872fe472602bdbef26e85ff69e0fdbe9aca6e03f8f595ff8886047e30",
+      "content_changed": true
+    },
+    "manifest.json": {
+      "original_sha256": "7c3141bd615a4aded594b84ec767557255e5cf4d60643a77381542d069c9b653",
+      "portable_path": "history/tilt_toy_original_snapshot/manifest.json",
+      "portable_sha256": "7c3141bd615a4aded594b84ec767557255e5cf4d60643a77381542d069c9b653",
+      "content_changed": false
+    },
+    "audit_tilt_toy.py": {
+      "original_sha256": "cc430343d5f148676c13bf124e4b5fce4e7fd593e0e4a9d81407a5af8d87dc7b",
+      "portable_path": "audit_tilt_toy.py",
+      "portable_sha256": "00336a10e7734e8ca19b5aabcf9fafa0ec7b3566304784ebaa12d0535d51a764",
+      "content_changed": true
+    },
+    "certify_tilt_toy.py": {
+      "original_sha256": "e03905f045965e27fb1d6c0fd1786bdf3b9b81a12786a19fbee3a7f4514d873b",
+      "portable_path": "certify_tilt_toy.py",
+      "portable_sha256": "7696d1931a2d6e06ff6c89e2016feb579996a9958de277671e7ce5accbfc6265",
+      "content_changed": true
+    },
+    "review.md": {
+      "original_sha256": "668427bfdc13ee000e1d76490921cd9a9d9faaebaba8c1b07a2d493748b35f69",
+      "portable_path": "coherent_tilt_toy_study.md",
+      "portable_sha256": "668427bfdc13ee000e1d76490921cd9a9d9faaebaba8c1b07a2d493748b35f69",
+      "content_changed": false
+    },
+    "checks/test_coherent_tilt_toy.py": {
+      "original_sha256": "64a472d41a1c1406c4152a49f0975aa38920a00adc97ce5b5f3c3674dd87833c",
+      "portable_path": "checks/test_coherent_tilt_toy.py",
+      "portable_sha256": "64a472d41a1c1406c4152a49f0975aa38920a00adc97ce5b5f3c3674dd87833c",
+      "content_changed": false
+    },
+    "results/coherent_tilt_toy_tape.json": {
+      "original_sha256": "a63be1be803d6e53e0e052f86c9e9c87584d392a83dbdbfc77fb9f90fc615c7d",
+      "portable_path": "results/coherent_tilt_toy_tape.json",
+      "portable_sha256": "81a43eec77cb4b40837e227d71bc8ca010d7a67951f10b8b1f81636069cb09e9",
+      "content_changed": true
+    },
+    "results/coherent_tilt_toy_rotation_certificates.json": {
+      "original_sha256": "13c9526eb330d2aaf47da3422740a79ee03600438f2a37348003d61cd0cf219c",
+      "portable_path": "results/coherent_tilt_toy_rotation_certificates.json",
+      "portable_sha256": "ceb987e892212f2c48482cbcdede621146e5c84b1f9f532317e04257fac8ff8b",
+      "content_changed": true
+    },
+    "results/coherent_tilt_toy_audit.json": {
+      "original_sha256": "d0f5bbad5df25ca8b865ec1a971e062f27cfe50895529c34e719408844ed4265",
+      "portable_path": "results/coherent_tilt_toy_audit.json",
+      "portable_sha256": "9f6e355681318c098bcb5388be47e383d9241fca97bab31d6b5651d32591a27d",
+      "content_changed": true
+    },
+    "results/coherent_tilt_toy.json": {
+      "original_sha256": "68e6ffb9af6fb9d021a9b1e15c409b1a49f7fb80fdc1fd6c280d6b8fea26f3ed",
+      "portable_path": "results/coherent_tilt_toy.json",
+      "portable_sha256": "68e6ffb9af6fb9d021a9b1e15c409b1a49f7fb80fdc1fd6c280d6b8fea26f3ed",
+      "content_changed": false
+    },
+    "results/coherent_tilt_toy_compiled.json": {
+      "original_sha256": "23cffafbeecbcb2e5719005acef72a99f078323960524e20ed54d269276ec8c6",
+      "portable_path": "results/coherent_tilt_toy_compiled.json",
+      "portable_sha256": "9457e53ddab1347809bacb3d07914e0b9377f029732103a9a21b6b1a7794c2a6",
+      "content_changed": true
+    }
+  },
+  "installation_file_hashes": {
+    "coherent_tilt_derivation.tex": "6dea54ea88e0880f7b5e21ef5c338d6a35c352d791f6967e028a2b8adbf13ed8",
+    "tilt_gate_replay.py": "86b7447285d96d31683584dd6d9471722b62814fbf677bb628923193f91bfaa4",
+    "coherent_tilt_toy.py": "aa7c566914abc49c635f122b00b8f5a599d5edfeea53a3eed92985bfdb113f23",
+    "coherent_tilt_toy_study.md": "668427bfdc13ee000e1d76490921cd9a9d9faaebaba8c1b07a2d493748b35f69",
+    "coherent_tilt_toy_sources.md": "ba1fec8b878d91429aedf183609b7c19a1e66d6f51d8bc1e2a5c4b2dc8cb3ded",
+    "synthesise_tilt_toy.py": "b05746e872fe472602bdbef26e85ff69e0fdbe9aca6e03f8f595ff8886047e30",
+    "tilt_dependency_runtime.py": "2a9ef4c6e48e6497b79b94cfe3f857f0803c855799cf9b86f0b1ddc7abc015a1",
+    "audit_tilt_toy.py": "00336a10e7734e8ca19b5aabcf9fafa0ec7b3566304784ebaa12d0535d51a764",
+    "certify_tilt_toy.py": "7696d1931a2d6e06ff6c89e2016feb579996a9958de277671e7ce5accbfc6265",
+    "requirements-tilt-synthesis.txt": "2f88dd9ef4c0c678b3839d7249d28d3735d8a0cfd178d623f56f4f88f922d464",
+    "checks/test_coherent_tilt_toy.py": "64a472d41a1c1406c4152a49f0975aa38920a00adc97ce5b5f3c3674dd87833c",
+    "results/coherent_tilt_toy_tape.json": "81a43eec77cb4b40837e227d71bc8ca010d7a67951f10b8b1f81636069cb09e9",
+    "results/coherent_tilt_toy_rotation_certificates.json": "ceb987e892212f2c48482cbcdede621146e5c84b1f9f532317e04257fac8ff8b",
+    "results/coherent_tilt_toy_audit.json": "9f6e355681318c098bcb5388be47e383d9241fca97bab31d6b5651d32591a27d",
+    "results/coherent_tilt_toy.json": "68e6ffb9af6fb9d021a9b1e15c409b1a49f7fb80fdc1fd6c280d6b8fea26f3ed",
+    "results/coherent_tilt_toy_compiled.json": "9457e53ddab1347809bacb3d07914e0b9377f029732103a9a21b6b1a7794c2a6",
+    "history/tilt_toy_original_snapshot/coherent_tilt_derivation.tex": "6dea54ea88e0880f7b5e21ef5c338d6a35c352d791f6967e028a2b8adbf13ed8",
+    "history/tilt_toy_original_snapshot/coherent_tilt_toy.py": "f0f7170f7df4b1fbe1d3c00d0f4b9f5a96cfe30278261293f45e729de2ac8e72",
+    "history/tilt_toy_original_snapshot/synthesise_tilt_toy.py": "9924734d881b672b131f983ce8a9b4d85089bcca23b76abae9b2e462ee098741",
+    "history/tilt_toy_original_snapshot/manifest.json": "7c3141bd615a4aded594b84ec767557255e5cf4d60643a77381542d069c9b653",
+    "history/tilt_toy_original_snapshot/audit_tilt_toy.py": "cc430343d5f148676c13bf124e4b5fce4e7fd593e0e4a9d81407a5af8d87dc7b",
+    "history/tilt_toy_original_snapshot/certify_tilt_toy.py": "e03905f045965e27fb1d6c0fd1786bdf3b9b81a12786a19fbee3a7f4514d873b",
+    "history/tilt_toy_original_snapshot/review.md": "668427bfdc13ee000e1d76490921cd9a9d9faaebaba8c1b07a2d493748b35f69",
+    "history/tilt_toy_original_snapshot/checks/test_coherent_tilt_toy.py": "64a472d41a1c1406c4152a49f0975aa38920a00adc97ce5b5f3c3674dd87833c",
+    "history/tilt_toy_original_snapshot/results/coherent_tilt_toy_tape.json": "a63be1be803d6e53e0e052f86c9e9c87584d392a83dbdbfc77fb9f90fc615c7d",
+    "history/tilt_toy_original_snapshot/results/coherent_tilt_toy_rotation_certificates.json": "13c9526eb330d2aaf47da3422740a79ee03600438f2a37348003d61cd0cf219c",
+    "history/tilt_toy_original_snapshot/results/coherent_tilt_toy_audit.json": "d0f5bbad5df25ca8b865ec1a971e062f27cfe50895529c34e719408844ed4265",
+    "history/tilt_toy_original_snapshot/results/coherent_tilt_toy.json": "68e6ffb9af6fb9d021a9b1e15c409b1a49f7fb80fdc1fd6c280d6b8fea26f3ed",
+    "history/tilt_toy_original_snapshot/results/coherent_tilt_toy_compiled.json": "23cffafbeecbcb2e5719005acef72a99f078323960524e20ed54d269276ec8c6"
+  },
+  "existing_repository_dependencies_not_to_install": {
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd"
+  },
+  "evidence_preservation": {
+    "original_file_count": 13,
+    "original_sources_and_results_preserved_byte_for_byte": true,
+    "original_directory": "history/tilt_toy_original_snapshot"
+  },
+  "regeneration_checks": {
+    "same_high_level_tape": true,
+    "same_Clifford_T_tape": true,
+    "same_rotation_tapes": true,
+    "same_norm_upper": true,
+    "all_source_dependency_and_input_hashes_match": true,
+    "four_test_groups_passed": true,
+    "replay_and_certificate_with_vendor_and_PYTHONPATH_unset_passed": true
+  },
+  "scope": "Portable negative signal-only evidence. Complete financial observable and end-to-end pricing remain unimplemented. Third-party libraries are not included."
+}

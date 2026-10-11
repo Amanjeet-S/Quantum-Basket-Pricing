@@ -1,0 +1,39 @@
+{
+  "schema": "qbp-four-case-classical-fixed-protocol-v1",
+  "created_utc": "2026-10-09T08:47:16.741425+00:00",
+  "status": "Frozen before fresh operating-system random words are requested",
+  "previous_interrupted_run": "Lost temporary scores and traces are not numerical inputs; all samples and enclosures will be generated afresh.",
+  "case_ids": [
+    "n2_lambda0.4_scale3",
+    "n4_lambda0.05_scale3over2",
+    "n4_lambda0.2_scale3",
+    "n8_lambda0.2_scale3"
+  ],
+  "cap": "1",
+  "draws_per_case": 100000,
+  "grid": {
+    "L": "6",
+    "node_bits": 10,
+    "node_rounding_bits": 28
+  },
+  "statistical_epsilon": "1/150",
+  "per_case_failure_allowance": "1/3600",
+  "family_failure_allowance": "1/900",
+  "confidence_premise": "Captured operating-system random uint16 words are treated as independent uniformly distributed words. This probabilistic premise is explicit and is not physically proved by retaining a realised trace.",
+  "sampling_rule": "Each coordinate label is the low ten bits of one unsigned little-endian uint16 word; 100000 fixed draws per case, without stopping based on scores.",
+  "score_precision_bits": 128,
+  "outward_score_bits": 40,
+  "transfer_precision_bits": 512,
+  "method": "Direct analytically conditioned capped-call payoff on the exact dyadic CDF midpoint grid; global derivative norms, positive Gaussian cell transfer and bounded-payoff full tails; n2 also has complete 1024-node exact interval summation before sampling.",
+  "reporting": "Undiscounted tolerance 1/100, then deterministic exp(-3/100) discount; every case retained. Timings are diagnostic, not quantum runtime comparisons.",
+  "data": "Exact stipulated synthetic risk-neutral models only; no LSEG or other licensed observations, outputs or private data.",
+  "producer_sha256": "7fb8989ce21d17c5f22b30ec1b0e1b7d352734c7f4f272f0770b05d4bd660448",
+  "input_sha256": {
+    "results/dispersion_separation_protocol.json": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+    "results/dispersion_separation_results.json": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+    "results/boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+    "results/gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+    "boundary_grid_certificate.py": "fe7ada516a74a0806b46ad7d08cdae208c75f110adc43951ae67702c82fe1087",
+    "boundary_derivative_certificate.py": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe"
+  }
+}

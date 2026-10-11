@@ -1,0 +1,80 @@
+{
+  "schema": "qbp-dispersion-separation-project-validation-v1",
+  "status": "passed",
+  "date": "2026-10-08",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_created": 0,
+  "git_index_unchanged": true,
+  "original_baseline_files": 645,
+  "unchanged_baseline_files": 638,
+  "exact_prior_document_snapshots": 7,
+  "new_frozen_artifact_hashes_verified": 43,
+  "contracts": 144,
+  "financial_transfer_passes": 81,
+  "strengthened_degree3_price_passes": 71,
+  "provisional_separators": 10,
+  "targeted_degree5_classical_rescues": 6,
+  "remaining_targeted_degree5_separators": 4,
+  "all_remaining_separators_cap": "1",
+  "independent_model_audit": "passed",
+  "independent_financial_audit": "passed",
+  "independent_financial_audit_counts": {
+    "transport_input_enclosures": 7168,
+    "hybrid_moment_enclosures": 616,
+    "continuous_moment_enclosures": 78,
+    "outside_moment_enclosures": 12,
+    "derivative_envelope_components": 5280,
+    "complete_transfer_upper_checks": 144,
+    "coefficient_enclosures": 790,
+    "Taylor_remainders_and_raw_halfwidths": 482,
+    "exact_interval_intersections": 482,
+    "phase_visit_counts": 164,
+    "snapshot_operation_counts": 616,
+    "snapshot_immutability_checks": 30,
+    "scale_one_bound_and_order_matches": 144
+  },
+  "installed_figure_history_replay": "passed",
+  "installed_figure_history_audit_counts": {
+    "historical_file_hashes": 10,
+    "historical_input_result_links": 4,
+    "historical_immutable_degree3_snapshots": 288,
+    "unchanged_historical_raw_radii": 864,
+    "representative_exact_curve_points": 8,
+    "full_panel_exact_bar_counts": 8,
+    "native_coordinate_checks": 40,
+    "native_mark_checks": 13
+  },
+  "figure1": {
+    "old_redundant_text_flow_removed": true,
+    "new_native_vector_source_embedded_exactly": true,
+    "PNG_visually_inspected": true,
+    "SVG_and_PNG_data_scope_matches_native": true,
+    "render_source_and_runtime": {
+      "source_sha256": "be93a6fbddce699aa9bf7a91bd0bb05fafb717bd82cae807386f18551a444fd4",
+      "data_sha256": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+      "matplotlib_version": "3.10.6",
+      "python_version": "3.13.9",
+      "format": "PNG/SVG plus self-contained standard-LaTeX vector picture; no external graphic dependency for native compilation"
+    },
+    "native_figure_sha256": "92e90c0f39005c06c444c8496e9d76693d3de20e1c02f9c246c2284a1b8f5c9e",
+    "PNG_sha256": "22e0d7210b4fffe0381ba3dec825ac176056c49c470cccadc1de0c2bca391362",
+    "SVG_sha256": "4037e35dd01e05ce95dfc92bdc6fa2eeee11f487f3b05b741225f73dece118f4",
+    "visual_finding": "Readable axes, distinct markers and colours, declared threshold, no clipped labels or overlapping legends in the inspected PNG. Native coordinates and caption/data linkage independently checked."
+  },
+  "manuscript": {
+    "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+    "source_sha256": "51867e94f7b80c5b0711262c091687a5bb7d53de0a2556d63bd2aa78910f8d2c",
+    "native_compile": {
+      "kind": "success",
+      "message": "The current source compiled successfully with the desktop editor's compiler."
+    },
+    "figure_count": 1,
+    "keywords_position_valid": true,
+    "no_em_dash": true,
+    "missing_citation_keys": 0,
+    "exact_native_PDF_page_count": null,
+    "page_count_scope": "Native compiler confirms compilation but supplies no exact page count. No replacement document, separate compiled PDF or different editor tab was created."
+  },
+  "registration_scope": "Fixed financial panel and representative selection precede outcomes. Later stronger interval-intersection policy and aggregate count figure are explicit post-initial-execution additions. Earlier executions and exact-endpoint storage correction retained.",
+  "claim_boundary": "Four numerical transfer-admitted cases fail the declared strengthened finite Taylor screen. Not complete quantum prices, intrinsically difficult prices, superiority over all classical algorithms, a new generic theory or practical quantum advantage."
+}

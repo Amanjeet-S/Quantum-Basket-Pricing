@@ -1,0 +1,71 @@
+{
+  "schema": "qbp-persistent-stage-synthetic-input-audit-v1",
+  "review_date": "2026-10-09",
+  "persistent_stage": "<private-stage>/quantum_four_case_pricing",
+  "prior_audit_sha256": "43a04dac7381c129068cd86ffa673ef638aaa55ce94def19c89b1cf8413cd63c",
+  "verified_copied_sources": [
+    {
+      "stage_branch": "classical",
+      "file": "generalisation_models.py",
+      "sha256": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "classical",
+      "file": "results/generalisation_protocol.json",
+      "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "classical",
+      "file": "results/dispersion_separation_protocol.json",
+      "sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "classical",
+      "file": "results/dispersion_separation_summary.json",
+      "sha256": "05474fb9ec9953653ed4d1cc907c6024cb7bdc4a47ce24050df0a1257338fc26",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "classical",
+      "file": "results/dispersion_separation_results.json",
+      "sha256": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "quantum",
+      "file": "generalisation_models.py",
+      "sha256": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "quantum",
+      "file": "results/generalisation_protocol.json",
+      "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "quantum",
+      "file": "results/dispersion_separation_protocol.json",
+      "sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "quantum",
+      "file": "results/dispersion_separation_summary.json",
+      "sha256": "05474fb9ec9953653ed4d1cc907c6024cb7bdc4a47ce24050df0a1257338fc26",
+      "matches_preexisting_installed_synthetic_source": true
+    },
+    {
+      "stage_branch": "quantum",
+      "file": "results/dispersion_separation_results.json",
+      "sha256": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+      "matches_preexisting_installed_synthetic_source": true
+    }
+  ],
+  "independent_final_protocol_status": "New four-case producer, execution protocol and numerical output not yet present; final subset and confidence audit pending",
+  "raw_LSEG_acquisition_or_deletion": false,
+  "status_limits": "This verifies retained copied financial inputs. It is not an audit of future producer changes or a claim about other datasets on the computer."
+}

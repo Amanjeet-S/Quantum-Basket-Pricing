@@ -1,0 +1,208 @@
+% Independent supporting proof fragment. No standalone preamble.
+% This is a reduction to established tools, not a literature-priority claim.
+\section{Finite-transform reduction of a residual transfer certificate}
+\label{supp:abstract-transfer-reduction}
+
+I state the mechanism with coordinate-specific positive measures so that
+its dependence on Gaussianity is explicit. Let $I_j$ be a compact
+interval, let $\nu_j$ be a finite positive measure on $I_j$, and partition
+$I_j$ into cells $I_{jc}$ with actual nodes $c_{jc}\in I_{jc}$. Set
+$\tau_j=\sum_c\nu_j(I_{jc})\delta_{c_{jc}}$. Suppose positive finite
+measures $\rho_{j1},\rho_{j2}$ satisfy
+\begin{equation}
+ |(\nu_j-\tau_j)(f)|\leq
+ \rho_{j1}(|f'|)+\rho_{j2}(|f''|),\qquad f\in C^2(I_j).
+ \label{eq:abstract-coordinate-bound}
+\end{equation}
+For the cell construction in the project, this follows from the
+established centred Taylor identity. It also holds for an arbitrary
+finite positive cell measure: the second kernel has density
+$\int_{I_{jc}\cap(-\infty,z]}(z-y)\nu_j(dy)$ below its node and
+$\int_{I_{jc}\cap[z,\infty)}(y-z)\nu_j(dy)$ above it. The first
+measure has atoms dominating
+$|\int_{I_{jc}}(y-c_{jc})\nu_j(dy)|$. An atom of $\nu_j$ at a shared
+cell boundary is assigned to exactly one cell. This convention avoids
+double counting. Gaussian equal-CDF cells are sufficient, rather than
+necessary, assumptions for \eqref{eq:abstract-coordinate-bound}.
+
+For $X_i(y)=e^{d_i+s_i\cdot y}$, let $\mathcal A_D$ be the finite
+exponential-polynomial space spanned by $X^\alpha$ with
+$\alpha\in\mathbb N_0^n$ and
+$|\alpha|\leq D$. Signed coefficients are permitted. For
+$1\leq j\leq p$ and $k\in\{1,2\}$, define
+\[
+ \Lambda_{jk}=\nu_1\otimes\cdots\otimes\nu_{j-1}
+       \otimes\rho_{jk}\otimes\tau_{j+1}\otimes\cdots\otimes\tau_p.
+\]
+Suppose $R$ is measurable on the full domain, belongs to
+$C^2(\prod_jI_j)$ on the retained box, and has pointwise derivative
+envelopes
+\[
+ |\partial_j^kR|\leq E_{jk}
+ =\sum_\ell a_{jk\ell}H_{jk\ell}
+   +\sum_q b_{jkq}|A_{jkq}B_{jkq}|,
+ \qquad a_{jk\ell},b_{jkq}\geq0.
+\]
+Each $H$ is nonnegative on the retained box. Each $H,A^2,B^2$ has a
+known finite representation in $\mathcal A_D$. Whenever several pairs
+$(A_h,B_h)$ satisfy the same pointwise identity
+$|A_hB_h|=|AB|$, any of their Cauchy bounds may be used and their
+minimum is valid. Finally suppose an explicit finite bound $T_{\rm out}$
+controls the integral of $|R|$ outside the retained box under a full
+product law $\mu_1\otimes\cdots\otimes\mu_p$, whose restriction is
+$\nu_1\otimes\cdots\otimes\nu_p$.
+
+\begin{proposition}[A finite-transform transfer reduction]
+\label{prop:abstract-transfer-reduction}
+Under these assumptions,
+\[
+ \left|\int R\,d(\mu_1\otimes\cdots\otimes\mu_p)
+       -\int R\,d(\tau_1\otimes\cdots\otimes\tau_p)\right|
+ \leq T_{\rm out}+\sum_{j=1}^p\sum_{k=1}^2 \mathcal B_{jk},
+\]
+where
+\[
+ \mathcal B_{jk}=
+ \sum_\ell a_{jk\ell}\Lambda_{jk}(H_{jk\ell})
+ +\sum_q b_{jkq}
+     \sqrt{\Lambda_{jk}(A_{jkq}^2)\Lambda_{jk}(B_{jkq}^2)}.
+\]
+The stated alternative-pair minima may replace the corresponding
+square-root terms. Every moment is a finite sum of products of scalar
+Laplace transforms. In particular, for
+$h=\sum_\alpha b_\alpha X^\alpha$,
+\begin{equation}
+ \Lambda_{jk}(h)=\sum_\alpha b_\alpha
+   e^{\sum_i\alpha_id_i}
+   \mathcal M_{\rho_{jk}}\!\left(\sum_i\alpha_is_{ij}\right)
+   \prod_{\ell<j}\mathcal M_{\nu_\ell}\!\left(\sum_i\alpha_is_{i\ell}\right)
+   \prod_{\ell>j}\mathcal M_{\tau_\ell}\!\left(\sum_i\alpha_is_{i\ell}\right).
+ \label{eq:abstract-factorised-moments}
+\end{equation}
+Thus certified scalar transforms at the finite set of required rates
+suffice to construct a price-independent transfer allowance. No value of
+$R$ at a Cartesian grid point is required to construct this bound.
+\end{proposition}
+\begin{proof}
+The product difference telescopes exactly as
+\[
+ \bigotimes_j\nu_j-\bigotimes_j\tau_j
+ =\sum_j\left(\bigotimes_{\ell<j}\nu_\ell\right)
+          \otimes(\nu_j-\tau_j)
+          \otimes\left(\bigotimes_{\ell>j}\tau_\ell\right).
+\]
+For fixed other coordinates, apply
+\eqref{eq:abstract-coordinate-bound} to $R$ as a function of its
+$j$th coordinate. Compact support and $C^2$ regularity imply bounded
+derivatives and justify all applications of Fubini. Integrating the
+coordinate inequality against the other positive measures and summing
+gives $\sum_{jk}\Lambda_{jk}(|\partial_j^kR|)$. The pointwise envelope
+and Cauchy's inequality in $L^2(\Lambda_{jk})$ give the displayed
+$\mathcal B_{jk}$. Positivity, rather than probability normalisation,
+is the required property: no total-mass divisor occurs. The outside
+integral contributes at most $T_{\rm out}$ by the triangle inequality.
+
+For a monomial, $X^\alpha=e^{\sum_i\alpha_id_i}
+\prod_\ell e^{(\sum_i\alpha_is_{i\ell})y_\ell}$.
+Its integral under the product measure therefore factorises. Linearity
+of a finite sum gives \eqref{eq:abstract-factorised-moments}, including
+its signed coefficients. At zero rate each transform is the actual
+measure mass. This proves both the identity and its mass convention.
+Certified interval arithmetic preserves the enclosure when signed
+products are summed. A known nonnegative moment permits intersecting
+its interval with $[0,\infty)$, but a negative upper endpoint signals
+an invalid enclosure rather than permission to substitute zero.
+\end{proof}
+
+\subsection{Why the present residual needs only degree four}
+
+For positive basket weights of sum one, weighted-centred drift and
+loadings give
+$T=\sum_iw_iX_i\geq\exp(\sum_iw_i(d_i+s_i\cdot y))=1$.
+Hence $U=T-1\geq0$. With $u=T_j$, $v=T_{jj}\geq0$ and affine
+$m=m_G+r\cdot y$, the exact conditional second residual is
+\[
+ R_2=U^2\int_0^1(1-z)t^{-2}C_2(m+\log t)dz,
+ \qquad t=1+zU\geq1.
+\]
+If $C_3=C_2'-2C_2$ and $C_4=C_3'-3C_3$, differentiation of
+$G=t^{-2}C_2(m+\log t)$ gives
+\[
+ G_j=r_jt^{-2}C_2'+zu t^{-3}C_3,
+\]
+\[
+ G_{jj}=r_j^2t^{-2}C_2''+2r_jzu t^{-3}C_3'
+                         +zv t^{-3}C_3+z^2u^2t^{-4}C_4.
+\]
+The derivatives of $U^2G$ are $2UuG+U^2G_j$ and
+$2(u^2+Uv)G+4UuG_j+U^2G_{jj}$. These expressions exhibit exactly
+which bounded boundary derivatives are required. Uniform bounds on
+$C_2,C_3,C_4,C_2',C_2'',C_3'$ and integration of $1-z$,
+$z(1-z)$ and $z^2(1-z)$ produce the project's two displayed
+envelopes. This residual differentiation is the extra argument that a
+generic Peano identity does not supply.
+
+The direct nonnegative factors are
+$U^2,u^2,Uv,Uu^2,U^2v,U^2u^2$. Their degrees in $X$ are at most
+four. The only absolute products needing a closure are $U|u|$ and
+$U^2|u|$. Cauchy bounds the first using $U^2,u^2$, and the second
+using either $U^2,U^2u^2$ or $U^4,u^2$. Consequently all required
+moments have degree at most four. Neither Cauchy nor exponential
+factorisation needs a new principle once these pointwise derivative
+envelopes have been obtained.
+
+For a fixed finite number of payoff kinks and a strictly positive
+independent Gaussian smoothing scale, the falling log derivatives are
+finite sums of polynomial multiples of Gaussian boundary densities.
+Each is bounded, so this argument includes the stated vanilla and
+capped calls. The scale-dependent constants are not uniform as the
+smoothing scale tends to zero. This boundedness statement concerns the
+falling boundary derivatives; the vanilla kernel and its delta remain
+unbounded. A general multivariate payoff needs its own smoothness and
+derivative envelopes and does not inherit this degree-four conclusion.
+
+\subsection{Construction cost and what the reduction does not prove}
+
+For fixed degree $D$, the number of distinct monomials satisfies
+$M\leq\binom{n+D}{D}$. For a fixed number of geometry polynomials,
+forming the other-coordinate products naively costs $O(p^2M)$
+arithmetic products. Grouping by the transported-coordinate rate and
+reusing those products gives $O(BpM)$ subsequent dot products for $B$
+blocks, in addition to rate formation, coefficient construction, scalar
+transform evaluation and certified rounding. A cached prefix or suffix
+scheme could reduce the other-coordinate product count, but that would
+be an implementation improvement requiring its own verified producer;
+it is not credited to the present implementation.
+
+The rounded scalar transforms still involve $N$ actual nodes. Direct
+evaluation costs $O(N)$ scalar terms per query. A factorial-series
+prefix implementation pays $O(NJ)$ preparation at series order $J$,
+then $O(J)$ arithmetic operations per block/rate query, plus continuous
+transform evaluations. Its remainder for a signed finite measure
+$\eta$ supported in $[-L,L]$ is at most
+$\|\eta\|_{\rm TV}e^{|v|L}(|v|L)^{J+1}/(J+1)!$.
+These are arithmetic counts, not a complete uniform bit-complexity
+theorem. At $b$ bits, each count must be weighted by the costs of the
+relevant arithmetic and transcendental operations; node inversion,
+exact rational rates, output magnitude and cancellation can require
+additional precision. Fixed $D$ is essential: variable $D$ makes the
+monomial count combinatorial. None of these statements is a
+dimension-free error guarantee or a quantum pricing advantage.
+
+Gaussianity supplies explicit scalar transforms and the exact tilted
+outside-box moment used in this project. It is not required by
+Proposition~\ref{prop:abstract-transfer-reduction}. Independent
+non-Gaussian coordinates with certified finite transforms and an
+explicit outside allowance also satisfy the abstract proposition.
+Correlated coordinates require either a justified independent latent
+representation or a joint-transform construction. Their marginal
+transforms alone do not determine the required moments.
+
+The displayed proposition is an independently derived packaging of
+established Taylor transport, product telescoping, Cauchy and
+exponential moment factorisation. Its mathematical correctness does not
+establish literature originality. The project-specific conclusion is
+the applicability of this package to the stated residual, including its
+verified derivative constants, actual rounded law and observed monetary
+allowances. A material claim beyond this applicability still needs a
+source-level comparison and competitive evidence.

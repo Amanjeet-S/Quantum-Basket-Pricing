@@ -1,0 +1,2022 @@
+{
+  "status": "broader constructed evaluator comparison; estimator and theoretical novelty unverified",
+  "protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "models": [
+    {
+      "model_id": "n2_lambda0.05",
+      "assets": 2,
+      "outer_dimension": 1,
+      "lambda": "0.05",
+      "weights": [
+        "0.5",
+        "0.5"
+      ],
+      "loadings": [
+        [
+          "-0.1"
+        ],
+        [
+          "0.2"
+        ]
+      ],
+      "log_drifts": [
+        "0.00375",
+        "-0.01125"
+      ],
+      "covariance": [
+        [
+          "0.0125",
+          "-0.0175"
+        ],
+        [
+          "-0.0175",
+          "0.0425"
+        ]
+      ],
+      "weighted_residual_dispersion": "0.0225",
+      "geometric_outer_variance": "0.0025",
+      "spot": 100,
+      "strike": 100,
+      "maturity": 1,
+      "risk_free_rate": ".03",
+      "dividend_yield": ".02",
+      "parameter_interpretation": "frozen decimals define the exact synthetic risk-neutral model"
+    }
+  ],
+  "configurations": [
+    {
+      "model_id": "n2_lambda0.05",
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "direct",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "q": 26,
+      "exp_address_bits": 11,
+      "log_address_bits": 0,
+      "probability_address_bits": 0,
+      "b_y": 14,
+      "b_z": 14,
+      "b_u": 0,
+      "outer_distribution_bound": 0.0022888183593750004,
+      "inner_distribution_bound": 0.0015258789062500002,
+      "distribution_price_bound": 0.0038146972656250004,
+      "arithmetic_price_error_upper": 0.0009073151699853297,
+      "domain_checks": [
+        {
+          "node": "n12",
+          "kernel": "general_exp",
+          "argument_min": 3.29125,
+          "argument_max": 4.71625,
+          "argument_error": 1.8477439902575555e-07,
+          "interpolation_error": 3.919133416326337e-06,
+          "output_error": 4.321151208279969e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n13",
+          "kernel": "general_exp",
+          "argument_min": 2.80125,
+          "argument_max": 5.17625,
+          "argument_error": 1.862645151451403e-07,
+          "interpolation_error": 6.208197297776033e-06,
+          "output_error": 6.836818307650475e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n22",
+          "kernel": "general_exp",
+          "argument_min": 3.52125,
+          "argument_max": 4.47125,
+          "argument_error": 1.8402934096606315e-07,
+          "interpolation_error": 3.0675235086484977e-06,
+          "output_error": 3.3858433393261336e-06,
+          "generator_absolute_allowance": 1e-38
+        }
+      ],
+      "register_absolute_limit": 64,
+      "quantile_coordinate_error_upper": 1.4901161193847656e-08,
+      "endpoint_enclosure_allowance": 1e-38,
+      "ordered_cdf_subtractions_structurally_verified": 0,
+      "resources": {
+        "expanded_gate_counts": {
+          "X": 1254,
+          "CNOT": 1498891,
+          "Toffoli": 247486
+        },
+        "logical_T_count_exact_7T_Toffoli": 1732402,
+        "logical_T_depth_serial_3_layers_per_Toffoli": 493056,
+        "serial_all_gate_depth": 1571159,
+        "logical_qubits_serial_upper_bound": 3902,
+        "input_qubits": 28,
+        "comparison_qubits": 26,
+        "includes_arithmetic_inverse": true,
+        "includes_finite_uniform_preparation_H_gates": 54,
+        "includes_mean_estimator": false,
+        "classical_table_entries": 18432,
+        "classical_table_program_bits": 675840,
+        "state_preparation_depth_including_uniform_H_layer_upper": 1571160,
+        "grover_iterate_T_count_exact_7T_Toffoli": 3465546,
+        "grover_iterate_T_depth_serial_upper": 986430,
+        "grover_iterate_logical_qubits_upper": 3902,
+        "grover_zero_reflection": {
+          "gate_counts": {
+            "X": 110,
+            "CCX": 106,
+            "CZ": 1
+          },
+          "logical_qubits": 108,
+          "toffoli_layer_depth": 106,
+          "T_count_exact_7T": 742,
+          "T_depth_3layer_upper": 318,
+          "explicit_phase_gate_list": true
+        },
+        "grover_scope": "two clean flag evaluators, two uniform Hadamard layers, all-zero reflection on input/comparison/flag invariant subspace and good-flag Z; no mean-estimator repetition/confidence schedule",
+        "schedule": "sum of fully emitted blocks and exact inverse; serial upper bound",
+        "blocks": [
+          {
+            "node": "n0",
+            "kind": "quantile",
+            "function": null,
+            "address_bits": 14,
+            "counts": {
+              "X": 2,
+              "CNOT": 273224,
+              "Toffoli": 32766
+            },
+            "wires": 62
+          },
+          {
+            "node": "n1",
+            "kind": "quantile",
+            "function": null,
+            "address_bits": 14,
+            "counts": {
+              "X": 2,
+              "CNOT": 273224,
+              "Toffoli": 32766
+            },
+            "wires": 62
+          },
+          {
+            "node": "c0",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 12,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 33
+          },
+          {
+            "node": "n3",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4455,
+              "Toffoli": 3630
+            },
+            "wires": 1950
+          },
+          {
+            "node": "n4",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 66,
+              "CNOT": 297,
+              "Toffoli": 198
+            },
+            "wires": 199
+          },
+          {
+            "node": "n5",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4455,
+              "Toffoli": 3630
+            },
+            "wires": 1951
+          },
+          {
+            "node": "n6",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "c1",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 16,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 33
+          },
+          {
+            "node": "n8",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4995,
+              "Toffoli": 4104
+            },
+            "wires": 2189
+          },
+          {
+            "node": "n9",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "n10",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4455,
+              "Toffoli": 3630
+            },
+            "wires": 1951
+          },
+          {
+            "node": "n11",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "n12",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 11,
+            "counts": {
+              "X": 2,
+              "CNOT": 57294,
+              "Toffoli": 10988
+            },
+            "wires": 2955
+          },
+          {
+            "node": "n13",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 11,
+            "counts": {
+              "X": 2,
+              "CNOT": 57294,
+              "Toffoli": 10988
+            },
+            "wires": 2955
+          },
+          {
+            "node": "n14",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 32,
+              "Toffoli": 0
+            },
+            "wires": 66
+          },
+          {
+            "node": "n15",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 32,
+              "Toffoli": 0
+            },
+            "wires": 66
+          },
+          {
+            "node": "n16",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "c2",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 17,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 33
+          },
+          {
+            "node": "n18",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4455,
+              "Toffoli": 3630
+            },
+            "wires": 1951
+          },
+          {
+            "node": "n19",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "n20",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4455,
+              "Toffoli": 3630
+            },
+            "wires": 1951
+          },
+          {
+            "node": "n21",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 231,
+              "Toffoli": 198
+            },
+            "wires": 166
+          },
+          {
+            "node": "n22",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 11,
+            "counts": {
+              "X": 2,
+              "CNOT": 57294,
+              "Toffoli": 10988
+            },
+            "wires": 2955
+          },
+          {
+            "node": "c3",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 33
+          },
+          {
+            "node": "n24",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 66,
+              "CNOT": 297,
+              "Toffoli": 198
+            },
+            "wires": 199
+          },
+          {
+            "node": "n25",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 70,
+              "CNOT": 267,
+              "Toffoli": 233
+            },
+            "wires": 167
+          },
+          {
+            "node": "n26",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 66,
+              "CNOT": 297,
+              "Toffoli": 198
+            },
+            "wires": 199
+          },
+          {
+            "node": "n27",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 70,
+              "CNOT": 267,
+              "Toffoli": 233
+            },
+            "wires": 167
+          },
+          {
+            "node": "n28",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 66,
+              "CNOT": 297,
+              "Toffoli": 198
+            },
+            "wires": 199
+          },
+          {
+            "node": "n29",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 70,
+              "CNOT": 267,
+              "Toffoli": 233
+            },
+            "wires": 167
+          },
+          {
+            "node": "n30",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 31,
+              "Toffoli": 0
+            },
+            "wires": 66
+          },
+          {
+            "node": "n31",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 70,
+              "CNOT": 267,
+              "Toffoli": 233
+            },
+            "wires": 167
+          }
+        ]
+      },
+      "bias_bound_including_correction": 0.0047220124366103315,
+      "reserved_statistical_price_allowance": 0.005,
+      "feasible_q_configurations": 8,
+      "exact_counted_candidates": [
+        {
+          "T": 1732402,
+          "q": 26,
+          "function_address_bits": [
+            11,
+            0,
+            0
+          ]
+        },
+        {
+          "T": 1773072,
+          "q": 27,
+          "function_address_bits": [
+            11,
+            0,
+            0
+          ]
+        }
+      ],
+      "selection": "best emitted T count among two proxy-shortlisted feasible candidates; cap-aware also includes the global winner; not globally optimal"
+    },
+    {
+      "model_id": "n2_lambda0.05",
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "interval",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "q": 27,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 13,
+      "b_y": 14,
+      "b_z": 0,
+      "b_u": 26,
+      "outer_distribution_bound": 0.0022888183593750004,
+      "inner_distribution_bound": 3.7252902984619146e-07,
+      "distribution_price_bound": 0.0022891908884048466,
+      "arithmetic_price_error_upper": 0.0009936000302061996,
+      "domain_checks": [
+        {
+          "node": "n7",
+          "kernel": "general_exp",
+          "argument_min": 3.52875,
+          "argument_max": 4.47875,
+          "argument_error": 4.824250939283736e-08,
+          "interpolation_error": 7.711463842869693e-07,
+          "output_error": 8.603405808250249e-07,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n8",
+          "kernel": "general_exp",
+          "argument_min": 3.03875,
+          "argument_max": 4.93875,
+          "argument_error": 4.898756745252975e-08,
+          "interpolation_error": 1.2215529268816732e-06,
+          "output_error": 1.3582242743207722e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n14",
+          "kernel": "general_log",
+          "argument_min": 0.4408180362025457,
+          "argument_max": 2.022919505965577,
+          "argument_error": 1.1434464734375997e-06,
+          "interpolation_error": 1.8969863251418861e-06,
+          "output_error": 4.179984361942123e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n21",
+          "kernel": "general_strike:25",
+          "argument_min": 7.450580596923828e-09,
+          "argument_max": 0.9999999925494194,
+          "argument_error": 0.0,
+          "interpolation_error": 4.656612873077393e-10,
+          "output_error": 1.1641532182693481e-08,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n23",
+          "kernel": "general_cdf:0.05",
+          "argument_min": 1.0903234202222227,
+          "argument_max": 2.734970035051687,
+          "argument_error": 4.195351184423278e-06,
+          "interpolation_error": 2.8845158162014882e-06,
+          "output_error": 3.636975105971036e-05,
+          "generator_absolute_allowance": 6.4e-16
+        },
+        {
+          "node": "n25",
+          "kernel": "general_cdf:0.05",
+          "argument_min": 1.5356064501759064,
+          "argument_max": 2.233749998137355,
+          "argument_error": 5.951151254568465e-08,
+          "interpolation_error": 2.8845158162014882e-06,
+          "output_error": 3.370524858239152e-06,
+          "generator_absolute_allowance": 6.4e-16
+        }
+      ],
+      "register_absolute_limit": 64,
+      "quantile_coordinate_error_upper": 7.450580596923828e-09,
+      "endpoint_enclosure_allowance": 1e-38,
+      "ordered_cdf_subtractions_structurally_verified": 0,
+      "resources": {
+        "expanded_gate_counts": {
+          "X": 1142,
+          "CNOT": 1622195,
+          "Toffoli": 274912
+        },
+        "logical_T_count_exact_7T_Toffoli": 1924384,
+        "logical_T_depth_serial_3_layers_per_Toffoli": 529368,
+        "serial_all_gate_depth": 1702387,
+        "logical_qubits_serial_upper_bound": 3997,
+        "input_qubits": 40,
+        "comparison_qubits": 27,
+        "includes_arithmetic_inverse": true,
+        "includes_finite_uniform_preparation_H_gates": 67,
+        "includes_mean_estimator": false,
+        "classical_table_entries": 36864,
+        "classical_table_program_bits": 1949696,
+        "state_preparation_depth_including_uniform_H_layer_upper": 1702388,
+        "grover_iterate_T_count_exact_7T_Toffoli": 3849692,
+        "grover_iterate_T_depth_serial_upper": 1059132,
+        "grover_iterate_logical_qubits_upper": 3997,
+        "grover_zero_reflection": {
+          "gate_counts": {
+            "X": 136,
+            "CCX": 132,
+            "CZ": 1
+          },
+          "logical_qubits": 134,
+          "toffoli_layer_depth": 132,
+          "T_count_exact_7T": 924,
+          "T_depth_3layer_upper": 396,
+          "explicit_phase_gate_list": true
+        },
+        "grover_scope": "two clean flag evaluators, two uniform Hadamard layers, all-zero reflection on input/comparison/flag invariant subspace and good-flag Z; no mean-estimator repetition/confidence schedule",
+        "schedule": "sum of fully emitted blocks and exact inverse; serial upper bound",
+        "blocks": [
+          {
+            "node": "n0",
+            "kind": "quantile",
+            "function": null,
+            "address_bits": 14,
+            "counts": {
+              "X": 2,
+              "CNOT": 281435,
+              "Toffoli": 32766
+            },
+            "wires": 63
+          },
+          {
+            "node": "c0",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 12,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 34
+          },
+          {
+            "node": "n2",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 5094,
+              "Toffoli": 4176
+            },
+            "wires": 2229
+          },
+          {
+            "node": "n3",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "c1",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 18,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 34
+          },
+          {
+            "node": "n5",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 5094,
+              "Toffoli": 4176
+            },
+            "wires": 2228
+          },
+          {
+            "node": "n6",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 238,
+              "Toffoli": 204
+            },
+            "wires": 171
+          },
+          {
+            "node": "n7",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 110930,
+              "Toffoli": 15234
+            },
+            "wires": 3014
+          },
+          {
+            "node": "n8",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 110930,
+              "Toffoli": 15234
+            },
+            "wires": 3014
+          },
+          {
+            "node": "n9",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 33,
+              "Toffoli": 0
+            },
+            "wires": 68
+          },
+          {
+            "node": "n10",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 33,
+              "Toffoli": 0
+            },
+            "wires": 68
+          },
+          {
+            "node": "n11",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 238,
+              "Toffoli": 204
+            },
+            "wires": 171
+          },
+          {
+            "node": "c2",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 34
+          },
+          {
+            "node": "n13",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "n14",
+            "kind": "function",
+            "function": "general_log",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 111963,
+              "Toffoli": 15234
+            },
+            "wires": 3014
+          },
+          {
+            "node": "c3",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 34
+          },
+          {
+            "node": "n16",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "c4",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 16,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 34
+          },
+          {
+            "node": "n18",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4546,
+              "Toffoli": 3696
+            },
+            "wires": 1987
+          },
+          {
+            "node": "n19",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 238,
+              "Toffoli": 204
+            },
+            "wires": 171
+          },
+          {
+            "node": "n20",
+            "kind": "uniform",
+            "function": null,
+            "address_bits": 26,
+            "counts": {
+              "X": 1,
+              "CNOT": 26,
+              "Toffoli": 0
+            },
+            "wires": 60
+          },
+          {
+            "node": "n21",
+            "kind": "function",
+            "function": "general_strike:25",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 95238,
+              "Toffoli": 13824
+            },
+            "wires": 2405
+          },
+          {
+            "node": "n22",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "n23",
+            "kind": "function",
+            "function": "general_cdf:0.05",
+            "address_bits": 13,
+            "counts": {
+              "X": 2,
+              "CNOT": 41419,
+              "Toffoli": 15478
+            },
+            "wires": 2602
+          },
+          {
+            "node": "n24",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "n25",
+            "kind": "function",
+            "function": "general_cdf:0.05",
+            "address_bits": 13,
+            "counts": {
+              "X": 2,
+              "CNOT": 41419,
+              "Toffoli": 15478
+            },
+            "wires": 2602
+          },
+          {
+            "node": "n26",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 306,
+              "Toffoli": 204
+            },
+            "wires": 205
+          },
+          {
+            "node": "n27",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 72,
+              "CNOT": 275,
+              "Toffoli": 240
+            },
+            "wires": 172
+          }
+        ]
+      },
+      "bias_bound_including_correction": 0.003282790919611047,
+      "reserved_statistical_price_allowance": 0.005,
+      "feasible_q_configurations": 7,
+      "exact_counted_candidates": [
+        {
+          "T": 1924384,
+          "q": 27,
+          "function_address_bits": [
+            12,
+            12,
+            13
+          ]
+        },
+        {
+          "T": 1995644,
+          "q": 28,
+          "function_address_bits": [
+            12,
+            12,
+            13
+          ]
+        }
+      ],
+      "selection": "best emitted T count among two proxy-shortlisted feasible candidates; cap-aware also includes the global winner; not globally optimal"
+    },
+    {
+      "model_id": "n2_lambda0.05",
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "full_global",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "q": 25,
+      "exp_address_bits": 12,
+      "log_address_bits": 13,
+      "probability_address_bits": 13,
+      "b_y": 14,
+      "b_z": 0,
+      "b_u": 0,
+      "outer_distribution_bound": 0.0022888183593750004,
+      "inner_distribution_bound": 5e-324,
+      "distribution_price_bound": 0.0022888183593750004,
+      "arithmetic_price_error_upper": 0.0009192017804188897,
+      "domain_checks": [
+        {
+          "node": "n7",
+          "kernel": "general_exp",
+          "argument_min": 3.52875,
+          "argument_max": 4.47875,
+          "argument_error": 1.9297003790441635e-07,
+          "interpolation_error": 7.711464958930876e-07,
+          "output_error": 1.1279233277495507e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n8",
+          "kernel": "general_exp",
+          "argument_min": 3.03875,
+          "argument_max": 4.93875,
+          "argument_error": 1.959502701431859e-07,
+          "interpolation_error": 1.2215531064044062e-06,
+          "output_error": 1.7682385707866698e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n14",
+          "kernel": "general_log",
+          "argument_min": 0.4408180362025457,
+          "argument_max": 2.022919505965577,
+          "argument_error": 1.5847371428238983e-06,
+          "interpolation_error": 4.724053085007644e-07,
+          "output_error": 3.6656987859319925e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n20",
+          "kernel": "general_cap:0.05:25",
+          "argument_min": 1.3134669700463162,
+          "argument_max": 2.734970036914332,
+          "argument_error": 3.68059994712584e-06,
+          "interpolation_error": 2.8845158162014882e-06,
+          "output_error": 3.2296160022818534e-05,
+          "generator_absolute_allowance": 2e-12
+        },
+        {
+          "node": "n21",
+          "kernel": "general_cap:0.05:25",
+          "argument_min": 1.75875,
+          "argument_max": 2.23375,
+          "argument_error": 1.914799217850316e-07,
+          "interpolation_error": 2.8845158162014882e-06,
+          "output_error": 4.457010032743201e-06,
+          "generator_absolute_allowance": 2e-12
+        }
+      ],
+      "register_absolute_limit": 64,
+      "quantile_coordinate_error_upper": 2.9802322387695312e-08,
+      "endpoint_enclosure_allowance": 1e-38,
+      "ordered_cdf_subtractions_structurally_verified": 0,
+      "resources": {
+        "expanded_gate_counts": {
+          "X": 818,
+          "CNOT": 1532673,
+          "Toffoli": 245564
+        },
+        "logical_T_count_exact_7T_Toffoli": 1718948,
+        "logical_T_depth_serial_3_layers_per_Toffoli": 522606,
+        "serial_all_gate_depth": 1635725,
+        "logical_qubits_serial_upper_bound": 3185,
+        "input_qubits": 14,
+        "comparison_qubits": 25,
+        "includes_arithmetic_inverse": true,
+        "includes_finite_uniform_preparation_H_gates": 39,
+        "includes_mean_estimator": false,
+        "classical_table_entries": 36864,
+        "classical_table_program_bits": 1835008,
+        "state_preparation_depth_including_uniform_H_layer_upper": 1635726,
+        "grover_iterate_T_count_exact_7T_Toffoli": 3438428,
+        "grover_iterate_T_depth_serial_upper": 1045440,
+        "grover_iterate_logical_qubits_upper": 3185,
+        "grover_zero_reflection": {
+          "gate_counts": {
+            "X": 80,
+            "CCX": 76,
+            "CZ": 1
+          },
+          "logical_qubits": 78,
+          "toffoli_layer_depth": 76,
+          "T_count_exact_7T": 532,
+          "T_depth_3layer_upper": 228,
+          "explicit_phase_gate_list": true
+        },
+        "grover_scope": "two clean flag evaluators, two uniform Hadamard layers, all-zero reflection on input/comparison/flag invariant subspace and good-flag Z; no mean-estimator repetition/confidence schedule",
+        "schedule": "sum of fully emitted blocks and exact inverse; serial upper bound",
+        "blocks": [
+          {
+            "node": "n0",
+            "kind": "quantile",
+            "function": null,
+            "address_bits": 14,
+            "counts": {
+              "X": 2,
+              "CNOT": 264877,
+              "Toffoli": 32766
+            },
+            "wires": 61
+          },
+          {
+            "node": "c0",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 12,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n2",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4364,
+              "Toffoli": 3564
+            },
+            "wires": 1914
+          },
+          {
+            "node": "n3",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "c1",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 17,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n5",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4364,
+              "Toffoli": 3564
+            },
+            "wires": 1913
+          },
+          {
+            "node": "n6",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "n7",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 101708,
+              "Toffoli": 14014
+            },
+            "wires": 2496
+          },
+          {
+            "node": "n8",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 101708,
+              "Toffoli": 14014
+            },
+            "wires": 2496
+          },
+          {
+            "node": "n9",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 31,
+              "Toffoli": 0
+            },
+            "wires": 64
+          },
+          {
+            "node": "n10",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 31,
+              "Toffoli": 0
+            },
+            "wires": 64
+          },
+          {
+            "node": "n11",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "c2",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n13",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "n14",
+            "kind": "function",
+            "function": "general_log",
+            "address_bits": 13,
+            "counts": {
+              "X": 2,
+              "CNOT": 196528,
+              "Toffoli": 21764
+            },
+            "wires": 2305
+          },
+          {
+            "node": "c3",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n16",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "c4",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 16,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n18",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 3856,
+              "Toffoli": 3120
+            },
+            "wires": 1690
+          },
+          {
+            "node": "n19",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "n20",
+            "kind": "function",
+            "function": "general_cap:0.05:25",
+            "address_bits": 13,
+            "counts": {
+              "X": 2,
+              "CNOT": 43341,
+              "Toffoli": 14164
+            },
+            "wires": 2120
+          },
+          {
+            "node": "n21",
+            "kind": "function",
+            "function": "general_cap:0.05:25",
+            "address_bits": 13,
+            "counts": {
+              "X": 2,
+              "CNOT": 43341,
+              "Toffoli": 14164
+            },
+            "wires": 2120
+          },
+          {
+            "node": "n22",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "n23",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 259,
+              "Toffoli": 226
+            },
+            "wires": 162
+          }
+        ]
+      },
+      "bias_bound_including_correction": 0.0032080201407938907,
+      "reserved_statistical_price_allowance": 0.005,
+      "feasible_q_configurations": 7,
+      "exact_counted_candidates": [
+        {
+          "T": 1718948,
+          "q": 25,
+          "function_address_bits": [
+            12,
+            13,
+            13
+          ]
+        },
+        {
+          "T": 1776572,
+          "q": 26,
+          "function_address_bits": [
+            12,
+            13,
+            13
+          ]
+        }
+      ],
+      "selection": "best emitted T count among two proxy-shortlisted feasible candidates; cap-aware also includes the global winner; not globally optimal"
+    },
+    {
+      "model_id": "n2_lambda0.05",
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "full_cap",
+      "cap": 25,
+      "price_tolerance": 0.01,
+      "q": 25,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 12,
+      "b_y": 14,
+      "b_z": 0,
+      "b_u": 0,
+      "outer_distribution_bound": 0.0022888183593750004,
+      "inner_distribution_bound": 5e-324,
+      "distribution_price_bound": 0.0022888183593750004,
+      "arithmetic_price_error_upper": 0.000902478960418238,
+      "domain_checks": [
+        {
+          "node": "n7",
+          "kernel": "general_exp",
+          "argument_min": 3.52875,
+          "argument_max": 4.47875,
+          "argument_error": 1.9297003790441635e-07,
+          "interpolation_error": 7.711464958930876e-07,
+          "output_error": 1.1279233277495507e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n8",
+          "kernel": "general_exp",
+          "argument_min": 3.03875,
+          "argument_max": 4.93875,
+          "argument_error": 1.959502701431859e-07,
+          "interpolation_error": 1.2215531064044062e-06,
+          "output_error": 1.7682385707866698e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n14",
+          "kernel": "general_log",
+          "argument_min": 0.4408180362025457,
+          "argument_max": 2.022919505965577,
+          "argument_error": 1.5847371428238983e-06,
+          "interpolation_error": 1.8969896645274752e-06,
+          "output_error": 5.090283141958703e-06,
+          "generator_absolute_allowance": 1e-38
+        },
+        {
+          "node": "n20",
+          "kernel": "general_cap:0.05:25",
+          "argument_min": 1.3134669700463162,
+          "argument_max": 2.734970036914332,
+          "argument_error": 5.105184303152551e-06,
+          "interpolation_error": 4.755762581842335e-06,
+          "output_error": 3.032638958118663e-05,
+          "generator_absolute_allowance": 2e-12
+        },
+        {
+          "node": "n21",
+          "kernel": "general_cap:0.05:25",
+          "argument_min": 1.75875,
+          "argument_max": 2.23375,
+          "argument_error": 1.914799217850316e-07,
+          "interpolation_error": 4.755762581842335e-06,
+          "output_error": 5.757867674349036e-06,
+          "generator_absolute_allowance": 2e-12
+        }
+      ],
+      "register_absolute_limit": 64,
+      "quantile_coordinate_error_upper": 2.9802322387695312e-08,
+      "endpoint_enclosure_allowance": 1e-38,
+      "ordered_cdf_subtractions_structurally_verified": 0,
+      "resources": {
+        "expanded_gate_counts": {
+          "X": 818,
+          "CNOT": 1269383,
+          "Toffoli": 213376
+        },
+        "logical_T_count_exact_7T_Toffoli": 1493632,
+        "logical_T_depth_serial_3_layers_per_Toffoli": 418314,
+        "serial_all_gate_depth": 1335469,
+        "logical_qubits_serial_upper_bound": 3370,
+        "input_qubits": 14,
+        "comparison_qubits": 25,
+        "includes_arithmetic_inverse": true,
+        "includes_finite_uniform_preparation_H_gates": 39,
+        "includes_mean_estimator": false,
+        "classical_table_entries": 28672,
+        "classical_table_program_bits": 1310720,
+        "state_preparation_depth_including_uniform_H_layer_upper": 1335470,
+        "grover_iterate_T_count_exact_7T_Toffoli": 2987796,
+        "grover_iterate_T_depth_serial_upper": 836856,
+        "grover_iterate_logical_qubits_upper": 3370,
+        "grover_zero_reflection": {
+          "gate_counts": {
+            "X": 80,
+            "CCX": 76,
+            "CZ": 1
+          },
+          "logical_qubits": 78,
+          "toffoli_layer_depth": 76,
+          "T_count_exact_7T": 532,
+          "T_depth_3layer_upper": 228,
+          "explicit_phase_gate_list": true
+        },
+        "grover_scope": "two clean flag evaluators, two uniform Hadamard layers, all-zero reflection on input/comparison/flag invariant subspace and good-flag Z; no mean-estimator repetition/confidence schedule",
+        "schedule": "sum of fully emitted blocks and exact inverse; serial upper bound",
+        "blocks": [
+          {
+            "node": "n0",
+            "kind": "quantile",
+            "function": null,
+            "address_bits": 14,
+            "counts": {
+              "X": 2,
+              "CNOT": 264877,
+              "Toffoli": 32766
+            },
+            "wires": 61
+          },
+          {
+            "node": "c0",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 12,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n2",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4364,
+              "Toffoli": 3564
+            },
+            "wires": 1914
+          },
+          {
+            "node": "n3",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "c1",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 17,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n5",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 4364,
+              "Toffoli": 3564
+            },
+            "wires": 1913
+          },
+          {
+            "node": "n6",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "n7",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 101708,
+              "Toffoli": 14014
+            },
+            "wires": 2496
+          },
+          {
+            "node": "n8",
+            "kind": "function",
+            "function": "general_exp",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 101708,
+              "Toffoli": 14014
+            },
+            "wires": 2496
+          },
+          {
+            "node": "n9",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 31,
+              "Toffoli": 0
+            },
+            "wires": 64
+          },
+          {
+            "node": "n10",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 31,
+              "Toffoli": 0
+            },
+            "wires": 64
+          },
+          {
+            "node": "n11",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "c2",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n13",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "n14",
+            "kind": "function",
+            "function": "general_log",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 102753,
+              "Toffoli": 14014
+            },
+            "wires": 2496
+          },
+          {
+            "node": "c3",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 1,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n16",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "c4",
+            "kind": "constant",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 16,
+              "CNOT": 0,
+              "Toffoli": 0
+            },
+            "wires": 32
+          },
+          {
+            "node": "n18",
+            "kind": "scale",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 3856,
+              "Toffoli": 3120
+            },
+            "wires": 1690
+          },
+          {
+            "node": "n19",
+            "kind": "add",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 0,
+              "CNOT": 224,
+              "Toffoli": 192
+            },
+            "wires": 161
+          },
+          {
+            "node": "n20",
+            "kind": "function",
+            "function": "general_cap:0.05:25",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 24406,
+              "Toffoli": 9992
+            },
+            "wires": 2305
+          },
+          {
+            "node": "n21",
+            "kind": "function",
+            "function": "general_cap:0.05:25",
+            "address_bits": 12,
+            "counts": {
+              "X": 2,
+              "CNOT": 24406,
+              "Toffoli": 9992
+            },
+            "wires": 2305
+          },
+          {
+            "node": "n22",
+            "kind": "sub",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 64,
+              "CNOT": 288,
+              "Toffoli": 192
+            },
+            "wires": 193
+          },
+          {
+            "node": "n23",
+            "kind": "clamp",
+            "function": null,
+            "address_bits": 0,
+            "counts": {
+              "X": 68,
+              "CNOT": 259,
+              "Toffoli": 226
+            },
+            "wires": 162
+          }
+        ]
+      },
+      "bias_bound_including_correction": 0.003191297320793239,
+      "reserved_statistical_price_allowance": 0.005,
+      "feasible_q_configurations": 8,
+      "exact_counted_candidates": [
+        {
+          "T": 1493632,
+          "q": 25,
+          "function_address_bits": [
+            12,
+            12,
+            12
+          ]
+        },
+        {
+          "T": 1551704,
+          "q": 26,
+          "function_address_bits": [
+            12,
+            12,
+            12
+          ]
+        },
+        {
+          "T": 1718948,
+          "q": 25,
+          "function_address_bits": [
+            12,
+            13,
+            13
+          ]
+        }
+      ],
+      "selection": "best emitted T count among two proxy-shortlisted feasible candidates; cap-aware also includes the global winner; not globally optimal"
+    }
+  ],
+  "data": "stipulated synthetic parameters only",
+  "quantile_audits": [
+    {
+      "bits": 14,
+      "q": 26,
+      "entries": 16384,
+      "exhaustive_inverse_enclosure": true,
+      "largest_cdf_residual": 8.904407647181875e-09
+    },
+    {
+      "bits": 14,
+      "q": 27,
+      "entries": 16384,
+      "exhaustive_inverse_enclosure": true,
+      "largest_cdf_residual": 4.456403189425738e-09
+    },
+    {
+      "bits": 14,
+      "q": 25,
+      "entries": 16384,
+      "exhaustive_inverse_enclosure": true,
+      "largest_cdf_residual": 1.7804033163324263e-08
+    }
+  ],
+  "table_manifest": [
+    {
+      "kernel": "general_cap:0.05:25",
+      "address_bits": 12,
+      "q": 25,
+      "entries": 4096,
+      "sha256": "3e4fd4ac4908202f80e7951a0ed821f1fa8af86cd3167725871297bddfe3681e"
+    },
+    {
+      "kernel": "general_cap:0.05:25",
+      "address_bits": 13,
+      "q": 25,
+      "entries": 8192,
+      "sha256": "7541ef6c3dfb77b5c886bc805682d17439f8ad21b581720be1990cb801ffef54"
+    },
+    {
+      "kernel": "general_cdf:0.05",
+      "address_bits": 13,
+      "q": 27,
+      "entries": 8192,
+      "sha256": "e071aa66db3bf5ff2b03558260116ffef864ed606bf199528002817e4763d103"
+    },
+    {
+      "kernel": "general_exp",
+      "address_bits": 11,
+      "q": 26,
+      "entries": 2048,
+      "sha256": "aef5c8d41aac69c6879c2224c75403431cce2bcfdbcb53151e2b4062db1c15a1"
+    },
+    {
+      "kernel": "general_exp",
+      "address_bits": 12,
+      "q": 25,
+      "entries": 4096,
+      "sha256": "28e1049f375ae641e06e4253cf746f9690c6da8029f119542ccfe770d2b759a4"
+    },
+    {
+      "kernel": "general_exp",
+      "address_bits": 12,
+      "q": 27,
+      "entries": 4096,
+      "sha256": "cda0e816c127d3e445fe5796c93baf3c82135fdaacdfcde6cbba901baefb6907"
+    },
+    {
+      "kernel": "general_log",
+      "address_bits": 12,
+      "q": 25,
+      "entries": 4096,
+      "sha256": "d086f06ac8db5de219f8d5fe181bf600c1ebd0937028e5912d2b8c0ea265cc89"
+    },
+    {
+      "kernel": "general_log",
+      "address_bits": 12,
+      "q": 27,
+      "entries": 4096,
+      "sha256": "a076ad2a97d535e4c80910806af8b8154370e91c77512f52bc895444cef06877"
+    },
+    {
+      "kernel": "general_log",
+      "address_bits": 13,
+      "q": 25,
+      "entries": 8192,
+      "sha256": "9614b912856df13f7b56eed1ad8b264bcd3ca17e8e8138d5343a9f3ddf32f68d"
+    },
+    {
+      "kernel": "general_strike:25",
+      "address_bits": 12,
+      "q": 27,
+      "entries": 4096,
+      "sha256": "bc2a999c628c1266c26008b1339c619ae3a4e992e81de4ca2198005e9a7744ab"
+    },
+    {
+      "kernel": "quantile",
+      "address_bits": 14,
+      "q": 25,
+      "entries": 16384,
+      "sha256": "6b9e09b7678151176a86f381b593d93038728cccd1c4c4baa9fbee02aeaf878d"
+    },
+    {
+      "kernel": "quantile",
+      "address_bits": 14,
+      "q": 26,
+      "entries": 16384,
+      "sha256": "8bc973253b56c807dbddbd4875b8c6ea7c448f01208b6a763f9645722e7bb9e0"
+    },
+    {
+      "kernel": "quantile",
+      "address_bits": 14,
+      "q": 27,
+      "entries": 16384,
+      "sha256": "3a437ada4401c665a8656129c38bb4afb90df220cd338e6afc70e80992017a47"
+    }
+  ],
+  "classical_workflow_seconds": 24.543273500001305,
+  "geometric_corrections": [
+    {
+      "model_id": "n2_lambda0.05",
+      "cap": 25,
+      "undiscounted_value_decimal": "2.754964015781275437255943245394797312784509751047851343627446042922692",
+      "absolute_allowance": 1e-12
+    }
+  ],
+  "source_hashes": {
+    "generalisation.py": "afd8fbfcefe93b8975a1a60fcc544ada6d32f7ab4c2d073d8cf2832df55cccdb",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "resource_study.py": "309cdd04390ef64f68d5ccf96e726a66535a1d0313602032d3fc003a87b32765",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  }
+}

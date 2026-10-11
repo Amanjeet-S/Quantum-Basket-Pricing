@@ -1,0 +1,76 @@
+{
+  "schema": "qbp-dispersion-separation-independent-certificate-audit-v1",
+  "status": "passed",
+  "precision_bits": 1024,
+  "transport_series_order": 224,
+  "audit_counts": {
+    "transport_input_enclosures": 7168,
+    "hybrid_moment_enclosures": 616,
+    "continuous_moment_enclosures": 78,
+    "outside_moment_enclosures": 12,
+    "derivative_envelope_components": 5280,
+    "complete_transfer_upper_checks": 144,
+    "coefficient_enclosures": 790,
+    "Taylor_remainders_and_raw_halfwidths": 482,
+    "exact_interval_intersections": 482,
+    "phase_visit_counts": 164,
+    "snapshot_operation_counts": 616,
+    "snapshot_immutability_checks": 30,
+    "scale_one_bound_and_order_matches": 144
+  },
+  "summary_by_scale": [
+    {
+      "dispersion_scale": "1",
+      "cases": 36,
+      "transport_passes": 33,
+      "degree3_price_passes": 33,
+      "degree3_individual_interval_price_passes": 33,
+      "degree3_separators": 0,
+      "degree5_evaluated": 0,
+      "degree5_rescued": 0,
+      "remaining_degree5_separators": 0
+    },
+    {
+      "dispersion_scale": "3/2",
+      "cases": 36,
+      "transport_passes": 25,
+      "degree3_price_passes": 22,
+      "degree3_individual_interval_price_passes": 22,
+      "degree3_separators": 3,
+      "degree5_evaluated": 3,
+      "degree5_rescued": 2,
+      "remaining_degree5_separators": 1
+    },
+    {
+      "dispersion_scale": "2",
+      "cases": 36,
+      "transport_passes": 17,
+      "degree3_price_passes": 14,
+      "degree3_individual_interval_price_passes": 14,
+      "degree3_separators": 3,
+      "degree5_evaluated": 3,
+      "degree5_rescued": 3,
+      "remaining_degree5_separators": 0
+    },
+    {
+      "dispersion_scale": "3",
+      "cases": 36,
+      "transport_passes": 6,
+      "degree3_price_passes": 2,
+      "degree3_individual_interval_price_passes": 2,
+      "degree3_separators": 4,
+      "degree5_evaluated": 4,
+      "degree5_rescued": 1,
+      "remaining_degree5_separators": 3
+    }
+  ],
+  "independent_scalar_transform_queries": 3391,
+  "elapsed_seconds_diagnostic": 5.003585708000173,
+  "method": "Direct exact rational U polynomials, cancellation-safe factorial Peano transforms, independent falling-operator/Hermite kernels, all full tails and rational interval intersections; no production helper imported",
+  "source_sha256": "6cb5ab2d411067ba6fa3d57d279c10c51f2e9364d1d676d5287807e18ceab22a",
+  "independent_math_source_sha256": "130da86cd8b62ffb1a88e895e519ec0aadd598645be2009a5fe4bd40e7c1ee0d",
+  "model_audit_source_sha256": "98f4a7cda8de5495801dc407572fd07fcfd7dfd95ceffb141a132915a7300af9",
+  "result_sha256": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+  "protocol_sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+  "scope": "Financial mathematical certificates and declared comparator admission, not a complete quantum pricing algorithm or classical impossibility result"
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "qbp-shared-threshold-protocol-v1",
+  "registered_before_fresh_production_execution": true,
+  "registration_utc": "2026-10-10T12:57:35.040089+00:00",
+  "research_record_date": "2026-10-10",
+  "source_sha256": "45b294fdb8cda0a9bdfb246a58bdb521ebdbe16b1abb0aa0cadf5755bb06b691",
+  "factor_resources_sha256": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+  "dependencies_sha256": {
+    "boundary_value_oracle.py": "46eca98514ede256390a3f0244ea2293a9d09ed64d800c84068a7b0378a95b31",
+    "boundary_value_certificate.py": "2647275ac121c1c56ed362c0500c88c8822c72762163687755be69fc05c4d405",
+    "integral_value_oracle.py": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+    "integral_value_certificate.py": "06e4533321c489669acbbc6e3796e1b09d80f45bf35d8d7dc3b7db9ce96a89a4",
+    "boundary_derivative_certificate.py": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe",
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "boundary_precision_selection.py": "00f828b0c50c318e72017be15b1ec907c2a1725255c756800d669b8b38ea1e7f",
+    "correction_information_priors.py": "c3d213717276d8295a982c9bc8f9ddc8045e7b104d17ee0d5e3c4564756595cf",
+    "integral_pricing_budget.py": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+    "qpe_estimator.py": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+    "qft_synthesis.py": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+    "certified_scalar.py": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+    "taylor_pricing.py": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+    "continuous_quadrature.py": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046"
+  },
+  "inputs_sha256": {
+    "gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+    "boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+    "qft_rotation_tapes.json": "531a2350c4d803ff94d06488fda99d098c356fa1ab4575dc534e8a57a5af5cbb",
+    "qft_rotation_certificates.json": "2fcf586525f3250793bc4f2cb42e7e1c80c801ef59a73082018158f3b244ef8a"
+  },
+  "selected_basis_policy": "Previously selected complete-resource winning basis, fixed before this new implementation.",
+  "pairs": [
+    [
+      "n2_lambda0.4_scale3",
+      "identity"
+    ],
+    [
+      "n4_lambda0.05_scale3over2",
+      "plane_1_2_minus"
+    ],
+    [
+      "n4_lambda0.2_scale3",
+      "plane_1_2_minus"
+    ],
+    [
+      "n8_lambda0.2_scale3",
+      "plane_2_3_minus"
+    ]
+  ],
+  "cap": "1",
+  "outer_L": "6",
+  "outer_quantile_bits": 10,
+  "q": 28,
+  "outer_scalar_table_bits": 12,
+  "inner_normal_L": "6",
+  "inner_normal_bits": 10,
+  "strike_uniform_bits": 4,
+  "strike_log_table_bits": 6,
+  "architectures": [
+    "exact7t",
+    "unitary8t"
+  ],
+  "no_precision_repairs": true,
+  "representation": "H times indicator {mG < log(1+H S/K)-lambda N <= mA}; common S,N for both endpoints.",
+  "strict_endpoints": "Lower strict, upper non-strict, implemented by lt(lower,threshold) AND NOT lt(upper,threshold).",
+  "normal_decode": "Inner normal labels are a normalised approximation to the full Gaussian. Only the original financial Gaussian box mass is decoded externally.",
+  "certificate": "Strike midpoint curvature + two-sided inner normal CDF error + Gaussian-density endpoint-arithmetic sandwich + unchanged outer transfer.",
+  "confidence": "Fresh canonical QPE and exact binomial amplification, alpha=1/3600 per price, monetary radius=1/100.",
+  "financial_price_answers_excluded": true,
+  "hardware_execution": false,
+  "data_origin": "Synthetic exact rational no-arbitrage models only; no licensed observations.",
+  "prior_screen_known": "The already frozen mathematical feasibility screen predicts unchanged ideal QPE phase sizes. No emitted cost or endpoint-arithmetic result was inspected before this registration."
+}

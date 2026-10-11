@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "canonical_absent": true,
+  "manifest_parts": 4,
+  "original_sha256": "c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370",
+  "gzip_compatible_reassembly": "/var/folders/36/bn5nt64n0_35d60gmv7pzp8c0000gn/T/qbp-verified-archives/c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370/higherdim_precision_comparison.json.gz",
+  "auditor_source_sha256": "d76a1a296a5b19505c1c4d21eb5c6d5618028b79f51d6802d0e7dacc162277cb"
+}

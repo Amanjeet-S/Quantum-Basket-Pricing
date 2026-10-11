@@ -1,0 +1,150 @@
+\subsection{A monotone geometric-control certificate before Taylor screening}
+\label{sec:monotone-before-taylor}
+
+I place the existing monotonicity and first-moment bound before the finite
+Taylor remainder screen. This changes the order in which I pay for certified
+computations. It does not assert a new Jensen inequality, a new geometric
+control or convergence of an infinite Taylor series.
+
+Let $w_i>0$, $\sum_{i=1}^n w_i=1$, and let $Y\sim N(0,I_p)$ and
+$Z\sim N(0,1)$ be independent. For fixed real $\mu_i$ and $R_i\in\mathbb R^p$,
+positive $\lambda$, spot $S_*=100$ and strike $K=100$, write
+\[
+ S_i=S_*\exp(\mu_i+R_i\cdot Y+\lambda Z),\quad
+ A=\sum_iw_iS_i,\quad G=\prod_iS_i^{w_i}.
+\]
+Put $\mu_G=\sum_iw_i\mu_i$, $R_G=\sum_iw_iR_i$,
+$d_i=\mu_i-\mu_G$ and $s_i=R_i-R_G$. Then
+\[
+ T(Y)={A\over G}=\sum_iw_i\exp(d_i+s_i\cdot Y),
+ \qquad \sum_iw_i(d_i+s_i\cdot Y)=0.
+\]
+Weighted arithmetic-geometric mean therefore gives $T(Y)\geq1$ for every
+$Y$. Its Gaussian first moment is finite and is given exactly by
+\begin{equation}
+ M_1=\mathbb E[T]=\sum_iw_i\exp\{d_i+\|s_i\|^2/2\}\geq1.
+ \label{eq:hierarchy-ratio-first-moment}
+\end{equation}
+The inequality also follows by taking expectations of the pointwise bound.
+
+For cap $H>0$, define $h_H(x)=\min\{(x-K)^+,H\}$ and the conditional scalar
+kernel
+\[
+ g_{H,\lambda}(m)=\mathbb E_Z[h_H(S_*e^{m+\lambda Z})].
+\]
+For every nonnegative $x$,
+$h_H(x)=\int_K^{K+H}\mathbf1_{\{x>k\}}\,dk$; the choice of strict endpoint
+does not affect this integral. Tonelli's theorem gives
+\[
+ g_{H,\lambda}(m)=\int_K^{K+H}
+ \Phi\left({m-\log(k/S_*)\over\lambda}\right)\,dk.
+\]
+The integration interval is finite and the derivative integrand is bounded
+by $\phi(0)/\lambda$. Differentiation under this integral is therefore
+justified by domination, and
+\[
+ 0\leq g'_{H,\lambda}(m)
+ ={1\over\lambda}\int_K^{K+H}
+ \phi\left({m-\log(k/S_*)\over\lambda}\right)\,dk
+ \leq {H\phi(0)\over\lambda}.
+\]
+A second bound follows directly from the payoff. It is Lipschitz in its
+price argument, and its derivative with respect to the log-price exists
+away from the two strikes and equals
+$x\mathbf1_{\{K<x<K+H\}}$. This quantity is at most $K+H$. For a bounded
+interval of $m$, the difference quotients are dominated by a finite
+constant times $e^{\lambda Z}$, whose Gaussian expectation is finite.
+The strike points have probability zero under the continuous normal law.
+Dominated convergence consequently gives
+$g'_{H,\lambda}(m)=\mathbb E[S_*e^{m+\lambda Z}
+\mathbf1_{\{K<S_*e^{m+\lambda Z}<K+H\}}]\leq K+H$.
+Thus $g_{H,\lambda}$ is increasing and globally $H L$-Lipschitz, where
+\begin{equation}
+ L=\min\left\{{\phi(0)\over\lambda},{K+H\over H}\right\}.
+ \label{eq:hierarchy-log-lipschitz}
+\end{equation}
+
+Let $P_A=\mathbb E[h_H(A)]$ and $P_G=\mathbb E[h_H(G)]$ denote undiscounted
+prices. Conditional on $Y$, their scalar log-price arguments differ by
+$\log T(Y)\geq0$. The fundamental theorem of calculus and
+\eqref{eq:hierarchy-log-lipschitz} imply
+\[
+ 0\leq g_{H,\lambda}(\mu_G+R_G\cdot Y+\log T)
+       -g_{H,\lambda}(\mu_G+R_G\cdot Y)
+ \leq H L\log T.
+\]
+Since $0\leq\log T\leq T-1$ and $M_1<\infty$, this logarithm is integrable.
+The conditional prices are themselves bounded by $H$. Taking expectations
+and applying concavity of the logarithm gives the deterministic enclosure
+\begin{equation}
+ 0\leq P_A-P_G\leq H L\,\mathbb E[\log T]
+                    \leq H L\log M_1=:D_0.
+ \label{eq:hierarchy-one-sided-gap}
+\end{equation}
+This proof requires positivity, positive weights and an increasing
+log-Lipschitz conditional payoff kernel. If another outer law has a finite
+first ratio moment, the inequality through $\log\mathbb E[T]$ remains
+valid; its moment formula and its geometric-control computation must then
+be certified for that law. The current implementation uses the stipulated
+Gaussian law and does not transfer its Gaussian moment formula to another
+model without that work.
+
+I compute an outward upper enclosure $\overline L\geq L$, using the minimum
+of the certified upper endpoint for $\phi(0)/\lambda$ and the exact rational
+$(K+H)/H$. The validated degree-one moment ball contains $M_1$ and has a
+strictly positive lower endpoint. Its logarithm therefore contains
+$\log M_1$. The upper endpoint of
+$H\overline L\log(M_1\text{ ball})$, clamped below by zero, supplies a
+rational $\overline D_0\geq D_0$. Neither a negative midpoint nor a
+floating-point logarithm is substituted for this upper certificate.
+
+Let $\tau=0.01$ be the undiscounted price-radius target. If
+$\overline D_0>2\tau$, I do not evaluate the scalar geometric control at
+this preliminary stage. The one-sided moment certificate alone has not
+passed its sufficient width screen, so I continue to the prescribed finite
+Taylor screening policy and charge the moment work already performed.
+When $\overline D_0\leq2\tau$, I evaluate $P_G$ once. Here
+$\mu_G+R_G\cdot Y+\lambda Z$ is normal with mean $\mu_G$ and variance
+$\sigma_G^2=\|R_G\|^2+\lambda^2$. The validated scalar kernel at that
+combined scale gives an interval $[g_-,g_+]$ containing $P_G$. I form
+\begin{equation}
+ I_0=\left[\max\{0,g_-\},
+          \min\{H,g_++\overline D_0\}\right].
+ \label{eq:hierarchy-one-sided-price-interval}
+\end{equation}
+Its lower endpoint is no larger than $P_A$, because $P_A\geq P_G$ and
+$P_A\geq0$. Its upper endpoint is no smaller than $P_A$, because
+$P_A\leq P_G+\overline D_0$ and $P_A\leq H$. Hence the interval is
+nonempty and contains the target price.
+
+I stop only when the exact rational half-width of $I_0$ is at most $\tau$.
+The preliminary inequality $\overline D_0\leq2\tau$ does not alone imply
+this final condition: the scalar-control interval has its own positive
+width, and at the boundary that width can prevent certification. If the
+actual half-width is too large, I retain the failed preliminary interval,
+charge its one scalar call and proceed to the remainder screen. This
+distinction is tested using an intentionally widened but valid control
+enclosure. The midpoint of an accepted $I_0$ has deterministic price error
+at most $\tau$. Discounting is applied afterwards under the existing
+pricing convention; no statistical confidence allowance is consumed by
+this deterministic certificate.
+
+Each policy owns a fresh geometry bank. Moment degree $j$ has
+$\binom{n+j-1}{j}$ multinomial terms, and extending a bank through degree
+$d$ requires exactly $\binom{n+d}{d}$ exponential evaluations, including
+the constant degree-zero term. The hierarchy first extends its bank through
+degree one. A rejected preliminary screen does not discard that bank: the
+Taylor fallback extends the same bank as needed, so previously computed
+geometry is charged once. Coefficients are evaluated only when their
+remainder permits the prescribed screen, or at the fixed degree limit to
+retain an unresolved interval. A successful preliminary certificate costs
+one scalar kernel call; an unsuccessful numerical control enclosure costs
+that call in addition to every subsequent Taylor coefficient evaluation.
+
+The retained comparison supplies the same 27 contracts, degree limit eight,
+224-bit ball arithmetic, coefficient identities and price target to all
+three policies. It compares finite executed choices. It establishes neither
+a globally cheapest screening order nor a complexity lower bound for the
+pricing problem. The one-sided step is an application of the existing
+control certificate; any priority claim for that inequality would require
+the separate literature comparison already stipulated in this paper.

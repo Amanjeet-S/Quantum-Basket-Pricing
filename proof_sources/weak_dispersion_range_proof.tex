@@ -1,0 +1,111 @@
+\section{Why a finite range can remove the apparent flag-variance penalty}
+\label{sec:weak-dispersion-range}
+
+The earlier weak-dispersion limit compares the fractional observation with
+its canonical unit-range flag. It is not a lower bound for all quantum
+encodings. I now give a uniform support argument explaining why a competent
+single flag can recover the relevant small scale on a bounded numerical
+input family. This argument is a checked consequence of exponential
+remainders, convexity and range normalisation, not a priority claim for those
+methods.
+
+\begin{proposition}[Uniform log-gap range under centred perturbations]
+Let $w_i>0$, $\sum_iw_i=1$, $H>0$ and $0\leq\delta_\varepsilon<\infty$, and let real centred perturbations
+$h_i(\varepsilon,v)$ satisfy
+$\sum_iw_i h_i(\varepsilon,v)=0$ and
+$|h_i(\varepsilon,v)|\leq\delta_\varepsilon$ for every point $v$ in a
+specified input support. Put
+\[
+ J_\varepsilon(v)=\log\sum_iw_i e^{h_i(\varepsilon,v)}.
+\]
+Then
+\[
+ 0\leq J_\varepsilon(v)\leq
+ {e^{\delta_\varepsilon}\over2}
+       \sum_iw_i h_i(\varepsilon,v)^2
+ \leq{e^{\delta_\varepsilon}\over2}\delta_\varepsilon^2
+\]
+uniformly on that support. If an increasing scalar conditional price $P$
+has a finite global Lipschitz constant $L\geq0$, then its normalised controlled residual
+$X_\varepsilon=[P(m+J_\varepsilon)-P(m)]/H$ satisfies
+$0\leq X_\varepsilon\leq Le^{\delta_\varepsilon}\delta_\varepsilon^2/(2H)$.
+\end{proposition}
+\begin{proof}
+Jensen's inequality gives $\sum_iw_i e^{h_i}\geq
+ e^{\sum_iw_i h_i}=1$, proving nonnegativity. Taylor's integral remainder
+is the exact identity
+\[
+ e^x=1+x+x^2\int_0^1(1-t)e^{tx}\,dt.
+\]
+For $|x|\leq\delta_\varepsilon$, the integral is at most
+$e^{\delta_\varepsilon}/2$. Summing the identity with weights $w_i$
+cancels the linear term and gives
+$\sum_iw_i e^{h_i}\leq1+(e^{\delta_\varepsilon}/2)\sum_iw_i h_i^2$.
+The inequality $\log(1+z)\leq z$ for $z\geq0$ follows by integrating
+$(1+z)^{-1}\leq1$, and proves the first upper bound. The second uses
+$h_i^2\leq\delta_\varepsilon^2$. Monotonicity and Lipschitz continuity of
+$P$ give $0\leq P(m+J_\varepsilon)-P(m)\leq LJ_\varepsilon$,
+which proves the residual bound for every base $m$.
+\end{proof}
+
+For instance, if $h_i=\varepsilon b_i\cdot v+a_i(\varepsilon)$,
+$\|v\|\leq M$, $\max_i\|b_i\|\leq B$,
+$|a_i(\varepsilon)|\leq C\varepsilon^2$ and the weighted centring
+holds exactly, I may take
+$\delta_\varepsilon=BM|\varepsilon|+C\varepsilon^2$.
+For fixed $B,M,C,L,H$ this yields a uniform $O(\varepsilon^2)$
+residual range. Exact centring of the logarithms follows when they are
+formed by subtracting their weighted geometric log mean. Centring errors
+must otherwise receive their own allowance; they cannot be discarded.
+
+Suppose the implemented output $\widehat X_\varepsilon$ belongs to $[0,1]$,
+retained on the $2^{-q}$ grid, and has a proved pointwise normalised
+arithmetic error $|\widehat X_\varepsilon(v)-X_\varepsilon(v)|\leq\eta_\varepsilon$ at each supported input. A valid numerical range is
+\[
+ \rho_\varepsilon=\min\left(1,
+ {L e^{\delta_\varepsilon}\delta_\varepsilon^2\over2H}
+                  +\eta_\varepsilon\right),
+\]
+rounded outward and then down to its largest possible grid integer as in
+the finite-range certificate. If $\eta_\varepsilon=O(\varepsilon^2)$,
+this range remains $O(\varepsilon^2)$ on a bounded support family.
+For a nonzero certified integer support upper bound $a_{\max}$, which need not be attained, put
+$c=\lceil\log_2 a_{\max}\rceil$ and $R=2^{c-q}$.
+The least admissible dyadic range satisfies
+$\widehat X_\varepsilon\leq R<2a_{\max}2^{-q}\leq2\rho_\varepsilon$,
+with the weak inequality $R\leq2a_{\max}2^{-q}$ also sufficient.
+The integer choice is exact: it is the least $c$ with $a_{\max}\leq2^c$.
+If $a_{\max}=0$, the mean is zero and needs no measurements.
+
+For an absolute finite-mean tolerance $t_\varepsilon$,
+$\E\widehat X_\varepsilon=R p$ is estimated with probability tolerance
+$t_\varepsilon/R$ using the range flag. On a sequence with
+$t_\varepsilon\geq c_0\varepsilon^2$ and
+$R\leq C_0\varepsilon^2$ for positive constants, this probability
+tolerance is at least $c_0/C_0$. At fixed confidence within the retained logarithm domain $0<\log(\cdot)<100$, the proved scalar
+controller therefore has an $\varepsilon$-independent shot/query cap,
+provided this tolerance is in its supported domain; a tolerance at least
+half the whole prior gives a zero-shot midpoint instead. To make the controller argument explicit, write $e_R=t_\varepsilon/R$
+and let its proved Born prior be $u_R\leq1$. If $u_R\leq2e_R$, the prior
+midpoint suffices. Otherwise $u_R>2e_R\geq2c_0/C_0$, so the initial
+normalised inverse angle is bounded away from zero and its reciprocal
+bootstrap multiplier is bounded. On the supported scalar domain
+$10^{-6}\leq e_R<1/2$, the derivative enclosure satisfies $\gamma\leq1$.
+The three/five controller's threshold is at most
+$\lceil1/(5e_R)\rceil$; its finite shot and geometric-power caps are
+therefore bounded at fixed confidence. The full-batch controller's maximum
+multiplier is at most $\Pi_+/[4(e_R-10^{-60})]$, where $\Pi_+<4$ is the retained rational upper enclosure of $\pi$; its shot table and admissible
+chains are also bounded. These expressions are uniformly finite since
+$e_R$ has a positive lower bound in the supported domain. The project choice $\alpha=0.01$ and $e_R\geq10^{-6}$ lies comfortably within the logarithm guard. This is a statement
+about the outer estimation factor. The financial evaluator cost, the
+numerical register widths and the construction of the support certificate
+can still depend on $\varepsilon$.
+
+An unbounded Gaussian law does not satisfy the fixed support hypothesis.
+A finite quantile grid does, but its support grows when its address width
+grows. Distribution-transfer error and the changing support must then be
+charged together with arithmetic precision. Thus the theorem neither
+asserts a uniform bound for the continuous Gaussian residual nor proves
+constant total pricing cost. It identifies a concrete reason that the
+canonical flag's $O(\varepsilon^2)$ variance alone cannot establish a
+quantum lower bound or a necessary gain from dyadic value estimation.

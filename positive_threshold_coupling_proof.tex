@@ -1,0 +1,211 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[authoryear]{natbib}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}[section]
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\ind}{\mathbf 1}
+\title{Positive threshold coupling and its classical variance implication}
+\author{Amanjeet Singh}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A common auxiliary threshold converts a positive finite-measure Gaussian
+price correction into a bounded binary event without clipping. I derive the
+identity and its exact conditional-variance decomposition. The mechanism
+applies to cash digitals and finite positive mixtures as well as capped
+calls. These are established probability constructions. The proposed
+project-specific use concerns a certified coherent financial preparation;
+no generic theoretical priority or practical quantum advantage is claimed.
+\end{abstract}
+\noindent\textit{Keywords:} mathematical finance; conditional Monte Carlo;
+positive threshold measure; quantum pricing; bounded oracle.
+
+\section{Finite positive threshold measures}
+Let $\nu$ be a nonnegative finite Borel measure on $\mathbb R$, with mass
+$H=\nu(\mathbb R)$ satisfying $0<H<\infty$. Let $\lambda>0$ and define
+\[
+ P_\nu(m)=\int_{\mathbb R}\Phi((m-x)/\lambda)\,\nu(dx).
+\]
+The bounded monotone threshold payoff is
+$f_\nu(z)=\int\ind\{x\le z\}\nu(dx)$, which takes values in $[0,H]$.
+If $N$ is standard normal, Tonelli's theorem gives
+$\E f_\nu(m+\lambda N)=P_\nu(m)$. Thus $P_\nu$ is a Gaussian-smoothed
+price kernel. Conditional smoothing and geometric controls are established
+classical pricing tools \citep{curran,bayer}. The kernel is the same positive
+finite-measure setting as equation (measure-kernel) of the main paper.
+
+\begin{proposition}[Shared positive threshold]
+\label{prop:general-threshold}
+Let $X$ have probability law $\nu/H$ and be independent of the standard
+normal $N$. For every $m\in\mathbb R$ and finite $\Delta\ge0$,
+\[
+ P_\nu(m+\Delta)-P_\nu(m)
+ =H\Prb\{m<X-\lambda N\le m+\Delta\}.
+\]
+The distribution of $X-\lambda N$ is continuous. Consequently the strict
+or closed convention at either endpoint leaves this identity unchanged for
+the continuous auxiliary law.
+\end{proposition}
+\begin{proof}
+For any Borel set $B$, conditioning on $X$ gives
+\[
+ \Prb\{X-\lambda N\in B\}
+ =\frac1H\int_{\mathbb R}\Prb\{x-\lambda N\in B\}\,\nu(dx).
+\]
+The integrand is nonnegative and measurable. For the half-line
+$B=(-\infty,m]$, the conditional probability is
+$\Prb\{N\ge(x-m)/\lambda\}=\Phi((m-x)/\lambda)$, by symmetry of the
+standard normal law. Therefore
+$\Prb\{X-\lambda N\le m\}=P_\nu(m)/H$.
+For every fixed $z$, the conditional probability
+$\Prb\{x-\lambda N=z\}$ is zero for every $x$ because $\lambda>0$.
+Integrating this zero function proves
+$\Prb\{X-\lambda N=z\}=0$, so the distribution has no atoms and its
+CDF is continuous. The interval probability is the difference of the two
+half-line probabilities, proving the identity. Nonnegative $\Delta$
+ensures the interval is ordered; $\Delta=0$ gives zero on both sides.
+\end{proof}
+
+For the capped call with strike $K>0$ and cap $H$,
+\[
+ \nu(dx)=Ke^x\ind_{[0,\log(1+H/K)]}(x)\,dx,
+ \qquad\nu(\mathbb R)=H.
+\]
+If $U$ is uniform on $(0,1)$, then
+$X=\log(1+(H/K)U)$ has exactly this probability law: the inverse map is
+$U=K(e^x-1)/H$ and its density on the displayed interval is $Ke^x/H$.
+Thus the capped-call residual uses the single event
+\[
+ m_G<\log(1+(H/K)U)-\lambda N\le m_A.
+\]
+A cash digital of amount $H$ corresponds to $\nu=H\delta_x$ at its log
+threshold. A finite mixture of positive cash digitals corresponds to
+$\nu=\sum_jh_j\delta_{x_j}$, where $h_j\ge0$ and
+$H=\sum_jh_j>0$; $X$ selects threshold $x_j$ with probability $h_j/H$.
+The same sampled threshold and normal variable must be used for both
+endpoint comparisons.
+
+The theorem does not cover negative threshold weights, infinite payoff
+mass or a probability measure formed by normalising a signed measure.
+Negative basket weights do not in general imply $m_A\ge m_G$ and are not
+covered by the positive basket correction. The case $H=0$ is a zero
+payoff and requires no normalised auxiliary state. The algebra does not
+claim that an arbitrary measure $\nu/H$ has an efficient finite quantum
+preparation. A numerical implementation must certify its actual prepared
+measure and its arithmetic independently.
+
+\section{The conditional Monte Carlo opponent}
+Let $Y$ be the financial outer variable. Suppose $m(Y)$ and
+$\Delta(Y)\ge0$ are finite measurable functions. Let $X,N$ be independent
+of $Y$ with the laws in Proposition~\ref{prop:general-threshold}. Define
+\[
+ F(Y)=P_\nu(m(Y)+\Delta(Y))-P_\nu(m(Y)),\qquad
+ B=\ind\{m(Y)<X-\lambda N\le m(Y)+\Delta(Y)\}.
+\]
+Both $F$ and $HB$ are square-integrable because they are in $[0,H]$.
+
+\begin{proposition}[Exact variance cost of unconditioning]
+\label{prop:variance}
+The conditional mean and variance of the event score satisfy
+\[
+ \E[HB\mid Y]=F(Y),\qquad
+ \operatorname{Var}(HB\mid Y)=F(Y)(H-F(Y)).
+\]
+Consequently
+\[
+ \operatorname{Var}(HB)
+ =\operatorname{Var}(F(Y))
+  +\E[F(Y)(H-F(Y))]
+ \ge\operatorname{Var}(F(Y)).
+\]
+Equality holds precisely when $F(Y)\in\{0,H\}$ almost surely.
+\end{proposition}
+\begin{proof}
+Independence of the auxiliary variables and Proposition~\ref{prop:general-threshold}
+give $\Prb\{B=1\mid Y\}=F(Y)/H$ for almost every $Y$. Thus
+$\E[HB\mid Y]=H(F(Y)/H)=F(Y)$. Since $B^2=B$,
+\[
+ \operatorname{Var}(HB\mid Y)
+ =H^2\E[B\mid Y]-H^2(\E[B\mid Y])^2
+ =HF(Y)-F(Y)^2.
+\]
+The law of total variance yields the displayed unconditional equality.
+Its extra term is nonnegative because $0\le F(Y)\le H$. A nonnegative
+integrable random variable has expectation zero if and only if it is zero
+almost surely; $F(H-F)=0$ is equivalent to $F\in\{0,H\}$. This proves
+both the inequality and its equality criterion.
+\end{proof}
+
+If $\Prb\{\Delta(Y)>0\}>0$, then the inequality is strict under the
+stated finite-real hypotheses. Indeed, for every fixed real threshold $x$
+and every finite interval of positive length, the normal law assigns a
+probability strictly between zero and one. Integration against the
+probability measure $\nu/H$ preserves these strict inequalities: a
+strictly positive measurable function has positive integral, and its
+strictly positive complement also has positive integral. Hence
+$0<F(Y)<H$ wherever $\Delta(Y)>0$. The extra variance term is positive
+on a set of positive probability, giving a strictly positive expectation.
+
+For independent Monte Carlo samples, the variance of the average is the
+corresponding single-score variance divided by the sample size. Multiplying
+by a deterministic discount factor multiplies both variances by its square,
+so neither operation reverses the inequality. Analytically integrating
+both auxiliary variables gives the established conditional score $F(Y)$.
+Thus the binary-event oracle does not improve the classical sampling
+variance. Its possible quantum value is a cheaper coherent preparation of
+the same residual expectation at normaliser $H$, after finite-law,
+threshold-arithmetic and confidence allowances have been charged.
+
+
+\section{The global quantum signal}
+Let $\rho$ be any probability law of the outer variable $Y$, including the
+normalised finite outer-grid law. Consider two ideal preparations at the
+same normaliser $H$. The first computes the numerical conditional score
+$F(Y)$ and compares an independent uniform variable $U_0$ with $F(Y)/H$.
+The second uses the coupled event in Proposition~\ref{prop:general-threshold}.
+Their conditional good probabilities are both $F(Y)/H$, and hence their
+global good probabilities are both
+\[
+ p=\int F(y)/H\,\rho(dy).
+\]
+This statement concerns the ideal scores and exact auxiliary laws. The
+finite preparations have separately certified biases and need not encode
+exactly identical probabilities.
+
+For any pure preparation $A$ and good-event projector $\Pi$ with
+$p=\langle0|A^\dagger\Pi A|0\rangle$, write
+$A|0\rangle=\sqrt{1-p}\,|b\rangle+\sqrt p\,|g\rangle$ for $0<p<1$,
+where $|b\rangle$ and $|g\rangle$ are the normalised orthogonal bad and good
+components. Let $S_g=I-2\Pi$, $S_0=I-2|0\rangle\langle0|$ and
+$Q=-AS_0A^\dagger S_g$. Restricting to the span of $|b\rangle,|g\rangle$
+and multiplying the two reflection matrices gives a rotation through
+$2\theta$, where $\theta=\arcsin\sqrt p$. Consequently the two ideal
+financial preparations have the same standard amplitude-estimation signal
+at every Grover degree. Equal global $p$ does not mean their prepared
+states, registers or gate costs are identical. The endpoints $p=0,1$ follow
+by continuity and give deterministic good events.
+
+The variance penalty in Proposition~\ref{prop:variance} compares the
+classical scores $F(Y)$ and $HB$. It does not establish an amplitude-
+estimation query advantage of the shared event over the direct quantum
+preparation, since the latter already introduces a Bernoulli objective
+comparison. The project-specific experiment retains the same phase widths
+and repetitions and identifies lower coherent preparation costs. A general
+query-speed-up claim would require different evidence.
+
+\begin{thebibliography}{9}
+\bibitem[Curran(1994)]{curran}
+Curran, M. (1994). Valuing Asian and portfolio options by conditioning on
+the geometric mean price. \emph{Management Science}, 40(12), 1705--1711.
+\url{https://doi.org/10.1287/mnsc.40.12.1705}.
+\bibitem[Bayer et al.(2018)]{bayer}
+Bayer, C., Siebenmorgen, M. and Tempone, R. (2018). Smoothing the payoff
+for efficient computation of basket option prices. \emph{Quantitative
+Finance}, 18(3), 491--505.
+\url{https://doi.org/10.1080/14697688.2017.1308003}.
+\end{thebibliography}
+\end{document}

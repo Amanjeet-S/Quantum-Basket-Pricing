@@ -1,0 +1,76 @@
+{
+  "schema": "qbp-independent-clipped-tail-rational-audit-v1",
+  "status": "passed",
+  "arithmetic": "exact fractions.Fraction, no binary floating point",
+  "imports_project_certificate": false,
+  "parameter_settings": {
+    "rho": {
+      "numerators": [
+        1,
+        16
+      ],
+      "denominator": 4
+    },
+    "r": {
+      "numerators": [
+        0,
+        16
+      ],
+      "denominator": 8
+    },
+    "u": {
+      "numerators": [
+        0,
+        32
+      ],
+      "denominator": 8
+    },
+    "v": {
+      "numerators": [
+        0,
+        64
+      ],
+      "denominator": 8
+    },
+    "majorant_grid": {
+      "numerators": [
+        0,
+        16
+      ],
+      "denominator": 16,
+      "definition": "x=rho*k/16"
+    }
+  },
+  "parameter_configurations_total": 583440,
+  "exact_rational_regimes_checked": 481241,
+  "counts": {
+    "zero": 157456,
+    "r0-mean": 22138,
+    "second-only": 92128,
+    "both-active": 94831,
+    "endpoint": 114688
+  },
+  "skipped_counts": {
+    "r0-sqrt": 10630,
+    "constant-sqrt": 91569
+  },
+  "majorant_point_comparisons": 5504345,
+  "checks": [
+    "attaining masses sum to one",
+    "attaining masses nonnegative and support lies in [0,rho]",
+    "attaining mean is within effective upper moment bound",
+    "attaining second moment is within effective upper moment bound",
+    "attaining clipped-tail expectation equals proposed bound exactly",
+    "coefficients for upper moment bounds are nonnegative",
+    "quadratic majorant dominates payoff at 17 rational grid points",
+    "dual moment objective equals proposed bound exactly",
+    "configuration and branch counts match the original executed audit"
+  ],
+  "limitations": [
+    "Constant square-root branches are proved analytically in the memo and are explicitly excluded from this rational enumeration.",
+    "A finite set of majorant evaluations is diagnostic; the analytic pointwise proof supplies the universal majorant statement.",
+    "Attainment is for arbitrary probability laws on the continuous support interval, not necessarily a prescribed finite grid.",
+    "This mathematical implementation audit is not an empirical market-data validation or a theoretical novelty claim."
+  ],
+  "source_sha256": "e3ff7730daa5ca85446324b69ee531def9d115a056220f2c2d1880a9b8734801"
+}

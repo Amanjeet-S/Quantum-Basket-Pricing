@@ -1,0 +1,131 @@
+\subsection{A bounded Chebyshev comparison}
+
+I develop a reflection-only adaptation of \citet{rallfuller2023} at the
+numerical first-correction flags in Table~\ref{tab:four-complete-prices}. Odd and even Chebyshev degrees use
+different success projectors; Appendix~\ref{app:bounded-chebyshev} derives
+both circuits and the full guarantee. A pilot spends at most one tenth of
+its reserved canonical fallback charge. Every fresh confidence look has a
+separate exact-binomial allowance, and the fallback uses the original
+financial prior. With total failure allowance $1/3600$ per price, every
+history has a complete cap at most $1.1T_F$, where $T_F$ uses half that
+failure allowance. Here $T_F/T_0=27/25$ relative to the earlier
+full-allowance QPE cap $T_0$, so the whole-history cap is at most
+$1.188T_0$, rather than an improvement of that guaranteed cap.
+
+Before new diagnostic outcomes I register five points, the endpoints and
+quartiles of each financial probability prior, and twenty seeds per point.
+These are scalar signal diagnostics, not the unknown financial flag values
+or quantum derivative prices. The pilot certifies 111 of 400 histories.
+Every unsuccessful history retains its pilot charge and the full reserved
+fallback cap; no fallback phase outcome is simulated.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrcrr}
+\toprule
+Assets&$\lambda$&$c$&Pilot stops / 100&Median / $T_0$&Mean / $T_0$\\
+\midrule
+2&0.4&3&39&1.150&0.729\\
+4&0.05&1.5&28&1.123&0.832\\
+4&0.2&3&31&1.119&0.804\\
+8&0.2&3&13&1.158&1.006\\
+\bottomrule
+\end{tabular}
+\caption{Charged histories on the declared synthetic probability mesh.
+The diagnostic mean and median include unsuccessful pilot work and the
+complete fallback resource cap where required. $T_0$ is the earlier
+full-failure-allowance canonical QPE cap in
+Table~\ref{tab:four-complete-prices}. Ratios are descriptive, rounded to
+three decimals; the exact integer histories remain retained. Mesh averages
+are not expectations for the unknown financial flag or device measurements.
+The table distinguishes occasional cheap branches from a typical or
+worst-history improvement.}
+\label{tab:chebyshev-diagnostics}
+\end{table}
+
+The diagnostic mean charge is lower in three cases, while every diagnostic
+median is higher; the eight-asset mean also increases. Successful paths
+are concentrated near prior edges. The exact break-even identity in
+Appendix~\ref{app:bounded-chebyshev} makes the cost condition explicit,
+but the finite mesh does not establish its satisfaction for the unknown
+financial flag. The prototype adds a checked modern-estimator branch and
+a bounded cost policy. It does not establish superiority over the unchanged
+published ChebAE controller, expected financial-pricing cost or practical
+quantum advantage. An upstream QSP payoff replacement and a modern-estimator
+comparison across the original 36 contracts remain separate open tests.
+
+\section{A bounded Chebyshev estimator and its complete guarantee}
+\label{app:bounded-chebyshev}
+
+Let $A$ be the existing clean financial preparation, $p$ its good-flag
+probability, $S_g=I-2P_g$, $S_0=I-2|0\rangle\langle0|$ and
+$Q=-AS_0A^\dagger S_g$. With $p=\sin^2\theta$, the invariant
+subspace gives $Q^kA|0\rangle=\sin((2k+1)\theta)|g\rangle+
+\cos((2k+1)\theta)|b\rangle$. An odd degree $d=2k+1$ therefore
+samples $T_d(\sqrt p)^2$ using $Q^kA$ and the good flag. For an even
+degree $d=2k$, use $A^\dagger S_gQ^{k-1}A$ and the zero-input event:
+\[
+ \langle0|A^\dagger S_gQ^{k-1}A|0\rangle
+ =\cos\theta\cos((2k-1)\theta)
+  -\sin\theta\sin((2k-1)\theta)=\cos(2k\theta).
+\]
+Both parities use $d$ preparations or adjoints. The even sampler uses
+$k$ good reflections and $k-1$ zero reflections; the odd sampler uses
+$k$ of each. Every allocated wire is observed and reset. Uncontrolled
+global phases are immaterial; the controlled fallback retains its phase.
+
+I adapt the sampling framework of \citet{rallfuller2023}, Section~3.
+A degree is admitted only when the current outward interval for
+$t=2\arccos(\sqrt p)/\pi$ lies in one cell $j\leq dt\leq j+1$.
+The cosine-square signal is monotone there, so validated inverse endpoints
+and intersection preserve containment. Each look uses 100 fresh shots
+and an exact fixed-binomial interval of failure allowance $\alpha/24$.
+Counts are not pooled. I permit twelve looks and degree at most 2,047,
+and accept a decoded probability midpoint only at radius
+$\varepsilon=(0.01-D)/C$, where $D$ and $C$ are the retained
+financial error and monetary signal factor.
+
+\begin{proposition}[Coverage and complete worst-history charge]
+Let the pilot's complete T budget be $B=\lfloor T_F/10\rfloor$, where
+$T_F$ is the canonical fallback charge at failure allowance $\alpha/2$,
+using the original deterministic financial prior. With fresh independent
+ideal shots and the retained financial certificates, the bounded procedure
+has complete monetary error at most $0.01$ with failure probability at
+most $\alpha$, and every history costs at most $T_F+B$ T gates.
+\end{proposition}
+\begin{proof}
+Conditionally on any preceding history, the next degree is fixed and its
+fresh binomial interval fails with probability at most $\alpha/24$.
+A union bound over at most twelve looks bounds all pilot failures by
+$\alpha/2$. On their complement, outward inversion and intersection
+contain $p$, so a successful pilot has monetary error at most
+$D+C\varepsilon$. If it stops unsuccessfully, a fresh fallback spends
+$\alpha/2$ against the original prior. It imports no sampled posterior.
+The two failure events have union probability at most $\alpha$.
+A batch is never run if its complete charge would exceed $B$; all earlier
+failed work is retained. Thus pilot plus fallback costs at most $B+T_F$.
+\end{proof}
+
+For an explicitly specified shot law, let $S$ indicate successful pilot
+termination and let $C_P$ denote its charged work. The complete charge is
+$C_P+(1-S)T_F$, with no independence between $C_P$ and $S$ required.
+Linearity of expectation gives the exact condition
+\[
+ \E[C_P+(1-S)T_F]<T_0
+ \quad\Longleftrightarrow\quad
+ \Pr(S=1)>1-\frac{T_0}{T_F}+\frac{\E C_P}{T_F}.
+\]
+With $T_F/T_0=27/25$ and $0\leq C_P\leq B$, success probability
+above $2/27$ is necessary and above $2/27+B/T_F$ is sufficient.
+The conservative sufficient threshold is $47/270$. This resource identity
+is established probability algebra; its application identifies the pilot
+success needed to repay the tighter fallback confidence and failed work.
+A diagnostic mesh fraction is not the required success probability at the
+unknown financial flag.
+
+The expanded proof derives exact binomial coverage, root enclosures,
+endpoint branches, parity circuits and observation/reset charges. This is
+a finite implementation and financial composition of published mechanisms,
+rather than a new generic estimator theorem. Diagnostic histories and
+worst-history caps are distinct quantities.
+

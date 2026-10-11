@@ -1,0 +1,21 @@
+"""Exact reconstruction of continuous and finite-randomised pricing comparisons."""
+from pathlib import Path
+from fractions import Fraction as F
+import hashlib,json
+ROOT=Path(__file__).resolve().parent
+
+def load(name):return json.loads((ROOT/'results'/name).read_text())
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+    t=load('taylor_pricing.json');q=load('continuous_quadrature.json');r=load('rqmc_pricing_results.json');p=load('rqmc_pricing_protocol.json');w=load('rqmc_work_comparison.json')
+    old={x['case_id']:x for x in q['configurations']};rnd={x['case_id']:x for x in r['configurations']};iid={x['case_id']:x for x in w['configurations']};rows=[]
+    for x in t['configurations']:
+        case=x['case_id'];sel=next(a for a in x['orders'] if a['order']==x['selected_order']);basis=old[case] if x['assets']==2 else sel
+        undis=basis['undiscounted_price_interval'];disc=basis['discounted_price_interval'];lo,hi=F(undis['lower_exact_fraction']),F(undis['upper_exact_fraction']);dl,du=F(disc['lower_exact_fraction']),F(disc['upper_exact_fraction']);assert (hi-lo)/2<=F(1,100)
+        rr=rnd[case];ci=rr['confidence_interval'];rl,rh=F(ci['price_interval_lower_decimal']),F(ci['price_interval_upper_decimal']);c=rr['checkpoints'][-1]['confidence'];cap=x['cap'];g=F(ci['geometric_correction']['undiscounted_value_decimal']);b=F(ci['deterministic_currency_allowance_decimal']);ul=max(F(0),g+cap*F(c['mean_lower_fraction'])-b);uh=min(F(cap),g+cap*F(c['mean_upper_fraction'])+b)
+        assert max(dl,rl)<=min(du,rh),(case,'disjoint price intervals')
+        rows.append({'case_id':case,'assets':x['assets'],'cap':x['cap'],'continuous_method':'validated one-dimensional quadrature' if x['assets']==2 else 'finite Taylor certificate','continuous_interval':undis,'continuous_discounted_interval':disc,'Taylor_order':x['selected_order'],'Taylor_first_certifying_order':x['first_certifying_order'],'Taylor_selected_radius_exact_fraction':str((F(sel['undiscounted_price_interval']['upper_exact_fraction'])-F(sel['undiscounted_price_interval']['lower_exact_fraction']))/2),'Taylor_alone_certified':x['certified_within_001'],'RQMC_interval_basis':'discounted continuous price with finite-grid bias charged','RQMC_statistical_reservation_met':rr['checkpoints'][-1]['tolerance_met'],'RQMC_undiscounted_lower_exact_fraction':str(ul),'RQMC_undiscounted_upper_exact_fraction':str(uh),'RQMC_undiscounted_radius_exact_fraction':str((uh-ul)/2),'RQMC_undiscounted_tolerance_met':(uh-ul)/2<=F(1,100),'RQMC_discounted_tolerance_met':F(ci['maximum_radius_decimal'])<=F(1,100),'continuous_and_RQMC_discounted_intervals_overlap':True,'continuous_discounted_interval_contained_in_RQMC':rl<=dl<=du<=rh,'fixed_IID_certified_samples_same_pool':iid[case]['fixed_IID_plan']['certified_samples'],'RQMC_financial_evaluations':rr['financial_evaluations'],'RQMC_to_fixed_IID_evaluator_work_ratio_exact_fraction':iid[case]['RQMC_to_fixed_IID_evaluator_work_ratio_exact_fraction']})
+    names=['taylor_pricing.json','continuous_quadrature.json','rqmc_pricing_protocol.json','rqmc_pricing_results.json','rqmc_work_comparison.json']
+    out={'status':'exact combined comparison passed','scope':'all 27 continuous-model prices at undiscounted radius .01; no physical quantum timing comparison','source_sha256':sha(Path(__file__)),'input_hashes':{'results/'+n:sha(ROOT/'results'/n) for n in names},'configurations':rows,'summary':{'deterministic_prices_certified':len(rows),'higher_dimensional_Taylor_certified':sum(x['assets']>2 and x['Taylor_alone_certified'] for x in rows),'Taylor_alone_certified':sum(x['Taylor_alone_certified'] for x in rows),'RQMC_statistical_reservation_met':sum(x['RQMC_statistical_reservation_met'] for x in rows),'RQMC_complete_undiscounted_tolerance_met':sum(x['RQMC_undiscounted_tolerance_met'] for x in rows),'RQMC_discounted_tolerance_met':sum(x['RQMC_discounted_tolerance_met'] for x in rows),'continuous_RQMC_overlap':len(rows),'continuous_interval_containment':sum(x['continuous_discounted_interval_contained_in_RQMC'] for x in rows)}}
+    (ROOT/'results/higher_dimension_comparison.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out['summary'],indent=2))
+if __name__=='__main__':main()

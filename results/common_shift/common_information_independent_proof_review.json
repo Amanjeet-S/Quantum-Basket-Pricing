@@ -1,0 +1,26 @@
+{
+  "schema": "qbp-common-information-independent-proof-review-v1",
+  "status": "passed",
+  "reviewed_proof_sha256": "35d6fcaef72818d8854ea081991e1d7d502c9e4094a451cf6529a27d1178c9b3",
+  "review_scope": "Independent read-only mathematical review, without editing the producer proof or canonical repository. The current diagnostic producer is independent of the proof producer; this record is a proof review rather than a numerical resource audit.",
+  "checks": [
+    "Positive finite derivative measure and dominated Gaussian differentiation",
+    "Common-shift/gap segment decomposition including a negative represented gap",
+    "Nonexpansive interval projection retaining true positive correction",
+    "Pointwise101-Lipschitz common inner payoff difference without independence requirement",
+    "Raw intrinsic scalar errors charged separately and no normal rounding double charge",
+    "Numerical explicit inactive-clamp and exact-unit-normaliser premises",
+    "Threshold finite-atom interval sandwich and single2D_N+2c0E_s allowance",
+    "Exact capped-gap variation and concave moment envelope with nonnegative-gap premises",
+    "No inferred positive cost from the saturated moment-only refinement",
+    "Established-mechanism and finite-implementation scope distinguished from priority"
+  ],
+  "blocking_defects": [],
+  "implementation_premises_not_repeated_here": [
+    "Full guarded graph actual ranges and inactive input clamps",
+    "Certified scalar/table intrinsic errors and argument dependency structure",
+    "Financial coefficient/outer-law/deterministic budget reconstruction",
+    "Complete emitted logical circuits and controller charges"
+  ],
+  "scope": "The proof is valid under its stated implementation premises. This review does not establish theoretical priority, complete benchmarking against every modern estimator, hardware execution or practical quantum advantage."
+}

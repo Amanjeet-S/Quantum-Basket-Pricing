@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "LCU_success_vector_discrepancy_diagnostic": 1.040883583683283e-09,
+  "LCU_operator_norm_upper": "468473866437548203378962730673164995926903508303799380839122991989220409464242098520697092106855078492460297830016205/21153791001287955166461289857048673274508949854856999017108761448780985319561963066406054734070889115122918784800747465736192",
+  "amplification_iterations": 19,
+  "amplification_A_or_Aadjoint_calls": 39,
+  "amplification_logical_qubits": 10,
+  "amplification_gate_counts": {
+    "Sdg": 44109,
+    "H": 167068,
+    "S": 44109,
+    "T": 87890,
+    "X": 1240,
+    "CX": 16512,
+    "Tdg": 85398,
+    "CZ": 77
+  },
+  "amplification_actual_T_count": 173288,
+  "amplification_operator_norm_upper": "18270480791064379931779546496253434841149236823848175852725796687579595969105441842307186592167348061205951615370631995/21153791001287955166461289857048673274508949854856999017108761448780985319561963066406054734070889115122918784800747465736192",
+  "amplified_success_probability_diagnostic": 0.9983603701959578,
+  "amplified_ideal_success_probability_diagnostic": 0.9983603692953501,
+  "amplified_dirty_scratch_probability_diagnostic": 2.826088532837551e-28,
+  "direct_base_preparation": {
+    "logical_qubits": 4,
+    "gate_counts": {
+      "Z": 2,
+      "H": 778,
+      "X": 4,
+      "Sdg": 210,
+      "S": 210,
+      "T": 368,
+      "CX": 8,
+      "Tdg": 368
+    },
+    "actual_T_count": 736,
+    "state_discrepancy_diagnostic": 1.031248105945357e-09
+  },
+  "matched_range_weight_ratio_Umax_squared_to_M2_diagnostic": 12.76905489660191,
+  "ideal_A_query_ratio_importance_to_direct_range_diagnostic": 3.054258934259782,
+  "signal_T_ratio_importance_to_direct_range_diagnostic": 18.438768889353717,
+  "compiled_sha256": "23cffafbeecbcb2e5719005acef72a99f078323960524e20ed54d269276ec8c6",
+  "certificates_sha256": "13c9526eb330d2aaf47da3422740a79ee03600438f2a37348003d61cd0cf219c",
+  "auditor_sha256": "cc430343d5f148676c13bf124e4b5fce4e7fd593e0e4a9d81407a5af8d87dc7b",
+  "scope": "Signal preparation and its amplification. Monetary observable, confidence postprocessing, sampling/reset and end-to-end pricing remain unimplemented."
+}

@@ -1,0 +1,141 @@
+% Project-specific derivation for the retained literal compiler.
+% This fragment makes no claim of generic quantum lower-bound novelty.
+\section{Excluding still wider addresses within the fixed compiler}
+\label{sec:raw-wider-address-exclusion}
+
+I distinguish an exclusion within a fixed emitted implementation from an
+algorithmic complexity lower bound. In this section the classical financial
+models, $q=28$, narrow exponential span $b_0=1/64$, both payoff graphs,
+normal widths $\{8,10,12\}$, outer precisions, two coherent unary-lookup
+architectures and canonical-QPE controller are fixed. The scalar address
+width is denoted by $b_e$, rather than by $b_0$.
+
+The dyadic input interval contains $2^{q-6}+1$ representable arguments.
+An address width $b_e$ gives $N=2^{b_e}$ cells, with remainder width
+$q-6-b_e=22-b_e$. Hence this interpolator requires $1\leq b_e\leq22$.
+The widths $11,12,13,14$ leave respectively $11,10,9,8$ remainder bits;
+no new financial or smoothing assumption follows from this extension.
+The fresh scalar tables still require checked rounding, monotonicity,
+input domains and whole-graph absence of modular overflow.
+
+\begin{lemma}[Literal selector count]
+\label{lem:raw-selector-count}
+Suppose a unary lookup has $b_e+1$ address bits and exactly the first
+$N+1$ words are nonzero, where $N=2^{b_e}$ and $b_e\geq1$.
+The retained recursively pruned selector tree visits exactly $N+b_e$
+internal nodes. Its logical T count is
+\[
+ \tau_{\rm look}(b_e)=
+ \begin{cases}
+ 14(N+b_e),&\text{exact seven-T Toffoli architecture},\\
+ 8(N+b_e),&\text{unitary eight-T selector-pair architecture}.
+ \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+The root partitions the $2N$ address values into two halves. Its left
+subtree contains all $N$ nonzero words and is a full binary tree with
+$N-1$ internal nodes. The right subtree contains the single nonzero word
+at address $N$ and consequently visits a path with $b_e$ internal nodes.
+The root itself contributes one, giving $1+(N-1)+b_e=N+b_e$.
+Each visited node has exactly one selector compute and one selector
+erase. In the first architecture these are two seven-T Toffolis. In the
+second they are a four-T clean-target compute and its four-T unitary
+inverse. All changes of branch, word writes and root operations are
+Clifford gates. The stated counts therefore follow from the literal
+retained sequence, with no measurement or free lookup assumption.
+\end{proof}
+
+All packed narrow-exponential words are nonzero because their base
+ordinates are at least the exact integer representing one. The final
+endpoint word is also present; it has zero interpolation delta and its
+nonzero base. Thus Lemma~\ref{lem:raw-selector-count} applies.
+Each exponential node contains two lookup invocations, as its private
+arithmetic is cleaned. The two payoff nodes and the subsequent cleanup
+of the complete preparation give eight such invocations in $A$.
+Let $a^{\rm fixed}_{j,k}$ be the retained logical T count of all other
+blocks and the comparator in case $j$, normal width $k$ and the stated
+architecture, including their cleanup. Their arguments, word widths,
+tables and emitted sequences are independent of $b_e$. Discarding every
+other T gate inside the exponential nodes gives
+\[
+ T_A(b_e)\geq a^{\rm fixed}_{j,k}+c(2^{b_e}+b_e),
+ \qquad c=112\text{ or }64.
+\]
+This is valid even when a wider address shortens its interpolation
+multiplier, because that multiplier has been discarded completely from
+the lower bound. It relies on this literal graph, without a hypothetical
+optimisation which shares the two scalar evaluations.
+
+Let $A_j=a_{+,j}$ be the unchanged outer mass upper bound, $e_{0,j}$
+the coefficient radius, $\beta_j$ the financial-transfer upper bound,
+$a_{r,j}$ the outer mass radius and $[l_j,u_j]$ the retained ideal
+finite-mean interval. Give a competing wider implementation the
+optimistic error $\eta=0$, and define
+\[
+ d_{0,j}=e_{0,j}+\beta_j+a_{r,j},\qquad
+ \varepsilon_{0,j}=\frac{1/100-d_{0,j}}{A_j}.
+\]
+Every admitted implementation has deterministic error at least $d_{0,j}$
+and hence probability tolerance at most $\varepsilon_{0,j}$. Its enlarged
+probability upper prior is at least $u_j$. The controller's variance
+upper rule
+\[
+ v(u)=\begin{cases}u(1-u),&0\leq u\leq1/2,\\1/4,&1/2<u\leq1\end{cases}
+\]
+is nondecreasing, as is its outward dyadic square-root rule. Therefore
+let $M_{0,j}$ be the first supported power of two satisfying the retained
+canonical-QPE sufficient amplitude bound at $(\varepsilon_{0,j},u_j)$.
+Every active admitted plan has $M\geq M_{0,j}$. The retained inequalities
+$A_j(u_j-l_j)/2>1/100-d_{0,j}$ and $u_j>2\varepsilon_{0,j}$ exclude
+both controller forms of a zero-shot prior decision. These are checked
+exactly for each of the four cases.
+
+For confidence amplification, set $\pi_+=355/113$ and give the inverse
+Fourier transform zero operator error. The controller's maximal certified
+single-shot success probability is then $s_0=8/\pi_+^2$. Exact binomial
+calculation shows that the first odd repeat count with majority failure
+at most $1/3600$ is $r_0=25$. For a smaller success probability the
+majority-failure probability is nonincreasing in the success parameter
+and is therefore no better. This monotonicity follows, for example, by
+coupling each success indicator as $\mathbf1\{U_i\leq s\}$ with common
+independent uniform $U_i$. Every active plan thus has at least $r_0$
+repetitions. This is a constraint of this certification controller;
+it is not a lower bound on all conceivable amplitude estimators.
+
+One canonical-QPE repetition calls $A$ once initially and calls both
+$A$ and $A^\dagger$ in each of its $M-1$ controlled Grover steps.
+Ignoring all reflection and Fourier T gates gives the complete bound
+\[
+ T_{\rm complete}(b_e)
+ \geq r_0(2M_{0,j}-1)
+       \left(\min_{k\in\{8,10,12\}}a^{\rm fixed}_{j,k}
+             +c(2^{b_e}+b_e)\right).
+\]
+This lower bound concerns the fully specified logical resource policy;
+it does not convert sufficient monetary-error bounds into an algorithmic
+quantum query lower bound.
+
+The exact retained fields give $M_{0,j}=256,512,512,512$ in case order.
+For the less expensive unitary architecture the fixed-block minima are
+$1\,494\,706$, $3\,129\,342$, $3\,348\,190$ and $7\,808\,330$ T gates,
+all attained at normal width eight. At address width fifteen the lower
+complete counts are respectively
+\[
+45\,898\,249\,950,\quad133\,692\,136\,050,\quad
+139\,289\,173\,650,\quad253\,357\,254\,150.
+\]
+Each already exceeds an admitted earlier raw-payoff cap in its own case.
+The exact seven-T architecture has still larger corresponding bounds.
+Since $2^{b_e}+b_e$ is strictly increasing, all feasible widths fifteen
+through twenty-two are excluded from improving those incumbents under
+the stated fixed choices. Widths beyond twenty-two are outside this
+fixed-point interpolator's input-resolution domain.
+
+This exclusion does not cover omitted lower address widths
+$\{1,2,3,5,7,9\}$, unequal widths for the two payoff nodes, other normal
+widths, shared arithmetic, different word precisions, other lookup
+architectures or other mean estimators. It can resolve an upper-boundary
+concern for the registered extension without supporting a claim of a
+global precision optimum, generic quantum superiority, theoretical
+priority or practical quantum advantage.

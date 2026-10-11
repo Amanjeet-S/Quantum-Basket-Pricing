@@ -1,0 +1,2746 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[british]{babel}
+\usepackage[round,authoryear]{natbib}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\usepackage{url}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\title{Supporting certificates for guarded corrections and coherent pricing preparation}
+\author{Amanjeet Singh}
+\date{11 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I construct and strengthen a matched quantum pricing rival which encodes a
+nonnegative capped-payoff difference on a shared Gaussian draw. Guarded
+arithmetic and explicit projection preserve the probability range when
+distinct approximate tables fail to preserve endpoint order. I derive a
+common-information stability certificate for positive Gaussian corrections,
+separating fixed endpoint shifts from normal-dependent scaling remainders.
+The same information is supplied to raw-payoff, numerical conditional-price
+and shared-threshold implementations. All 416 tested certificates tighten,
+while canonical gate caps remain unchanged. Complete reflection costs yield
+an all-degree criterion for transferring preparation savings to parity
+samplers. A matched protected Chebyshev comparison retains finite confidence,
+discarded pilots and full fallbacks across the pricing alternatives.
+The financial target remains the stipulated classical no-arbitrage model.
+Established smoothing and reflection mechanisms are distinguished from the
+checked graph-specific derivations and synthetic resource comparisons;
+generic mathematical priority and physical quantum advantage are unestablished.
+\end{abstract}
+\smallskip\noindent\textit{Keywords:} quantum derivative pricing; common random numbers;
+capped basket options; Gaussian discretisation; reversible arithmetic.\par
+\smallskip\noindent\textit{JEL classification:} C63, C65, G13.\par
+
+\section{Exact financial target}
+
+Fix the outer factor coordinate $y$ in the classical risk-neutral model,
+and let $m=m_G(y)$, $\Delta=\log T(y)\geq0$ and $\lambda>0$.
+The ratio inequality follows from the positive basket weights and exact
+weighted-centred drift and loading identities. Those premises and the
+finite outer box, its grid transfer and analytic coefficient $c_0$ are
+retained from the main paper. The geometric-conditioning and conditional
+smoothing foundations are established financial methods
+\citep{curran,bayer}; the retained main-paper source ledger records the
+versions and sections previously consulted. Put $K=100$ and $H=1$, and define
+\begin{equation}
+ f(x)=\min\{1,\max\{100(e^x-1),0\}\},\qquad
+ h_{m,\Delta}(n)=f(m+\Delta+\lambda n)-f(m+\lambda n).
+\end{equation}
+The monotonicity of $f$ gives $0\leq h_{m,\Delta}\leq1$ pointwise.
+For $N\sim N(0,1)$,
+\begin{equation}
+ R_1(y)=\E h_{m,\Delta}(N)
+       =P_\lambda(m+\Delta)-P_\lambda(m).
+\end{equation}
+Both terms use the same normal label. The financial model is unchanged;
+only the coherent representation of its first correction changes.
+
+\section{Exact narrow-domain payoff implementation}
+
+\begin{lemma}[Clamp decomposition]\label{lem:raw-clamp}
+Let $b=1/64$ and $x_+=\max(x,0)$. For every real $x$,
+\begin{equation}
+ f(x)=\min\{1,100\max\{\exp(\min\{b,x_+\})-1,0\}\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $\ell=\log(101/100)$. Since $\log(1+u)<u$ for $u>0$,
+$0<\ell<1/100<1/64$. If $x\leq0$, both expressions vanish.
+If $0<x<\ell$, neither clamp changes $x$, so both expressions are
+$100(e^x-1)$. If $\ell\leq x\leq b$, this value is at least one
+and the final clamp returns one. If $x>b$, the exponential argument
+is $b>\ell$, and the final clamp again returns one. Endpoints follow
+from the same equalities. Thus no exponential outside $[0,b]$ is needed.
+\end{proof}
+
+At fixed precision $q=28$, each constant, addition, positive subtraction,
+scaling and clamp uses the retained exact reversible integer emitter.
+The nonnegative exponential on $[0,b]$ uses certified rounded ordinates
+and signed-magnitude linear interpolation. The exact smooth interpolation
+error is at most $e^b b^2/(8M^2)$ for $M=2^{b_e}$ cells, in addition
+to certified nodal rounding and one interpolation floor unit.
+The exact exponential output range is bounded by $[1,64/63]$:
+for $0\leq x\leq1/64$, the power series gives
+$e^x=\sum_{k\geq0}x^k/k!\leq\sum_{k\geq0}x^k=1/(1-x)\leq64/63$.
+This avoids gratuitous fixed-point headroom.
+No derivative is taken across a payoff kink: both kinks are implemented
+by exact monotone clamps. The retained graph certificate propagates
+all intermediate rounding errors and proves that every subtraction,
+scalar input, fixed-point product and register remains in its guarded
+domain. In particular, the scalar error cannot silently replace its
+input-perturbation charge.
+
+The represented upper endpoint is computed by adding the same represented
+nonnegative $\log T$ register to the represented lower endpoint. Both
+payoffs use the same normal draw, offset, constants and scalar table.
+The exponential table is monotone: rounded node integers are nondecreasing,
+and floor interpolation within a cell is nondecreasing and does not exceed
+the next node. Positive subtraction, clipping and positive scaling preserve
+this order. Hence the represented payoff difference is nonnegative before
+its defensive positive subtraction, provided the independently checked
+overflow guards hold. The final clamp yields a probability in $[0,1]$.
+
+\section{Inner Gaussian discretisation}
+
+\begin{lemma}[Normal-grid Kolmogorov bound]\label{lem:raw-cdf}
+Let $L>0$, $a=\Phi(L)-\Phi(-L)$ and $M=2^{b_N}$. Define the exact
+conditional midpoint quantiles
+\begin{equation}
+ z_j=\Phi^{-1}\!\left(\Phi(-L)+a\frac{2j+1}{2M}\right),
+ \qquad j=0,\ldots,M-1.
+\end{equation}
+Let $\widetilde z_j$ satisfy $|\widetilde z_j-z_j|\leq e_N$,
+and let $\widetilde N$ choose these values uniformly. If
+$\nu_0\geq\sup_x\phi(x)$, then
+\begin{equation}
+ \sup_x|\Prb\{\widetilde N\leq x\}-\Phi(x)|
+ \leq D_N:=\frac{1-a}{2}+\frac{a}{2M}+\nu_0e_N.
+\end{equation}
+An outward lower enclosure of $a$ may replace $a$ on the right.
+\end{lemma}
+\begin{proof}
+First consider exact $z_j$. Between consecutive quantiles, its empirical
+CDF is $j/M$ for some $j$, whereas the normal CDF ranges between the
+neighbouring midpoint probabilities
+$\Phi(-L)+a(j-1/2)/M$ and $\Phi(-L)+a(j+1/2)/M$.
+Since $\Phi(-L)=(1-a)/2$, its deviation from $j/M$ is bounded by
+$|(1-a)(1/2-j/M)|+a/(2M)$, which is at most
+$(1-a)/2+a/(2M)$. Below the first quantile and above the last one,
+the same bound follows directly from their midpoint probabilities and
+the normal tail limits. At atoms the one-sided limits give the same bound.
+If $F_M$ is this empirical CDF and $\widetilde F_M$ the rounded CDF,
+then $F_M(x-e_N)\leq\widetilde F_M(x)\leq F_M(x+e_N)$,
+regardless of duplicate rounded quantiles. Since
+$|\Phi(x\pm e_N)-\Phi(x)|\leq\nu_0e_N$, the stated estimate follows.
+Finally, $(1-a)/2+a/(2M)$ is decreasing in $a$ for $M\geq1$;
+an outward lower endpoint therefore preserves the upper bound.
+\end{proof}
+
+\begin{proposition}[Nonsmooth payoff-difference transfer]\label{prop:raw-tv}
+For every $m\in\mathbb R$, $\Delta\geq0$ and $\lambda>0$,
+\begin{equation}
+ |\E h_{m,\Delta}(\widetilde N)-\E h_{m,\Delta}(N)|\leq2D_N.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Both maps $n\mapsto f(m+\Delta+\lambda n)$ and
+$n\mapsto f(m+\lambda n)$ are continuous and nondecreasing,
+with limits zero and one. Each consequently defines a positive
+Lebesgue--Stieltjes derivative measure of mass one. Their difference
+$h_{m,\Delta}$ has signed derivative $dh$ with total variation
+$|dh|(\mathbb R)\leq2$. It is continuous and tends to zero at
+both infinities. For the signed probability measure
+$d(\widetilde F_M-\Phi)$, integration by parts, first on finite
+intervals and then by bounded convergence against the finite measure
+$|dh|$, gives
+\begin{equation}
+ \E h(\widetilde N)-\E h(N)
+   =-\int_{\mathbb R}(\widetilde F_M(x)-\Phi(x))\,dh(x).
+\end{equation}
+Boundary terms vanish because both CDF differences vanish at infinities
+and $h$ is bounded. The absolute integral is bounded by
+$D_N|dh|(\mathbb R)\leq2D_N$. This proof permits atoms, coincident
+rounded quantiles and nondifferentiable payoff kinks. It uses no empirical
+price value and no local Gaussian smoothness of the payoff.
+\end{proof}
+
+% Supporting TeX fragment, intended for the existing raw-payoff proof.
+% This contains a checked derivation, not a claim of theoretical priority.
+\section{A smoothing-first arithmetic certificate}
+\label{sec:raw-smoothing-first}
+
+The complete pointwise graph certificate remains necessary for unsigned
+domains, scalar input domains and the absence of modular overflow. Its
+pointwise output error need not be the sharpest certificate of the prepared
+mean. I now derive a second bound for the same emitted arithmetic and take
+the smaller of the two bounds. This changes the financial certification,
+prior enlargement and estimator allowance; it does not change the circuit.
+The following argument separates rounding which depends on the inner
+normal label from rounding which depends only on the outer coordinate.
+Consequently, it does not differentiate a finite atomic law or a payoff
+across its kinks.
+
+Write $s=2^q$ and $u_q=s^{-1}$. The nearest dyadic rounding convention is
+\begin{equation}
+ \mathcal R_q(v)=s^{-1}\lfloor sv+1/2\rfloor.
+\end{equation}
+All quantities in this section are real values decoded from the guarded
+integer graph, rather than integers interpreted modulo a register width.
+Let $y$ be any realised outer-grid coordinate. The exact targets are
+$m=m_G(y)$ and $\Delta=\log T(y)\geq0$. The shifted affine node has ideal
+value $M=m+B_G$, where $B_G$ is the exact offset inherited from the retained
+graph. Its implemented value is $\widehat M$. The implemented nonnegative
+logarithm node is $\widehat\Delta$. Let the retained node certificate give
+the uniform bounds
+\begin{equation}
+ |\widehat M-M|\leq e_m,
+ \qquad |\widehat\Delta-\Delta|\leq e_\Delta,
+ \qquad \widehat\Delta\geq0.
+\end{equation}
+The words ``realised outer-grid coordinate'' are essential: Gaussian
+outer-node rounding is already included in the inherited financial
+transfer. The arithmetic certificate treats those realised coordinates
+as its exact inputs and does not charge their rounding a second time.
+
+Put
+\begin{equation}
+ C=J-B_G,\quad O=J+\lambda L,\quad
+ \widehat C=\mathcal R_q(C),\quad
+ \widehat O=\mathcal R_q(O),
+\end{equation}
+and define $\epsilon_C=\widehat C-C$ and
+$\epsilon_O=\widehat O-O$. Their certified absolute bounds are
+$e_C$ and $e_O$. These constants are independent of the inner normal
+label. In this graph the lower-endpoint additions and the upper-endpoint
+addition are exact integer additions. Their real decoded values therefore
+agree with ordinary real addition, once the retained whole-graph overflow
+and domain guards pass. No additional addition-rounding term is present.
+
+Let $(I_\lambda,d_\lambda)$ be exactly the coefficient pair returned by
+the retained fixed-point scaling emitter and set
+\begin{equation}
+ \widehat\lambda=I_\lambda 2^{-d_\lambda},
+ \qquad \delta_\lambda=\widehat\lambda-\lambda,
+ \qquad
+ e_{\rm floor}=\begin{cases}u_q,&d_\lambda>0,\\0,&d_\lambda=0.\end{cases}
+\end{equation}
+For the realised quantile word $v=\widetilde N+L\in[0,2L]$, the scale
+node decodes to
+\begin{equation}
+ \mathsf S_\lambda(v)
+ =s^{-1}\left\lfloor (sv)I_\lambda 2^{-d_\lambda}\right\rfloor
+ =\widehat\lambda v+\rho(v),
+ \qquad |\rho(v)|\leq e_{\rm floor}.
+\end{equation}
+When $d_\lambda=0$, the product is an integer and $\rho(v)=0$ exactly.
+The inequality with $u_q$ is outward and remains valid at dyadic endpoints.
+Thus, with
+\begin{equation}
+ E_s=2L|\delta_\lambda|+e_{\rm floor},\qquad
+ \widehat m=\widehat M-B_G+\epsilon_C-\epsilon_O,
+\end{equation}
+the two conceptual signed log arguments before positive subtraction are
+exactly
+\begin{align}
+ \widehat X_G
+ &=\widehat M+\widehat C+
+     \mathsf S_\lambda(\widetilde N+L)-\widehat O
+   =\widehat m+\lambda\widetilde N+\zeta(\widetilde N),\\
+ \widehat X_A
+ &=\widehat X_G+\widehat\Delta,
+ \qquad
+ \zeta(n)=\delta_\lambda(n+L)+\rho(n+L),
+ \qquad |\zeta(n)|\leq E_s.
+\end{align}
+The signed expressions are mathematical identities used to identify the
+target. The circuit itself computes their positive parts by guarded
+positive subtraction; it does not store an unguarded signed logarithm.
+In particular,
+\begin{equation}
+ |\widehat m-m|\leq E_m:=e_m+e_C+e_O.
+\end{equation}
+
+\begin{lemma}[Scalar implementation error after exact payoff clamps]
+\label{lem:raw-payoff-scalar-error}
+Let $b=1/64$ and let the implemented exponential map $\widehat E$ satisfy
+\begin{equation}
+ \sup_{t\in[0,b]\cap s^{-1}\mathbb Z}
+ |\widehat E(t)-e^t|\leq e_{\exp}.
+\end{equation}
+With $K=100$ and $H=1$, the graph payoff map obeys
+\begin{equation}
+ |\widehat f(x)-f(x)|\leq100e_{\exp}
+\end{equation}
+for every guarded decoded log argument $x$.
+\end{lemma}
+\begin{proof}
+The positive-part map and the clamps at $b$ and one are exact and
+$1$-Lipschitz. Both constants $b$ and one are exactly representable at
+$q=28$. The scalar graph's second input clamp at $b$ is idempotent and
+exact. The operation which subtracts one positively is exact because
+the constant one is exact and the positive-subtraction guards pass.
+Scaling by the integer $100$ has $d=0$, so it is an exact integer product
+without a fixed-point floor. The difference between implemented and exact
+exponentials is therefore multiplied by at most $100$ and is not enlarged
+by either following clamp. The clamp decomposition established earlier
+identifies the exact composed payoff with $f(x)$, completing the proof.
+\end{proof}
+
+The scalar certificate used in this lemma is its
+\texttt{output\_error\_upper}, comprising nodal rounding, smooth
+interpolation and the interpolation floor. It excludes the propagated
+argument-error charge. Argument perturbations are treated separately
+below. This distinction is required to avoid both omitting a perturbation
+and charging it twice. Allow distinct bounds $e_{\exp,G}$ and
+$e_{\exp,A}$, although the actual graph uses the same table and hence the
+same bound on both sides.
+
+\begin{theorem}[Smoothing-first conditional mean error]
+\label{thm:raw-smoothing-first}
+Assume the whole-graph domain and overflow certificate passes, the
+quantile CDF bound is $D_N$, the shifted-node and coefficient bounds above
+hold, and $\nu_0\geq\sup_x\phi(x)$. Let $p(y)$ be the exact probability
+of the prepared good flag conditional on the realised outer coordinate.
+Then
+\begin{align}
+ |p(y)-R_1(y)|
+ &\leq\eta_{\rm smooth},\\
+ \eta_{\rm smooth}
+ &=\min\left\{1,
+     100(e_{\exp,G}+e_{\exp,A})+202E_s+2D_N
+     +\frac{\nu_0}{\lambda}(2E_m+e_\Delta)\right\}.
+\end{align}
+If $\eta_{\rm point}$ is the independently valid pointwise graph/CDF
+bound, the smaller bound
+$\eta=\min\{\eta_{\rm point},\eta_{\rm smooth}\}$ is valid uniformly
+over the same realised outer grid.
+\end{theorem}
+\begin{proof}
+The payoff is absolutely continuous, with its almost-everywhere derivative
+\begin{equation}
+ f'(x)=100e^x\mathbf1_{(0,\ell)}(x),
+ \qquad \ell=\log(101/100).
+\end{equation}
+Thus $f$ is globally $101$-Lipschitz. Replacing
+$\widehat X_G$ and $\widehat X_A$ by
+$\widehat m+\lambda\widetilde N$ and
+$\widehat m+\widehat\Delta+\lambda\widetilde N$ changes the difference
+of exact payoffs by at most $2\cdot101E_s=202E_s$ for each normal label.
+The scalar lemma changes the difference by at most
+$100(e_{\exp,G}+e_{\exp,A})$. The final positive subtraction and clamp
+are the metric projection onto $[0,1]$; that projection is $1$-Lipschitz
+and fixes the exact payoff difference because
+$\widehat\Delta\geq0$. They cannot enlarge this bound.
+
+For completeness, the represented output is in fact the unprojected
+difference of represented payoffs. The upper represented endpoint is
+the lower endpoint plus the nonnegative word $\widehat\Delta$, without
+overflow. Each preceding clamp and positive subtraction is monotone.
+The rounded exponential node integers are nondecreasing. Within a cell,
+the interpolator returns its base plus the floor of a nonnegative
+increment. It is nondecreasing and cannot exceed the next node; at the
+next cell it begins at that node. Hence the interpolator is monotone on
+the complete dyadic input domain. Positive scaling and the final payoff
+clamp preserve order, giving $0\leq\widehat f(\widehat X_G)
+\leq\widehat f(\widehat X_A)\leq1$. Exact final subtraction therefore
+produces their difference. The uniform comparator implements that
+dyadic difference as a flag probability exactly.
+
+After these pointwise replacements, the finite-inner-law target is
+$\mathbb E h_{\widehat m,\widehat\Delta}(\widetilde N)$.
+Both $\widehat m$ and $\widehat\Delta$ depend only on outer labels,
+constants and outer arithmetic. They are independent of the inner normal
+label, as is required here. The existing bounded-variation CDF lemma
+applies at these represented endpoints, including atomic or duplicate
+quantiles, and bounds its difference from
+$\mathbb E h_{\widehat m,\widehat\Delta}(N)$ by $2D_N$.
+Normal-node rounding is entirely charged by $D_N$ and does not enter
+$E_s$ or $E_m$.
+
+It remains to compare two continuous conditional means. Define
+\begin{equation}
+ P_\lambda(t)=\mathbb E f(t+\lambda N).
+\end{equation}
+The nonnegative derivative $f'$ has mass
+$\int f'(x)\,dx=100(e^\ell-1)=1$. Convolution with the Gaussian density
+therefore gives
+\begin{equation}
+ P_\lambda'(t)
+ =\int_{\mathbb R} f'(x)\frac1\lambda
+             \phi\left(\frac{x-t}{\lambda}\right)\,dx,
+ \qquad 0\leq P_\lambda'(t)\leq\frac{\nu_0}{\lambda}.
+\end{equation}
+One justification of the derivative identity is to write the difference
+quotient of $f(t+\lambda N)$ as an integral of its bounded almost-everywhere
+derivative and use dominated convergence. Changing variables yields the
+displayed convolution. Alternatively, the finite positive derivative
+measure $df$ can be convolved with the smooth Gaussian. Either argument
+integrates the continuous normal before applying the slope bound and
+never differentiates the finite atomic normal approximation.
+
+The Lipschitz bound for $P_\lambda$ now yields
+\begin{align}
+ &\left|P_\lambda(\widehat m+\widehat\Delta)
+          -P_\lambda(\widehat m)
+          -P_\lambda(m+\Delta)+P_\lambda(m)\right|\\
+ &\qquad\leq\frac{\nu_0}{\lambda}
+        \left(|\widehat m-m+\widehat\Delta-\Delta|
+              +|\widehat m-m|\right)
+ \leq\frac{\nu_0}{\lambda}(2E_m+e_\Delta).
+\end{align}
+Adding the three independently justified errors proves the untruncated
+bound. Both the prepared probability and $R_1(y)$ lie in $[0,1]$, so
+truncating the error at one is valid. Taking the smaller of two valid
+uniform upper bounds is valid as well.
+\end{proof}
+
+The analytic financial coefficient, outer finite law, its external mass
+and continuous financial transfer remain unchanged. The complete monetary
+certificate is rebuilt with this new $\eta$, and the same ideal finite-mean
+prior is enlarged by this new $\eta$. The phase-estimation allowance,
+coverage plan and full logical resource charge must be rebuilt afterwards.
+Neither a new estimator cost nor a strengthened comparative conclusion
+follows merely from deriving a smaller arithmetic bound. This is a
+project-specific derivation from established smoothing, monotonicity,
+fixed-point rounding and CDF transfer principles; theoretical priority is
+not asserted.
+
+\section{Complete monetary certificate and quantum preparation}
+
+Let $e_{\rm ar}$ be the complete graph's pointwise output-error upper
+bound relative to the exact payoff difference at the realised outer
+coordinates and the realised rounded normal draw. Normal-node rounding
+is charged in Lemma~\ref{lem:raw-cdf}, while the retained graph treats
+its realised quantile integers as exact inputs. Therefore
+\begin{equation}
+ \eta_{\rm point}=\min\{1,e_{\rm ar}+2D_N\}
+\end{equation}
+is the original valid pointwise bound. I use
+$\eta=\min\{\eta_{\rm point},\eta_{\rm smooth}\}$
+for the amended probability and monetary certificate. Both bounds apply
+to the same ideal finite-outer-grid conditional mean $R_1$. The factor two in the
+normal discrepancy is a sufficient bounded-variation estimate, not a
+claim that the discrepancy is attained.
+
+For each graph the preparation first places its outer Gaussian labels,
+inner Gaussian label and $q$ comparator bits in a uniform superposition.
+It computes the guarded numerical probability, XORs the comparison
+$U_q<p_q$ into a separate good flag and reverses the complete arithmetic
+body. Here $U_q$ is uniform on $\{0,\ldots,2^q-1\}$ and the
+probability integer $p_q$ lies in $\{0,\ldots,2^q\}$, so the
+conditional good probability is exactly $p_q/2^q$. The comparator's
+endpoint-high-zero wire is allocated but excluded from the reflected
+active core. The core consists of the actual uniform input wires,
+comparator wires and actual good flag. All clean private arithmetic
+wires may be reused for reflection scratch. Full controlled reflections,
+the conditional global-minus gate, $A$ and $A^\dagger$, the synthesised
+inverse Fourier transform, measurements and resets are included in
+the complete canonical QPE charge. This retains the published amplitude
+estimation and derivative-pricing framework \citep{brassard,rebentrost};
+no new generic amplitude-estimation result is claimed.
+
+Let the retained outer finite law have external factor in
+$[a_-,a_+]$, midpoint $a_c$ and radius $a_r$. Let $\beta$ be its
+price-independent complete continuous financial transfer and $e_0$
+the analytic coefficient radius. The direct difference's normaliser
+is $H=1$, and its whole deterministic undiscounted monetary error obeys
+\begin{equation}
+ D=e_0+\beta+a_+\eta+a_r.
+\end{equation}
+To derive this bound, let $r$ be the ideal finite-outer-grid mean correction,
+$p$ the implemented flag probability and $a$ the exact external outer mass.
+By construction, $|V-(c_0+ar)|\leq\beta$,
+$|\widehat c_0-c_0|\leq e_0$, $|p-r|\leq\eta$ and
+$|a-a_c|\leq a_r$, with $a\leq a_+$. Clip any reported probability
+to $[0,1]$, which cannot increase its error from $p\in[0,1]$.
+On the estimator's coverage event $|\widehat p-p|\leq\varepsilon_p$,
+the decoder $\widehat V=\widehat c_0+a_c\widehat p$ satisfies
+\begin{equation}
+ |\widehat V-V|
+ \leq e_0+\beta+a|p-r|+a|\widehat p-p|
+             +|a-a_c|\,|\widehat p|
+ \leq D+a_+\varepsilon_p.
+\end{equation}
+Thus the probabilistic estimator allowance is added exactly once; none
+of its confidence budget is spent again on the deterministic bounds.
+The inner finite Gaussian law is normalised and requires no further
+external mass multiplier. The inherited ideal finite-mean prior $[l,u]$
+is enlarged to $[\max(0,l-\eta),\min(1,u+\eta)]$. Neither a
+basket-price answer nor an earlier sampled estimate enters this prior.
+If $D<1/100$, the canonical QPE target is
+$\varepsilon_p=(1/100-D)/a_+$ with per-price failure allowance
+$1/3600$. Its retained explicit amplitude bound, outward Fourier error,
+exact binomial amplification and postprocessing allowance certify the
+full monetary radius. The controller records any exhausted budget,
+domain failure or production exception as a rejection; none is repaired
+after inspection within this protocol.
+
+\section{Registered pointwise comparison and interpretation}
+
+The outer financial parameters, selected exact rational factor bases,
+$L=6$, outer quantile width ten, outer scalar width twelve and $q=28$
+are fixed. Before fresh costs I registered inner normal widths
+$\{8,10,12\}$, narrow-exponential address widths $\{4,6,8,10\}$
+and both coherent lookup architectures. The first registered run used the
+safe exponential output interval $[1,2]$; I retained its complete evidence
+and separately froze the exact $[1,64/63]$ range amendment before new costs.
+The amendment changes only semantic range bounds and resulting integer
+headroom, while retaining the target, scalar ordinates, precision pool and
+confidence policy. Its complete resource record is retained in deterministic
+gzip. These are disclosed sequential design choices, not a blind initial
+registration. This gives twelve configurations
+per financial case and forty-eight in total, with ninety-six complete
+architectural resource plans. All forty-eight configurations were admitted.
+Every selected minimum uses inner width ten and exponential width ten.
+Thus a wider precision search could strengthen this rival; the registered
+finite minimum is not a global optimisation claim.
+
+Under the original pointwise certificate, its minimum complete logical T caps are
+$23\,346\,683\,625$, $88\,548\,390\,850$,
+$94\,437\,597\,250$ and $417\,229\,413\,325$ in the retained
+case order. The fixed shared-threshold representation is respectively
+$10.67$, $5.63$, $5.50$ and $51.27$ per cent cheaper. This new rival
+is $1.86$ and $0.80$ per cent cheaper than the strengthened numerical
+conditional-price rival in the first and third cases. It is $0.39$ and
+$99.16$ per cent more expensive in the second and fourth cases. A strongest
+registered-rival comparison therefore selects the less costly numerical or
+raw-payoff rival independently in each case.
+These are matched sufficient logical resource caps under synthetic
+contracts and the registered finite policies. They are not quantum
+price outcomes, physical runtimes, a general theorem of algorithmic
+superiority or evidence of practical quantum advantage.
+\section{Rebuilt smoothing-first comparison}
+
+I separately register the smoothing certificate after deriving its full
+graph-to-target proof and disclosing the known preceding outcomes. All
+48 literal graphs, scalar tables, financial models and 96 coherent
+profiles are unchanged. Every deterministic budget, enlarged ideal-mean
+prior and complete canonical QPE plan is rebuilt. Independent mathematical
+recomputation checks every coefficient, exponential error decomposition,
+normal discrepancy and selected allowance. A separate own-formula audit
+checks all 96 confidence and full-charge plans. Whole-preparation checks
+cover the original winners and the newly selected eight-bit normal circuit.
+
+The amended raw minima are $23\,346\,683\,625$,
+$88\,548\,390\,850$, $94\,122\,973\,950$ and
+$208\,512\,831\,750$ logical T gates. Their selected inner normal widths
+are ten, ten, eight and ten; all exponential widths are ten. The third
+case changes its winning circuit and the eight-asset case changes QPE
+resolution from 1,024 to 512, without changing that preparation. All
+selected plans use 25 repetitions. The strongest admitted rival is raw
+payoff in the first, third and fourth cases and numerical conditional
+pricing in the second. The fixed shared-threshold encoding then saves
+$10.67$, $5.26$, $5.18$ and $2.49$ per cent, respectively. Exact integers
+and rational ratios remain retained.
+
+These narrower positive findings supersede the earlier pointwise-only
+comparison for headline claims. Their magnitude depends on the chosen
+sufficient certificates and finite precision policies; every exponential
+winner remains at the pool's upper boundary. Further certified error
+refinements, shared efficient arithmetic and wider precision optimisation
+may strengthen either opponent. The result establishes neither generic
+query superiority, physical quantum advantage nor theoretical priority.
+
+\appendix
+% Optional sharpened transfer fragment. It is distinct from frozen costs.
+\section{Exact variation of the common-normal payoff difference}
+\label{sec:raw-exact-variation}
+
+\begin{proposition}[Exact variation]
+\label{prop:raw-exact-variation}
+For $\Delta\geq0$, $m\in\mathbb R$ and $\lambda>0$, let
+$\ell=\log(101/100)$ and
+$h(n)=f(m+\Delta+\lambda n)-f(m+\lambda n)$. Then
+\begin{equation}
+ \operatorname{TV}(h)
+ =2\min\{1,101(1-e^{-\Delta})\}.
+\end{equation}
+Consequently, the normal CDF transfer obeys the sufficient conditional
+bound
+\begin{equation}
+ |\mathbb E h(\widetilde N)-\mathbb E h(N)|
+ \leq2D_N\min\{1,101(1-e^{-\Delta})\}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+An increasing affine change of the independent variable preserves total
+variation, so it suffices to study
+$g(x)=f(x+\Delta)-f(x)$. If $\Delta=0$, the function is identically
+zero. Suppose first that $0<\Delta<\ell$. Its explicit pieces are
+\begin{equation}
+ g(x)=\begin{cases}
+ 0,&x\leq-\Delta,\\
+ 100(e^{x+\Delta}-1),&-\Delta<x\leq0,\\
+ 100e^x(e^\Delta-1),&0<x<\ell-\Delta,\\
+ 101-100e^x,&\ell-\Delta\leq x<\ell,\\
+ 0,&x\geq\ell.
+ \end{cases}
+\end{equation}
+The pieces agree at every boundary. The first nonzero piece is increasing;
+the middle piece is increasing; the last nonzero piece is decreasing.
+The maximum at $x=\ell-\Delta$ is
+$101-100e^{\ell-\Delta}=101(1-e^{-\Delta})<1$.
+Because the continuous function increases from zero to this maximum and
+then decreases to zero, its variation is twice its maximum.
+
+If $\Delta\geq\ell$, the nonzero pieces instead are
+\begin{equation}
+ g(x)=\begin{cases}
+ 100(e^{x+\Delta}-1),&-\Delta<x<\ell-\Delta,\\
+ 1,&\ell-\Delta\leq x\leq0,\\
+ 101-100e^x,&0<x<\ell.
+ \end{cases}
+\end{equation}
+Outside their union the function is zero. The plateau has height one;
+for $\Delta=\ell$ it reduces to a single point. The variation is two.
+At $\Delta=\ell$, $101(1-e^{-\ell})=1$, so the two formulae agree.
+The CDF estimate follows from the same signed Stieltjes integration by
+parts used for the original variation upper bound, replacing its bound
+two by the exact variation just derived.
+\end{proof}
+
+This sharpening is conditional on the endpoint gap. A uniform certificate
+may replace $\Delta$ by a valid upper bound because
+$\min\{1,101(1-e^{-\Delta})\}$ is nondecreasing. If that upper bound
+exceeds $\ell$, the uniform estimate is still $2D_N$. For the
+smoothing-first certificate, the gap in the CDF step is the represented
+nonnegative $\widehat\Delta$, so a bound for the true gap alone does not
+justify a tighter represented-gap transfer without its arithmetic
+enlargement. This optional sharpening has not been used in the frozen
+pointwise resource results. Any resource claim which uses it requires a
+separately recorded financial certificate, prior and estimator rebuild.
+
+% Project-specific derivation for the retained literal compiler.
+% This fragment makes no claim of generic quantum lower-bound novelty.
+\section{Excluding still wider addresses within the fixed compiler}
+\label{sec:raw-wider-address-exclusion}
+
+I distinguish an exclusion within a fixed emitted implementation from an
+algorithmic complexity lower bound. In this section the classical financial
+models, $q=28$, narrow exponential span $b_0=1/64$, both payoff graphs,
+normal widths $\{8,10,12\}$, outer precisions, two coherent unary-lookup
+architectures and canonical-QPE controller are fixed. The scalar address
+width is denoted by $b_e$, rather than by $b_0$.
+
+The dyadic input interval contains $2^{q-6}+1$ representable arguments.
+An address width $b_e$ gives $N=2^{b_e}$ cells, with remainder width
+$q-6-b_e=22-b_e$. Hence this interpolator requires $1\leq b_e\leq22$.
+The widths $11,12,13,14$ leave respectively $11,10,9,8$ remainder bits;
+no new financial or smoothing assumption follows from this extension.
+The fresh scalar tables still require checked rounding, monotonicity,
+input domains and whole-graph absence of modular overflow.
+
+\begin{lemma}[Literal selector count]
+\label{lem:raw-selector-count}
+Suppose a unary lookup has $b_e+1$ address bits and exactly the first
+$N+1$ words are nonzero, where $N=2^{b_e}$ and $b_e\geq1$.
+The retained recursively pruned selector tree visits exactly $N+b_e$
+internal nodes. Its logical T count is
+\begin{equation}
+ \tau_{\rm look}(b_e)=
+ \begin{cases}
+ 14(N+b_e),&\text{exact seven-T Toffoli architecture},\\
+ 8(N+b_e),&\text{unitary eight-T selector-pair architecture}.
+ \end{cases}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The root partitions the $2N$ address values into two halves. Its left
+subtree contains all $N$ nonzero words and is a full binary tree with
+$N-1$ internal nodes. The right subtree contains the single nonzero word
+at address $N$ and consequently visits a path with $b_e$ internal nodes.
+The root itself contributes one, giving $1+(N-1)+b_e=N+b_e$.
+Each visited node has exactly one selector compute and one selector
+erase. In the first architecture these are two seven-T Toffolis. In the
+second they are a four-T clean-target compute and its four-T unitary
+inverse. All changes of branch, word writes and root operations are
+Clifford gates. The stated counts therefore follow from the literal
+retained sequence, with no measurement or free lookup assumption.
+\end{proof}
+
+All packed narrow-exponential words are nonzero because their base
+ordinates are at least the exact integer representing one. The final
+endpoint word is also present; it has zero interpolation delta and its
+nonzero base. Thus Lemma~\ref{lem:raw-selector-count} applies.
+Each exponential node contains two lookup invocations, as its private
+arithmetic is cleaned. The two payoff nodes and the subsequent cleanup
+of the complete preparation give eight such invocations in $A$.
+Let $a^{\rm fixed}_{j,k}$ be the retained logical T count of all other
+blocks and the comparator in case $j$, normal width $k$ and the stated
+architecture, including their cleanup. Their arguments, word widths,
+tables and emitted sequences are independent of $b_e$. Discarding every
+other T gate inside the exponential nodes gives
+\begin{equation}
+ T_A(b_e)\geq a^{\rm fixed}_{j,k}+c(2^{b_e}+b_e),
+ \qquad c=112\text{ or }64.
+\end{equation}
+This is valid even when a wider address shortens its interpolation
+multiplier, because that multiplier has been discarded completely from
+the lower bound. It relies on this literal graph, without a hypothetical
+optimisation which shares the two scalar evaluations.
+
+Let $A_j=a_{+,j}$ be the unchanged outer mass upper bound, $e_{0,j}$
+the coefficient radius, $\beta_j$ the financial-transfer upper bound,
+$a_{r,j}$ the outer mass radius and $[l_j,u_j]$ the retained ideal
+finite-mean interval. Give a competing wider implementation the
+optimistic error $\eta=0$, and define
+\begin{equation}
+ d_{0,j}=e_{0,j}+\beta_j+a_{r,j},\qquad
+ \varepsilon_{0,j}=\frac{1/100-d_{0,j}}{A_j}.
+\end{equation}
+Every admitted implementation has deterministic error at least $d_{0,j}$
+and hence probability tolerance at most $\varepsilon_{0,j}$. Its enlarged
+probability upper prior is at least $u_j$. The controller's variance
+upper rule
+\begin{equation}
+ v(u)=\begin{cases}u(1-u),&0\leq u\leq1/2,\\1/4,&1/2<u\leq1\end{cases}
+\end{equation}
+is nondecreasing, as is its outward dyadic square-root rule. Therefore
+let $M_{0,j}$ be the first supported power of two satisfying the retained
+canonical-QPE sufficient amplitude bound at $(\varepsilon_{0,j},u_j)$.
+Every active admitted plan has $M\geq M_{0,j}$. The retained inequalities
+$A_j(u_j-l_j)/2>1/100-d_{0,j}$ and $u_j>2\varepsilon_{0,j}$ exclude
+both controller forms of a zero-shot prior decision. These are checked
+exactly for each of the four cases.
+
+For confidence amplification, set $\pi_+=355/113$ and give the inverse
+Fourier transform zero operator error. The controller's maximal certified
+single-shot success probability is then $s_0=8/\pi_+^2$. Exact binomial
+calculation shows that the first odd repeat count with majority failure
+at most $1/3600$ is $r_0=25$. For a smaller success probability the
+majority-failure probability is nonincreasing in the success parameter
+and is therefore no better. This monotonicity follows, for example, by
+coupling each success indicator as $\mathbf1\{U_i\leq s\}$ with common
+independent uniform $U_i$. Every active plan thus has at least $r_0$
+repetitions. This is a constraint of this certification controller;
+it is not a lower bound on all conceivable amplitude estimators.
+
+One canonical-QPE repetition calls $A$ once initially and calls both
+$A$ and $A^\dagger$ in each of its $M-1$ controlled Grover steps.
+Ignoring all reflection and Fourier T gates gives the complete bound
+\begin{equation}
+ T_{\rm complete}(b_e)
+ \geq r_0(2M_{0,j}-1)
+       \left(\min_{k\in\{8,10,12\}}a^{\rm fixed}_{j,k}
+             +c(2^{b_e}+b_e)\right).
+\end{equation}
+This lower bound concerns the fully specified logical resource policy;
+it does not convert sufficient monetary-error bounds into an algorithmic
+quantum query lower bound.
+
+The exact retained fields give $M_{0,j}=256,512,512,512$ in case order.
+For the less expensive unitary architecture the fixed-block minima are
+$1\,494\,706$, $3\,129\,342$, $3\,348\,190$ and $7\,808\,330$ T gates,
+all attained at normal width eight. At address width fifteen the lower
+complete counts are respectively
+\begin{equation}
+45\,898\,249\,950,\quad133\,692\,136\,050,\quad
+139\,289\,173\,650,\quad253\,357\,254\,150.
+\end{equation}
+Each already exceeds an admitted earlier raw-payoff cap in its own case.
+The exact seven-T architecture has still larger corresponding bounds.
+Since $2^{b_e}+b_e$ is strictly increasing, all feasible widths fifteen
+through twenty-two are excluded from improving those incumbents under
+the stated fixed choices. Widths beyond twenty-two are outside this
+fixed-point interpolator's input-resolution domain.
+
+This exclusion does not cover omitted lower address widths
+$\{1,2,3,5,7,9\}$, unequal widths for the two payoff nodes, other normal
+widths, shared arithmetic, different word precisions, other lookup
+architectures or other mean estimators. It can resolve an upper-boundary
+concern for the registered extension without supporting a claim of a
+global precision optimum, generic quantum superiority, theoretical
+priority or practical quantum advantage.
+
+% Checked supporting fragment. This replaces any identical-map ordering
+% assertion for independently addressed PG and PA exponential tables.
+% It is a project-specific derivation, not a claim of theoretical priority.
+\section{Independent payoff-table precision and projected encoding}
+\label{sec:raw-asymmetric-projection}
+
+I allow the two exponential look-up tables in the common-normal payoff
+difference to use different address widths. The two represented maps can
+be individually monotone without preserving their mutual order. The
+financial target remains the original no-arbitrage conditional correction;
+the following projection makes the implemented asymmetric difference a
+valid probability without assuming an ordering that has not been proved.
+
+Throughout this section, $K=100$, $H=1$, $\lambda>0$, $q=28$ and
+$s=2^q$. Define
+\begin{equation}
+ f(x)=\min\{1,100(e^x-1)_+\},\qquad
+ \Pi(t)=\min\{1,\max\{0,t\}\},\qquad
+ \ell=\log(101/100).
+\end{equation}
+Since $\ell<1/64$, the exact bounded-argument decomposition is
+\begin{equation}
+ f(x)=\min\{1,100[\exp(\min\{1/64,x_+\})-1]_+\}.
+\end{equation}
+Indeed, the two expressions agree for $x\leq0$, for
+$0<x<\ell$, and for $x\geq\ell$. The last case follows because
+the clamped argument is at least $\ell$ whenever the unclamped
+argument is at least $\ell$. Consequently, the exponential only needs
+its certified domain $[0,1/64]$, with
+$1\leq e^t\leq64/63$ there, the last inequality following from
+$e^t\leq(1-t)^{-1}$ for $0\leq t<1$.
+
+\begin{lemma}[Exact projected integer difference]
+\label{lem:raw-asymmetric-projection}
+Suppose every unsigned operand and intermediate product satisfies the
+retained domain and overflow certificate. Let $a,b$ be the represented
+payoff words, decoded in $s^{-1}\mathbb Z\cap[0,1]$. Then the emitted
+operation \texttt{clamp(positive\_sub($a$,$b$),1)} decodes exactly to
+$\Pi(a-b)$. In particular, its range is $[0,1]$ even if $a<b$.
+The uniform $q$-bit comparator encodes this value as a flag probability
+exactly.
+\end{lemma}
+\begin{proof}
+Let the word width be $w$ and write $A=sa$, $B=sb$. The subtraction
+primitive produces $A-B$ modulo $2^w$ in temporary workspace. The
+comparison flag is one exactly when $B<A$. Controlled copies of the
+temporary difference to a zero output word therefore return $A-B$ when
+$A>B$, and zero when $A\leq B$. When $A>B$, the retained unsigned
+bounds ensure $0<A-B<2^w$, so the copied word is the ordinary integer
+difference. When $A<B$, the modular subtraction is never copied and is
+uncomputed with the comparison workspace. The temporary modular word
+does not become a financial value. The subsequent clamp at the exactly
+representable integer $s$ gives $\min\{s,\max\{0,A-B\}\}$.
+The guarded operands are nonnegative and fit their registers; the
+retained pre-mask magnitude guard also excludes an ambiguous overflow.
+Thus decoding gives exactly $\Pi(a-b)$. For an output integer
+$C\in\{0,\ldots,s\}$, exactly $C$ labels in the uniform set
+$\{0,\ldots,s-1\}$ satisfy $U<C$. The good-flag probability is
+$C/s$, including both endpoints. The clean inverse restores the
+workspace after the flag is copied.
+\end{proof}
+
+The projection is nondecreasing and $1$-Lipschitz. For example, if
+$u\leq v$, then its piecewise-linear definition gives
+$0\leq\Pi(v)-\Pi(u)\leq v-u$. Reversing the arguments gives the
+absolute-value inequality. For every $\Delta\geq0$,
+$h_{m,\Delta}(n)=f(m+\Delta+\lambda n)-f(m+\lambda n)$ lies in
+$[0,1]$, so $\Pi(h_{m,\Delta}(n))=h_{m,\Delta}(n)$.
+
+\begin{lemma}[Separate scalar errors survive projection]
+\label{lem:raw-asymmetric-scalar}
+Let $\widehat E_G$ and $\widehat E_A$ be the two guarded dyadic
+exponential implementations, with independently certified bounds
+\begin{equation}
+ \sup_{t\in[0,1/64]\cap s^{-1}\mathbb Z}
+ |\widehat E_i(t)-e^t|\leq e_{\exp,i},\qquad i\in\{G,A\}.
+\end{equation}
+Let $\widehat f_i$ denote the exact emitted clamps and positive
+subtractions around $\widehat E_i$. For any guarded decoded arguments
+$x_G,x_A$,
+\begin{equation}
+ \left|\Pi(\widehat f_A(x_A)-\widehat f_G(x_G))
+          -\Pi(f(x_A)-f(x_G))\right|
+ \leq100(e_{\exp,G}+e_{\exp,A}).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The constants zero, one and $1/64$ are exactly representable at
+$q=28$. All payoff clamps and positive subtractions implement their
+decoded real maps exactly, conditional on the whole-graph guards.
+Integer scaling by $100$ has no fixed-point floor. Since these clamps
+are $1$-Lipschitz, $|\widehat f_i(x)-f(x)|\leq100e_{\exp,i}$.
+The triangle inequality for the difference and the $1$-Lipschitz
+property of $\Pi$ give the claim. No comparison between
+$\widehat f_G$ and $\widehat f_A$ is required. Each $e_{\exp,i}$
+is the scalar's \texttt{output\_error\_upper}, comprising nodal
+rounding, interpolation error and interpolation floor. Its propagated
+argument-error charge is excluded here because that charge is treated
+separately below.
+\end{proof}
+
+Fix a realised outer-grid coordinate $y$. Let $m=m_G(y)$,
+$\Delta=\log T(y)\geq0$, and let the inherited shifted node have
+ideal value $M=m+B_G$ and represented value $\widehat M$.
+Write $\widehat\Delta$ for the represented logarithm. The guarded
+graph gives
+\begin{equation}
+ |\widehat M-M|\leq e_m,\qquad
+ |\widehat\Delta-\Delta|\leq e_\Delta,\qquad
+ \widehat\Delta\geq0.
+\end{equation}
+These errors treat the realised outer coordinates as exact inputs.
+Outer Gaussian-node rounding is already charged by the inherited
+continuous-to-finite financial transfer and is not charged again here.
+Let $C=J-B_G$, $O=J+\lambda L$ and let their represented constants
+be $\widehat C$, $\widehat O$. If
+$|\widehat C-C|\leq e_C$ and $|\widehat O-O|\leq e_O$, set
+\begin{equation}
+ \widehat m=\widehat M-B_G+(\widehat C-C)-(\widehat O-O),
+ \qquad E_m=e_m+e_C+e_O.
+\end{equation}
+Thus $|\widehat m-m|\leq E_m$.
+
+Let $(I_\lambda,d_\lambda)$ be the actual integer coefficient and
+drop count of the scaling emitter, and put
+\begin{equation}
+ \widehat\lambda=I_\lambda2^{-d_\lambda},\qquad
+ E_s=2L|\widehat\lambda-\lambda|
+       +s^{-1}\mathbf1_{\{d_\lambda>0\}}.
+\end{equation}
+For a realised quantile $\widetilde N\in[-L,L]$, the exact decoded
+scale node is
+$\widehat\lambda(\widetilde N+L)+\rho(\widetilde N+L)$,
+where $|\rho|\leq s^{-1}$ when $d_\lambda>0$, and $\rho=0$
+otherwise. The guarded endpoint additions are exact integer additions.
+Consequently their conceptual signed arguments are
+\begin{align}
+ \widehat X_G&=\widehat m+\lambda\widetilde N+
+                    \zeta(\widetilde N),\qquad |\zeta|\leq E_s,\label{eq:raw-asymmetric-arguments}\\
+ \widehat X_A&=\widehat X_G+\widehat\Delta.\nonumber
+\end{align}
+These are mathematical signed differences used to identify the financial
+target. The circuit obtains their positive parts by the guarded unsigned
+construction of Lemma~\ref{lem:raw-asymmetric-projection}; it does not
+store an unguarded signed log argument.
+
+\begin{theorem}[Conditional error for independently addressed tables]
+\label{thm:raw-asymmetric-conditional}
+Assume the whole-graph certificate passes and the realised finite normal
+law has Kolmogorov discrepancy at most $D_N$ from the standard normal
+law. Let $\nu_0\geq\sup_x\phi(x)$ and let $p(y)$ be the implemented
+good-flag probability conditional on the realised outer coordinate. Then
+\begin{equation}
+ |p(y)-R_1(y)|\leq\eta_{\rm smooth}:=
+ \min\left\{1,100(e_{\exp,G}+e_{\exp,A})+202E_s+2D_N+
+       \frac{\nu_0}{\lambda}(2E_m+e_\Delta)\right\}.
+\end{equation}
+The minimum of this bound and an independently valid pointwise
+graph/CDF bound is a valid uniform conditional certificate.
+\end{theorem}
+\begin{proof}
+The payoff is absolutely continuous, with almost-everywhere derivative
+$f'(x)=100e^x\mathbf1_{(0,\ell)}(x)$, and is globally
+$101$-Lipschitz. Replacing the two arguments in
+\eqref{eq:raw-asymmetric-arguments} by
+$\widehat m+\lambda\widetilde N$ and
+$\widehat m+\widehat\Delta+\lambda\widetilde N$ changes the exact
+payoff difference by at most $202E_s$ per normal label. Projection
+cannot enlarge this error and fixes the latter difference because
+$\widehat\Delta\geq0$. Lemma~\ref{lem:raw-asymmetric-scalar}
+adds at most $100(e_{\exp,G}+e_{\exp,A})$.
+
+The remaining finite-inner-law target is
+$\mathbb E h_{\widehat m,\widehat\Delta}(\widetilde N)$. The
+parameters $\widehat m$ and $\widehat\Delta$ depend only on outer
+labels, not on the inner normal label. Each summand of $h$ is
+continuous and nondecreasing with total variation one, so
+$\operatorname{TV}(h)\leq2$. Stieltjes integration by parts gives
+\begin{equation}
+ \mathbb E h(\widetilde N)-\mathbb E h(N)
+   =-\int_{\mathbb R}(F_{\widetilde N}(x)-\Phi(x))\,dh(x).
+\end{equation}
+The boundary term vanishes because $h$ is bounded and both CDFs tend
+to the same limits at infinity. The continuous function $h$ assigns
+no atom to its derivative measure, so the identity accommodates
+atoms of the finite law and duplicate quantiles. Its absolute value
+is at most $2D_N$. Normal rounding is charged solely within $D_N$.
+
+Define $P_\lambda(t)=\mathbb E f(t+\lambda N)$. The nonnegative
+measure $df$ has mass
+$100(e^\ell-1)=1$. Gaussian convolution gives
+\begin{equation}
+ P_\lambda'(t)=\int_{\mathbb R}
+       \frac1\lambda\phi\left(\frac{x-t}{\lambda}\right)df(x),
+ \qquad 0\leq P_\lambda'(t)\leq\frac{\nu_0}{\lambda}.
+\end{equation}
+Differentiation is justified by the bounded smooth Gaussian kernel
+against the finite measure $df$; equivalently, one may use the
+bounded derivative of $f$ and dominated convergence. Thus the two
+continuous endpoint perturbations contribute at most
+$\nu_0(2E_m+e_\Delta)/\lambda$. Adding the independently justified
+terms proves the uncapped bound. Both $p(y)$ and $R_1(y)$ lie in
+$[0,1]$, so capping the error at one is valid. The minimum of two
+valid uniform upper bounds remains valid.
+\end{proof}
+
+\begin{proposition}[Prospective common-shift refinement]
+\label{prop:raw-common-shift-refinement}
+For $R(m,\Delta)=P_\lambda(m+\Delta)-P_\lambda(m)$ with
+$\Delta\geq0$, the continuous outer perturbation above also satisfies
+\begin{equation}
+ |R(\widehat m,\widehat\Delta)-R(m,\Delta)|
+ \leq\frac{\nu_0}{\lambda}(E_m+e_\Delta).
+\end{equation}
+If $\nu_1\geq\sup_x|\phi'(x)|$ and a certified uniform bound
+$\Delta\leq\Delta_*$ is available, the common-shift coefficient
+can be replaced by
+\begin{equation}
+ \min\left\{\frac{\nu_0}{\lambda},
+              \frac{\nu_1\Delta_*}{\lambda^2}\right\}E_m
+       +\frac{\nu_0}{\lambda}e_\Delta.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The previous convolution identity bounds $P_\lambda'$ in
+$[0,\nu_0/\lambda]$. Hence
+$|\partial_mR|=|P_\lambda'(m+\Delta)-P_\lambda'(m)|
+\leq\nu_0/\lambda$, whereas
+$|\partial_\Delta R|=P_\lambda'(m+\Delta)\leq\nu_0/\lambda$.
+Split the perturbation into a gap change at $\widehat m$ followed by
+a common-shift change at the true nonnegative gap $\Delta$, and
+integrate these derivative bounds along the two intervals. Furthermore,
+differentiating the Gaussian convolution against the probability
+measure $df$ gives $|P_\lambda''|\leq\nu_1/\lambda^2$.
+Integrating $P_\lambda''$ between $m$ and $m+\Delta$ bounds
+$|\partial_mR|$ also by $\nu_1\Delta/\lambda^2$.
+The uniform upper bound $\Delta_*$ gives the refined coefficient.
+\end{proof}
+
+This refinement is an analytic error bound, not an automatic improvement
+in the full estimation plan. It must be selected and recorded in a
+protocol before any resource outcomes using it are generated. The
+financial coefficient, external outer-law mass, continuous transfer,
+mean prior, estimator accuracy, confidence and full clean circuit costs
+must be retained or rebuilt consistently. The projection argument
+justifies asymmetric scalar precision without claiming cancellation of
+the two distinct table errors, a new amplitude-estimation query law, or
+a physical quantum advantage.
+
+\section{Registered independent-width comparison}
+
+The prospective common-shift refinement is not selected in this phase.
+I retain the conservative $2E_m$ policy across the previously matched
+opponents and register independent $b_G,b_A\in\{8,9,10,11,12\}$ with
+normal widths $\{8,10,12\}$. Forty-eight diagonal settings reference exact
+earlier evidence; the other 252 are emitted freshly. All 300 settings
+are admitted, with both architectures and every pointwise/smoothing plan
+retained. The union with the preceding 96 common-width settings has 348
+distinct precision configurations.
+
+Every new minimum uses $b_G=b_A=9$; the normal widths are ten, ten,
+eight and ten. Thus the lower cap follows from the previously omitted
+symmetric nine-bit setting, rather than a demonstrated advantage from
+unequal allocation. Complete raw caps in case order are
+$23\,240\,600\,025$, $88\,336\,016\,050$,
+$93\,933\,514\,350$ and $208\,323\,372\,150$.
+The numerical rival remains cheaper in the second case. Under the historical additive clean templates, against the
+cheaper admitted rival across these studies, shared-threshold savings
+are $10.26$, $5.26$, $4.99$ and $2.40$ per cent. All selected resolutions
+and 25 confidence repetitions are unchanged.
+
+The exact scalar witness at $t=43691/268435456$ gives exponential
+integers 268479151 at width eight and 268479150 at width twelve.
+After subtracting one and scaling by 100, an upper-side width-twelve
+payoff and lower-side width-eight payoff at equal arguments therefore
+give an unprojected difference of $-100$ integer units. Final projection
+returns zero exactly. This proves a scalar-domain ordering failure,
+not its occurrence in the retained financial grids. Independent literal
+projection/comparator/inverse replay covers 192 basis assignments,
+including dirty good flags and both architectures, with clean workspace.
+
+Independent mathematics recomputes all 252 new conditional bounds,
+37,899 scalar/quantile nodes and 10,752 closed/left CDF endpoints.
+A separate resource replay reconstructs 504 profiles, 1,008 complete
+QPE charges and all eight winning clean preparations. These are sufficient
+logical implementation comparisons with complete monetary guarantees,
+not hardware observations, a global precision optimum or a priority claim.
+
+% Prospective resource exclusion, separate from registered numerical outcomes.
+% Applies only to the retained literal graph/compiler/certification policy.
+\section{A one-sided exclusion for independently addressed payoff tables}
+\label{sec:raw-asymmetric-high-width-exclusion}
+
+I extend the previous common-width exclusion to independently addressed
+payoff exponential nodes. This argument is a lower bound on the logical
+T count charged by the specified compiler and certification controller.
+It is not a lower bound on derivative-pricing algorithms or amplitude
+estimation in general. The four financial models, chosen factor bases,
+$q=28$, outer precisions, inner normal widths $\{8,10,12\}$, complete
+raw-payoff graph, clean unary-look-up architectures and canonical-QPE
+controller are fixed. Only the two narrow exponential address widths,
+denoted by $b_G$ and $b_A$, are allowed to vary independently.
+
+\begin{lemma}[Width and non-exponential invariance]
+\label{lem:raw-asymmetric-fixed-width}
+Within this graph, changing either narrow exponential address width in
+$\{1,\ldots,22\}$ leaves all ideal node ranges, all global arithmetic
+word widths, all other scalar tables, every non-exponential emitted block
+and the final $q$-bit flag comparator unchanged at fixed financial case
+and inner normal width.
+\end{lemma}
+\begin{proof}
+The narrow exponential input is exactly clamped to $[0,1/64]$. Its
+dyadic arguments have integer words $t\in\{0,\ldots,2^{22}\}$.
+An address width $b$ has $2^b$ interpolation cells and remainder width
+$28-6-b=22-b$. The emitted scalar takes the address slice beginning
+at bit $22-b$ and ending at bit $22$, inclusive. This is a feasible
+slice of every retained word precisely for $1\leq b\leq22$.
+The ideal exponential output range remains $[1,64/63]$, irrespective
+of $b$. All subsequent ideal payoff ranges and their arithmetic
+operations are therefore unchanged.
+
+The graph finaliser determines its global headroom from the largest
+absolute ideal range endpoint, with a fixed safety factor, and not from
+scalar address widths. Every retained node is assigned this same global
+word width. Consequently, changing $b_G$ or $b_A$ cannot change that
+width or any non-exponential node's operand widths, alias pattern,
+operation, constants or table. The two variable scalar nodes still
+return words of that fixed width. Their privately allocated temporary
+workspace is cleaned before another node is evaluated; it cannot alter
+the arithmetic operand widths of another node. The complete preparation
+is reconstructed as the unchanged forward non-exponential blocks and
+their inverses, together with the variable scalar blocks and the same
+final comparator. Its comparator operates on $q+1$ wires per operand,
+with $q$ fixed, so its T charge is also unchanged.
+
+The independent evidence check additionally compares the full retained
+non-exponential graph and block records across all 504 fresh architecture
+profiles and 96 referenced diagonal profiles. At each case/normal-width/
+architecture combination their hashes and counts coincide exactly.
+These comparisons corroborate the source-level invariance; they do not
+replace its argument for omitted address widths.
+\end{proof}
+
+\begin{lemma}[Per-side selector charge]
+\label{lem:raw-asymmetric-one-side-selector}
+For a narrow exponential address width $b\in\{1,\ldots,22\}$,
+the retained complete preparation $A$ contains four unary look-ups for
+that side. Discarding all other operations inside that scalar node, its
+selector T contribution is
+\begin{equation}
+ c_{\rm side}(2^b+b),\qquad
+ c_{\rm side}=\begin{cases}
+ 56,&\text{exact seven-T Toffoli architecture},\\
+ 32,&\text{unitary eight-T selector-pair architecture}.
+ \end{cases}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Each packed table word contains a base ordinate equal to the nearest
+nonnegative dyadic integer representing $e^x$, for $0\leq x\leq1/64$.
+The base is at least $2^{28}$, so every one of the first $2^b+1$
+packed words is nonzero. The last endpoint word has a zero interpolation
+delta but its base remains nonzero. Thus the pruned selector tree sees
+the complete left half with $2^b$ leaves and one nonzero leaf in the
+right half. The left half contributes $2^b-1$ internal nodes; the
+right path contributes $b$; the root contributes one. The total is
+$2^b+b$. Each internal selector compute/erase pair costs fourteen T
+gates in the exact-Toffoli architecture or eight T gates in the coherent
+unitary architecture.
+
+The scalar emitter performs a look-up for its packed interpolation data
+and uncomputes that look-up after its output has been copied. There
+are therefore two invocations per forward scalar node, also recorded
+in every retained block profile. Cleanup of the complete preparation
+includes the inverse scalar node and doubles this count to four.
+Multiplying fourteen or eight by four gives the stated coefficients.
+Word writes and branch changes are Clifford operations. Interpolation
+and all other scalar arithmetic have been discarded, so reducing the
+remainder width at larger $b$ cannot invalidate this lower bound.
+\end{proof}
+
+Let $a^{\rm fixed}_{j,k,\mathcal A}$ be the complete preparation's
+T charge of every block other than the two narrow exponential nodes,
+including its final comparator, for financial case $j$, normal width
+$k$ and architecture $\mathcal A$. This includes forward execution
+and cleanup. For either side with address width $b$, the preceding
+lemmas imply
+\begin{equation}
+ T_A(b_G,b_A)\geq a^{\rm fixed}_{j,k,\mathcal A}
+                         +c_{\rm side,\mathcal A}(2^b+b).
+\label{eq:raw-asymmetric-one-side-A-floor}
+\end{equation}
+This discards the other side completely. Hence it is valid for every
+feasible other address width from one to twenty-two, including equal
+or unequal widths and without assuming represented payoff ordering.
+
+I next give the prospective wider implementation the optimistic uniform
+arithmetic and inner-law error $\eta=0$. Let $A_j$ be the unchanged
+upper outer-law mass factor, $e_{0,j}$ the coefficient radius,
+$\beta_j$ the financial-transfer allowance, $a_{r,j}$ the outer
+mass radius and $[l_j,u_j]$ the unchanged ideal finite-mean prior.
+Define
+\begin{equation}
+ d_{0,j}=e_{0,j}+\beta_j+a_{r,j},\qquad
+ \varepsilon_{0,j}=\frac{1/100-d_{0,j}}{A_j}.
+\end{equation}
+Every admitted graph has deterministic monetary allowance at least
+$d_{0,j}$ and probability tolerance at most $\varepsilon_{0,j}$.
+Its implemented prior upper endpoint is at least $u_j$, while its
+implemented prior interval is at least as wide as $[l_j,u_j]$.
+The retained inequalities
+\begin{equation}
+ \frac{A_j(u_j-l_j)}2>\frac1{100}-d_{0,j},\qquad
+ u_j>2\varepsilon_{0,j}
+\label{eq:raw-asymmetric-zero-shot-exclusions}
+\end{equation}
+hold exactly for all four cases. The first excludes the two-sided
+prior-midpoint controller decision, and the second excludes the
+one-sided prior-midpoint decision. No zero-shot price decision within
+this retained policy can evade the active-estimation charge below.
+
+Put $\pi_+=355/113$ and
+\begin{equation}
+ v(u)=\begin{cases}u(1-u),&u\leq1/2,\\1/4,&u>1/2.\end{cases}
+\end{equation}
+The controller's outward dyadic square root of $v(u)$ is monotone in
+$u$. Let $M_{0,j}$ be the first supported power of two satisfying
+\begin{equation}
+ \frac{2\pi_+\,\overline{\sqrt{v(u_j)}}}{M_{0,j}}
+       +\frac{\pi_+^2}{M_{0,j}^2}+10^{-60}
+       \leq\varepsilon_{0,j}.
+\end{equation}
+Because both the prior upper endpoint and the outward square root
+cannot decrease, and the available tolerance cannot increase, every
+admitted active plan has $M\geq M_{0,j}$. The independent exact
+calculation gives $M_{0,j}=256,512,512,512$ in case order.
+
+For repetitions, give the Fourier circuit the optimistic zero norm
+error. The maximal certified single-shot success is
+$s_0=8/\pi_+^2$. For every odd $r$, its majority-failure expression is
+\begin{equation}
+ B_r(s_0)=\sum_{k=(r+1)/2}^{r}\binom rk(1-s_0)^ks_0^{r-k}.
+\end{equation}
+Exact rational evaluation gives $B_r(s_0)>1/3600$ for all odd
+$r\in\{1,3,\ldots,23\}$ and $B_{25}(s_0)\leq1/3600$.
+Thus $r_0=25$ is the least admitted odd repeat count, even with perfect
+Fourier synthesis. For any smaller success guarantee, coupling the
+Bernoulli outcomes with common independent uniforms proves that
+majority failure cannot improve. Every active plan therefore has
+$r\geq25$. This is a floor imposed by the specified certification
+controller, rather than by all quantum estimators.
+
+\begin{theorem}[Either-side high-address exclusion]
+\label{thm:raw-asymmetric-high-width-exclusion}
+Under the fixed graph and controller above, if either $b_G$ or $b_A$
+belongs to $\{15,\ldots,22\}$, no feasible choice of the other
+address width in $\{1,\ldots,22\}$ improves the retained PG/PA
+nine-bit incumbent in any of the four cases.
+\end{theorem}
+\begin{proof}
+Each canonical-QPE repetition has one initial preparation call and
+$M-1$ controlled Grover calls containing one $A$ and one
+$A^\dagger$. Discarding all reflections, Fourier operations and
+other T gates gives
+\begin{equation}
+ T_{\rm complete}(b_G,b_A)
+ \geq25(2M_{0,j}-1)
+    \left(\min_{k\in\{8,10,12\}}a^{\rm fixed}_{j,k,\mathcal A}
+           +c_{\rm side,\mathcal A}(2^b+b)\right).
+\label{eq:raw-asymmetric-complete-floor}
+\end{equation}
+The fixed counts for the exact-Toffoli architecture are no smaller
+than those for the unitary architecture at each normal width; both
+use identical arithmetic and the latter has the lower selector charge.
+It therefore suffices to use the more optimistic unitary architecture
+with coefficient thirty-two. Its fixed-block minima are
+$1\,494\,706$, $3\,129\,342$, $3\,348\,190$ and
+$7\,808\,330$, respectively, all attained at normal width eight.
+At $b=15$, equation~\eqref{eq:raw-asymmetric-complete-floor} gives
+the four respective T floors
+\begin{equation}
+ 32\,496\,559\,550,\quad106\,862\,528\,850,\quad
+ 112\,459\,566\,450,\quad226\,527\,646\,950.
+\end{equation}
+The retained PG/PA nine-bit incumbents are respectively
+\begin{equation}
+ 23\,240\,600\,025,\quad88\,336\,016\,050,\quad
+ 93\,933\,514\,350,\quad208\,323\,372\,150.
+\end{equation}
+Every floor strictly exceeds its incumbent. Since $2^b+b$ is strictly
+increasing, the same holds for all feasible $b\geq15$. The other
+side was discarded from the floor and remains unrestricted throughout
+its feasible range. This proves the result for either side separately
+and hence whenever at least one side has such an address width.
+\end{proof}
+
+This prospective exclusion does not evaluate new wider financial
+certificates and does not modify any registered numerical outcome.
+It leaves asymmetric widths thirteen and fourteen and omitted lower
+widths unresolved. It also does not cover other normal widths,
+word precisions, shared scalar arithmetic, non-unary look-ups, other
+mean estimators, hardware implementations or optimisations that change
+the retained graph. Consequently, it provides no global precision
+optimum, generic quantum query lower bound, theoretical-priority claim
+or practical quantum advantage.
+
+\section{Common-information stability of a positive Gaussian correction}
+\label{sec:common-information-stability}
+
+I separate the mathematics of a common shift from the finite arithmetic
+which implements it. A common shift is a perturbation of both endpoint
+arguments by the same amount; it need not be probabilistically independent
+of the outer financial coordinate or of the gap. The essential condition
+for Gaussian smoothing is that, after conditioning on the outer labels
+and any fixed strike label, the shift and gap are independent of the
+inner normal label. A label-dependent scaling remainder does not satisfy
+this condition and receives a separate allowance.
+
+Let $\mu$ be a positive finite Borel measure of mass one, let $\lambda>0$,
+and define
+\begin{equation}
+ P_{\lambda,\mu}(m)=\int_{\mathbb R}
+       \Phi((m-a)/\lambda)\,\mu(da),\qquad
+ R_{\lambda,\mu}(m,\Delta)=P_{\lambda,\mu}(m+\Delta)
+                              -P_{\lambda,\mu}(m).
+ \label{eq:common-information-definition}
+\end{equation}
+This includes a fixed strike, a finite positive strike mixture and a
+bounded increasing payoff normalised to total variation one. In the last
+case $\mu=df$, where $f(-\infty)=0$ and $f(+\infty)=1$; Tonelli's theorem
+identifies $P_{\lambda,\mu}(m)$ with $\mathbb E f(m+\lambda N)$.
+These identities and Gaussian convolution are established mechanisms.
+The calculation below concerns their shared perturbations and their
+specific guarded pricing implementations; it is not a claim of priority
+for convolution or Lipschitz estimates.
+
+Choose $\nu_0\geq\sup_x\phi(x)$ and
+$\nu_1\geq\sup_x|\phi'(x)|$, and put
+\begin{equation}
+ \kappa_0=\frac{\nu_0}{\lambda},\qquad
+ \kappa_1=\frac{\nu_1}{\lambda^2},\qquad
+ C(d)=\min\{\kappa_0,\kappa_1d\}\quad(d\geq0).
+ \label{eq:common-information-constants}
+\end{equation}
+
+\begin{theorem}[Common-shift and gap stability]
+\label{thm:common-information-stability}
+For finite $m,\widehat m,\Delta,\widehat\Delta$ with $\Delta\geq0$, let
+$|\widehat m-m|\leq E_m$ and
+$|\widehat\Delta-\Delta|\leq e_\Delta$. The represented gap may be
+negative. Then
+\begin{equation}
+ |R_{\lambda,\mu}(\widehat m,\widehat\Delta)
+                       -R_{\lambda,\mu}(m,\Delta)|
+ \leq C(\Delta)E_m+\kappa_0e_\Delta.
+ \label{eq:common-information-stability}
+\end{equation}
+Consequently a uniform true-gap bound $0\leq\Delta\leq\Delta_*$ permits
+the coefficient $C(\Delta_*)$. If $\widehat\Delta\geq0$ as well, the
+coefficient in \eqref{eq:common-information-stability} can be replaced
+by $C(\min\{\Delta,\widehat\Delta\})$.
+Let $\Pi_{[0,B]}$ be metric projection onto $[0,B]$, where $B>0$ and
+$R_{\lambda,\mu}(m,\Delta)\in[0,B]$. The same upper bound applies after
+projecting the represented difference onto $[0,B]$. Projection need not
+be inserted into the implemented gap register.
+\end{theorem}
+\begin{proof}
+The first and second derivatives of the Gaussian kernel are bounded
+uniformly in $a$ by $\kappa_0$ and $\kappa_1$. Difference quotients of the kernel
+are dominated by these constants by the mean value theorem. Since
+$\mu$ is finite, dominated convergence justifies differentiation under
+its integral twice, giving
+\begin{align}
+ P_{\lambda,\mu}'(m)&=\int\lambda^{-1}
+                 \phi((m-a)/\lambda)\,\mu(da),\nonumber\\
+ P_{\lambda,\mu}''(m)&=\int\lambda^{-2}
+                 \phi'((m-a)/\lambda)\,\mu(da),\qquad
+ 0\leq P_{\lambda,\mu}'\leq \kappa_0,\quad
+ |P_{\lambda,\mu}''|\leq \kappa_1.
+ \label{eq:common-information-derivatives}
+\end{align}
+The difference of two numbers in $[0,\kappa_0]$ has absolute value at most
+$\kappa_0$. The fundamental theorem of calculus also bounds the difference
+of the derivatives at arguments separated by a nonnegative distance $d$
+by $\kappa_1d$. Thus
+\begin{equation}
+ |\partial_m R_{\lambda,\mu}(m,d)|
+   =|P_{\lambda,\mu}'(m+d)-P_{\lambda,\mu}'(m)|\leq C(d),\qquad
+ |\partial_dR_{\lambda,\mu}(m,d)|\leq \kappa_0.
+ \label{eq:common-information-partial-bounds}
+\end{equation}
+For the gap partial derivative the bound holds for all real $d$.
+Split the difference exactly as
+\begin{align}
+ R(\widehat m,\widehat\Delta)-R(m,\Delta)
+ &=R(\widehat m,\widehat\Delta)-R(\widehat m,\Delta)
+       +R(\widehat m,\Delta)-R(m,\Delta).
+ \label{eq:common-information-path}
+\end{align}
+Integrating the gap derivative along the first segment gives
+$\kappa_0|\widehat\Delta-\Delta|$, including a segment crossing zero.
+Integrating the common-shift derivative along the second segment, whose
+gap is the true nonnegative $\Delta$, gives
+$C(\Delta)|\widehat m-m|$. This proves the stated inequality. If the
+represented gap is nonnegative, reversing the order of the two segments
+gives $C(\widehat\Delta)|\widehat m-m|+\kappa_0|\widehat\Delta-\Delta|$;
+the smaller valid bound gives the refinement. Since $C$ is nondecreasing,
+a valid upper gap bound may replace the gap. Finally, metric projection
+is $1$-Lipschitz and fixes the true correction. Applying it to the
+represented difference cannot increase its distance from that correction.
+No cancellation of two distinct scalar-table approximation errors is
+asserted.
+\end{proof}
+
+\begin{lemma}[Common inner perturbations of capped payoffs]
+\label{lem:common-information-inner-payoff}
+For the normalised cap
+$f(x)=H^{-1}\min\{K(e^x-1)_+,H\}$, put
+$\ell=\log(1+H/K)$ and $L_f=(K+H)/H$. For every $d\geq0$, the map
+$g_d(x)=f(x+d)-f(x)$ is globally $L_f$-Lipschitz. For any real
+perturbation $\zeta$, which may depend on the inner label,
+\begin{equation}
+ |g_d(x+\zeta)-g_d(x)|\leq L_f|\zeta|.
+ \label{eq:common-information-inner-payoff}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The payoff is absolutely continuous and has almost-everywhere derivative
+$f'(x)=(K/H)e^x\mathbf1_{(0,\ell)}(x)$, which lies in $[0,L_f]$.
+The difference $g_d$ is absolutely continuous on every finite interval
+and its almost-everywhere derivative is $f'(x+d)-f'(x)$.
+Its absolute value is at most $L_f$, since both terms belong to the same
+interval $[0,L_f]$. Integrating that derivative between $x$ and $x+\zeta$
+proves the inequality. At $d=0$ the difference is identically zero.
+This argument acts on the continuous payoff as a pointwise function and
+does not differentiate a finite atomic probability law.
+\end{proof}
+
+\subsection{Matched finite raw-payoff implementation}
+
+Retain $K=100$, $H=1$, $q=28$ and the guarded graph. Conditional on an
+actual outer coordinate $y$, its decoded endpoints satisfy exactly
+\begin{equation}
+ \widehat X_G=\widehat m+\lambda\widetilde N+\zeta(\widetilde N),\qquad
+ \widehat X_A=\widehat X_G+\widehat\Delta,\qquad
+ |\widehat m-m|\leq E_m=e_m+e_C+e_O,\quad
+ \widehat\Delta\geq0.
+ \label{eq:common-information-raw-endpoints}
+\end{equation}
+Here $C=J-B_G$ and $O=J+\lambda L$ are constants, and their errors
+$e_C,e_O$ are independent of the inner label. The exact emitted scaling
+coefficient is $\widehat\lambda=I_\lambda2^{-d_\lambda}$ and
+\begin{equation}
+ |\zeta|\leq E_s=2L|\widehat\lambda-\lambda|
+                    +2^{-q}\mathbf1_{\{d_\lambda>0\}}.
+ \label{eq:common-information-scale-error}
+\end{equation}
+Let the two distinct scalar maps have intrinsic exponential errors
+$e_{\exp,G},e_{\exp,A}$ on their guarded domains. Intrinsic errors exclude
+propagated argument perturbations. Let the rounded inner normal law have
+both right-CDF and left-CDF discrepancy at most $D_N$ from $\Phi$.
+The prepared flag encodes the exact projected dyadic payoff difference.
+Its conditional probability $p(y)$ obeys
+\begin{equation}
+ |p(y)-R_1(y)|\leq\eta_{\rm raw}:=
+ \min\left\{1,100(e_{\exp,G}+e_{\exp,A})+101E_s+2D_N
+                       +C(\Delta_*)E_m+\kappa_0e_\Delta\right\}.
+ \label{eq:common-information-raw-bound}
+\end{equation}
+An independently valid pointwise or earlier smoothing bound may be
+included in this minimum.
+
+To prove \eqref{eq:common-information-raw-bound}, replace the two
+represented scalar maps by exact payoffs at their represented arguments.
+Their separate errors contribute $100(e_{\exp,G}+e_{\exp,A})$.
+Lemma~\ref{lem:common-information-inner-payoff} removes the common
+label-dependent $\zeta$ for a charge $101E_s$. Projection is
+$1$-Lipschitz and fixes the resulting ideal nonnegative difference.
+That difference as a function of the normal coordinate has bounded
+variation at most two; integration by parts against the signed CDF
+difference therefore charges at most $2D_N$. This statement retains
+atomic label multiplicities and uses the left limit at strict endpoints.
+Only after this finite-to-continuous transfer is the Gaussian
+convolution differentiated. Theorem~\ref{thm:common-information-stability}
+then charges $C(\Delta_*)E_m+\kappa_0e_\Delta$. The total is capped at one
+because both target and prepared probability belong to $[0,1]$.
+Normal quantile rounding is contained in $D_N$; it is not also included
+in $E_s$ or $E_m$. Outer quantile rounding remains solely in the existing
+financial outer-law transfer.
+
+\subsection{Matched finite numerical conditional-price implementation}
+
+For the retained numerical pool, the cap and the positive monetary
+normaliser are exactly $H=B_1=1$. Consequently its two scaling nodes
+multiply by the exact integer one and introduce neither coefficient
+rounding nor a fixed-point floor. Write the scalar domains as
+$[-B_G,B_G]$ and $[-B_A,B_A]$. The encoded nodes satisfy
+\begin{equation}
+ \widehat M_A=\widehat M_G+\widehat C_{AG}+\widehat\Delta,\qquad
+ C_{AG}=B_A-B_G,\qquad
+ \widehat m=\widehat M_G-B_G,\qquad
+ \widehat d=\widehat\Delta+(\widehat C_{AG}-C_{AG}).
+ \label{eq:common-information-numerical-endpoints}
+\end{equation}
+Suppose the retained actual-range certificate additionally shows that
+the input clamps preceding both price tables are inactive on every
+actual guarded input. A function-input domain check after a clamp alone
+does not establish this premise. Let $e_{P,G},e_{P,A}$ be the intrinsic
+conditional-price table errors, $e_{AG}$ the constant error and $e_m$
+the lower encoded node error. The prepared projected difference then
+satisfies
+\begin{equation}
+ |p_{\rm num}(y)-R_1(y)|\leq\eta_{\rm num}:=
+ \min\{1,e_{P,G}+e_{P,A}+C(\Delta_*)e_m
+                             +\kappa_0(e_\Delta+e_{AG})\}.
+ \label{eq:common-information-numerical-bound}
+\end{equation}
+Indeed, replacing both tables by their exact scalar functions at the
+actual arguments costs their summed intrinsic errors. Exact decoded
+addition gives \eqref{eq:common-information-numerical-endpoints}.
+The effective gap need not be nonnegative, but the path bound in
+Theorem~\ref{thm:common-information-stability} remains valid and the
+final signed projection fixes the true correction. In the retained
+graphs $B_A-B_G$ is dyadic and exactly encoded; retaining $e_{AG}$ in
+the rule makes the required premise explicit. There is no sampled
+inner Gaussian or strike law in this implementation, so adding $D_N$
+or $\beta_S$ would charge an approximation it does not perform.
+Normalisers other than one require separately certified scaling
+coefficient and floor allowances and are not covered by this specialised
+numerical formula.
+
+\subsection{Matched finite shared-threshold implementation}
+
+For a fixed ideal uniform strike midpoint $s$, put $a(s)=\log(1+s/100)$.
+The exact graph computes a lower encoded endpoint, its upper endpoint
+and one shared threshold as
+\begin{equation}
+ \widehat\ell=\widehat M_G+\widehat C,\qquad
+ \widehat u=\widehat\ell+\widehat\Delta,\qquad
+ \widehat z=\widehat a(s)+\widehat O
+                       -\mathsf S_\lambda(\widetilde N+L).
+ \label{eq:common-information-threshold-endpoints}
+\end{equation}
+Its predicate is $\widehat\ell<\widehat z\leq\widehat u$ and the gap
+word is nonnegative. The represented strike error
+$|\widehat a(s)-a(s)|\leq e_a$ includes its input-ratio arithmetic
+and intrinsic logarithm error; it does not include normal quantile
+rounding. The same $C,O,E_s$ as above identify the conceptual threshold
+$a(s)-\lambda\widetilde N-\zeta(\widetilde N)$ relative to a common
+represented lower endpoint. The represented strike and common endpoint
+errors give a fixed-strike common shift bounded by
+\begin{equation}
+ E_{m,a}=e_m+e_C+e_O+e_a.
+ \label{eq:common-information-threshold-common-error}
+\end{equation}
+They may depend arbitrarily on the fixed outer and strike labels.
+They are independent of the inner normal label, which is the required
+conditioning condition. With the retained strike midpoint bias $\beta_S$
+in probability units, the implemented conditional event probability
+obeys
+\begin{equation}
+ |p_{\rm thr}(y)-R_1(y)|\leq\eta_{\rm thr}:=
+ \min\{1,\beta_S+2D_N+2\kappa_0E_s
+                     +C(\Delta_*)E_{m,a}+\kappa_0e_\Delta\}.
+ \label{eq:common-information-threshold-bound}
+\end{equation}
+
+For completeness, at a fixed strike and outer coordinate the bounded
+$\zeta$ moves each of the two strict/non-strict Gaussian boundaries by
+at most $E_s$. The represented event is contained in the interval
+obtained by expanding the unperturbed interval by $E_s$ at each end.
+It contains the interval obtained by shrinking by $E_s$ at each end,
+whenever that interval is nonempty. The probability of either fixed
+interval under the finite normal law differs from the continuous normal
+probability by at most $2D_N$: an interval probability is a difference
+of two right-CDF or left-CDF values. The continuous density is bounded
+by $\kappa_0$, so expansion or shrinkage changes probability by at most
+$2\kappa_0E_s$. If the shrunken interval is empty, its original width is
+at most $2E_s$ and its entire continuous probability is bounded by
+$2\kappa_0E_s$. Thus the finite event transfer costs $2D_N+2\kappa_0E_s$ once.
+After this transfer, each fixed-strike continuous interval is the
+Gaussian correction with threshold measure $\delta_{a(s)}$, which has
+mass one. The common shift and gap allowances follow from
+Theorem~\ref{thm:common-information-stability}. Averaging those uniform
+allowances over the equal-weight strike labels preserves them; replacing
+that strike law by the ideal uniform law charges the separately retained
+$\beta_S$. This proves \eqref{eq:common-information-threshold-bound}.
+Finite atoms are retained, and no second inner Gaussian-box mass is
+multiplied into the decoder.
+
+The label-dependent $\zeta$ cannot be charged merely with
+$C(\Delta_*)E_s$ by invoking Gaussian convolution: it is correlated with
+the normal label and the conditioning premise of that invocation fails.
+The preceding sandwich proves the required allowance without such an
+independence assumption.
+
+\subsection{Gap-sensitive finite-law allowances and their limits}
+
+The exact capped exponential difference is unimodal. Its total variation
+in the normal coordinate is
+\begin{equation}
+ \operatorname{TV}\{f(m+\Delta+\lambda\,\cdot)-f(m+\lambda\,\cdot)\}
+ =2v(\Delta),\qquad
+ v(\Delta)=\min\{1,101(1-e^{-\Delta})\}.
+ \label{eq:common-information-gap-variation}
+\end{equation}
+The retained earlier piecewise derivation proves this exact expression.
+Accordingly, the raw finite-law transfer can use
+$2D_Nv(\widehat\Delta)$; a true gap bound alone must first be enlarged
+by its represented gap error. If $U=e^\Delta-1\geq0$, then
+$v(\Delta)=\min\{1,101U/(1+U)\}$. This is a nondecreasing concave
+function of $U$. Given an independently certified finite outer moment
+$\mathbb E U\leq\overline U$, Jensen's inequality and the Lipschitz
+constant $101$ of $v$ yield
+\begin{equation}
+ \mathbb E v(\widehat\Delta)
+ \leq\min\left\{1,
+       \min\left\{1,\frac{101\overline U}{1+\overline U}\right\}
+                   +101e_\Delta\right\}.
+ \label{eq:common-information-gap-mean}
+\end{equation}
+This is an averaged outer-law certificate, not a uniform conditional
+certificate or an automatic two-sided prepared-probability prior.
+For the four retained winning bases the certified first moments are
+approximately $0.10888$, $0.02563$, $0.10684$ and $0.10666$.
+The inner minimum in \eqref{eq:common-information-gap-mean} equals one
+in all four cases. This moment-only refinement therefore provides no
+positive cost consequence in the retained study. A tighter polynomial
+moment majorant would require its own proved domination, optimisation
+record and complete prior/budget reconstruction.
+
+All three prepared methods can use their corresponding common-information
+formula with the same $\nu_0,\nu_1$, true gap premise and financial
+information. For the implemented basket, $\Delta=\log(1+U)\leq U\leq U_*$
+provides a price-independent rational choice $\Delta_*=U_*$. A smaller
+certified gap bound may be used only when retained with its derivation.
+Any smaller probability allowance must be propagated through the
+unchanged analytic coefficient, external outer-law mass, continuous
+financial transfer, finite mean prior, estimation accuracy, confidence
+and complete clean circuit cost. A certificate improvement changes
+neither the ideal financial price nor the generic amplitude-estimation
+query law.
+
+\section{Representation dominance for reflection-only sampling}
+\label{sec:representation-sampler-dominance}
+
+The following lemma separates an implementation cost statement from an
+estimator comparison. Let $A_i$ be a completely clean financial
+preparation with its adjoint, and let $S_{0,i}$ reflect the complete
+invariant input-zero subspace. The good reflection is a single Clifford
+$Z$ on the already computed flag. Write $a_i=T(A_i)$ and
+$s_i=T(S_{0,i})$, counting $T$ and $T^\dagger$ together. The complete
+adjoint costs $a_i$. Measurement, classical conjunction of the observed
+input-zero bits and conditional Pauli resets require no $T$ gates under
+the declared logical architecture; their non-$T$ counts and allocated
+wire counts remain separately charged. Scratch may be excluded from
+the zero reflection only after its cleanliness invariant has been
+proved. This lemma assumes those preparations and reflections, and
+does not supply a missing coherent state-access or cleanliness proof.
+The declared charge adds the complete retained preparation, adjoint and
+reflection templates. It applies no cancellation or optimisation across
+their boundaries. A different composition or cross-template optimisation
+must be recosted before applying the theorem; the identities are not a
+lower bound on every circuit realisation of the same polynomial signal.
+
+\begin{lemma}[All-degree reflection-sampler dominance]
+\label{thm:representation-sampler-dominance}
+For every integer $d\geq1$, the retained parity-specific reflection-only
+sampler has complete per-shot logical $T$ count
+\begin{equation}
+ t_i(d)=
+ \begin{cases}
+   da_i+(d-1)s_i/2,&d\text{ odd},\\
+   da_i+(d/2-1)s_i,&d\text{ even}.
+ \end{cases}
+ \label{eq:representation-parity-cost}
+\end{equation}
+Candidate $c$ has $t_c(d)\leq t_b(d)$ for every positive integer $d$
+if and only if
+\begin{equation}
+ a_c\leq a_b,\qquad 2a_c+s_c\leq2a_b+s_b.
+ \label{eq:representation-all-degree-condition}
+\end{equation}
+If $a_b>0$ and $2a_b+s_b>0$, then every degree obeys the uniform ratio
+bound
+\begin{equation}
+ \frac{t_c(d)}{t_b(d)}\leq
+ \max\left\{\frac{a_c}{a_b},
+             \frac{2a_c+s_c}{2a_b+s_b}\right\}.
+ \label{eq:representation-all-degree-ratio}
+\end{equation}
+Both endpoint ratios are necessary for a uniform bound of this form:
+the first is attained at $d=1,2$ and the second is approached as
+$d\longrightarrow\infty$. Strict superiority for every degree holds
+if and only if $a_c<a_b$ and $2a_c+s_c\leq2a_b+s_b$.
+\end{lemma}
+\begin{proof}
+Put $Q_i=-A_iS_{0,i}A_i^\dagger S_g$. The unconditional global minus
+can be omitted because it changes a terminal shot only by a global
+phase. It cannot be omitted from a controlled-QPE comparison. For
+$d=2k+1$, the chronological sampler prepares $A_i$ and then applies
+$Q_i$ exactly $k$ times. It uses $k+1$ preparations, $k$ adjoints,
+$k$ zero reflections and $k$ Clifford good reflections. For $d=2k$
+with $k\geq1$, it prepares $A_i$, applies $Q_i^{k-1}$, applies $S_g$
+and then $A_i^\dagger$, observing the invariant input-zero event. It
+uses $k$ preparations, $k$ adjoints, $k-1$ zero reflections and $k$
+Clifford good reflections. Complete measurement and reset are appended
+to both constructions. Their declared $T$ charge is zero, so these
+counts prove \eqref{eq:representation-parity-cost}.
+
+Let $q_i=2a_i+s_i$, $\delta a=a_c-a_b$ and $\delta q=q_c-q_b$.
+The odd costs are $a_i+kq_i$ for $k\geq0$ and the even costs are
+$2a_i+(k-1)q_i$ for $k\geq1$. If $\delta a\leq0$ and
+$\delta q\leq0$, subtracting these formulae gives nonpositive
+differences in both parities. Conversely, degree one requires
+$\delta a\leq0$. If $\delta q>0$, the odd difference
+$\delta a+k\delta q$ is positive at a sufficiently large integer
+$k$, contradicting all-degree dominance. This proves necessity and
+sufficiency. At $d=1$ strict dominance requires $\delta a<0$; together
+with $\delta q\leq0$ this is also sufficient in both parities.
+
+For odd degrees the ratio of costs is
+$(a_c+kq_c)/(a_b+kq_b)$. It is a convex combination of $a_c/a_b$
+and $q_c/q_b$, with nonnegative weights
+$a_b/(a_b+kq_b)$ and $kq_b/(a_b+kq_b)$. For even degrees replace
+$a_i$ by $2a_i$ and $k$ by $k-1$; the two endpoint ratios are
+unchanged. A convex combination is bounded by the larger endpoint.
+Degrees one and two attain $a_c/a_b$. Along either parity the ratio
+tends to $q_c/q_b$ as its degree tends to infinity, proving the final
+uniform sharpness statement.
+\end{proof}
+
+\begin{corollary}[Same-history adaptive sampler comparison]
+\label{cor:representation-same-history}
+Suppose two clean representations have the same implemented good
+probability $p$, and an estimator uses the same initial prior, tolerance,
+confidence allocation and deterministic history-dependent degree/batch
+policy for both. Under ideal logical operation their complete reflection
+shots can be coupled to have identical observed Bernoulli outcomes,
+chosen degrees, batch sizes and stopping decisions. If
+\eqref{eq:representation-all-degree-condition} holds, every coupled
+history has no larger candidate reflection-shot $T$ cost. If
+\eqref{eq:representation-all-degree-ratio} has right side $r$, then
+the total candidate reflection-shot cost on every history is at most
+$r$ times the corresponding rival reflection-shot cost. Consequently
+the same comparison holds for expectations whenever they exist.
+\end{corollary}
+\begin{proof}
+The two-dimensional reflection algebra gives the same
+Chebyshev Bernoulli parameter $q_d(p)$ for both clean representations
+at each degree. This includes $p=0,1$ by direct endpoint evaluation,
+without normalising a zero-probability basis component. At each shot,
+use a fresh common uniform random variable $V$ to define both observed
+bits as $\mathbf1_{\{V\leq q_d(p)\}}$. Inductively, identical preceding
+histories imply the same next degree and batch size, which imply
+identical next observation under this coupling. The deterministic
+policy then makes the same next decision. Apply the pointwise
+per-shot inequality to each degree in the common history and sum its
+nonnegative costs. Taking expectation preserves the inequality.
+For unbounded stopping histories, apply the same argument to finite
+prefixes and then use monotone convergence. Any additional fallback
+or non-reflection primitive requires its own cost comparison; it is not
+included by this corollary merely because it belongs to the estimator.
+\end{proof}
+
+The continuous ideal numerical, raw-payoff and shared-threshold
+constructions target the same financial mean and hence the same ideal
+Grover angle after a matched monetary normaliser. Their separately
+rounded finite implementations need not have identical $p$. Their
+deterministic allowances, probability priors, admissible degrees and
+stopping histories can therefore differ. The all-degree cost theorem
+compares the actual complete preparation resources at matched degrees;
+the same-history corollary is conditional on matched implemented
+probability and controller information. Neither theorem alone proves
+smaller realised adaptive costs, a new amplitude-estimation query law,
+dominance over non-reflection estimators or physical quantum advantage.
+The generic reflection algebra is established. The project-specific
+positive consequence is an exact, fully charged representation
+comparison if the retained preparations satisfy its two affine
+inequalities; mathematical priority remains a separate literature
+question.
+
+% Supporting fragment: established confidence tools at a matched financial interface.
+\subsection{Matched financial guarantees and paired diagnostic signals}
+\label{supp:matched-estimator-transfer}
+
+Let $V$ be the single stipulated derivative value. For alternative
+$i$, let its certified clean logical preparation $A_i$ have actual
+success probability $p_i$ and deterministic prior
+$[l_i,u_i]\subseteq[0,1]$. Suppose its certified monetary decoding
+$D_i(p)$ satisfies
+\begin{equation}
+ |V-D_i(p_i)|\leq E_i,
+ \qquad |D_i(p)-D_i(q)|\leq B_i|p-q|.
+ \label{eq:matched-financial-interface}
+\end{equation}
+The certificate includes every deterministic representation, arithmetic,
+geometric-control and external-factor contribution charged by that
+alternative. A common target radius $\varepsilon_V$ is met whenever
+\begin{equation}
+ E_i+B_i\varepsilon_i\leq\varepsilon_V.
+ \label{eq:matched-monetary-budget}
+\end{equation}
+Thus monetary matching does not require equal probability tolerances:
+different deterministic errors or normalisers can require different
+$\varepsilon_i$. Replacing them by a common larger tolerance would need
+a new monetary certificate.
+
+For each alternative the existing bounded controller uses at most
+$L=12$ fresh batches of $n=100$ shots. The pilot spends
+$\alpha/(2L)$ at every reached look, including repeated degrees; the
+fresh original-prior fallback receives $\alpha/2$. Conditional on that
+alternative's preceding history, the next selected degree is fixed and
+its new shots are independent Bernoulli measurements of the exact
+logical signal. The fixed-sample binomial interval therefore covers
+conditionally with probability at least $1-\alpha/(2L)$.
+The union bound over the at most $L$ reached looks gives pilot failure
+at most $\alpha/2$. Adding the fallback's failure allowance proves
+\begin{equation}
+ \Pr\{|\widehat V_i-V|>\varepsilon_V\}\leq\alpha,
+ \label{eq:matched-alternative-coverage}
+\end{equation}
+under the ideal logical-shot premises and the separately certified
+deterministic interface. An empty intersection is an unsuccessful pilot,
+which invokes the charged fallback using the original prior. The pilot
+does not supply an uncertified tightened prior to that fallback.
+
+Let $T_{F,i}$ be the complete fresh half-$\alpha$ canonical fallback
+cost and $C_i=\lfloor T_{F,i}/10\rfloor$ the pilot cap. The controller
+checks a full batch charge before requesting it. With $S_i$ denoting
+successful pilot termination and $T_{P,i}$ its complete pilot charge,
+every possible history satisfies
+\begin{equation}
+ T_i=T_{P,i}+T_{F,i}\mathbf1_{S_i^c},
+ \qquad 0\leq T_{P,i}\leq C_i,
+ \qquad T_i\leq C_i+T_{F,i}.
+ \label{eq:matched-history-cap}
+\end{equation}
+Every preparation, adjoint, reflection, observation and reset contributes
+to these charges. The half-$\alpha$ fallback can require more repetitions
+than the full-$\alpha$ canonical rival $T_{0,i}$. Consequently
+$C_i+T_{F,i}$ is not generally bounded by $1.1T_{0,i}$.
+Taking expectations in \eqref{eq:matched-history-cap} requires no
+independence between success and pilot cost and yields the exact criterion
+\begin{equation}
+ \mathbb E T_i<T_{0,i}
+ \quad\Longleftrightarrow\quad
+ \Pr(S_i)>1-\frac{T_{0,i}}{T_{F,i}}
+                 +\frac{\mathbb E T_{P,i}}{T_{F,i}}.
+ \label{eq:matched-break-even}
+\end{equation}
+A finite equal-weight mesh supplies a descriptive version of this
+identity. It does not identify either expectation or success probability
+at an unknown actual financial flag.
+
+For the paired diagnostic, choose a stipulated $p_*$ in a nonempty
+intersection of all alternative priors and their common finite ideal
+mean interval. Let $U_{j,s}$ be independent uniform variables for
+look $j$ and shot $s$, reused across alternatives. If alternative $i$
+selects degree $d_{i,j}$ from its own previous outcomes, define
+\begin{equation}
+ X_{i,j,s}=\mathbf1_{\{U_{j,s}<q_{d_{i,j}}(p_*)\}},
+ \qquad
+ q_d(p)=T_d(\sqrt p)^2.
+ \label{eq:matched-paired-uniforms}
+\end{equation}
+For a fixed alternative, $U_{j,s}$ is independent of that alternative's
+earlier looks. Its conditional fresh-shot law is therefore exactly the
+law required by the controller. The alternatives need not be independent
+for their marginal confidence bounds or the union bound to hold.
+This reasoning does not condition a method on another method's entire
+future history. At $\alpha=1/3600$, all twelve alternative-price
+events have union failure at most $1/300$; selecting one independently
+certified alternative for each of four cases gives $1/900$.
+
+The finite replay uses pseudorandom64-bit words and rounded signal
+thresholds solely to reproduce descriptive histories. Its word coupling
+removes method-relative mesh and seed confounding. It supplies no
+theorem about pseudorandom or physical coverage. In particular,
+\eqref{eq:matched-paired-uniforms} stipulates a common scalar signal;
+it does not assert $p_i=p_j$ for differently rounded financial
+preparations. Their actual flags remain governed by their own
+representation certificates. Shared ideal financial means and distinct
+implemented flag probabilities are compatible statements.
+
+These arguments specialise established fixed-binomial coverage,
+conditional confidence spending, union bounds and linear expectation to
+the project interface. I do not claim their generic theoretical novelty.
+
+\section{Sharp Gaussian component moduli}
+\label{sec:sharp-common-information}
+
+The constants below refine the existing path certificate without using a
+financial price as input. They are exact extrema for the stated class of
+positive mass-one threshold measures. Their mathematical sharpness does
+not establish priority in the literature. In particular, the two
+component extrema need not be attained by the same perturbation; the
+sum in the path certificate is not asserted to be jointly sharp.
+
+Write $\phi(x)=(2\pi)^{-1/2}\exp(-x^2/2)$ and let $\Phi$ be its
+distribution function. For $t\geq0$, define
+\begin{equation}
+ k(t)=\sup_{x\in\mathbb R}|\phi(x+t)-\phi(x)|,
+ \qquad \mathfrak a(t)=2\Phi(t/2)-1.
+ \label{eq:sharp-k-A}
+\end{equation}
+For $t,e\geq0$, put $r_t(x)=\Phi(x+t/2)-\Phi(x-t/2)$ and
+\begin{equation}
+ \Omega(t,e)=\sup_{x\in\mathbb R,\,|h|\leq e}
+                    |r_t(x+h)-r_t(x)|.
+ \label{eq:sharp-Omega-definition}
+\end{equation}
+Both $k(0)$ and $\Omega(t,0)=\Omega(0,e)$ are zero.
+
+\begin{theorem}[Exact derivative coefficient]
+\label{thm:sharp-common-derivative}
+For $t>0$, there is exactly one $u_t>\max\{1,t/2\}$ satisfying
+\begin{equation}
+ u_t\tanh(tu_t/2)=t/2,
+ \qquad
+ k(t)=\phi(u_t-t/2)-\phi(u_t+t/2).
+ \label{eq:sharp-k-root}
+\end{equation}
+It lies below $1+t/2$. The function $k$ is strictly increasing on
+$(0,\infty)$ and
+\begin{equation}
+ 0<k(t)<\min\{\phi(0),t\phi(1)\},\qquad
+ \lim_{t\downarrow0}\frac{k(t)}{t}=\phi(1),\qquad
+ \lim_{t\to\infty}k(t)=\phi(0).
+ \label{eq:sharp-k-properties}
+\end{equation}
+For every positive Borel measure $\mu$ of mass one and every $\lambda>0$,
+the smallest uniform coefficient, simultaneously over $m$ and $\mu$, in
+$|\partial_m R_{\lambda,\mu}(m,d)|\leq\kappa(d,\lambda)$ is
+\begin{equation}
+ \kappa(d,\lambda)=\lambda^{-1}k(d/\lambda).
+ \label{eq:sharp-common-coefficient}
+\end{equation}
+An atomic measure attains this coefficient.
+\end{theorem}
+\begin{proof}
+For $a=t/2$ and $u>0$, Gaussian symmetry gives the positive function
+$q_t(u)=\phi(u-a)-\phi(u+a)$; the absolute density difference reduces
+to this function by translation and reflection. Its logarithmic
+derivative is
+\begin{equation}
+ \frac{q_t'(u)}{q_t(u)}=-u+a\coth(au).
+ \label{eq:sharp-k-log-derivative}
+\end{equation}
+The function $u\mapsto u\tanh(au)$ is continuous, strictly increasing
+from zero to infinity. At $u=a$ its value is strictly below $a$, and at
+$u=1$ its value is strictly below $a$, since $\tanh a<a$. Thus its
+unique level-$a$ point exceeds both. The inequality
+$\tanh x\geq x/(1+x)$ for $x\geq0$ follows from
+$\exp(2x)\geq1+2x$. At $u=a+1$ it implies
+\begin{equation}
+ u\tanh(au)\geq
+ \frac{a(a+1)^2}{1+a(a+1)}>a.
+ \label{eq:sharp-k-upper-bracket}
+\end{equation}
+Hence $q_t$ increases up to $u_t$ and decreases thereafter, proving
+the formula and bracket. At the maximiser $u_t>a$, differentiation
+with respect to $t$ gives
+\begin{equation}
+ \partial_t q_t(u_t)=\tfrac12\{(u_t-a)\phi(u_t-a)
+                              +(u_t+a)\phi(u_t+a)\}>0.
+ \label{eq:sharp-k-monotonicity}
+\end{equation}
+The implicit function theorem applies because
+$\partial_u[u\tanh(au)]>0$, so this is the derivative of $k$.
+Both Gaussian densities are positive, giving $k(t)<\phi(0)$.
+The fundamental theorem of calculus gives
+$q_t(u)\leq t\sup|\phi'|=t\phi(1)$, strictly for a positive interval,
+since the continuous function $|\phi'|$ attains its maximum only at
+two isolated points. The bracket and root equation imply $u_t\to1$
+as $t\downarrow0$, establishing the small-$t$ limit. Evaluating the
+density difference at $x=0$ gives the lower bound
+$\phi(0)-\phi(t)$, which proves the large-$t$ limit. Finally,
+\begin{equation}
+ \partial_m R_{\lambda,\mu}(m,d)=\lambda^{-1}
+   \int\{\phi((m+d-a)/\lambda)-\phi((m-a)/\lambda)\}\,\mu(da).
+ \label{eq:sharp-common-derivative-integral}
+\end{equation}
+Positivity and total mass one prove the coefficient bound. Choosing
+$\mu=\delta_a$ and $m-a=\lambda(u_t-t/2)$ attains its absolute value.
+\end{proof}
+
+\begin{theorem}[Exact finite common-shift modulus]
+\label{thm:sharp-finite-common-shift}
+For $t,e>0$, put $b=(t+e)/2$ and $c=|t-e|/2$. There is exactly one
+$u_{t,e}>\max\{t,e\}/2$ satisfying
+\begin{equation}
+ \log\cosh(bu_{t,e})-\log\cosh(cu_{t,e})=te/2.
+ \label{eq:sharp-Omega-root}
+\end{equation}
+It is smaller than $\max\{t,e\}/2+1/\min\{t,e\}$, and
+\begin{equation}
+ \Omega(t,e)=r_t(u_{t,e}-e/2)-r_t(u_{t,e}+e/2).
+ \label{eq:sharp-Omega-evaluation}
+\end{equation}
+The function $\Omega$ is symmetric in its arguments and strictly
+increasing in each positive argument. Moreover,
+\begin{equation}
+ 0<\Omega(t,e)<\min\{k(t)e,k(e)t,\mathfrak a(t),\mathfrak a(e)\}.
+ \label{eq:sharp-Omega-comparison}
+\end{equation}
+For every positive mass-one $\mu$,
+\begin{equation}
+ |R_{\lambda,\mu}(m+h,d)-R_{\lambda,\mu}(m,d)|
+ \leq\Omega(d/\lambda,E/\lambda),\qquad |h|\leq E, d\geq0.
+ \label{eq:sharp-Omega-mixture}
+\end{equation}
+The right-hand side is the smallest uniform bound over this class,
+and is attained by a point mass and a shift of magnitude $E$.
+\end{theorem}
+\begin{proof}
+The function $r_t$ is even, strictly decreasing on $(0,\infty)$ and
+positive everywhere for $t>0$. For a shift of magnitude $e$, reflection
+reduces the absolute difference to
+$D_{t,e}(u)=r_t(u-e/2)-r_t(u+e/2)$ for $u\geq0$. This quantity is
+positive for $u>0$. Expanding the four distribution functions shows
+$D_{t,e}=D_{e,t}$. Differentiation gives
+\begin{equation}
+ D_{t,e}'(u)=2\phi(u)\{
+ e^{-c^2/2}\cosh(cu)-e^{-b^2/2}\cosh(bu)\}.
+ \label{eq:sharp-Omega-derivative}
+\end{equation}
+Since $b>c\geq0$, the function
+$H(u)=\log\cosh(bu)-\log\cosh(cu)$ is strictly increasing on
+$(0,\infty)$: its derivative is
+$b\tanh(bu)-c\tanh(cu)>0$, because $v\mapsto v\tanh(vu)$ is
+strictly increasing for $v>0$. Also $H(0)=0$ and $H(u)\to\infty$.
+Since $(b^2-c^2)/2=te/2$, the unique root in
+\eqref{eq:sharp-Omega-root} gives the unique maximum of $D_{t,e}$.
+At $u=e/2$, the derivative is $r_t'(0)-r_t'(e)>0$; symmetry also
+gives positivity at $u=t/2$. This proves the lower bracket.
+The inequalities $\cosh(bu)\geq e^{bu}/2$ and
+$\cosh(cu)\leq e^{cu}$ imply
+$H(u)\geq(b-c)u-\log2$. At the stated upper bracket this exceeds
+$te/2$, since $b-c=\min\{t,e\}$ and $1>\log2$.
+
+The maximum depends smoothly on $e>0$ by the implicit function
+theorem. At its maximiser, $D_{t,e}'(u)=0$, so
+$r_t'(u-e/2)=r_t'(u+e/2)$. Consequently
+\begin{equation}
+ \partial_e\Omega(t,e)
+   =-r_t'(u_{t,e}-e/2)>0.
+ \label{eq:sharp-Omega-monotonicity}
+\end{equation}
+The strict inequality uses $u_{t,e}>e/2$. It follows that the largest
+modulus over all shifts of magnitude at most $e$ is attained at $e$.
+Symmetry gives monotonicity in $t$ as well. Integrating $r_t'$ over
+the interval of length $e$ gives $\Omega(t,e)<k(t)e$, strictly because
+the continuous derivative cannot be constant at its extremal value on
+a positive interval. Interchanging $t,e$ gives $\Omega(t,e)<k(e)t$.
+The largest value of $r_t$ is $r_t(0)=\mathfrak a(t)$, whereas the smaller
+of the two values in the attained difference remains positive; hence
+$\Omega(t,e)<\mathfrak a(t)$ and symmetry gives $\Omega(t,e)<\mathfrak a(e)$.
+For a fixed threshold $a$, the correction is
+$r_{d/\lambda}((m-a+d/2)/\lambda)$. Integrating its common-shift
+bound against $\mu$ proves \eqref{eq:sharp-Omega-mixture}.
+An atomic measure with the lower centred argument
+$u_{t,e}-e/2$ and shift $E$ attains the absolute difference.
+\end{proof}
+
+\begin{corollary}[Finite path certificate]
+\label{cor:sharp-finite-path}
+Under the premises of Theorem~\ref{thm:common-information-stability},
+\begin{equation}
+ |R_{\lambda,\mu}(\widehat m,\widehat\Delta)
+                        -R_{\lambda,\mu}(m,\Delta)|
+ \leq\Omega(\Delta/\lambda,E_m/\lambda)
+                       +\mathfrak a(e_\Delta/\lambda).
+ \label{eq:sharp-finite-path}
+\end{equation}
+The bound remains valid when the represented gap is negative and after
+projection that fixes the true correction. A known upper true gap may
+replace $\Delta$. If both gaps are nonnegative, the first argument of
+$\Omega$ may instead use $\min\{\Delta,\widehat\Delta\}$.
+\end{corollary}
+\begin{proof}
+Use the same two-segment path as the earlier theorem. The common-shift
+segment receives \eqref{eq:sharp-Omega-mixture}. For the gap segment,
+the integrand is the Gaussian probability of an interval of length
+$|\widehat\Delta-\Delta|/\lambda$. The probability of an interval
+of length $v$ is maximised by the centred interval, as follows by
+differentiating $\Phi(x+v)-\Phi(x)$ and using Gaussian symmetry.
+Its maximum is $\mathfrak a(v)$. This argument also covers a negative represented
+gap. Positivity and mass one preserve the bound under integration.
+The monotonicity of $\mathfrak a$ and $\Omega$ gives the stated replacements;
+reversing the path gives the smaller represented-gap alternative.
+Projection is $1$-Lipschitz and fixes the target.
+\end{proof}
+
+\subsection{Certified evaluation without a financial price input}
+
+All inputs to $k$, $\mathfrak a$ and $\Omega$ are the smoothing scale and
+independently certified error/gap bounds. The root equations have unique
+roots, explicit brackets admitting rational outward enclosures and
+strictly monotone left-hand sides. Directed interval evaluation and rational bisection
+therefore enclose the roots and the constants to arbitrary precision.
+When an interval evaluation cannot decide the sign, increasing arithmetic
+precision decides it unless the rational trial point is the exact root;
+that case is covered as follows. For a retained root bracket $[l,r]$,
+a trial point $c\in[l,r]$, a certified residual $|F(c)|\leq\varepsilon$
+and a certified derivative lower bound
+$\inf_{[l,r]}F'\geq a>0$, the mean value theorem gives the new enclosure
+\begin{equation}
+ u_*\in[l,r]\cap[c-\varepsilon/a,c+\varepsilon/a].
+ \label{eq:sharp-root-residual-enclosure}
+\end{equation}
+The analytic derivative is strictly positive on the stated lower brackets;
+a sufficiently fine interval subdivision certifies a positive lower
+bound on the compact retained bracket. Evaluating the expressions on the entire retained root interval
+gives an upper bound, rather than treating a rounded root as exact.
+Outward rational rounding may subsequently preserve the upper bound.
+Neither a realised derivative price nor a simulated price enters this
+procedure. The constants are applicable to every encoding satisfying the
+same conditioning premise. They do not justify treating normal-label
+dependent arithmetic perturbations as independent common shifts.
+
+\subsection{The actual capped-payoff threshold measure}
+
+For $f(x)=H^{-1}\min\{K(e^x-1)_+,H\}$, write
+$\alpha=K/H$ and $\ell=\log(1+H/K)$. Its threshold measure is
+\begin{equation}
+ \mu_{\rm cap}(da)=\alpha e^a\mathbf1_{(0,\ell)}(a)\,da,
+ \qquad\int\mu_{\rm cap}(da)=\alpha(e^\ell-1)=1.
+ \label{eq:sharp-cap-measure}
+\end{equation}
+Its smoothed derivative, which is a density rather than a basket price,
+has the explicit expression
+\begin{equation}
+ j_\lambda(m)=P_{\lambda,\mu_{\rm cap}}'(m)
+ =\alpha e^{m+\lambda^2/2}
+ \left\{\Phi\left(\frac{\ell-m-\lambda^2}{\lambda}\right)
+              -\Phi\left(\frac{-m-\lambda^2}{\lambda}\right)\right\}.
+ \label{eq:sharp-cap-density}
+\end{equation}
+Define the model-specific coefficient
+\begin{equation}
+ \kappa_{\rm cap}(d,\lambda)
+  =\sup_{m\in\mathbb R}|j_\lambda(m+d)-j_\lambda(m)|.
+ \label{eq:sharp-cap-kappa}
+\end{equation}
+For every $d>0$ and $\lambda>0$,
+\begin{equation}
+ 0<\kappa_{\rm cap}(d,\lambda)
+   <\kappa(d,\lambda),\qquad
+ \kappa_{\rm cap}(d,\lambda)\leq(K+H)/H.
+ \label{eq:sharp-cap-strict-improvement}
+\end{equation}
+To derive \eqref{eq:sharp-cap-density}, integrate
+$\alpha e^a\lambda^{-1}\phi((m-a)/\lambda)$ over $(0,\ell)$
+and complete the square in $a$. The result is
+\eqref{eq:sharp-cap-density}. The function $j_\lambda$ is continuous,
+strictly positive and tends to zero at both tails. Its translated
+difference is not identically zero for $d>0$: otherwise
+$j_\lambda(m+d)=j_\lambda(m)$ for every $m$, making this positive
+function periodic, contrary to its zero tail limit. Thus its translated
+difference attains its nonzero absolute maximum at a finite point.
+For each fixed $m$, the Gaussian translated-density difference attains
+its extremal absolute value at only two isolated threshold positions.
+The positive absolutely continuous measure \eqref{eq:sharp-cap-measure}
+gives those positions zero mass. Strictness of the integral triangle
+bound at the attained maximiser proves the strict inequality in
+\eqref{eq:sharp-cap-strict-improvement}. Finally,
+$j_\lambda=\mathbb E f'(m+\lambda N)$ and
+$0\leq f'\leq(K+H)/H$, so the difference of two such values has
+absolute value at most $(K+H)/H$.
+
+This coefficient is certifiably computable. For any rational $L>0$, all
+$m\notin[-d-L\lambda,\ell+L\lambda]$ obey the tail bound
+\begin{equation}
+ |j_\lambda(m+d)-j_\lambda(m)|\leq\phi(L)/\lambda.
+ \label{eq:sharp-cap-tail}
+\end{equation}
+Indeed, both Gaussian arguments then remain on the same side of zero
+with magnitude at least $L$ for every threshold in $[0,\ell]$.
+Their nonnegative densities each lie below $\phi(L)$, and their
+absolute difference lies below the same bound. On the compact interval,
+the integrand derivative gives
+\begin{equation}
+ |\partial_m\{j_\lambda(m+d)-j_\lambda(m)\}|
+                         \leq2\phi(1)/\lambda^2.
+ \label{eq:sharp-cap-mesh-Lipschitz}
+\end{equation}
+A mesh of maximum spacing $\delta$, with directed upper bounds $U_i$
+for the absolute differences at its nodes and both endpoints included,
+therefore yields the global certificate
+\begin{equation}
+ \kappa_{\rm cap}(d,\lambda)
+ \leq\max\left\{\phi(L)/\lambda,
+                       \max_i U_i+\phi(1)\delta/\lambda^2\right\}.
+ \label{eq:sharp-cap-mesh-certificate}
+\end{equation}
+Letting $L$ increase, $\delta$ decrease and evaluation precision increase
+converges to the exact supremum. A single coefficient at $d_*$ cannot be
+used for every $0\leq d\leq d_*$ without a separate monotonicity argument.
+A directly certified alternative is
+\begin{equation}
+ \overline\kappa_{\rm cap}(d_*,\lambda)
+ =\sup_{0\leq v\leq d_*}\sup_m
+                  |j_\lambda(m+v)-j_\lambda(m)|
+ <\kappa(d_*,\lambda)\qquad(d_*>0).
+ \label{eq:sharp-cap-uniform-gap-envelope}
+\end{equation}
+For its strict inequality, the joint function is continuous and tends
+uniformly to zero in the two tails for $v\in[0,d_*]$. Its positive
+maximum is attained on a compact set. At an attained pair with $v>0$,
+the preceding strict cap inequality gives a value smaller than
+$\kappa(v,\lambda)\leq\kappa(d_*,\lambda)$; at $v=0$ the value is zero.
+To compute this envelope, retain the compact $m$ interval
+$[-d_*-L\lambda,\ell+L\lambda]$ and a rectangular mesh with maximum
+spacings $\delta_m,\delta_v$. Since the derivatives in the two
+coordinates have absolute bounds $2\phi(1)/\lambda^2$ and
+$\phi(1)/\lambda^2$, respectively, the maximum node upper bound plus
+$\phi(1)(\delta_m+\delta_v/2)/\lambda^2$, combined with the tail
+bound \eqref{eq:sharp-cap-tail}, is a global upper certificate.
+Any use of this model-specific refinement
+must preserve the represented conditioning information. In particular,
+the shared-threshold implementation may have strike-label dependent
+threshold errors. It cannot apply the integrated cap coefficient to
+those errors. The strike-independent common endpoint shift may use the
+cap coefficient; the remaining strike-dependent shift must retain a
+uniform fixed-threshold allowance. Raw-payoff and numerical encodings
+may use the cap coefficient only after their common endpoint errors have
+been separated from scalar-map errors and inner-label dependent
+remainders as in the existing guarded certificates.
+
+\subsection{Finite remainders that depend on the inner label}
+
+These allowances remain separate from common-information smoothing.
+For any Borel set $B$ of Lebesgue measure at most $w\geq0$,
+\begin{equation}
+ \int_B\phi(x)\,dx\leq \mathfrak a(w).
+ \label{eq:sharp-normal-set-concentration}
+\end{equation}
+Indeed, let $I=[-w/2,w/2]$. The density is at most $\phi(w/2)$ on
+$B\setminus I$ and at least that value on $I\setminus B$. Thus
+\begin{equation}
+ \int_B\phi-\int_I\phi
+ \leq\phi(w/2)\{|B\setminus I|-|I\setminus B|\}\leq0.
+ \label{eq:sharp-normal-set-proof}
+\end{equation}
+The two boundary strips in a Gaussian interval expansion or shrinkage
+by $E_s/\lambda$ have total length at most $2E_s/\lambda$.
+If shrinkage empties the interval, its original length is at most this
+same bound. The existing interval sandwich therefore sharpens the
+label-dependent shared-threshold allowance to
+\begin{equation}
+ 2D_N+\mathfrak a(2E_s/\lambda)
+       \leq2D_N+2\phi(0)E_s/\lambda.
+ \label{eq:sharp-threshold-inner-remainder}
+\end{equation}
+Only the continuous strip probability is bounded by concentration;
+the finite law still uses its retained interval CDF discrepancy and
+strict/left endpoint conventions. This argument imposes no independence
+between the perturbation and the inner normal label.
+
+The normalised cap has the exact finite payoff modulus
+\begin{equation}
+ \omega_f(h)=\sup_x|f(x+h)-f(x)|
+       =\min\{1,(\alpha+1)(1-e^{-|h|})\}.
+ \label{eq:sharp-cap-payoff-modulus}
+\end{equation}
+For $h\geq0$, the increment integrates $\alpha e^x$ over the intersection
+of an interval of length $h$ with $(0,\ell)$. Since that density is
+increasing inside its support, its largest integral uses the rightmost
+subinterval of length $\min\{h,\ell\}$. This proves the formula;
+negative shifts give the same modulus by translation. For $d\geq0$,
+the difference $g_d(x)=f(x+d)-f(x)$ lies in $[0,v(d)]$, where
+$v(d)=\min\{1,(\alpha+1)(1-e^{-d})\}$. If $h\geq0$, both increments
+$f(x+d+h)-f(x+d)$ and $f(x+h)-f(x)$ lie in $[0,\omega_f(h)]$.
+Their difference consequently has magnitude at most $\omega_f(h)$.
+The same argument follows for $h<0$ by translation. Hence
+\begin{equation}
+ |g_d(x+\zeta)-g_d(x)|
+ \leq\min\{v(d),\omega_f(E_s)\}\qquad(|\zeta|\leq E_s).
+ \label{eq:sharp-raw-inner-remainder}
+\end{equation}
+This replaces the former $(\alpha+1)E_s$ allowance and is valid
+pointwise, including arbitrary dependence on the inner label.
+
+\section{Exact conjugation and complete charging of an unclean preparation}
+\label{app:cancellation-aware-preparation}
+
+The preparation-conjugated reflection and the parity-dependent sampling
+law are established amplitude-amplification constructions
+\citep{suzuki2020,rallfuller2023}. Cross-boundary cancellation is also
+established: Stamatopoulos et al.\ optimise the complete pricing circuit
+in Appendix B, and the author version of Carrera Vazquez and Woerner
+uses a spin-echo identity to reduce repeated preparation costs in
+Section IV, equations (19)--(25), and Figure 2.
+\footnote{The published record is \emph{Physical Review Applied}, 15,
+034027, DOI 10.1103/PhysRevApplied.15.034027. The detailed text actually
+consulted is arXiv:2005.07711v1, dated 15 May 2020, with a body date of
+19 May 2020. Its rotation-specific argument is not asserted to be
+identical to the inaccessible final text.}
+I derive the following identities for the exact finite financial
+circuits and charge the same transformation to every financial rival.
+They justify an implementation comparison, without a claim of priority
+for conjugation or amplitude estimation.
+
+\subsection{Registers, operator order and the transported invariant}
+
+Let $\mathcal H=\mathcal H_C\otimes\mathcal H_W$ be the financial
+Hilbert space. The core $C$ contains the original uniform input labels,
+any original comparison label and the good flag $g$. The work register
+$W$ contains arithmetic outputs, private evaluator work, constant-zero
+endpoint wires and any clean predicate scratch. Define
+\begin{equation}
+ \mathcal M=\mathcal H_C\otimes\operatorname{span}\{|0_W\rangle\},
+ \qquad |e\rangle=|0_C\rangle\otimes|0_W\rangle,
+ \qquad E_C=|0_C\rangle\langle0_C|\otimes I_W.
+ \label{eq:conjugation-clean-space}
+\end{equation}
+The desired logical zero reflection is the \emph{same} old core operator
+\begin{equation}
+ S_0=I-2E_C,
+ \qquad S_g=Z_g=I-2\Pi_g,
+ \qquad \Pi_g=|1_g\rangle\langle1_g|\otimes I_{\mathrm{other}}.
+ \label{eq:conjugation-reflections}
+\end{equation}
+Let $\widetilde S_0$ be the exact full unitary implemented by the
+retained ladder tape on its actual allocated wires. The tape may borrow
+scratch wires from $W$, and its established contract is
+\begin{equation}
+ \widetilde S_0x=S_0x\quad(x\in\mathcal M).
+ \label{eq:conjugation-physical-zero-reflection}
+\end{equation}
+Both versions retain this \emph{same actual tape}. On $\mathcal M$,
+its action is the rank-one reflection about $|e\rangle$, and all
+borrowed scratch is restored to zero. I make no assumption that its
+action equals the logical extension $I-2E_C$ on arbitrary dirty work.
+That extension would itself not be rank one on the whole Hilbert
+space. The distinction is necessary when asserting a full-operator
+conjugacy: its two sides must contain the same actual unitary, rather
+than replacing an invariant-space implementation by an unproved
+global extension.
+When a controlled ladder requires an additional scratch wire, I include
+it in $W$ and extend $A$, $B$, $U$ and the uncontrolled tape by the
+identity on that wire. The same zero-work space is thereby available
+for both constructions on a common conservative allocation.
+
+Let $H$ denote the exact tensor product of the retained input
+Hadamards, let $U$ compute the reversible arithmetic graph, and let
+$P$ be the exact clean XOR of its final predicate into $g$. Operator
+products act from right to left, so the retained chronological clean
+preparation is $H,U,P,U^\dagger$. I require the following checked
+finite-circuit properties:
+\begin{equation}
+ A=U^\dagger P U H,\qquad
+ A\mathcal M\subseteq\mathcal M,\qquad
+ A^\dagger\mathcal M\subseteq\mathcal M,\qquad
+ [U,S_g]=0.
+ \label{eq:conjugation-assumptions}
+\end{equation}
+The last property follows if no gate in $U$ acts on the flag. The
+cleanliness properties require $P$ to preserve the arithmetic output
+registers and return its own private scratch to zero, so that the
+emitted $U^\dagger$ restores every graph work register. Those properties
+must hold on the whole registered zero-work core subspace, including
+both flag values, rather than only on the single prepared input.
+Exact circuit reversibility is compatible with approximate financial
+tables: a table and its exact emitted adjoint cancel as finite
+operators, irrespective of their approximation error relative to a
+continuous financial function.
+
+Define the alternative preparation
+\begin{equation}
+ B=P U H=U A,\qquad
+ |\psi\rangle=A|e\rangle,\qquad
+ |\phi\rangle=B|e\rangle=U|\psi\rangle.
+ \label{eq:conjugation-preparations}
+\end{equation}
+The state $|\phi\rangle$ need not have clean arithmetic work. It is
+therefore incorrect to replace its transported invariant by
+$\mathcal M$ or to infer a reduction in the reflection core or allocated
+peak from the removal of its final cleanup.
+
+\begin{theorem}[Exact signal-preserving preparation conjugation]
+\label{thm:exact-preparation-conjugation}
+Under \eqref{eq:conjugation-assumptions} and the actual-tape clean-work
+contracts \eqref{eq:conjugation-physical-zero-reflection} and
+\eqref{eq:conjugation-actual-controlled-contract}, retain the
+conditional sign in
+\begin{equation}
+ Q_A=-A\widetilde S_0 A^\dagger S_g,\qquad
+ Q_B=-B\widetilde S_0 B^\dagger S_g.
+ \label{eq:conjugation-iterates}
+\end{equation}
+The global unitary identity is
+\begin{equation}
+ Q_B=U Q_A U^\dagger,\qquad
+ Q_B^j B|e\rangle=UQ_A^j A|e\rangle\quad(j\geq0).
+ \label{eq:conjugation-global-identity}
+\end{equation}
+The clean Grover subspace of dimension at most two
+$\mathcal V=\operatorname{span}\{|\psi\rangle,S_g|\psi\rangle\}$ is
+contained in $\mathcal M$. Its transported space
+$\mathcal V_B=U\mathcal V$ is invariant under $S_g$ and $Q_B$.
+Immediately before every zero reflection, $B^\dagger$ maps the
+relevant transported state back to $\mathcal M$. Consequently the old
+core reflection and its old clean scratch implementation are valid on
+this transported invariant, although terminal odd-degree work is dirty.
+
+For every integer $d\geq1$, the odd-degree good-flag observation and
+the even-degree core-zero observation have exactly the same
+probabilities for $A$ and $B$. Specifically, if
+$p=\langle\psi|\Pi_g|\psi\rangle$ and
+$\theta=\arcsin\sqrt p$, both probabilities are
+\begin{equation}
+ q_d(p)=T_d(\sqrt p)^2
+ =\begin{cases}
+   \sin^2(d\theta),&d\text{ odd},\\
+   \cos^2(d\theta),&d\text{ even}.
+  \end{cases}
+ \label{eq:conjugation-parity-signal}
+\end{equation}
+The same equality holds for the complete phase-register distribution
+of controlled quantum phase estimation, including an approximate
+inverse Fourier circuit applied identically to the phase register.
+\end{theorem}
+\begin{proof}
+Using $B=UA$ and $U^\dagger S_g=S_gU^\dagger$ gives
+\begin{equation}
+ -B\widetilde S_0B^\dagger S_g
+ =-U A\widetilde S_0A^\dagger U^\dagger S_g
+ =U(-A\widetilde S_0A^\dagger S_g)U^\dagger.
+ \label{eq:conjugation-identity-derivation}
+\end{equation}
+This is an identity of full operators, not merely an equality of
+expectations. Induction on $j$, cancelling every adjacent
+$U^\dagger U$, proves the second part of
+\eqref{eq:conjugation-global-identity}.
+
+Since $A|e\rangle\in\mathcal M$ and $S_g$ acts only on a core flag,
+$\mathcal V\subseteq\mathcal M$. On $\mathcal M$,
+\eqref{eq:conjugation-physical-zero-reflection} and invariance under
+$A^\dagger$ give
+$-A\widetilde S_0A^\dagger=2|\psi\rangle\langle\psi|-I$, so
+$\mathcal V$ is invariant under both reflections and their product.
+Commutation of $U$ and $S_g$ gives
+$\mathcal V_B=\operatorname{span}\{|\phi\rangle,S_g|\phi\rangle\}$
+and its invariance. If $x\in\mathcal V$ then
+\begin{equation}
+ B^\dagger Ux=A^\dagger x\in\mathcal M.
+ \label{eq:conjugation-restored-cleanliness}
+\end{equation}
+Thus work that is dirty during the prepared portion is clean again
+after $B^\dagger$, before $S_0$. The existing ladder scratch can be
+borrowed from that clean allocation at this point, provided the
+emitted inverse clears each borrowed wire and the reflection returns
+it to zero. An entangled superposition of phase-control branches does
+not change this conclusion: every branch belongs to the same linear
+subspace, and the inverse acts unconditionally.
+
+For $d=2k+1$, the two terminal states are
+$Q_A^k|\psi\rangle$ and $UQ_A^k|\psi\rangle$. Since
+$[U,\Pi_g]=0$, their good-flag probabilities agree. For $d=2k$,
+$k\geq1$, the chronological circuit is preparation, $k-1$ Grover
+iterations, $S_g$, then the preparation adjoint. Its terminal states
+are equal as full vectors:
+\begin{equation}
+ B^\dagger S_g Q_B^{k-1}B|e\rangle
+ =A^\dagger U^\dagger S_gUQ_A^{k-1}A|e\rangle
+ =A^\dagger S_gQ_A^{k-1}A|e\rangle\in\mathcal M.
+ \label{eq:conjugation-even-state}
+\end{equation}
+For a vector in $\mathcal M$, core-zero observation is precisely the
+rank-one $|e\rangle$ event.
+
+For $0<p<1$, define the orthonormal good and bad components
+$|g\rangle=\Pi_g|\psi\rangle/\sqrt p$ and
+$|b\rangle=(I-\Pi_g)|\psi\rangle/\sqrt{1-p}$. In that ordered basis,
+\begin{equation}
+ Q_A\big|_{\mathcal V}
+ =\begin{pmatrix}\cos2\theta&\sin2\theta\\
+                 -\sin2\theta&\cos2\theta\end{pmatrix},
+ \qquad
+ Q_A^k|\psi\rangle
+ =\sin((2k+1)\theta)|g\rangle+
+   \cos((2k+1)\theta)|b\rangle.
+ \label{eq:conjugation-grover-matrix}
+\end{equation}
+The second equality follows by induction using the angle-addition
+identities. Odd observation gives $\sin^2((2k+1)\theta)$; even
+core-zero amplitude is
+\begin{equation}
+ \langle\psi|S_g Q_A^{k-1}|\psi\rangle
+ =\cos\theta\cos((2k-1)\theta)
+  -\sin\theta\sin((2k-1)\theta)
+ =\cos(2k\theta).
+ \label{eq:conjugation-even-amplitude}
+\end{equation}
+Since $T_d(\cos x)=\cos(dx)$ and
+$\sqrt p=\cos(\pi/2-\theta)$, squaring proves
+\eqref{eq:conjugation-parity-signal}. At $p=0$, $Q_A|\psi\rangle
+=|\psi\rangle$, and at $p=1$, $Q_A|\psi\rangle=-|\psi\rangle$;
+direct evaluation gives respectively odd probabilities $0,1$ and
+even probabilities $1,1$. No normalisation of a vanishing component
+is used.
+
+For a phase-control qubit $c$, define
+$\operatorname{C}_c(V)=|0\rangle\langle0|_c\otimes I+
+|1\rangle\langle1|_c\otimes V$. The exact global identity gives
+\begin{equation}
+ \operatorname{C}_c(Q_B^j)
+ =(I_c\otimes U)\operatorname{C}_c(Q_A^j)(I_c\otimes U^\dagger).
+ \label{eq:conjugation-controlled}
+\end{equation}
+This identity is for mathematically controlled full operators. The
+actual controlled zero-reflection tape may borrow an extra scratch
+wire. It is not assumed globally equal to the controlled version of
+the uncontrolled tape on arbitrary dirty work. Let $R_{0,c}$ denote
+the actual controlled tape, with its checked restriction
+\begin{equation}
+ R_{0,c}(|z\rangle_c\otimes x)
+ =|z\rangle_c\otimes S_0^z x
+ \quad(z\in\{0,1\},\ x\in\mathcal M).
+ \label{eq:conjugation-actual-controlled-contract}
+\end{equation}
+Retain the same actual $R_{0,c}$ in both physical constructions:
+\begin{equation}
+ K_{A,c}=Z_c(I_c\otimes A)R_{0,c}(I_c\otimes A^\dagger)
+                   \operatorname C_c(S_g),\qquad
+ K_{B,c}=Z_c(I_c\otimes B)R_{0,c}(I_c\otimes B^\dagger)
+                   \operatorname C_c(S_g).
+ \label{eq:conjugation-actual-controlled-iterates}
+\end{equation}
+Commutation of $U$ with $S_g$, and of $I_c\otimes U$ with $Z_c$,
+gives the genuine full-tape identity
+\begin{equation}
+ K_{B,c}=(I_c\otimes U)K_{A,c}(I_c\otimes U^\dagger).
+ \label{eq:conjugation-actual-controlled-identity}
+\end{equation}
+On $\mathcal H_c\otimes\mathcal V$, the intermediate state after
+the unconditional $A^\dagger$ has zero work in both control branches,
+so \eqref{eq:conjugation-actual-controlled-contract} proves that
+$K_{A,c}$ equals $\operatorname C_c(Q_A)$ there. The same reasoning
+with \eqref{eq:conjugation-restored-cleanliness} proves equality of
+$K_{B,c}$ and $\operatorname C_c(Q_B)$ on
+$\mathcal H_c\otimes\mathcal V_B$. These are invariant subspaces,
+so repeated controlled iterates implement the required controlled
+powers on every reached state, including entangled control branches.
+
+For a register $R$ of controls, each factor in the actual
+controlled-power network obeys
+\eqref{eq:conjugation-actual-controlled-identity} with $I_R$, so
+successive conjugations cancel. Preparation and all actual controlled
+powers yield a state equal to $(I_R\otimes U)$ times the $A$ state.
+Every exact or approximate Fourier gate acts on $R$ alone and commutes
+with $I_R\otimes U$. Therefore this relation holds at terminal phase
+observation. For every outcome $y$,
+$|y\rangle\langle y|_R\otimes I$ commutes with $I_R\otimes U$,
+giving exactly equal outcome probabilities. This also proves equality
+of the reduced phase-register states. The minus in
+\eqref{eq:conjugation-iterates} is retained throughout: removing it
+inside a controlled operation changes relative phases and invalidates
+the asserted phase distribution.
+\end{proof}
+
+\subsection{Complete resource profiles and the stronger clean baseline}
+
+Let $F=T(U)=T(U^\dagger)$, $P_T=T(P)=T(P^\dagger)$ and let
+$h$ be the number of input Hadamards. For additive primitive profiles,
+write $\boldsymbol u$, $\boldsymbol u_{\mathrm{inv}}$,
+$\boldsymbol p$ and $\boldsymbol h$ for the complete emitted forward
+body, inverse body, predicate and input-Hadamard count vectors.
+A literal adjoint tape interchanges $T$ and $T^\dagger$, and $S$ and
+$S^\dagger$; a separately emitted exact inverse may use an equivalent
+decomposition and must retain its own complete profile. The retained
+two coherent architectures have equal combined forward/inverse body
+$T$ charges. Hence the exact retained and alternative profiles satisfy
+\begin{equation}
+ \boldsymbol a=\boldsymbol u+\boldsymbol u_{\mathrm{inv}}
+                  +\boldsymbol p+\boldsymbol h,
+ \qquad \boldsymbol b=\boldsymbol u+\boldsymbol p+\boldsymbol h,
+ \qquad a=2F+P_T,\qquad b=F+P_T.
+ \label{eq:conjugation-resource-profiles}
+\end{equation}
+The familiar shorthand $A=2F+P+H$ and $B=F+P+H$ denotes a
+composition of emitted profiles; $H$ contributes Clifford operations
+and zero $T$ gates. Any claimed improvement in a depth bound must use
+the complete removed inverse-body depth profile, not just its $T$ count.
+The old larger conservative depth upper bounds may instead be retained
+without a depth-improvement claim. The retained
+core and conservative peak are unchanged. No further zero-reflection
+optimisation, fresh financial precision choice or free arithmetic
+register is supplied by this identity.
+
+With $s=T(\widetilde S_0)$, the complete parity shot using $B$ has
+\begin{equation}
+ t_B(d)=\begin{cases}
+  db+(d-1)s/2,&d\text{ odd},\\
+  db+(d/2-1)s,&d\text{ even}.
+ \end{cases}
+ \label{eq:conjugation-parity-resource}
+\end{equation}
+The same preparation/adjoint count proof as the retained sampler
+applies because its old core reflection is justified by
+\eqref{eq:conjugation-restored-cleanliness}. Odd terminal work must be
+measured and conditionally reset after observation. I retain the
+declared full-allocation measurement/reset charge, not a charge for
+the core alone. Those operations have zero $T$ cost under the retained
+logical architecture but positive measurement, feedback and primitive
+operation counts. A coherent downstream consumer requiring clean work
+needs a final $U^\dagger$ and must pay its complete profile.
+
+For a fairer clean comparator, cancellation across the preparation
+boundary gives the exact full-operator identity
+\begin{equation}
+ A^\dagger S_g A
+ =H^\dagger U^\dagger P^\dagger U S_g U^\dagger P U H
+ =H^\dagger U^\dagger P^\dagger S_g P U H.
+ \label{eq:conjugation-cross-boundary}
+\end{equation}
+I denote the clean sampler with every such cancellation performed by
+$t_{A,\mathrm{cancel}}(d)$, retaining the same old reflection tape.
+There are $(d-1)/2$ disjoint pairs for odd degree and $d/2$ for even
+degree, each removing one $U,U^\dagger$ pair. Thus
+\begin{equation}
+ t_{A,\mathrm{cancel}}(d)=
+ \begin{cases}
+  t_A(d)-(d-1)F=t_B(d)+F,&d\text{ odd},\\
+  t_A(d)-dF=t_B(d),&d\text{ even}.
+ \end{cases}
+ \label{eq:conjugation-clean-baseline}
+\end{equation}
+In contrast, $t_A(d)-t_B(d)=dF$ against the old additive template.
+Most of that larger difference is therefore a standard cancellation
+benefit; it cannot honestly be attributed to a new pricing signal.
+These are exact costs of specified constructions, not lower bounds
+on every circuit with the same signal.
+
+For a complete nonzero-shot QPE plan, let $M=2^m$ be the phase-grid
+size, $R$ the number of independent repetitions, $\tau_{\mathrm{QFT}}$
+the complete emitted inverse-Fourier $T$ count, and
+$s_c=T(R_{0,c})$ under the old actual controlled-core tape, retaining
+its conditional phase and cleanup. Its correct action is required
+only on the clean invariant in
+\eqref{eq:conjugation-actual-controlled-contract}.
+The controlled Grover invocation is emitted as
+\begin{equation}
+ K_{B,c}
+ =Z_c(I_c\otimes B)R_{0,c}
+       (I_c\otimes B^\dagger)\operatorname C_c(S_g),
+ \qquad T(K_{B,c})=2b+s_c.
+ \label{eq:conjugation-controlled-resource}
+\end{equation}
+Here $\operatorname C(S_g)$ is the charged Clifford controlled-$Z$,
+and $Z_c$ supplies the conditional global minus. $B$ and its adjoint
+run unconditionally, so there is no assumption that controlling a
+financial arithmetic tape is free. On the relevant transported
+invariant, control zero gives $BB^\dagger=I$, and control one gives
+exactly $Q_B$.
+Both branches satisfy the zero-scratch condition before the controlled
+reflection on the relevant transported invariant. The complete clean
+QPE network, including its initial preparation, is the $B$ network
+followed by $U^\dagger$ on the financial register. To see this, the
+proof of \eqref{eq:conjugation-actual-controlled-identity} shows that
+the $B$ network
+has terminal state $(I_R\otimes U)$ times the clean network state;
+appending $I_R\otimes U^\dagger$ recovers the latter exactly. The
+same circuit results from cross-boundary cancellation in the complete
+$A$ network. This is a globally compiled construction. It does not
+assert that an isolated invocation of $\operatorname C(Q_A)$, without
+its adjacent preparation context, has the reduced cost
+$2b+s_c$.
+
+The full retained, alternative and cancellation-aware clean $T$
+charges are therefore
+\begin{align}
+ T_A^{\mathrm{QPE}}
+ &=R\{a+(M-1)(2a+s_c)+\tau_{\mathrm{QFT}}\},
+ \label{eq:conjugation-retained-qpe-cost}\\
+ T_B^{\mathrm{QPE}}
+ &=R\{b+(M-1)(2b+s_c)+\tau_{\mathrm{QFT}}\},
+ \label{eq:conjugation-dirty-qpe-cost}\\
+ T_{A,\mathrm{cancel}}^{\mathrm{QPE}}
+ &=R\{a+(M-1)(2b+s_c)+\tau_{\mathrm{QFT}}\}.
+ \label{eq:conjugation-clean-qpe-cost}
+\end{align}
+The differences are
+\begin{equation}
+ T_A^{\mathrm{QPE}}-T_B^{\mathrm{QPE}}=R(2M-1)F,
+ \qquad
+ T_{A,\mathrm{cancel}}^{\mathrm{QPE}}-T_B^{\mathrm{QPE}}=RF.
+ \label{eq:conjugation-qpe-difference}
+\end{equation}
+These formulae include one complete preparation, all $M-1$ controlled
+Grover invocations and the complete Fourier tape in each repetition.
+The full resource record must additionally retain phase Hadamards,
+Clifford controlled predicates, the conditional sign, all terminal
+observations, full-allocation resets and the old conservative peak
+plus phase and Fourier ancillas. Zero-shot prior decisions cost zero
+in all three versions. No result above reduces the financial
+discretisation allowance, changes the implemented good probability,
+improves the QPE confidence theorem or establishes physical runtime
+advantage.
+
+\subsection{Controller transfer and the scope of the contribution}
+
+The equality of every $q_d(p)$ in
+\eqref{eq:conjugation-parity-signal} is exact within each representation.
+For a frozen deterministic controller whose initial information,
+confidence allocation and decision policy are unchanged, common
+uniform variables therefore couple the $A$ and $B$ observations to
+give the same finite history and decisions. A budget-dependent degree
+policy must be frozen for this statement: reducing its charged costs
+and then rerunning the policy can change which degrees it chooses.
+Between different financial representations, separately rounded
+probabilities can differ, so the existing equal-signal same-history
+corollary remains conditional. The all-degree implementation lemma
+may be applied to the new $b_i$ and unchanged $s_i$ to compare their
+matched-degree shot charges, but it does not remove that statistical
+premise.
+
+The project-specific question is whether the checked financial
+representation remains cheaper after every rival receives this
+cancellation-aware compilation, identical finite financial
+certificates and complete estimator charges. A positive answer would
+strengthen the financial implementation evidence by surviving an
+established optimisation. It would not constitute a new generic
+quantum amplification law or establish theoretical priority for the
+conjugation identity.
+
+\begin{thebibliography}{99}
+\bibitem[Carrera Vazquez and Woerner(2021)]{carreravazquez2021}
+Carrera Vazquez, A. and Woerner, S. (2021). Efficient state preparation for quantum amplitude estimation.
+\emph{Physical Review Applied}, 15, 034027. \url{https://doi.org/10.1103/PhysRevApplied.15.034027}.
+Detailed version consulted: arXiv:2005.07711v1, 15 May 2020.
+
+\bibitem[Duchi et al.(2012)]{duchi2012}
+Duchi, J. C., Bartlett, P. L. and Wainwright, M. J. (2012). Randomized smoothing for stochastic optimization.
+\emph{SIAM Journal on Optimization}, 22(2), 674--701. \url{https://doi.org/10.1137/110831659}.
+Detailed version consulted: arXiv:1103.4296v2, 7 April 2012.
+
+\bibitem[Glasserman and Yao(1992)]{glassermanyao1992}
+Glasserman, P. and Yao, D. D. (1992). Some guidelines and guarantees for common random numbers.
+\emph{Management Science}, 38(6), 884--908. \url{https://doi.org/10.1287/mnsc.38.6.884}.
+
+\bibitem[Marinelli(2024)]{marinelli2024}
+Marinelli, C. (2024). On certain representations of pricing functionals.
+\emph{Annals of Finance}, 20, 91--127. \url{https://doi.org/10.1007/s10436-024-00438-5}.
+
+\bibitem[Suzuki et al.(2020)]{suzuki2020}
+Suzuki, Y., Uno, S., Raymond, R., Tanaka, T., Onodera, T. and Yamamoto, N. (2020).
+Amplitude estimation without phase estimation. \emph{Quantum Information Processing}, 19, 75.
+\url{https://doi.org/10.1007/s11128-019-2565-2}.
+
+
+\bibitem[Bayer et al.(2018)]{bayer}
+Bayer, C., Siebenmorgen, M. and Tempone, R. (2018).
+Smoothing the payoff for efficient computation of basket option prices.
+\emph{Quantitative Finance}, 18(3), 491--505.
+\url{https://doi.org/10.1080/14697688.2017.1308003}.
+\bibitem[Brassard et al.(2002)]{brassard}
+Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002).
+Quantum amplitude amplification and estimation.
+\emph{Contemporary Mathematics}, 305, 53--74.
+\url{https://doi.org/10.1090/conm/305/05215}.
+\bibitem[Curran(1994)]{curran}
+Curran, M. (1994). Valuing Asian and portfolio options by conditioning
+on the geometric mean price.
+\emph{Management Science}, 40(12), 1705--1711.
+\url{https://doi.org/10.1287/mnsc.40.12.1705}.
+\bibitem[Rebentrost et al.(2018)]{rebentrost}
+Rebentrost, P., Gupt, B. and Bromley, T. R. (2018).
+Quantum computational finance: Monte Carlo pricing of financial derivatives.
+\emph{Physical Review A}, 98, 022321.
+\url{https://doi.org/10.1103/PhysRevA.98.022321}.
+\bibitem[Rall and Fuller(2023)]{rallfuller2023} Rall, P. and Fuller, B. (2023). Amplitude estimation from quantum signal processing. \emph{Quantum}, 7, 937. \url{https://doi.org/10.22331/q-2023-03-02-937}.
+
+
+\bibitem[Stamatopoulos et al.(2020)]{stamatopoulos2020} Stamatopoulos, N., Egger, D. J., Sun, Y., Zoufal, C., Iten, R., Shen, N. and Woerner, S. (2020). Option pricing using quantum computers. \emph{Quantum}, 4, 291. \url{https://doi.org/10.22331/q-2020-07-06-291}.
+
+
+\end{thebibliography}
+\end{document}

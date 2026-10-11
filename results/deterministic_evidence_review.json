@@ -1,0 +1,405 @@
+{
+  "status": "passed independent retained-evidence consistency review",
+  "date": "2026-10-06",
+  "scope": "Recomputes rational algebra, protocol inventory, selection and file provenance. Does not rerun historical exhaustive output evaluation or entire continuous price integration. Those executions remain separate hash-checked retained audits.",
+  "checked_financial_prefixes": 273,
+  "checked_exact_price_records": 47,
+  "retained_full_interpreter_replay_outputs": 330752,
+  "checked_continuous_price_records": 9,
+  "retained_positive_kernel_checks": 126,
+  "total_primary_integrand_calls": 2112,
+  "finite_radius_max_exact_fraction": "1169798064201175249486750644984465074108101418626095323753882094124657063095516950606691125856631659/250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "finite_radius_max_decimal": "0.004679192256804700997947002579937860296432405674504381295015528376498628252382067802426764503426526636",
+  "finite_states_to_certified_MC_samples_min_exact_fraction": "4096/1053823",
+  "finite_states_to_certified_MC_samples_max_exact_fraction": "256/441",
+  "primary_continuous_width_min_exact_fraction": "119170661950331771807531663853494343181/95780971304118053647396689196894323976171195136475136",
+  "primary_continuous_width_max_exact_fraction": "187443665782372992572928172973910524533/5986310706507378352962293074805895248510699696029696",
+  "primary_continuous_width_min_decimal": "1.244199764606146674447069628085646142628130305484202889537701771135511957084669189010165666203545337E-15",
+  "primary_continuous_width_max_decimal": "3.131205093959016028048569788322724535034120683829426242403415834159254247220253896619615546632918543E-14",
+  "exact_checks": [
+    {
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "f0709d0c12c826af02e8",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "1603961b85a48b3764af",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "da427e1b1d7fb0165de6",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "b9b6d87dbf2fc82eec77",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "b0610e55cad4bf95a01a",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "d46a924f101e1669666f",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "5055802178c3aaf01e50",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "649eb9608734f5385f05",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "a07fff9aade4aeba351a",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "49f55fdd946209e873ef",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "1325ccf44c615b21d26e",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "44874e2b6d441c138ce9",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "f4e7a46c0fa7c523eb2a",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "8ff0e2e2471023a0bfee",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "b27c31f4a3e09a789030",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "dc95f116ef9cb0fcb7c7",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "12bc8cbaa9aaf1d57aa9",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "a04bd4dadb955a0d2bfa",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "01bf79abfaaffaf6def9",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "93c7731d047c58aec4c6",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "df7670daae1853038130",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "fd3c33d9c9a6721a1ca7",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "94a91f1653f7e6974f7a",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "c587bc277b94e6b87c2c",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "2f0ee2ae1c9e554964a4",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "00fc3669335efc07b6aa",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "3591a23115ddde7a87e0",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "46cad66ced5c326f0385",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "a54809fb532404834c3e",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "c424c2232f509d3d0304",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "df414bd8a38290002b14",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "e3f89c8f5e2d64a11058",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "3ab5cfa688e977f7f4fb",
+      "states": 16384,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "78789ee62d2360cf3106",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "9512261bc26fa262e4ca",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "861695a0bd452715ee95",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "69d67d2af601db512e6e",
+      "states": 512,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "39d0f052db103626e8ad",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "c159fe485b38a6b6200c",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "3392136b899a92b5303a",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "b25c306b29065e3cddf1",
+      "states": 4096,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "1357a4f8217d38cfe889",
+      "states": 8192,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "8735694e218391b1bf4d",
+      "states": 8192,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "c75977d2c043d4ca739b",
+      "states": 8192,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    },
+    {
+      "candidate_id": "a351474bcf769ba6a874",
+      "states": 8192,
+      "exact_endpoint_and_sum_identity_checked": true,
+      "continuous_interval_contained": true
+    }
+  ],
+  "continuous_checks": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "129117805896400171814826060646234068493/95780971304118053647396689196894323976171195136475136",
+      "analytic_branch_guard_rejections": 15
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "300450781861038662061007698423126898465/23945242826029513411849172299223580994042798784118784",
+      "analytic_branch_guard_rejections": 15
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "187443665782372992572928172973910524533/5986310706507378352962293074805895248510699696029696",
+      "analytic_branch_guard_rejections": 15
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "120667307574402943280314504687519667725/95780971304118053647396689196894323976171195136475136",
+      "analytic_branch_guard_rejections": 7
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "298302955501689474869877551026363643681/23945242826029513411849172299223580994042798784118784",
+      "analytic_branch_guard_rejections": 7
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "186299125794272984117237117015847469685/5986310706507378352962293074805895248510699696029696",
+      "analytic_branch_guard_rejections": 7
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "119170661950331771807531663853494343181/95780971304118053647396689196894323976171195136475136",
+      "analytic_branch_guard_rejections": 7
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "297925007205953810150516728058536474401/23945242826029513411849172299223580994042798784118784",
+      "analytic_branch_guard_rejections": 7
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "primary_bits": 128,
+      "primary_L": 8,
+      "reference_bits": 176,
+      "reference_L": 10,
+      "exact_interval_width_fraction": "186203060850454676359942258229528887925/5986310706507378352962293074805895248510699696029696",
+      "analytic_branch_guard_rejections": 7
+    }
+  ],
+  "source_hashes": {
+    "deterministic_pricing.py": "4af81370a9d43a051c170b08363c17002b151fc86e20d0c46e80d89e6bde2443",
+    "continuous_quadrature.py": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046",
+    "proof_sources/deterministic_baseline_proof.tex": "b462cb65faed80d7fe86e395079e2c1c0dea01245f7beabf2c2399c1e7472b2c",
+    "checks/audit_deterministic_pricing.py": "3823ed4f9a14cfbe779f81c23750db201a482d10aff8e4adc17cf06e6c68cc77",
+    "checks/audit_continuous_quadrature.py": "d7544a472d2536135e265077a77035d3f895fa4c4c22e88b85e22c22b212f16e"
+  },
+  "result_hashes": {
+    "results/deterministic_pricing.json": "e1f4fd64f3ab692eb53a247cd54116960f9b2b113ef56a3b0fa9d66cc85ca8de",
+    "results/deterministic_pricing_audit.json": "78878ecc120b55f824a334dec3f66943863a7e483ea48c8b68212fd7fbb1809f",
+    "results/continuous_quadrature.json": "5b1128770daf29973b761884cee920a6cb002055f0716939712f66049e0d3d26",
+    "results/continuous_quadrature_audit.json": "76f66723032c7974b9feed461d38223e3861108a0f530c44c7ff24de9b5c5d61"
+  },
+  "protocol_hashes": {
+    "classical_pricing_protocol.json": "471c72ac5711705ab3f68f41d87aa0b11a2b476eed05d12b5af3577579e9fefa",
+    "generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af"
+  },
+  "review_source_sha256": "864ee326c8d8768383c882f94f22f3c1d8582f70c23a0f833ad6aaf7104a49b6",
+  "limitations": "Both continuous representations and the scalar integral audit share Arb. Numerical-library correctness is a premise. No empirical sample, calibrated market validation, classical complexity lower bound, theoretical novelty or physical quantum runtime advantage follows."
+}

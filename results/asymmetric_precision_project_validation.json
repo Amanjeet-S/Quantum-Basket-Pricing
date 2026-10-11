@@ -1,0 +1,165 @@
+{
+  "schema": "qbp-asymmetric-precision-project-validation-v1",
+  "status": "passed",
+  "old_source_sha256": {
+    "generalisation_proofs.tex": "f3d5dddecdc0ec7b7ae6ba7b1b72f66a1a9f96fce4519480da933ce3685c0eb4",
+    "raw_payoff_proof.tex": "eaa818fd660d21b4c3bdee6ccda4ac76a6af7056f56476245ba27a33b8979ef6",
+    "README.md": "575f5a4989266e5ce589be4bcf98e80e84d2b01babd83a30ed1d06f5617bf7b8",
+    "supporting_proofs_index.md": "43af4236c0a3f042d588c33a327a6706692486aa57b5d342f10d9ee82ea855dc",
+    "novelty_scope_review.md": "607fe5e3a764bdac24d7a73ac083beb65366e1d3c1e7171c04ac2c6df2e41df6",
+    "quantum_method_redesign.md": "457dc45f39ca7f793d7b5360db237aeeee4ff286c681e760810deda7aa969418",
+    "SOURCES.md": "8db9ac4912a906c4bac5315aa7b6839a76ac3504558db8ed9d5d667329267461"
+  },
+  "installed_sha256": {
+    "asymmetric_raw_payoff.py": "604fdb1d653a5596f7af8884ca06e14bbc593b7633b4fae92d39b7677bee67bb",
+    "results/asymmetric_raw_payoff/asymmetric_raw_payoff_resources.json.gz": "9eb00158b1e12efda8deda05811fca022a3afc4ea9242ab3140fc2fc0bac266c",
+    "results/asymmetric_raw_payoff/asymmetric_raw_payoff_scalar_ordinates.json.gz": "468cb3db8edb0c026318824b52144281656d60fb1169ff56cdf5163e0cff3b71",
+    "results/asymmetric_raw_payoff/asymmetric_raw_payoff_protocol.json": "d1ca430d6e08f5bae9aa8e9faa5df34d12985d1c463a7ee5bc9a35c25cc78020",
+    "proof_sources/asymmetric_raw_payoff_projection_fragment.tex": "e6255926a16ac07eef48f9d36bb04556f489c311d931e4c80cecbcf18fe426e0",
+    "proof_sources/asymmetric_one_side_high_width_exclusion_fragment.tex": "bc73332b175a27043a4b1af63a1d11aa81adcd17bd62caecfc61ebe602f4dfbd",
+    "check_asymmetric_mathematics_independent.py": "89397ccf60d068c7d47c4b735b5d936eed1dde40ea6125e0e2d6201a4b220d9c",
+    "check_asymmetric_high_width_exclusion.py": "ad7cfd86dc3e89aec7b8f0f5b0cbe8406ac8d2d896120326734baac587f3f629",
+    "check_asymmetric_resources.py": "5f83370d33f38e6f0456760f4c1d5962dbad39657a9080802a13ef3ee984fcf2",
+    "check_projected_flag_branch.py": "0d8e50a4e75d66a470c2f33f3263db48a80ca306f80d34454b4274140654cf78",
+    "results/asymmetric_high_width_exclusion.json": "38f545f2c6f05f1fb6cd061807a143b2d70a65e58af653d6d49bd6f9fc1d166d",
+    "results/independent_table_order_counterexample.json": "982a04a47c1b3d2e229aeb94cecf71ae557caf97cbc7862927432f0e96092d0f",
+    "results/asymmetric_projection_review.json": "f307ece5589eb184b35ee54a2f1f9c59754c88a7285cf4092afdf55ff9075ae1",
+    "results/asymmetric_independent_mathematics.json": "93d4a853a148ba39e85eb4e9431831cc9c72a32a72d1779f99885b09871fe865",
+    "results/projected_flag_branch_audit.json": "802744db54c6e74be4d3d991760b98b1506dce92c91bdeb872e9395ac92dd7f0",
+    "results/asymmetric_independent_resources.json": "a2dd1283598d0104a51b6dc8722bcf56dc821929bdf4051e537716c8e1ff75ab",
+    "generalisation_proofs.tex": "e4694c805ad0e2eee06d5e9006959d8cbdb492df88fa7f70c8c414e50310876f",
+    "raw_payoff_proof.tex": "0baaf26726ea54f6a2fbd3cdeaee8a463a755b681ef2b5105b4474340d947901",
+    "README.md": "b900bb0c31213cca66259148e1e9ab30d054d675f449528724e19c817700d12b",
+    "supporting_proofs_index.md": "e16a74f121e36f9ca8046bea9aef83c70f23534686e5fdd2894e364bd284528e",
+    "novelty_scope_review.md": "8b8fd87137dc9e33c4bb4f6ecc9144fafe06bcfdfc7f39ad1dc80201dc27312a",
+    "quantum_method_redesign.md": "43d57f64803653c18a4a4dd72790a32cb90b84fb39ada881d736d1227249d38b",
+    "SOURCES.md": "2fbc77ee8f12a527cd768d5bc940522bd16df95cab68947a2fa3fdcd77454ab5"
+  },
+  "abstract_words": 159,
+  "registered_asymmetric_settings": 300,
+  "fresh_configs": 252,
+  "retained_diagonals": 48,
+  "combined_unique_raw_settings": 348,
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_staging_pushes": false,
+  "data_origin": "Synthetic only; no LSEG acquisition, licensed observations or redistribution.",
+  "independent_resource_scope": {
+    "profiles": 504,
+    "pointwise_and_smoothing_plans": 1008,
+    "whole_preparations": 8,
+    "projection_flag_basis_assignments": 192
+  },
+  "native_PDF_pixel_review": false,
+  "exact_PDF_page_count_verified": false,
+  "scope": "Winners are symmetric9/9; no gain from unequal allocations. Conservative certificate preserved; sharper common-shift result uncosted. No global optimum, priority or practical advantage.",
+  "final_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "source_and_native_compilation_checks": {
+    "generalisation_proofs.tex": {
+      "labels": 90,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "em_dashes": 0,
+      "genuinely_unnumbered_display_environments": 0,
+      "native_compiler_kind": "success",
+      "compiled_source_sha256": "e4694c805ad0e2eee06d5e9006959d8cbdb492df88fa7f70c8c414e50310876f",
+      "abstract_words": 159,
+      "full_proofs_before_appendix": 0,
+      "JEL_codes": [
+        "C63",
+        "C65",
+        "G13"
+      ],
+      "keywords_full_width_natural_wrapping": true
+    },
+    "raw_payoff_proof.tex": {
+      "labels": 23,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "em_dashes": 0,
+      "genuinely_unnumbered_display_environments": 0,
+      "native_compiler_kind": "success",
+      "compiled_source_sha256": "0baaf26726ea54f6a2fbd3cdeaee8a463a755b681ef2b5105b4474340d947901"
+    }
+  },
+  "independent_audit_status": {
+    "asymmetric_independent_mathematics.json": "passed",
+    "asymmetric_independent_resources.json": "passed",
+    "asymmetric_high_width_exclusion.json": "passed",
+    "projected_flag_branch_audit.json": "passed",
+    "asymmetric_projection_review.json": "passed"
+  },
+  "installed_replay": {
+    "all_scientific_fields_exactly_equal": true,
+    "differing_top_level_fields": [
+      "generation_seconds_diagnostic"
+    ],
+    "elapsed_time_is_non_scientific_diagnostic": true,
+    "retained_resource_archive_sha256": "9eb00158b1e12efda8deda05811fca022a3afc4ea9242ab3140fc2fc0bac266c",
+    "replayed_resource_archive_sha256": "2a3d4df68273595aa787f15ce8c6cded06e78ec8adcc229e13bd536c12bf1ab9",
+    "scientific_resource_content_sha256": "84d8c935eb800f946005c7795ccad977e8b04dddd23929733491046367c981b7",
+    "scalar_archive_byte_identical": true,
+    "scalar_archive_sha256": "468cb3db8edb0c026318824b52144281656d60fb1169ff56cdf5163e0cff3b71",
+    "one_sided_exclusion_replay_exactly_equal": true,
+    "one_sided_exclusion_replay_sha256": "38f545f2c6f05f1fb6cd061807a143b2d70a65e58af653d6d49bd6f9fc1d166d"
+  },
+  "final_cost_comparisons": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "raw_T": 23240600025,
+      "numerical_T": 23789339125,
+      "shared_threshold_T": 20855422300,
+      "strongest_registered_rival": "asymmetric300_raw_payoff",
+      "strongest_registered_rival_T": 23240600025,
+      "selected_PG_exp_bits": 9,
+      "selected_PA_exp_bits": 9,
+      "selected_normal_bits": 10,
+      "event_saving_against_strongest_exact": "95407109/929624001",
+      "event_saving_against_strongest_per_cent_diagnostic": 10.26297824683638
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "raw_T": 88336016050,
+      "numerical_T": 88203283550,
+      "shared_threshold_T": 83560988725,
+      "strongest_registered_rival": "strengthened_numerical_conditional_price",
+      "strongest_registered_rival_T": 88203283550,
+      "selected_PG_exp_bits": 9,
+      "selected_PA_exp_bits": 9,
+      "selected_normal_bits": 10,
+      "event_saving_against_strongest_exact": "185691793/3528131342",
+      "event_saving_against_strongest_per_cent_diagnostic": 5.263176877500724
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "raw_T": 93933514350,
+      "numerical_T": 95203161050,
+      "shared_threshold_T": 89247538825,
+      "strongest_registered_rival": "asymmetric300_raw_payoff",
+      "strongest_registered_rival_T": 93933514350,
+      "selected_PG_exp_bits": 9,
+      "selected_PA_exp_bits": 9,
+      "selected_normal_bits": 8,
+      "event_saving_against_strongest_exact": "187439021/3757340574",
+      "event_saving_against_strongest_per_cent_diagnostic": 4.988608759531629
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "raw_T": 208323372150,
+      "numerical_T": 209495066950,
+      "shared_threshold_T": 203322773325,
+      "strongest_registered_rival": "asymmetric300_raw_payoff",
+      "strongest_registered_rival_T": 208323372150,
+      "selected_PG_exp_bits": 9,
+      "selected_PA_exp_bits": 9,
+      "selected_normal_bits": 10,
+      "event_saving_against_strongest_exact": "66674651/2777644962",
+      "event_saving_against_strongest_per_cent_diagnostic": 2.400402208063048
+    }
+  ],
+  "mathematical_scope": {
+    "fresh_conditional_bounds": 252,
+    "scalar_and_quantile_nodes": 37899,
+    "closed_and_left_CDF_endpoints": 10752
+  },
+  "final_read_only_paper_review": "No substantive inconsistency found; scope and numerical claims match retained evidence."
+}

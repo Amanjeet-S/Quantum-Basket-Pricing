@@ -1,0 +1,86 @@
+{
+  "schema": "qbp-projected-flag-negative-branch-v1",
+  "status": "passed",
+  "source_sha256": "0d8e50a4e75d66a470c2f33f3263db48a80ca306f80d34454b4274140654cf78",
+  "resources_sha256": "9eb00158b1e12efda8deda05811fca022a3afc4ea9242ab3140fc2fc0bac266c",
+  "quantum_fractional_bits": 28,
+  "checks": [
+    {
+      "word_width": 36,
+      "architecture": "exact7t",
+      "basis_inputs": 48,
+      "negative_witness_payoff_words": [
+        4369400,
+        4369500
+      ],
+      "negative_output_probability_integer": 0,
+      "dirty_flag_XOR_correct": true,
+      "complete_private_workspace_clean": true,
+      "literal_primitive_counts": {
+        "CX": 21351,
+        "X": 938,
+        "H": 5836,
+        "Tdg": 8754,
+        "T": 11672
+      }
+    },
+    {
+      "word_width": 36,
+      "architecture": "unitary8t",
+      "basis_inputs": 48,
+      "negative_witness_payoff_words": [
+        4369400,
+        4369500
+      ],
+      "negative_output_probability_integer": 0,
+      "dirty_flag_XOR_correct": true,
+      "complete_private_workspace_clean": true,
+      "literal_primitive_counts": {
+        "CX": 21351,
+        "X": 938,
+        "H": 5836,
+        "Tdg": 8754,
+        "T": 11672
+      }
+    },
+    {
+      "word_width": 38,
+      "architecture": "exact7t",
+      "basis_inputs": 48,
+      "negative_witness_payoff_words": [
+        4369400,
+        4369500
+      ],
+      "negative_output_probability_integer": 0,
+      "dirty_flag_XOR_correct": true,
+      "complete_private_workspace_clean": true,
+      "literal_primitive_counts": {
+        "CX": 22463,
+        "X": 986,
+        "H": 6140,
+        "Tdg": 9210,
+        "T": 12280
+      }
+    },
+    {
+      "word_width": 38,
+      "architecture": "unitary8t",
+      "basis_inputs": 48,
+      "negative_witness_payoff_words": [
+        4369400,
+        4369500
+      ],
+      "negative_output_probability_integer": 0,
+      "dirty_flag_XOR_correct": true,
+      "complete_private_workspace_clean": true,
+      "literal_primitive_counts": {
+        "CX": 22463,
+        "X": 986,
+        "H": 6140,
+        "Tdg": 9210,
+        "T": 12280
+      }
+    }
+  ],
+  "scope": "Literal Boolean permutation replay of the exact emitted positive-subtraction, clamp, q-bit comparator and inverse. Established exact Clifford/T decomposition is reused. No full-grid occurrence, hardware execution, price outcome or independent physical noise model is asserted."
+}

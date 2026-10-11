@@ -1,0 +1,26 @@
+[
+  {
+    "model_id": "n2_lambda0.4_scale3",
+    "uniform_shot_saving_lower_exact": "186539/1818882",
+    "protected_cap_saving_exact": "2833591137/27609832829",
+    "threshold_over_numerical_mesh_mean_exact": "1881260668468/1734833921555"
+  },
+  {
+    "model_id": "n4_lambda0.05_scale3over2",
+    "uniform_shot_saving_lower_exact": "60473/1149466",
+    "protected_cap_saving_exact": "5515046252/104785500857",
+    "threshold_over_numerical_mesh_mean_exact": "1827554206637/1786195601445"
+  },
+  {
+    "model_id": "n4_lambda0.2_scale3",
+    "uniform_shot_saving_lower_exact": "183071/3672398",
+    "protected_cap_saving_exact": "5566938923/111593015047",
+    "threshold_over_numerical_mesh_mean_exact": "7363448143501/6778153694440"
+  },
+  {
+    "model_id": "n8_lambda0.2_scale3",
+    "uniform_shot_saving_lower_exact": "195359/8144826",
+    "protected_cap_saving_exact": "2970355702/123744083057",
+    "threshold_over_numerical_mesh_mean_exact": "1869399224903/1775312154844"
+  }
+]

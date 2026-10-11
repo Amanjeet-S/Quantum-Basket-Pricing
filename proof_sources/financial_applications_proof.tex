@@ -1,0 +1,201 @@
+\section{Risk-neutral applications beyond the original terminal basket}
+\label{sec:moment-applications}
+
+The preceding moment theorem concerns a mathematical class, rather than an
+extension obtained by substituting new data into the original GBM. Transform
+controls and conditional Monte Carlo across general financial models already
+have published antecedents \citep{dingec}. I distinguish those established
+methods from the finite-moment and encoding consequences investigated here.
+
+\begin{theorem}[A certificate without an affine or Gaussian return model]
+\label{thm:positive-asset-moment}
+Let $S_1,\ldots,S_n$ be strictly positive random terminal asset values
+under a stipulated pricing law, with $\E S_i^2<\infty$. Let positive
+weights sum to one and set $A=\sum_iw_iS_i$, $G=\prod_iS_i^{w_i}$.
+Let $F:\mathbb R_+\to[0,H]$ be increasing and $c_F$-Lipschitz,
+and let $\mathcal H$ be any sub-$\sigma$-algebra. Define
+\begin{equation}
+ X_0=\{F(A)-F(G)\}/H,\qquad
+ X=\E[X_0\mid\mathcal H],\qquad
+ \Delta=\E[A-G\mid\mathcal H].
+\end{equation}
+Then $X\in[0,1]$ and
+\begin{equation}
+ \E X^2\leq\min\{1,c_F^2\E\Delta^2/H^2\}
+ \leq\min\{1,c_F^2\E(A-G)^2/H^2\}.
+\end{equation}
+For a finite-law implementation $\widehat X\in[0,1]$ with a
+proved pointwise error at most $\eta$, its variance is bounded by
+\begin{equation}
+ \operatorname{Var}(\widehat X)
+ \leq\min\{1/4,(\sqrt{\min\{1,c_F^2\E\Delta^2/H^2\}}+\eta)^2\},
+\end{equation}
+provided the expectation in this last expression concerns the same
+ideal finite law. A continuous-law expectation cannot be substituted
+without a separate distribution-transfer argument.
+\end{theorem}
+
+\begin{proof}
+Weighted arithmetic--geometric ordering gives $A\geq G>0$.
+The payoff conditions yield
+$0\leq X_0\leq\min\{1,c_F(A-G)/H\}$.
+Conditional expectation preserves these inequalities, so
+$0\leq X\leq\min\{1,c_F\Delta/H\}$.
+The square-moment assertions follow by squaring and then by conditional
+Jensen's inequality, $\Delta^2\leq\E[(A-G)^2\mid\mathcal H]$.
+All expectations exist: convexity gives
+$A^2\leq\sum_iw_iS_i^2$, while $0\leq A-G\leq A$.
+The pointwise implementation assumption gives
+$\|\widehat X\|_2\leq\|X\|_2+\eta$ by the triangle inequality
+in $L^2$. Subtracting the squared mean and using the bounded-range
+variance bound $1/4$ proves the last assertion.
+\end{proof}
+
+For the capped call spread $c_F=1$. The unconditioned case takes
+$\mathcal H$ to contain all terminal asset information; a tractable
+conditioning factor can reduce the square moment further. This statement
+does not require a log-affine model, independence or a moment-generating
+function. Its practical use still requires a computable conservative
+moment certificate and a checked numerical law. The subsequent transform
+formula is one such route, rather than an assertion that all financial
+models satisfy its moment assumptions.
+
+\begin{proposition}[The correct general risk-neutral shift]
+\label{prop:mgf-risk-neutral}
+Let $\psi(v)=\log\Lambda(v)$ be finite and twice continuously differentiable
+on a neighbourhood of every $R_0+\varepsilon b_i$ for
+$|\varepsilon|\leq\varepsilon_0$, with its Hessian bounded on those
+compact line segments. Let $Z\sim N(0,1)$ be independent of $Y$ and define
+the rebased terminal assets
+\begin{equation}
+ S_{i,\varepsilon}=K\exp\{\mu_i(\varepsilon)
+                  +(R_0+\varepsilon b_i)\cdot Y+\lambda Z\},\qquad
+ \mu_i(\varepsilon)=r-d-\lambda^2/2-\psi(R_0+\varepsilon b_i).
+\end{equation}
+Then $\E S_{i,\varepsilon}=Ke^{r-d}$.
+Suppose $w_i>0$, $\sum_iw_i=1$, $\sum_iw_i b_i=0$, and the
+integrability hypothesis of
+Theorem~\ref{thm:general-weak-dispersion} holds for
+$V=Y-\nabla\psi(R_0)$. Let $P:\R\to[0,1]$ be increasing,
+continuously differentiable and have a globally bounded derivative. The
+leading fractional residual is
+\begin{equation}
+ \frac{X_\varepsilon}{\varepsilon^2}
+ \longrightarrow
+ \tfrac12P'(m_0(Y))\sum_iw_i
+       \{b_i\cdot(Y-\nabla\psi(R_0))\}^2
+ \quad\hbox{in }L^2,
+\end{equation}
+where $m_0(Y)=r-d-\lambda^2/2-\psi(R_0)+R_0\cdot Y$.
+\end{proposition}
+
+\begin{proof}
+Independence and the normal exponential moment give
+$\E S_{i,\varepsilon}
+=Ke^{\mu_i(\varepsilon)}\Lambda(R_0+\varepsilon b_i)
+e^{\lambda^2/2}=Ke^{r-d}$.
+Taylor's integral formula writes
+\begin{equation}
+ \psi(R_0+\varepsilon b_i)
+ =\psi(R_0)+\varepsilon\nabla\psi(R_0)\cdot b_i
+       +\varepsilon^2 e_i(\varepsilon),\qquad
+ e_i(\varepsilon)=\int_0^1(1-t)
+ b_i^{\mathsf T}\nabla^2\psi(R_0+t\varepsilon b_i)b_i\,dt.
+\end{equation}
+The Hessian hypothesis bounds every $e_i$ uniformly. Subtracting the
+weighted geometric log gives the exact relative logs
+\begin{equation}
+ D_{i,\varepsilon}
+ =\varepsilon b_i\cdot(Y-\nabla\psi(R_0))
+ -\varepsilon^2\{e_i(\varepsilon)-\sum_kw_ke_k(\varepsilon)\}.
+\end{equation}
+Their intercepts have weighted mean zero and are uniformly
+$O(\varepsilon^2)$. The geometric base converges almost surely to
+$m_0(Y)$ because the weighted linear Taylor term is zero.
+The hypotheses therefore match
+Theorem~\ref{thm:general-weak-dispersion}; its $L^2$ conclusion proves
+the assertion. No Gaussian drift is reused after changing the latent law.
+\end{proof}
+
+This drift calculation establishes consistency of the stipulated pricing
+measure. It does not calibrate that measure or validate an observed exotic
+price. Rebased components allow the moment theorem to concern portfolio
+returns, while its unrestricted affine constants also accommodate unequal
+initial asset levels in the non-asymptotic result. The weak-dispersion
+specialisation requires the stated common limiting base.
+
+\subsection{A variance-gamma financial example and its moment domain}
+
+The symmetric variance-gamma construction is established financial
+modelling \citep{madan}. I use $Y=\sqrt G\,N$, where $N\sim N(0,1)$,
+$G$ is independent with gamma shape $1/\nu$ and scale $\nu$, and
+$\nu=0.4$. I derive the required terminal moments, rather than transfer
+an empirical claim from that source. With $k=1/\nu$, the gamma density is
+$g^{k-1}e^{-g/\nu}/\{\Gamma(k)\nu^k\}$ for $g>0$. Conditional on $G$,
+$\E(e^{tY}\mid G)=e^{t^2G/2}$. Its integral is
+\begin{equation}
+ M_Y(t)=\frac1{\Gamma(k)\nu^k}
+ \int_0^\infty g^{k-1}e^{-(1/\nu-t^2/2)g}\,dg
+ =(1-\nu t^2/2)^{-1/\nu},\qquad |t|<\sqrt{2/\nu}.
+\end{equation}
+The equality follows by changing variables in the defining gamma
+integral; outside the stated open domain the necessary integral is
+not finite. Gamma recursion gives $\E G=1$ and
+$\E G^2=1+\nu$. Conditioning on $G$ therefore gives
+$\E Y^2=1$ and $\E Y^4=3(1+\nu)=4.2$.
+
+For equal weights and $b_1=-0.2,b_2=0.2$, $R_0=0$,
+$\varepsilon_0=1$, the norm-exponential constant is
+$2\varepsilon_0B=0.4$. For any $\delta>0$ with
+$0.4+\delta<\sqrt5$,
+$\E e^{(0.4+\delta)|Y|}\leq
+M_Y(0.4+\delta)+M_Y(-0.4-\delta)<\infty$.
+The exponential series gives
+$|Y|^4\leq4!\delta^{-4}e^{\delta|Y|}$, so the exact
+polynomial-times-exponential hypothesis is satisfied.
+The drift is $r-d-\lambda^2/2-\log M_Y(0.2\varepsilon)$.
+This is a correctly normalised non-Gaussian terminal pricing family;
+the original fixed Gaussian drifts would give a different model.
+
+In this symmetric family the relative log ratio is
+$J_\varepsilon=\log\cosh(0.2\varepsilon Y)$ and the geometric base
+is deterministic before integrating the independent common normal shock.
+Writing $a=P'(r-d-\lambda^2/2)>0$, the exact limit coefficients are
+\begin{equation}
+ \E H_0=0.02a,\qquad
+ \operatorname{Var}(H_0)=0.0004a^2\operatorname{Var}(Y^2).
+\end{equation}
+The variance factors are $2$ for a standard normal, $0.8$ for a
+standardised uniform law, $3.2$ for this gamma-normal mixture, and zero
+for a symmetric two-point law. In the last case $Y^2=1$ and the
+entire conditional fractional payoff is deterministic, not just its
+leading coefficient. A flag drawn at that constant probability can still
+have positive variance. This is a boundary of the estimator comparison;
+it is not a lower bound on a quantum method that uses the full value oracle.
+
+\subsection{Monitored Asian baskets and a common Gaussian factor}
+
+The general affine-log-price theorem can also cover a finite collection
+of monitored GBM prices with positive averaging weights. Geometric
+average controls and quantum Asian valuation are established
+\citep{kemna,rebentrost}. Let their non-singular joint Gaussian
+log-covariance be $\mathcal C$. For a common load $\lambda$,
+\begin{equation}\label{eq:common-factor-domain}
+ \mathcal C-\lambda^2\mathbf1\mathbf1^{\mathsf T}\succeq0
+ \quad\Longleftrightarrow\quad
+ \lambda^2\leq(\mathbf1^{\mathsf T}\mathcal C^{-1}\mathbf1)^{-1}.
+\end{equation}
+Indeed, Cauchy--Schwarz gives
+$(\mathbf1^{\mathsf T}x)^2\leq
+(\mathbf1^{\mathsf T}\mathcal C^{-1}\mathbf1)(x^{\mathsf T}\mathcal Cx)$,
+proving sufficiency. Necessity follows by substituting
+$x=\mathcal C^{-1}\mathbf1$ into the quadratic-form inequality.
+A square root of the residual covariance then constructs independent
+$Y,Z$ with log prices $a_i+B_i\cdot Y+\lambda Z$.
+Thus the moment theorem applies to the resulting arithmetic/geometric
+monitored average once its kernel and moments are supplied.
+Singular monitoring covariances require a separate range condition;
+I do not assert~\eqref{eq:common-factor-domain} using an inverse where
+none exists. This application states a mathematical scope beyond the
+original terminal experiments, rather than claiming to have executed
+new Asian circuits or demonstrated scalability on market data.

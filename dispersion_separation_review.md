@@ -1,0 +1,23 @@
+# 1. Figure 1 and the research purpose
+
+The former boxed text flow repeated the adjacent complete monetary-error theorem. It did not expose a numerical relationship, comparison or dependency which the equation failed to express. I remove it. The replacement is a scientific plot based on retained exact outcomes, with a specific purpose: show that the two error certificates have distinct targets and that a stronger classical check removes six provisional separating cases.
+
+Panel (a) retains the eight-asset ordinary call at lambda 0.2 selected before outcomes. It has no separating sampled point, so it does not substitute a favourable contract for the full study. I normalise financial transfer by its 0.005 allocation and the complete continuous price interval by its 0.01 radius target. Panel (b) reports every separating case among 36 contracts per scale and the number remaining after targeted degree five. Exact fractions determine statuses; float logs determine only display coordinates. Lines are visual guides, not validated parameter interpolation.
+
+# 2. Fixed financial panel and transparent strengthening
+
+I multiply original outer exposures by the exact loading scales 1, 3/2, 2, 3 and recompute the GBM drifts and covariance. The original model class, weights, common Gaussian scale, forward carry, payoffs and numerical grid remain fixed. Every asset forward remains 100 exp(0.01). The original 36 contracts are retained without modification. The added financial laws are synthetic parameter stresses, not empirical calibrations or quantum asset dynamics.
+
+The first protocol was written before outcomes. Two stale derived metadata fields and covariance metadata were corrected before execution and their initial version is explicitly superseded. Price-interval intersections and intrinsic bounds strengthen the opponent after the first run began; that chronology is recorded, and the first execution remains preserved. A subsequent exact-rational storage refinement preserves the earlier outward Arb enclosures separately. All executed versions, hashes and failures remain available. The final stronger opponent is not described as publicly preregistered or fixed before the initial outcomes.
+
+# 3. Numerical finding and its practical limits
+
+Of 144 contracts, 81 pass the aggregate residual transfer allocation and 71 pass the strengthened continuous Taylor price test through degree three. Ten satisfy only the transfer criterion. Degree five, evaluated only for those ten cases, resolves six and leaves four. All four survivors are cap-one contracts: n2/common scale 0.4/loading scale 3; n4/0.05/1.5; n4/0.2/3; n8/0.2/3. Their best declared continuous price radii exceed a cent while their actual-grid transfer allowances are below 0.005. The small-cap concentration is an observed limitation of this global-norm Taylor screen. It does not identify intrinsically difficult prices.
+
+This test refutes extension of the original cohort's admission-set coincidence to the declared stressed panel and comparator. It supports the usefulness of the financial-oracle transfer certificate beyond that finite price screen. The outputs remain different: transfer admission does not supply a full quantum price, and a failed global Taylor interval does not establish inaccuracy of its coefficient sum or failure of every classical method. No previous logical T cap is assigned to a changed support or normaliser. New complete circuit and price comparisons are required for these four candidates.
+
+# 4. Checked theory and evidence
+
+The supporting proof derives exact exposure, drift and covariance scaling, unchanged martingale forwards, Jensen positivity of the ratio, raw retained Gaussian mass, full tilted tails and correctly shifted price coefficients. It proves that raw fixed-order conditional-norm Taylor radii can diverge with dispersion while intrinsic price ranges stay bounded. Standard compact-grid consistency supplies arbitrarily accurate transfer allowances for each fixed model when tails, nodes and precision are refined appropriately. These are established-mechanism arguments, not a new general integration theory or a statement about small physical resources.
+
+Independent 1,024-bit checks reconstruct model parameters, cancellation-safe transport series, hybrid moments, tails, residual derivative envelopes, finite Taylor coefficients, exact intersections and the 36 original comparisons. A separate audit checks all 16 displayed values, native coordinates and the preserved executions. The native figure is embedded in the existing main source and uses standard LaTeX graphics, with PNG and SVG exports for reuse. No replacement document, separate compiled PDF, new data entitlement or commit is created.

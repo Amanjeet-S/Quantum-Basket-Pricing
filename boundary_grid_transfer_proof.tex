@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\title{A price-independent Gaussian grid transfer certificate}
+\author{Amanjeet Singh}
+\date{7 October 2026}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\begin{document}
+\maketitle
+\begin{abstract}
+I construct a deterministic transfer allowance between a continuous Gaussian financial residual and its retained rounded quantile grid. The construction uses frozen model parameters, Gaussian cell moments, conditional payoff derivatives and Gaussian exponential tilting. I preserve signed linear transport and bound the quadratic term by local curvature weighted by exact Gaussian transport masses. This is a project-specific application of Taylor's theorem, Fubini's theorem and Gaussian moment identities. It establishes a finite-law error certificate within its recorded scope.
+\end{abstract}
+\noindent\textit{Keywords:} Gaussian quantile grid; deterministic error; capped basket; boundary derivative; Taylor transport; interval arithmetic.
+
+\section{Model and conditional residuals}
+I freeze positive weights $w_i$ with $\sum_iw_i=1$, exact drift differences $d_i$ and residual loadings $s_i$ satisfying
+\[
+ \sum_iw_id_i=0,\qquad\sum_iw_is_i=0.
+\]
+For the two-asset case, $Y\sim N(0,1)$, and I write
+\[
+ T(y)=\sum_{i=1}^{2}w_i e^{d_i+s_i y},\quad U(y)=T(y)-1,
+ \quad m(y)=m_g+r y,\quad m_a(y)=m(y)+\log T(y).
+\]
+Jensen's inequality gives $T(y)\geq1$ for every real $y$, hence $U(y)\geq0$. Conditional on $Y=y$, the remaining Gaussian factor has standard deviation $\lambda>0$. With strike $K=100$, its vanilla conditional call kernel is
+\[
+ P(m)=K\{e^{m+\lambda^2/2}\Phi(m/\lambda+\lambda)-\Phi(m/\lambda)\}.
+\]
+The capped kernel with cap $H>0$ is the difference between calls struck at $K$ and $K+H$. Writing $\ell=\log(1+H/K)$, I obtain
+\[
+ P_H(m)=K e^{m+\lambda^2/2}\{\Phi(m/\lambda+\lambda)-\Phi((m-\ell)/\lambda+\lambda)\}
+ -K\{\Phi(m/\lambda)-\Phi((m-\ell)/\lambda)\}
+ +H\Phi((m-\ell)/\lambda).
+\]
+I use either kernel to define
+\[
+ R_1(y)=P(m_a(y))-P(m(y)),\qquad
+ R_2(y)=R_1(y)-U(y)P'(m(y)).
+\]
+The transfer certificate concerns these residuals. Its construction uses their closed Gaussian derivatives and does not require the continuous arithmetic basket expectation.
+
+\section{Boundary derivatives and stable identities}
+Put $C(m)=P''(m)-P'(m)$. Direct differentiation gives
+\[
+ C(m)=\frac K\lambda\phi(m/\lambda)
+\]
+for vanilla calls, and
+\[
+ C_H(m)=\frac1\lambda\{K\phi(m/\lambda)-(K+H)\phi((m-\ell)/\lambda)\}
+\]
+for capped calls. Consequently
+\[
+ \sup_m|C(m)|\leq\frac K{\lambda\sqrt{2\pi}},\qquad
+ \sup_m|C_H(m)|\leq\frac{2K+H}{\lambda\sqrt{2\pi}}.
+\]
+These elementary triangle bounds suffice for the retained tail certificate. Sharper independently certified norms may be used elsewhere to normalise an oracle.
+
+For stable derivative evaluation, define
+\[
+ v=\frac{P'(m_a)}{T}-P'(m),\qquad A=T'+rT,\qquad
+ B=T''+2rT'+r^2T.
+\]
+The Gaussian identity $e^{m+\lambda^2/2}\phi(m/\lambda+\lambda)=\phi(m/\lambda)$ yields the displayed boundary kernels. Moreover $v$ is $K e^{m+\lambda^2/2}$ times a difference of Gaussian CDF expressions. No difference between two completed basket prices occurs. Differentiating gives
+\[
+ v'=rv+\frac A{T^2}C(m_a)-rC(m),
+\]
+therefore
+\begin{align*}
+ R_2'&=Av-rUC(m),\\
+ R_2''&=Bv+\left(\frac A T\right)^2C(m_a)
+       -r(2T'+rT)C(m)-r^2UC'(m).
+\end{align*}
+The first residual obeys
+\begin{align*}
+ R_1'&=R_2'+T'P'(m)+rUP''(m),\\
+ R_1''&=R_2''+T''P'(m)+2rT'P''(m)+r^2UP'''(m).
+\end{align*}
+An equivalent raw expression for the second derivative is
+\begin{align*}
+R_2''={}&(r+T'/T)^2P''(m_a)
+ +(T''/T-(T'/T)^2)P'(m_a)-r^2P''(m)\\
+ &-T''P'(m)-2rT'P''(m)-Ur^2P'''(m).
+\end{align*}
+I use the stable form for interval bounds and check the derivatives independently by automatic differentiation of the closed residual expressions.
+
+\section{Exact Gaussian cell transport}
+Let $L=6$, $N=2^{10}$ and $a_L=\Phi(L)-\Phi(-L)$. The equal-mass CDF boundaries and ideal midpoint nodes are
+\[
+ a_j=\Phi^{-1}\{\Phi(-L)+j a_L/N\},\quad
+ y_j=\Phi^{-1}\{\Phi(-L)+(j+1/2)a_L/N\}.
+\]
+I retain the actual rounded node $c_j=2^{-28}\operatorname{round}(2^{28}y_j)$. The retained brackets prove $a_j\leq c_j\leq a_{j+1}$ and unique rounding. Put $a=a_j$, $b=a_{j+1}$ and $c=c_j$. The unnormalised centred cell moments are
+\begin{align*}
+ \mu_1&=\phi(a)-\phi(b)-c\frac{a_L}{N},\\
+ \mu_2&=(1+c^2)\frac{a_L}{N}
+       +(a-2c)\phi(a)-(b-2c)\phi(b).
+\end{align*}
+These expressions include the actual node rounding directly.
+
+Taylor's integral identity gives
+\[
+ R(y)-R(c)=R'(c)(y-c)+\int_c^y(y-z)R''(z)\,dz.
+\]
+Fubini's theorem expresses the integrated quadratic term using the nonnegative weights
+\[
+ w_a(z)=\phi(z)+z\Phi(z)-\phi(a)-z\Phi(a),\quad a\leq z\leq c,
+\]
+\[
+ w_b(z)=\phi(z)+z\Phi(z)-\phi(b)-z\Phi(b),\quad c\leq z\leq b.
+\]
+For $J(z)=\tfrac12\{(z^2+1)\Phi(z)+z\phi(z)\}$, $J'(z)=\phi(z)+z\Phi(z)$, so
+\[
+ W_e(u,v)=J(v)-J(u)-\phi(e)(v-u)-\Phi(e)\frac{v^2-u^2}{2}
+\]
+is the exact weight mass on a segment $[u,v]$, with $e=a$ on the left and $e=b$ on the right. Also $\int_a^c w_a+\int_c^b w_b=\mu_2/2$.
+
+I cover each exact cell by outward rational endpoint brackets, split at its actual rounded node and subdivide into segments of width at most $1/20$. The function $h(z)=\phi(z)+z\Phi(z)$ satisfies $h''(z)=\phi(z)>0$. Hence $w_e(z)=h(z)-h(e)-h'(e)(z-e)\geq0$ for every real $z$. Extending a segment slightly beyond an unknown exact endpoint therefore adds nonnegative weight and preserves an upper bound. If $D_I\geq\sup_{z\in I}|R''(z)|$, the cell remainder is bounded by both
+\[
+ \frac{\mu_2}{2}\max_I D_I\quad\hbox{and}\quad \sum_I D_I W_e(I).
+\]
+I retain their smaller outward upper bound $Q_j$. Keeping the signed linear sum, I obtain
+\[
+ \left|\int_{-L}^{L}R(y)\phi(y)\,dy-
+       \frac{a_L}{N}\sum_j R(c_j)\right|
+ \leq\left|\sum_jR'(c_j)\mu_{1,j}\right|+\sum_jQ_j.
+\]
+Every term is evaluated by outward interval arithmetic. The numerical certificate retains the cell boundaries, actual nodes, moments, derivative intervals and segment weight masses.
+
+\section{Price-independent tails and geometric coefficients}
+For $F_m(t)=P(m+\log t)$,
+\[
+ F_m''(t)=\frac{C(m+\log t)}{t^2}.
+\]
+Since $T\geq1$, Taylor's theorem gives $|R_2(y)|\leq M_2 U(y)^2/2$, where $M_2$ is any valid boundary norm. For a standard Gaussian,
+\[
+ \E[e^{b+sY}\mathbf1_{\{|Y|>L\}}]
+ =e^{b+s^2/2}\{\Phi(s-L)+\Phi(-s-L)\}.
+\]
+Expanding $(T-1)^2$ into its finite multinomial sum gives its outside-box moment without evaluating a basket price. The second-residual tail is therefore at most $M_2\E[U^2\mathbf1_{\{|Y|>L\}}]/2$.
+
+Both payoffs satisfy $0\leq F_m'(t)\leq K e^{m+\lambda^2/2}$. Thus $0\leq R_1\leq K e^{m+\lambda^2/2}U$, and capped payoffs also satisfy $R_1\leq H$. Gaussian tilting computes the first-residual tail; I take the smaller capped bound when available. Combining the tail allowance $B_{\rm tail}$ with the cell certificate yields
+\[
+ \left|\E R(Y)-\frac{a_L}{N}\sum_jR(c_j)\right|
+ \leq B_{\rm tail}+\left|\sum_j R'(c_j)\mu_{1,j}\right|+\sum_jQ_j.
+\]
+
+For completeness, let $\sigma^2=\lambda^2+\|r_g\|^2$ and let $P_\sigma$ denote the same conditional kernel with Gaussian standard deviation $\sigma$. Gaussian convolution and exponential tilting give the exact geometric coefficients
+\[
+ c_0=P_\sigma(m_g),\qquad
+ c_1=\sum_i w_i e^{d_i+\|s_i\|^2/2}
+       P_\sigma'(m_g+r_g\cdot s_i)-P_\sigma'(m_g).
+\]
+I retain outward certificates for $c_0$ and $c_0+c_1$. These closed geometric coefficients are distinct mathematical terms in the decomposition; the continuous arithmetic basket expectation is absent from their construction.
+
+\section{Higher-dimensional scope and interpretation}
+The cell argument extends by a coordinate hybrid. Let $\nu$ be the unnormalised truncated Gaussian measure and $\tau$ its rounded grid measure, each with mass $a_L$. The exact product-measure identity is
+\[
+ \nu^{\otimes p}-\tau^{\otimes p}
+ =\sum_{j=1}^{p}\nu^{\otimes(j-1)}\otimes(\nu-\tau)
+      \otimes\tau^{\otimes(p-j)}.
+\]
+Applying the one-dimensional transport formula conditionally in each coordinate gives a valid theorem when the remaining coordinates have certified derivative bounds and the full outside-box tail is controlled. I have constructed complete monetary bounds for the retained two-asset cases. The eighteen higher-dimensional capped cases remain explicitly unsupported by a complete financial transfer bound.
+
+The retained construction contains nine capped cases and three two-asset vanilla cases, each with first- and second-residual certificates. Its classical set-up is a computational cost. The certificate establishes a deterministic finite-law transfer within its recorded scope; it establishes neither a global quantum advantage nor theoretical priority.
+\end{document}

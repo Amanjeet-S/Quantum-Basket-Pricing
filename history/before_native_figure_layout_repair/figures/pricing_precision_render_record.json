@@ -1,0 +1,12 @@
+{
+  "source_sha256": "a576dfd3b2acc4ccfa9557932047855cd81d71fa8445193acbf1dd332c09d35a",
+  "data_sha256": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+  "matplotlib_version": "3.10.6",
+  "python_version": "3.14.6",
+  "all64_registered_configurations_displayed": true,
+  "colour": true,
+  "3D_used": false,
+  "native_figure_file": "pricing_precision_figure.tex",
+  "native_external_file_dependency": false,
+  "caption": "Complete quantum cost over the registered numerical-rival precision pool. Panel headings give asset count, common volatility $\\lambda$ and loading multiplier $c$. Columns and rows are the address widths $b_A$ and $b_G$ of $P(m_A)$ and $P(m_G)$; all remaining scalar widths and financial inputs are fixed. Colour and cell labels show the complete selected T cap divided by the cheapest admitted numerical cap in that panel, with a shared logarithmic colour scale. Labels are rounded to three decimals; exact integer costs and rational ratios are retained. Grey crosses mark the twelve rejected monetary budgets, for which no admissible complete T cap is asserted. The outlined cell identifies the exact numerical minimum, $b_A=b_G=10$. Orange footers compare the separately fixed interval encoding with that strengthened minimum. All alternatives use radius $0.01$ and per-price failure allowance $1/3600$. These are deterministic logical resource caps, not statistical cost intervals, price estimates or device timings."
+}

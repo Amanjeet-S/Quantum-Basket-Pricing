@@ -1,0 +1,801 @@
+{
+  "status": "post-study matched-prefix diagnostic; original prespecified outputs preserved",
+  "question": "Can the interval winner be replaced by a certified full kernel at identical prefix and table precision?",
+  "scope": "all 27 retained interval prefixes; not a search optimum or hindsight-prespecified comparison",
+  "resource_sha256": "c3c4c77d28680c34052cb36214d971515e01d6cba505bb1f3718c8bb8c55bc5e",
+  "source_hashes": {
+    "generalisation.py": "a7a5b0e3c49a6e7a4a8137bd565ed6c5ac691c3732553c890c4c556ed2bc2655",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "resource_study.py": "309cdd04390ef64f68d5ccf96e726a66535a1d0313602032d3fc003a87b32765",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  },
+  "script_sha256": "2b2ba4667b29fed08a70cacb562143b31e12d9cd4ca776beb165cf0c66eb53e8",
+  "configurations": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "q": 22,
+      "b_y": 9,
+      "exp_address_bits": 10,
+      "log_address_bits": 10,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 692048,
+          "flag_toffolis": 98864,
+          "arithmetic_price_error_upper": 0.0009688753960750293
+        },
+        "full_global": {
+          "T": 604968,
+          "flag_toffolis": 86424,
+          "arithmetic_price_error_upper": 0.0009631682947450353
+        },
+        "full_cap": {
+          "T": 604968,
+          "flag_toffolis": 86424,
+          "arithmetic_price_error_upper": 0.0009631682947450353
+        }
+      },
+      "cdf_internal_nodes": 585,
+      "cap_internal_nodes": 584,
+      "strike_block_toffolis": 5868,
+      "exact_flag_toffoli_gap": 12440
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "q": 24,
+      "b_y": 12,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 12,
+      "results": {
+        "interval": {
+          "T": 1278564,
+          "flag_toffolis": 182652,
+          "arithmetic_price_error_upper": 0.0007830480897407595
+        },
+        "full_global": {
+          "T": 1100876,
+          "flag_toffolis": 157268,
+          "arithmetic_price_error_upper": 0.0007687689525759778
+        },
+        "full_cap": {
+          "T": 1100876,
+          "flag_toffolis": 157268,
+          "arithmetic_price_error_upper": 0.0007472612408809215
+        }
+      },
+      "cdf_internal_nodes": 2332,
+      "cap_internal_nodes": 2306,
+      "strike_block_toffolis": 12216,
+      "exact_flag_toffoli_gap": 25384
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "q": 27,
+      "b_y": 14,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 13,
+      "results": {
+        "interval": {
+          "T": 1924384,
+          "flag_toffolis": 274912,
+          "arithmetic_price_error_upper": 0.0009936000302061996
+        },
+        "full_global": {
+          "T": 1721888,
+          "flag_toffolis": 245984,
+          "arithmetic_price_error_upper": 0.0009889558307778692
+        },
+        "full_cap": {
+          "T": 1721888,
+          "flag_toffolis": 245984,
+          "arithmetic_price_error_upper": 0.0005890465121507071
+        }
+      },
+      "cdf_internal_nodes": 4693,
+      "cap_internal_nodes": 4635,
+      "strike_block_toffolis": 13824,
+      "exact_flag_toffoli_gap": 28928
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "q": 19,
+      "b_y": 9,
+      "exp_address_bits": 9,
+      "log_address_bits": 9,
+      "probability_address_bits": 9,
+      "results": {
+        "interval": {
+          "T": 496720,
+          "flag_toffolis": 70960,
+          "arithmetic_price_error_upper": 0.0008161153553296294
+        },
+        "full_global": {
+          "T": 438340,
+          "flag_toffolis": 62620,
+          "arithmetic_price_error_upper": 0.0008047013389014245
+        },
+        "full_cap": {
+          "T": 438340,
+          "flag_toffolis": 62620,
+          "arithmetic_price_error_upper": 0.0008047013389014245
+        }
+      },
+      "cdf_internal_nodes": 380,
+      "cap_internal_nodes": 380,
+      "strike_block_toffolis": 3858,
+      "exact_flag_toffoli_gap": 8340
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "q": 22,
+      "b_y": 12,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 895944,
+          "flag_toffolis": 127992,
+          "arithmetic_price_error_upper": 0.0007976541926484343
+        },
+        "full_global": {
+          "T": 784588,
+          "flag_toffolis": 112084,
+          "arithmetic_price_error_upper": 0.0007833750554836526
+        },
+        "full_cap": {
+          "T": 784588,
+          "flag_toffolis": 112084,
+          "arithmetic_price_error_upper": 0.0007833750554836526
+        }
+      },
+      "cdf_internal_nodes": 783,
+      "cap_internal_nodes": 768,
+      "strike_block_toffolis": 7546,
+      "exact_flag_toffoli_gap": 15908
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "q": 26,
+      "b_y": 14,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 1512952,
+          "flag_toffolis": 216136,
+          "arithmetic_price_error_upper": 0.0009752000533144089
+        },
+        "full_global": {
+          "T": 1371132,
+          "flag_toffolis": 195876,
+          "arithmetic_price_error_upper": 0.0009727851175963171
+        },
+        "full_cap": {
+          "T": 1371132,
+          "flag_toffolis": 195876,
+          "arithmetic_price_error_upper": 0.0009727851175963171
+        }
+      },
+      "cdf_internal_nodes": 1609,
+      "cap_internal_nodes": 1576,
+      "strike_block_toffolis": 9602,
+      "exact_flag_toffoli_gap": 20260
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "q": 18,
+      "b_y": 9,
+      "exp_address_bits": 8,
+      "log_address_bits": 9,
+      "probability_address_bits": 8,
+      "results": {
+        "interval": {
+          "T": 449568,
+          "flag_toffolis": 64224,
+          "arithmetic_price_error_upper": 0.0009756385641605005
+        },
+        "full_global": {
+          "T": 396900,
+          "flag_toffolis": 56700,
+          "arithmetic_price_error_upper": 0.0009642246428475473
+        },
+        "full_cap": {
+          "T": 396900,
+          "flag_toffolis": 56700,
+          "arithmetic_price_error_upper": 0.0009642246428475473
+        }
+      },
+      "cdf_internal_nodes": 248,
+      "cap_internal_nodes": 247,
+      "strike_block_toffolis": 3458,
+      "exact_flag_toffoli_gap": 7524
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "q": 23,
+      "b_y": 12,
+      "exp_address_bits": 10,
+      "log_address_bits": 10,
+      "probability_address_bits": 9,
+      "results": {
+        "interval": {
+          "T": 854112,
+          "flag_toffolis": 122016,
+          "arithmetic_price_error_upper": 0.0009776515747778162
+        },
+        "full_global": {
+          "T": 760032,
+          "flag_toffolis": 108576,
+          "arithmetic_price_error_upper": 0.0009740610140157251
+        },
+        "full_cap": {
+          "T": 760032,
+          "flag_toffolis": 108576,
+          "arithmetic_price_error_upper": 0.0009740610140157251
+        }
+      },
+      "cdf_internal_nodes": 511,
+      "cap_internal_nodes": 511,
+      "strike_block_toffolis": 6360,
+      "exact_flag_toffoli_gap": 13440
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "q": 22,
+      "b_y": 13,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 1024072,
+          "flag_toffolis": 146296,
+          "arithmetic_price_error_upper": 0.0008917962070981426
+        },
+        "full_global": {
+          "T": 913332,
+          "flag_toffolis": 130476,
+          "arithmetic_price_error_upper": 0.0008738693113963072
+        },
+        "full_cap": {
+          "T": 913332,
+          "flag_toffolis": 130476,
+          "arithmetic_price_error_upper": 0.0008738693113963072
+        }
+      },
+      "cdf_internal_nodes": 1023,
+      "cap_internal_nodes": 1019,
+      "strike_block_toffolis": 7546,
+      "exact_flag_toffoli_gap": 15820
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "q": 23,
+      "b_y": 11,
+      "exp_address_bits": 10,
+      "log_address_bits": 11,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 1787492,
+          "flag_toffolis": 255356,
+          "arithmetic_price_error_upper": 0.0009796590573766912
+        },
+        "full_global": {
+          "T": 1670144,
+          "flag_toffolis": 238592,
+          "arithmetic_price_error_upper": 0.00097680555626868
+        },
+        "full_cap": {
+          "T": 1670144,
+          "flag_toffolis": 238592,
+          "arithmetic_price_error_upper": 0.00097680555626868
+        }
+      },
+      "cdf_internal_nodes": 1165,
+      "cap_internal_nodes": 1164,
+      "strike_block_toffolis": 8018,
+      "exact_flag_toffoli_gap": 16764
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "q": 28,
+      "b_y": 14,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 12,
+      "results": {
+        "interval": {
+          "T": 4152428,
+          "flag_toffolis": 593204,
+          "arithmetic_price_error_upper": 0.0009751020405557862
+        },
+        "full_global": {
+          "T": 3943660,
+          "flag_toffolis": 563380,
+          "arithmetic_price_error_upper": 0.0009741984856524361
+        },
+        "full_cap": {
+          "T": 3943660,
+          "flag_toffolis": 563380,
+          "arithmetic_price_error_upper": 0.0009526907739573798
+        }
+      },
+      "cdf_internal_nodes": 2355,
+      "cap_internal_nodes": 2336,
+      "strike_block_toffolis": 14416,
+      "exact_flag_toffoli_gap": 29824
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "q": 27,
+      "b_y": 15,
+      "exp_address_bits": 13,
+      "log_address_bits": 13,
+      "probability_address_bits": 13,
+      "results": {
+        "interval": {
+          "T": 6108088,
+          "flag_toffolis": 872584,
+          "arithmetic_price_error_upper": 0.0008774339692112715
+        },
+        "full_global": {
+          "T": 5797148,
+          "flag_toffolis": 828164,
+          "arithmetic_price_error_upper": 0.000872929098764831
+        },
+        "full_cap": {
+          "T": 5797148,
+          "flag_toffolis": 828164,
+          "arithmetic_price_error_upper": 0.0005163375403814783
+        }
+      },
+      "cdf_internal_nodes": 4693,
+      "cap_internal_nodes": 4635,
+      "strike_block_toffolis": 21570,
+      "exact_flag_toffoli_gap": 44420
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "q": 21,
+      "b_y": 11,
+      "exp_address_bits": 9,
+      "log_address_bits": 10,
+      "probability_address_bits": 9,
+      "results": {
+        "interval": {
+          "T": 1425284,
+          "flag_toffolis": 203612,
+          "arithmetic_price_error_upper": 0.0009957742863650908
+        },
+        "full_global": {
+          "T": 1344924,
+          "flag_toffolis": 192132,
+          "arithmetic_price_error_upper": 0.0009929207852570794
+        },
+        "full_cap": {
+          "T": 1344924,
+          "flag_toffolis": 192132,
+          "arithmetic_price_error_upper": 0.0009929207852570794
+        }
+      },
+      "cdf_internal_nodes": 391,
+      "cap_internal_nodes": 391,
+      "strike_block_toffolis": 5404,
+      "exact_flag_toffoli_gap": 11480
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "q": 26,
+      "b_y": 14,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 3467212,
+          "flag_toffolis": 495316,
+          "arithmetic_price_error_upper": 0.000993672797451504
+        },
+        "full_global": {
+          "T": 3326736,
+          "flag_toffolis": 475248,
+          "arithmetic_price_error_upper": 0.000992769242548154
+        },
+        "full_cap": {
+          "T": 3326736,
+          "flag_toffolis": 475248,
+          "arithmetic_price_error_upper": 0.000992769242548154
+        }
+      },
+      "cdf_internal_nodes": 807,
+      "cap_internal_nodes": 798,
+      "strike_block_toffolis": 9602,
+      "exact_flag_toffoli_gap": 20068
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "q": 25,
+      "b_y": 15,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 5079256,
+          "flag_toffolis": 725608,
+          "arithmetic_price_error_upper": 0.0008897259937147803
+        },
+        "full_global": {
+          "T": 4893952,
+          "flag_toffolis": 699136,
+          "arithmetic_price_error_upper": 0.0008852211232683398
+        },
+        "full_cap": {
+          "T": 4893952,
+          "flag_toffolis": 699136,
+          "arithmetic_price_error_upper": 0.0008852211232683398
+        }
+      },
+      "cdf_internal_nodes": 1595,
+      "cap_internal_nodes": 1563,
+      "strike_block_toffolis": 12724,
+      "exact_flag_toffoli_gap": 26472
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "q": 20,
+      "b_y": 10,
+      "exp_address_bits": 9,
+      "log_address_bits": 9,
+      "probability_address_bits": 8,
+      "results": {
+        "interval": {
+          "T": 1223264,
+          "flag_toffolis": 174752,
+          "arithmetic_price_error_upper": 0.0009231299572089988
+        },
+        "full_global": {
+          "T": 1158724,
+          "flag_toffolis": 165532,
+          "arithmetic_price_error_upper": 0.0009202764085433617
+        },
+        "full_cap": {
+          "T": 1158724,
+          "flag_toffolis": 165532,
+          "arithmetic_price_error_upper": 0.0009202764085433617
+        }
+      },
+      "cdf_internal_nodes": 254,
+      "cap_internal_nodes": 254,
+      "strike_block_toffolis": 4286,
+      "exact_flag_toffoli_gap": 9220
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "q": 26,
+      "b_y": 13,
+      "exp_address_bits": 10,
+      "log_address_bits": 11,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 2703708,
+          "flag_toffolis": 386244,
+          "arithmetic_price_error_upper": 0.0009806436173441934
+        },
+        "full_global": {
+          "T": 2563736,
+          "flag_toffolis": 366248,
+          "arithmetic_price_error_upper": 0.0009801918598861183
+        },
+        "full_cap": {
+          "T": 2563736,
+          "flag_toffolis": 366248,
+          "arithmetic_price_error_upper": 0.0009801918598861183
+        }
+      },
+      "cdf_internal_nodes": 1023,
+      "cap_internal_nodes": 1023,
+      "strike_block_toffolis": 9602,
+      "exact_flag_toffoli_gap": 19996
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "q": 25,
+      "b_y": 14,
+      "exp_address_bits": 11,
+      "log_address_bits": 12,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 3479728,
+          "flag_toffolis": 497104,
+          "arithmetic_price_error_upper": 0.0008556814853191153
+        },
+        "full_global": {
+          "T": 3296216,
+          "flag_toffolis": 470888,
+          "arithmetic_price_error_upper": 0.000853429100079895
+        },
+        "full_cap": {
+          "T": 3296216,
+          "flag_toffolis": 470888,
+          "arithmetic_price_error_upper": 0.000853429100079895
+        }
+      },
+      "cdf_internal_nodes": 1023,
+      "cap_internal_nodes": 1023,
+      "strike_block_toffolis": 12724,
+      "exact_flag_toffoli_gap": 26216
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "q": 24,
+      "b_y": 12,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 4615212,
+          "flag_toffolis": 659316,
+          "arithmetic_price_error_upper": 0.0009132720246235912
+        },
+        "full_global": {
+          "T": 4490696,
+          "flag_toffolis": 641528,
+          "arithmetic_price_error_upper": 0.0009118452522901327
+        },
+        "full_cap": {
+          "T": 4490696,
+          "flag_toffolis": 641528,
+          "arithmetic_price_error_upper": 0.0009118452522901327
+        }
+      },
+      "cdf_internal_nodes": 1169,
+      "cap_internal_nodes": 1168,
+      "strike_block_toffolis": 8518,
+      "exact_flag_toffoli_gap": 17788
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "q": 29,
+      "b_y": 15,
+      "exp_address_bits": 12,
+      "log_address_bits": 13,
+      "probability_address_bits": 13,
+      "results": {
+        "interval": {
+          "T": 12726504,
+          "flag_toffolis": 1818072,
+          "arithmetic_price_error_upper": 0.0009178221194152805
+        },
+        "full_global": {
+          "T": 12399716,
+          "flag_toffolis": 1771388,
+          "arithmetic_price_error_upper": 0.0009173733343088191
+        },
+        "full_cap": {
+          "T": 12399716,
+          "flag_toffolis": 1771388,
+          "arithmetic_price_error_upper": 0.000911996406385055
+        }
+      },
+      "cdf_internal_nodes": 4717,
+      "cap_internal_nodes": 4675,
+      "strike_block_toffolis": 22742,
+      "exact_flag_toffoli_gap": 46684
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "q": 29,
+      "b_y": 17,
+      "exp_address_bits": 13,
+      "log_address_bits": 14,
+      "probability_address_bits": 13,
+      "results": {
+        "interval": {
+          "T": 33298104,
+          "flag_toffolis": 4756872,
+          "arithmetic_price_error_upper": 0.0008828371099991328
+        },
+        "full_global": {
+          "T": 32747736,
+          "flag_toffolis": 4678248,
+          "arithmetic_price_error_upper": 0.0008817109673635227
+        },
+        "full_cap": {
+          "T": 32747736,
+          "flag_toffolis": 4678248,
+          "arithmetic_price_error_upper": 0.0005216582164973551
+        }
+      },
+      "cdf_internal_nodes": 4717,
+      "cap_internal_nodes": 4660,
+      "strike_block_toffolis": 38652,
+      "exact_flag_toffoli_gap": 78624
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "q": 22,
+      "b_y": 12,
+      "exp_address_bits": 10,
+      "log_address_bits": 10,
+      "probability_address_bits": 9,
+      "results": {
+        "interval": {
+          "T": 3860584,
+          "flag_toffolis": 551512,
+          "arithmetic_price_error_upper": 0.0009330870959730465
+        },
+        "full_global": {
+          "T": 3773448,
+          "flag_toffolis": 539064,
+          "arithmetic_price_error_upper": 0.0009316603236395881
+        },
+        "full_cap": {
+          "T": 3773448,
+          "flag_toffolis": 539064,
+          "arithmetic_price_error_upper": 0.0009316603236395881
+        }
+      },
+      "cdf_internal_nodes": 394,
+      "cap_internal_nodes": 392,
+      "strike_block_toffolis": 5868,
+      "exact_flag_toffoli_gap": 12448
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "q": 27,
+      "b_y": 15,
+      "exp_address_bits": 11,
+      "log_address_bits": 12,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 11337312,
+          "flag_toffolis": 1619616,
+          "arithmetic_price_error_upper": 0.0009260512414271181
+        },
+        "full_global": {
+          "T": 11137056,
+          "flag_toffolis": 1591008,
+          "arithmetic_price_error_upper": 0.0009256024563206568
+        },
+        "full_cap": {
+          "T": 11137056,
+          "flag_toffolis": 1591008,
+          "arithmetic_price_error_upper": 0.0009256024563206568
+        }
+      },
+      "cdf_internal_nodes": 1619,
+      "cap_internal_nodes": 1601,
+      "strike_block_toffolis": 13824,
+      "exact_flag_toffoli_gap": 28608
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "q": 29,
+      "b_y": 16,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 18790520,
+          "flag_toffolis": 2684360,
+          "arithmetic_price_error_upper": 0.0009625803821230569
+        },
+        "full_global": {
+          "T": 18572176,
+          "flag_toffolis": 2653168,
+          "arithmetic_price_error_upper": 0.0009622553811333138
+        },
+        "full_cap": {
+          "T": 18572176,
+          "flag_toffolis": 2653168,
+          "arithmetic_price_error_upper": 0.0009622553811333138
+        }
+      },
+      "cdf_internal_nodes": 1643,
+      "cap_internal_nodes": 1611,
+      "strike_block_toffolis": 15036,
+      "exact_flag_toffoli_gap": 31192
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "q": 22,
+      "b_y": 11,
+      "exp_address_bits": 9,
+      "log_address_bits": 10,
+      "probability_address_bits": 8,
+      "results": {
+        "interval": {
+          "T": 3395224,
+          "flag_toffolis": 485032,
+          "arithmetic_price_error_upper": 0.0009044882895065812
+        },
+        "full_global": {
+          "T": 3308200,
+          "flag_toffolis": 472600,
+          "arithmetic_price_error_upper": 0.000903774905339212
+        },
+        "full_cap": {
+          "T": 3308200,
+          "flag_toffolis": 472600,
+          "arithmetic_price_error_upper": 0.000903774905339212
+        }
+      },
+      "cdf_internal_nodes": 255,
+      "cap_internal_nodes": 255,
+      "strike_block_toffolis": 5868,
+      "exact_flag_toffoli_gap": 12432
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "q": 25,
+      "b_y": 14,
+      "exp_address_bits": 11,
+      "log_address_bits": 11,
+      "probability_address_bits": 10,
+      "results": {
+        "interval": {
+          "T": 7358316,
+          "flag_toffolis": 1051188,
+          "arithmetic_price_error_upper": 0.0009199966416475052
+        },
+        "full_global": {
+          "T": 7226296,
+          "flag_toffolis": 1032328,
+          "arithmetic_price_error_upper": 0.0009190990314473824
+        },
+        "full_cap": {
+          "T": 7226296,
+          "flag_toffolis": 1032328,
+          "arithmetic_price_error_upper": 0.0009190990314473824
+        }
+      },
+      "cdf_internal_nodes": 1023,
+      "cap_internal_nodes": 1023,
+      "strike_block_toffolis": 9046,
+      "exact_flag_toffoli_gap": 18860
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "q": 25,
+      "b_y": 16,
+      "exp_address_bits": 12,
+      "log_address_bits": 12,
+      "probability_address_bits": 11,
+      "results": {
+        "interval": {
+          "T": 17547124,
+          "flag_toffolis": 2506732,
+          "arithmetic_price_error_upper": 0.0009783219262628274
+        },
+        "full_global": {
+          "T": 17363612,
+          "flag_toffolis": 2480516,
+          "arithmetic_price_error_upper": 0.000976069541023607
+        },
+        "full_cap": {
+          "T": 17363612,
+          "flag_toffolis": 2480516,
+          "arithmetic_price_error_upper": 0.000976069541023607
+        }
+      },
+      "cdf_internal_nodes": 2047,
+      "cap_internal_nodes": 2047,
+      "strike_block_toffolis": 12724,
+      "exact_flag_toffoli_gap": 26216
+    }
+  ]
+}

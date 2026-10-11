@@ -1,0 +1,8 @@
+{
+  "status": "registered_before_first_outcome_execution",
+  "protocol_sha256": "3715a04847f66669966f7a8d5d068eba1725c8d73412f12e6731edc8ee8f9213",
+  "producer_sha256": "2cd1bc04e4d1c20902dae60605d98550981abaeea3b2b8f23ffdc3ba07d2d98f",
+  "source_file": "dispersion_separation_study.py",
+  "outcome_file_absent_at_registration": true,
+  "study_output": "results/dispersion_separation_results.json"
+}

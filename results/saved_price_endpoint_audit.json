@@ -1,0 +1,1467 @@
+{
+  "schema": "qbp-saved-price-endpoint-admission-v1",
+  "status": "passed",
+  "method": "Exact Fraction half-widths of saved interval endpoints, at threshold 1/100; no floating-point threshold or full producer replay",
+  "source_sha256": "bb41b86deaaf1e643e13799be8c73b2b1ec01195fddfe0a92a41f1f59b38c35c",
+  "records": [
+    {
+      "file": "residual_same_information_taylor.json",
+      "result_sha256": "549da9fc2d2f04e50b7c9c682e1e0cbcb5ca3edd8cdfa4eb0aa7be914c009f65",
+      "order_rows": 108,
+      "passing_order_rows": 78,
+      "passing_distinct_contracts": 33,
+      "rows": [
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "1056903533108090094559743525611319641665159836354968151142232600767675174599594416051791231659118254604948874699638081684798625661837999602946605689339905/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_discounted_halfwidth": "2566839/134217728",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "817321815/68719476736",
+          "saved_discounted_halfwidth": "793166309/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "985297991/137438953472",
+          "saved_discounted_halfwidth": "956178039/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "322959059/2147483648",
+          "saved_discounted_halfwidth": "626828357/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "359103663/4294967296",
+          "saved_discounted_halfwidth": "87122637/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "217096019/4294967296",
+          "saved_discounted_halfwidth": "210679863/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "104099841/536870912",
+          "saved_discounted_halfwidth": "404092905/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "769507849/8589934592",
+          "saved_discounted_halfwidth": "746765459/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "465205755/8589934592",
+          "saved_discounted_halfwidth": "451456849/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "166566049/2147483648",
+          "saved_discounted_halfwidth": "646573117/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "684006977/17179869184",
+          "saved_discounted_halfwidth": "20743485/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "827032453/34359738368",
+          "saved_discounted_halfwidth": "401294977/17179869184",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "781984683/549755813888",
+          "saved_discounted_halfwidth": "758873547/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "802139807/4398046511104",
+          "saved_discounted_halfwidth": "778432997/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "36976225/1099511627776",
+          "saved_discounted_halfwidth": "287067301/8796093022208",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "30033463/2147483648",
+          "saved_discounted_halfwidth": "932666885/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "1002674759/549755813888",
+          "saved_discounted_halfwidth": "486520623/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "184881125/549755813888",
+          "saved_discounted_halfwidth": "179417063/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "8713257/268435456",
+          "saved_discounted_halfwidth": "270583725/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "156667931/34359738368",
+          "saved_discounted_halfwidth": "608150779/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "912812777/1099511627776",
+          "saved_discounted_halfwidth": "885835087/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "166566049/8589934592",
+          "saved_discounted_halfwidth": "646573117/34359738368",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "27864165/8589934592",
+          "saved_discounted_halfwidth": "865300947/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "811389135/2199023255552",
+          "saved_discounted_halfwidth": "393704483/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "929175551/2199023255552",
+          "saved_discounted_halfwidth": "901714267/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "909612077/35184372088832",
+          "saved_discounted_halfwidth": "882728981/35184372088832",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "352554849/140737488355328",
+          "saved_discounted_halfwidth": "684270561/281474976710656",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "144617859/34359738368",
+          "saved_discounted_halfwidth": "561375025/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "142126887/549755813888",
+          "saved_discounted_halfwidth": "551705615/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "440693561/17592186044416",
+          "saved_discounted_halfwidth": "106917275/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "355270423/34359738368",
+          "saved_discounted_halfwidth": "344770597/34359738368",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "710634435/1099511627776",
+          "saved_discounted_halfwidth": "689632017/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "68858369/1099511627776",
+          "saved_discounted_halfwidth": "66823297/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "166566049/17179869184",
+          "saved_discounted_halfwidth": "646573117/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "37544957/34359738368",
+          "saved_discounted_halfwidth": "582965377/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "384375707/4398046511104",
+          "saved_discounted_halfwidth": "186507845/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "398774615/34359738368",
+          "saved_discounted_halfwidth": "193494523/17179869184",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "502912837/137438953472",
+          "saved_discounted_halfwidth": "976099037/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "607467231/549755813888",
+          "saved_discounted_halfwidth": "589513865/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "760794807/8589934592",
+          "saved_discounted_halfwidth": "369154963/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "883851813/34359738368",
+          "saved_discounted_halfwidth": "837627/33554432",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "1070772243/137438953472",
+          "saved_discounted_halfwidth": "1039126145/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "490456089/4294967296",
+          "saved_discounted_halfwidth": "475960923/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "946984085/34359738368",
+          "saved_discounted_halfwidth": "1794915/67108864",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "143406997/17179869184",
+          "saved_discounted_halfwidth": "556674723/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "784759439/17179869184",
+          "saved_discounted_halfwidth": "761566297/17179869184",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "52610227/4294967296",
+          "saved_discounted_halfwidth": "816885761/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "1019783089/274877906944",
+          "saved_discounted_halfwidth": "247410987/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "230265211/274877906944",
+          "saved_discounted_halfwidth": "446919693/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "246785537/4398046511104",
+          "saved_discounted_halfwidth": "957967693/17592186044416",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "364752109/70368744177664",
+          "saved_discounted_halfwidth": "353972057/70368744177664",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "70749843/8589934592",
+          "saved_discounted_halfwidth": "549270957/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "616963843/1099511627776",
+          "saved_discounted_halfwidth": "299364905/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "911880273/17592186044416",
+          "saved_discounted_halfwidth": "442465071/8796093022208",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "164206589/8589934592",
+          "saved_discounted_halfwidth": "637414207/34359738368",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "192801201/137438953472",
+          "saved_discounted_halfwidth": "374206131/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "562777815/4398046511104",
+          "saved_discounted_halfwidth": "546145221/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "784759439/68719476736",
+          "saved_discounted_halfwidth": "761566297/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "548650327/549755813888",
+          "saved_discounted_halfwidth": "266217631/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "250123473/4398046511104",
+          "saved_discounted_halfwidth": "970924833/17592186044416",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "547214821/2199023255552",
+          "saved_discounted_halfwidth": "265521091/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "279850349/35184372088832",
+          "saved_discounted_halfwidth": "271579523/35184372088832",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "434722327/1125899906842624",
+          "saved_discounted_halfwidth": "843748685/2251799813685248",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "681352717/274877906944",
+          "saved_discounted_halfwidth": "661215705/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "699625873/8796093022208",
+          "saved_discounted_halfwidth": "84868601/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "543402909/140737488355328",
+          "saved_discounted_halfwidth": "527342929/140737488355328",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "836910703/137438953472",
+          "saved_discounted_halfwidth": "406088129/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "874532341/4398046511104",
+          "saved_discounted_halfwidth": "106085751/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "169813409/17592186044416",
+          "saved_discounted_halfwidth": "659178661/70368744177664",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "784759439/137438953472",
+          "saved_discounted_halfwidth": "761566297/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "369633415/1099511627776",
+          "saved_discounted_halfwidth": "717418197/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "947918897/70368744177664",
+          "saved_discounted_halfwidth": "57493979/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "620802539/68719476736",
+          "saved_discounted_halfwidth": "470178298644197841784143221265722411338479627553030760316066675841184027576526882939172029984487930994287986894807059668460342359376071571264184957009921/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "541701895/274877906944",
+          "saved_discounted_halfwidth": "102567426417480843574375117455194447057730701862605418286691071942608273129259711729278432401805905885996896622669413131637019917472991831633977967378433/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "852040867/2199023255552",
+          "saved_discounted_halfwidth": "413429629/1099511627776",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "592193347/8589934592",
+          "saved_discounted_halfwidth": "8979553/134217728",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "952022233/68719476736",
+          "saved_discounted_halfwidth": "28871429/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "375469517/137438953472",
+          "saved_discounted_halfwidth": "182186359/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "763530009/8589934592",
+          "saved_discounted_halfwidth": "740964291/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "1020023821/68719476736",
+          "saved_discounted_halfwidth": "989877565/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "3142881/1073741824",
+          "saved_discounted_halfwidth": "97599835/34359738368",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "610847123/17179869184",
+          "saved_discounted_halfwidth": "296396933/8589934592",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "906687841/137438953472",
+          "saved_discounted_halfwidth": "439945585/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "349209/268435456",
+          "saved_discounted_halfwidth": "86755409/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "5601113/8589934592",
+          "saved_discounted_halfwidth": "43484601/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "1063279227/35184372088832",
+          "saved_discounted_halfwidth": "1031854581/35184372088832",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "511605709/281474976710656",
+          "saved_discounted_halfwidth": "992970955/562949953421312",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "881132961/137438953472",
+          "saved_discounted_halfwidth": "855091551/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "664549517/2199023255552",
+          "saved_discounted_halfwidth": "644909115/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "9992299/549755813888",
+          "saved_discounted_halfwidth": "4848491/274877906944",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "127816395/8589934592",
+          "saved_discounted_halfwidth": "992310801/68719476736",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "51917931/68719476736",
+          "saved_discounted_halfwidth": "100767049/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "98669869/2199023255552",
+          "saved_discounted_halfwidth": "766029873/17592186044416",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "610847123/68719476736",
+          "saved_discounted_halfwidth": "296396933/34359738368",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "295483531/549755813888",
+          "saved_discounted_halfwidth": "286750675/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "350826201/17592186044416",
+          "saved_discounted_halfwidth": "170228861/8796093022208",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "1",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "851890611/4398046511104",
+          "saved_discounted_halfwidth": "826713443/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "1",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "602869735/140737488355328",
+          "saved_discounted_halfwidth": "292526123/70368744177664",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "1",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "609746781/4503599627370496",
+          "saved_discounted_halfwidth": "147931511/1125899906842624",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "10",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "1060713197/549755813888",
+          "saved_discounted_halfwidth": "1029364389/549755813888",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "10",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "753587169/17592186044416",
+          "saved_discounted_halfwidth": "365657653/8796093022208",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "10",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "190545869/140737488355328",
+          "saved_discounted_halfwidth": "369828777/281474976710656",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "25",
+          "order": 1,
+          "saved_undiscounted_halfwidth": "651441027/137438953472",
+          "saved_discounted_halfwidth": "632188039/137438953472",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "25",
+          "order": 2,
+          "saved_undiscounted_halfwidth": "941983961/8796093022208",
+          "saved_discounted_halfwidth": "228536033/2199023255552",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "25",
+          "order": 3,
+          "saved_undiscounted_halfwidth": "952729345/281474976710656",
+          "saved_discounted_halfwidth": "462285971/140737488355328",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": null,
+          "order": 1,
+          "saved_undiscounted_halfwidth": "610847123/137438953472",
+          "saved_discounted_halfwidth": "296396933/68719476736",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": null,
+          "order": 2,
+          "saved_undiscounted_halfwidth": "796285585/4398046511104",
+          "saved_discounted_halfwidth": "772751793/4398046511104",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": null,
+          "order": 3,
+          "saved_undiscounted_halfwidth": "664781241/140737488355328",
+          "saved_discounted_halfwidth": "322566995/70368744177664",
+          "saved_undiscounted_admitted": true,
+          "saved_discounted_admitted": true,
+          "recorded_admitted": true
+        }
+      ]
+    },
+    {
+      "file": "caldana_conditioning_benchmark.json",
+      "result_sha256": "273dfcbc470002864894088ec81a0b426b0cdb07e76d999fd6f652ba5b8cf284",
+      "order_rows": 36,
+      "passing_order_rows": 0,
+      "passing_distinct_contracts": 0,
+      "rows": [
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "536870913/1073741824",
+          "saved_discounted_halfwidth": "26023094783303760570766102440825761068586655525951279842884126747172054789482815983671935819117258628280848063442865766543959256880389819694162059045371905/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "383421203/536870912",
+          "saved_discounted_halfwidth": "93022349/134217728",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "447072287/536870912",
+          "saved_discounted_halfwidth": "216929653/268435456",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.05",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "592693659/2147483648",
+          "saved_discounted_halfwidth": "287588459/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "263170001/536870912",
+          "saved_discounted_halfwidth": "255392153/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "654738005/1073741824",
+          "saved_discounted_halfwidth": "3967040494777081776496752852456384300335285890029192684638602417678103553705935434152287486647648881428392627009152893906582827192835825370496835575087105/6703903964971298549787012499102923063739682910296196688861780721860882015036773488400937149083451713845015929093243025426876941405973284973216824503042048",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "770868061/1073741824",
+          "saved_discounted_halfwidth": "748085471/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.2",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "275425383/1073741824",
+          "saved_discounted_halfwidth": "133642667/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "481201261/1073741824",
+          "saved_discounted_halfwidth": "933959233/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "562199469/1073741824",
+          "saved_discounted_halfwidth": "17049499/33554432",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "636246447/1073741824",
+          "saved_discounted_halfwidth": "1927500313565692891856622094859692291152669063914566301768576094240726499731260082034803844289044924117134661234256249035101454900454300441012775264714753/3351951982485649274893506249551461531869841455148098344430890360930441007518386744200468574541725856922507964546621512713438470702986642486608412251521024",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n2_lambda0.4",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "1012459693/4294967296",
+          "saved_discounted_halfwidth": "982536991/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "536870913/1073741824",
+          "saved_discounted_halfwidth": "26023094783303760570766102440825761068586655525951279842884126747172054789482815983671935819117258628280848063442865766543959256880389819694162059045371905/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "824679789/1073741824",
+          "saved_discounted_halfwidth": "400153411/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "444746845/536870912",
+          "saved_discounted_halfwidth": "863205183/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.05",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "567172083/2147483648",
+          "saved_discounted_halfwidth": "550409619/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "1051300865/2147483648",
+          "saved_discounted_halfwidth": "1020230233/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "328988377/536870912",
+          "saved_discounted_halfwidth": "319265303/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "389122871/536870912",
+          "saved_discounted_halfwidth": "188811277/268435456",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.2",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "547802827/2147483648",
+          "saved_discounted_halfwidth": "265806405/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "961690683/2147483648",
+          "saved_discounted_halfwidth": "58329277/134217728",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "140490939/268435456",
+          "saved_discounted_halfwidth": "545355221/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "637109801/1073741824",
+          "saved_discounted_halfwidth": "618280365/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n4_lambda0.4",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "1010259609/4294967296",
+          "saved_discounted_halfwidth": "980401929/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "536870913/1073741824",
+          "saved_discounted_halfwidth": "26023094783303760570766102440825761068586655525951279842884126747172054789482815983671935819117258628280848063442865766543959256880389819694162059045371905/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "830861005/1073741824",
+          "saved_discounted_halfwidth": "806305355/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "888274393/1073741824",
+          "saved_discounted_halfwidth": "862021921/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.05",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "564170755/2147483648",
+          "saved_discounted_halfwidth": "547496993/2147483648",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "1051252821/2147483648",
+          "saved_discounted_halfwidth": "25478053619615096360214727344598357802686418398997177172515025582144632227806031126947655155264313562242849235254648205615841164001924395641542257223401473/53631231719770388398296099992823384509917463282369573510894245774887056120294187907207497192667613710760127432745944203415015531247786279785734596024336384",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "658369987/1073741824",
+          "saved_discounted_halfwidth": "3989046574397853294213586518176420671711073367944318012472930855650451494196962831542889158053852294110850171798168403185227250698832318694340760786960385/6703903964971298549787012499102923063739682910296196688861780721860882015036773488400937149083451713845015929093243025426876941405973284973216824503042048",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "194756101/268435456",
+          "saved_discounted_halfwidth": "756000757/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.2",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "547574135/2147483648",
+          "saved_discounted_halfwidth": "132847719/536870912",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "1",
+          "order": null,
+          "saved_undiscounted_halfwidth": "240414781/536870912",
+          "saved_discounted_halfwidth": "466618903/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "10",
+          "order": null,
+          "saved_undiscounted_halfwidth": "561968993/1073741824",
+          "saved_discounted_halfwidth": "545360303/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": "25",
+          "order": null,
+          "saved_undiscounted_halfwidth": "318610431/536870912",
+          "saved_discounted_halfwidth": "618388143/1073741824",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        },
+        {
+          "model_id": "n8_lambda0.4",
+          "cap": null,
+          "order": null,
+          "saved_undiscounted_halfwidth": "63131323/268435456",
+          "saved_discounted_halfwidth": "980248171/4294967296",
+          "saved_undiscounted_admitted": false,
+          "saved_discounted_admitted": false,
+          "recorded_admitted": false
+        }
+      ]
+    }
+  ],
+  "scope": "No classification mismatch in this cohort. This does not equate the pre-serialization radius field with a saved Arb interval half-width for arbitrary inputs."
+}

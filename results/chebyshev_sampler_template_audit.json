@@ -1,0 +1,22 @@
+{
+  "schema": "qbp-chebyshev-concrete-template-audit-v1",
+  "status": "passed",
+  "source_sha256": "2689dd887e816d0dd98d3c4e82e7f1250183fbfe47dc8ce8399ae6040d638ddc",
+  "template_result_sha256": "19175f0211e054e3cf3a1812717ab547ea2310dc44ed528034e36a1846fd0e58",
+  "template_protocol_sha256": "61adcabecee6fb095592af40d4b6a6c0b0f1b92da7c9292431d66d6a976b2f25",
+  "frozen_resource_sha256": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232",
+  "verified_allocation_chain_source_sha256": {
+    "integral_value_oracle.py": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f",
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686"
+  },
+  "financial_cases": 4,
+  "concrete_sampler_templates": 52,
+  "success_flag_is_after_excluded_high_zero": true,
+  "core_and_clean_scratch_disjoint": true,
+  "all_phase_adjoint_opcode_counts_checked": true,
+  "retained_peak_allocations_suffice": true,
+  "executed_source_or_resource_bytes_modified": false,
+  "scope": "Source-checked concrete financial flag/core binding and independently reconstructed sampler macros/counts. Correctness of retained financial preparations and exact phase reflections remains in the separately retained certificates; no full million-gate pricing tape was recompiled."
+}

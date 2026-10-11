@@ -1,0 +1,173 @@
+{
+  "review_date": "2026-10-11",
+  "scope": "Load-bearing established finance and Monte Carlo sensitivity foundations; published nonsmooth-PDE comparison. No theoretical-priority claim.",
+  "sources": [
+    {
+      "key": "blackscholes1973",
+      "authors": [
+        "Fischer Black",
+        "Myron Scholes"
+      ],
+      "year": 1973,
+      "title": "The Pricing of Options and Corporate Liabilities",
+      "journal": "Journal of Political Economy",
+      "volume": "81",
+      "issue": "3",
+      "pages": "637-654",
+      "doi": "10.1086/260062",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall08/cos323/papers/black_scholes73.pdf",
+      "consulted": [
+        "Printed pages 637-644; The Valuation Formula, equations (1)-(13)"
+      ],
+      "claim": "Established frictionless non-dividend GBM hedging, pricing PDE, heat transformation and call formula.",
+      "limits": "The original assumptions exclude stock dividends. Dividend adjustment is attributed to Merton rather than silently inferred from this article.",
+      "version": "Final published journal scan hosted by Princeton University",
+      "publication_status": "Published, peer-reviewed journal article",
+      "accessed_on": "2026-10-11",
+      "access_method": "Direct freely accessible university-hosted PDF",
+      "reading_method": "Rendered pages and/or extracted complete relevant sections; not abstract-only",
+      "sha256": "5d7fff3799e94a563edd232d4678f898703176d408d213ec4f2984b009c46157",
+      "raw_source_copy_in_repository": false
+    },
+    {
+      "key": "merton1973",
+      "authors": [
+        "Robert C. Merton"
+      ],
+      "year": 1973,
+      "title": "Theory of Rational Option Pricing",
+      "journal": "The Bell Journal of Economics and Management Science",
+      "volume": "4",
+      "issue": "1",
+      "pages": "141-183",
+      "doi": "10.2307/3003143",
+      "url": "http://polymer.bu.edu/hes/merton73py538.pdf",
+      "consulted": [
+        "Section 5, printed pages 160-161",
+        "Section 6, selected printed pages 162-166 and 168-169",
+        "Section 7, printed pages 170-171: equation (44), proportional-dividend discussion and footnote 62"
+      ],
+      "claim": "Market assumptions and no-arbitrage derivation; dividend-paying pricing PDE; proportional-dividend European call formula.",
+      "limits": "The companion covers a frictionless constant-parameter European claim, not arbitrary dividend policies or American early exercise. MIT repository version dated 1971 is a working paper and was not used as the final article.",
+      "version": "Final published journal PDF hosted by Boston University",
+      "publication_status": "Published, peer-reviewed journal article",
+      "accessed_on": "2026-10-11",
+      "access_method": "Direct freely accessible university-hosted PDF",
+      "reading_method": "Rendered pages and/or extracted complete relevant sections; not abstract-only",
+      "sha256": "484d6818ee7fd890019e932317b19f172f075e0540478cbec2d523ae578d61ea",
+      "raw_source_copy_in_repository": false
+    },
+    {
+      "key": "broadieglasserman1996",
+      "authors": [
+        "Mark Broadie",
+        "Paul Glasserman"
+      ],
+      "year": 1996,
+      "title": "Estimating Security Price Derivatives Using Simulation",
+      "journal": "Management Science",
+      "volume": "42",
+      "issue": "2",
+      "pages": "269-285",
+      "doi": "10.1287/mnsc.42.2.269",
+      "url": "https://www.columbia.edu/~mnb2/broadie/Assets/bg_ms_1996.pdf",
+      "consulted": [
+        "Sections 2-3, printed pages 270-274: equations (1)-(18) and likelihood-ratio Gamma",
+        "Appendix A, printed pages 280-281: conditions A1-A4 and Proposition 1",
+        "Appendix B, printed pages 281-282: finite-bump error and common random numbers",
+        "Selected Appendix C material, printed pages 282-284: European formulas (27)-(41), pathwise/likelihood-ratio estimators and kink smoothing",
+        "Appendix C, printed pages 283-284: hybrid finite-bump pathwise-Delta Gamma formulas (47) and (62), distinguished from the companion mixed PW/LR expression"
+      ],
+      "claim": "Established pathwise and likelihood-ratio methods, derivative-interchange conditions, kinked-payoff Gamma hazard and corrected second-order likelihood-ratio score.",
+      "limits": "The capped-call specialisations are independently derived; ordinary resimulation retains finite-bump bias. Neither this article nor the companion establishes universal variance reduction by an independently fitted control. The article’s hybrid equations (47) and (62) concern biased finite-bump pathwise resimulation; they are not the capped mixed pathwise/likelihood-ratio formula derived here.",
+      "version": "Final published journal scan hosted by the first author at Columbia University",
+      "publication_status": "Published, peer-reviewed journal article",
+      "accessed_on": "2026-10-11",
+      "access_method": "Direct freely accessible university-hosted PDF",
+      "reading_method": "Rendered pages and/or extracted complete relevant sections; not abstract-only",
+      "sha256": "d48cadea3fa37bcd68fc0734cf07e95d88fc2cfcc2bd064a4fcbc79b672c539f",
+      "raw_source_copy_in_repository": false
+    },
+    {
+      "key": "gilescarter2006",
+      "authors": [
+        "Michael B. Giles",
+        "Rebecca Carter"
+      ],
+      "year": 2006,
+      "title": "Convergence analysis of Crank-Nicolson and Rannacher time-marching",
+      "journal": "Journal of Computational Finance",
+      "volume": "9",
+      "issue": "4",
+      "pages": "89-112",
+      "doi": "10.21314/JCF.2006.152",
+      "url": "https://people.maths.ox.ac.uk/gilesm/files/giles_carter.pdf",
+      "consulted": [
+        "Sections 1-3, printed pages 89-103: nonsmooth initial-data sensitivity, model problem and Fourier analysis",
+        "Section 5, printed page 111: conclusions on Rannacher startup and convergence"
+      ],
+      "claim": "For nonsmooth option payoffs, nominal scheme stability/value accuracy does not establish maximum-norm Greek convergence; startup smoothing is essential for the studied Crank-Nicolson refinements.",
+      "limits": "Results are for the article’s convection-diffusion/Crank-Nicolson/Rannacher setting. They are not used as an imported proof of the companion’s bounded-domain backward-Euler residual estimate.",
+      "version": "Final journal-layout PDF hosted by the first author at Oxford University",
+      "publication_status": "Published, peer-reviewed journal article",
+      "accessed_on": "2026-10-11",
+      "access_method": "Direct freely accessible university-hosted PDF",
+      "reading_method": "Rendered pages and/or extracted complete relevant sections; not abstract-only",
+      "sha256": "fcaa02cb52813e1ea405f0f4b04568602059a3bfa6429e5815383da07b6d8531",
+      "raw_source_copy_in_repository": false
+    },
+    {
+      "key": "hoeffding1963",
+      "authors": [
+        "Wassily Hoeffding"
+      ],
+      "year": 1963,
+      "title": "Probability inequalities for sums of bounded random variables",
+      "journal": "Journal of the American Statistical Association",
+      "volume": "58",
+      "issue": "301",
+      "pages": "13-30",
+      "doi": "10.1080/01621459.1963.10500830",
+      "url": "https://doi.org/10.1080/01621459.1963.10500830",
+      "consulted": [
+        "Earlier project consultation: printed pages13-16, Theorem2 equation2.6"
+      ],
+      "version": "Final journal scan, as retained in the earlier project source ledger",
+      "publication_status": "Published, peer-reviewed journal article",
+      "access_record": "SOURCES.md and history/before_documentation_consolidation/SOURCES.md; not a fresh full-text consultation in this companion stage",
+      "sha256": null,
+      "limits": "The earlier temporary PDF is unavailable; the earlier version/section record is retained without implying a newly read scan. The companion supplies a complete elementary proof of its bounded-score inequality.",
+      "raw_source_copy_in_repository": false
+    }
+  ],
+  "access_notes": [
+    "The first literature search was attempted but returned insufficient credits. No upgrade or purchase was made.",
+    "The 1971 MIT Merton working-paper record was checked and excluded in favour of the 1973 final journal article.",
+    "Safari access was attempted during integration but the interaction was interrupted by a user window change. Source claims rely on the freely accessible published PDFs actually read, not a completed Safari reading."
+  ],
+  "independent_checks": [
+    "Analytic call-spread identity and Greeks",
+    "Exact-terminal pathwise first derivatives and corrected likelihood-ratio Gamma",
+    "Fixed heat-coordinate reflection-domain error",
+    "DST-I representation versus constant tridiagonal backward Euler",
+    "Mollifier/bump/domain consistency hazards flagged for the implementation and theory work",
+    "Bounded mixed PW/LR Gamma derivation, active-region range, independent seven-contract bounded-asset Gaussian quadrature, and matched complete terminal/pilot accounting"
+  ],
+  "identified_not_full_text_consulted": [
+    {
+      "authors": [
+        "Luca Capriotti"
+      ],
+      "year": 2015,
+      "title": "Likelihood Ratio Method and Algorithmic Differentiation: Fast Second Order Greeks",
+      "journal": "Algorithmic Finance",
+      "volume": "4",
+      "issue": "1-2",
+      "pages": "81-87",
+      "doi": "10.3233/AF-150045",
+      "publication_metadata_url": "https://journals.sagepub.com/doi/10.3233/AF-150045",
+      "status": "Published metadata verified; full text not retrieved; not used as a load-bearing source",
+      "relevance": "Published prior work on combining pathwise and likelihood-ratio second-order sensitivities, so no priority claim is made for the combination."
+    }
+  ]
+}

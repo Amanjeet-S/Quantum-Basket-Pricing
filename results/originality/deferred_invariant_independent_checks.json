@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "clean_basis_cases": 40,
+  "parity_cases": 60,
+  "invariant_cases": 60,
+  "controlled_sign_cases": 5,
+  "full_actual_operator_conjugacy_cases": 160,
+  "actual_controlled_operator_conjugacy_cases": 320,
+  "actual_controlled_clean_domain_cases": 80,
+  "probabilities": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "degrees": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "state_dimension": 32,
+  "controlled_state_dimension": 64,
+  "global_rank_one_equivalence_outside_invariant": false,
+  "borrowed_tape_equals_symbolic_core_reflection_outside_invariant": false,
+  "borrowed_tape_equals_symbolic_core_reflection_on_M": true,
+  "actual_controlled_tape_equals_controlled_uncontrolled_tape_off_M": false,
+  "controlled_global_minus_retained": true,
+  "numerical_tolerance": "2e-12",
+  "scope": "Independent literal small-unitary witness only; algebraic proof and actual financial opcode/resource invariants remain required."
+}

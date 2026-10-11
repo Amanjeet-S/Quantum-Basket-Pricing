@@ -1,0 +1,634 @@
+{
+  "schema": "qbp-qpe-resource-native-coordinates-v1",
+  "picture_mm": [
+    160,
+    89
+  ],
+  "plot_y_origin_mm": 23,
+  "plot_height_mm": 54,
+  "panels": [
+    {
+      "x0": 13,
+      "width": 62,
+      "xs": [
+        9,
+        13.5
+      ],
+      "ys": [
+        8,
+        13.5
+      ],
+      "title": "Complete T caps"
+    },
+    {
+      "x0": 99,
+      "width": 59,
+      "xs": [
+        4.7,
+        13.3
+      ],
+      "ys": [
+        -1.1,
+        0.04
+      ],
+      "title": "Ratio versus phase width"
+    }
+  ],
+  "points": [
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.05_cap1",
+      "x_mm": 46.721804754636096,
+      "y_mm": 48.4851088415222,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "280253048300",
+      "exact_y": "39418993416"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.05_cap10",
+      "x_mm": 64.51354964012094,
+      "y_mm": 59.84652286825689,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "5481339063876",
+      "exact_y": "566091440739"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.05_cap25",
+      "x_mm": 71.84070567099698,
+      "y_mm": 65.48439124382452,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "18650753376652",
+      "exact_y": "2123801498940"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.2_cap1",
+      "x_mm": 33.25254138195095,
+      "y_mm": 38.933255675962684,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "29508186500",
+      "exact_y": "4195962485"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.2_cap10",
+      "x_mm": 58.944415120448994,
+      "y_mm": 56.748482736583405,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "2161102128088",
+      "exact_y": "273744538892"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.2_cap25",
+      "x_mm": 67.97045909652078,
+      "y_mm": 64.13935101614196,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "9767679164136",
+      "exact_y": "1549241367762"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.4_cap1",
+      "x_mm": 22.407933889687108,
+      "y_mm": 35.80884027457547,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "4817635200",
+      "exact_y": "2016527282"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.4_cap10",
+      "x_mm": 51.479053740469524,
+      "y_mm": 52.22803490778763,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "620632545158",
+      "exact_y": "94826447617"
+    },
+    {
+      "panel": "left",
+      "case_id": "n8_lambda0.4_cap25",
+      "x_mm": 62.23151199487816,
+      "y_mm": 60.52741839269958,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "3743302315136",
+      "exact_y": "664105471733"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.05_cap1",
+      "x_mm": 41.140451318252005,
+      "y_mm": 44.50807746521883,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "110268663760",
+      "exact_y": "15510918632"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.05_cap10",
+      "x_mm": 58.193526862962386,
+      "y_mm": 55.34282400900319,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "1906230161056",
+      "exact_y": "196868630167"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.05_cap25",
+      "x_mm": 63.29872307094133,
+      "y_mm": 59.39729908784278,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "4474183287798",
+      "exact_y": "509486070192"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.2_cap1",
+      "x_mm": 29.414143648182826,
+      "y_mm": 37.79523187567218,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "15536354986",
+      "exact_y": "3213081674"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.2_cap10",
+      "x_mm": 51.79304602694222,
+      "y_mm": 52.23292512118715,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "654070118152",
+      "exact_y": "94935263170"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.2_cap25",
+      "x_mm": 58.31573088642396,
+      "y_mm": 55.84202046436428,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "1945561590080",
+      "exact_y": "221319970091"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.4_cap1",
+      "x_mm": 18.408238680777032,
+      "y_mm": 30.958555042219714,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "2469070284",
+      "exact_y": "646537276"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.4_cap10",
+      "x_mm": 46.64124219829283,
+      "y_mm": 48.854236990936236,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "276505046976",
+      "exact_y": "42983513859"
+    },
+    {
+      "panel": "left",
+      "case_id": "n4_lambda0.4_cap25",
+      "x_mm": 52.87521073286622,
+      "y_mm": 52.06679151602924,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "783733698928",
+      "exact_y": "91307519204"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.05_cap1",
+      "x_mm": 35.194180428984254,
+      "y_mm": 40.27051805044255,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "40819523840",
+      "exact_y": "5741617354"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.05_cap10",
+      "x_mm": 50.74963887079693,
+      "y_mm": 50.03241667571123,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "549405678496",
+      "exact_y": "56663278441"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.05_cap25",
+      "x_mm": 55.953271746902686,
+      "y_mm": 54.16288710087292,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "1310919957340",
+      "exact_y": "149278671102"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.2_cap1",
+      "x_mm": 23.294252997833162,
+      "y_mm": 32.659146126987984,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "5586805140",
+      "exact_y": "963389526"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.2_cap10",
+      "x_mm": 43.748368733819404,
+      "y_mm": 46.4996908421936,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "170504733544",
+      "exact_y": "24744975618"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.2_cap25",
+      "x_mm": 52.02086343269814,
+      "y_mm": 51.35626444318573,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "679453034680",
+      "exact_y": "77292622891"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.4_cap1",
+      "x_mm": 16.419920069933553,
+      "y_mm": 29.846437920798913,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "1771005888",
+      "exact_y": "498106697"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.4_cap10",
+      "x_mm": 39.680507813416995,
+      "y_mm": 43.89400837788128,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "86394972420",
+      "exact_y": "13430539111"
+    },
+    {
+      "panel": "left",
+      "case_id": "n2_lambda0.4_cap25",
+      "x_mm": 45.450957456407636,
+      "y_mm": 46.77575071569713,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "226626884408",
+      "exact_y": "26400019008"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.05_cap1",
+      "x_mm": 128.5,
+      "y_mm": 34.75471929233865,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "9",
+      "exact_y": "9854748354/70063262075"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.05_cap10",
+      "x_mm": 149.0813953488372,
+      "y_mm": 28.399996258152346,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "12",
+      "exact_y": "62899048971/609037673764"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.05_cap25",
+      "x_mm": 155.9418604651163,
+      "y_mm": 30.409252066948127,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "13",
+      "exact_y": "530950374735/4662688344163"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.2_cap1",
+      "x_mm": 107.91860465116278,
+      "y_mm": 34.978956277436254,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "6",
+      "exact_y": "64553269/453972100"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.2_cap10",
+      "x_mm": 142.22093023255815,
+      "y_mm": 32.60016608525517,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "11",
+      "exact_y": "68436134723/540275532022"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.2_cap25",
+      "x_mm": 155.9418604651163,
+      "y_mm": 37.226048897139975,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "13",
+      "exact_y": "258206894627/1627946527356"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.4_cap1",
+      "x_mm": 101.05813953488372,
+      "y_mm": 57.18911429592909,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "o",
+      "colour_assets": 8,
+      "exact_x": "5",
+      "exact_y": "144037663/344116800"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.4_cap10",
+      "x_mm": 135.36046511627907,
+      "y_mm": 36.457128531713145,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "s",
+      "colour_assets": 8,
+      "exact_x": "10",
+      "exact_y": "94826447617/620632545158"
+    },
+    {
+      "panel": "right",
+      "case_id": "n8_lambda0.4_cap25",
+      "x_mm": 149.0813953488372,
+      "y_mm": 39.53073368923545,
+      "marker_size_mm": 2.328333333333333,
+      "marker_kind": "^",
+      "colour_assets": 8,
+      "exact_x": "12",
+      "exact_y": "664105471733/3743302315136"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.05_cap1",
+      "x_mm": 128.5,
+      "y_mm": 34.75615089564783,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "9",
+      "exact_y": "1938864829/13783582970"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.05_cap10",
+      "x_mm": 149.0813953488372,
+      "y_mm": 28.400056018254524,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "12",
+      "exact_y": "196868630167/1906230161056"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.05_cap25",
+      "x_mm": 155.9418604651163,
+      "y_mm": 30.40929941589767,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "13",
+      "exact_y": "84914345032/745697214633"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.2_cap1",
+      "x_mm": 114.77906976744185,
+      "y_mm": 42.68501928545255,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "7",
+      "exact_y": "1606540837/7768177493"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.2_cap10",
+      "x_mm": 142.22093023255815,
+      "y_mm": 35.401206589952764,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "11",
+      "exact_y": "4315239235/29730459916"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.2_cap25",
+      "x_mm": 149.0813953488372,
+      "y_mm": 30.388318802308987,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "12",
+      "exact_y": "221319970091/1945561590080"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.4_cap1",
+      "x_mm": 101.05813953488372,
+      "y_mm": 47.539689727901894,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "o",
+      "colour_assets": 4,
+      "exact_x": "5",
+      "exact_y": "161634319/617267571"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.4_cap10",
+      "x_mm": 135.36046511627907,
+      "y_mm": 36.812577245672,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "s",
+      "colour_assets": 4,
+      "exact_x": "10",
+      "exact_y": "14327837953/92168348992"
+    },
+    {
+      "panel": "right",
+      "case_id": "n4_lambda0.4_cap25",
+      "x_mm": 142.22093023255815,
+      "y_mm": 30.87916948046803,
+      "marker_size_mm": 1.7638888888888888,
+      "marker_kind": "^",
+      "colour_assets": 4,
+      "exact_x": "11",
+      "exact_y": "22826879801/195933424732"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.05_cap1",
+      "x_mm": 128.5,
+      "y_mm": 34.755246334998986,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "9",
+      "exact_y": "2870808677/20409761920"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.05_cap10",
+      "x_mm": 149.0813953488372,
+      "y_mm": 28.371984165448183,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "12",
+      "exact_y": "56663278441/549405678496"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.05_cap25",
+      "x_mm": 155.9418604651163,
+      "y_mm": 30.409443504531907,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "13",
+      "exact_y": "74639335551/655459978670"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.2_cap1",
+      "x_mm": 114.77906976744185,
+      "y_mm": 38.94602929866221,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "7",
+      "exact_y": "160564921/931134190"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.2_cap10",
+      "x_mm": 142.22093023255815,
+      "y_mm": 35.398712151526645,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "11",
+      "exact_y": "12372487809/85252366772"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.2_cap25",
+      "x_mm": 149.0813953488372,
+      "y_mm": 30.388460115742575,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "12",
+      "exact_y": "77292622891/679453034680"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.4_cap1",
+      "x_mm": 107.91860465116278,
+      "y_mm": 49.01011253535051,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "o",
+      "colour_assets": 2,
+      "exact_x": "6",
+      "exact_y": "498106697/1771005888"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.4_cap10",
+      "x_mm": 135.36046511627907,
+      "y_mm": 36.81286726368406,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "s",
+      "colour_assets": 2,
+      "exact_x": "10",
+      "exact_y": "13430539111/86394972420"
+    },
+    {
+      "panel": "right",
+      "case_id": "n2_lambda0.4_cap25",
+      "x_mm": 142.22093023255815,
+      "y_mm": 30.877027902457083,
+      "marker_size_mm": 1.1994444444444445,
+      "marker_kind": "^",
+      "colour_assets": 2,
+      "exact_x": "11",
+      "exact_y": "3300002376/28328360551"
+    }
+  ],
+  "jitter_applied": false
+}

@@ -1,0 +1,108 @@
+\section{Certified Clifford and T synthesis of the inverse Fourier transform}
+\label{sec:certified-iqft}
+
+I retain explicit single-qubit gate sequences for the inverse quantum Fourier transform rather than replacing rotation synthesis by an asymptotic expression with an unspecified constant. The synthesis problem and its operator-norm convention follow the published treatment of \citet{rossselinger2016}, Sections 7.1 and 9. I use the unmodified \texttt{pygridsynth} 1.2.0 implementation to propose sequences, but the numerical certificate does not rely on the implementation returning an accurate sequence or an optimal sequence. I check each retained product afresh using complex ball arithmetic. The construction is an implemented benchmark component, not an original rotation synthesis algorithm.
+
+\subsection{Single-qubit sequences and their scalar phases}
+
+My conventions are
+\[
+ R_z(\theta)=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2}),\quad
+ H=2^{-1/2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\quad
+ S=\operatorname{diag}(1,i),\quad
+ T=\operatorname{diag}(1,e^{i\pi/4}).
+\]
+A retained chronological tape $(g_1,\ldots,g_s)$ denotes the physical matrix $U=g_s\cdots g_1$. The synthesis software prints a matrix product in the opposite order, which I reverse before recording a chronological tape. Its scalar $W=e^{i\pi/4}$ is recorded as a rational multiple of $\pi$ rather than treated as an executable gate. I expand every Pauli $X$ in a proposed tape as $HSSH$; the retained alphabet is $H,S,T,S^{\dagger},T^{\dagger}$.
+
+For every $k\in\{2,\ldots,32\}$ and $\sigma\in\{-1,1\}$, the retained record contains a physical tape $U_{\sigma,k}$, an exact rational scalar coefficient $\phi_{\sigma,k}$, and a rational upper bound $\eta_{\sigma,k}$ satisfying
+\begin{equation}
+ \left\|e^{i\pi\phi_{\sigma,k}}U_{\sigma,k}
+        -R_z(\sigma\pi/2^k)\right\|_2
+ \leq\eta_{\sigma,k}<2^{-17}.
+ \label{eq:retained-rz-cert}
+\end{equation}
+At $k=2$, I use $U_{+,2}=T$ and $\phi_{+,2}=-1/8$, which is exact. At $3\leq k\leq18$, I use an actual proposed Clifford and T sequence with requested synthesis tolerance $2^{-20}$, 100 decimal digits and a fixed recorded seed. At $k\geq19$, I use the identity tape and zero scalar coefficient. Its error is charged, since
+\[
+ \|I-R_z(\sigma\pi/2^k)\|_2
+   =2\left|\sin(\pi/2^{k+2})\right|
+   \leq\pi/2^{k+1}.
+\]
+The negative-angle tape is the reversed adjoint of the positive-angle tape and has the opposite scalar coefficient. Unitary invariance of the norm then gives the same mathematical approximation error for the two signs. I nevertheless retain a separate complex-ball product certificate for each sign.
+
+To obtain the rational certificates, I enclose $\pi$, $2^{-1/2}$, all gate entries and all target entries using Acb at 384 bits. I multiply the physical gate matrices in chronological order and include the recorded scalar. If $E$ is the resulting enclosed difference, I compute an upper bound on
+\[
+ \|E\|_{\mathrm F}
+   =\left(\sum_{a,b}|E_{ab}|^2\right)^{1/2}.
+\]
+For each entry I first take an outward upper bound on its modulus, then square this non-negative upper bound. I retain the resulting outward rational endpoint. Since $\|E\|_2\leq\|E\|_{\mathrm F}$, equation~\eqref{eq:retained-rz-cert} follows from inclusion of the exact product in the complex balls. This procedure includes uncertainty in the value of $\pi$ and in every arithmetic operation. A digest binds the literal tapes to the certificate; the production API rejects a digest mismatch.
+
+\subsection{Controlled phase decomposition}
+
+For two distinct wires $c,t$, let
+\[
+ C_{\theta}=\operatorname{diag}(1,1,1,e^{i\theta})
+\]
+when $c$ is the first bit and $t$ the second. Chronological application of $R_z(\theta/2)$ to $c$, $R_z(\theta/2)$ to $t$, $\operatorname{CX}_{c,t}$, $R_z(-\theta/2)$ to $t$, and $\operatorname{CX}_{c,t}$ has physical matrix
+\begin{equation}
+ D_\theta=e^{-i\theta/4}C_\theta.
+ \label{eq:cp-rz-identity}
+\end{equation}
+Indeed, on input bits $(a,b)$, the middle controlled NOT changes the target bit to $a\mathbin{\oplus}b$. The total scalar exponent is
+\[
+ -\frac{i\theta}{4}(-1)^a
+ -\frac{i\theta}{4}(-1)^b
+ +\frac{i\theta}{4}(-1)^{a\mathbin{\oplus}b}.
+\]
+For $(a,b)=(0,0),(0,1),(1,0)$ this is $-i\theta/4$, while for $(1,1)$ it is $3i\theta/4$. This proves equation~\eqref{eq:cp-rz-identity} on all four basis vectors, hence on every coherent input by linearity.
+
+For $\theta=\sigma\pi/2^d$, the three required rotations use $k=d+1$. Replacing them by the retained tapes gives a physical controlled-phase approximation $\widetilde D_\theta$. The exact scalar correction that compares this tape with $C_\theta$ is
+\[
+ \chi_{\sigma,d}
+  =\frac{\sigma}{2^{d+2}}
+    +2\phi_{\sigma,d+1}+\phi_{-\sigma,d+1}.
+\]
+Consequently,
+\begin{equation}
+ \|e^{i\pi\chi_{\sigma,d}}\widetilde D_\theta-C_\theta\|_2
+ \leq2\eta_{\sigma,d+1}+\eta_{-\sigma,d+1}.
+ \label{eq:cp-error-telescope}
+\end{equation}
+To see this, replace the three rotations one at a time in the exact product. Each difference is multiplied on the left and right by unitary matrices, so its norm is unchanged. Tensoring a single-qubit difference with the identity also preserves the operator norm. The triangle inequality then proves equation~\eqref{eq:cp-error-telescope}. For the identity replacement, the two controlled NOTs are adjacent and cancel exactly. I omit these two gates from the physical tape while retaining all three rotation errors and the scalar correction. No angle is assigned zero error merely because its physical tape is empty.
+
+\subsection{Fourier convention, total error and measurement probabilities}
+
+Wire 0 is the most significant bit. The mathematical inverse Fourier matrix on $m$ wires is
+\[
+ (F_m^{-1})_{x,y}=2^{-m/2}e^{-2\pi ixy/2^m},
+ \qquad0\leq x,y<2^m.
+\]
+I obtain its circuit by reversing the usual Fourier circuit: first reverse the wire order using swaps, then for $j=m-1,m-2,\ldots,0$ apply the controlled phases $-\pi/2^{k-j}$ for $k=m-1,m-2,\ldots,j+1$, followed by $H$ on $j$. Each swap is expanded into three controlled NOTs. This convention agrees with the inverse DFT entry above. A circuit using wire 0 as the least significant bit is obtained by relabelling every wire $j$ as $m-1-j$ and applying the same relabelling to the basis encoding and measurement interpretation. It must not compare matrices with differing bit conventions without that permutation.
+
+Let $\widetilde F_m^{-1}$ be the physical retained circuit and let
+\[
+ \Xi_m=\sum_{d=1}^{m-1}(m-d)\chi_{-,d},\qquad
+ \delta_m=\sum_{d=1}^{m-1}(m-d)
+               (2\eta_{-,d+1}+\eta_{+,d+1}).
+\]
+Repeated unitary telescoping gives
+\begin{equation}
+ \|e^{i\pi\Xi_m}\widetilde F_m^{-1}-F_m^{-1}\|_2
+  \leq\delta_m\leq\frac1{64},\qquad1\leq m\leq32.
+ \label{eq:iqft-total-error}
+\end{equation}
+The final inequality is checked using the retained rational endpoints for every supported width, rather than decimal comparisons. There are $\binom m2$ controlled phases. Each contains three certified rotations, so the simpler common certificate $\eta_{\sigma,k}<2^{-17}$ also gives $\delta_m<3\binom{32}{2}2^{-17}<1/64$. The retained bounds give a tighter result.
+
+This scalar is harmless because the inverse Fourier transform is an uncontrolled final operation. I do not apply this reasoning to a controlled Grover operation: controlling a scalar turns it into a relative phase on the control wire. Equation~\eqref{eq:iqft-total-error} therefore certifies only the inverse Fourier component and does not certify a controlled oracle implemented by an incorrect choice of global phase.
+
+The operator bound remains valid when the Fourier register is entangled with any reference system, since tensoring its difference with an identity preserves the norm. For unit vectors $u,v$, their pure-state trace distance satisfies
+\[
+ \sqrt{1-|\langle u,v\rangle|^2}
+ \leq\|u-v\|_2,
+\]
+since $1-|z|^2\leq2(1-|z|)\leq2(1-\operatorname{Re}z)$ when $|z|\leq1$. Convexity extends this inequality to mixed inputs. Trace-distance contraction under measurement then implies that every event probability changes by at most $\delta_m$. Thus an ideal success probability $p_0$ is at least $p_0-\delta_m$ after the certified inverse Fourier synthesis. An amplitude estimator must account for that loss in its confidence amplification. This is a confidence perturbation bound, not a claim that a pricing error can be charged as $H\delta_m$.
+
+\subsection{Resource accounting and scope of the independent checks}
+
+I count the actual retained primitive gates. Both $T$ and $T^{\dagger}$ contribute one to the T count. A serial execution yields a conservative T-depth upper bound equal to the T count; I do not assume cross-wire parallelisation. Every $S^{\dagger}$ is a Clifford gate in the stated alphabet, and can alternatively be expanded as three $S$ gates if that convention is required. The Fourier circuit needs no additional ancilla. Its phase register is part of the amplitude estimator and is counted there.
+
+The retained audit independently multiplies all 62 signed controlled-phase matrices from their literal tapes using fresh Acb gate entries. It compares the complete inverse Fourier matrix with every inverse DFT column for $m=1,\ldots,5$ and performs an additional complete literal primitive replay for $m\leq3$. These are coherent matrix checks, not checks restricted to measurement probabilities on a few initial states. All 32 supported widths have literal primitive-count and rational norm-budget checks. The general proof establishes the other widths; the small-register audits are not claimed to exhaust their exponentially large matrices. I count the resulting logical gates without converting them into physical hardware time or claiming synthesis optimality.

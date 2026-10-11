@@ -1,0 +1,45 @@
+{
+  "schema": "qbp-common-information-presentation-correction-v1",
+  "status": "passed",
+  "frozen_mathematical_proof_sha256": "993eb78401a7283cf445d39b9728583c6f4d1a964c2149f3dc9da7c222fe0bba",
+  "presentation_proof_sha256": "35d6fcaef72818d8854ea081991e1d7d502c9e4094a451cf6529a27d1178c9b3",
+  "scope": "Seven missing LaTeX spacing-command backslashes in four displays, corrected only in a presentation copy. All mathematics, claims, assumptions, formulae and source version remain identical. No post-outcome re-registration is asserted.",
+  "corrections": [
+    {
+      "line": 72,
+      "before": " 0\\leq P_{\\lambda,\\mu}'\\leq c_0,quad",
+      "after": " 0\\leq P_{\\lambda,\\mu}'\\leq c_0,\\quad"
+    },
+    {
+      "line": 140,
+      "before": " |\\widehat m-m|\\leq E_m=e_m+e_C+e_O,quad",
+      "after": " |\\widehat m-m|\\leq E_m=e_m+e_C+e_O,\\quad"
+    },
+    {
+      "line": 193,
+      "before": " \\widehat M_A=\\widehat M_G+\\widehat C_{AG}+\\widehat\\Delta,qquad",
+      "after": " \\widehat M_A=\\widehat M_G+\\widehat C_{AG}+\\widehat\\Delta,\\qquad"
+    },
+    {
+      "line": 194,
+      "before": " C_{AG}=B_A-B_G,qquad",
+      "after": " C_{AG}=B_A-B_G,\\qquad"
+    },
+    {
+      "line": 195,
+      "before": " \\widehat m=\\widehat M_G-B_G,qquad",
+      "after": " \\widehat m=\\widehat M_G-B_G,\\qquad"
+    },
+    {
+      "line": 232,
+      "before": " \\widehat\\ell=\\widehat M_G+\\widehat C,qquad",
+      "after": " \\widehat\\ell=\\widehat M_G+\\widehat C,\\qquad"
+    },
+    {
+      "line": 233,
+      "before": " \\widehat u=\\widehat\\ell+\\widehat\\Delta,qquad",
+      "after": " \\widehat u=\\widehat\\ell+\\widehat\\Delta,\\qquad"
+    }
+  ],
+  "diff": "--- common_information_stability_fragment.tex\n+++ common_information_stability_presentation_fragment.tex\n@@ -69,7 +69,7 @@\n                  \\phi((m-a)/\\lambda)\\,\\mu(da),\\nonumber\\\\\n  P_{\\lambda,\\mu}''(m)&=\\int\\lambda^{-2}\n                  \\phi'((m-a)/\\lambda)\\,\\mu(da),\\qquad\n- 0\\leq P_{\\lambda,\\mu}'\\leq c_0,quad\n+ 0\\leq P_{\\lambda,\\mu}'\\leq c_0,\\quad\n  |P_{\\lambda,\\mu}''|\\leq c_1.\n  \\label{eq:common-information-derivatives}\n \\end{align}\n@@ -137,7 +137,7 @@\n \\begin{equation}\n  \\widehat X_G=\\widehat m+\\lambda\\widetilde N+\\zeta(\\widetilde N),\\qquad\n  \\widehat X_A=\\widehat X_G+\\widehat\\Delta,\\qquad\n- |\\widehat m-m|\\leq E_m=e_m+e_C+e_O,quad\n+ |\\widehat m-m|\\leq E_m=e_m+e_C+e_O,\\quad\n  \\widehat\\Delta\\geq0.\n  \\label{eq:common-information-raw-endpoints}\n \\end{equation}\n@@ -190,9 +190,9 @@\n rounding nor a fixed-point floor. Write the scalar domains as\n $[-B_G,B_G]$ and $[-B_A,B_A]$. The encoded nodes satisfy\n \\begin{equation}\n- \\widehat M_A=\\widehat M_G+\\widehat C_{AG}+\\widehat\\Delta,qquad\n- C_{AG}=B_A-B_G,qquad\n- \\widehat m=\\widehat M_G-B_G,qquad\n+ \\widehat M_A=\\widehat M_G+\\widehat C_{AG}+\\widehat\\Delta,\\qquad\n+ C_{AG}=B_A-B_G,\\qquad\n+ \\widehat m=\\widehat M_G-B_G,\\qquad\n  \\widehat d=\\widehat\\Delta+(\\widehat C_{AG}-C_{AG}).\n  \\label{eq:common-information-numerical-endpoints}\n \\end{equation}\n@@ -229,8 +229,8 @@\n The exact graph computes a lower encoded endpoint, its upper endpoint\n and one shared threshold as\n \\begin{equation}\n- \\widehat\\ell=\\widehat M_G+\\widehat C,qquad\n- \\widehat u=\\widehat\\ell+\\widehat\\Delta,qquad\n+ \\widehat\\ell=\\widehat M_G+\\widehat C,\\qquad\n+ \\widehat u=\\widehat\\ell+\\widehat\\Delta,\\qquad\n  \\widehat z=\\widehat a(s)+\\widehat O\n                        -\\mathsf S_\\lambda(\\widetilde N+L).\n  \\label{eq:common-information-threshold-endpoints}\n"
+}

@@ -1,0 +1,120 @@
+% Insertion into the existing proof document, without preamble or bibliography.
+
+\section{Certified support and competent range-aware comparators}
+\label{sec:certified-support-comparator}
+
+\emph{Keywords}: clipped payoff; moment option bound; certified support; quantum mean estimation; financial bias budget.
+
+Suppose the finite numerical output obeys \(X=a2^{-q}\) with a proved integer maximum \(a\leq A_{\max}\leq2^q\). Its range bound is \(\rho=A_{\max}2^{-q}\). This is a deterministic property of the emitted finite circuit, not an observed maximum. I supply it to every competitor. In the dyadic partition, buckets with \(2^b>A_{\max}\) and the top atom when \(A_{\max}<2^q\) have probability zero and require no circuit. The last supported bucket has largest integer
+\(\min(2^{b+1}-1,A_{\max})\). Its pointwise scaled maximum replaces the generic bucket maximum, and the sharp finite moment bound uses precisely that endpoint. The whole-value prior also uses \(\rho\), with the optional sharp finite-grid bound applied equally to the single-flag opponents.
+
+A range-aware single flag can choose a dyadic \(R=2^{c-q}\geq\rho\). With \(J\) uniform on \(\{0,\ldots,2^c-1\}\), the flag \(\mathbf1_{\{J<a\}}\) has probability \(p_R=\mathbb EX/R\). Its monetary scale is \(R\), not one, so an error \(e\) in \(p_R\) gives finite-mean error \(Re\). All comparison, value computation and reflection costs use the actual \(c\)-bit preparation and its logical adjoint. If \(c=0\), the comparison register has one possible value, and the same counting identity applies. The existing finite support certificate must be checked before this compression is used.
+
+A stronger comparator permits clipping at a dyadic \(r=2^{c-q}<\rho\). Define
+\[
+ p_r={\mathbb E\min(X,r)\over r},\qquad
+ T_r=\mathbb E(X-r)_+,
+ \qquad \mu=rp_r+T_r.
+ \tag{C1}\label{eq:clip-identity}
+\]
+The exact finite flag succeeds for \(J<\min(a,2^c)\). Thus it has probability \(p_r\). Saturation at \(2^c\) gives probability one, so the cap endpoint is included correctly. The clipping operation and its clean uncomputation are charged in the compiled oracle. There is no free value computation shared across independent Grover invocations.
+
+\section{A sharp continuous-support clipped-tail moment bound}
+\label{sec:sharp-clipping-moment}
+
+The bound in this section is a classical moment-option bound. \citet{bertsimaspopescu2002}, Sections 2.1--2.2 and Theorem 3, already gives the mean-second-moment call-bound branch \(m-rm^2/s\) under fixed moments. \citet{bertsimaspopescu2005}, Section 2, develops upper moment bounds using nonnegative dual coefficients. I derive the complete specialisation below for this project's clipping-bias certificate, and do not claim to have originated the generic moment optimisation or quadratic-majorant method. The source versions actually consulted are the final author-hosted typeset papers, with the precise scope retained in the source audit.
+
+Let \(0\leq X\leq\rho\), \(\mathbb EX\leq u\) and \(\mathbb EX^2\leq v\). Replace the possibly loose supplied moments by
+\[
+ \bar u=\min(u,\rho),\qquad
+ \bar v=\min(v,\rho\bar u,\rho^2).
+ \tag{C2}\label{eq:clip-effective-moments}
+\]
+Indeed \(X^2\leq\rho X\) pointwise, so the effective second-moment bound remains valid. If \(r\geq\rho\), or \(\bar u=0\), or \(\bar v=0\), then \(T_r=0\). For the last two cases, nonnegativity gives \(X=0\) almost surely. For \(r=0\), the sharp upper bound is \(\min(\bar u,\sqrt{\bar v})\), attained by a constant at that value. I henceforth assume \(0<r<\rho\) and \(\bar u,\bar v>0\).
+
+The exact largest possible clipped tail over this continuous support class is
+\[
+ D(\rho,\bar u,\bar v,r)=
+ \begin{cases}
+ (\rho-r)\bar v/\rho^2,&\rho<2r,\\
+ \bar v/(4r),&\rho\geq2r,\ \bar v\leq4r^2,
+                    \ \bar u\geq\bar v/(2r),\\
+ \sqrt{\bar v}-r,&\rho\geq2r,\ \bar v>4r^2,
+                    \ \bar u^2\geq\bar v,\\
+ \bar u-r\bar u^2/\bar v,&\text{otherwise}.
+ \end{cases}
+ \tag{C3}\label{eq:sharp-clipped-tail}
+\]
+I prove both the upper bound and attainability in every case. Let \(g(x)=(x-r)_+\).
+
+When \(r<\rho<2r\), the ratio \(g(x)/x^2\) vanishes for \(0<x\leq r\), the desired inequality holds directly at zero, and the ratio has derivative \((2r-x)/x^3>0\) for \(r<x\leq\rho\). Consequently
+\[
+ g(x)\leq{\rho-r\over\rho^2}x^2
+ \qquad(0\leq x\leq\rho).
+\]
+Taking expectations proves the first case. Put mass \(\bar v/\rho^2\) at \(\rho\) and the rest at zero. This is a probability law because \(\bar v\leq\rho^2\). Its mean \(\bar v/\rho\) is at most \(\bar u\), its second moment is \(\bar v\), and its clipped-tail expectation equals the upper bound. It is therefore sharp.
+
+For \(\rho\geq2r\) and \(\bar v\leq4r^2\), the quadratic majorant
+\[
+ g(x)\leq{x^2\over4r}
+ \qquad(x\geq0)
+\]
+holds because the difference for \(x\geq r\) is \((x-2r)^2/(4r)\), and for \(x\leq r\) the right-hand side is nonnegative. It gives \(T_r\leq\bar v/(4r)\). The law with mass \(\bar v/(4r^2)\) at \(2r\) and the rest at zero attains it. The mass is at most one and the support point is at most \(\rho\). Its mean is \(\bar v/(2r)\), which is at most \(\bar u\) under the stated branch condition. This proves the second case.
+
+For \(\bar v>4r^2\), put \(h=\sqrt{\bar v}>2r\). The polynomial
+\[
+ Q_h(x)={x^2\over2h}+{h\over2}-r
+\]
+majorises \(g(x)\) for every \(x\geq0\). For \(x\geq r\), its difference from \(x-r\) is \((x-h)^2/(2h)\). For \(x\leq r\), it is nonnegative because \(h/2-r\geq0\). Hence
+\[
+ T_r\leq{\bar v\over2h}+{h\over2}-r=h-r.
+\]
+The constant law \(X=h\) is feasible because \(h\leq\rho\), and its mean is at most \(\bar u\) precisely when \(\bar u^2\geq\bar v\). It attains the third case.
+
+In the remaining case let \(h=\bar v/\bar u\). I first check the properties needed for the final majorant. If \(\bar v\leq4r^2\), the second branch has failed, so \(\bar u<\bar v/(2r)\), giving \(h>2r\) and
+\(\bar u^2<\bar v^2/(4r^2)\leq\bar v\). If \(\bar v>4r^2\), the third branch has failed, so \(\bar u^2<\bar v\); then \(h>\sqrt{\bar v}>2r\). Both cases give \(h\geq2r\), \(\bar u^2/\bar v\leq1\), and \(h\leq\rho\) by \(\bar v\leq\rho\bar u\).
+
+Now define
+\[
+ Q(x)=\left(1-{2r\over h}\right)x+{r\over h^2}x^2.
+\]
+Both coefficients are nonnegative. For \(x\geq r\),
+\[
+ Q(x)-(x-r)=r\left({x\over h}-1\right)^2\geq0;
+\]
+for \(x\leq r\), \(Q(x)\geq0=g(x)\). The nonnegative coefficients permit use of the upper, rather than fixed, moment constraints:
+\[
+ T_r\leq\left(1-{2r\over h}\right)\bar u
+                   +{r\over h^2}\bar v
+       =\bar u-r\bar u^2/\bar v.
+\]
+The law with mass \(\bar u^2/\bar v\) at \(h\) and the remainder at zero is feasible by the properties just proved. Its first and second moments equal \(\bar u\) and \(\bar v\), respectively, and its clipped-tail expectation equals the final formula. This proves sharpness and completes the exhaustive cases. At a shared branch boundary the corresponding formulas agree; no strict-boundary gap is left between them.
+
+The support class in this theorem is continuous. For a prescribed finite numerical grid, the bound remains valid but an attaining point \(h\), \(2r\) or \(\rho\) must actually be an allowed value before lattice attainability can be asserted. A rational square-root enclosure \([h_-,h_+]\) is obtained with exact integer arithmetic and width at most \(2^{-100}\); perfect rational squares are recognised exactly. In the third case I charge \(h_+-r\). The pointwise majorant with \(h_+\) gives
+\(T_r\leq\bar v/(2h_+)+h_+/2-r\leq h_+-r\), so the upward numerical charge itself is proved valid. The code retains the dual polynomial and a feasible attaining law, or the symbolic constant-root law, for independent checks.
+
+\section{Clipping-error allocation and equal comparison scope}
+\label{sec:clipping-financial-error}
+
+Write \(\overline D\) for the certified upper bound from \eqref{eq:sharp-clipped-tail}. I represent the clipped tail by \([0,\overline D]\), with midpoint \(\overline D/2\). If \(t>\overline D/2\), I set the scalar probability tolerance
+\[
+ e_r={t-\overline D/2\over r}.
+ \tag{C4}\label{eq:clipping-probability-tolerance}
+\]
+A scalar interval for \(p_r\) of width at most \(2e_r\) combines with the deterministic tail interval through \eqref{eq:clip-identity} to give a mean interval of width at most
+\(2re_r+\overline D=2t\). Its midpoint has error at most \(t\) on the scalar coverage event. The tail does not introduce a probabilistic failure allowance. If \(\overline D/2\geq t\), that clipping choice is not used as an active scalar comparator without a separate sharper bound or whole-prior zero-shot argument. The scalar implementation's supported tolerance range is checked explicitly.
+
+The same analytic correction and previously proved deterministic financial bias transfer the finite-mean tolerance to the continuous-model price. With \(t=0.005/H\) and deterministic currency bias at most \(0.005\), the undiscounted absolute price error is at most \(0.01\) on the scalar confidence event. Discounting multiplies this bound by the positive discount factor; negative-rate settings require the corresponding undiscounted adjustment.
+
+For reference, elementary alternatives satisfy
+\[
+ T_r\leq\rho-r,\qquad
+ T_r\leq u\left(1-{r\over\rho}\right),\qquad
+ T_r\leq v\begin{cases}
+ (\rho-r)/\rho^2,&r<\rho\leq2r,\\
+ 1/(4r),&\rho>2r.
+ \end{cases}
+\]
+The first is the pointwise range maximum. The second follows from the line joining \((0,0)\) and \((\rho,\rho-r)\), which majorises the convex call payoff on the interval. The third follows from the maximised ratio \(g(x)/x^2\) derived above. These bounds can be valid yet looser than the sharp upper-moment specialisation, so they are retained as earlier comparator levels rather than the final strongest clipping opponent.
+
+I supply the same numerical support, first- and second-moment certificates to dyadic, range-normalised, clipped and original single-flag estimators. I charge their own complete compiled A/Q circuits, including comparison width, clipping predicates, finite-value computation, zero-state reflections, measurement instruments and resets. A numerical second moment is not assigned to a Bernoulli flag variance. A favourable comparison against an uncompressed single flag alone is insufficient when a competent range-aware or clipped flag is cheaper. The finite reports must retain those cases, even if they remove an earlier apparent dyadic gain.

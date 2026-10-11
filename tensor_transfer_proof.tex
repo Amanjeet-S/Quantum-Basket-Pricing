@@ -1,0 +1,297 @@
+% Supporting proof fragment. This is deliberately not a standalone document.
+\section{A positive-measure tensor transfer certificate}
+\label{supp:positive-tensor-transfer}
+
+I fix positive weights $w_i$ with $\sum_iw_i=1$, drift differences
+$d_i$ and centred loadings $s_i\in\mathbb R^p$ satisfying
+$\sum_iw_id_i=0$ and $\sum_iw_is_i=0$. I use the classically specified
+risk-neutral model, and put
+\[
+ T(y)=\sum_iw_i e^{d_i+s_i\cdot y},\qquad U(y)=T(y)-1,
+ \qquad m(y)=m_G+r\cdot y.
+\]
+Jensen's inequality gives $T\geq1$ and $U\geq0$ pointwise. For the
+conditional payoff kernel $P$, define $C_2=P''-P'$ and
+$C_{k+1}=C_k'-kC_k$ for $k\geq2$. I require finite certified bounds
+\[
+ M_k\geq\|C_k\|_\infty\ (k=2,3,4),\quad
+ D_1\geq\|C_2'\|_\infty,\quad D_2\geq\|C_2''\|_\infty,
+ \quad D_{31}\geq\|C_3'\|_\infty.
+\]
+These bounds exist for vanilla and capped lognormal call kernels, even
+though the vanilla payoff itself is unbounded. They are payoff-specific
+Gaussian boundary bounds, shared with all admitted pricing methods.
+
+\subsection{One-coordinate transport as a positive measure}
+
+Let $\nu(dy)=\phi(y)\mathbf1_{[-L,L]}(y)\,dy$ be the unnormalised
+continuous retained Gaussian measure and let its mass be
+$a=\Phi(L)-\Phi(-L)$. Divide its CDF range into $N$ equal-mass cells
+$[a_c,b_c]$. Let $c_c$ be the actual dyadic rounded midpoint-quantile
+node, with a certificate that $a_c\leq c_c\leq b_c$. Define the
+unnormalised rounded measure
+\[
+ \tau=\frac aN\sum_c\delta_{c_c},\quad
+ \mu_{1,c}=\int_{a_c}^{b_c}(y-c_c)\phi(y)\,dy,\quad
+ \mu_{2,c}=\int_{a_c}^{b_c}(y-c_c)^2\phi(y)\,dy.
+\]
+Both $\nu$ and $\tau$ have exactly mass $a$. In particular $\tau$ is
+not the normalised probability distribution over the quantum labels.
+
+For $f\in C^2([-L,L])$, the fundamental theorem of calculus gives
+\[
+ f(y)-f(c)=f'(c)(y-c)+\int_c^y(y-z)f''(z)\,dz.
+\]
+For $y<c$, reversing the integral gives
+$\int_y^c(z-y)f''(z)\,dz$, with a nonnegative coefficient. Fubini's
+theorem is applicable because the integrands are continuous on a compact
+cell. It gives
+\[
+ \int f\,d(\nu-\tau)
+ =\sum_c\mu_{1,c}f'(c_c)+\int f''(z)\,\rho_2(dz),
+\]
+where $\rho_2$ is the finite positive measure with cellwise density
+\[
+ w_{a_c}(z)=\int_{a_c}^{z}(z-y)\phi(y)\,dy
+ \quad(a_c\leq z\leq c_c),\qquad
+ w_{b_c}(z)=\int_z^{b_c}(y-z)\phi(y)\,dy
+ \quad(c_c\leq z\leq b_c).
+\]
+The expressions are
+$w_e(z)=\phi(z)+z\Phi(z)-\phi(e)-z\Phi(e)$ on their respective
+segments. They are nonnegative directly from their integral definitions.
+Applying the identity to $f(y)=y^2/2$ proves
+\[
+ \rho_2([-L,L])=\frac12\sum_c\mu_{2,c}.
+\]
+Choose rational $\widehat\mu_{1,c}\geq|\mu_{1,c}|$ from outward
+interval arithmetic and put
+$\rho_1=\sum_c\widehat\mu_{1,c}\delta_{c_c}$. Then
+\[
+ \left|\int f\,d(\nu-\tau)\right|
+ \leq\int|f'|\,d\rho_1+\int|f''|\,d\rho_2.
+\]
+The linear allowance intentionally discards cancellation. It never
+attributes a favourable sign to an uncertain tiny first-moment interval.
+
+For a finite measure $\eta$, write
+$\mathcal M_\eta(v)=\int e^{vy}\,\eta(dy)$. Applying the exact transport
+identity to $f(y)=e^{vy}$ gives, for $v\ne0$,
+\begin{equation}
+ \mathcal M_{\rho_2}(v)=
+ \frac{\mathcal M_\nu(v)-\mathcal M_\tau(v)
+       -v\sum_c\mu_{1,c}e^{vc_c}}{v^2}.
+ \label{supp:eq:positive-transport-mgf}
+\end{equation}
+The sign follows from continuous minus rounded transport. Explicitly,
+\[
+ \mathcal M_\nu(v)=e^{v^2/2}\{\Phi(L-v)-\Phi(-L-v)\},\quad
+ \mathcal M_\tau(v)=\frac aN\sum_c e^{vc_c},\quad
+ \mathcal M_{\rho_1}(v)=\sum_c\widehat\mu_{1,c}e^{vc_c}.
+\]
+At $v=0$ I use $\mathcal M_{\rho_2}(0)=\sum_c\mu_{2,c}/2$
+directly. An almost-zero exact rational loading can cause cancellation
+in the quotient even when $v\ne0$. Positivity and support instead give
+\[
+ e^{-|v|L}\mathcal M_{\rho_2}(0)
+ \leq\mathcal M_{\rho_2}(v)
+ \leq e^{|v|L}\mathcal M_{\rho_2}(0).
+\]
+This fallback is rigorous, rather than a numerical substitution of zero.
+
+\subsection{Tensor telescoping and derivative envelopes}
+
+Product measures satisfy the exact algebraic identity
+\[
+ \nu^{\otimes p}-\tau^{\otimes p}
+ =\sum_{j=1}^p\nu^{\otimes(j-1)}\otimes(\nu-\tau)
+             \otimes\tau^{\otimes(p-j)}.
+\]
+For $k\in\{1,2\}$, define the finite positive hybrid measure
+\[
+ \Lambda_{j,k}=\nu^{\otimes(j-1)}\otimes\rho_k
+                         \otimes\tau^{\otimes(p-j)},\qquad
+ \langle h\rangle_{j,k}=\int h\,d\Lambda_{j,k}.
+\]
+Applying one-coordinate transport conditionally and using the triangle
+inequality yields, for a twice continuously differentiable residual $R$,
+\begin{equation}
+ \left|\int R\,d\nu^{\otimes p}-\int R\,d\tau^{\otimes p}\right|
+ \leq\sum_j\left\{\langle|\partial_jR|\rangle_{j,1}
+                    +\langle|\partial_{jj}R|\rangle_{j,2}\right\}.
+ \label{supp:eq:tensor-positive-transport}
+\end{equation}
+Compact support justifies every conditional integral and change of order.
+No omitted factor of $a^{p-1}$ is permitted: it is already present in the
+other-coordinate hybrid measures.
+
+The second correction has the exact ordinary integral representation
+\[
+ R_2(y)=U(y)^2\int_0^1(1-z)t^{-2}
+                 C_2(m(y)+\log t)\,dz,\qquad t=1+zU(y).
+\]
+For a fixed coordinate put $u=T_j$ and $v=T_{jj}\geq0$. For
+$G=t^{-2}C_2(m+\log t)$, direct differentiation gives
+\begin{align*}
+ G_j&=r_jt^{-2}C_2'+zu t^{-3}C_3,\\
+ G_{jj}&=r_j^2t^{-2}C_2''+2r_jzu t^{-3}C_3'
+                       +zv t^{-3}C_3+z^2u^2t^{-4}C_4.
+\end{align*}
+The $C_3$ and $C_4$ terms use
+$\partial_t(t^{-2}C_2(m+\log t))=t^{-3}C_3$ and
+$\partial_t(t^{-3}C_3(m+\log t))=t^{-4}C_4$.
+The product rule gives
+\[
+ \partial_j(U^2G)=2UuG+U^2G_j,
+\quad
+ \partial_{jj}(U^2G)=2(u^2+Uv)G+4UuG_j+U^2G_{jj}.
+\]
+Differentiation under the compact $z$ integral is valid. Since $t\geq1$,
+the elementary integrals
+$\int_0^1(1-z)dz=1/2$, $\int_0^1z(1-z)dz=1/6$ and
+$\int_0^1z^2(1-z)dz=1/12$ prove the pointwise bounds
+\begin{align*}
+ |\partial_jR_2|
+ &\leq M_2U|u|+\frac{|r_j|D_1}{2}U^2
+                  +\frac{M_3}{6}U^2|u|,\\
+ |\partial_{jj}R_2|
+ &\leq M_2(u^2+Uv)+2|r_j|D_1U|u|
+       +\frac{2M_3}{3}Uu^2+\frac{r_j^2D_2}{2}U^2\\
+ &\hspace{5mm}+\frac{|r_j|D_{31}}{3}U^2|u|
+       +\frac{M_3}{6}U^2v+\frac{M_4}{12}U^2u^2.
+\end{align*}
+In particular these allowances retain powers of the arithmetic to
+geometric dispersion $U$; they do not replace it by its maximum on a
+large Cartesian box.
+
+Cauchy's inequality under any finite positive measure gives
+\[
+ \langle U|u|\rangle\leq
+       \sqrt{\langle U^2\rangle\langle u^2\rangle},\qquad
+ \langle U^2|u|\rangle\leq
+ \min\!\left\{
+   \sqrt{\langle U^2\rangle\langle U^2u^2\rangle},
+   \sqrt{\langle U^4\rangle\langle u^2\rangle}
+ \right\}.
+\]
+Neither inequality requires division by the total mass. I apply each to
+the actual $\Lambda_{j,k}$ separately. Thus the transport allowance is
+obtained from nonnegative polynomial moments
+$U^2,u^2,Uv,Uu^2,U^2v,U^2u^2,U^4$, of degree at most four in the
+asset exponentials.
+
+\subsection{Exact factorisation, tails and computational scope}
+
+Set $X_i=e^{d_i+s_i\cdot y}$. Any required polynomial is a finite sum
+$h(y)=\sum_\alpha b_\alpha\prod_iX_i^{\alpha_i}$ with
+$|\alpha|\leq4$. The coefficients $b_\alpha$ may have either sign.
+Independence yields exactly
+\[
+ \langle h\rangle_{j,k}
+ =\sum_\alpha b_\alpha e^{\sum_i\alpha_id_i}
+      \mathcal M_{\rho_k}\!\left(\sum_i\alpha_i s_{ij}\right)
+      \prod_{\ell<j}\mathcal M_\nu\!\left(\sum_i\alpha_i s_{i\ell}\right)
+      \prod_{\ell>j}\mathcal M_\tau\!\left(\sum_i\alpha_i s_{i\ell}\right).
+\]
+I retain signed cross terms in $u^2$ and centred terms in $U^2$ rather
+than applying absolute values to their polynomial coefficients.
+Outward interval arithmetic encloses each sum. The established pointwise
+nonnegativity permits intersecting its enclosure with $[0,\infty)$,
+but does not permit replacing a negative upper endpoint by zero.
+
+All signed or positive finite MGFs are evaluated by a finite exponential
+series with an explicit total-variation remainder. At order $J$, with
+$|c_c|\leq B$ and weights $b_c$, the remainder is bounded by
+\[
+ \left(\sum_c|b_c|\right)
+          e^{|v|B}\frac{(|v|B)^{J+1}}{(J+1)!}.
+\]
+This follows termwise from Taylor's theorem for $e^x$ and the triangle
+inequality. It includes signed centred first-moment weights and their
+interval uncertainty. Near-zero-rate quotient fallbacks remain separate
+from this series allowance.
+
+For a standard independent Gaussian vector, Gaussian tilting gives
+\[
+ \mathbb E[e^{b+s\cdot Y}\mathbf1_{Y\notin[-L,L]^p}]
+ =e^{b+\|s\|^2/2}
+   \left[1-\prod_{j=1}^p\{\Phi(L-s_j)-\Phi(-L-s_j)\}\right].
+\]
+Expanding $U^2$ into degree-two exponential monomials therefore gives
+an exact finite expression for $\mathbb E[U^2\mathbf1_{Y\notin[-L,L]^p}]$.
+Since $|R_2|\leq M_2U^2/2$, its tail allowance is the product of that
+moment and $M_2/2$. Combining it with
+\eqref{supp:eq:tensor-positive-transport} bounds
+\[
+ \left|\mathbb ER_2(Y)-a^p\frac1{N^p}
+                   \sum_{c_1,\ldots,c_p}R_2(c_1,\ldots,c_p)\right|.
+\]
+The price is absent from construction. The sum in this statement defines
+the financial grid target; the proof evaluates its transfer allowance
+without enumerating its $N^p$ points.
+
+There are at most $\binom{n+4}{4}$ monomials of total degree at most four.
+For fixed derivative order, cached scalar MGFs and polynomial sums replace
+Cartesian enumeration by a number of monomial terms polynomial in the
+asset count. This is a bound-construction statement. It gives neither a
+dimension-free error constant nor a quantum pricing speed-up, and it
+does not remove the cost of preparing or applying the quantum circuit.
+
+\subsection{A matched first-correction certificate}
+
+The first correction obeys $R_1=R_2+UP'(m)$. Differentiating the extra
+term gives exactly
+\[
+ \partial_j(UP')=uP'+r_jUP'',\qquad
+ \partial_{jj}(UP')=vP'+2r_juP''+r_j^2UP'''.
+\]
+For the cap I use certified global bounds $M_1\geq\|P'\|_\infty$,
+$B_2\geq\|P''\|_\infty$ and $B_3\geq\|P'''\|_\infty$. Valid
+fallbacks are $B_2=M_1+M_2$ and $B_3=M_1+3M_2+M_3$, because
+$P''=P'+C_2$ and $P'''=P'+3C_2+C_3$. The additional allowances are
+\[
+ M_1\langle|u|\rangle_{j,1}+|r_j|B_2\langle U\rangle_{j,1},
+\]
+\[
+ M_1\langle v\rangle_{j,2}+2|r_j|B_2\langle|u|\rangle_{j,2}
+                   +r_j^2B_3\langle U\rangle_{j,2},
+\]
+where $\langle|u|\rangle\leq
+\sqrt{\langle1\rangle\langle u^2\rangle}$.
+
+For the vanilla call, put $G(y)=K e^{m(y)+\lambda^2/2}$. Its delta
+satisfies $0\leq P'\leq G$, and the same identities give
+$|P''|\leq G+M_2$ and $|P'''|\leq G+3M_2+M_3$. Thus the extra
+first and second derivative bounds are respectively
+\[
+ G|u|+|r_j|GU+|r_j|M_2U,
+\]
+\[
+ Gv+2|r_j|G|u|+2|r_j|M_2|u|
+             +r_j^2GU+r_j^2(3M_2+M_3)U.
+\]
+The positive tilted measure $e^{m_G+\lambda^2/2+r\cdot y}
+\Lambda_{j,k}(dy)$ allows the same factorised moments and Cauchy bounds.
+Its MGFs use the exact shifted rates $r_\ell+\sum_i\alpha_is_{i\ell}$.
+
+Both payoffs satisfy $0\leq R_1\leq GU$. The first-residual tail is
+therefore bounded by the Gaussian tilted outside moment of $GU$;
+for the cap I take its minimum with $H\mathbb P(Y\notin[-L,L]^p)$.
+This tail replaces the second-residual tail. Adding both tails would
+be valid but unnecessarily weak. No direct comparison may discard the
+first-correction competitor solely because its transfer proof uses a
+different residual order.
+
+\subsection{Retained numerical scope}
+
+At the frozen $L=6$, $b_y=10$, $q=28$, all 24 four- and eight-asset
+capped and vanilla second-correction transfer bounds are below $0.005$.
+The largest is approximately $0.002283696$ for the four-asset cap
+with $\lambda=0.05$ and $H=25$. All 24 matched first-correction bounds
+also pass that allocation; the largest is approximately $0.004913704$
+for the same parameter case. The two-asset global-envelope construction
+retains three allocation failures. Its stronger previously certified
+local transport bounds remain available, so those failures are not
+relabelled as missing two-asset financial prices. These are deterministic
+financial transfer findings, distinct from complete algorithm budgets,
+practical advantage, empirical validation and literature priority.

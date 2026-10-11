@@ -1,0 +1,109 @@
+% Compact main-paper fragment. Detailed justification is in the supporting
+% tensor_transfer_proof.tex. No standalone document or separate PDF is created.
+\subsection{Product-law transfer without a Cartesian derivative maximum}
+\label{sec:positive-tensor-transfer}
+
+I complete the financial transfer for the four- and eight-asset models
+by integrating derivative envelopes against a positive transport measure.
+This retains dispersion moments instead of replacing $U$ by its largest
+value on $[-L,L]^p$. Let $\nu$ be the unnormalised truncated Gaussian
+measure, with mass $a$, and let $\tau=(a/N)\sum_c\delta_{c_c}$ use the
+actual rounded nodes in the same CDF cells. For their centred cell moments
+$\mu_{1,c},\mu_{2,c}$, Taylor's integral identity gives
+\[
+ \int f\,d(\nu-\tau)=\sum_c\mu_{1,c}f'(c_c)
+                         +\int f''\,d\rho_2,
+\]
+where $\rho_2$ has nonnegative densities
+$\int_{a_c}^{z}(z-y)\phi(y)dy$ to the left of $c_c$ and
+$\int_z^{b_c}(y-z)\phi(y)dy$ to its right. Its mass is
+$\sum_c\mu_{2,c}/2$. For
+$\rho_1=\sum_c\widehat\mu_{1,c}\delta_{c_c}$ with certified
+$\widehat\mu_{1,c}\geq|\mu_{1,c}|$, the absolute transfer is bounded
+by $\int|f'|d\rho_1+\int|f''|d\rho_2$.
+
+The exact moment-generating function of the second transport measure is
+\begin{equation}
+ \mathcal M_{\rho_2}(v)=\frac{
+ e^{v^2/2}\{\Phi(L-v)-\Phi(-L-v)\}
+ -(a/N)\sum_c e^{vc_c}-v\sum_c\mu_{1,c}e^{vc_c}}{v^2},
+ \qquad v\ne0.
+ \label{eq:positive-transport-mgf}
+\end{equation}
+This follows by substituting $f(y)=e^{vy}$ into the exact identity,
+with continuous minus rounded measures in that order. At zero I use its
+mass directly. Near zero, the enclosure
+$e^{-|v|L}\rho_2(\mathbb R)\leq\mathcal M_{\rho_2}(v)
+\leq e^{|v|L}\rho_2(\mathbb R)$ prevents cancellation in the quotient.
+
+Define
+$\Lambda_{j,k}=\nu^{\otimes(j-1)}\otimes\rho_k
+\otimes\tau^{\otimes(p-j)}$ and
+$\langle h\rangle_{j,k}=\int h\,d\Lambda_{j,k}$.
+The product-measure telescoping identity then proves
+\begin{equation}
+ \left|\int R_2d\nu^{\otimes p}-\int R_2d\tau^{\otimes p}\right|
+ \leq\sum_j\{\langle|\partial_jR_2|\rangle_{j,1}
+                   +\langle|\partial_{jj}R_2|\rangle_{j,2}\}.
+ \label{eq:positive-tensor-transfer}
+\end{equation}
+All raw masses remain inside the hybrid measures.
+
+For $u=T_j$, $v=T_{jj}\geq0$ and $r=r_j$, let
+$D_1\geq\|C_2'\|_\infty$, $D_2\geq\|C_2''\|_\infty$ and
+$D_{31}\geq\|C_3'\|_\infty$, in addition to the shared $M_k$ bounds.
+The integral representation of $R_2$ implies
+\begin{align*}
+ |\partial_jR_2|&\leq M_2U|u|+\tfrac12|r|D_1U^2
+                                  +\tfrac16M_3U^2|u|,\\
+ |\partial_{jj}R_2|&\leq M_2(u^2+Uv)+2|r|D_1U|u|
+ +\tfrac23M_3Uu^2+\tfrac12r^2D_2U^2\\
+ &\quad+\tfrac13|r|D_{31}U^2|u|
+                +\tfrac16M_3U^2v+\tfrac1{12}M_4U^2u^2.
+\end{align*}
+To verify the coefficients, differentiate
+$G=t^{-2}C_2(m+\log t)$ with $t=1+zU$:
+\[
+ G_j=rt^{-2}C_2'+zu t^{-3}C_3,
+\quad G_{jj}=r^2t^{-2}C_2''+2rzu t^{-3}C_3'
+                         +zv t^{-3}C_3+z^2u^2t^{-4}C_4.
+\]
+Apply the product rule to $U^2G$, use $t\geq1$, and integrate
+$1-z$, $z(1-z)$ and $z^2(1-z)$, whose integrals are $1/2$, $1/6$
+and $1/12$. Cauchy's inequality gives
+$\langle U|u|\rangle\leq\sqrt{\langle U^2\rangle\langle u^2\rangle}$
+and
+\[
+ \langle U^2|u|\rangle\leq
+ \min\{\sqrt{\langle U^2\rangle\langle U^2u^2\rangle},
+          \sqrt{\langle U^4\rangle\langle u^2\rangle}\}.
+\]
+These inequalities hold for finite positive measures without a mass
+divisor. Every remaining moment is a polynomial of degree at most four
+in the asset exponentials. Its signed multinomial sum factorises into
+scalar MGFs, using $\rho_k$ in coordinate $j$, $\nu$ before it and
+$\tau$ after it. Thus no $N^p$ residual values enter the certificate.
+The outside-box $U^2$ moment follows by Gaussian tilting and contributes
+$M_2\mathbb E[U^2\mathbf1_{Y\notin[-L,L]^p}]/2$.
+
+For a fair first-correction comparison, I also transfer
+$R_1=R_2+UP'(m)$. The extra derivatives are
+$uP'+rUP''$ and $vP'+2ruP''+r^2UP'''$. Capped kernels use the shared
+global Greek bounds; vanilla kernels use
+$P'\leq Ke^{m+\lambda^2/2}$, $|P''|\leq Ke^{m+\lambda^2/2}+M_2$
+and $|P'''|\leq Ke^{m+\lambda^2/2}+3M_2+M_3$.
+The corresponding tilted positive-measure moments also factorise.
+Its tail is bounded by the tilted outside moment of
+$Ke^{m+\lambda^2/2}U$, with the additional $H$ tail bound for a cap.
+I replace the second-residual tail by this first-residual tail.
+
+At unchanged $L=6$, $b_y=10$, $q=28$, all 24 four- and eight-asset
+second-correction transfer bounds pass $0.005$; their largest allowance
+is $0.002284$ rounded upwards. All 24 first-correction competitors
+also pass; their largest allowance is $0.004914$ rounded upwards.
+Each global-envelope family retains three two-asset allocation failures,
+for which the earlier sharper local certificate remains available.
+The transport argument applies to arbitrary finite positive basket
+weights and bounded boundary derivatives, beyond these frozen models.
+Its numerical scope and polynomial moment-construction cost do not
+establish a quantum advantage or a literature-priority claim.

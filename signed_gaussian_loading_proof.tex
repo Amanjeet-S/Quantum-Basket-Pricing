@@ -1,0 +1,719 @@
+% Retained supplementary source fragment. This is not a replacement paper.
+% It uses the parent manuscript's theorem environments and author-date references.
+\section{Supplementary proof for signed Gaussian loading and its competitors}
+\label{sec:signed-gaussian-loading-supplement}
+
+I retain the established classical probability model throughout this
+supplement. Quantum states encode computational proposals; they do not
+replace the financial risk-neutral measure. I give the continuous
+Gaussian identities first, then a finite-register identity which avoids
+assuming that a translated continuous Gaussian is an exact modular
+translation on a finite grid. I attribute the LCU, rejection and
+amplification mechanisms to their established sources
+\citep{rosenkranz2025,ozols2013,brassard}. The financial choice of the
+remainder proposal and the comparisons below are derivations for this
+project. I make no theoretical-priority or complete-cost claim.
+
+\subsection{Probability measures, centring and price notation}
+
+Let $p\geq1$, let $w_i>0$ with $\sum_{i=1}^n w_i=1$, and let
+$d_i\in\mathbb R$ and $v_i\in\mathbb R^p$ satisfy
+\begin{equation}
+ \sum_iw_i d_i=0,\qquad \sum_iw_i v_i=0.
+ \label{eq:sg-centering}
+\end{equation}
+Define
+\[
+ T(y)=\sum_iw_i e^{d_i+v_i\cdot y},\qquad U(y)=T(y)-1.
+\]
+Weighted Jensen gives $T(y)\geq1$ for every $y$. These are the centred
+log-price contrasts obtained by dividing a positive arithmetic basket
+by its weighted geometric basket. They are not a new asset-price model.
+The continuous base law is the standard Gaussian $\gamma_p$, with density
+\[
+ \varphi_p(y)=(2\pi)^{-p/2}e^{-\|y\|^2/2}.
+\]
+I also use a fixed finite base law $\mu$, with masses $p_y>0$ on a
+finite grid $\mathcal G$. Every finite identity below concerns that
+same law, rather than substituting a continuous normaliser.
+
+Fix an integer $s\geq1$ and put $r=2s$. For either base law $\rho$,
+write
+\[
+ M_-^\rho=\mathbb E_\rho U^r,\qquad
+ M_+^\rho=\mathbb E_\rho(T+1)^r.
+\]
+When I write $p_\rho$, it denotes $\varphi_p$ for $\gamma_p$ and
+the mass $p_y$ for $\mu$. The corresponding proposal measures are
+$q_-^\rho(dy)=U(y)^r\rho(dy)/M_-^\rho$ and
+$q_+^\rho(dy)=(T(y)+1)^r\rho(dy)/M_+^\rho$.
+Gaussian exponential moments imply finiteness of every integer
+moment of $T$ under $\gamma_p$. All moments are finite under $\mu$.
+If $M_-^\rho=0$, nonnegativity implies $U=0$ almost surely. Every
+Taylor remainder containing the factor $U^r$ is then zero almost surely,
+and no importance state is needed. I assume $M_-^\rho>0$ wherever
+I normalise such a state.
+
+Let $g_y(t)$ be the conditioned monetary payoff at ratio $t>0$.
+In the capped GBM setting it is
+$P_{\lambda,H}(m_G(y)+\log t)$, with $K,H,\lambda>0$.
+For $J_{r-1}(y)=\sum_{j=0}^{r-1}g_y^{(j)}(1)U(y)^j/j!$,
+define $R_r(y)=g_y(T(y))-J_{r-1}(y)$. I assume the checked derivative
+certificate supplies a strictly positive constant $D_r^+$ such that
+\[
+ |g_y^{(r)}(t)|\leq H D_r^+t^{-r},\qquad t>0.
+\]
+An exact rational outward upper bound on the joint norm is sufficient.
+Put $b_s=H D_r^+/r!$ and $B_s^\rho=b_sM_-^\rho$.
+Taylor's integral formula yields $|R_r(y)|\leq b_sU(y)^r$.
+The lower-order derivative certificates and finite moments likewise
+make each term of $J_{r-1}$ integrable.
+I write $V_\rho=\mathbb E_\rho g_Y(T(Y))$ for the undiscounted
+expectation and $\Pi_\rho=e^{-r_f\tau}V_\rho$ for its discounted quantity,
+where $r_f$ is the risk-free rate and $\tau$ the financial maturity.
+The continuous quantity $\Pi_{\gamma_p}$ is the classical model price.
+The finite expectation $V_\mu$ and its discounted counterpart are
+numerical targets. Transfer from $V_{\gamma_p}$ requires the separate
+tail and grid certificate; a finite-grid change of the Gaussian law is
+not automatically a new risk-neutral market model.
+
+\subsection{Continuous Gaussian tilts and their nonorthogonal norm}
+
+For a multi-index $\alpha\in\mathbb N_0^n$, write
+$j=|\alpha|$, $\alpha!=\prod_i\alpha_i!$, $w^\alpha=\prod_iw_i^{\alpha_i}$,
+$d_\alpha=\sum_i\alpha_i d_i$ and
+$v_\alpha=\sum_i\alpha_i v_i$. On
+$\mathcal I_s=\{\alpha:|\alpha|\leq s\}$, define
+\[
+ c_\alpha=(-1)^{s-j}\binom sj\frac{j!}{\alpha!}w^\alpha,
+ \qquad
+ \beta_\alpha=c_\alpha e^{d_\alpha+\|v_\alpha\|^2}.
+\]
+The zero multi-index is included, with $d_0=0$, $v_0=0$ and
+$w^0=1$. For a real vector $a$, set
+\[
+ \psi_a(y)=(2\pi)^{-p/4}e^{-\|y-a\|^2/4}.
+\]
+It is a unit vector in $L^2(\mathbb R^p)$ and its squared modulus is
+the density of $N(a,I_p)$.
+
+\begin{proposition}[Continuous amplitude identity]
+\label{prop:sg-continuous}
+For the centred contrasts above,
+\begin{equation}
+ U(y)^s\psi_0(y)=\sum_{\alpha\in\mathcal I_s}
+                         \beta_\alpha\psi_{2v_\alpha}(y).
+ \label{eq:sg-continuous-amplitude}
+\end{equation}
+The target normalised wavefunction has squared modulus
+$q_-(y)=U(y)^r\varphi_p(y)/M_-^{\gamma_p}$.
+If $L_s^\gamma=\sum_{\alpha\in\mathcal I_s}|\beta_\alpha|$, then
+$0<M_-^{\gamma_p}\leq(L_s^\gamma)^2$. There are
+$\binom{n+s}{s}$ labelled components before exact merging.
+\end{proposition}
+\begin{proof}
+The binomial and multinomial identities give
+$U^s=\sum_{\alpha\in\mathcal I_s}c_\alpha
+e^{d_\alpha+v_\alpha\cdot y}$.
+Completing the square gives
+\[
+ e^{v\cdot y}\psi_0(y)
+   =e^{\|v\|^2}\psi_{2v}(y),
+\]
+which proves equation~\eqref{eq:sg-continuous-amplitude}. Its squared
+$L^2$ norm is $\mathbb E_{\gamma_p}U^r=M_-^{\gamma_p}$.
+The triangle inequality and unit component norms give the upper bound.
+The number of degree-$j$ multi-indices is $\binom{n+j-1}{j}$.
+Summing over $0\leq j\leq s$ gives $\binom{n+s}{s}$, by the
+identity $\binom{a}{j}+\binom{a}{j+1}=\binom{a+1}{j+1}$
+applied successively.
+\end{proof}
+
+The translated components are generally not orthogonal. A second
+completion of the square gives
+\[
+ \langle\psi_a,\psi_b\rangle
+ =e^{-\|a-b\|^2/8}.
+\]
+Consequently the exact norm also has the Gram representation
+\begin{equation}
+ M_-^{\gamma_p}
+  =\sum_{\alpha,\zeta\in\mathcal I_s}
+       \beta_\alpha\beta_\zeta
+       e^{-\|v_\alpha-v_\zeta\|^2/2}.
+ \label{eq:sg-gaussian-gram}
+\end{equation}
+Indeed the product of the two Gaussian wavefunctions equals
+$e^{-\|a-b\|^2/8}\varphi_p(y-(a+b)/2)$ and integrates to the stated
+overlap. Substituting the coefficients into a Gram term gives
+$c_\alpha c_\zeta
+e^{d_\alpha+d_\zeta+\|v_\alpha+v_\zeta\|^2/2}$, precisely the
+Gaussian exponential moment of that term in the product of the two
+binomial expansions. This independently confirms the normaliser.
+Discarding the cross terms or replacing the norm by
+$\sum_\alpha|\beta_\alpha|^2$ is incorrect.
+
+These are Hilbert-space identities. Translation
+$f(y)\mapsto f(y-a)$ is unitary on $L^2$, but that fact does not give
+a finite-qubit Gaussian loader, its controlled version or its cost.
+
+\subsection{An exact finite-grid identity and an LCU interface}
+
+For a finite law $\mu$, define the positive exponential sum
+\[
+ Z_\mu(v)=\sum_{y\in\mathcal G}p_y e^{v\cdot y}
+\]
+and the normalised vector
+\[
+ |\varphi_v^\mu\rangle
+   =\sum_{y\in\mathcal G}
+       \frac{\sqrt{p_y}e^{v\cdot y}}{\sqrt{Z_\mu(2v)}}|y\rangle.
+\]
+If $\mu$ is a product law on a product grid, then
+$Z_\mu(v)=\prod_{a=1}^p\sum_{y_a}p_a(y_a)e^{v_a y_a}$.
+This factorisation follows by distributing the finite sums; it does
+not invoke continuous Gaussian integration.
+Set
+$\beta_\alpha^\mu=c_\alpha e^{d_\alpha}\sqrt{Z_\mu(2v_\alpha)}$
+and $L_s^\mu=\sum_\alpha|\beta_\alpha^\mu|$. Exact substitution gives
+\begin{equation}
+ \sum_\alpha\beta_\alpha^\mu|\varphi_{v_\alpha}^\mu\rangle
+    =\sum_y\sqrt{p_y}U(y)^s|y\rangle.
+ \label{eq:sg-finite-amplitude}
+\end{equation}
+The normalisers have finite closed-sum expressions
+\[
+ M_\pm^\mu=
+ \sum_{j=0}^{r}(\pm1)^{r-j}\binom rj
+ \sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+               e^{d_\alpha}Z_\mu(v_\alpha),
+\]
+where the upper sign denotes $M_+$ and the lower sign denotes $M_-$.
+For the continuous law the corresponding exponential sum is
+$Z_{\gamma_p}(v)=e^{\|v\|^2/2}$. These expressions can be evaluated
+with outward arithmetic. The alternating $M_-$ expression can require
+high precision; a strictly positive lower enclosure is necessary before
+division or amplification.
+
+\begin{proposition}[Finite LCU success]
+\label{prop:sg-finite-lcu}
+Suppose a stated unitary $P_\alpha$ prepares
+$|\varphi_{v_\alpha}^\mu\rangle$ from zero, with private work returned
+to zero and with the specified component phase. Let $P_\chi$ prepare
+\[
+ |\chi\rangle=\sum_{\alpha\in\mathcal I_s}
+           \sqrt{|\beta_\alpha^\mu|/L_s^\mu}\,|\alpha\rangle.
+\]
+Padding labels have zero weight and a stated unitary extension.
+Define
+\[
+ {\rm SELECT}=\sum_\alpha|\alpha\rangle\langle\alpha|
+       \otimes {\rm sign}(\beta_\alpha^\mu)P_\alpha,\qquad
+ \mathcal B=(P_\chi^\dagger\otimes I)
+               {\rm SELECT}(P_\chi\otimes I).
+\]
+Projection onto the zero selector yields
+$\sum_y\sqrt{p_y}U(y)^s|y\rangle/L_s^\mu$.
+Its success probability is
+\begin{equation}
+ \eta_{\rm LCU}=M_-^\mu/(L_s^\mu)^2.
+ \label{eq:sg-finite-success}
+\end{equation}
+Conditional on success, measuring the financial label yields
+$q_-(y)=p_yU(y)^r/M_-^\mu$.
+\end{proposition}
+\begin{proof}
+The selector preparation and its adjoint each contribute
+$\sqrt{|\beta_\alpha^\mu|/L_s^\mu}$ to the zero-selector block.
+The controlled phase supplies the coefficient sign, so the projected
+vector is $(L_s^\mu)^{-1}\sum_\alpha
+\beta_\alpha^\mu|\varphi_{v_\alpha}^\mu\rangle$.
+Equation~\eqref{eq:sg-finite-amplitude} identifies that vector.
+Its squared norm is $M_-^\mu/(L_s^\mu)^2$. Normalising and squaring
+each financial amplitude gives the stated probability mass.
+\end{proof}
+
+The component phases in SELECT are relative phases. A component
+preparation certified only up to an arbitrary global phase is insufficient
+when that unitary is controlled inside this sum. Nor may I replace
+$|\varphi_v^\mu\rangle$ by a periodic shift of a base Gaussian without
+proving the finite-grid identity and its normalisation. The proposition
+is an interface conditional on the component circuits, not a claim that
+those circuits have been emitted for every financial input.
+
+\subsection{Finite precision and cancellation}
+
+\begin{proposition}[Coefficient and component precision]
+\label{prop:sg-component-error}
+Let $u=\sum_\alpha\beta_\alpha^\mu|\varphi_\alpha\rangle$, so
+$\|u\|=\sqrt{M_-^\mu}$. Suppose normalised prepared components
+$|\widetilde\varphi_\alpha\rangle$ satisfy
+$\|\widetilde\varphi_\alpha-\varphi_\alpha\|\leq\delta_\alpha$,
+with their relative phases fixed, and coefficients satisfy
+$\sum_\alpha|\widetilde\beta_\alpha-\beta_\alpha^\mu|\leq\epsilon_\beta$.
+Then for $\widetilde u=\sum_\alpha
+\widetilde\beta_\alpha|\widetilde\varphi_\alpha\rangle$,
+\[
+ \|\widetilde u-u\|\leq
+ e_u:=\epsilon_\beta+\sum_\alpha|\beta_\alpha^\mu|\delta_\alpha.
+\]
+If $e_u<\sqrt{M_-^\mu}$, then $\widetilde u\ne0$ and
+\begin{equation}
+ \left\|\frac{\widetilde u}{\|\widetilde u\|}
+               -\frac{u}{\sqrt{M_-^\mu}}\right\|
+       \leq \frac{2e_u}{\sqrt{M_-^\mu}}.
+ \label{eq:sg-normalised-precision}
+\end{equation}
+For a norm-one observable, the error of its conditional mean is at most
+$4e_u/\sqrt{M_-^\mu}$.
+\end{proposition}
+\begin{proof}
+Split the vector difference as
+$\sum_\alpha\beta_\alpha^\mu
+(\widetilde\varphi_\alpha-\varphi_\alpha)
++\sum_\alpha(\widetilde\beta_\alpha-\beta_\alpha^\mu)
+\widetilde\varphi_\alpha$ and apply the triangle inequality.
+The reverse triangle inequality gives
+$\|\widetilde u\|\geq\sqrt{M_-^\mu}-e_u>0$.
+Insert $\widetilde u/\sqrt{M_-^\mu}$ between the normalised vectors.
+The two resulting distances are
+$|\|\widetilde u\|-\sqrt{M_-^\mu}|/\sqrt{M_-^\mu}$
+and $\|\widetilde u-u\|/\sqrt{M_-^\mu}$; each is at most
+$e_u/\sqrt{M_-^\mu}$.
+For unit vectors $a,b$ and $\|F\|\leq1$, insertion of one bra or ket
+at a time gives
+$|\langle a,Fa\rangle-\langle b,Fb\rangle|\leq2\|a-b\|$.
+This proves the last assertion.
+\end{proof}
+
+In particular, common component error $\delta$ gives
+$e_u\leq\epsilon_\beta+L_s^\mu\delta$. Small target norm amplifies
+preparation error as well as preparation effort.
+This bound is about prepared columns. For repeated coherent use,
+I also need a full operator-norm certificate for the emitted preparation.
+If the operator errors of $P_\chi$ and SELECT are at most
+$\zeta_\chi$ and $\zeta_{\rm sel}$, telescoping the three-unitary
+product gives
+$\|\widetilde{\mathcal B}-\mathcal B\|
+\leq2\zeta_\chi+\zeta_{\rm sel}$.
+For a block-diagonal SELECT, its error is the maximum error of its
+controlled blocks, including their phases, because the selector
+subspaces are orthogonal.
+
+More generally, if
+$\|\widetilde{\mathcal B}-\mathcal B\|\leq\zeta<\sqrt{\eta_{\rm LCU}}$,
+projection is contractive and the same normalisation proof gives
+a conditional state error at most $2\zeta/\sqrt{\eta_{\rm LCU}}$.
+Multiplying the norm-one mean error by $B_s^\mu$ gives the monetary
+bound
+\[
+ 4B_s^\mu\zeta/\sqrt{\eta_{\rm LCU}}
+       =4b_sL_s^\mu\sqrt{M_-^\mu}\,\zeta.
+\]
+This conditional bound does not, by itself, certify a complete
+amplified pricing circuit.
+
+\subsection{State-specific amplification without a false unit-success assumption}
+
+Let $\mathsf G$ be the success projector of a preparation $\mathcal B$,
+and put $|\Psi\rangle=\mathcal B|0\rangle$.
+For $0<\eta=\|\mathsf G\Psi\|^2<1$, define orthonormal states
+$|g\rangle=\mathsf G|\Psi\rangle/\sqrt\eta$ and
+$|b\rangle=(I-\mathsf G)|\Psi\rangle/\sqrt{1-\eta}$, and let
+$\theta=\arcsin\sqrt\eta$.
+With
+$S_0=I-2|0\rangle\langle0|$,
+$S_{\mathsf G}=I-2\mathsf G$ and
+$Q=-\mathcal B S_0\mathcal B^\dagger S_{\mathsf G}$,
+direct multiplication on $\operatorname{span}\{g,b\}$ gives
+\begin{equation}
+ Q^a\mathcal B|0\rangle
+   =\sin((2a+1)\theta)|g\rangle+
+             \cos((2a+1)\theta)|b\rangle,\qquad a\in\mathbb N_0.
+ \label{eq:sg-amplification}
+\end{equation}
+Indeed $-\mathcal B S_0\mathcal B^\dagger=2|\Psi\rangle
+\langle\Psi|-I$, and the two-dimensional matrix of $Q$ in the ordered
+basis $(g,b)$ is
+$\bigl(\begin{smallmatrix}\cos2\theta&\sin2\theta\\
+-\sin2\theta&\cos2\theta\end{smallmatrix}\bigr)$.
+Multiplication and induction prove equation~\eqref{eq:sg-amplification}.
+The endpoint $\eta=1$ needs no amplification.
+
+The actual good probability after $a$ iterations is
+$\kappa_a=\sin^2((2a+1)\theta)$, generally less than one.
+For $\eta\geq1/2$, choose $a=0$. For $\eta<1/2$, choose the
+nonnegative integer nearest $\pi/(4\theta)-1/2$.
+Then $|(2a+1)\theta-\pi/2|\leq\theta$ and
+$\kappa_a\geq\cos^2\theta>1/2$.
+The number of preparation or adjoint occurrences is $2a+1$,
+which is $O(\eta^{-1/2})$ since $\theta\geq\sqrt\eta$.
+For this ordinary-amplification family, attaining any fixed
+$\kappa_a\geq\kappa_0>0$ also requires
+$2a+1\geq\sqrt{\kappa_0}/\theta$, using $|\sin x|\leq|x|$.
+Thus the occurrence count is $\Theta(\eta^{-1/2})$ as $\eta\downarrow0$.
+This is not a lower bound for every representation or preparation of
+the target financial distribution.
+
+In a numerical implementation, intervals for $\eta$ and $\theta$ must
+certify one chosen integer $a$ and a strictly positive lower bound
+for its $\kappa_a$. An uncertain rounding boundary cannot be treated
+as an exact iteration decision. Generalised final phases can reduce
+the failure probability, but their synthesis errors and gates must
+also be retained. Oblivious amplification results for operators close
+to unitary cannot be imported as a unit-success guarantee for this
+non-unitary financial filter.
+
+\begin{proposition}[A fully coherent monetary correction]
+\label{prop:sg-coherent-correction}
+Let $F_s(y)=R_r(y)/(b_sU(y)^r)$ when $U(y)>0$, and set it to any
+bounded value where $U=0$. Then $|F_s|\leq1$ and
+\begin{equation}
+ V_\rho=\mathbb E_\rho J_{r-1}
+                    +B_s^\rho\,\mathbb E_{q_-}F_s.
+ \label{eq:sg-price-identity}
+\end{equation}
+After state-specific amplification, define the signed observable
+$W=\mathsf G F_s$, taking value zero on failure. It has norm at most
+one and mean $\kappa_a\mathbb E_{q_-}F_s$. A flag encoding
+$(1+W)/2$ therefore has probability
+$p_W=(1+\kappa_a\mathbb E_{q_-}F_s)/2$, and the correction is
+\begin{equation}
+ \frac{B_s^\rho}{\kappa_a}(2p_W-1).
+ \label{eq:sg-kappa-correction}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The remainder bound forces $R_r=0$ at $U=0$. On the remaining
+points, $q_-(y)F_s(y)=p_\rho(y)R_r(y)/B_s^\rho$, with integration
+in the continuous case. This proves
+equation~\eqref{eq:sg-price-identity}. Good and failure subspaces are
+orthogonal. The observable is block diagonal in those subspaces,
+so the interference term vanishes and its mean is
+$\kappa_a\mathbb E_{q_-}F_s$. The flag probability and decoded
+monetary correction follow.
+\end{proof}
+
+A failure label in this signed-observable encoding has $W=0$ and
+therefore flag probability $1/2$. A different implementation which
+accepts only a good preparation and the price flag has probability
+$p_{\rm joint}=\kappa_a(1+\mathbb E_{q_-}F_s)/2$. Its correct
+decoding is $B_s^\rho(2p_{\rm joint}-\kappa_a)/\kappa_a$.
+Confusing these two flags gives a biased price.
+Repeated measured postselection has expected $1/\eta$ trials per
+accepted state, but does not by itself supply the unitary and adjoint
+required by amplitude estimation. I therefore do not multiply that
+expected trial cost by an amplitude-estimation query count without
+a coherent implementation.
+
+The apparent quotient in $F_s$ can be removed exactly. Taylor's
+integral formula gives
+\[
+ F_s(y)=
+ \mathbb E_{Z\sim{\rm Beta}(1,r)}
+       \left[\frac{g_y^{(r)}(1+ZU(y))}{H D_r^+}\right].
+\]
+The integrand is bounded in absolute value by $(1+ZU)^{-r}\leq1$.
+At $U=0$ the displayed expression is still defined; that event has
+zero $q_-$ weight. A realised derivative oracle and a finite Beta or
+quadrature construction are additional costs, with their own biases.
+
+For a fixed $a$-iteration tape, each of its $2a+1$ preparation or
+adjoint occurrences contributes at most $\zeta$ operator error.
+Telescoping products of unitary factors gives output vector error
+at most
+$\tau_a=(2a+1)\zeta+\zeta_{\rm refl}$, where
+$\zeta_{\rm refl}$ sums the errors of all reflection and phase uses.
+The signed observable mean changes by at most $2\tau_a$.
+Thus its monetary contribution is at most
+$2B_s^\rho\tau_a/\kappa_0$ when the ideal
+$\kappa_a\geq\kappa_0>0$.
+
+For clarity, a complete local scalar envelope can also propagate the
+normalisers. Suppose $|\widehat M_--M_-^\rho|\leq e_M$,
+$|\widehat\kappa-\kappa_a|\leq e_\kappa$ and
+$\widehat\kappa\geq\kappa_0>0$. Let $\widehat z\in[-1,1]$ estimate
+the signed mean $\zeta_0=\kappa_a\mathbb E_{q_-}F_s$ with radius
+$e_z$ at the stated confidence. The decoded correction
+$b_s\widehat M_-\widehat z/\widehat\kappa$ has radius at most
+\begin{equation}
+ \frac{b_s}{\kappa_0}
+      \{e_M+M_-^\rho(e_z+e_\kappa)\}.
+ \label{eq:sg-scalar-envelope}
+\end{equation}
+To prove this, split the difference into the moment error, the
+signed-mean error and the denominator error. The moment term is
+at most $b_se_M/\kappa_0$. The mean term is at most
+$b_sM_-^\rho e_z/\kappa_0$. Finally
+$|\zeta_0|\leq\kappa_a$ bounds the denominator term by
+$b_sM_-^\rho e_\kappa/\kappa_0$. The quantity $e_z$ must include
+signed statistical radius, equal to $2e_p$ for probability radius $e_p$,
+the $2\tau_a$ state error, value arithmetic and
+finite-flag rounding. Polynomial-price, tail, grid and discount errors
+are not included in equation~\eqref{eq:sg-scalar-envelope}.
+
+\subsection{A positive-envelope competitor in both measures}
+
+For $|\alpha|=j\leq r$, put
+\[
+ a_\alpha^\rho=\binom rj\frac{j!}{\alpha!}w^\alpha
+                         e^{d_\alpha}Z_\rho(v_\alpha).
+\]
+All coefficients are positive, and $M_+^\rho=\sum_\alpha
+a_\alpha^\rho$. In the continuous case completion of the square gives
+\begin{equation}
+ q_+(y)=\frac{(T(y)+1)^r\varphi_p(y)}{M_+^{\gamma_p}}
+       =\sum_{|\alpha|\leq r}\frac{a_\alpha^{\gamma_p}}
+                 {M_+^{\gamma_p}}\varphi_p(y-v_\alpha).
+ \label{eq:sg-positive-gaussian-mixture}
+\end{equation}
+In the finite case the exact component mass is
+$p_{\alpha,y}=p_y e^{v_\alpha\cdot y}/Z_\mu(v_\alpha)$, and
+$q_+(y)=\sum_\alpha(a_\alpha^\mu/M_+^\mu)p_{\alpha,y}$.
+This component's amplitude vector is
+$|\varphi_{v_\alpha/2}^\mu\rangle$, not
+$|\varphi_{v_\alpha}^\mu\rangle$.
+There are $\binom{n+r}{r}$ labelled mixture components before merging.
+
+\begin{proposition}[Positive-mixture rejection]
+\label{prop:sg-positive-rejection}
+Set $h(y)=((T(y)-1)/(T(y)+1))^r$. Classical rejection from $q_+$
+with acceptance probability $h$ has success
+$\eta_+=M_-^\rho/M_+^\rho$ and accepted law $q_-$.
+A quantum preparation retaining the mixture label,
+\[
+ |\Omega_+\rangle=\sum_\alpha
+       \sqrt{a_\alpha^\rho/M_+^\rho}\,
+               |\alpha\rangle|\psi_\alpha^\rho\rangle,
+\]
+with squared component amplitudes $p_{\alpha,y}$, has financial
+marginal $q_+$. A controlled acceptance amplitude $\sqrt h$
+gives success $\eta_+$ and financial marginal $q_-$ on success.
+\end{proposition}
+\begin{proof}
+Multiplying $q_+$ by $h$ gives $p_\rho U^r/M_+^\rho$.
+Its integral or finite sum is $M_-^\rho/M_+^\rho$; normalising
+gives $q_-$. In the quantum purification, distinct component labels
+are orthogonal, so their probabilities add to $q_+$ without
+interference. The acceptance flag multiplies each amplitude by
+$\sqrt h$, producing the same unnormalised financial marginal.
+Conditioning or state-specific amplification retains the good vector's
+mixture label; a diagonal financial observable has the correct
+$q_-$ expectation without erasing that label.
+\end{proof}
+
+The expected classical number of proposal trials per accepted sample
+is $1/\eta_+$: its survival probabilities are $(1-\eta_+)^j$,
+whose geometric sum is $1/\eta_+$. Quantum amplification admits the
+$\Theta(\eta_+^{-1/2})$ occurrence order just proved, using the
+proposal-and-acceptance unitary with its complete retained label.
+The acceptance arithmetic, mixture weights, component preparations,
+reflections and their precision must be charged. This is the established
+coherent rejection mechanism \citep{ozols2013}; the displayed financial
+proposal and its analytic normaliser are the project-specific choice.
+
+For the labelled, unmerged signed expansion,
+use $\beta_\alpha^{\gamma_p}=\beta_\alpha$ and continuous component
+$|\varphi_\alpha^{\gamma_p}\rangle=\psi_{2v_\alpha}$; the finite
+component is $|\varphi_\alpha^\mu\rangle=
+|\varphi_{v_\alpha}^\mu\rangle$.
+Replacing every sign of $\beta_\alpha^\rho$ by a positive sign gives
+$(T+1)^s\sqrt{p_\rho}$. Hence, in either measure,
+\begin{equation}
+ M_+^\rho=
+   \left\|\sum_{\alpha\in\mathcal I_s}
+             |\beta_\alpha^\rho|\,|\varphi_\alpha^\rho\rangle\right\|^2
+       \leq (L_s^\rho)^2.
+ \label{eq:sg-positive-envelope-comparison}
+\end{equation}
+The inequality is the triangle inequality for unit vectors.
+Therefore $\eta_+\geq\eta_{\rm LCU}$, and the positive proposal has
+no larger amplification factor in the abstract trial-occurrence
+comparison. It need not have fewer gates: it contains degrees through
+$2s$, rather than $s$, and computes a bounded ratio for acceptance.
+Exact merging of identical signed components can reduce $L_s^\rho$.
+Equation~\eqref{eq:sg-positive-envelope-comparison} is not asserted for
+that reduced one-norm or for an optimised alternative representation.
+
+The classical opponent should receive the same moments and polynomial
+control. For example, $N$ independent accepted $q_-$ samples of
+$F_s\in[-1,1]$ obey
+$\Pr\{|\overline F_s-\mathbb E F_s|>t\}\leq
+2e^{-Nt^2/2}$ by the bounded-variable exponential inequality.
+Choosing $t=\varepsilon/B_s^\rho$ gives a sufficient
+$N=\lceil2(B_s^\rho/\varepsilon)^2\log(2/\alpha)\rceil$
+at failure probability $\alpha$.
+The expected proposal count is $NM_+^\rho/M_-^\rho$, with
+coefficient preparation and per-trial arithmetic still additional.
+This is a concrete equally informed comparator, not a claim that
+it is the strongest classical pricer.
+
+\subsection{Weak-dispersion constants with explicit nondegeneracy}
+
+\begin{proposition}[Matched weak-dispersion scaling]
+\label{prop:sg-weak-dispersion}
+Keep $n,p,w_i,s,K,H,\lambda$ and the base law fixed.
+For $0<\delta\leq\delta_0$, assume
+\[
+ d_i(\delta)=\delta a_i+\delta^2 c_i(\delta),\qquad
+ v_i(\delta)=\delta b_i+\delta^2 e_i(\delta),
+\]
+where all $c_i,e_i$ are uniformly bounded and the centring identities
+\eqref{eq:sg-centering} hold for every $\delta$.
+Define
+$Q_2(y)=\tfrac12\sum_iw_i(a_i+b_i\cdot y)^2$.
+For the continuous Gaussian law assume $Q_2$ is not identically
+zero. For a fixed finite law require
+$\mathbb E_\mu Q_2^{2s}>0$.
+Then
+\[
+ \frac{M_-^\rho}{\delta^{4s}}\longrightarrow
+       \mathbb E_\rho Q_2^{2s}>0,\qquad
+ L_s^\rho\longrightarrow2^s,\qquad
+ M_+^\rho\longrightarrow2^{2s}.
+\]
+In particular $M_-^\rho=\Theta(\delta^{4s})$ and the two displayed
+loading success probabilities are $\Theta(\delta^{4s})$.
+On any fixed compact support, $U=O(\delta^2)$ uniformly.
+\end{proposition}
+\begin{proof}
+Put $\ell_i=d_i(\delta)+v_i(\delta)\cdot y$.
+Exact centring gives
+$U=\sum_iw_i(e^{\ell_i}-1-\ell_i)$.
+The integral identity
+$e^x-1-x=x^2\int_0^1(1-t)e^{tx}\,dt$ proves
+$U/\delta^2\to Q_2$ pointwise, and uniformly on compact sets.
+There is a constant $C$ such that
+$|\ell_i|\leq C\delta(1+\|y\|)$ for every permitted $\delta$.
+Thus
+\[
+ 0\leq U/\delta^2\leq
+       \tfrac12 C^2(1+\|y\|)^2
+                      e^{C\delta_0(1+\|y\|)}.
+\]
+Every finite power of this bound is Gaussian integrable: after
+raising to that power, the exponential linear in $\|y\|$ is
+bounded using $a\|y\|\leq\|y\|^2/4+a^2$, leaving a polynomial
+times $e^{-\|y\|^2/4}$ in the density.
+Dominated convergence therefore proves the moment limit for
+$\gamma_p$. A nonzero $Q_2\geq0$ is positive on an open ball;
+the Gaussian density is positive there, so the limit is positive.
+For a finite law, uniform convergence at finitely many nodes gives
+the same limit, and the assumed positive finite moment supplies
+nondegeneracy.
+
+Each $d_\alpha,v_\alpha$ tends to zero. In the continuous formula
+$e^{d_\alpha+\|v_\alpha\|^2}\to1$; in the finite formula
+$e^{d_\alpha}\sqrt{Z_\mu(2v_\alpha)}\to1$.
+Consequently
+\[
+ L_s^\rho\to\sum_{j=0}^s\binom sj
+      \sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+    =\sum_{j=0}^s\binom sj(\sum_iw_i)^j=2^s.
+\]
+The same Gaussian exponential envelope or a finite sum gives
+$M_+^\rho\to\mathbb E_\rho2^{2s}=2^{2s}$.
+The positive limits prove all the stated Theta conclusions.
+\end{proof}
+
+A sufficient GBM subfamily has equal initial stock levels and equal
+dividend yields, a fixed common loading $\lambda$, and residual
+loadings $\delta u_i$. Its risk-neutral deterministic contrasts are
+of order $\delta^2$, from the volatility compensators, and its
+centred residual contrasts are
+$\delta(u_i-\sum_jw_j u_j)$. Thus $a_i=0$ and the proposition
+applies when those contrasts are not all zero.
+Fixed unequal initial levels or dividend yields can leave a nonzero
+contrast as $\delta\to0$ and do not automatically satisfy this
+weak-dispersion family. Scaling the common smoothing $\lambda$
+with $\delta$ also changes $b_s$ and invalidates a comparison that
+treats it as fixed.
+
+For the same fixed finite law $\mu$, choose a certified support upper
+bound $U_*(\delta)=C_*\delta^2$ with $C_*>0$.
+The preceding compact bound supplies such a constant.
+Nondegeneracy on a positive-mass grid point also makes the exact
+maximum $\Theta(\delta^2)$.
+The direct signed remainder can be normalised by
+$\rho_s=b_sU_*^{2s}$, so it has range contained in $[-1,1]$.
+The integral derivative representation supplies this observable
+without a division by $U$.
+
+Let $\varepsilon$ denote the monetary allowance remaining for the
+correction after the separately charged deterministic errors.
+Consider the active monetary regime
+$\varepsilon=o(\delta^{4s})$ at fixed confidence.
+The usual worst-case additive-accuracy amplitude-estimation allocation
+uses $O(B_s^\mu/\varepsilon)$ invocations of the amplified
+importance-and-observable circuit when $\kappa_a$ is bounded below
+by a fixed positive constant.
+Multiplying by its displayed loading occurrence order gives
+\[
+ O\!\left(\frac{b_s L_s^\mu\sqrt{M_-^\mu}}{\varepsilon}\right)
+       =O(\delta^{2s}/\varepsilon)
+\]
+for signed LCU, and
+$O(b_s\sqrt{M_-^\mu M_+^\mu}/\varepsilon)
+=O(\delta^{2s}/\varepsilon)$ for positive-mixture rejection.
+The direct range allocation is $O(\rho_s/\varepsilon)
+=O(\delta^{4s}/\varepsilon)$.
+For the corresponding canonical allocations these displayed budgets
+have the stated orders up to fixed constants and confidence factors.
+They are not instance-specific lower bounds. An analytic mean,
+a stronger variance-sensitive algorithm or a different representation
+can require less work.
+
+Both competitors here estimate the same finite correction.
+Comparing a full continuous importance law with a finite-support
+direct range without the common transfer certificate would change
+the estimand. If the financial support grows with tolerance, or
+the node precision or derivative order changes with $\delta$, its
+range and implementation cost must be analysed again.
+The preceding comparison shows a disadvantage of the displayed
+importance loaders in this fixed-support regime when evaluator
+costs are comparable; it does not exclude an advantage in another
+proved regime.
+
+If $B_s^\rho\leq\varepsilon$, the deterministic remainder interval
+$[-B_s^\rho,B_s^\rho]$ already resolves the correction and its
+midpoint requires no quantum calls. An implementation must check
+this before claiming an estimation saving.
+
+\subsection{Accounting and the limits of the retained construction}
+
+The continuous exact identity preserves the original risk-neutral
+expectation, followed by the original deterministic discount.
+The finite identity preserves its stated finite numerical target,
+which requires the separately validated transfer to that model price.
+The importance law alone is not a replacement pricing measure.
+A no-arbitrage conclusion follows from that original classical
+model and the exact identity, not from interpreting computational
+amplitudes as new asset dynamics. Independently rounded numerical
+prices do not automatically satisfy joint across-contract arbitrage
+constraints.
+
+For a complete implementation I must retain the finite base law,
+component normalisers, coefficient signs and their arithmetic
+enclosures; every preparation and controlled component tape;
+relative phases; clean private work; selector and success predicates;
+the full zero-state and good-subspace reflections; each adjoint;
+amplification choices and a certified $\kappa_a$; the derivative or
+remainder evaluator; finite auxiliary laws; the signed monetary
+flag; the mean estimator and its confidence postprocessing;
+observations and resets. Classical table construction, Gaussian
+moment evaluation and coefficient precision are setup costs.
+They cannot be assigned zero cost or amortised without a stated
+reuse workload. A measured lookup or conditional postselection tape
+does not acquire a coherent adjoint by being reversed.
+
+The column and operator error bounds above show why severe
+cancellation can increase required component precision. Tight
+derivative constants can likewise introduce their own shared
+generation cost. The bounded integral observable removes the
+small-$U$ quotient but does not prove that its reversible
+Gaussian-density, logarithm and polynomial arithmetic is cheap.
+The retained finite toy tests only a preparation signal and its
+amplification. It does not implement all of these financial and
+statistical operations. I therefore retain these identities and
+comparators as a supplementary specification and a rejected-loading
+analysis, without a complete pricing-cost or quantum-advantage claim.

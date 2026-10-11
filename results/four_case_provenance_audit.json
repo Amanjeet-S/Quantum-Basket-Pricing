@@ -1,0 +1,276 @@
+{
+  "schema": "qbp-local-data-provenance-review-v1",
+  "review_date": "2026-10-09",
+  "basis": "University licence guidance I received directly, not an independent legal interpretation or licence-contract verification",
+  "reviewed_root": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing",
+  "reviewed_file_inventory_count": 696,
+  "base_model_generator": {
+    "file": "generalisation_models.py",
+    "sha256": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "registered_sha256": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "synthetic_origin": "Hard-coded weights, stipulated loading construction, rates, spot, strike, maturity and Gaussian scales; no calibration or provider observations read. Current generated dictionaries exactly matched all nine frozen models."
+  },
+  "base_protocol": {
+    "file": "results/generalisation_protocol.json",
+    "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+    "models": 9,
+    "data_declaration": "all parameters stipulated; no observed prices, provider samples or purchased access"
+  },
+  "stress_protocol": {
+    "file": "results/dispersion_separation_protocol.json",
+    "sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+    "models": 36,
+    "exact_checks": [
+      {
+        "model_id": "n2_lambda0.05_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.05_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.05_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.05_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.2_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.2_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.2_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.2_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.4_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.4_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.4_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n2_lambda0.4_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.05_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.05_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.05_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.05_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.2_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.2_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.2_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.2_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.4_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.4_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.4_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n4_lambda0.4_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.05_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.05_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.05_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.05_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.2_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.2_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.2_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.2_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.4_scale1",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.4_scale3over2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.4_scale2",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      },
+      {
+        "model_id": "n8_lambda0.4_scale3",
+        "exact_scaling_and_risk_neutral_inputs_verified": true
+      }
+    ],
+    "case_count": 144,
+    "classification": "exact rational synthetic parameter stress of the nine stipulated base models"
+  },
+  "figures": [
+    {
+      "plot_data": "figures/dispersion_separation_plot_data.json",
+      "result_source": "results/dispersion_separation_summary.json",
+      "source_sha256_matches": true,
+      "classification": "derived from stipulated synthetic financial experiments, not LSEG",
+      "rendered_forms": [
+        "figures/dispersion_separation_figure.tex",
+        "figures/dispersion_separation.svg",
+        "figures/dispersion_separation.png"
+      ]
+    },
+    {
+      "plot_data": "figures/taylor_certificate_plot_data.json",
+      "result_source": "results/taylor_pricing.json",
+      "source_sha256_matches": true,
+      "classification": "derived from stipulated synthetic financial experiments, not LSEG",
+      "rendered_forms": [
+        "figures/taylor_certificate_radii.png",
+        "figures/taylor_certificate_figure.tex",
+        "figures/taylor_certificate_radii.svg"
+      ]
+    },
+    {
+      "plot_data": "figures/qpe_matched_resources_plot_data.json",
+      "result_source": "results/qpe_matched_comparison.json",
+      "source_sha256_matches": true,
+      "classification": "derived from stipulated synthetic financial experiments, not LSEG",
+      "rendered_forms": [
+        "figures/qpe_matched_resources.png",
+        "figures/qpe_matched_resources_figure.tex",
+        "figures/qpe_matched_resources.svg"
+      ]
+    }
+  ],
+  "other_experiment_classes": [
+    {
+      "class": "Pilot simulations",
+      "evidence": "pilot.py model() lines 66\u201381 stipulates ex-dividend GBM; scenario() generates pseudorandom samples, not read market records; results/pilot.json explicitly records no LSEG observations."
+    },
+    {
+      "class": "Ideal estimator simulation",
+      "evidence": "results/estimator_ideal_simulation.json declares synthetic amplitudes, seed 20261005, software diagnostic, no device or market sample."
+    },
+    {
+      "class": "Finite grid nodes, derivative norms, moment certificates and circuit resources",
+      "evidence": "Examined producer code obtains model inputs from frozen synthetic protocols or mathematical recurrence, evaluates Gaussian/special-function kernels and constructs gate descriptions; numeric archives are mathematical computational evidence, not exported observations."
+    },
+    {
+      "class": "RQMC random labels and scores",
+      "evidence": "rqmc_pricing.py uses finite Sobol direction words and seeded XOR shifts, then synthetic financial graph outputs. The protocol models are copies of the stipulated family."
+    }
+  ],
+  "public_non_LSEG_material": [
+    {
+      "path": "public_data/new-joe-kuo-6.21201",
+      "sha256": "68eedd2a4e3b659b9695e7aff0f8ac68718bcf620730fc3d3a8c65df2a067441",
+      "description": "Author-distributed mathematical Sobol direction numbers, not market data",
+      "source_url": "https://web.maths.unsw.edu.au/~fkuo/sobol/",
+      "licence_path": "public_data/licence"
+    },
+    {
+      "path": "public_data/sobol.cc",
+      "sha256": "5691246405d2ba06ce9240542b24fc9cf40f13f7595ff1dd4d713dc17b8a9952",
+      "description": "Author-distributed Sobol implementation with copyright and notice retained",
+      "licence_path": "public_data/licence"
+    },
+    {
+      "path": "public_data/licence",
+      "sha256": "9d10226b50eeb34be0ab06bfa3392c7bd1f04bf602f9af4343295d1fd003d0e3",
+      "description": "Retained redistribution conditions and disclaimer; not an LSEG licence"
+    }
+  ],
+  "licensed_market_data_found": false,
+  "observed_local_inventory": {
+    "data_private_exists": false,
+    "market_like_file_formats": [
+      "figures/qpe_matched_resources_case_rows.csv"
+    ],
+    "credentials_or_private_key_names_found": false
+  },
+  "status_limits": [
+    "Checked current working-tree files, financial input producers, frozen protocol origin, independent exact stress mapping and current figure source-hash links.",
+    "No guarantee that a source absent from metadata cannot exist elsewhere on the computer or in remote/historical Git objects. Git history, remote attachments and institutional licence contract were not inspected.",
+    "Large compressed payloads and binary shards were classified by their retained producer/input chain rather than independently scanning every decompressed byte.",
+    "No raw data, secret contents, provider records, copyrighted publisher PDFs or university message archive is reproduced in this audit.",
+    "The four-case stage did not yet exist at the initial review. No newly staged full-pricing input has yet been audited; a follow-up check is required when it is present."
+  ],
+  "recommended_live_text_change": {
+    "file": "generalisation_proofs.tex",
+    "lines": [
+      249,
+      250
+    ],
+    "issue": "Later LSEG calibration described as publicly reproducible without distinguishing code from restricted input data.",
+    "replacement_scope": "A later LSEG illustration could retain extraction and analysis code, with raw and systematic derived observations restricted locally; independent readers require their own entitlement, and only permitted limited academic summaries are included in outputs."
+  },
+  "actions_taken": {
+    "repo_edits": false,
+    "commits": false,
+    "publication": false,
+    "downloads": false,
+    "data_deletion": false
+  }
+}

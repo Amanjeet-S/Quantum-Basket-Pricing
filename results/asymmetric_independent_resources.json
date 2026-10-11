@@ -1,0 +1,198 @@
+{
+  "schema": "qbp-asymmetric-independent-resource-audit-v1",
+  "status": "passed",
+  "source_sha256": "5f83370d33f38e6f0456760f4c1d5962dbad39657a9080802a13ef3ee984fcf2",
+  "prior_resource_formula_source_sha256": "e86de2f5631165574e06f08d2415c3ff373ba03b1ecc3dd8d8afda3c9dac6d51",
+  "resources_sha256": "9eb00158b1e12efda8deda05811fca022a3afc4ea9242ab3140fc2fc0bac266c",
+  "protocol_sha256": "d1ca430d6e08f5bae9aa8e9faa5df34d12985d1c463a7ee5bc9a35c25cc78020",
+  "fresh_configs": 252,
+  "old_diagonal_refs": 48,
+  "total_asymmetric_pool": 300,
+  "distinct_literal_blocks": 164,
+  "complete_profiles": 504,
+  "own_formula_QPE_full_charges": 1008,
+  "integer_projection_histories": 3024,
+  "whole_winning_preparations": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "exact7t",
+      "flag": 49,
+      "excluded_high_zero": 48,
+      "reflection_core_qubits": 49,
+      "chronological_emitted_peak": 3976,
+      "serial_profile_peak_upper": 3976,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "unitary8t",
+      "flag": 49,
+      "excluded_high_zero": 48,
+      "reflection_core_qubits": 49,
+      "chronological_emitted_peak": 3976,
+      "serial_profile_peak_upper": 3976,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "exact7t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5284,
+      "serial_profile_peak_upper": 5284,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "unitary8t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5284,
+      "serial_profile_peak_upper": 5284,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "normal_bits": 8,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "exact7t",
+      "flag": 67,
+      "excluded_high_zero": 66,
+      "reflection_core_qubits": 67,
+      "chronological_emitted_peak": 5903,
+      "serial_profile_peak_upper": 5903,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "normal_bits": 8,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "unitary8t",
+      "flag": 67,
+      "excluded_high_zero": 66,
+      "reflection_core_qubits": 67,
+      "chronological_emitted_peak": 5903,
+      "serial_profile_peak_upper": 5903,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "exact7t",
+      "flag": 109,
+      "excluded_high_zero": 108,
+      "reflection_core_qubits": 109,
+      "chronological_emitted_peak": 10809,
+      "serial_profile_peak_upper": 10809,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "normal_bits": 10,
+      "exp_bits": [
+        9,
+        9
+      ],
+      "architecture": "unitary8t",
+      "flag": 109,
+      "excluded_high_zero": 108,
+      "reflection_core_qubits": 109,
+      "chronological_emitted_peak": 10809,
+      "serial_profile_peak_upper": 10809,
+      "complete_primitive_counts_verified": true,
+      "actual_core_and_reflection_verified": true
+    }
+  ],
+  "facts": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "normal_bits": 10,
+      "PG_PA_bits": [
+        9,
+        9
+      ],
+      "raw_T": 23240600025,
+      "strongest_T": 23240600025,
+      "event_T": 20855422300,
+      "saving_exact": "95407109/929624001"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "normal_bits": 10,
+      "PG_PA_bits": [
+        9,
+        9
+      ],
+      "raw_T": 88336016050,
+      "strongest_T": 88203283550,
+      "event_T": 83560988725,
+      "saving_exact": "185691793/3528131342"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "normal_bits": 8,
+      "PG_PA_bits": [
+        9,
+        9
+      ],
+      "raw_T": 93933514350,
+      "strongest_T": 93933514350,
+      "event_T": 89247538825,
+      "saving_exact": "187439021/3757340574"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "normal_bits": 10,
+      "PG_PA_bits": [
+        9,
+        9
+      ],
+      "raw_T": 208323372150,
+      "strongest_T": 208323372150,
+      "event_T": 203322773325,
+      "saving_exact": "66674651/2777644962"
+    }
+  ],
+  "independence": "New producer and confidence/charging frontend not imported. Prior independent exact formulae and primitive emitter reconstruction are explicitly reused. Mathematical scalar, CDF and projection proofs are separately checked.",
+  "scope": "Matched finite pools and sufficient logical caps. Winners are symmetric9/9; improvement is due to newly tested diagonal9, not asymmetric allocation. No global optimum, theoretical priority or physical advantage.",
+  "elapsed_seconds_diagnostic": 191.12614500000018
+}

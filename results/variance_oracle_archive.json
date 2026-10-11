@@ -1,0 +1,58 @@
+{
+  "status": "complete comparison retained without loss as deterministic gzip",
+  "uncompressed_bytes": 164983639,
+  "compressed_bytes": 20493110,
+  "uncompressed_sha256": "1b179220f2912afddbf1c98ba5c15e87b54649e17b16e0096699fe744e58677f",
+  "compressed_sha256": "bb65b3340bcfcd736ce95b6bc52f3ca155fa135cd78f411a27a791f48868aed8",
+  "driver_sha256": "29adfb1ec16d5ca8f4f9ebe5143330bab54762eb6454e445fedac2e0709eea59",
+  "rows": 819,
+  "summary": {
+    "profiles": 819,
+    "selected_records": 162,
+    "family_ratios_to_plain": {
+      "best_range": {
+        "strict_improvements": 16,
+        "ties": 11,
+        "worse": 0,
+        "minimum_ratio": 0.35222145022380874,
+        "maximum_ratio": 1.0
+      },
+      "best_clipped": {
+        "strict_improvements": 17,
+        "ties": 10,
+        "worse": 0,
+        "minimum_ratio": 0.17937590740439063,
+        "maximum_ratio": 1.0
+      },
+      "best_single_flag": {
+        "strict_improvements": 17,
+        "ties": 10,
+        "worse": 0,
+        "minimum_ratio": 0.17937590740439063,
+        "maximum_ratio": 1.0
+      },
+      "best_dyadic": {
+        "strict_improvements": 0,
+        "ties": 0,
+        "worse": 27,
+        "minimum_ratio": 10.312280026026848,
+        "maximum_ratio": 40.54772391775013
+      },
+      "best_all": {
+        "strict_improvements": 17,
+        "ties": 10,
+        "worse": 0,
+        "minimum_ratio": 0.17937590740439063,
+        "maximum_ratio": 1.0
+      }
+    },
+    "dyadic_vs_best_single_flag": {
+      "wins": 0,
+      "ties": 0,
+      "losses": 27,
+      "minimum_ratio": 21.000894570277666,
+      "maximum_ratio": 122.02977226627704
+    }
+  },
+  "expanded_json": "optional local copy; ignored by Git; no private observations"
+}

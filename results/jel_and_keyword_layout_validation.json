@@ -1,0 +1,34 @@
+{
+  "schema": "qbp-jel-and-keyword-layout-v1",
+  "status": "passed_source_checks_and_native_compilation",
+  "date": "2026-10-10",
+  "paper_before_sha256": "be70624dc9a171205487db630100b639b13f9bd918c5c15b12a7dfc433b513c6",
+  "paper_after_sha256": "4cf9b7adc456ea99f4e1082ad3d51420973a1d29873b4441f4639766e611d00a",
+  "same_keyword_terms_retained": true,
+  "keyword_layout": "Small ragged-right paragraph constrained to linewidth; explicit breaks at keyword separators keep payoff boundary curvature together on its own line.",
+  "order": "abstract, JEL classification, keywords, first numbered section",
+  "JEL_codes": [
+    "C63",
+    "C65",
+    "G13"
+  ],
+  "JEL_reference": {
+    "url": "https://www.aeaweb.org/econlit/jelCodes.php?view=jel",
+    "organisation": "American Economic Association",
+    "version": "Official live JEL classification web page, consulted 10 October 2026 through primary web retrieval.",
+    "C63": "Computational Techniques; Simulation Modeling",
+    "C65": "Miscellaneous Mathematical Tools",
+    "G13": "Contingent Pricing; Futures Pricing",
+    "selection": "I select computational techniques, mathematical tools and derivative pricing for the actual methods and priced claims in this paper.",
+    "search_attempt": "The first literature search failed with a DNS lookup error (getaddrinfo ENOTFOUND); I retrieved the official source directly from the web. No purchase or subscription change."
+  },
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commit_or_staging_changes": false,
+  "native_PDF_pixel_review": false,
+  "later_restructure": {
+    "current_main_sha256": "f3d5dddecdc0ec7b7ae6ba7b1b72f66a1a9f96fce4519480da933ce3685c0eb4",
+    "keyword_layout": "Naturally justified paragraph spanning linewidth; no forced line breaks. Earlier phase hashes retain their original historical meaning.",
+    "JEL_codes_unchanged": true,
+    "abstract_words": 159
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "qbp-chebyshev-concrete-sampler-protocol-v1",
+  "registered_time_utc": "2026-10-09T12:17:46.309213+00:00",
+  "registered_before_template_emission": true,
+  "source_sha256": "278765207a9ea90ab2d993e61177e9decd58c8fbe848583932440f5335042e68",
+  "frozen_resource_sha256": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232",
+  "financial_compiler_source_sha256": {
+    "integral_value_oracle.py": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+    "boundary_value_oracle.py": "46eca98514ede256390a3f0244ea2293a9d09ed64d800c84068a7b0378a95b31",
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f"
+  },
+  "scope": "Wire binding supplement to frozen compressed-core resource templates; no repeat diagnostic, changed outcome, new price or cost correction."
+}

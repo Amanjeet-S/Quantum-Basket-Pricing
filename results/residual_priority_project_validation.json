@@ -1,0 +1,32 @@
+{
+  "schema": "qbp-residual-priority-project-validation-v1",
+  "status": "passed",
+  "date": "2026-10-08",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_created": 0,
+  "git_index_unchanged": true,
+  "baseline_files": 614,
+  "unchanged_protected_files": 607,
+  "exact_prior_document_snapshots": 7,
+  "new_frozen_artifact_hashes_verified": 23,
+  "source_ledger_hash_linkage": "passed",
+  "model_and_nested_norm_input_hashes": "passed",
+  "independent_mathematical_and_financial_audits": "passed; frozen sources/results retained, no unnecessary complete rerun",
+  "installed_saved_endpoint_replay": "passed; byte-identical to independently retained narrow endpoint audit",
+  "complete_classical_cent_prices_by_degree_at_most_three": 33,
+  "published_geometric_AG_specialisation_cent_prices": 0,
+  "source_scope": "Final Curran journal scan inspected; accepted Caldana manuscript explicitly distinguished from final publisher body; inaccessible Ju/Dinge\u00e7 final formulas remain gaps.",
+  "copyrighted_source_PDFs_installed": false,
+  "native_compilation": {
+    "kind": "success",
+    "message": "The current source compiled successfully with the desktop editor's compiler."
+  },
+  "manuscript_path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+  "manuscript_sha256": "1d6de1e5b6a49b62a0b61d69236b122452bebb82124b18f8e8224f062c804af3",
+  "manuscript_source_words": 10170,
+  "keywords_position": "below abstract and above first section",
+  "em_dash_in_manuscript": false,
+  "exact_native_PDF_page_count": null,
+  "page_count_scope": "Native compiler result confirms success, not an exact page count. No separate PDF, replacement source or different document tab was created.",
+  "claim_boundary": "Useful actual-oracle certification and conditional implementation evidence. General closure mechanisms established. No additional complete-price capability in this cohort, confirmed original theory or practical quantum advantage is inferred."
+}

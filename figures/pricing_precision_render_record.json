@@ -1,0 +1,21 @@
+{
+  "generator_sha256": "3e55bc020a2c33b8bcfcbcf541ecc05b64bb9f0c38505ec5985daad3281ac5b7",
+  "data_sha256": "7a69aa7b7ceb4c5935adfc53344b45e0b4143dae846488812d503ef9332548ec",
+  "source_resource_sha256": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+  "native_figure_sha256": "bc9ef6bdcc8261dbbd05b26f95dd9a86cbda91a4809a63e0fbe039ba6faad07e",
+  "python_version": "3.14.6",
+  "all64_registered_configurations_displayed": true,
+  "colour": true,
+  "3D_used": false,
+  "native_figure_file": "pricing_precision_figure.tex",
+  "native_external_file_dependency": false,
+  "retained_canvas": "picture(162,84)(-2,4)",
+  "retained_scale": "0.96 linewidth inside a centred linewidth makebox",
+  "source_mapping_audited_separately": true,
+  "native_pdf_compiled": false,
+  "native_pdf_pixel_reviewed": false,
+  "matplotlib_outputs_generated": false,
+  "status": "Native TeX and all source/data/colour mappings independently checked; compilation and native-PDF visual inspection are separate.",
+  "caption": "Complete T caps for the deferred-cleanup preparation $B$ over the 64 registered numerical-rival configurations. Panels give asset count, common volatility $\\lambda$ and loading multiplier $c$. Columns and rows give the address widths $b_A$ and $b_G$ of $P(m_A)$ and $P(m_G)$; other widths and inputs are fixed. Each cell uses the cheaper complete $B$ cap across the two retained coherent architectures. Colours and labels show its cap/the numerical $B$ minimum in that panel, using the same shared logarithmic colour scale. Labels have three decimals; exact costs and ratios are retained. Grey crosses mark the same twelve rejected monetary budgets. Outlines identify the numerical minima, $b_A=b_G=10$. Orange footers compare the shared-threshold $B$ encoding with these numerical $B$ minima; Table~\\ref{tab:shared-threshold} also includes the raw-payoff pool. The same established cancellation is applied to every representation, with each configuration retaining its financial certificate, information prior and phase plan. All alternatives use monetary radius $0.01$ and per-price failure allowance $1/3600$. The figure displays deterministic logical resource caps for synthetic models.",
+  "independent_mapping_audit_sha256": "5769634d20a765538432fd5eac10de30f90c4c81ca3e4656373a1b82eea51afa"
+}

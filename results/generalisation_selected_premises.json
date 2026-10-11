@@ -1,0 +1,232 @@
+{
+  "selected_rows": 108,
+  "certificate_failures": [],
+  "unsigned_inputs_with_conservative_enclosures_below_zero": [
+    {
+      "case": "n2_lambda0.05_cap1",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.05_cap10",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.05_cap25",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.2_cap1",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.2_cap10",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.2_cap25",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.4_cap1",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.4_cap10",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n2_lambda0.4_cap25",
+      "method": "direct",
+      "node": "n30",
+      "argument": "n29",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.05_cap1",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.05_cap10",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.05_cap25",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.2_cap1",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.2_cap10",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.2_cap25",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.4_cap1",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.4_cap10",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n4_lambda0.4_cap25",
+      "method": "direct",
+      "node": "n62",
+      "argument": "n61",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.05_cap1",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.05_cap10",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.05_cap25",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.2_cap1",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.2_cap10",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.2_cap25",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.4_cap1",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.4_cap10",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    },
+    {
+      "case": "n8_lambda0.4_cap25",
+      "method": "direct",
+      "node": "n150",
+      "argument": "n149",
+      "kind": "clamp",
+      "structurally_nonnegative": true
+    }
+  ],
+  "selected_quantile_audits_missing": [],
+  "source_hashes_match": {
+    "generalisation.py": true,
+    "generalisation_models.py": true,
+    "general_kernels.py": true,
+    "encoding_resources.py": true,
+    "resource_study.py": true,
+    "reversible.py": true,
+    "reflections.py": true
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "qbp-independent-raw-resource-review-v1",
+  "status": "passed",
+  "resource_sha256": "9b8386a17bc050578beed1d07793d16b233918ff10f48fe527e6fa3e70bce5f5",
+  "protocol_sha256": "f591efb7bdd009f1d129192e97daa5230a0f0228203a3e2c04f4861af3922e9e",
+  "review_source_sha256": "1e090225c21f8a12b85d80c69976118619d3f129a46b05cdf6667272011dc26f",
+  "configurations": 48,
+  "independent_complete_charge_and_QPE_checks": 96,
+  "whole_literal_preparations": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "architecture": "exact7t",
+      "flag": 49,
+      "excluded_high_zero": 48,
+      "reflection_core_qubits": 49,
+      "chronological_emitted_peak": 3976,
+      "serial_profile_peak_upper": 3976,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "architecture": "unitary8t",
+      "flag": 49,
+      "excluded_high_zero": 48,
+      "reflection_core_qubits": 49,
+      "chronological_emitted_peak": 3976,
+      "serial_profile_peak_upper": 3976,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "architecture": "exact7t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5099,
+      "serial_profile_peak_upper": 5099,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "architecture": "unitary8t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5099,
+      "serial_profile_peak_upper": 5099,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "architecture": "exact7t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5905,
+      "serial_profile_peak_upper": 5905,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "architecture": "unitary8t",
+      "flag": 69,
+      "excluded_high_zero": 68,
+      "reflection_core_qubits": 69,
+      "chronological_emitted_peak": 5905,
+      "serial_profile_peak_upper": 5905,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "architecture": "exact7t",
+      "flag": 109,
+      "excluded_high_zero": 108,
+      "reflection_core_qubits": 109,
+      "chronological_emitted_peak": 10809,
+      "serial_profile_peak_upper": 10809,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "architecture": "unitary8t",
+      "flag": 109,
+      "excluded_high_zero": 108,
+      "reflection_core_qubits": 109,
+      "chronological_emitted_peak": 10809,
+      "serial_profile_peak_upper": 10809,
+      "full_preparation_counts_equal": true,
+      "reflection_counts_equal": true
+    }
+  ],
+  "exact_comparator_minima": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "raw_T": 23346683625,
+      "numerical_T": 23789339125,
+      "shared_threshold_T": 20855422300,
+      "strongest_registered_comparator_T": 23346683625,
+      "saving_exact": "99650453/933867345",
+      "saving_per_cent_diagnostic": 10.670728935275063,
+      "normal_bits": 10,
+      "exp_bits": 10,
+      "exp_upper_boundary": true
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "raw_T": 88548390850,
+      "numerical_T": 88203283550,
+      "shared_threshold_T": 83560988725,
+      "strongest_registered_comparator_T": 88203283550,
+      "saving_exact": "185691793/3528131342",
+      "saving_per_cent_diagnostic": 5.263176877500724,
+      "normal_bits": 10,
+      "exp_bits": 10,
+      "exp_upper_boundary": true
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "raw_T": 94437597250,
+      "numerical_T": 95203161050,
+      "shared_threshold_T": 89247538825,
+      "strongest_registered_comparator_T": 94437597250,
+      "saving_exact": "207602337/3777503890",
+      "saving_per_cent_diagnostic": 5.495754419990815,
+      "normal_bits": 10,
+      "exp_bits": 10,
+      "exp_upper_boundary": true
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "raw_T": 417229413325,
+      "numerical_T": 209495066950,
+      "shared_threshold_T": 203322773325,
+      "strongest_registered_comparator_T": 209495066950,
+      "saving_exact": "246891745/8379802678",
+      "saving_per_cent_diagnostic": 2.946271582840247,
+      "normal_bits": 10,
+      "exp_bits": 10,
+      "exp_upper_boundary": true
+    }
+  ],
+  "elapsed_seconds_diagnostic": 157.762085334,
+  "limitations": [
+    "Reuses established primitive emitter, not a new low-level implementation.",
+    "Does not independently prove finite inner-normal mathematics, financial transfer or novelty.",
+    "Winning exp bits10 is registered upper boundary in every case, so no global precision optimality.",
+    "Counted logical upper bounds and canonical QPE only; no hardware outcomes or quantum price estimates."
+  ]
+}

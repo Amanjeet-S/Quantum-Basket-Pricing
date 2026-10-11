@@ -1,0 +1,259 @@
+{
+  "schema": "qbp-matched-chebyshev-summary-v1",
+  "status": "completed",
+  "resources_sha256": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4",
+  "cases": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 10467507700,
+          "pilot_T_cap": 1130490831,
+          "whole_history_T_cap": 12435399147,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 23,
+            "fallback_charged": 77,
+            "observed_history_T_min": 737407900,
+            "observed_history_T_median": "12042316216",
+            "observed_history_T_max": 12042316216,
+            "observed_history_T_mean": "236054682583/25",
+            "descriptive_mean_pilot_T": "737407900",
+            "descriptive_exact_break_even_threshold": "43744681/314025231",
+            "descriptive_success_fraction": "23/100",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 11630271225,
+          "pilot_T_cap": 1256069292,
+          "whole_history_T_cap": 13816762215,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 23,
+            "fallback_charged": 77,
+            "observed_history_T_min": 819308200,
+            "observed_history_T_median": "13380001123",
+            "observed_history_T_max": 13380001123,
+            "observed_history_T_mean": "1049104175071/100",
+            "descriptive_mean_pilot_T": "819308200",
+            "descriptive_exact_break_even_threshold": "1749729898/12560692923",
+            "descriptive_success_fraction": "23/100",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 11904194525,
+          "pilot_T_cap": 1285653008,
+          "whole_history_T_cap": 14142183095,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 39,
+            "fallback_charged": 61,
+            "observed_history_T_min": 838613000,
+            "observed_history_T_median": "13695143087",
+            "observed_history_T_max": 13695143087,
+            "observed_history_T_mean": "868109635307/100",
+            "descriptive_mean_pilot_T": "838613000",
+            "descriptive_exact_break_even_threshold": "596982854/4285510029",
+            "descriptive_success_fraction": "39/100",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 41861923075,
+          "pilot_T_cap": 4521087692,
+          "whole_history_T_cap": 49731964613,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 24,
+            "fallback_charged": 76,
+            "observed_history_T_min": 2127773100,
+            "observed_history_T_median": "47011286421",
+            "observed_history_T_max": 49630195221,
+            "observed_history_T_mean": "915556917399/25",
+            "descriptive_mean_pilot_T": "2262010236",
+            "descriptive_exact_break_even_threshold": "5610964082/45210876921",
+            "descriptive_success_fraction": "6/25",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 44189729800,
+          "pilot_T_cap": 4772490818,
+          "whole_history_T_cap": 52497399002,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 24,
+            "fallback_charged": 76,
+            "observed_history_T_min": 2246047400,
+            "observed_history_T_median": "49625388184",
+            "observed_history_T_max": 52389927384,
+            "observed_history_T_mean": "966467209846/25",
+            "descriptive_mean_pilot_T": "2387758174",
+            "descriptive_exact_break_even_threshold": "329052031/2651383788",
+            "descriptive_success_fraction": "6/25",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 44122469300,
+          "pilot_T_cap": 4765226684,
+          "whole_history_T_cap": 52417493528,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 30,
+            "fallback_charged": 70,
+            "observed_history_T_min": 2242649400,
+            "observed_history_T_median": "49549874844",
+            "observed_history_T_max": 50584999044,
+            "observed_history_T_mean": "178703635524/5",
+            "descriptive_mean_pilot_T": "2384140314",
+            "descriptive_exact_break_even_threshold": "2956968929/23826133422",
+            "descriptive_success_fraction": "3/10",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 44709494725,
+          "pilot_T_cap": 4828625430,
+          "whole_history_T_cap": 53114879733,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 29,
+            "fallback_charged": 71,
+            "observed_history_T_min": 524417900,
+            "observed_history_T_median": "50034354103",
+            "observed_history_T_max": 53006135803,
+            "observed_history_T_mean": "3688792189913/100",
+            "descriptive_mean_pilot_T": "2604681344",
+            "descriptive_exact_break_even_threshold": "6181440922/48286254303",
+            "descriptive_success_fraction": "29/100",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 46988300100,
+          "pilot_T_cap": 5074736410,
+          "whole_history_T_cap": 55822100518,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 2,
+            "fallback_charged": 98,
+            "observed_history_T_min": 2939529800,
+            "observed_history_T_median": "52951988708",
+            "observed_history_T_max": 55707837708,
+            "observed_history_T_mean": "1308989660896/25",
+            "descriptive_mean_pilot_T": "2627169610",
+            "descriptive_exact_break_even_threshold": "3193116809/25373682054",
+            "descriptive_success_fraction": "1/50",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 47622408050,
+          "pilot_T_cap": 5143220069,
+          "whole_history_T_cap": 56575420763,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 40,
+            "fallback_charged": 60,
+            "observed_history_T_min": 4096365800,
+            "observed_history_T_median": "52549355094",
+            "observed_history_T_max": 55714812094,
+            "observed_history_T_mean": "169527645802/5",
+            "descriptive_mean_pilot_T": "3046208744",
+            "descriptive_exact_break_even_threshold": "380888966/2857344483",
+            "descriptive_success_fraction": "2/5",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 101750688975,
+          "pilot_T_cap": 10989074409,
+          "whole_history_T_cap": 120879818502,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 4,
+            "fallback_charged": 96,
+            "observed_history_T_min": 9946100700,
+            "observed_history_T_median": "118245440793",
+            "observed_history_T_max": 120234637693,
+            "observed_history_T_mean": "2806559594907/25",
+            "descriptive_mean_pilot_T": "6767269467",
+            "descriptive_exact_break_even_threshold": "4969108195/36630248031",
+            "descriptive_success_fraction": "1/25",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 104186984850,
+          "pilot_T_cap": 11252194363,
+          "whole_history_T_cap": 123774138001,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 4,
+            "fallback_charged": 96,
+            "observed_history_T_min": 10184202800,
+            "observed_history_T_median": "121076638038",
+            "observed_history_T_max": 123113448638,
+            "observed_history_T_mean": "2873758085412/25",
+            "descriptive_mean_pilot_T": "6929257524",
+            "descriptive_exact_break_even_threshold": "2544036052/18753657273",
+            "descriptive_success_fraction": "1/25",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 104771938000,
+          "pilot_T_cap": 11315369304,
+          "whole_history_T_cap": 124469062344,
+          "diagnostic_summary": {
+            "histories": 100,
+            "pilot_certified": 12,
+            "fallback_charged": 88,
+            "observed_history_T_min": 2457850000,
+            "observed_history_T_median": "121551573540",
+            "observed_history_T_max": 123804693240,
+            "observed_history_T_mean": "532717169406/5",
+            "descriptive_mean_pilot_T": "6968184006",
+            "descriptive_exact_break_even_threshold": "7674969523/56576846520",
+            "descriptive_success_fraction": "3/25",
+            "coverage_diagnostic_failures": 0,
+            "scope": "Common stipulated prior mesh and paired seeds only; not expected cost at an actual financial flag."
+          }
+        }
+      }
+    }
+  ],
+  "paired_histories": 400,
+  "alternative_histories": 1200,
+  "scope": "Matched finite bounded adaptation, not unchanged published ChebAE or every strongest quantum estimator. Common ideal-signal diagnostic probabilities are stipulated, not actual financial flags or classical price answers.",
+  "data_origin": "Previously retained synthetic certificates and complete logical profiles only. No licensed data or physical quantum shots."
+}

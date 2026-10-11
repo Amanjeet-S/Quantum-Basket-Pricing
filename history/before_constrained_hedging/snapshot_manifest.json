@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-11",
+  "purpose": "Prior navigation/audit metadata; pricing/calibration and main quantum papers remain unchanged.",
+  "files": {
+    "SOURCES.md": "572e0e8ae11a28e795f753ad2b43db1f9cf570027ca487f83eeb011de0d491f9",
+    "PREPARATION.md": "dea168d7b1ed2acf67b9e850a38a052de0cab48b0a8a0fc6b7f1808f30497446",
+    "supporting_proofs_index.md": "c1dce2b04f820623ab7e4401a731d909ce19ace02a691a1758de641350a91d1c",
+    "README.md": "b4189e5782dc3339407bbbaa082d4f53d02f6fca0464bc8002b8d55cce01ee65",
+    "quantum_method_redesign.md": "df11e0f84a37b0e608ecf943f121c2ee0521959e627b50b453813a24df4ae7af",
+    "results/preparation_review/module_descriptors.json": "fdb7d87071cf2844c0b1292204bd55e14e5f93c1acc3bff6b2d659500f0a1a08",
+    "results/preparation_review/programme_curricula.json": "329e06f67820d66fc4c969de6208b40a3cd464b88f906b36662d27640ab3d96a"
+  }
+}

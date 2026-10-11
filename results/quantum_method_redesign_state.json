@@ -1,0 +1,21 @@
+{
+  "status": "revised quantum-method proofs and component tests complete; full financial value oracle remains next",
+  "repo_modified_this_turn": true,
+  "commit_created": false,
+  "head_after_authorised_rollback": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "direction": "New or improved quantum pricing method under an established classical no-arbitrage model",
+  "norm_profiles": 36,
+  "stationary_roots_audited": 180,
+  "price_intervals_audited": 243,
+  "certified_contracts": 25,
+  "first_degree_reductions": 3,
+  "hierarchy_kernel_calls": 793,
+  "hierarchy_geometry_exponentials": 760,
+  "independent_minimum_basis_checks": 38828,
+  "nontrivial_QSP_baseline_implemented": false,
+  "full_integral_financial_oracle_implemented": false,
+  "physical_quantum_advantage_established": false,
+  "next_step": "Emit and certify the full second-order financial value oracle and an equally informed direct-correction comparator; charge representation, clean inverses and complete estimation.",
+  "native_compilation": "success",
+  "source_sha256": "d822fa3b91f6dcffdb9075a509d31d786f7fd2a84f74e8bfe0920d7b7db84774"
+}

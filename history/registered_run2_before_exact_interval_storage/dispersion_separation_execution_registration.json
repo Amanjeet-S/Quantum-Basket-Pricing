@@ -1,0 +1,7 @@
+{
+  "status": "amended_opponent_registered_after_initial_run_before_amended_execution",
+  "protocol_sha256": "4b3cfe09a8f6da1307509b6d2ebb8559d8d5279b1006354a73160b7c01ff5cbd",
+  "producer_sha256": "06b56c3c1598f2036fcab814dbba83ff8e8efb43b150f447cbe1192573ec9cc8",
+  "initial_registered_run_retained": "history/registered_run1_before_intersection",
+  "comparison_change": "Exact intersectionofall validdegreepriceintervals andintrinsicranges; fixedfinancialcohortunchanged"
+}

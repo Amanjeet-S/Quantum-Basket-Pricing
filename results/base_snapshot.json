@@ -1,0 +1,18 @@
+{
+  "source_root": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing",
+  "stage_root": "/private/tmp/qbp-next-architecture",
+  "source_files": {
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "generalisation.py": "a7a5b0e3c49a6e7a4a8137bd565ed6c5ac691c3732553c890c4c556ed2bc2655",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "resource_study.py": "309cdd04390ef64f68d5ccf96e726a66535a1d0313602032d3fc003a87b32765",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  },
+  "historical_results_untouched": {
+    "generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+    "generalisation_resources.json": "c3c4c77d28680c34052cb36214d971515e01d6cba505bb1f3718c8bb8c55bc5e",
+    "generalisation_matched_interval.json": "d180f968efd09307c40c59aebd46f3ddd7e4245ddf6fd0a0b6abd46a78d35d49"
+  }
+}

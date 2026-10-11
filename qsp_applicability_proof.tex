@@ -1,0 +1,214 @@
+\subsection{What the comparator signal does and does not supply}
+\label{sec:qsp-applicability-audit}
+
+I distinguish a payoff transformation from a mean estimator. The published
+payoff construction of \citet{stamatopoulos}, Sections 2--4,
+equations (4)--(25), acts on a scalar already held in a binary register.
+Its approximation recipe in Appendix A constrains finitely many nodes;
+I therefore supply separate admissibility and uniform-error certificates
+before transferring that construction to a different financial function.
+
+\begin{proposition}[Exact comparator signal and the identity case]
+\label{prop:comparator-qsp-identity}
+Let $c\geq0$, $N=2^c$, and let $a$ be a binary integer with
+$0\leq a\leq N$. Its register has $c+1$ bits so that the endpoint $N$
+is represented. Let $J$ have $c$ qubits, let $F$ be a flag qubit, and
+let $C$ be the Boolean permutation
+\[
+ C\lvert a,j,f\rangle
+   =\lvert a,j,f\mathbin\oplus\mathbf1_{\{j<a\}}\rangle.
+\]
+Define $U=C(I\otimes H^{\otimes c}\otimes I)$ and, within a fixed
+$a$ sector, define the input and output projectors
+\[
+ \Pi=\lvert0^c,0\rangle\langle0^c,0\rvert,
+ \qquad \widetilde\Pi=I_J\otimes\lvert1\rangle\langle1\rvert.
+\]
+Then $\widetilde\Pi U\Pi$ has exactly one non-zero singular value
+$s_a=\sqrt{a/N}$ when $a>0$, and is zero when $a=0$.
+The odd transformation $P(s)=s$ requires only $U$ and produces
+the original comparator probability $a/N$ exactly. Thus an identity
+transformation of an already computed finite output supplies no
+distinct payoff oracle or estimator.
+\end{proposition}
+
+\begin{proof}
+The Hadamards prepare $N^{-1/2}\sum_{j=0}^{N-1}\lvert j\rangle$.
+The success projector retains precisely the $a$ integers
+$j=0,\ldots,a-1$. Therefore
+\[
+ \widetilde\Pi U\Pi
+ =N^{-1/2}\left(\sum_{j=0}^{a-1}\lvert j,1\rangle\right)
+       \langle0^c,0\rvert.
+\]
+The input row vector is normalised. The output vector has squared norm
+$a/N$ because its basis vectors are orthonormal. Multiplying its adjoint
+by itself gives $(a/N)\Pi$, which proves the singular-value assertion.
+The endpoint cases are covered by an empty or complete sum; for $c=0$
+the sole integer is $j=0$ and the circuit is a controlled NOT from the
+single value bit. The identity transformation is the displayed matrix
+itself. It requires no phase approximation, polynomial fitting, or
+additional signal calls. An outer preparation over latent values changes
+the flag probability to $\sum_y p_y a(y)/N$ by orthogonality of the
+retained latent labels, exactly as in the existing finite oracle.
+\end{proof}
+
+This identity conclusion depends on the precise signal contract. A
+binary value register holding $x$ is not itself a block encoding of $x$;
+the comparator above supplies the singular value $\sqrt x$. If a
+different upstream oracle instead has singular value $x$, probability
+$x$ would require a polynomial approximating $\sqrt x$ on the
+nonnegative signal domain, and the identity polynomial would yield
+$x^2$. If the upstream signal is a transformed log price, its target
+polynomial is a different composition again. The proposition therefore
+does not exclude an efficient QSP replacement for a nonlinear operation
+that precedes the current numerical output. It identifies the trivial
+comparison at the current comparator boundary only.
+
+The comparator convention must be checked rather than copied by name.
+The displayed strict predicate $[a<j]$ in equation (18) of the published
+paper is inconsistent with the $a$ good zero outcomes displayed in its
+equation (19): the literal predicate gives $a+1$ zero outcomes for
+$0\leq a<N$. I use $[j<a]$ with good flag one, or equivalently
+$[j\geq a]$ with good flag zero. This observation is a direct finite
+count, not a claim that the authors' implementation uses the inconsistent
+convention. I have not inspected that implementation.
+
+\begin{proposition}[Cost and error specification for a nontrivial transform]
+\label{prop:qsp-transform-complete-specification}
+Suppose an explicitly retained phase sequence with $d$ signal calls
+implements a real polynomial $P$ of definite parity through the
+alternating $U,U^\dagger$ construction. Let $h:[0,1]\to[0,1]$ be a
+target probability, and suppose
+\[
+ |P(s)|\leq1\quad(-1\leq s\leq1),\qquad
+ |P(\sqrt x)-\sqrt{h(x)}|\leq\eta
+ \quad\hbox{for every attainable }x=a/N.
+\]
+Suppose the emitted phase gates have aggregate operator-norm error at
+most $\xi$ relative to that exact phase sequence. Then the implemented
+probability differs from $h(x)$ by at most $2\eta+2\xi$ at each attainable
+value. The same bound holds for any mixture over the latent labels.
+It is valid to replace $2\eta$ by the directly certified maximum of
+$|P(\sqrt x)^2-h(x)|$ when that maximum is smaller.
+\end{proposition}
+
+\begin{proof}
+For $u,v\in[-1,1]$, $|u^2-v^2|=|u-v||u+v|\leq2|u-v|$.
+The ideal polynomial probability therefore differs by at most $2\eta$.
+For unit vectors $\psi,\varphi$ and any orthogonal projector $E$,
+\[
+ |\langle\psi,E\psi\rangle-\langle\varphi,E\varphi\rangle|
+ \leq |\langle\psi-\varphi,E\psi\rangle|
+       +|\langle\varphi,E(\psi-\varphi)\rangle|
+ \leq2\|\psi-\varphi\|.
+\]
+For a product of unitary factors, insertion and subtraction of one
+factor at a time gives a telescoping operator-norm bound equal to the
+sum of the factor errors. Exact signal calls and exact conjunction
+computations add zero. Hence the compiled output state is within $\xi$
+of the ideal output, and its projected probability differs by at most
+$2\xi$. The triangle inequality gives the stated bound. Taking a
+probability-weighted sum preserves it.
+\end{proof}
+
+I can implement each signed phase without controlling a measurement
+tape. With selector qubit $S$ and a clean bit $B$ computing a projector
+predicate $b$, the gate sequence
+\[
+ \operatorname{CX}_{B,S}\,R_z(2\phi)_S\,
+ \operatorname{CX}_{B,S}
+ =\exp\{i\phi Z_S(2b-I)\}
+\]
+follows by conjugating $Z_S$ by the controlled NOT. The formula uses
+the convention $R_z(\theta)=\exp(-i\theta Z/2)$; in chronological
+order the same three gates are applied. For $\Pi$, $b$ is the
+conjunction of the $c+1$ zero tests on $J,F$. A clean chain computes
+and uncomputes this predicate using $2c$ exact Toffolis and
+$2(c+1)$ NOT gates. For $\widetilde\Pi$, the predicate is the
+single flag and requires no conjunction. Each phase therefore includes
+two controlled NOT gates and one actual synthesised $R_z$, in addition
+to the projector predicate's gates. The selector Hadamards and its
+final zero test are retained. In the odd case the good event is
+$F=1,S=0$; in the even case it is $J=0^c,F=0,S=0$.
+The success reflection must consequently include the full good predicate,
+including selector and, for even degree, comparator registers.
+
+If $V$ computes the clean numerical output while retaining the latent
+label, the direct complete wrapper is $V^\dagger\mathcal S_PV$ after
+latent preparation, where $\mathcal S_P$ is the retained QSP tape.
+For any additive gate metric its charge is
+\[
+ 2C(V)+dC(U)+\sum_{k=1}^d C(\text{signed projector phase}_k)
+       +2C(H_S),
+\]
+plus the latent preparation, a compiled success reflection, estimator
+calls, observations and reset. $V^\dagger$ is justified because the
+transform preserves the value label. A fused compiler can remove
+redundant computation, but only an emitted circuit establishes the
+corresponding saving. The $P(s)=s$ case can remove the wrapper entirely
+and is exactly the existing fused preparation. Non-Clifford phase costs
+must be the counts of the retained Clifford+$T$ tapes, not a logarithmic
+asymptotic estimate. Their matrix certificates retain relevant global
+phases, particularly for later controlled use.
+
+\begin{proposition}[The conditioned residual is not generally a function
+of geometric log price alone]
+\label{prop:qsp-geometric-scalar-obstruction}
+For the continuous financial model let
+$m_G(y)=\mu_G+R_G\cdot y$ and
+$B_A(y)=\sum_iw_i\exp(\mu_i+R_i\cdot y)$, with $w_i>0$.
+Suppose there exists a vector $v$ with $R_G\cdot v=0$ and
+$R_i\cdot v\ne0$ for at least one $i$. Then
+\[
+ h(y)=P_\lambda(\log B_A(y))-P_\lambda(m_G(y))
+\]
+is not a function of $m_G(y)$ alone, where $P_\lambda$ is the normalised
+Gaussian-smoothed capped payoff from this model with $\lambda,H>0$.
+\end{proposition}
+
+\begin{proof}
+Fix any $y_0$ and parameterise $y=y_0+tv$. The geometric log price is
+constant. Differentiating the finite sum twice gives
+\[
+ \frac{d^2}{dt^2} B_A(y_0+tv)
+ =\sum_iw_i e^{\mu_i+R_i\cdot(y_0+tv)}(R_i\cdot v)^2>0.
+\]
+Every term is nonnegative and the specified term is positive for all
+$t$, so $B_A$ is strictly convex and in particular nonconstant on this
+line. The logarithm is strictly increasing. The smoothed payoff is
+strictly increasing: differentiating its expectation by dominated
+convergence gives
+\[
+ P'_\lambda(m)
+ =H^{-1}\mathbb E\left[K e^{m+\lambda Z}
+   \mathbf1_{\{K<K e^{m+\lambda Z}<K+H\}}\right]>0.
+\]
+The integrand is bounded by $(K+H)/H$ and is positive on an interval
+with strictly positive Gaussian probability. Thus
+$P_\lambda(\log B_A(y))$ is nonconstant on a line on which
+$P_\lambda(m_G(y))$ is constant, proving the claim.
+\end{proof}
+
+This obstruction applies to the frozen four- and eight-asset loading
+matrices, as can be checked using their exact rational decimal entries.
+It does not apply to every possible choice of scalar signal, and it does
+not assert impossibility of multivariate QSP or a different arithmetic
+construction. The two-asset family has one outer coordinate and requires
+its own assessment. After $m_A=\log B_A$ has been computed, separate
+univariate transforms can evaluate the two smoothed payoffs, but their
+combination must preserve the financial difference. In particular,
+subtracting square-root amplitudes produces
+$(\sqrt{p_A}-\sqrt{p_G})^2$, whereas the required residual is
+$p_A-p_G$. These expressions are different whenever
+$0<p_G<p_A$. An explicit linear-combination or signed-expectation
+construction, its normalisation and its bias budget are therefore needed
+before it can replace the positive residual oracle.
+
+The estimator programme of \citet{rallfuller2023} is a separate
+comparison. Its final Sections 1.1 and 3 specify rotated projectors and
+Chebyshev sampling. I do not transfer empirical query constants into a
+worst-case logical-gate budget. I count every confidence look in an
+adaptive implementation, including repeated looks at a fixed degree,
+and certify the conversion from its amplitude target to the present
+probability target.

@@ -1,0 +1,39 @@
+{
+  "nonmonotone_price": {
+    "contract": {
+      "spot": 100.0,
+      "strike": 100.0,
+      "cap": 20.0,
+      "maturity": 1.0,
+      "rate": 0.03,
+      "dividend": 0.01,
+      "volatility": 0.37725529392435914
+    },
+    "volatility_lower": 0.33952976453192324,
+    "volatility_upper": 0.4149808233167951,
+    "true_price_at_peak": 6.824816677935019,
+    "lower": 6.810228849396712,
+    "upper": 6.824816677935019,
+    "endpoint_only_upper": 6.812785664192653,
+    "interior_peak_included": true,
+    "volatility_peak": 0.37725529392435914
+  },
+  "singular_covariance": {
+    "observations": 3,
+    "dimensions": 3,
+    "scatter_rank": 2,
+    "covariance_ml_status": "singular_scatter_no_positive_definite_covariance_mle",
+    "covariance_candidate_eigenvalues": [
+      8.252149463532654e-18,
+      0.014180081121065289,
+      0.06841991887893473
+    ],
+    "shrinkage_strength": 0.1,
+    "shrunken_eigenvalues": [
+      0.0027533333333333455,
+      0.015515406342292095,
+      0.0643312603243746
+    ],
+    "remedy_status": "fixed-strength sample-trace target regularisation; not maximum likelihood; no exact CI transplanted"
+  }
+}

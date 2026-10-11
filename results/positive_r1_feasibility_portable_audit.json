@@ -1,0 +1,16 @@
+{
+  "schema": "qbp-positive-r1-feasibility-portable-replay-v1",
+  "status": "passed",
+  "audit_source_sha256": "ffcc3c3fb7c1b97d671456545b3b2ab0fd48b3bb4a4b0f32006253449cb71542",
+  "historical_source_sha256": "cdc06b8fc855109aa5c8b49dbc03289e98b8f0098b795f404fd516a7da42df84",
+  "original_protocol_sha256": "22b21ecc8d152f59de6f0c97f6e4ab4786e87e5abef004758969ccfb0a0b50b8",
+  "original_result_sha256": "8eeb3eadd30f63966dd6ce7f10d667381b8fff5d912cdb54c6bfc20c6708151b",
+  "replay_protocol_sha256": "379a3b2da9703d3cbaa4d1bc2a06e8b4ae404697b9441557ce795c6a88c07d41",
+  "replay_result_sha256": "9123dd1239627ea6b67ee57efc36e6b5abfeb882344290d2a62844003310e3a8",
+  "numerical_rows_sha256": "a3e041ac64ea8be559de3a6b5462b697f93d107111f373a62ae419c04130d8b1",
+  "pairs_replayed": 7,
+  "vertices_rebuilt": 290,
+  "unchanged_historical_source": true,
+  "only_runtime_path_bindings_changed": true,
+  "numerical_rows_identical": true
+}

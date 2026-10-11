@@ -1,0 +1,46 @@
+\section{Independent verification of the transport transform}
+Fix a truncated Gaussian cell $[a,b]$ and a dyadic node $c\in[a,b]$. The continuous cell measure is $\nu_c(dy)=\phi(y)\mathbf1_{[a,b]}(y)\,dy$, and its rounded counterpart is $\tau_c=\nu_c([a,b])\delta_c$. Let
+\[
+ \mu_{1,c}=\int_a^b(y-c)\phi(y)\,dy,
+ \qquad \mu_{2,c}=\int_a^b(y-c)^2\phi(y)\,dy.
+\]
+For every twice continuously differentiable $f$,
+\[
+ \nu_c(f)-\tau_c(f)=\mu_{1,c}f'(c)+\int_a^b f''(z)\rho_{2,c}(z)\,dz,
+\]
+where
+\[
+ \rho_{2,c}(z)=\begin{cases}
+ \int_a^z(z-y)\phi(y)\,dy,&a\leq z\leq c,\\
+ \int_z^b(y-z)\phi(y)\,dy,&c\leq z\leq b.
+ \end{cases}
+\]
+The kernel is nonnegative. This identity follows by writing finite Taylor's theorem about $c$ separately on each side and interchanging integrations on the two finite triangles. The sides agree at $c$ only up to their respective values; continuity at that single point is unnecessary for the integral. The total mass is
+\[
+ \int_a^b\rho_{2,c}(z)\,dz=\frac12\mu_{2,c}.
+\]
+Applying the identity to $f(y)=e^{vy}$, summing over cells and retaining the actual rounded-node law gives
+\[
+ M_{\nu}(v)-M_{\tau}(v)
+ =v\sum_c\mu_{1,c}e^{vc}+v^2M_{\rho_2}(v).
+\]
+Here $\nu$ always denotes the continuous truncated Gaussian measure and $\tau$ always denotes the rounded measure with the same raw mass. For $v\ne0$,
+\[
+ M_{\rho_2}(v)=\frac{M_{\nu}(v)-M_{\tau}(v)-v\sum_c\mu_{1,c}e^{vc}}{v^2},
+\]
+while $M_{\rho_2}(0)=\frac12\sum_c\mu_{2,c}$. For rates so small that division amplifies numerical cancellation, the nonnegative support property supplies the rigorous alternative
+\[
+ e^{-|v|L}M_{\rho_2}(0)\leq M_{\rho_2}(v)\leq e^{|v|L}M_{\rho_2}(0).
+\]
+Both zero-rate and tiny-rate cases must be handled without silently treating a nonzero rate as zero.
+
+The product-measure telescope is
+\[
+ \nu^{\otimes p}-\tau^{\otimes p}
+ =\sum_{j=1}^{p}\nu^{\otimes(j-1)}\otimes(\nu-\tau)\otimes\tau^{\otimes(p-j)}.
+\]
+It is an algebraic identity for finite measures, including subprobabilities. Each untouched coordinate contributes its actual transform, and at rate zero it contributes the retained mass, not one. This prevents the otherwise hidden normalisation error of a factor $a^{p-1}$. The absolute linear term is dominated by the positive atomic measure $\rho_1=\sum_c \bar\mu_{1,c}\delta_c$, where $\bar\mu_{1,c}\geq|\mu_{1,c}|$. The quadratic term uses $\rho_2$ directly. Cauchy's inequality under any finite positive hybrid measure $\eta$ has the form
+\[
+ \int |fg|\,d\eta\leq\sqrt{\int f^2\,d\eta\int g^2\,d\eta};
+\]
+there is no division by the mass of $\eta$. The nonnegative geometry moments of $U$, $T_j$ and $T_{jj}$ may therefore be evaluated as signed exponential-polynomial sums with outward arithmetic while retaining cancellation before applying Cauchy.

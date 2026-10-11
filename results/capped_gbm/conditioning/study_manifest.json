@@ -1,0 +1,193 @@
+{
+  "data_status": "entirely synthetic designed contracts; no market-data acquisition or redistribution",
+  "purpose": "test L2 conditioning/control geometry and estimator cost limitations within classical GBM",
+  "underlying_law": "classical risk-neutral GBM, continuous dividend yield, exact terminal simulation",
+  "price_only_scope": "no conditioned Greek formula is claimed",
+  "cases": [
+    {
+      "case": "lower_kink",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "analytic_price": 6.3057373074164005
+    },
+    {
+      "case": "upper_kink",
+      "parameters": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "analytic_price": 12.913081534441744
+    },
+    {
+      "case": "inside_spread",
+      "parameters": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "analytic_price": 9.754705352964642
+    },
+    {
+      "case": "deep_cap",
+      "parameters": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "analytic_price": 18.740349703176378
+    },
+    {
+      "case": "low_vol_short_dated",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      },
+      "analytic_price": 0.5861329122587406
+    },
+    {
+      "case": "negative_rate_dividend",
+      "parameters": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      },
+      "analytic_price": 6.0244501056692314
+    },
+    {
+      "case": "high_volatility",
+      "parameters": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      },
+      "analytic_price": 7.572863461876825
+    }
+  ],
+  "conditioning_fractions": [
+    0.25,
+    0.5,
+    0.9
+  ],
+  "main_independent_pilot_size": 8192,
+  "production_draws_per_case_split": 65536,
+  "coefficient_absolute_bound": 1000000.0,
+  "repeated_independent_pilots": 32,
+  "clipping_rule": "Euclidean coefficient norm at most 1e6; scalar [\u22121e6,1e6]",
+  "main_pilot_clipping_events": 0,
+  "repeated_pilot_clipping_events": 0,
+  "seed": 840731,
+  "analytic_baseline": "call spread; strongest exact-price baseline here, no Monte Carlo or quantum pricing advantage",
+  "stream_design": "independent pilot and production; methods share production draws; each split has its own independent stream",
+  "time_coupling_limitation": "different fractions are marginal split simulations, not a jointly sampled Brownian path across times",
+  "coefficient_sign": "estimate Y\u2212beta C or m\u2212beta c, with controls centred at their known zero means",
+  "pilot_scope": "bounded pilot coefficients preserve ideal-arithmetic conditional unbiasedness; no universal finite-pilot superiority",
+  "cost_scope": "per-estimator stand-alone normal/exponential/payoff/CDF counts; no equal-wall-clock claim",
+  "actual_shared_study_generation_counts": {
+    "main_normal_variates": 3096576,
+    "repeated_pilot_normal_variates": 11010048,
+    "pilot_least_squares_fits": 1386,
+    "note": "shared joint observations compute both raw and conditional targets; stand-alone kernel counts differ"
+  },
+  "quadrature": "smooth conditional moments and analytic-inner residual checks GH160/GH320; kinked joint identity GH80 by GH80 diagnostic only",
+  "variance_ratio_raw_oracle_to_conditional_oracle_min": 1.2865982300055898,
+  "variance_ratio_raw_oracle_to_conditional_oracle_max": 93.76668718230732,
+  "pilot_adverse_rankings_retained": 152,
+  "repeated_pilot_rows": 672,
+  "no_practical_quantum_advantage": true,
+  "floating_point_status": "NumPy float64, pseudo-random normal generation, stdlib erfc; no outward-rounded certificate",
+  "conditional_price_formula": "stable CDF-interval call-spread expression, four CDF evaluations/state; upper-tail intervals use survival differences",
+  "conditional_range_fallback_diagnostics": {
+    "production": {
+      "conditional_state_evaluations": 1376256,
+      "lower_range_violations": 0,
+      "upper_range_violations": 49,
+      "maximum_time_zero_clipping_adjustment": 3.4580737971777494e-15,
+      "sum_absolute_time_zero_clipping_adjustments": 1.6944561606170973e-13
+    },
+    "main_pilots": {
+      "conditional_state_evaluations": 172032,
+      "lower_range_violations": 0,
+      "upper_range_violations": 4,
+      "maximum_time_zero_clipping_adjustment": 3.4580737971777494e-15,
+      "sum_absolute_time_zero_clipping_adjustments": 1.3832295188710998e-14
+    },
+    "repeated_pilots": {
+      "conditional_state_evaluations": 5505024,
+      "lower_range_violations": 0,
+      "upper_range_violations": 149,
+      "maximum_time_zero_clipping_adjustment": 3.4580737971777494e-15,
+      "sum_absolute_time_zero_clipping_adjustments": 5.152529957794846e-13
+    },
+    "gh160_moments": {
+      "conditional_state_evaluations": 3360,
+      "lower_range_violations": 1,
+      "upper_range_violations": 0,
+      "maximum_time_zero_clipping_adjustment": 1.83e-322,
+      "sum_absolute_time_zero_clipping_adjustments": 1.83e-322
+    },
+    "gh320_moments": {
+      "conditional_state_evaluations": 6720,
+      "lower_range_violations": 2,
+      "upper_range_violations": 0,
+      "maximum_time_zero_clipping_adjustment": 1.9e-322,
+      "sum_absolute_time_zero_clipping_adjustments": 3.3e-322
+    },
+    "kinked_joint_diagnostic": {
+      "conditional_state_evaluations": 134400,
+      "lower_range_violations": 0,
+      "upper_range_violations": 0,
+      "maximum_time_zero_clipping_adjustment": 0.0,
+      "sum_absolute_time_zero_clipping_adjustments": 0.0
+    }
+  },
+  "numerical_unbiasedness_limitation": "ideal exact-arithmetic projections are unbiased; floating-point CDF evaluation and range clipping are not a certified unbiased implementation",
+  "versions": {
+    "python": "3.13.9",
+    "numpy": "2.3.5"
+  },
+  "sha256": {
+    "conditioning_price_comparison.csv": "2e4a29937429e9d733455d529dffc0256cba5b40dfafb4124e71aefc6e0c2f5d",
+    "independent_pilot_risk.csv": "7175a5dcf593790c8cfdded1a5ffb236e8da2f93fa47652d2a400e6b128c2c66",
+    "main_pilot_coefficients.csv": "243d0d5e6bfe97321e501e5f3d292c2c26c23c6b0b85c18ad83befdbedbd7e36",
+    "population_variance_comparison.csv": "d6c72951a1aa2e8f9f64b17c6336a8078b97999e354bb3b8b51d73dde291c269",
+    "projection_identity_diagnostics.csv": "dad033e90c75a5a9617ac5ae5234cf93c97f7f4aa438e75b4f46b134a95fc162",
+    "quadrature_refinement.csv": "957d2f125bf1eb2fa1674f12d3c3318ef45df9aba584300e319d21626586ad5a",
+    "conditioning_controls.py": "d77cda6d74a86d73d1dfdd9eb948e374d59e17e2ea2953800005d21a4a707c4d",
+    "run_conditioning_study.py": "9bf71ec56419332429ff6317c843e859f4c598b1332c2e01339e5fbbba96959f",
+    "capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa",
+    "test_conditioning_controls.py": "1c4f5540c735e2837aace06a1e7ac048613323fc41e0f9d92a41466e940a7869"
+  }
+}

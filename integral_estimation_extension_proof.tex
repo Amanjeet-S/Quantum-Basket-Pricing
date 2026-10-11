@@ -1,0 +1,157 @@
+\section{Complete estimation budgets for a certified financial correction}
+\label{sec:integral-estimation-budget}
+
+I retain the established canonical amplitude-estimation theorem
+\citep{brassard}. The new financial normalisation can require a probability
+tolerance below the earlier implementation domain $10^{-6}$, so I extend
+the resource implementation without silently extrapolating its tapes.
+The construction in this section supports phase widths through 64. Every
+accepted width has a retained circuit and a norm bound; a request beyond
+that domain is rejected.
+
+\subsection{An explicitly charged wider inverse Fourier transform}
+
+A controlled phase of distance $d$ has matrix
+$\operatorname{diag}(1,1,1,e^{-i\pi/2^d})$. Replacing it by the identity
+has operator-norm error
+\[
+ 2|\sin(\pi/2^{d+1})|\leq\pi/2^d.
+\]
+The inequality follows from $|\sin x|\leq|x|$, which follows by integrating
+$\cos x$ and using $|\cos x|\leq1$. In an $m$-wire Fourier circuit there
+are $m-d$ controlled phases of distance $d$, for $1\leq d<m$.
+I emit the existing certified sequences for $d\leq31$ and replace more
+distant phases by the identity. Hence the extra omission allowance is
+\begin{equation}
+ \Delta_m^{\rm omit}\leq\pi_+
+       \sum_{d=32}^{m-1}{m-d\over2^d},\qquad \pi_+=355/113>\pi.
+ \label{eq:integral-qft-omission}
+\end{equation}
+The sum is zero for $m\leq32$. All retained phases keep their scalar phase
+corrections. An omitted phase has zero scalar correction; it is compared
+directly with the identity as above.
+
+For unitary products, insertion and subtraction of one factor at a time
+gives an operator-norm difference bounded by the sum of individual
+factor errors, since multiplication by a unitary preserves that norm.
+Combining the retained rotation certificates with
+\eqref{eq:integral-qft-omission} therefore gives a complete bound
+$\Delta_m$. The aggregate scalar correction can be commuted to the front
+of the product. It has no effect on this final, uncontrolled transform's
+measurement probabilities. It cannot be discarded in a subsequently
+controlled use, which is not the construction here.
+
+The implemented widths one through 32 reproduce the previous exact
+rotation tapes, gate counts and norm bounds. The extension retains actual
+chronological gate sequences and their hashes for every wider profile.
+At width 64 the certified norm upper bound is approximately $0.002202$,
+which is below $1/64$. Its final-transform cost is 167,223 T gates.
+These counts concern the Fourier component, rather than the financial
+preparation or a complete pricing run.
+
+\subsection{Confidence and the monetary target}
+
+Let $p$ be the exact probability of a certified finite flag and let
+$u\in[0,1]$ be a certified upper prior. Set
+$v=u(1-u)$ when $u\leq1/2$ and $v=1/4$ otherwise. A rational upper
+square root of $v$ supplies the usual sufficient amplitude-estimation
+radius
+\begin{equation}
+ e_M={2\pi_+\sqrt{v}^{\,+}\over M}+{\pi_+^2\over M^2},
+ \qquad M=2^m.
+ \label{eq:integral-canonical-radius}
+\end{equation}
+I choose the first supported $m$ for which
+$e_M+10^{-60}\leq e_p$, where $10^{-60}$ is the retained, separately
+proved classical output-arithmetic allowance. I require
+$10^{-60}<e_p<1/2$. If $u\leq2e_p$, the midpoint of $[0,u]$ already
+suffices without shots. This is distinct from the financial whole-correction
+or continuous-pricing tests, which can resolve a price before a flag is
+constructed at all.
+
+To transfer the compiled Fourier error to its confidence, let $\psi$ and
+$\widetilde\psi$ be normalised ideal and compiled joint states, with their
+scalar phases aligned and distance at most $\Delta_m$. Write
+$c=\langle\psi,\widetilde\psi\rangle$. The difference of their rank-one
+projectors has trace zero and its two possible nonzero eigenvalues are
+$\pm\sqrt{1-|c|^2}$: its squared trace is $2(1-|c|^2)$ and its rank is at
+most two. For any event projector, its expectation difference consequently
+has magnitude at most $\sqrt{1-|c|^2}$. Moreover
+\[
+ 1-|c|^2\leq2-2\operatorname{Re}c
+       =\|\psi-\widetilde\psi\|^2,
+\]
+because the difference between the right and left sides is $|1-c|^2$.
+Thus an ideal good-event probability lower bound $8/\pi_+^2$ becomes
+$8/\pi_+^2-\Delta_m$. This reasoning includes entanglement with the
+financial registers; no pure reduced-state assumption is required.
+
+I round $\Delta_m$ upward to the $2^{-80}$ grid and call the resulting
+success lower bound $s_m$. It is strictly above one half for every retained
+profile. Independent fresh repetitions and an odd median give failure at
+most the exact finite sum
+\begin{equation}
+ \sum_{j=(n+1)/2}^n\binom nj(1-s_m)^j s_m^{n-j}.
+ \label{eq:integral-confidence-binomial}
+\end{equation}
+For success probabilities at least $s_m$, a common-uniform coupling makes
+the number of failures stochastically no larger than a binomial law with
+parameter $1-s_m$, proving the bound. I take the first odd $n$ whose sum
+is at most the prescribed $\alpha$. The phase-width search and confidence
+search are finite under the accepted-domain conditions. A reproducible
+simulation seed does not establish independent physical repetitions.
+
+For a signed correction $C\mathbb E X$, decoded by $2p-1$, the estimation
+radius is $2C e_p$. For a nonnegative correction decoded by $p$, it is
+$C e_p$. Here $C$ includes any Gaussian-likelihood normalisation of the
+chosen preparation. Coefficient, financial transfer, auxiliary-grid and
+arithmetic errors consume their stated monetary allowances before choosing
+$e_p$. They are not charged again as a statistical failure event.
+For 27 prespecified selected prices I allocate $\alpha=1/2700$ to each;
+the union bound gives total failure at most $1/100$. The implementation
+selection is deterministic and precedes all estimator shots. This coverage
+is for one selected implementation per price, rather than simultaneous
+coverage of every tested method and precision.
+
+\subsection{Full coherent operations and reusable-shot accounting}
+
+Let $A$ be the complete financial comparator preparation, including its
+original-label Hadamards, auxiliary calculation, numerical evaluation,
+flag and private-work erasure. The reflection core consists of original
+input labels, comparison labels and the flag; all excluded private work is
+zero on its invariant subspace. The controlled Grover circuit is the
+chronological sequence
+\[
+ \operatorname{CZ}_{C,F},\quad A^\dagger,\quad
+       \operatorname{controlled}S_0,\quad A,\quad Z_C.
+\]
+The final $Z_C$ supplies the conditional global minus. Arithmetic gates in
+$A$ are not all upgraded to controlled gates. The zero reflection computes
+its conjunction with actual Toffolis and returns its private work to zero.
+I expand each Toffoli by its literal seven-T sequence. The supplied
+financial profile must already consist of coherent Clifford and T atoms;
+a remaining Toffoli placeholder or measurement gadget is rejected.
+
+The primitive-count record for $A^\dagger$ swaps T with its adjoint and S
+with its adjoint, while leaving self-adjoint gates unchanged. Doubling the
+individual T count would misreport its actual gate types even though the
+sum of T and its adjoint is unchanged. The complete cost per repetition
+is one $A$, $M-1$ controlled Grover calls, phase-input Hadamards, one emitted
+inverse Fourier tape, final observations and reset. Serial T-depth caps,
+logical-qubit allocations and operation counts are kept separately.
+
+For a reusable shot with $w$ allocated wires, I observe each wire and apply
+its classically conditioned X reset. This uses $w$ observations and at
+most $w$ reset operations. Phase-register observations are already present
+in the estimator's observation metric, so I add only $w-m$ further
+observations there. They were not present in its primitive-operation metric;
+that metric receives all $2w$ observation/reset operations exactly once.
+Both the per-repetition and aggregate records contain these charges.
+Each total equals its per-repetition count times the number of repetitions.
+Reset has no T cost, but its operations and allocated wires are retained.
+
+The circuit profiles and confidence bounds specify an ideal logical
+implementation. They do not establish physical execution time, a quantum
+noise threshold or superiority over classical pricing. A financial method
+enters this comparison only after its own continuous-target and complete
+value-oracle certificates have passed.

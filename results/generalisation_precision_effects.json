@@ -1,0 +1,826 @@
+{
+  "scope": "fixed-prefix causal comparison; minimum feasible probability width in 4..15; complete emitted counts; no global optimisation claim",
+  "source_hashes": {
+    "generalisation.py": "a7a5b0e3c49a6e7a4a8137bd565ed6c5ac691c3732553c890c4c556ed2bc2655",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "resource_study.py": "309cdd04390ef64f68d5ccf96e726a66535a1d0313602032d3fc003a87b32765",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  },
+  "resource_sha256": "c3c4c77d28680c34052cb36214d971515e01d6cba505bb1f3718c8bb8c55bc5e",
+  "script_sha256": "80c5fdad05919ed28a581e1dd932d4cd2e981de426e1c02f8d9651e9a6973702",
+  "configurations": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "fixed_q": 22,
+      "fixed_b_y": 9,
+      "fixed_exp_address_bits": 10,
+      "fixed_log_address_bits": 10,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 584,
+          "block_toffolis": 5766,
+          "flag_toffolis": 86424,
+          "T": 604968,
+          "arithmetic_price_error_upper": 0.0009631682947450353
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 584,
+          "block_toffolis": 5766,
+          "flag_toffolis": 86424,
+          "T": 604968,
+          "arithmetic_price_error_upper": 0.0009631682947450353
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "fixed_q": 23,
+      "fixed_b_y": 12,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 12,
+          "remainder_bits": 13,
+          "selector_internal_nodes": 2302,
+          "block_toffolis": 8918,
+          "flag_toffolis": 149760,
+          "T": 1048320,
+          "arithmetic_price_error_upper": 0.0009974735063697417
+        },
+        "full_cap": {
+          "bits": 12,
+          "remainder_bits": 13,
+          "selector_internal_nodes": 2302,
+          "block_toffolis": 8918,
+          "flag_toffolis": 149760,
+          "T": 1048320,
+          "arithmetic_price_error_upper": 0.0009759657946746853
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "fixed_q": 25,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 13,
+      "results": {
+        "full_global": {
+          "bits": 13,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 4606,
+          "block_toffolis": 14164,
+          "flag_toffolis": 245564,
+          "T": 1718948,
+          "arithmetic_price_error_upper": 0.0009192017804188897
+        },
+        "full_cap": {
+          "bits": 12,
+          "remainder_bits": 15,
+          "selector_internal_nodes": 2305,
+          "block_toffolis": 9992,
+          "flag_toffolis": 228876,
+          "T": 1602132,
+          "arithmetic_price_error_upper": 0.0007244059159148992
+        }
+      },
+      "flag_toffoli_saving": 16688,
+      "T_saving": 116816,
+      "one_bit_coarsening_formula": 16688
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "fixed_q": 18,
+      "fixed_b_y": 9,
+      "fixed_exp_address_bits": 9,
+      "fixed_log_address_bits": 9,
+      "results": {
+        "full_global": {
+          "bits": 9,
+          "remainder_bits": 11,
+          "selector_internal_nodes": 376,
+          "block_toffolis": 3828,
+          "flag_toffolis": 57028,
+          "T": 399196,
+          "arithmetic_price_error_upper": 0.0009947860878453652
+        },
+        "full_cap": {
+          "bits": 9,
+          "remainder_bits": 11,
+          "selector_internal_nodes": 376,
+          "block_toffolis": 3828,
+          "flag_toffolis": 57028,
+          "T": 399196,
+          "arithmetic_price_error_upper": 0.0009947860878453652
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "fixed_q": 22,
+      "fixed_b_y": 12,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 768,
+          "block_toffolis": 6134,
+          "flag_toffolis": 112084,
+          "T": 784588,
+          "arithmetic_price_error_upper": 0.0007833750554836526
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 768,
+          "block_toffolis": 6134,
+          "flag_toffolis": 112084,
+          "T": 784588,
+          "arithmetic_price_error_upper": 0.0007833750554836526
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "fixed_q": 26,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 17,
+          "selector_internal_nodes": 1576,
+          "block_toffolis": 9572,
+          "flag_toffolis": 195876,
+          "T": 1371132,
+          "arithmetic_price_error_upper": 0.0009727851175963171
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 17,
+          "selector_internal_nodes": 1576,
+          "block_toffolis": 9572,
+          "flag_toffolis": 195876,
+          "T": 1371132,
+          "arithmetic_price_error_upper": 0.0009727851175963171
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "fixed_q": 18,
+      "fixed_b_y": 9,
+      "fixed_exp_address_bits": 8,
+      "fixed_log_address_bits": 9,
+      "results": {
+        "full_global": {
+          "bits": 8,
+          "remainder_bits": 12,
+          "selector_internal_nodes": 247,
+          "block_toffolis": 3908,
+          "flag_toffolis": 56700,
+          "T": 396900,
+          "arithmetic_price_error_upper": 0.0009642246428475473
+        },
+        "full_cap": {
+          "bits": 8,
+          "remainder_bits": 12,
+          "selector_internal_nodes": 247,
+          "block_toffolis": 3908,
+          "flag_toffolis": 56700,
+          "T": 396900,
+          "arithmetic_price_error_upper": 0.0009642246428475473
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "fixed_q": 23,
+      "fixed_b_y": 12,
+      "fixed_exp_address_bits": 10,
+      "fixed_log_address_bits": 10,
+      "results": {
+        "full_global": {
+          "bits": 9,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 511,
+          "block_toffolis": 6578,
+          "flag_toffolis": 108576,
+          "T": 760032,
+          "arithmetic_price_error_upper": 0.0009740610140157251
+        },
+        "full_cap": {
+          "bits": 9,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 511,
+          "block_toffolis": 6578,
+          "flag_toffolis": 108576,
+          "T": 760032,
+          "arithmetic_price_error_upper": 0.0009740610140157251
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "fixed_q": 22,
+      "fixed_b_y": 13,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 1019,
+          "block_toffolis": 6636,
+          "flag_toffolis": 130476,
+          "T": 913332,
+          "arithmetic_price_error_upper": 0.0008738693113963072
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 1019,
+          "block_toffolis": 6636,
+          "flag_toffolis": 130476,
+          "T": 913332,
+          "arithmetic_price_error_upper": 0.0008738693113963072
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "fixed_q": 23,
+      "fixed_b_y": 11,
+      "fixed_exp_address_bits": 10,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 1164,
+          "block_toffolis": 7044,
+          "flag_toffolis": 238592,
+          "T": 1670144,
+          "arithmetic_price_error_upper": 0.00097680555626868
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 1164,
+          "block_toffolis": 7044,
+          "flag_toffolis": 238592,
+          "T": 1670144,
+          "arithmetic_price_error_upper": 0.00097680555626868
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "fixed_q": 28,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 12,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 2336,
+          "block_toffolis": 11866,
+          "flag_toffolis": 563380,
+          "T": 3943660,
+          "arithmetic_price_error_upper": 0.0009741984856524361
+        },
+        "full_cap": {
+          "bits": 12,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 2336,
+          "block_toffolis": 11866,
+          "flag_toffolis": 563380,
+          "T": 3943660,
+          "arithmetic_price_error_upper": 0.0009526907739573798
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "fixed_q": 27,
+      "fixed_b_y": 15,
+      "fixed_exp_address_bits": 13,
+      "fixed_log_address_bits": 13,
+      "results": {
+        "full_global": {
+          "bits": 13,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 4635,
+          "block_toffolis": 15362,
+          "flag_toffolis": 828164,
+          "T": 5797148,
+          "arithmetic_price_error_upper": 0.000872929098764831
+        },
+        "full_cap": {
+          "bits": 12,
+          "remainder_bits": 17,
+          "selector_internal_nodes": 2321,
+          "block_toffolis": 11204,
+          "flag_toffolis": 811532,
+          "T": 5680724,
+          "arithmetic_price_error_upper": 0.000694678637200566
+        }
+      },
+      "flag_toffoli_saving": 16632,
+      "T_saving": 116424,
+      "one_bit_coarsening_formula": 16632
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "fixed_q": 21,
+      "fixed_b_y": 11,
+      "fixed_exp_address_bits": 9,
+      "fixed_log_address_bits": 10,
+      "results": {
+        "full_global": {
+          "bits": 9,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 391,
+          "block_toffolis": 5262,
+          "flag_toffolis": 192132,
+          "T": 1344924,
+          "arithmetic_price_error_upper": 0.0009929207852570794
+        },
+        "full_cap": {
+          "bits": 9,
+          "remainder_bits": 14,
+          "selector_internal_nodes": 391,
+          "block_toffolis": 5262,
+          "flag_toffolis": 192132,
+          "T": 1344924,
+          "arithmetic_price_error_upper": 0.0009929207852570794
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "fixed_q": 26,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 798,
+          "block_toffolis": 8490,
+          "flag_toffolis": 475248,
+          "T": 3326736,
+          "arithmetic_price_error_upper": 0.000992769242548154
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 798,
+          "block_toffolis": 8490,
+          "flag_toffolis": 475248,
+          "T": 3326736,
+          "arithmetic_price_error_upper": 0.000992769242548154
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "fixed_q": 25,
+      "fixed_b_y": 15,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 1563,
+          "block_toffolis": 8950,
+          "flag_toffolis": 699136,
+          "T": 4893952,
+          "arithmetic_price_error_upper": 0.0008852211232683398
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 1563,
+          "block_toffolis": 8950,
+          "flag_toffolis": 699136,
+          "T": 4893952,
+          "arithmetic_price_error_upper": 0.0008852211232683398
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "fixed_q": 19,
+      "fixed_b_y": 10,
+      "fixed_exp_address_bits": 9,
+      "fixed_log_address_bits": 10,
+      "results": {
+        "full_global": {
+          "bits": 8,
+          "remainder_bits": 13,
+          "selector_internal_nodes": 251,
+          "block_toffolis": 4376,
+          "flag_toffolis": 152200,
+          "T": 1065400,
+          "arithmetic_price_error_upper": 0.0008548238275784466
+        },
+        "full_cap": {
+          "bits": 8,
+          "remainder_bits": 13,
+          "selector_internal_nodes": 251,
+          "block_toffolis": 4376,
+          "flag_toffolis": 152200,
+          "T": 1065400,
+          "arithmetic_price_error_upper": 0.0008548238275784466
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "fixed_q": 26,
+      "fixed_b_y": 13,
+      "fixed_exp_address_bits": 10,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 8940,
+          "flag_toffolis": 366248,
+          "T": 2563736,
+          "arithmetic_price_error_upper": 0.0009801918598861183
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 8940,
+          "flag_toffolis": 366248,
+          "T": 2563736,
+          "arithmetic_price_error_upper": 0.0009801918598861183
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "fixed_q": 25,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 17,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 8324,
+          "flag_toffolis": 470888,
+          "T": 3296216,
+          "arithmetic_price_error_upper": 0.000853429100079895
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 17,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 8324,
+          "flag_toffolis": 470888,
+          "T": 3296216,
+          "arithmetic_price_error_upper": 0.000853429100079895
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "fixed_q": 24,
+      "fixed_b_y": 12,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 15,
+          "selector_internal_nodes": 1168,
+          "block_toffolis": 7592,
+          "flag_toffolis": 641528,
+          "T": 4490696,
+          "arithmetic_price_error_upper": 0.0009118452522901327
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 15,
+          "selector_internal_nodes": 1168,
+          "block_toffolis": 7592,
+          "flag_toffolis": 641528,
+          "T": 4490696,
+          "arithmetic_price_error_upper": 0.0009118452522901327
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "fixed_q": 29,
+      "fixed_b_y": 15,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 13,
+      "results": {
+        "full_global": {
+          "bits": 13,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 4675,
+          "block_toffolis": 16694,
+          "flag_toffolis": 1771388,
+          "T": 12399716,
+          "arithmetic_price_error_upper": 0.0009173733343088191
+        },
+        "full_cap": {
+          "bits": 13,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 4675,
+          "block_toffolis": 16694,
+          "flag_toffolis": 1771388,
+          "T": 12399716,
+          "arithmetic_price_error_upper": 0.000911996406385055
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "fixed_q": 29,
+      "fixed_b_y": 17,
+      "fixed_exp_address_bits": 13,
+      "fixed_log_address_bits": 14,
+      "results": {
+        "full_global": {
+          "bits": 13,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 4660,
+          "block_toffolis": 16664,
+          "flag_toffolis": 4678248,
+          "T": 32747736,
+          "arithmetic_price_error_upper": 0.0008817109673635227
+        },
+        "full_cap": {
+          "bits": 12,
+          "remainder_bits": 19,
+          "selector_internal_nodes": 2333,
+          "block_toffolis": 12520,
+          "flag_toffolis": 4661672,
+          "T": 32631704,
+          "arithmetic_price_error_upper": 0.0006999993133164428
+        }
+      },
+      "flag_toffoli_saving": 16576,
+      "T_saving": 116032,
+      "one_bit_coarsening_formula": 16576
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "fixed_q": 22,
+      "fixed_b_y": 12,
+      "fixed_exp_address_bits": 10,
+      "fixed_log_address_bits": 11,
+      "results": {
+        "full_global": {
+          "bits": 9,
+          "remainder_bits": 15,
+          "selector_internal_nodes": 392,
+          "block_toffolis": 5788,
+          "flag_toffolis": 542348,
+          "T": 3796436,
+          "arithmetic_price_error_upper": 0.0007442659355505973
+        },
+        "full_cap": {
+          "bits": 9,
+          "remainder_bits": 15,
+          "selector_internal_nodes": 392,
+          "block_toffolis": 5788,
+          "flag_toffolis": 542348,
+          "T": 3796436,
+          "arithmetic_price_error_upper": 0.0007442659355505973
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "fixed_q": 27,
+      "fixed_b_y": 15,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 1601,
+          "block_toffolis": 10246,
+          "flag_toffolis": 1591008,
+          "T": 11137056,
+          "arithmetic_price_error_upper": 0.0009256024563206568
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 1601,
+          "block_toffolis": 10246,
+          "flag_toffolis": 1591008,
+          "T": 11137056,
+          "arithmetic_price_error_upper": 0.0009256024563206568
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "fixed_q": 29,
+      "fixed_b_y": 16,
+      "fixed_exp_address_bits": 12,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 20,
+          "selector_internal_nodes": 1611,
+          "block_toffolis": 11598,
+          "flag_toffolis": 2653168,
+          "T": 18572176,
+          "arithmetic_price_error_upper": 0.0009622553811333138
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 20,
+          "selector_internal_nodes": 1611,
+          "block_toffolis": 11598,
+          "flag_toffolis": 2653168,
+          "T": 18572176,
+          "arithmetic_price_error_upper": 0.0009622553811333138
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "fixed_q": 22,
+      "fixed_b_y": 11,
+      "fixed_exp_address_bits": 9,
+      "fixed_log_address_bits": 10,
+      "results": {
+        "full_global": {
+          "bits": 8,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 255,
+          "block_toffolis": 5932,
+          "flag_toffolis": 472600,
+          "T": 3308200,
+          "arithmetic_price_error_upper": 0.000903774905339212
+        },
+        "full_cap": {
+          "bits": 8,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 255,
+          "block_toffolis": 5932,
+          "flag_toffolis": 472600,
+          "T": 3308200,
+          "arithmetic_price_error_upper": 0.000903774905339212
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "fixed_q": 24,
+      "fixed_b_y": 14,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 12,
+      "results": {
+        "full_global": {
+          "bits": 10,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 7736,
+          "flag_toffolis": 993492,
+          "T": 6954444,
+          "arithmetic_price_error_upper": 0.0008806981543758397
+        },
+        "full_cap": {
+          "bits": 10,
+          "remainder_bits": 16,
+          "selector_internal_nodes": 1023,
+          "block_toffolis": 7736,
+          "flag_toffolis": 993492,
+          "T": 6954444,
+          "arithmetic_price_error_upper": 0.0008806981543758397
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "fixed_q": 27,
+      "fixed_b_y": 16,
+      "fixed_exp_address_bits": 11,
+      "fixed_log_address_bits": 13,
+      "results": {
+        "full_global": {
+          "bits": 11,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 2047,
+          "block_toffolis": 11138,
+          "flag_toffolis": 2527500,
+          "T": 17692500,
+          "arithmetic_price_error_upper": 0.0009889885056733059
+        },
+        "full_cap": {
+          "bits": 11,
+          "remainder_bits": 18,
+          "selector_internal_nodes": 2047,
+          "block_toffolis": 11138,
+          "flag_toffolis": 2527500,
+          "T": 17692500,
+          "arithmetic_price_error_upper": 0.0009889885056733059
+        }
+      },
+      "flag_toffoli_saving": 0,
+      "T_saving": 0,
+      "one_bit_coarsening_formula": null
+    }
+  ]
+}

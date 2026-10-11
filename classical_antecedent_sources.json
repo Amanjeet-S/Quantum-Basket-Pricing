@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-08",
+  "scope": "Proposition-level residual degree-four transport closure comparison",
+  "retrieval": {
+    "primary_workflow": "research paper-index search",
+    "failure": "DNS lookup failure (ENOTFOUND)",
+    "fallback": "Primary web source bodies and metadata"
+  },
+  "sources": [
+    {
+      "id": "olivares_alvarez2016",
+      "title": "Pricing Basket Options by Polynomial Approximations",
+      "publication": "Journal of Applied Mathematics, 2016, article9747394,12pages",
+      "doi": "10.1155/2016/9747394",
+      "status": "Published peer-reviewed journal article",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/2016/9747394",
+      "consulted_versions": [
+        {
+          "version": "Final publisher HTML",
+          "locations": "Sections1\u20135; Proposition1 equations6\u201318; Section3 equations25\u201338; Theorem6 equations39\u201354",
+          "limit": "Many mathematical formula bodies stripped"
+        },
+        {
+          "version": "Final publisher body furnished by Wiley through ResearchGate",
+          "url": "https://www.researchgate.net/publication/261597975_Pricing_of_Basket_Options_Using_Polynomial_Approximations",
+          "locations": "Title/copyright/provenance; Proposition1 equations6\u201318; Theorem6 equations39\u201354",
+          "limit": "Mathematical OCR has damaged glyphs; not an exact formula transcription"
+        },
+        {
+          "version": "Author preprint arXiv1404.3229v1,11April2014",
+          "url": "https://arxiv.org/pdf/1404.3229",
+          "locations": "Section2 equations5\u201316 and Proposition1; Section3 exponential-power moments",
+          "limit": "Precursor differs from final article; no final Chebyshev theorem in this version; screenshot fetch failed"
+        }
+      ],
+      "assumptions": "Multivariate Black\u2013Scholes constant covariance, European weighted basket call; spread examples allow negative weights",
+      "overlap": "Conditioning, conditional price derivatives, arbitrary-point/order Taylor pricing, full/truncated Gaussian exponential-power moments",
+      "extra_project_statement": "Rounded residual-grid transfer allowance under positive hybrid measures with degree-four derivative envelopes",
+      "priority_status": "Not established"
+    },
+    {
+      "id": "ju2002",
+      "title": "Pricing Asian and basket options via Taylor expansion",
+      "publication": "Journal of Computational Finance5(3),79\u2013103",
+      "doi": "10.21314/JCF.2002.088",
+      "status": "Published peer-reviewed journal article",
+      "url": "https://www.risk.net/journal-of-computational-finance/2160548/pricing-asian-and-basket-options-via-taylor-expansion",
+      "consulted_versions": [
+        {
+          "version": "Final publisher abstract and issue record only",
+          "locations": "Abstract; Volume5,Number3 issue record",
+          "limit": "Final body/PDF unread"
+        }
+      ],
+      "doi_check": "Final Olivares\u2013Alvarez2016 reference12 records DOI; direct DOI fetch returned cache miss",
+      "overlap": "Moment-matched lognormal reference, characteristic-function ratio Taylor expansion around zero volatility through sixth order",
+      "extra_project_statement": "Exact conditional multiplicative residual and finite rounded-grid certificate",
+      "priority_status": "Unread coefficients/remainders prevent proof-level exclusion"
+    },
+    {
+      "id": "curran1994",
+      "title": "Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price",
+      "publication": "Management Science40(12),1705\u20131711",
+      "doi": "10.1287/mnsc.40.12.1705",
+      "status": "Published peer-reviewed journal article",
+      "url": "https://pubsonline.informs.org/doi/10.1287/mnsc.40.12.1705",
+      "consulted_versions": [
+        {
+          "version": "Final publisher abstract and metadata",
+          "locations": "Abstract, citation record",
+          "limit": "PDF click redirected to abstract"
+        },
+        {
+          "version": "Author-uploaded final journal scan, obtained through the existing authorised Safari session",
+          "url": "https://www.researchgate.net/publication/333906878_Valuing_Asian_and_portfolio_options_by_conditioning_on_the_g",
+          "locations": "All seven printed pages1705\u20131711 visually read during this review; especially Sections2.1\u20132.3, equations1\u20134",
+          "limit": "Ordinary retrieval failed, but Safari retrieval and final-body visual reading subsequently succeeded; no final-body access gap remains",
+          "local_consulted_path": "/Users/amanjeetsingh/Downloads/AsianBasket.pdf",
+          "hash_record": "Parent access ledger residual_priority_access.json; PDF not copied into project"
+        }
+      ],
+      "overlap": "Geometric conditioning, explicit conditional Gaussian covariance, exact geometric-exercise-region component and conditional basket moments; conditional-mean Jensen lower bound",
+      "extra_project_statement": "Exact common-independent-Gaussian-factor conditioning and whole-domain integral curvature remainder R2, with certified transfer to the rounded residual grid",
+      "priority_status": "Final body gap closed; exactness and target distinction identified, but no generic conditioning or moment-theory originality and no algorithm superiority proved",
+      "exact_published_result": "Conditional covariance C\u2212Cww^T C/(w^T Cw); G\u2265K component exact; G<K arithmetic-to-geometric gap approximated by a lognormal law with moments frozen at G=K"
+    },
+    {
+      "id": "dingec_hormann2013",
+      "title": "Control variates and conditional Monte Carlo for basket and Asian options",
+      "publication": "Insurance: Mathematics and Economics52(3),421\u2013434",
+      "doi": "10.1016/j.insmatheco.2013.03.002",
+      "status": "Published peer-reviewed journal article",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0167668713000309",
+      "consulted_versions": [
+        {
+          "version": "Final publisher abstract, introduction and section snippets",
+          "locations": "Simulation; Control variates; Improving the new control variate method; Numerical results; Conclusions",
+          "limit": "Most formulas stripped; final full body/PDF unread"
+        }
+      ],
+      "assumptions": "GBM, constant volatility/rate/dividend yield, weighted arithmetic basket and Asian payoffs",
+      "overlap": "Geometric exercise-region control with known expectation, conditional Monte Carlo and quadratic controls",
+      "extra_project_statement": "Deterministic exact curvature-residual grid-transfer certificate",
+      "priority_status": "No proof-level exclusion; no matched algorithm implementation comparison"
+    }
+  ],
+  "local_inputs": {
+    "tensor_transfer_proof.tex": "18520d6eed46e1a9d429f2d86950ffdbdd5a473675385753cfc3a1ee17a7310f",
+    "generalisation_proofs.tex": "b775cf5a15bc03b464a9b638b79001ec91051ae98cbf0cf4f54b100790e7cade",
+    "novelty_scope_review.md": "45706a76d65a7d9404c3a8e7c0c4b7cdc6f4f58de71733312c25a5cd2c7c845c"
+  },
+  "conclusions": [
+    "Generic Gaussian conditioning and moment integration are established",
+    "Product-MGF factorisation follows elementary Fubini under integrability",
+    "Residual degree-four envelope is a checked project derivation, not verified theoretical priority",
+    "Ju and Dinge\u00e7\u2013H\u00f6rmann final bodies remain unread gaps, not evidence of novelty; Curran final body was visually read during this review"
+  ],
+  "artifacts": {
+    "analysis_file": "classical_antecedent_comparison.md",
+    "analysis_sha256": "3d3abaa03f945790c2b7ac13d313af2e441743ccec82fa2b542d223aea5d0f79",
+    "downloaded_source_pdfs": [],
+    "copyrighted_text_reproduced": false,
+    "externally_consulted_pdfs": [
+      {
+        "path": "/Users/amanjeetsingh/Downloads/AsianBasket.pdf",
+        "pages": 7,
+        "bytes": 370637,
+        "version": "Author-uploaded final Curran1994 scan",
+        "read_by": "Parent researcher",
+        "redistributed": false
+      }
+    ]
+  }
+}

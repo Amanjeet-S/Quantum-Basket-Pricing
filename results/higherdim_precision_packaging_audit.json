@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "manifest": "higherdim_precision_comparison.json.gz.manifest.json",
+  "parts": [
+    {
+      "index": 0,
+      "bytes": 33554432,
+      "sha256": "b654f2a860b82212345765853ae9930d40302bd18eef98fdfdaa7dff16417ea3"
+    },
+    {
+      "index": 1,
+      "bytes": 33554432,
+      "sha256": "6ba3271687bb257aeebe4bd24543f1a6eb9d609538bc409bd55821696d5994e8"
+    },
+    {
+      "index": 2,
+      "bytes": 33554432,
+      "sha256": "5fb6aa5a6f5641c94c76fe5ce0e2e32d9c94c849f1a42c8243e7d9f966247d2b"
+    },
+    {
+      "index": 3,
+      "bytes": 8354054,
+      "sha256": "7e481e552b10b06507a4e5c00b4bb292bb50016e8fe9416289f815c5a01d05f5"
+    }
+  ],
+  "original_bytes": 109017350,
+  "ordered_concatenation_sha256": "c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370",
+  "canonical_file_checked": true,
+  "loader_sha256": "c3464e7d2c6fb15709bd9d91c2070bf0b424b3606a898cfc840d63fcea687b98",
+  "byteexact_proof": "Every ordered shard has its own checked length and SHA-256; SHA-256 over their consecutive bytes equals the independently checked canonical compressed-byte SHA-256. No recompression occurs."
+}

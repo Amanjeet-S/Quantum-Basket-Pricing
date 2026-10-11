@@ -1,0 +1,27 @@
+{
+  "schema": "qbp-factor-basis-source-access-v1",
+  "date": "2026-10-10",
+  "access_method": "User-authorised desktop Safari session, public publisher page and author-uploaded journal first page. No purchase, subscription change, CAPTCHA completion or new data entitlement.",
+  "source": {
+    "authors": "Junichi Imai and Ken Seng Tan",
+    "title": "A general dimension reduction technique for derivative pricing",
+    "publication_status": "Published peer-reviewed journal article",
+    "journal": "Journal of Computational Finance",
+    "volume": 10,
+    "issue": 2,
+    "pages": "129-155",
+    "year": 2006,
+    "first_published_date_verified_on_publisher_page": "11 December 2006",
+    "doi": "10.21314/JCF.2006.143",
+    "publisher_url": "https://www.risk.net/journal-of-computational-finance/2160430/a-general-dimension-reduction-technique-for-derivative-pricing",
+    "publisher_material_consulted": "Final publication metadata and full abstract. The abstract explicitly describes orthogonal transformations of standard independent normal inputs to improve QMC derivative pricing. Full publisher text required access not available in the current session.",
+    "author_upload_url": "https://www.researchgate.net/publication/236010318_A_general_dimension_reduction_technique_for_derivative_pricing",
+    "author_uploaded_version_consulted": "In-page final journal scan, printed page129, with Journal of Computational Finance volume10/number2 Winter2006/07 imprint, article heading, abstract and opening Section1 paragraph.",
+    "direct_author_pdf_attempt": "The direct author-uploaded PDF link reached an interactive verification challenge. It was not completed, and later printed pages or detailed transformation algorithm sections were not consulted.",
+    "sections_not_claimed_as_read": "Sections2 onward, full optimisation algorithm, detailed proofs or empirical tables. Search snippets, generated search overviews and other papers citing this article are not evidence used for the method claim.",
+    "claim_supported": "Orthogonal Gaussian input transformations for derivative-pricing QMC are established. The project does not claim invention of Gaussian rotation or superiority over this published transformation method.",
+    "scope_of_project_specific_comparison": "The retained experiment changes a financial representation, recomputes the finite-grid and physical logical-gate certificates and compares a declared finite pair. No literature-priority claim is inferred from limited source access."
+  },
+  "copyright_handling": "Only metadata, consultation scope and paraphrased methodological attribution are retained. No publisher PDF or full third-party text is redistributed.",
+  "financial_data": "The experiment uses stipulated synthetic GBM parameters. No LSEG observations or derived licensed panels are acquired or published."
+}

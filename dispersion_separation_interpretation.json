@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-08",
+  "stage": "Controlled outer-dispersion admission separation interpretation",
+  "retrieval": "Retained source readings only; no new literature retrieved",
+  "source_version_records": "/private/tmp/qbp-residual-priority-step/sources_classical/source_matrix_classical.json",
+  "source_consultation_limits": {
+    "Olivares_Alvarez2016": "Final publisher HTML plus damaged final journal OCR; distinct author2014 preprint used for conditional Taylor formulas",
+    "Curran1994": "Parent visually read author-uploaded final journal scan, all seven printed pages1705–1711, particularly Sections2.1–2.3 equations1–4",
+    "Ju2002": "Final publisher abstract and metadata only",
+    "Dingec_Hormann2013": "Final publisher abstract, introduction and snippets only"
+  },
+  "local_input_hashes": {
+    "generalisation_proofs.tex": "1d6de1e5b6a49b62a0b61d69236b122452bebb82124b18f8e8224f062c804af3",
+    "residual_priority_review.md": "9d3e69d2e91372edce45ebd66bb05b0645f3ecd9892e16f8e4831df242d05f71",
+    "novelty_scope_review.md": "0d999d5c3a086d949d30070bb06d07f82abf36aa922704a7493a0da7b534b1e1"
+  },
+  "experiment_requested": {
+    "original_contracts": 36,
+    "outer_loading_scales": [
+      "1",
+      "3/2",
+      "2",
+      "3"
+    ],
+    "contracts": 144,
+    "financial_model": "Recompute risk-neutral drifts and all coefficients under scaled complete covariance",
+    "transfer_target": "Existing fixed monetary financial-transfer allocation, separately from complete price radius",
+    "stronger_Taylor_degree_cap": 5
+  },
+  "legitimate_separator_conclusions": [
+    "Original-cohort admission-set equality does not extend to every stress case",
+    "Finite-order omission certificates and exact residual integration-transfer certificates have different targets",
+    "A global remainder-certificate failure need not be approximation inaccuracy"
+  ],
+  "unsupported_separator_conclusions": [
+    "Physical quantum advantage",
+    "A new generic conditioning or moment theory",
+    "Defeating all classical pricing methods",
+    "A universal implication or separation theorem from a finite numerical cohort"
+  ],
+  "figure_recommendation": "Replace only if additive monetary dependencies and mass scaling are shown; otherwise remove redundant boxed textflow",
+  "artifact": "separation_interpretation.md",
+  "sha256": "435162488910db54faa6b32d3f2e6c3537e7c7b46423e60fc0e16903208c469e",
+  "words": 1218
+}

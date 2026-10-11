@@ -1,0 +1,57 @@
+n2_lambda0.4_scale3 8 11 pointwise_T 47491977650 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 8 12 pointwise_T 50252850050 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 8 13 pointwise_T 56383075250 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 8 14 pointwise_T 69234819650 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 10 11 pointwise_T 23879963225 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 10 12 pointwise_T 25259050025 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 10 13 pointwise_T 28321166425 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 10 14 pointwise_T 34740757225 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 12 11 pointwise_T 24508058525 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 12 12 pointwise_T 25887145325 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 12 13 pointwise_T 28949261725 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n2_lambda0.4_scale3 12 14 pointwise_T 35368852525 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 8 11 pointwise_T 178689951925 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 8 12 pointwise_T 184214395525 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 8 13 pointwise_T 196480838325 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 8 14 pointwise_T 222196889925 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 10 11 pointwise_T 89615993650 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 10 12 pointwise_T 92376866050 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 10 13 pointwise_T 98507091250 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 10 14 pointwise_T 111358835650 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 12 11 pointwise_T 90873413750 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 12 12 pointwise_T 93634286150 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 12 13 pointwise_T 99764511350 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.05_scale3over2 12 14 pointwise_T 112616255750 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.2_scale3 8 11 pointwise_T 190428268725 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+n4_lambda0.2_scale3 8 12 pointwise_T 195906859525 amended_T None reject {'reason': 'Explicit smoothing production failure', 'type': 'AssertionError', 'message': ''}
+Traceback (most recent call last):
+  File "<private-stage>/expanded_precision_step/producer/expanded_raw_payoff.py", line 177, in <module>
+    run(args)
+    ~~~^^^^^^
+  File "<private-stage>/expanded_precision_step/producer/expanded_raw_payoff.py", line 149, in run
+    profile=raw.o.counted_composition(g,tables,block_cache,mode);row['profiles'][mode]={'centred':profile}
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/boundary_value_oracle.py", line 181, in counted_composition
+    result=old.counted_composition(graph,tables,cache,mode)
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/integral_value_oracle.py", line 475, in counted_composition
+    out=emit_node(c,node,args,graph.q,graph.width,table);metrics=c.resources()
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/integral_value_oracle.py", line 241, in emit_node
+    out=c.alloc(width);snap=c.snapshot();packed=c.lookup(address,table,2*width+1)
+                                                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/architecture.py", line 168, in lookup
+    self._emit(MACRO,index,-1,-1)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/value_oracle.py", line 69, in _emit
+    super()._emit(op,c1,c2,target)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/architecture.py", line 160, in _emit
+    for gate,wires,condition in plan.operations():self._physical_operation(gate,wires,condition,classical)
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/value_oracle.py", line 66, in _physical_operation
+    self._track_atom(op,wires,condition)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/value_oracle.py", line 48, in _track_atom
+    td=max((self._expanded_tdepth[w] for w in ww),default=0)
+  File "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/value_oracle.py", line 48, in <genexpr>
+    td=max((self._expanded_tdepth[w] for w in ww),default=0)
+    
+KeyboardInterrupt

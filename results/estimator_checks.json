@@ -1,0 +1,93 @@
+{
+  "tests": 10,
+  "failures": 0,
+  "errors": 0,
+  "small_preparation_probability": 0.375,
+  "small_preparation_resources": {
+    "gate_counts": {
+      "H": 4,
+      "CX": 17,
+      "X": 4,
+      "CCX": 12
+    },
+    "logical_qubits": 12,
+    "T_count_exact_7T_Toffoli": 84,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 30,
+    "all_gate_dependency_depth": 18,
+    "arbitrary_rotations": 0
+  },
+  "exact_Toffoli_expansion_resources": {
+    "gate_counts": {
+      "H": 2,
+      "CX": 6,
+      "Tdg": 3,
+      "T": 4
+    },
+    "logical_qubits": 3,
+    "T_count_exact_7T_Toffoli": 7,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 4,
+    "all_gate_dependency_depth": 11,
+    "arbitrary_rotations": 0
+  },
+  "small_preparation_expanded_resources": {
+    "gate_counts": {
+      "H": 28,
+      "CX": 89,
+      "X": 4,
+      "Tdg": 36,
+      "T": 48
+    },
+    "logical_qubits": 12,
+    "T_count_exact_7T_Toffoli": 84,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 40,
+    "all_gate_dependency_depth": 108,
+    "arbitrary_rotations": 0
+  },
+  "small_grover_expanded_resources": {
+    "gate_counts": {
+      "Z": 1,
+      "CX": 214,
+      "X": 18,
+      "H": 68,
+      "Tdg": 90,
+      "T": 120,
+      "CZ": 1
+    },
+    "logical_qubits": 12,
+    "T_count_exact_7T_Toffoli": 210,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 101,
+    "all_gate_dependency_depth": 271,
+    "arbitrary_rotations": 0
+  },
+  "small_grover_resources": {
+    "gate_counts": {
+      "Z": 1,
+      "CX": 34,
+      "X": 18,
+      "CCX": 30,
+      "H": 8,
+      "CZ": 1
+    },
+    "logical_qubits": 12,
+    "T_count_exact_7T_Toffoli": 210,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 78,
+    "all_gate_dependency_depth": 43,
+    "arbitrary_rotations": 0
+  },
+  "small_controlled_grover_resources": {
+    "gate_counts": {
+      "CZ": 2,
+      "CX": 34,
+      "X": 18,
+      "CCX": 32,
+      "H": 8,
+      "Z": 1
+    },
+    "logical_qubits": 13,
+    "T_count_exact_7T_Toffoli": 224,
+    "T_depth_assigned_3layer_Toffoli_or_explicit_T_upper": 84,
+    "all_gate_dependency_depth": 45,
+    "arbitrary_rotations": 0
+  },
+  "scope": "small complete logical state-vector and rational-controller checks; no quantum device or market data"
+}

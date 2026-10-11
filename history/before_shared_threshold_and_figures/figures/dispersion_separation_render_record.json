@@ -1,0 +1,7 @@
+{
+  "source_sha256": "be93a6fbddce699aa9bf7a91bd0bb05fafb717bd82cae807386f18551a444fd4",
+  "data_sha256": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+  "matplotlib_version": "3.10.6",
+  "python_version": "3.13.9",
+  "format": "PNG/SVG plus self-contained standard-LaTeX vector picture; no external graphic dependency for native compilation"
+}

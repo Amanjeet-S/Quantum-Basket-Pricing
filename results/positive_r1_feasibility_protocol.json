@@ -1,0 +1,66 @@
+{
+  "schema": "qbp-positive-r1-feasibility-protocol-v1",
+  "registered_before_fresh_outward_execution": true,
+  "registration_utc": "2026-10-10T12:52:02.233712+00:00",
+  "research_record_date": "2026-10-10",
+  "precision_bits": 512,
+  "inputs_sha256": {
+    "<private-stage>/factor_basis_step/adversarial/quantum/positive_r1_feasibility.py": "cdc06b8fc855109aa5c8b49dbc03289e98b8f0098b795f404fd516a7da42df84",
+    "<private-stage>/factor_basis_step/resources/results/factor_basis_quantum_resources.json": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/taylor_pricing.py": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/continuous_quadrature.py": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/qpe_estimator.py": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/certified_scalar.py": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392"
+  },
+  "pairs": [
+    [
+      "n2_lambda0.4_scale3",
+      "identity"
+    ],
+    [
+      "n4_lambda0.05_scale3over2",
+      "identity"
+    ],
+    [
+      "n4_lambda0.05_scale3over2",
+      "plane_1_2_minus"
+    ],
+    [
+      "n4_lambda0.2_scale3",
+      "identity"
+    ],
+    [
+      "n4_lambda0.2_scale3",
+      "plane_1_2_minus"
+    ],
+    [
+      "n8_lambda0.2_scale3",
+      "identity"
+    ],
+    [
+      "n8_lambda0.2_scale3",
+      "plane_2_3_minus"
+    ]
+  ],
+  "prior_information": "Existing resource study and rounded orientation from identity-basis normalisers were inspected. This fixes a prospective mathematical rejection screen, not a blind first-outcome experiment.",
+  "raw_integral": "R1=Delta integral_0^1 Pprime(m+t Delta) dt, Delta=log T; global B=Delta_max M1.",
+  "raw_auxiliary_bits": [
+    0,
+    4,
+    8
+  ],
+  "threshold_interval": "R1=H Pr{m<log(1+Hs/K)-lambda N<=m+Delta}; same shared threshold draw; H fixed.",
+  "threshold_normal_bits": 10,
+  "threshold_strike_bits": [
+    4,
+    8
+  ],
+  "threshold_normal_domain": "Conditional N(0,1) on [-6,6]; missing mass charged by total variation.",
+  "threshold_arithmetic_screen": "Ideal midpoints and exact comparisons only; no threshold arithmetic error or circuit emission is supplied.",
+  "monetary_radius": "1/100",
+  "alpha_per_price": "1/3600",
+  "statistical_screen": "Canonical QPE phase sizes using ideal prior plus certified auxiliary error, zero new arithmetic. These are optimistic phase screens, not complete resources.",
+  "no_price_answers": true,
+  "data_origin": "Exact synthetic models, synthetic existing certificates; no licensed observations."
+}

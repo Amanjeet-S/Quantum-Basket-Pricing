@@ -1,0 +1,16 @@
+{
+  "schema": "qbp-poolwise-fallback-root-audit-v1",
+  "status": "passed",
+  "auditor_sha256": "39ad8d7389d509b563b884670e90f4a088a5828d4021eace353bebe6c24df67e",
+  "independent_library_sha256": "e86de2f5631165574e06f08d2415c3ff373ba03b1ecc3dd8d8afda3c9dac6d51",
+  "panel_sha256": "d885e8c6933e620d9d8cd485fcffeca93eb0152e51f9de903a1fdf3d4f75ab7c",
+  "amended_resources_sha256": "62edc1c97db3607c82d1a6d68a30301d612c2bc107577c7e6f5e184dd778b034",
+  "admitted_architecture_plans": 808,
+  "retained_rejections": 12,
+  "complete_charge_hash_reconstructions": 808,
+  "fallback_repetition_change": "25 to27; M,QFT andper-repetitionchargeunchanged",
+  "protected_cap_formula": "F(T)=27T/25+floor(27T/250) for every admitted canonical capT",
+  "all_pool_minima_verified": true,
+  "source_or_confidence_frontend_imported": false,
+  "scope": "Independently checked exact QFT/phase/binomial minima, full existing charge scaling hashes, monetary guarantees, rejections and protected-cap minimisation over all416settings/twoarchitectures. Caps do not certify adaptive expected costs or an optimal quantum algorithm."
+}

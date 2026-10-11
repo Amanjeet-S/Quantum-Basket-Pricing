@@ -1,0 +1,52 @@
+{
+  "schema": "qbp-boundary-nested-provenance-v1",
+  "precision_archive_sha256": "88bbfa6ca0c296e30781bf897014f4f53ef97da29a06a7de3d66bd0ea94741e3",
+  "precision_driver_sha256": "00f828b0c50c318e72017be15b1ec907c2a1725255c756800d669b8b38ea1e7f",
+  "nested_dependencies": {
+    "gaussian_derivative_norm.py": {
+      "sha256": "8476eeb3ecefd560e95574b79d40d528113010dda2d3474236d5c016b97fe1ad",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "taylor_pricing.py": {
+      "sha256": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "continuous_quadrature.py": {
+      "sha256": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "generalisation_models.py": {
+      "sha256": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "qft_synthesis.py": {
+      "sha256": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "certified_scalar.py": {
+      "sha256": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "qpe_estimator.py": {
+      "sha256": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "results/gaussian_derivative_norms.json": {
+      "sha256": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "results/generalisation_protocol.json": {
+      "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "results/qft_rotation_tapes.json": {
+      "sha256": "531a2350c4d803ff94d06488fda99d098c356fa1ab4575dc534e8a57a5af5cbb",
+      "matches_pre_execution_repository_baseline": true
+    },
+    "results/qft_rotation_certificates.json": {
+      "sha256": "2fcf586525f3250793bc4f2cb42e7e1c80c801ef59a73082018158f3b244ef8a",
+      "matches_pre_execution_repository_baseline": true
+    }
+  },
+  "scope": "Separately retained provenance supplement for nested scalar/prior and Fourier dependencies. Each file matches the pre-execution protected repository baseline. Executed driver and result remain unchanged."
+}

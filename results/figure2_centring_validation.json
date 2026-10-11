@@ -1,0 +1,30 @@
+{
+  "schema": "qbp-native-figure2-centring-v1",
+  "status": "passed_source_checks_and_native_compilation",
+  "date": "2026-10-10",
+  "drawing_commands_and_coordinates_unchanged": true,
+  "equal_side_margins": "0.02 linewidth",
+  "PNG_SVG_and_numerical_data_unchanged": true,
+  "git_index_before_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "changed_files": {
+    "figures/pricing_precision_figure.tex": {
+      "before": "a6a54a8346d10408f8d681b5e73473e7d65db9ed6cf4b79df66733507f40498f",
+      "after": "cab9a6cdd1673ca16b0ef1986113a7bcc9339292065542f5018e78398ea0af5f"
+    },
+    "generalisation_proofs.tex": {
+      "before": "b13b9d37dad5e9568333fd3810dfdf041e02c9b717d7897cb05bed1cd21e964f",
+      "after": "8a42e59fa8d4d7ae427d5daaa5f848765d308cbbcac8450695d1b93a99419172"
+    },
+    "figures/plot_pricing_precision.py": {
+      "before": "e3a3efa0bd1d6cdb3b96ef4d402e4504a9986cbcf2b16ffe9d5f1d041970491e",
+      "after": "5d9943850ca9af5e773d7856117f0a831bfc94ba4a9dfd516f32a3d9a47d19b2"
+    },
+    "figures/pricing_precision_render_record.json": {
+      "before": "61ebb264f6f16533e38e8cf0f900cae60a9328bed5ed4115ef96038c171d47c8",
+      "after": "28526649421bd72a901dee25656993af7477d7265aa3e3eee30f08a0b1bdf214"
+    }
+  },
+  "latest_compiled_main_source_sha256": "be70624dc9a171205487db630100b639b13f9bd918c5c15b12a7dfc433b513c6",
+  "subsequent_scope": "The research integration also updated the caption and paper claims. Earlier changed-file hashes retain their original centring-phase meaning; current hashes and successful compilation appear in raw_payoff_project_validation.json.",
+  "native_PDF_pixel_review": false
+}

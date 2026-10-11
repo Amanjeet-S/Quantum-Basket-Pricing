@@ -1,0 +1,31 @@
+{
+  "review_date": "2026-10-08",
+  "source": "Cerone, P. (2002). Weighted Three Point Identities and their Bounds. SUT Journal of Mathematics 38(1),17-37.",
+  "version_consulted": "Final publisher PDF, not RGMIA report",
+  "url": "https://www.rs.tus.ac.jp/sutjmath/_userdata/38-1/02-cerone.pdf",
+  "sha256": "b99408f22a4e412de445d21da5a13f9445a9675cfcdf3f03442698da8d1feb69",
+  "pages_consulted": [
+    17,
+    18,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    29,
+    30,
+    35,
+    36,
+    37
+  ],
+  "specific_material": [
+    "Theorem 3 equations 2.13-2.15",
+    "Theorem 5 equations 3.21-3.23",
+    "Remarks 1 and 3 on endpoint specialisations",
+    "n=0 printed branch inconsistency, not used for a literal first-order application"
+  ],
+  "access": "Freely downloadable official publisher PDF. Temporary file only; no redistribution in repository."
+}

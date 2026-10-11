@@ -1,0 +1,9 @@
+{
+  "removed_local_commit": "f6f74dae84cf1e8b6e60f3893abb1aee0ef8b02f",
+  "new_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "remote_main_verified_before_reset": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "rollback": "soft reset, no file removal",
+  "working_files_verified_unchanged": 316,
+  "new_commit_created": false,
+  "remote_history_changed": false
+}

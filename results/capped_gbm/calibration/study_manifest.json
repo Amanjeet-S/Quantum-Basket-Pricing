@@ -1,0 +1,508 @@
+{
+  "data_status": "entirely synthetic Gaussian returns; no licensed, downloaded or empirical observations",
+  "raw_return_storage": "not retained; only code, seeds and aggregate synthetic summaries are saved",
+  "study_design": "predeclared eight cases; 1000 independent datasets per case by default; no post-hoc exclusions",
+  "model": "independent equally spaced multivariate physical Gaussian log returns of constant-coefficient GBM",
+  "physical_pricing_distinction": "physical total drift estimates are not inserted into risk-neutral pricing; r-q remains pricing drift",
+  "pricing_scope": "one-asset capped call using calibrated first marginal volatility; other marginals demonstrate joint inference only",
+  "correlation_matrix": [
+    [
+      1.0,
+      0.4,
+      -0.2
+    ],
+    [
+      0.4,
+      1.0,
+      0.25
+    ],
+    [
+      -0.2,
+      0.25,
+      1.0
+    ]
+  ],
+  "correlation_eigenvalues": [
+    0.42386764462237947,
+    1.171646111483381,
+    1.4044862438942394
+  ],
+  "observations_per_case": 252,
+  "interval_per_case": 0.003968253968253968,
+  "repetitions": 1000,
+  "seed": 926341,
+  "case_seed_rule": "seed+1009*case_index",
+  "regime_seed_rule": "seed+100000+1009*regime_index",
+  "family_alpha": 0.05,
+  "marginal_intervals": "exact Student-t log-drift and chi-square variance under independent Gaussian returns",
+  "family_intervals": "Bonferroni split alpha/(2d) across d log drifts and d variances; union-bound coverage at least 1-alpha",
+  "covariance_estimation": "C/(n*delta) ML only for n>d and full-rank scatter; C/((n-1)*delta) unbiased distinct",
+  "rank_status": "NumPy floating-point tolerance diagnostic; not an exact rank certificate; n<=d always flagged as no positive-definite covariance MLE",
+  "regularisation": "fixed lambda=.1 with data-dependent sample-trace target in singular demonstration only; not ML or exact inferred coverage",
+  "price_interval": "image of marginal volatility CI under fixed contract/rate/dividend; endpoints for minimum and unique positive interior volatility maximum for maximum",
+  "price_uncertainty_exclusions": "no uncertainty in S,K,H,T,r,q, model form, market microstructure or numerical discretisation is covered",
+  "drift_information": "at fixed observation horizon, log-drift standard deviation sigma/sqrt(n*delta) does not vanish with sampling frequency",
+  "coverage_diagnostic": "Clopper-Pearson 95 per cent pointwise intervals for counts over independent synthetic datasets; no joint coverage assertion across diagnostic rows",
+  "arithmetic_status": "float64 normal generation, Student/chi-square/beta quantiles and prices; not outward rounded or formally certified",
+  "price_coverage_comparison_tolerance": "1e-12*max(1,absolute true price), not a certified arithmetic error bound",
+  "originality_status": "established Gaussian inference plus explicitly derived project-specific capped-price uncertainty propagation; no literature priority claimed",
+  "cases": [
+    {
+      "case": "lower_kink",
+      "contract": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "volatilities": [
+        0.2,
+        0.16000000000000003,
+        0.24
+      ],
+      "covariance": [
+        [
+          0.04000000000000001,
+          0.012800000000000004,
+          -0.009600000000000001
+        ],
+        [
+          0.012800000000000004,
+          0.02560000000000001,
+          0.009600000000000001
+        ],
+        [
+          -0.009600000000000001,
+          0.009600000000000001,
+          0.0576
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        0.029999999999999992,
+        0.012199999999999996,
+        0.0312
+      ]
+    },
+    {
+      "case": "upper_kink",
+      "contract": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "volatilities": [
+        0.2,
+        0.16000000000000003,
+        0.24
+      ],
+      "covariance": [
+        [
+          0.04000000000000001,
+          0.012800000000000004,
+          -0.009600000000000001
+        ],
+        [
+          0.012800000000000004,
+          0.02560000000000001,
+          0.009600000000000001
+        ],
+        [
+          -0.009600000000000001,
+          0.009600000000000001,
+          0.0576
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        0.029999999999999992,
+        0.012199999999999996,
+        0.0312
+      ]
+    },
+    {
+      "case": "inside_spread",
+      "contract": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "volatilities": [
+        0.2,
+        0.16000000000000003,
+        0.24
+      ],
+      "covariance": [
+        [
+          0.04000000000000001,
+          0.012800000000000004,
+          -0.009600000000000001
+        ],
+        [
+          0.012800000000000004,
+          0.02560000000000001,
+          0.009600000000000001
+        ],
+        [
+          -0.009600000000000001,
+          0.009600000000000001,
+          0.0576
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        0.029999999999999992,
+        0.012199999999999996,
+        0.0312
+      ]
+    },
+    {
+      "case": "deep_cap",
+      "contract": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "volatilities": [
+        0.2,
+        0.16000000000000003,
+        0.24
+      ],
+      "covariance": [
+        [
+          0.04000000000000001,
+          0.012800000000000004,
+          -0.009600000000000001
+        ],
+        [
+          0.012800000000000004,
+          0.02560000000000001,
+          0.009600000000000001
+        ],
+        [
+          -0.009600000000000001,
+          0.009600000000000001,
+          0.0576
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        0.029999999999999992,
+        0.012199999999999996,
+        0.0312
+      ]
+    },
+    {
+      "case": "low_vol_short_dated",
+      "contract": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      },
+      "volatilities": [
+        0.06,
+        0.048,
+        0.072
+      ],
+      "covariance": [
+        [
+          0.0036,
+          0.001152,
+          -0.0008639999999999999
+        ],
+        [
+          0.001152,
+          0.002304,
+          0.000864
+        ],
+        [
+          -0.0008639999999999999,
+          0.000864,
+          0.005183999999999999
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        0.04819999999999999,
+        0.023848,
+        0.057408
+      ]
+    },
+    {
+      "case": "negative_rate_dividend",
+      "contract": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      },
+      "volatilities": [
+        0.25,
+        0.2,
+        0.3
+      ],
+      "covariance": [
+        [
+          0.0625,
+          0.020000000000000004,
+          -0.015
+        ],
+        [
+          0.020000000000000004,
+          0.04000000000000001,
+          0.015
+        ],
+        [
+          -0.015,
+          0.015,
+          0.09
+        ]
+      ],
+      "dividends": [
+        0.045,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        -0.01625,
+        0.0049999999999999975,
+        0.015
+      ]
+    },
+    {
+      "case": "high_volatility",
+      "contract": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      },
+      "volatilities": [
+        0.65,
+        0.52,
+        0.78
+      ],
+      "covariance": [
+        [
+          0.42250000000000004,
+          0.13520000000000001,
+          -0.1014
+        ],
+        [
+          0.13520000000000001,
+          0.27040000000000003,
+          0.1014
+        ],
+        [
+          -0.1014,
+          0.1014,
+          0.6084
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        -0.16125000000000003,
+        -0.11020000000000002,
+        -0.24420000000000003
+      ]
+    },
+    {
+      "case": "volatility_peak",
+      "contract": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.37725529392435914
+      },
+      "volatilities": [
+        0.37725529392435914,
+        0.30180423513948734,
+        0.45270635270923093
+      ],
+      "covariance": [
+        [
+          0.1423215567939546,
+          0.04554289817406548,
+          -0.034157173630549105
+        ],
+        [
+          0.04554289817406548,
+          0.09108579634813097,
+          0.034157173630549105
+        ],
+        [
+          -0.034157173630549105,
+          0.034157173630549105,
+          0.2049430417832946
+        ]
+      ],
+      "dividends": [
+        0.01,
+        0.015,
+        0.02
+      ],
+      "physical_total_drift": [
+        0.06,
+        0.04,
+        0.08
+      ],
+      "physical_log_drift": [
+        -0.02116077839697731,
+        -0.02054289817406548,
+        -0.042471520891647296
+      ]
+    }
+  ],
+  "frequency_horizon_regimes": [
+    {
+      "regime": "fixed_one_year_horizon",
+      "observations": 63,
+      "interval": 0.015873015873015872
+    },
+    {
+      "regime": "fixed_one_year_horizon",
+      "observations": 252,
+      "interval": 0.003968253968253968
+    },
+    {
+      "regime": "fixed_one_year_horizon",
+      "observations": 1008,
+      "interval": 0.000992063492063492
+    },
+    {
+      "regime": "fixed_daily_frequency_longer_horizon",
+      "observations": 252,
+      "interval": 0.003968253968253968
+    },
+    {
+      "regime": "fixed_daily_frequency_longer_horizon",
+      "observations": 1008,
+      "interval": 0.003968253968253968
+    }
+  ],
+  "counterexamples": "counterexamples.json",
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "code_sha256": {
+    "run_calibration_study.py": "c0fe2323a5553c4ba8164f0fd107a7da0cc3679b6486b8ae982b39bdaca0feb7",
+    "gbm_calibration.py": "c1f297f81718b393a81359e35b7be32197eb26739614acc83a6720f223386129",
+    "capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+  },
+  "results": {
+    "parameter_estimation.csv": {
+      "sha256": "817cbf685026c423382450852ee960978acb2f59d21949d3446b703cc05c7f3a",
+      "bytes": 12830
+    },
+    "coverage.csv": {
+      "sha256": "463bce30112a1a36ec9c6a71d93842abca7eacf8157a58f5a872b22c726e78d9",
+      "bytes": 33063
+    },
+    "price_uncertainty.csv": {
+      "sha256": "076c67cbdc95f583d6d331cc6b26753c685809bbac064aa758e6fbaa9f2e95bb",
+      "bytes": 2804
+    },
+    "frequency_horizon.csv": {
+      "sha256": "8eab8b9ce0752296196c05e2ef154e758458c9c370e9747a542ad1fdb9c3e221",
+      "bytes": 8582
+    },
+    "frequency_horizon_coverage.csv": {
+      "sha256": "38a17981f1a8e597563d6e525bfd5d0bcf81caa143239a4f0897c8b5e852c601",
+      "bytes": 22136
+    },
+    "counterexamples.json": {
+      "sha256": "8590754411a034b2349a55340ffc9aa64ca64eaebcfff24d76c09d4be5211d83",
+      "bytes": 1139
+    }
+  }
+}

@@ -1,0 +1,1425 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[british]{babel}
+\usepackage{url}
+\usepackage[round,authoryear]{natbib}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ph}{\varphi}
+\newcommand{\ind}{\mathbf 1}
+\title{Cap-dependent certificates and exact precision costs\\for coherent capped-basket pricing\\[3mm]\large Proof supplement to the prespecified synthetic comparison}
+\author{Amanjeet Singh}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I derive contract-dependent derivative bounds for an established conditional
+capped-lognormal payoff and connect their discrete precision consequences to
+the fully emitted cost of a specified reversible constructor. I give the
+financial identities, distribution-transfer bounds, fixed-point propagation
+rules, generator constraints and exact interpolation-block counts required by
+that argument. The bounds do not establish a new pricing identity, a globally
+optimal circuit or quantum advantage. I additionally derive a financial
+amplitude prior and a fully specified confidence-certified estimator, prove
+the channel action of a stronger lookup construction, and charge its
+measurements and corrections in complete logical resource bounds.
+The retained numerical study covers 27 frozen synthetic contracts. The
+mathematical statements below distinguish established ingredients from
+project-specific compiler consequences; theoretical novelty remains unverified.
+\end{abstract}
+
+\section{Keywords and claim boundary}
+Keywords: financial mathematics; capped basket option; conditional expectation;
+Gaussian smoothing; fixed-point error; reversible arithmetic; quantum finance.
+
+I investigate when a cap-dependent certificate changes the actual cost of a
+coherent evaluator after equally specialised opponents have been tuned under
+the same monetary bias budget. Analytical basket conditioning is established
+\citep{bayer}; derivative-based discretisation, slope-based error propagation
+and component-dependent precision are established or explicitly anticipated
+\citep{chakrabarti,bhaskar}. I therefore claim neither their invention nor a
+new general precision-allocation theory. The exact cost identities in
+Section~\ref{sec:counts} concern the retained Python constructor and are
+project-specific derivations. I have not established their absence from all
+prior work. The evidence and the versions actually consulted are recorded in
+\texttt{generalisation\_study.md}, \texttt{literature\_audit.md} and
+\texttt{SOURCES.md}. A complete logical evaluator is a component of a pricing
+algorithm. The later sections add a statistical controller with a local
+proof, finite query caps and an absolute monetary confidence guarantee;
+physical fault tolerance and classical runtime superiority remain outside
+this evidence.
+
+\section{Financial model and the controlled target}
+I fix a one-year maturity, initial prices and strike $K=100$, risk-free rate
+$r=0.03$ and dividend yield $d=0.02$. Let $Z,Y_1,\ldots,Y_p$ be independent
+standard normal variables under the stipulated risk-neutral probability
+measure. For strictly positive weights $w_i$ summing to one, residual loading
+rows $R_i\in\R^p$ and common loading $\lambda>0$, define
+\begin{equation}\label{eq:model}
+ S_i=K\exp(\mu_i+R_i\cdot Y+\lambda Z),\qquad
+ \mu_i=r-d-\tfrac12(\|R_i\|^2+\lambda^2).
+\end{equation}
+These terminal variables are obtained from the risk-neutral GBM system
+$dS_i(t)/S_i(t)=(r-d)dt+R_i\cdot dW(t)+\lambda dW_0(t)$ with independent
+Brownian motions. Applying It\^o's formula to $\log S_i(t)$ gives drift
+$r-d-(\|R_i\|^2+\lambda^2)/2$ and diffusion $R_i\cdot dW+\lambda dW_0$,
+which proves~\eqref{eq:model} at maturity. In particular
+$\E S_i=K\exp(\mu_i+(\|R_i\|^2+\lambda^2)/2)=K e^{r-d}$.
+
+I set $A=\sum_iw_iS_i$, $G=\prod_iS_i^{w_i}$ and
+$F_H(x)=\min\{(x-K)_+,H\}$, with $H>0$ and $h=H/K$.
+Concavity of the logarithm gives
+$\log A\geq\sum_iw_i\log S_i=\log G$, so $A\geq G$ pointwise. Since
+$F_H$ is increasing and lies in $[0,H]$, the residual
+$F_H(A)-F_H(G)$ lies in $[0,H]$. The undiscounted target and price are
+\begin{equation}\label{eq:target}
+ V=\E F_H(G)+\E[F_H(A)-F_H(G)],\qquad \Pi=e^{-r}V.
+\end{equation}
+This is an exact control identity, without a fitted control coefficient.
+No variance reduction follows solely from the identity.
+
+Write
+\begin{equation}\label{eq:bases}
+ B_A(Y)=\sum_iw_i e^{\mu_i+R_i\cdot Y},\quad
+ m_A(Y)=\log B_A(Y),\quad
+ m_G(Y)=\sum_iw_i\mu_i+\overline R\cdot Y,\quad
+ \overline R=\sum_iw_i R_i.
+\end{equation}
+Then $A=K e^{m_A+\lambda Z}$ and $G=K e^{m_G+\lambda Z}$, with
+$m_A\geq m_G$. If $\overline\mu=\sum_iw_i\mu_i$ and
+$v_G=\lambda^2+\|\overline R\|^2$, the geometric correction is a capped
+lognormal expectation with log mean $\overline\mu$ and variance $v_G$.
+The same call-spread identity derived below evaluates it analytically. It is
+an offline scalar constant, not a table of joint financial-input payoffs.
+
+\section{The frozen covariance family}
+For two assets I use $w=(1/2,1/2)$ and $R=(-0.1,0.2)^{\mathsf T}$.
+For $n\in\{4,8\}$, let the $j$th column of the $n\times(n-1)$ Helmert
+matrix $H_n$ have its first $j$ entries equal to
+$1/\sqrt{j(j+1)}$, its next entry equal to $-j/\sqrt{j(j+1)}$, and all
+remaining entries zero, for $1\leq j\leq n-1$.
+Its column sums vanish. Each column has squared norm
+$(j+j^2)/(j(j+1))=1$. For $j<k$, the inner product is a multiple of
+$j-j=0$, since all $j+1$ nonzero entries of column $j$ lie among the equal
+entries of column $k$. Thus $H_n^{\mathsf T}H_n=I$ and the columns form an
+orthonormal basis of $\ind^\perp$. Consequently
+$H_nH_n^{\mathsf T}=I-\ind\ind^{\mathsf T}/n$.
+
+I choose $R=cH_n$, with
+$c^2=0.0225/(1-\sum_iw_i^2)$. The weights are
+$(0.4,0.3,0.2,0.1)$ and $(0.3,0.2,0.15,0.1,0.08,0.07,0.06,0.04)$.
+The covariance $\Sigma=\lambda^2\ind\ind^{\mathsf T}+RR^{\mathsf T}$ has
+eigenvalue $n\lambda^2$ on the common direction and $c^2$ on its orthogonal
+complement. Both are positive. Also
+\begin{align}
+ \sum_iw_i\|R_i\|^2-\|\overline R\|^2
+ &=c^2(1-1/n)-c^2(\sum_iw_i^2-1/n)\\
+ &=c^2(1-\sum_iw_i^2)=0.0225.
+\end{align}
+The two-asset anchor has the same dispersion:
+$0.5(0.1^2+0.2^2)-0.05^2=0.0225$.
+
+The ideal Helmert algebra does not silently turn rounded irrational
+coefficients into exact values. The protocol freezes 70-digit decimal
+loadings as exact rational model coefficients. Drifts and covariances are
+computed at 200 digits and independently checked with exact fractions:
+$\Sigma_{ij}=\lambda^2+R_i\cdot R_j$ and
+$\mu_i=0.01-(\lambda^2+\|R_i\|^2)/2$. Positive definiteness of each actual
+finite-decimal matrix is checked by exact rational $LDL^{\mathsf T}$
+elimination with strictly positive pivots. That check concerns all nine
+retained models and does not require an approximate eigenvalue test.
+The nonzero ideal-to-frozen dispersion discrepancy is below
+$1.8\times10^{-71}$. Matching this dispersion does not match
+$\|\overline R\|^2$ or the complete payoff distribution. I make no causal
+claim about pure dimension scaling or classical difficulty.
+
+\section{Conditional and random-strike identities}
+Let $\ph(x)=e^{-x^2/2}/\sqrt{2\pi}$ and
+$\Phi(x)=\int_{-\infty}^x\ph(t)dt$. The layer-cake identity is
+\begin{equation}\label{eq:layer}
+ \min\{(x-1)_+,h\}=\int_1^{1+h}\ind\{x>k\}\,dk.
+\end{equation}
+It follows by considering $x\leq1$, $1<x<1+h$ and $x\geq1+h$ separately.
+Nonnegative integrands permit Tonelli's theorem. For $x=e^{m+\lambda Z}$,
+\begin{equation}\label{eq:kernel}
+ P_{h,\lambda}(m):=\frac1h\E\min\{(e^{m+\lambda Z}-1)_+,h\}
+ =\frac1h\int_1^{1+h}\Phi\left(\frac{m-\log k}{\lambda}\right)dk.
+\end{equation}
+Thus $P$ is increasing, belongs to $[0,1]$, and satisfies
+$P(m)\leq\Psi_\lambda(m):=\Phi(m/\lambda)$.
+The continuously conditioned residual is
+\begin{equation}\label{eq:conditional}
+ g(Y)=H\{P_{h,\lambda}(m_A(Y))-P_{h,\lambda}(m_G(Y))\}.
+\end{equation}
+For an independent uniform $U\in(0,1)$, the integrand difference
+\begin{equation}\label{eq:interval}
+ r(Y,U)=\Phi\left(\frac{m_A(Y)-\log(1+hU)}\lambda\right)
+       -\Phi\left(\frac{m_G(Y)-\log(1+hU)}\lambda\right)
+\end{equation}
+is nonnegative and at most one, and $H\E_U r(Y,U)=g(Y)$.
+These identities compare the same target, rather than different derivatives.
+
+For completeness, let $a=\log(1+h)$, $d_0=m/\lambda$ and
+$d_1=(m-a)/\lambda$. Splitting the expectation between
+$Z\in(-m/\lambda,(a-m)/\lambda)$ and the upper tail, and using
+$e^{\lambda z}\ph(z)=e^{\lambda^2/2}\ph(z-\lambda)$, gives
+\begin{equation}\label{eq:fourcdf}
+ P(m)=\frac{ e^{m+\lambda^2/2}\{\Phi(d_0+\lambda)-\Phi(d_1+\lambda)\}
+            -\{\Phi(d_0)-\Phi(d_1)\}+h\Phi(d_1)}h.
+\end{equation}
+The middle-interval probability is $\Phi(d_0)-\Phi(d_1)$ by symmetry of
+$\Phi$; its exponential moment is the first term in the numerator. The
+remaining upper tail is $h\Phi(d_1)$. This establishes every sign and scale
+in~\eqref{eq:fourcdf}. The coherent full-conditioning constructor evaluates
+the scalar function $P$ with a costed lookup and interpolation block. It
+does not coherently evaluate the four-CDF formula as a free oracle.
+
+\section{Global cap-dependent derivative certificates}
+\begin{theorem}\label{thm:derivative}
+For every $h,\lambda>0$ and every $m\in\R$,
+\begin{align}
+0\leq P'(m)&\leq L_{h,\lambda}
+ :=\min\{\ph(0)/\lambda,(1+h)/h\},\label{eq:L}\\
+|P''(m)|&\leq C_{h,\lambda}
+ :=\min\{\ph(1)/\lambda^2,(1+h)\ph(0)/(h\lambda)\}.\label{eq:C}
+\end{align}
+\end{theorem}
+\begin{proof}
+Put $f_\lambda(x)=\ph(x/\lambda)/\lambda$ and $a=\log(1+h)$.
+The first two derivatives of the CDF integrand are bounded, respectively,
+by $\ph(0)/\lambda$ and $\ph(1)/\lambda^2$, independently of $m$ and $k$.
+The finite integration interval and these bounds justify dominated
+differentiation twice. Changing variables to $s=\log k$ yields
+\begin{equation}\label{eq:Pprime}
+ P'(m)=\frac1h\int_0^a e^s f_\lambda(m-s)ds.
+\end{equation}
+Its positive weights integrate to $(e^a-1)/h=1$, proving the first
+Gaussian slope bound. Since $e^s/h\leq(1+h)/h$ and an integral of the
+normal density over any interval is at most one, the second slope bound
+follows. Directly averaging $f_\lambda'$ proves the generic curvature
+bound: $f_\lambda'(x)=-x\ph(x/\lambda)/\lambda^3$ and
+$\sup_t|t|\ph(t)=\ph(1)$, because $t e^{-t^2/2}$ increases to $t=1$
+and decreases thereafter on $t\geq0$.
+
+For the cap-dependent curvature, $\partial_m f_\lambda(m-s)
+=-\partial_s f_\lambda(m-s)$. Integration by parts gives
+\begin{equation}\label{eq:ibp}
+ P''(m)=P'(m)+\{f_\lambda(m)-(1+h)f_\lambda(m-a)\}/h.
+\end{equation}
+Dropping nonnegative terms yields
+$P''(m)\geq-(1+h)\ph(0)/(h\lambda)$.
+Dropping the negative term and using
+$P'(m)\leq\ph(0)/\lambda$ gives
+$P''(m)\leq\ph(0)/\lambda+\ph(0)/(h\lambda)$, the same magnitude.
+Taking the minimum of the two valid curvature bounds proves the theorem.
+\end{proof}
+
+The cap-dependent slope is strictly smaller precisely when
+$\lambda<\ph(0)h/(1+h)$; the cap-dependent curvature is strictly smaller
+precisely when $\lambda<e^{-1/2}h/(1+h)$. These are comparisons of sufficient
+global bounds, not claims about the exact supremum of each derivative.
+For the nine prescribed $(\lambda,H)$ pairs, curvature improves only at
+$(0.05,10)$ and $(0.05,25)$, and slope improves only at $(0.05,25)$.
+At the latter pair, $L=5$ and $C=39.894228040\ldots$, compared with generic
+$L=7.978845608\ldots$ and $C=96.788289808\ldots$.
+
+\begin{proposition}\label{prop:sharp}
+For each fixed $h>0$, the cap-dependent bounds have sharp weak-loading
+leading constants:
+\begin{equation}
+ \lim_{\lambda\downarrow0}\|P'_{h,\lambda}\|_\infty=\frac{1+h}{h},
+ \qquad
+ \lim_{\lambda\downarrow0}\lambda\|P''_{h,\lambda}\|_\infty
+ =\frac{(1+h)\ph(0)}{h}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Set $M=(1+h)/h$ and $a=\log(1+h)>0$. Theorem~\ref{thm:derivative}
+gives the respective upper limits $M$ and $M\ph(0)$.
+For the slope, choose $m_\lambda=a-\sqrt\lambda$ and substitute
+$s=m_\lambda+\lambda u$ in~\eqref{eq:Pprime}. This gives
+\[
+ P'(m_\lambda)=\frac1h\int_{-m_\lambda/\lambda}^{(a-m_\lambda)/\lambda}
+ e^{m_\lambda+\lambda u}\ph(u)du.
+\]
+The lower endpoint tends to $-\infty$ and the upper endpoint to $+\infty$.
+Extend the integrand by zero outside this interval. On its support,
+$e^{m_\lambda+\lambda u}/h\leq e^a/h=M$, so $M\ph(u)$ is an
+integrable dominator. Pointwise the extended integrand tends to
+$M\ph(u)$. Dominated convergence gives $P'(m_\lambda)\to M$, proving
+the matching lower limit for the supremum.
+For the curvature, evaluate~\eqref{eq:ibp} at $m=a$ and apply
+$|x-y|\geq |y|-|x|$ with $P'(a)\leq M$:
+\[
+ \lambda\|P''\|_\infty\geq
+ M\ph(0)-\lambda M-\ph(a/\lambda)/h.
+\]
+The last two terms tend to zero. The matching upper bound proves the
+second limit. These are fixed-cap limits; simultaneous vanishing of
+$h$ and $\lambda$ requires another argument.
+\end{proof}
+
+This derivation explains why a $1/\lambda$ curvature bound is informative
+in the weak-loading regime compared with the generic $1/\lambda^2$
+bound. I have not established theoretical novelty for this elementary
+asymptotic calculation.
+
+\section{A shared coordinate sensitivity bound}
+\begin{proposition}\label{prop:outer}
+The continuously inner-averaged currency residual $g$ in
+\eqref{eq:conditional} is coordinatewise Lipschitz with constants
+\begin{equation}\label{eq:outerlip}
+ L_j=\min\{K+H,HL_{h,\lambda}\}
+       \{\max_i|R_{ij}|+|\overline R_j|\}.
+\end{equation}
+These constants may be used for the outer distribution transfer of all
+three evaluator families, including direct evaluation.
+\end{proposition}
+\begin{proof}
+All $B_A$ terms are positive. Differentiation gives
+$\partial_jm_A=\sum_i\alpha_i R_{ij}$, where
+$\alpha_i=w_i e^{\mu_i+R_i\cdot Y}/B_A$ are positive and sum to one.
+Hence $|\partial_jm_A|\leq\max_i|R_{ij}|$.
+Also $\partial_jm_G=\overline R_j$. The chain rule and
+Theorem~\ref{thm:derivative} prove~\eqref{eq:outerlip} with factor $HL$.
+
+Independently, $x\mapsto F_H(K e^x)$ is globally $(K+H)$-Lipschitz.
+It is absolutely continuous; its derivative is $K e^x$ when
+$1<e^x<1+h$, and zero elsewhere almost everywhere, so its derivative
+magnitude is at most $K(1+h)=K+H$. Integrating that derivative between
+any two arguments proves the global claim, including both kink points.
+Taking expectation over $Z$ retains this Lipschitz constant. Applying the
+chain rule to the resulting smooth conditional function gives the second
+factor in~\eqref{eq:outerlip}. The minimum of two valid constants is valid.
+
+For direct evaluation I first transfer the outer law while the inner
+$Z$ remains continuous, and then replace the inner law. The first target
+is exactly $g$, so its outer constant is the same. Withholding this
+bound from direct evaluation would introduce an artificial comparator
+disadvantage. The argument uses independence of the coordinates and inner
+factor, rather than any empirical sample sensitivity.
+\end{proof}
+
+\section{Gaussian midpoint-grid transfer with tails}
+For $N=2^b$, define the exact midpoint grid
+$z_k=\Phi^{-1}((k+1/2)/N)$, $0\leq k<N$. Couple a continuous normal
+$Z=\Phi^{-1}(U)$ to $Z_N=z_{\lfloor NU\rfloor}$ using uniform $U$.
+\begin{lemma}\label{lem:coupling}
+For $b\leq18$,
+\begin{equation}\label{eq:coupling}
+ \E|Z-Z_N|\leq D_5(N):=5/N+2\ph(5)/26.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $Q(u)=\Phi^{-1}(u)$ and $Q_5(u)=\min\{\max\{Q(u),-5\},5\}$.
+The midpoint quantiles lie strictly within $[-4.75,4.75]$ for $b\leq18$;
+the retained independent CDF enclosure verifies
+$\Phi(-4.75)<1/(2\,2^{18})$. Thus $Q_5$ and $Q$ agree at each midpoint.
+On one cell $[v,v+1/N]$, an increasing function $q$ has midpoint-step
+$L^1$ error at most
+$(q(v+1/N)-q(v))/(2N)$: on each half-cell bound the deviation by its
+corresponding endpoint-to-midpoint difference and multiply by $1/(2N)$.
+Summing telescopes. Since the range of $Q_5$ is ten, this gives $5/N$.
+Furthermore
+$\E|Q(U)-Q_5(U)|=2\int_5^\infty(z-5)\ph(z)dz
+=2\{\ph(5)-5\overline\Phi(5)\}$.
+
+To bound this tail without an unproved approximation, integration by
+parts gives, for $R>0$,
+$\overline\Phi(R)=\ph(R)/R-\int_R^\infty\ph(z)/z^2\,dz
+\geq\ph(R)/R-\overline\Phi(R)/R^2$.
+Therefore $\overline\Phi(R)\geq R\ph(R)/(R^2+1)$ and the positive-part
+tail is at most $2\ph(R)/(R^2+1)$. With $R=5$, the triangle inequality
+proves~\eqref{eq:coupling}.
+\end{proof}
+
+Successively replacing independent outer coordinates gives currency error
+at most $\sum_j L_jD_5(2^{b_j})$: at each replacement the pointwise
+Lipschitz inequality bounds the coupled change, and expectation preserves
+it. The finite fixed-point quantile register is different from this exact
+grid. Its exhaustive inverse-CDF enclosure permits coordinate error
+$\delta=2^{-q}$, which is charged to arithmetic propagation once.
+I do not add that rounding error again to the exact-grid transfer.
+
+\section{Bounded-variation alternatives and the error split}
+\begin{lemma}\label{lem:bv}
+If a function $f$ has total variation $V_f$ on $[0,1]$, midpoint quadrature
+with $N$ equal cells satisfies
+$|\int_0^1 f(u)du-N^{-1}\sum_k f((k+1/2)/N)|\leq V_f/(2N)$.
+\end{lemma}
+\begin{proof}
+On either half of a cell, $|f(u)-f(c)|$ is bounded by the variation of
+$f$ on that half, where $c$ is the midpoint. Integration over a half-cell
+multiplies this bound by $1/(2N)$. Summing half-cell variations is at most
+the total variation. This proves the claimed inequality, without requiring
+smoothness or monotonicity of $f$.
+\end{proof}
+
+Fix all but one outer coordinate. The arithmetic basket as a function of
+that coordinate is a positive sum of exponentials, and is convex. Its
+derivative is increasing, so it decreases and then increases, allowing a
+one-sided or empty branch. An increasing capped function of this basket
+therefore has variation at most $2H$. The geometric basket is an exponential
+of an affine function, so its capped payoff is monotone or constant and has
+variation at most $H$. Their difference has variation at most $3H$.
+Taking the inner expectation cannot increase this variation: for any
+partition the triangle inequality bounds the sum of averaged increments
+by the average of the sum. Monotone quantile composition cannot increase
+variation either. Lemma~\ref{lem:bv} therefore gives $3H/(2N)$ per outer
+coordinate for every method. I use the minimum of this bound and
+\eqref{eq:outerlip}--\eqref{eq:coupling} coordinate by coordinate.
+Each quantile-composed bounded-variation function is initially defined on
+$(0,1)$. Its finite one-sided limits exist because its total variation is
+finite. I extend it by those limits at zero and one before applying the
+lemma. Endpoint values do not change the integral or midpoint sum.
+
+For the direct inner factor, both capped payoffs are increasing in $Z$,
+and each has variation at most $H$. The residual has variation at most
+$2H$, giving inner midpoint error $H/N_Z$; alternatively its Lipschitz
+constant is $2\lambda(K+H)$, giving
+$2\lambda(K+H)D_5(N_Z)$. For the strike coordinate, each CDF in
+\eqref{eq:interval} is decreasing in $U$ and has variation at most one.
+The currency integrand has variation at most $2H$, giving $H/N_U$.
+Full conditioning has no inner quadrature error.
+
+The frozen study reserves $0.4\epsilon-10^{-12}$ for distribution transfer,
+$0.1\epsilon$ for arithmetic and $10^{-12}$ for the geometric correction,
+with $\epsilon=0.01$. Hence deterministic undiscounted bias is at most
+$0.5\epsilon$. Discounting cannot increase it because $r>0$.
+In the original 108-row evaluator-only study, the remaining
+$0.5\epsilon$ was reserved for an unimplemented statistical estimator.
+Section~\ref{sec:estimator-coverage} now supplies the confidence proof
+and Section~\ref{sec:estimator-budget} its finite resource cap.
+No observed standard deviation is used to supply that guarantee.
+
+\section{Linear interpolation and complete rounding rules}
+\begin{lemma}\label{lem:interpolation}
+Let a twice continuously differentiable function $f$ on a cell of width
+$s$ satisfy $|f''|\leq C$, and let its computed endpoint centres have
+absolute errors at most $\eta$. Nearest fixed-point rounding with step
+$\delta$ and integer linear interpolation with downward product truncation
+gives error at the realised argument at most
+$Cs^2/8+\eta+3\delta/2$. If the input argument has error $e$ and
+$|f'|\leq L$ on the interval containing both arguments, total error is at
+most $Le+Cs^2/8+\eta+3\delta/2$.
+For the unsigned emitter I additionally require increasing nonnegative
+rounded endpoints, an exact nonnegative stored endpoint difference, and
+safe product and output ranges. These are verified premises of the
+retained tables, not consequences of twice differentiability alone.
+\end{lemma}
+\begin{proof}
+Let $\ell$ be the exact endpoint chord on $[a,b]$. For an interior $x$,
+subtract the suitable multiple of $(t-a)(t-b)$ from $f(t)-\ell(t)$ so
+that it also vanishes at $x$. Two applications of Rolle's theorem give
+$f(x)-\ell(x)=f''(\xi)(x-a)(x-b)/2$ for some $\xi\in(a,b)$.
+Since $(x-a)(b-x)\leq(b-a)^2/4$, the chord error is at most $Cs^2/8$.
+Each rounded ordinate differs from the true ordinate by at most
+$\eta+\delta/2$. The interpolated chord is a convex combination of the
+two endpoints, so this is also its perturbation bound; there is no need
+to charge the slope difference independently. The integer product
+truncation introduces an additional error strictly below $\delta$.
+Finally the mean-value theorem bounds the exact-function argument
+perturbation by $Le$. Combining these inequalities proves the result.
+\end{proof}
+
+The implemented unsigned arithmetic is analysed before modular reduction.
+For nonnegative ideal operands $a,b$ with errors $e_a,e_b$, truncating a
+product to $q$ fractional bits gives error at most
+$|a|e_b+|b|e_a+e_ae_b+\delta$. The cross term is retained. A constant
+multiplier $k$ rounded to error $e_k\leq\delta/2$ gives
+$|k|e_a+|a|e_k+e_ae_k+\delta$; for an integer multiplier, $e_k=0$ and
+there is no fractional truncation. Addition and subtraction introduce no
+rounding at a common scale and add operand error bounds. Shifting down by
+$t$ gives error at most $2^{-t}e_a+\delta$.
+
+Projection $C_c(x)=\min\{\max\{x,0\},c\}$ is 1-Lipschitz in $x$ and
+changes by at most $|c-c'|$ when its cap changes. Thus the error of a
+clamp with rounded cap is at most the input error plus $\delta/2$.
+If the cap is exactly representable, this extra allowance is conservative.
+Endpoint range enclosures and these rules are propagated through every
+graph node. At each function call, the perturbed input must lie strictly
+inside its declared address domain; the derivative interval includes both
+arguments and the complete interpolation cell. Every signed mathematical
+intermediate and its error enclosure must have magnitude below
+$2^{w-q-1}=64$, since $w=q+7$. Unsigned multiplicands must represent
+nonnegative values. These checks prevent a modular wrap from being
+misread as a signed value or lookup index. The physically clipped output
+and its subsequent classical scale have separate range checks.
+Ideal nonnegativity alone is insufficient for an unsigned multiplication:
+I require either a nonnegative lower enclosure for the implemented operand
+or structural nonnegativity, such as a physically clamped register.
+In the selected-premise audit the only lower enclosures below zero occur
+at the 27 direct residual clamps, whose implemented outputs are
+nonnegative by construction.
+
+I use 70-digit decimal centres with explicit numerical envelopes and one
+outward binary rounding when recording final bounds. These are finite
+numerical certificates for the declared domains, not a general interval
+arithmetic library or a proof of a transcendental library implementation.
+The ordinary binary-float values in \texttt{domain\_checks} are diagnostic
+summaries, rather than outward-rounded interval endpoints. The independent
+100-digit recurrence checks the domains and budgets separately.
+Python Decimal's correctly rounded exponential, logarithm and square-root
+operations are numerical assumptions. Independent 100-digit enclosures
+check the retained generated endpoints and quantiles. No sampled error
+maximum replaces the analytical propagation argument.
+
+\section{Tail clipping and constrained table generation}
+The probability table domain is $m\in[-2,2]$, with
+$0.05\leq\lambda\leq0.4$ and $0.01\leq h\leq0.25$.
+The four-CDF formula can have arguments outside $[-8,8]$. I use a
+70-digit CDF series inside that interval, set the centre to zero for
+arguments at most $-8$, and to one for arguments at least $8$.
+Mills' upper inequality follows from
+$\int_8^\infty\ph(t)dt\leq\int_8^\infty(t/8)\ph(t)dt=\ph(8)/8$;
+the clipping error is below $6.4\times10^{-16}$.
+
+The series used inside the interval is
+\begin{equation}
+ \Phi(x)=\tfrac12+\ph(0)\sum_{n=0}^\infty
+ \frac{(-1)^n x^{2n+1}}{2^n n!(2n+1)}.
+\end{equation}
+It follows by uniformly integrating the exponential power series on the
+compact interval between zero and $x$. The absolute term ratio is
+$x^2(2n+1)/(2(n+1)(2n+3))$, eventually below one. The retained generator
+stops after this decreasing regime with last term below $10^{-50}$, so
+the first omitted term bounds the alternating remainder. For $|x|\leq8$,
+the absolute sum is at most $8e^{32}<10^{15}$ and the 250th term has
+magnitude below $10^{-118}$; fewer than 250 recurrences suffice. Machin's
+identity $\pi=16\arctan(1/5)-4\arctan(1/239)$, with alternating remainders,
+supplies the normalising constant. Under 70 significant decimal digits,
+each rounded arithmetic operation has relative error at most
+$u=5\times10^{-70}$. A product of at most 4,000 such rounding factors
+has relative error at most $\gamma_{4000}=4000u/(1-4000u)
+<2.01\times10^{-66}$; applying this bound termwise
+to the recurrence and sum, together with the absolute-sum bound and the
+Machin remainder, gives recurrence and summation error below
+$1.3\times10^{-51}$. The Machin-derived $\ph(0)$ error is below
+$10^{-64}$; multiplying it by the absolute-term sum and adding the
+alternating remainder gives total interior CDF error below $10^{-48}$.
+The generator uses this
+deliberately enlarged $10^{-38}$ interior CDF envelope. The independent
+100-digit calculation uses a different recurrence and stopping rule.
+
+In~\eqref{eq:fourcdf}, $B=e^{m+\lambda^2/2}\leq e^{2.08}$.
+If each CDF error is at most $\eta_\Phi$, its combined contribution to
+the normalised kernel error is at most
+\begin{equation}\label{eq:gen}
+ \frac{(2B+2+h)\eta_\Phi}{h}.
+\end{equation}
+This follows by taking absolute values of the four coefficients; the
+coefficient of the second unshifted CDF is $1+h$, rather than discarding
+its $h$ term. With $\eta_\Phi=6.4\times10^{-16}$, replacing $B$ by
+$e^{2.08}$, $h$ in the numerator by $0.25$ and the denominator by $0.01$
+gives less than $1.17\times10^{-12}$.
+For the remaining decimal computations, all log arguments are in
+$[1.01,1.25]$, divisions have denominator at least $0.05$ or $0.01$,
+and $|d_0|,|d_1|<45$. Correctly rounded logarithms, exponentials and
+the finite rational arithmetic give argument perturbations below
+$10^{-60}$ and normalised value perturbations below $10^{-55}$ under
+the same numerical assumptions. The generous
+$\eta_P=2\times10^{-12}$ covers these terms and~\eqref{eq:gen}.
+I do not reuse a $10^{-34}$ allowance after tail clipping.
+
+\begin{lemma}\label{lem:repair}
+Let exact increasing functions $p,s$ satisfy $0\leq p\leq s\leq1$ at
+ordered endpoints $x_j$. Suppose centres $\widehat p_j,\widehat s_j$
+have uniform errors at most $\eta_p,\eta_s$, with $\eta_s\leq\eta_p$.
+Clip their centres to $[0,1]$, then form
+$v_j=\max_{i\leq j}\min\{\widehat p_i,\widehat s_i\}$ and
+$t_j=\max_{i\leq j}\widehat s_i$.
+Then $v_j\leq t_j$, both sequences are increasing,
+$|v_j-p(x_j)|\leq\eta_p$ and $|t_j-s(x_j)|\leq\eta_s$.
+\end{lemma}
+\begin{proof}
+Projection to $[0,1]$ cannot increase error because both exact values lie
+there. For $i\leq j$, $\widehat p_i\leq p(x_i)+\eta_p
+\leq p(x_j)+\eta_p$, proving the upper bound on $v_j$.
+The current endpoint has
+$\widehat p_j\geq p(x_j)-\eta_p$ and
+$\widehat s_j\geq s(x_j)-\eta_s\geq p(x_j)-\eta_p$.
+Their minimum supplies the lower bound. The same prefix-maximum argument
+applied to $s$ proves its enclosure. Order follows because each minimum
+is no greater than its corresponding $\widehat s_i$ and prefix maxima
+are increasing. Nearest rounding is an increasing map, so it retains
+both integer order relations and adds at most $\delta/2$ to each endpoint
+enclosure.
+\end{proof}
+
+The actual CDF generator needs no extra projection to $[0,1]$. Inside
+$|x|<8$, its exact value lies between $\Phi(-8)$ and $1-\Phi(-8)$.
+The previously proved Mills lower bound gives
+$\Phi(-8)\geq8\ph(8)/65>6.2\times10^{-16}$, which exceeds the
+$10^{-38}$ interior envelope. Thus its centre already lies in $[0,1]$;
+outside this interval it returns exactly zero or one.
+
+I apply the lemma with $p=P$ and $s=\Psi$. It remains valid if the upper
+sequence is prefix-maximised before the pointwise minimum. The actual
+generator projects each cap centre below its same-endpoint CDF centre
+and takes a prefix maximum. Its table rows store the rounded left endpoint
+and nonnegative rounded endpoint difference. An independently enclosed
+exact endpoint need not have a uniquely determined nearest integer if its
+enclosure crosses a half-ulp. The certificate requires only absolute error
+at most $\eta_P+\delta/2$, and does not assert unique exact rounding.
+
+\section{Coherent evaluation and Born probabilities}
+Every X, CNOT and exact Toffoli is a permutation of computational-basis
+states, hence a unitary with no input-dependent phase. Clean arithmetic
+computes a result, copies it into a previously zero output register, and
+reverses its complete body. Copying a computational-basis result is CNOT,
+so on a superposition the procedure produces the coherent correlated
+output by linearity. It does not clone arbitrary quantum states.
+
+Let the total uniformly prepared financial input bits be $B$, and let
+$a(x)\in\{0,\ldots,2^q\}$ be the implemented normalised output integer.
+Prepare an independent $q$-bit comparison integer $J$ by Hadamards. The
+clean comparator flips a reserved flag when $J<a(x)$. It preserves its
+inputs and clears its own work. Reversing the financial body then gives
+\begin{equation}\label{eq:unitary}
+ |x\rangle|J\rangle|0_{\rm work}\rangle|0\rangle
+ \longmapsto
+ |x\rangle|J\rangle|0_{\rm work}\rangle|\ind\{J<a(x)\}\rangle.
+\end{equation}
+There are exactly $a(x)$ good comparison integers, including the boundary
+cases $a(x)=0$ and $a(x)=2^q$. Orthogonality of distinct $(x,J)$ basis
+states and the Born rule therefore give
+\begin{equation}
+ \Pr(\text{flag}=1)=2^{-B}\sum_x\frac{a(x)}{2^q}.
+\end{equation}
+This is an exact finite quantum probability. It is distinct from the
+continuous price, whose deterministic bias is bounded separately.
+Small complete gate tapes verify basis mappings and zero work; they do not
+constitute exhaustive production-scale circuit simulation.
+The counted Grover iterate uses two clean evaluators, uniform preparation
+and inverse, the good-flag phase and an explicit zero reflection on the
+invariant input/comparison/flag subspace. These are the historical
+108-row evaluator-only counts. Sections~\ref{sec:estimator-coverage}
+and~\ref{sec:estimator-budget} subsequently supply the repetition
+schedule and confidence proof. The historical seven-T, three-layer
+assignment is retained as a declared profile \citep{selinger};
+Section~\ref{sec:estimator-resources} separately emits and proves the
+actual seven-T expansion and retains its conservative five-layer bound.
+No optimal fault-tolerant resource claim follows.
+
+\section{Exact interpolation cost and a coarsening criterion}\label{sec:counts}
+I now analyse the precise primitive emitter. Inputs and generated carry
+wires are distinct, constants are represented as registers, and there is
+no constant folding of zero data bits into gates. Non-identical intended
+constants do not alias after rounded deduplication in the audited family.
+These assumptions matter for exact count equalities.
+
+\begin{theorem}\label{thm:block}
+Let $w$ be the endpoint register width, $b$ the table address width,
+$S$ the power-of-two input span and $f=q+\log_2 S-b>0$ the remainder
+width. Let $I_b$ be the number of nonempty internal selector nodes visited
+by the emitter for the actual packed table. One forward interpolation
+block emits exactly
+\begin{equation}\label{eq:F}
+ T_{\rm ff}(b)=2I_b+2f(4w+3f)+6w
+\end{equation}
+Toffoli gates. For the full residual's two probability calls and complete
+body inverse, holding all other nodes and $q,w$ fixed, changing $b$ to
+$b-1$ saves exactly
+\begin{equation}\label{eq:saving}
+ 4\{2(I_b-I_{b-1})-(8w+12f+6)\}
+\end{equation}
+Toffolis. The assigned T saving is seven times this quantity and is
+strictly positive precisely when
+\begin{equation}\label{eq:criterion}
+I_b-I_{b-1}>4w+6f+3.
+\end{equation}
+The widths are integers with $w\geq1$, $b\geq1$, $f\geq1$, $f+b\leq w$,
+and every packed word fits in $2w$ bits. For coarsening I require $b\geq2$
+and the corresponding valid premises at both widths.
+\end{theorem}
+\begin{proof}
+The selector emitter visits each nonempty internal binary-tree node once,
+computes its conjunction flag with one Toffoli and clears it with one
+Toffoli. Leaf ordinate copying uses CNOT gates only. Thus the lookup
+uses exactly $2I_b$ Toffolis.
+
+The ripple construction uses three Toffolis per output carry: for bits
+$a,b,c$, their majority is $ab\oplus ac\oplus bc$. If zero or one bit
+is one, this expression is zero; if two are one, exactly one product is
+one; if three are one, three products have odd parity. Hence it is the
+carry bit and emits exactly three Toffolis. A length-$L$ ripple has $3L$
+Toffolis. Clean out-of-place addition computes that ripple, copies with
+CNOTs, and reverses it, giving $6w$ Toffolis at width $w$.
+
+For a variable multiply with a $w$-bit endpoint difference and $f$-bit
+remainder, the constructor has $f$ rows. Each row creates $w$ partial
+product bits, using $w$ Toffolis, then adds its shifted row to a
+$(w+f)$-bit accumulator with a raw ripple of $3(w+f)$ Toffolis.
+The raw multiply therefore uses $f\{w+3(w+f)\}=f(4w+3f)$.
+Output truncation copies selected product bits and does not remove raw
+rows. The clean inverse doubles the count to $2f(4w+3f)$.
+Adding the lookup and final clean addition proves~\eqref{eq:F}.
+
+Coarsening by one address bit increases $f$ by one. The multiplier
+difference is
+\[
+ 2(f+1)\{4w+3(f+1)\}-2f(4w+3f)=8w+12f+6.
+\]
+All other forward nodes and the comparator are unchanged. There are two
+probability calls in the body and two in its inverse, so multiplying the
+single-block difference by four gives~\eqref{eq:saving}.
+Rearranging its strict positivity gives~\eqref{eq:criterion}.
+\end{proof}
+
+For a dense selector tree $I_b=2^b-1$ and
+$I_b-I_{b-1}=2^{b-1}$. Actual probability tails can prune rows, so I use
+the emitted tree, not this dense approximation. A tighter curvature bound
+can make $b-1$ feasible while violating~\eqref{eq:criterion}; then its
+coarser table increases complete flag cost. At $q=18,w=25,b=6$, three
+retained two-asset checks have increased flag counts of 1,352, 1,304 and
+1,248 Toffolis upon coarsening. These examples are cost counterexamples,
+not monetary-target configurations.
+
+For an unchanged full-conditioning prefix with argument errors $e_A,e_G$,
+the scalar propagation certificate has the form
+\begin{equation}\label{eq:beta}
+ \beta_b=H\left[L(e_A+e_G)+\frac{CS^2}{4\,4^b}
+            +\frac72\delta+2\eta_P+\eta_{\rm rat}\right],
+\end{equation}
+where $\eta_{\rm rat}$ encloses the remaining explicitly charged decimal
+bound-operation rounding. The two calls each contribute
+$Cs^2/8+3\delta/2+\eta_P$; exact subtraction adds operand errors and a
+small envelope, and the final rounded-cap clamp is charged $\delta/2$.
+This derives every term of~\eqref{eq:beta} rather than fitting it to a
+reported cost. For arithmetic budget $\epsilon_A$, define
+$D=\epsilon_A/H-L(e_A+e_G)-7\delta/2-2\eta_P-\eta_{\rm rat}$.
+If $D\leq0$, no finite table width can satisfy this certificate when
+$C>0$. If $D>0$, feasibility is precisely
+$4^b\geq CS^2/(4D)$ for this bound. Integer widths and declared domain
+checks remain compulsory; a real-valued logarithm estimate is insufficient.
+Replacing generic $(L,C)$ by cap-aware constants can cross this dyadic
+threshold. A certified cost saving additionally requires
+\eqref{eq:criterion}. These are distinct mathematical conditions.
+
+\section{Matched interval and full selector counts}
+For identical $q$, prefix and probability address width, the repaired
+integer full-kernel endpoint is no greater than the CDF endpoint. A packed
+monotone row is zero exactly when both its left endpoint and its endpoint
+difference are zero, equivalently when its right endpoint is zero.
+If a CDF row is zero, its right endpoint is zero and the ordered full
+endpoint is also zero; monotonicity then makes the full row zero.
+Thus full nonzero-row support is contained in CDF nonzero-row support,
+and every visited full internal selector node is visited by the CDF tree.
+Hence $I_P\leq I_\Psi$. This support argument does not compare CNOT
+popcounts or other lookup architectures.
+
+The current interval graph has one extra strike-log interpolation block,
+two extra probability-argument subtractions and the same final residual
+subtraction. A clean subtraction at width $w$ has $6w$ Toffolis, since
+its borrow-majority raw ripple also has $3w$ and is reversed. If
+$T_{\rm strike}$ is the forward strike-log block count and $F_\Psi,F_P$
+the respective forward probability block counts, complete flag counts obey
+\begin{equation}\label{eq:intervalgap}
+ T^{\rm interval}_{\rm ff}-T^{\rm full}_{\rm ff}
+ =2T_{\rm strike}+24w+4(F_\Psi-F_P).
+\end{equation}
+The first two terms account for the body and its inverse. The probability
+block arithmetic is identical at matched widths and spans, so
+$F_\Psi-F_P=2(I_\Psi-I_P)\geq0$. The uniform strike input uses Clifford
+preparation and no Toffolis; its reflection cost is counted separately.
+Equation~\eqref{eq:intervalgap} proves a matched-constructor count statement,
+not a universal ranking after independently choosing different precisions.
+The historical shortlist in fact retains an interval winner in one case;
+the subsequently inherited opponent pool tests that search limitation.
+
+\section{Retained numerical findings and interpretation}
+The immutable financial protocol contains nine frozen models, three caps
+and four methods. I retain every case. A shared outer sensitivity certificate
+was added after the preliminary smoke run and before the complete study;
+the financial cases were unchanged and the improvement was applied to all
+opponents. This is a transparent algorithm amendment, not a claim that every
+proof and implementation detail was frozen before any diagnostic.
+For each method, I greedily refine table widths at each $q\in\{18,\ldots,30\}$,
+exactly count the two proxy-shortlisted feasible candidates, and retain the
+cheapest emitted candidate. The cap-aware search also retains the global
+winner as a feasible candidate. This search is not an exhaustive circuit
+optimisation. Inheritance of the global winner ensures weak noninferiority
+within the retained candidates; it does not prove strict improvement or
+global optimality.
+
+The cap-aware full evaluator has lower T count in exactly three of 27 cases,
+all with $\lambda=0.05,H=25$. The reductions relative to the independently
+selected generic full evaluator are 13.108, 3.870 and 1.033 per cent for
+two, four and eight assets. At fixed generic prefix, the minimum feasible
+probability address width falls from 13 to 12 in these same cases; emitted
+T savings are 116,816, 116,424 and 116,032. All other 24 cases retain zero
+saving. Direct evaluation is cheapest in three cases and interval
+conditioning in one. Full cap-aware conditioning is cheapest in the other
+23, including ties with its generic counterpart. In the eight-asset weak
+loading, largest-cap case, the cap-aware saving does not beat direct
+evaluation. I cannot infer universal conditioning efficiency from these data.
+
+Independent exact rational model checks, endpoint and quantile enclosures,
+production-grid replay diagnostics, small complete gate tapes and classical
+positive-integral references support the retained evidence. Shifted-Sobol
+replicate dispersion and quadrature refinements are numerical diagnostics,
+not rigorous confidence or integration-error guarantees. The proof establishes
+a conditional constructor-specific precision consequence; the experiments
+establish its observed extent in this synthetic family. QSP, piecewise QSVT and
+arithmetic-free preparation remain stronger unimplemented architecture
+comparisons \citep{stamatopoulos,obrien,mcardle}. The later sections
+implement a pruned unary traversal following \citet{babbush}, with a
+four-T logical AND and corrected measurement erasure following
+\citet{gidney}.
+The original positive literature contribution is therefore still a candidate,
+requiring a tighter source-level distinction and a complete comparison
+with stronger classical and quantum estimators before an algorithm-level
+superiority claim is justified.
+In a separately labelled post-study diagnostic, replacing each of the
+27 interval prefixes by a full kernel at identical $q$, Gaussian width
+and function-address widths remains certified and is strictly cheaper.
+For the apparent eight-asset interval winner at $\lambda=0.4,H=25$, the
+matched full evaluator uses 17,363,612 T gates against 17,547,124 for
+interval conditioning. Its count is below the original retained full
+winner, confirming a heuristic-search limitation. I preserve the original
+108-row output and do not relabel this additional comparison as prespecified.
+
+
+\section{An a priori financial certificate for the implemented amplitude}
+The geometric-control context has established average-option antecedents
+\citep{kemna}; variance-aware quantum financial estimation is established
+\citep{rebentrost}. I do not infer novelty of the following inequalities
+from that attribution or from unsuccessful searches.
+
+\label{sec:prior}
+I now use a model-derived residual-mean certificate to parameterise statistical
+estimation. This uses established positive-control, lognormal-moment and
+concentration arguments. I give its derivation for the frozen model rather
+than claiming a new quantum theorem from those ingredients.
+
+\begin{proposition}\label{prop:meanprior}
+Let $D_R=\sum_i w_i\|R_i\|^2-\|\sum_iw_iR_i\|^2$ for the model in
+\eqref{eq:model}. Then $D_R\geq0$ and
+\begin{equation}\label{eq:meanprior}
+ 0\leq\E[F_H(A)-F_H(G)]\leq
+ \min\{H,B_R\},\qquad
+ B_R=K e^{r-d}\{1-e^{-D_R/2}\}.
+\end{equation}
+Define additionally
+\begin{equation}\label{eq:J0}
+ J_0=\log\sum_i w_i\exp\{\mu_i-\overline\mu+
+                  \tfrac12\|R_i-\overline R\|^2\}
+ =\tfrac12 D_R+\log\sum_iw_i e^{-(R_i-\overline R)\cdot\overline R}.
+\end{equation}
+Then the stronger cap-dependent mean bound is
+\begin{equation}\label{eq:combinedmeanprior}
+ \E[F_H(A)-F_H(G)]\leq B_*:=\min\{H,B_R,HL_{h,\lambda}J_0\}.
+\end{equation}
+If a retained implemented normalised residual has mean $p$ and its
+undiscounted residual bias certificate is $\beta_R$, then
+\begin{equation}\label{eq:finiteprior}
+ 0\leq p\leq u:=\min\{1,(B_*+\beta_R)/H\}.
+\end{equation}
+For its finite fractional output $X\in[0,1]$, and also for a Bernoulli good
+flag with the same mean, a variance certificate is
+\begin{equation}\label{eq:varprior}
+ v_u=\begin{cases}u(1-u),&u\leq1/2,\\1/4,&u>1/2.\end{cases}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Expansion gives
+$D_R=\sum_iw_i\|R_i-\overline R\|^2\geq0$, where
+$\overline R=\sum_iw_iR_i$. The function $F_H$ is increasing and
+1-Lipschitz, and $A\geq G$. Therefore
+$0\leq F_H(A)-F_H(G)\leq\min\{H,A-G\}$ pointwise.
+The risk-neutral drift identity gives $\E A=K e^{r-d}$.
+The geometric log mean is
+$\overline\mu=r-d-(\lambda^2+\sum_iw_i\|R_i\|^2)/2$,
+and its log variance is $v_G=\lambda^2+\|\overline R\|^2$.
+Consequently $\E G=K e^{\overline\mu+v_G/2}
+=K e^{r-d-D_R/2}$. Taking expectations of the pointwise bounds proves
+\eqref{eq:meanprior}. This cancellation explains why the mean bound
+does not depend on the common loading $\lambda$ within this stipulated
+model, although the payoff distribution does.
+
+For the second bound let $J(Y)=m_A(Y)-m_G(Y)\geq0$.
+Since $P'\leq L_{h,\lambda}$, the conditional residual is at most
+$HL_{h,\lambda}J(Y)$ pointwise. Write
+$J(Y)=\log\sum_iw_i e^{\mu_i-\overline\mu+(R_i-\overline R)\cdot Y}$.
+The sum inside the logarithm has finite expectation by Gaussian moments.
+Also $0\leq J(Y)$, and Jensen's inequality for the concave logarithm
+gives $\E J(Y)\leq J_0$. More formally, applying Jensen first to a
+truncation and using integrability follows from the upper bound
+$J(Y)\leq\max_i\{|\mu_i-\overline\mu|+
+\|R_i-\overline R\|\|Y\|\}$ and the finite normal first moment.
+The drift identity simplifies the exponent in the Gaussian expectation
+to $D_R/2-(R_i-\overline R)\cdot\overline R$, proving the equality
+in~\eqref{eq:J0}. Taking expectations and combining the three valid
+mean bounds proves~\eqref{eq:combinedmeanprior}. The positivity of
+$J_0$ also follows because $\sum_i w_i(R_i-\overline R)=0$ and convexity
+of the exponential gives $\sum_iw_i e^{-(R_i-\overline R)\cdot\overline R}
+\geq1$.
+
+Write $\mu_R=\E[F_H(A)-F_H(G)]$. The definition of residual bias gives
+$|Hp-\mu_R|\leq\beta_R$, so $Hp\leq B_*+\beta_R$.
+The implemented clamp supplies $p\in[0,1]$, proving
+\eqref{eq:finiteprior}. The residual bias contains distribution and
+arithmetic errors, but not the offline geometric correction, because the
+correction does not enter $p$.
+For $0\leq X\leq1$, $X^2\leq X$, hence
+$\operatorname{Var}(X)\leq p-p^2=p(1-p)$.
+The function $p(1-p)$ increases on $[0,1/2]$ and is globally at most
+$1/4$, which gives~\eqref{eq:varprior}. Equality of the Bernoulli
+variance with $p(1-p)$ follows by $X^2=X$ for a good-flag measurement.
+\end{proof}
+
+I compute $D_R$ from the exact fractions represented by the frozen decimal
+loadings and verify the stored drift identities with fractions. The
+220-digit correctly rounded exponential calculation is charged an absolute
+currency envelope of $10^{-100}$, much larger than the operation error
+under the declared bounded operands and numerical assumptions. For the
+matched family $B_R=1.129938615958719\ldots$ currency units, with the tiny
+frozen-dispersion discrepancy retained. I also retain $J_0$ and
+$HL_{h,\lambda}J_0$ and use their cap-dependent minimum with $H$ and $B_R$.
+The density constant is computed at 220 digits with Machin's alternating
+arctangent series, charged within the same numerical envelope. I add the exact binary values of the
+outward-recorded arithmetic and distribution bounds before dividing by $H$.
+The resulting finite-amplitude prior is not an observed pilot mean, an
+empirical variance estimate or a prior belief about a market probability.
+It is a deterministic consequence of this stipulated model and its retained
+bias certificates.
+
+\section{A rigorous classical comparator at the same statistical target}
+\label{sec:classicalconfidence}
+I retain both a variance-sensitive concentration bound and a
+distribution-free bounded-output bound, using the smaller certified sample
+budget. The classical samples are independent evaluations of the same
+finite fractional output $X$, with the same deterministic bias. This
+comparison counts function evaluations; a classical function evaluation
+is not assigned the physical cost of a logical T gate.
+
+\begin{lemma}\label{lem:bernstein}
+For independent copies $X_1,\ldots,X_N\in[0,1]$ with mean $p$ and variance
+at most $v$, and for $t>0$,
+\begin{equation}\label{eq:bernstein}
+ \Pr\{|N^{-1}\sum_iX_i-p|\geq t\}
+ \leq 2\exp\left\{-\frac{Nt^2}{2v+2t/3}\right\}.
+\end{equation}
+If $v=0$, the sample mean equals $p$ almost surely and no positive-error
+failure is possible.
+\end{lemma}
+\begin{proof}
+Set $Y=X-p$. Then $\E Y=0$, $|Y|\leq1$ and
+$\E|Y|^k\leq\E Y^2\leq v$ for every integer $k\geq2$.
+Induction gives $k!\geq2\,3^{k-2}$: it is equality at $k=2,3$, and
+multiplication by $k+1\geq3$ preserves the inequality. For $0<s<3$,
+absolute convergence of the exponential series and boundedness of $Y$
+justify expectation term by term. Thus
+\[
+ \E e^{sY}\leq1+v\sum_{k=2}^{\infty}\frac{s^k}{k!}
+ \leq1+\frac{vs^2}{2(1-s/3)}
+ \leq\exp\left\{\frac{vs^2}{2(1-s/3)}\right\}.
+\]
+Independence multiplies the moment-generating functions. Markov's
+inequality then gives upper-tail probability at most
+$\exp\{-Nst+Nvs^2/[2(1-s/3)]\}$.
+For $v>0$, choose $s=t/(v+t/3)<3$. Substitution gives exponent
+$-Nt^2/[2(v+t/3)]$. Apply the same argument to $-Y$ for the lower tail
+and add the two probabilities. If $v=0$, $\E Y^2=0$ implies $Y=0$
+almost surely, proving the separate statement.
+\end{proof}
+
+\begin{lemma}\label{lem:hoeffding}
+Under the same bounded-output and independence assumptions,
+\begin{equation}\label{eq:hoeffding}
+ \Pr\{|N^{-1}\sum_iX_i-p|\geq t\}\leq2e^{-2Nt^2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For one centred variable $Y=X-p$, let $\psi(s)=\log\E e^{sY}$.
+Its first two derivatives exist for all real $s$ because $Y$ is bounded.
+Exponential tilting preserves the support $X\in[0,1]$, and
+$\psi''(s)$ is the variance under the tilted probability measure.
+Under any such measure, $\operatorname{Var}(X)\leq\E X(1-\E X)\leq1/4$.
+Since $\psi(0)=\psi'(0)=0$, integrating twice gives
+$\psi(s)\leq s^2/8$ for every real $s$.
+For $s>0$, independence and Markov's inequality therefore give the
+upper tail at most $e^{-Nst+Ns^2/8}$. Choosing $s=4t$ gives
+$e^{-2Nt^2}$. Applying the same proof to $-Y$ and adding tails proves
+the result.
+\end{proof}
+
+For failure probability $\alpha=0.01$ and exact statistical currency
+allowance $\epsilon_S=0.005$, I set $t=\epsilon_S/H$ and retain
+\begin{align}
+N_B&=\left\lceil\frac{(2v_u+2t/3)\log(2/\alpha)}{t^2}\right\rceil,\\
+N_H&=\left\lceil\frac{\log(2/\alpha)}{2t^2}\right\rceil,\qquad
+N_C=\min\{N_B,N_H\}.
+\end{align}
+I use the inequality corresponding to the chosen integer budget; taking
+the minimum does not combine two failure events. If the deterministic
+price-bias bound is $\beta\leq0.005$, then with probability at least
+$1-\alpha$, the estimate obtained by adding the retained geometric
+correction to $H\overline X$ has undiscounted error at most
+$\beta+\epsilon_S\leq0.01$. Multiplication by $e^{-0.03}\leq1$ preserves
+that upper bound. These are mathematical confidence statements under
+independent exact draws, rather than confidence inferred from a realised
+pilot standard deviation. The quantum estimator is required to meet the
+same $\epsilon_S$ and $\alpha$.
+
+
+\section{A phase-correct logical lookup instrument}
+\label{sec:lookupinstrument}
+I use an explicit clean-target logical-AND isometry. In chronological
+order its gates on controls $a,b$ and initially zero target $t$ are
+\begin{equation}\label{eq:andsequence}
+ H_t,\ T_t,\ \operatorname{CX}_{b,t},\ T_t^\dagger,
+ \operatorname{CX}_{a,t},\ T_t,\ \operatorname{CX}_{b,t},
+ T_t^\dagger,\ H_t,\ S_t^\dagger.
+\end{equation}
+There are four T or adjoint-T gates. The final $S^\dagger$ is essential
+to the clean-target phase. This is not a four-T full Toffoli on an
+arbitrary dirty target. Let $\omega=e^{i\pi/4}$. For control values
+$(a,b)=(0,0)$ or $(0,1)$, the middle target action between the Hadamards
+is identity; for $(1,0)$ it is X. Therefore the full sequence maps
+$|0\rangle_t$ to $|0\rangle_t$ without phase in all three cases, since
+$H I H=I$ and $H X H=Z$. For $(1,1)$, the successive target vectors,
+omitting their common $1/\sqrt2$ factor after the first Hadamard, are
+\[
+ (1,1),\ (1,\omega),\ (\omega,1),\ (\omega,\omega^{-1}),\
+ (\omega^{-1},\omega),\ (\omega^{-1},i),\ (i,\omega^{-1}),\ (i,-i).
+\]
+The last Hadamard produces $i|1\rangle$, and $S^\dagger$ removes that
+phase. Thus for all computational control pairs
+$|a,b,0\rangle\mapsto|a,b,ab\rangle$ with identical phase. Linearity
+proves the isometry on coherent and externally entangled control states.
+Its literal inverse after unchanged controls and target $ab$ costs four
+additional T gates and resets the target exactly.
+
+\begin{proposition}\label{prop:instrument}
+Suppose a computed target $t=ab$ is erased after intervening operations
+that preserve $a,b$ and restore $t$ to $ab$. Those operations may act on
+arbitrary dirty data registers coherently. Apply $H_t$, measure t in the
+computational basis with outcome $z$, apply $\operatorname{CZ}_{a,b}$
+if $z=1$, then apply $X_t$ if $z=1$. Each corrected Kraus branch is
+$2^{-1/2}$ times the same logical data operation with clean t. Its
+outcome probability is $1/2$, independent of the logical input, including
+inputs entangled with an external reference.
+\end{proposition}
+\begin{proof}
+Immediately before erasure, write the general state as
+$\sum_{a,b}|a,b,ab\rangle_t|\chi_{ab}\rangle$, where the unnormalised
+vectors $|\chi_{ab}\rangle$ may include arbitrary data and a reference.
+Hadamard measurement with outcome z multiplies the $(a,b)$ component by
+$2^{-1/2}(-1)^{zab}$ and sets t to $|z\rangle$.
+The conditional CZ supplies $(-1)^{zab}$ again, cancelling the phase
+exactly. The conditional X resets t to zero. The branch state is therefore
+$2^{-1/2}\sum_{a,b}|a,b,0\rangle|\chi_{ab}\rangle$.
+The preserved computational controls are orthogonal, so the branch norm
+squared is one half of the premeasurement norm squared. The same formula
+holds with any reference, establishing equality of the logical channel
+rather than mere equality of classical output distributions.
+\end{proof}
+
+In the emitted selector tree, the child initially stores the conjunction
+of its incoming prefix and address bit. The positive subtree reads that
+child, then a CNOT from the prefix changes it to the negative-branch
+prefix. After the negative subtree a second CNOT restores the original
+conjunction. Addresses and incoming prefixes are preserved. Induction
+from leaf CNOT word fanout to the root therefore supplies the premises
+of Proposition~\ref{prop:instrument}. A coherent enable control can serve
+as the root without altering the argument. Every lookup branch has the
+same input-independent scalar $2^{-I_b/2}$ and the same logical XOR
+lookup on an arbitrary dirty output. The classical record is independent
+of the logical input and leaks no address information. The primitive
+conditional Clifford operations and reset remain counted.
+
+The XOR lookup's logical inverse is the same XOR map with fresh clean
+selectors. In the measurement-assisted mode I invoke a fresh corrected
+instrument; I do not reverse measurements or their recorded outcomes.
+Composing branchwise scalar-times-unitary instruments gives the exact
+logical unitary channel on the retained clean-work subspace, including
+its action on entangled states. This is the premise needed to substitute
+the lookup into a Grover preparation and its logical adjoint. It is an
+ideal logical statement under exact gates, measurement and feedback;
+physical error and feedback latency require a separate implementation
+model. The published temporary-AND and QROM methods supply the antecedents
+\citep{gidney,babbush}; I claim no new four-T AND or universal lookup scheme.
+
+\section{Precision consequences under stronger lookup architectures}
+\label{sec:architectureprecision}
+The exact-seven-T selector pair in Section~\ref{sec:counts} is not the
+strongest published lookup implementation. Unary-iteration QROM and temporary
+logical ANDs provide the relevant antecedents \citep{babbush,gidney}.
+I keep three separately instantiated modes: the exact-Toffoli pair, a
+clean-target four-T AND followed by its literal four-T unitary inverse, and
+a clean-target four-T AND erased by an X-basis measurement and conditional
+Clifford correction. The last mode is a quantum instrument. It cannot be
+obtained by assigning four T gates to every Toffoli in the old Boolean tape.
+The arithmetic multipliers and adders still use the declared exact
+seven-T Toffoli construction.
+
+Let $\kappa$ be the lookup T count per visited internal selector node:
+$\kappa=14$ for an exact-seven-T compute/inverse pair, $\kappa=8$ for
+the clean-target unitary alternative, and $\kappa=4$ for the corrected
+measurement-assisted alternative. These coefficients apply only after
+the primitive gate sequence and its clean-target or corrected-channel
+premises have been checked. The same table support, word fanout and visited
+node count $I_b$ are retained, not replaced by an assumed smaller sparse
+index domain. Conditional Clifford operations, measurements and resets
+are separately charged.
+
+\begin{proposition}\label{prop:architectureprecision}
+For the specified emitted interpolation block under such a proved lookup
+mode, the forward T count is
+\begin{equation}\label{eq:architectureblock}
+ C_b=\kappa I_b+7\{2f(4w+3f)+6w\}.
+\end{equation}
+At fixed full-conditioning prefix and $q$, valid one-bit coarsening saves
+complete flag T gates exactly by
+\begin{equation}\label{eq:architecturesaving}
+ 4\{\kappa(I_b-I_{b-1})-7(8w+12f+6)\}.
+\end{equation}
+Thus strict T saving requires
+$\kappa(I_b-I_{b-1})>7(8w+12f+6)$, in addition to the monetary
+certificate and domain feasibility.
+\end{proposition}
+\begin{proof}
+The lookup's gate plan supplies $\kappa I_b$ T gates. Its fanout is
+Clifford, independent of whether the output target is clean or dirty.
+The multiply and addition counts are exactly those proved in
+Theorem~\ref{thm:block}, multiplied by seven for their exact-Toffoli
+decomposition. The complete flag has two probability blocks and their
+logical inverses. The inverse of a measurement-assisted XOR lookup is a
+fresh corrected instrument realising the same logical XOR map; it has
+the same gate count, rather than a reversed measurement tape. The clean
+target unitary implementation also supplies its literal inverse on its
+declared subspace. Subtracting the two width counts and multiplying by
+four proves~\eqref{eq:architecturesaving}. The sign condition is its
+algebraic rearrangement.
+\end{proof}
+
+Cheaper lookup therefore raises the selector-node saving required to
+compensate for the wider remainder multiplier. The old exact-Toffoli
+criterion is recovered at $\kappa=14$. At $\kappa=4$, it becomes
+$I_b-I_{b-1}>14w+21f+10.5$; because the left side is an integer, this
+strict inequality is interpreted with its actual integer threshold.
+An error-bound improvement that saved T gates under the older constructor
+can fail this stronger architecture's condition. This is a concrete
+architecture-dependent inference, not an assertion that fewer table
+entries are intrinsically worse.
+
+At identical prefix and table widths, the corresponding interval/full
+complete T gap is
+\begin{equation}\label{eq:architectureintervalgap}
+ C^{\rm interval}-C^{\rm full}
+ =2C_{\rm strike}+168w+4\kappa(I_\Psi-I_P).
+\end{equation}
+The two removed argument subtractions each cost $42w$ forward T gates,
+and are also present in the financial inverse. The strike block and two
+probability blocks follow the same accounting. The support inclusion
+proved earlier gives $I_\Psi\geq I_P$. Independently selected precisions
+need not be equal, so fair candidate pools inherit matched opponent
+prefixes and then check each method's own monetary certificate. Neither
+this identity nor candidate inheritance proves global circuit optimality.
+
+
+% Complete insertion: no document preamble or bibliography.
+
+\section{Keywords, scope and statistical target}
+\label{sec:estimator-scope}
+
+\emph{Keywords}: quantum amplitude estimation; Grover amplification; adaptive confidence; capped basket pricing; exact logical gates; finite representation.
+
+I estimate the existing finite normalised residual probability, rather than repeat its continuous-model or arithmetic approximation. Let the already constructed clean evaluator and uniform Hadamards define a unitary \(A\) with \(A|0\rangle=\sqrt{1-p}\,|b\rangle+\sqrt p\,|g\rangle\), where the flag is zero on the normalised bad state \(|b\rangle\) and one on the normalised good state \(|g\rangle\). They are orthogonal because their flag values differ. The cases \(p=0\) and \(p=1\) are included by continuity, without defining an unused normalised component. The finite Born probability is exactly the uniformly averaged implemented output divided by \(2^q\). A retained deterministic bound \(B_{\rm det}\leq0.005\) already covers distribution transfer, arithmetic and the geometric correction in undiscounted currency.
+
+I choose statistical currency tolerance \(\epsilon_M=0.005\), so \(\epsilon_p=0.005/H=1/(200H)\). My default failure probability is \(\alpha=0.01\) per price. On the coverage event, the completed price estimate differs from the continuous price by at most \(e^{-r}(B_{\rm det}+H\epsilon_p)\leq0.01\), because the stipulated rate is positive. The statement is a 99 per cent confidence guarantee for one price. A simultaneous 99 per cent guarantee for 27 selected prices uses \(\alpha=0.01/27\) for each run, followed by a union bound. A simultaneous guarantee for all 108 method-contract outputs would instead use \(0.01/108\). I record these different scopes explicitly.
+
+Published QFT-free counting is a relevant estimation antecedent \citep{aaronson};
+I consulted its publication record and abstract, rather than its full proof.
+The algorithm below is a conservative IQAE-style construction using factors three and five. The closest published mechanism is \citet{grinko}. I consulted the final publisher PDF, equations 4 and 5 and Algorithms 1 and 2,
+and separately consulted the publisher HTML theorem and algorithms. The
+source ledger distinguishes those readings. The amplitude-amplification identity has its established foundation in \citet{brassard}. The published IQAE query coefficient is not applied to this modified policy. The explicit constants and proof below are rederived. The author arXiv version 1912.05559, Appendix B, was additionally consulted for its discussion of multipliers three, five and seven; I do not claim the elementary coprime-multiplier mechanism as new.
+
+\section{Exact amplification and controlled powers}
+\label{sec:estimator-amplification}
+
+Write \(p=\sin^2\theta\), \(0\leq\theta\leq\pi/2\). Let \(S_g=I-2\Pi_g\) be Z on the good flag, and \(S_0=I-2|0\rangle\langle0|\) on the invariant financial-input, comparison and flag subspace. Work is zero throughout that invariant subspace. Define
+
+\begin{equation}
+Q=-A S_0A^\dagger S_g.
+ \label{eq:est-Q}
+\end{equation}
+
+On the ordered basis \((|b\rangle,|g\rangle)\), \(A S_0A^\dagger=I-2|\psi\rangle\langle\psi|\), where \(|\psi\rangle=(\cos\theta,\sin\theta)\). Direct multiplication gives
+
+\begin{equation}
+Q=\begin{pmatrix}\cos2\theta&-\sin2\theta\\
+                      \sin2\theta&\cos2\theta\end{pmatrix},\qquad
+ Q^kA|0\rangle=\cos((2k+1)\theta)|b\rangle+
+                   \sin((2k+1)\theta)|g\rangle.
+ \label{eq:est-amplified-probability}
+\end{equation}
+
+Thus a fresh measurement of the flag after that circuit is Bernoulli with probability \(p_k=\sin^2((2k+1)\theta)\). This is the exact quantum mechanism. Repeated independent runs supply the statistical samples. The code emits \(A S_0A^\dagger S_g=-Q\) when no external control is present; the overall sign \((-1)^k\) has no effect on any measurement probability.
+
+No controlled arithmetic is necessary even if a controlled Q primitive is required. In chronological gate order I apply controlled \(S_g\), then unconditional \(A^\dagger\), then controlled \(S_0\), then unconditional \(A\), then Z on the control. In the control-zero branch the middle pair cancels to identity. In the control-one branch the final Z supplies precisely the global-minus convention in \eqref{eq:est-Q}. Controlled \(S_g\) is CZ on control and flag. Controlled \(S_0\) is an explicit multiple-controlled phase with negative data controls, obtained by X on the zero-tested data before and after a clean positive-conjunction ladder. It uses \(2(n-1)\) exact Toffolis and one CZ for \(n\) zero-tested data wires, compared with \(2(n-2)\) for the uncontrolled reflection. The extra controlled primitive costs two Toffolis, or fourteen assigned T gates, plus the control wire and one additional conjunction-work wire. It uses no arbitrary rotation.
+
+Each fresh instrument-based architecture must realise the same logical A and logical adjoint on inputs entangled with the flag or an external control. It is insufficient that its classical output distribution agrees. A corrected measurement branch proportional to the same logical map, with an input-independent proportionality and record probability, supplies that channel-level premise. Its inverse invokes a fresh corrected instrument for the adjoint logical map; measurements are not reversed. The present state-vector audit uses the original exact seven-T Toffoli unitary constructor. Improved four-T lookup profiles can substitute their separately checked logical costs once that premise is proved.
+
+\section{Conditional Hoeffding intervals and adaptive coverage}
+\label{sec:estimator-coverage}
+
+I use a fixed probability radius \(r_0=1/25\). Let \(R\) be the deterministic maximum number of rounds defined in Section~\ref{sec:estimator-budget}. Each round takes
+
+\begin{equation}
+N=\left\lceil\frac{\log(2R/\alpha)}{2r_0^2}\right\rceil
+ \label{eq:est-shots}
+\end{equation}
+
+fresh independent shots at its current Grover power. If \(C\) flags are one, I form the exact rational interval
+
+\begin{equation}
+I=[\max(0,C/N-r_0),\min(1,C/N+r_0)].
+ \label{eq:est-measured-interval}
+\end{equation}
+
+For completeness, the Bernoulli Hoeffding inequality follows from an elementary moment-generating-function argument. For a Bernoulli variable \(X\) with mean \(a\), let \(g(t)=\log\mathbb E e^{t(X-a)}\). Then \(g(0)=g'(0)=0\), while \(g''(t)\) is the variance under the exponentially tilted Bernoulli law and is at most \(1/4\). Integrating twice gives \(g(t)\leq t^2/8\), for either sign of \(t\). For N independent observations, Chernoff's inequality and minimisation at \(t=4r_0\) give \(\Pr(\overline X-a\geq r_0)\leq e^{-2Nr_0^2}\), and the same bound for the lower tail. Hence \(\Pr(a\notin I)\leq2e^{-2Nr_0^2}\leq\alpha/R\).
+
+The current power may depend on the entire previous measurement history. Conditional on that history, its fresh shots have a fixed Bernoulli parameter, so the same bound holds conditionally. Averaging over histories preserves it. A union bound over at most \(R\) updates proves that all measured probabilities lie in their corresponding intervals with probability at least \(1-\alpha\). I do not pool adaptively stopped batches at a fixed nominal confidence, use empirical variance for coverage or infer coverage from simulation success rates.
+
+I initialise the angle with any proved upper probability \(p_{\max}\): \(p\in[0,p_{\max}]\). The financial Jensen/moment certificate supplied separately applies equally to all estimator opponents. The interval controller retains an outward inverse of that initial probability range and the prior-dependent plan in Section~\ref{sec:estimator-budget}. On the joint confidence event, every update retains the true angle. Empty intersections occur only off that event; the implementation returns estimate zero with an explicit confidence-failure status. That outcome is included in the allowed failure probability and is not silently repaired into a narrow interval.
+
+\section{Single-quadrant inversion and finite classical computation}
+\label{sec:estimator-inversion}
+
+I represent the unknown angle by \(t=2\theta/\pi\in[0,1]\) and maintain rational bounds \([l,u]\). The odd multiplier is \(m=2k+1\). Its admissibility condition is that \([ml,mu]\) lies in one closed unit cell \([j,j+1]\). This is tested with exact rational arithmetic, using \(j=\lfloor ml\rfloor\) and \(mu\leq j+1\). Endpoints at a stationary value are allowed; a strict crossing is not. On that cell let \(v=mt-j\in[0,1]\), and set \(f(v)=\sin^2(\pi v/2)\). The measured probability is \(f(v)\) for even j and \(1-f(v)\) for odd j. Equation \eqref{eq:est-measured-interval} therefore has a unique interval preimage in the selected cell, using the inverse of increasing f and reversing its interval for odd j. The preimage is intersected with the existing angle interval.
+
+All branch decisions are rational. For inverse postprocessing I use outward bisection with tolerance \(\eta=2^{-70}\). The scalar probability is evaluated as \(f(v)=(1-\cos(\pi v))/2\). Pi has an exact rational enclosure from Machin's identity, with eighty alternating terms for each arctangent and its explicit next-term remainder. The cosine Taylor polynomial is evaluated with directed Decimal interval arithmetic at precision eighty; terms with indices zero through forty-four are retained and the remaining decreasing alternating tail is bounded by the next term. Every multiply, divide and addition is directed, including conversion of rational endpoints. This is an interval calculation under Decimal's specified correctly rounded elementary arithmetic, with no appeal to a double-precision arcsine.
+
+The relevant argument lies in \([0,\pi]\subset[0,4]\). The sum of absolute Taylor terms is at most \(\cosh4<28\), and the next-term bound is \(4^{90}/90!<10^{-83}\). I make the rounding allowance explicit. Every retained term and partial sum has magnitude below 28, and every predivision product has magnitude below 256. At precision eighty, each directed arithmetic rounding therefore has absolute error below \(10^{-76}\). Propagation of an additive term-recurrence error through all later summed terms has factor at most \(\cosh4<28\): its successive positive-series denominators are no smaller than those in the series beginning at index zero. Conversion and squaring enclose the input \(x^2\) with width below \(10^{-76}\); its effect on the cosine polynomial is at most four times that width, since
+
+\begin{equation}
+\sum_{j\geq1}\frac{j x^{2j-2}}{(2j)!}
+ =\frac{\sinh x}{2x}\leq\frac{\sinh4}{8}<4,
+\end{equation}
+
+with the continuous value at zero. Fewer than one thousand elementary operations thus give the deliberately coarse total width envelope \(1000\times28\times10^{-76}+4\times10^{-76}+2\times10^{-83}<10^{-70}\), including the much smaller exact Machin truncation. The generated bisection and controller endpoints stay within Decimal's default exponent range, so this construction does not underflow or overflow. Final logarithm rounding in \eqref{eq:est-shots} is covered separately: its correctly rounded eighty-digit centre receives an additive \(10^{-60}\) envelope before the exact integer ceiling. The code validates \(0<\log(2R/\alpha)<100\), where this envelope is larger than the argument-conversion and logarithm rounding errors. This states the numerical domain rather than claiming an unrestricted confidence-parameter API.
+
+If a midpoint probability enclosure contains an inverse target, I avoid slope division near 0 or 1. For \(0\leq x<y\leq1\), the trigonometric identity gives
+
+\begin{equation}
+f(y)-f(x)=\sin(\pi(x+y)/2)\sin(\pi(y-x)/2)
+ \geq\sin^2(\pi(y-x)/2)\geq(y-x)^2.
+ \label{eq:est-inverse-modulus}
+\end{equation}
+
+The first inequality uses \(x+y\in[y-x,2-(y-x)]\); the second uses concavity of sine on \([0,\pi/2]\), giving \(\sin(\pi z/2)\geq z\). Therefore a probability enclosure of width at most \(\eta^2\) permits an inverse interval within \(\eta\) of its midpoint. This is the code's ambiguity branch. Ordinary bisection returns width at most \(\eta\); the ambiguity branch returns width at most \(2\eta\). The initial exact values 0, 1 and 1/2 are handled directly. At most 71 bisections are needed. Thus each selected inverse endpoint differs from its exact inverse by at most \(2\eta\), and no branch is decided by an unbounded floating-point rounding error.
+
+\section{The three-or-five quadrant cover}
+\label{sec:estimator-cover}
+
+After one update, the exact probability interval in the current cell has width at most \(2r_0=2/25=0.08\). Outward inversion extends its two v endpoints by at most \(2\eta\) each. Because \(f'\leq\pi/2<2\), its realised probability span is at most \(0.08+8\eta<0.0808\). This bound is uniform in the quadrant parity.
+
+Within any current quadrant, multiplying by an odd factor s creates internal stationary boundaries at \(v=a/s\), \(a=1,\ldots,s-1\). In probability coordinates their locations for s=3 are
+
+\begin{equation}
+\{1/4,3/4\},
+\end{equation}
+
+and for s=5 they are
+
+\begin{equation}
+\{(3-\sqrt5)/8,(5-\sqrt5)/8,(3+\sqrt5)/8,(5+\sqrt5)/8\}.
+ \label{eq:est-critical-values}
+\end{equation}
+
+I derive these values explicitly. With $z=e^{2\pi i/5}$, the identity
+$1+z+z^2+z^3+z^4=0$ gives
+$1+2c+2(2c^2-1)=0$, where $c=\cos(2\pi/5)>0$.
+Hence $4c^2+2c-1=0$ and $c=(\sqrt5-1)/4$.
+The positive half-angle root is
+$\cos(\pi/5)=\sqrt{(1+c)/2}=(1+\sqrt5)/4$.
+Applying $\sin^2 x=(1-\cos 2x)/2$ gives the first two
+values in~\eqref{eq:est-critical-values}; replacing $x$ by $\pi/2-x$
+gives the other two. For thirds, $\cos(\pi/3)=1/2$ gives
+$\sin^2(\pi/6)=1/4$ and its complementary value $3/4$.
+Writing $s=\sqrt5$, the four distances from $1/4$ to the fifth values
+are $(s-1)/8$, $(3-s)/8$, $(1+s)/8$ and $(3+s)/8$.
+The distances from $3/4$ form the same set by symmetry. Since
+$2<s<9/4$, their minimum is $(3-s)/8$. Thus
+$d_*=(3-\sqrt5)/8>3/32=0.09375>0.0808$.
+
+If both multiplier three and multiplier five strictly crossed an internal stationary boundary, the retained probability interval would contain one element of each set in \eqref{eq:est-critical-values}, and would have width at least \(d_*\). This contradicts the span bound. Therefore at least one multiplier leaves the angle interval wholly inside a single monotone quadrant. Common endpoint boundaries 0 and 1 cause no exception: the existing interval already lies inside their cell, so neither can be crossed by the subinterval. A boundary coinciding with an endpoint is admissible. If the quadrant is decreasing, probability coordinates are reflected as \(1-f(v)\), which preserves every cross-distance. The implementation tries factor three first and otherwise factor five, checking their cells exactly.
+
+This is a checked sufficient cover for the stated radius and outward padding. It does not establish that this policy is better than the published IQAE optimisation, nor that its number-theoretic idea is absent from prior work.
+
+\section{Financial-prior bootstrap, deterministic termination and query bounds}
+\label{sec:estimator-budget}
+
+For an inverse cell interval with probability width d, the identity in \eqref{eq:est-inverse-modulus}, now expressed in angle rather than normalised coordinates, gives angle width at most \(\arcsin\sqrt d\). In particular exact inversion of a width-0.08 interval has angle width below 0.3: \(\sin(0.3)\geq0.3-0.3^3/6=0.2955\), whose square exceeds 0.08. Outward endpoint padding adds at most \(2\pi\eta<8\eta\). Hence the realised interval for \(m\theta\) has width strictly below \(1/3\). After updating at multiplier m, the retained original angle interval therefore has width below \(1/(3m)\).
+
+Write \(u=p_{\max}\), \(u_+=\min(1,u+10^{-18})\). The outward initial inverse endpoint differs from its exact normalised angle by at most \(2\eta\), so its exact amplitude is at most \(u+4\eta\leq u_+\). Every subsequent angle interval is an intersection with this initial interval, so its exact amplitudes remain in \([0,u_+]\). Define
+
+\begin{equation}
+v_+=\begin{cases}u_+(1-u_+),&u_+\leq1/2,\\1/4,&u_+>1/2,\end{cases}
+ \qquad \gamma=2\overline{\sqrt{v_+}},
+\end{equation}
+
+where the square-root is rounded upward by exact rational arithmetic. I compute an integer ceiling of \(v_+2^{200}\), take its integer square-root ceiling and divide by \(2^{100}\). This supplies a proved upper bound without a transcendental-library assumption. Since \(dp/d\theta=2\sqrt{p(1-p)}\), the amplitude function is \(\gamma\)-Lipschitz on every retained angle interval. At \(u_+>1/2\), \(\gamma=1\). The amplitude interval from the two outward endpoint evaluations therefore has width at most \(\gamma/(3m)+2\times10^{-70}\).
+
+If \(u\leq2\epsilon_p\), the initial proved interval already has sufficient width and I return its midpoint without quantum shots. Otherwise let \(t_u\) be the outward initial normalised-angle upper endpoint. I choose \(m_0\) as the largest positive odd integer satisfying \(m_0t_u\leq1\). This initial amplification is in the first closed quadrant and requires no pilot. The plan uses
+
+\begin{equation}
+T_* =\max\left(1,\left\lceil\frac{\gamma}{5\epsilon_p}\right\rceil\right),
+ \qquad R=1+\left\lceil\log_3\max(1,T_*/m_0)\right\rceil.
+ \label{eq:est-rounds}
+\end{equation}
+
+If \(m\geq T_*\), the amplitude enclosure width is at most \(5\epsilon_p/3+2\times10^{-70}<2\epsilon_p\), within the declared implementation range \(\epsilon_p\geq10^{-6}\). The unused \(\epsilon_p/3\) is explicit numerical slack. Thus it must stop at that update. The multipliers begin at \(m_0\) and grow by at least three, so at most \(R\) rounds are needed. The code computes R with an exact integer loop, rather than rounding a logarithm. This computational termination does not require the confidence event: nonempty intervals obey the same width argument; empty intervals return a flagged failure immediately.
+
+For a nonzero-shot plan, I retain a tighter executable cap than the convenient coarse bound \(\max(m_0,5T_*)\). The code uses
+
+\begin{equation}
+M=\begin{cases}
+ m_0,&m_0\geq T_*,\\
+ \min\{5T_*,m_0 5^{R-1}\},&m_0<T_*.
+ \end{cases}
+\end{equation}
+
+In the first case the first update must terminate. In the second case each multiplier before the final update is less than \(T_*\), so the next multiplier is less than \(5T_*\); also the round-\(i\) multiplier is at most \(m_0 5^{i-1}\), with at most \(R\) rounds. Both bounds hold, so their minimum holds. The largest Grover power is at most \(\lfloor(M-1)/2\rfloor\).
+
+For \(R=1\), the exact cap on \(\sum_i k_i\) is \((m_0-1)/2\). For \(R>1\), reversing the at-least-three geometric growth gives \(\sum_i m_i\leq(3/2)m_{\rm last}\leq3M/2\), hence \(\sum_i k_i\leq\lfloor3M/4\rfloor\). Independently, if a run uses \(r\) rounds, then
+
+\begin{equation}
+\sum_{i=1}^{r} k_i\leq\frac12\left\{m_0\frac{5^r-1}{4}-r\right\}.
+\end{equation}
+
+The right-hand side is nondecreasing in the integer \(r\) because its increment is \((m_0 5^r-1)/2\geq0\). Thus replacing \(r\) by \(R\) is valid. Since \(\sum_i k_i\) is an integer, I take the floor and then the smaller of the two independent bounds. Define
+
+\begin{equation}
+K_* = \begin{cases}
+ (m_0-1)/2,&R=1,\\
+ \min\left\{\left\lfloor\frac{3M}{4}\right\rfloor,
+ \left\lfloor\frac{m_0(5^R-1)/4-R}{2}\right\rfloor\right\},&R>1.
+ \end{cases}
+ \qquad N_{\rm shots}\leq RN,\quad N_Q\leq N K_*.
+ \label{eq:est-query-budget}
+\end{equation}
+
+Every floor is implemented on exact integers. Zero-shot plans separately have \(R=N=M=K_*=0\). These are the tightened caps actually retained in the resource tables.
+
+Each shot uses one preparation A and each Q call uses one A and one logical adjoint, so clean evaluator invocations are at most \(RN+2N_Q\). Equation \eqref{eq:est-query-budget}, not a likelihood fit or an observed stopping count, is the worst-case resource guarantee. Combining \eqref{eq:est-shots}, \eqref{eq:est-rounds} and \eqref{eq:est-query-budget} yields \(O(\epsilon_p^{-1}\log(\log(1/\epsilon_p)/\alpha))\) logical Grover calls with explicit, deliberately conservative constants. I do not claim the published coefficient fifty for this policy. Large constants or expensive coherent evaluation can remove any practical advantage over classical sampling.
+
+On the joint confidence event, the final amplitude interval contains p and has width at most \(2\epsilon_p\). Its midpoint is therefore within \(\epsilon_p\) of p. Section~\ref{sec:estimator-coverage} proves that event has probability at least \(1-\alpha\). Sections~\ref{sec:estimator-scope} and~\ref{sec:estimator-budget} consequently give both an absolute monetary confidence guarantee and a finite resource cap. The proved financial prior improves the worst-case caps through both \(\gamma\) and \(m_0\), in addition to any observed early stopping. Setting \(u=1\) provides the separately retained full-range comparison. This prior-dependent substitution is applied fairly to every financial evaluator and does not rely on observed variance.
+
+\section{Fully charged quantum resources}
+\label{sec:estimator-resources}
+
+For each selected financial constructor I retain the existing emitted clean-evaluator T count \(C_A\), its uniform preparation Hadamards, serial logical depth \(D_A\), work qubits and reflection profile. Let \(C_Q=2C_A+C_{S_0}\), where the good-flag phase, uniform preparation and inverse use Clifford gates; \(C_{S_0}=14(n-2)\) for the original seven-T clean-conjunction reflection. The total T upper bound is
+
+\begin{equation}
+C_T\leq RN C_A+N_Q C_Q.
+ \label{eq:est-total-T}
+\end{equation}
+
+Uniform-preparation Hadamards number at most \((RN+2N_Q)B\), where B is the number of financial and comparison input bits. Flag measurements and fresh-shot resets are at most RN. Writing \(D_A,D_Q\) in this sentence for the assigned T depths, the serial sum of assigned T depths is \(RN D_A+N_QD_Q\); the maximum individual coherent shot depth is \(D_A+\lfloor(M-1)/2\rfloor D_Q\). All-gate dependency depth is charged separately from T depth. A fully serial expanded upper bound is the total emitted Clifford-plus-T primitive count, including all uniform Hadamards and flag/reflection phases. I do not multiply qubits by shot count: sequential shots reuse registers. Peak logical qubits are the maximum of the clean evaluator and reflection scratch demand. No extra estimation register is required by this schedule. Controlled Q, supplied as a separate reusable primitive, adds one control and the reflection overhead described in Section~\ref{sec:estimator-amplification}; the estimator itself does not call it.
+
+The exact primitive gate lists use X, H, CNOT, exact Toffoli, Z and CZ. I retain the constructor's assigned three-T-layer Toffoli profile explicitly as an assigned profile. I separately emit and phase-check a concrete exact decomposition with seven T or inverse-T gates, six CNOTs and two Hadamards. Its small gate dependency audit has four T layers; a five-layer serial upper bound is retained separately. The fully serial Clifford-plus-T gate count charges fifteen primitive gates per Toffoli. I also retain dependency-depth upper bounds by adding two times the total exact-Toffoli count to the assigned three-layer T-depth sum, and fourteen times that count to the logical all-gate dependency-depth sum. Substitution of a gate with a fifteen-primitive circuit increases any critical path by at most fourteen per substituted Toffoli; summing over all substitutions is conservative. The maximum-shot bounds use the Toffoli count of one A plus the largest allowed power times the Q count, with the same additions. Thus the assigned profile is not confused with the particular decomposition replayed, and both bounds preserve the exact seven-T count. There is no arbitrary-angle quantum gate, QFT or rotation-synthesis approximation, so this logical construction has zero rotation-synthesis bias. That statement is about its declared ideal logical gates, rather than a claim that a physical machine has zero noise. Any physical implementation requires a separately allocated fault budget or a proved bound on the realised shot probabilities. Iteration-dependent physical inaccuracies are not treated as one fixed oracle bias without evidence.
+
+For completeness, the exact seven-T expansion on controls a,b and target c has chronological sequence
+
+\begin{equation}
+H_c,\ C_{b,c},\ T_c^\dagger,\ C_{a,c},\ T_c,\ C_{b,c},\ T_c^\dagger,
+ C_{a,c},\ T_b,\ T_c,\ H_c,\ C_{a,b},\ T_a,\ T_b^\dagger,\ C_{a,b},
+\end{equation}
+
+where C denotes CNOT. Between the target Hadamards, the total computational-basis phase exponent is
+
+\begin{equation}
+a+b+c-(a\mathbin\oplus b)-(a\mathbin\oplus c)
+ -(b\mathbin\oplus c)+(a\mathbin\oplus b\mathbin\oplus c)=4abc
+ \pmod 8.
+\end{equation}
+
+The bitwise identity follows by expanding \(a\oplus b=a+b-2ab\) and its three-bit counterpart. Hence its phase is \(e^{i\pi abc}=(-1)^{abc}\), an exact CCZ; conjugating the target by H gives an exact Toffoli with no input-dependent leftover phase. The six CNOTs restore all linear labels. There are four T gates and three inverse-T gates. The dependency calculation permits the last control phases to run alongside the fourth target layer, giving four T layers for this particular sequence; the retained five-layer bound remains conservative. The identity proves exact action, while the eight-basis replay independently checks the emitted ordering.
+
+An improved lookup architecture may replace \(C_A,C_Q,D_A,D_Q\) with its proved instrument-based profiles. Its per-AND measurement, feed-forward and reset overhead must be multiplied by the total A and adjoint invocations, not omitted. Address-independent corrected records make the logical amplification probability \eqref{eq:est-amplified-probability} unchanged. T-depth alone does not include measurement latency or a physical surface-code schedule. Classical table setup remains a separate retained cost and is not paid once per measurement shot.
+
+\section{Verification and interpretation}
+\label{sec:estimator-verification}
+
+The staged code separates the confidence controller, certified classical interval calculation and exact quantum gate templates. A small complete arithmetic preparation and its inverse are replayed on state vectors; Grover flag probabilities are compared with \eqref{eq:est-amplified-probability}, and controlled Q is checked in both control branches and in coherent superposition, where omission of its conditional global sign would fail. Reflection work returns to zero. Critical branch tests include exact and neighbouring stationary values, endpoints 0 and 1, and priors that touch a quadrant boundary.
+
+Ideal-binomial simulation exercises the statistical controller and records realised shot counts. It is labelled simulation, not quantum execution or an empirical market observation. Its observed coverage rate cannot replace the proof. Resource tables for all retained contracts use the deterministic caps \eqref{eq:est-query-budget}, with separate single-price and simultaneous confidence scopes. A genuinely cheaper estimator, a stronger reversible architecture or an exact classical conditional-price routine remains a valid opponent. My original implementation and its transparent local proof do not themselves establish theoretical novelty or a positive literature contribution.
+
+
+% BEGIN COMPLETE NUMERICAL RESULTS
+\section{Complete inherited-pool findings}
+I retain 273 independently feasible financial prefixes, 60 rejected transfers
+and 819 complete architecture profiles. All 108 original same-prefix
+seven-T constructor counts match. The intermediate selector minimises
+Grover-iterate T count; the complete selector minimises the proved
+single-price confidence budget over every retained feasible prefix. Neither
+selection is a global optimisation over all precision or circuit designs.
+
+At $\lambda=0.05,H=25$, Table~\ref{tab:complete-costs} compares cap-aware
+and generic full conditioning. Each entry gives the selected flag-evaluator
+reduction, followed by the complete confidence-budget reduction, in per cent.
+Every unlisted contract has zero paired reduction.
+\begin{table}[ht]
+\centering
+\caption{Paired evaluator and complete-budget reductions under the three
+lookup modes. Complete bounds use single-price 99 per cent confidence.}
+\label{tab:complete-costs}
+\begin{tabular}{rrrr}
+\toprule
+Assets & $\kappa=14$ & $\kappa=8$ & $\kappa=4$\\
+\midrule
+2 & 13.108 / 13.106 & 9.952 / 9.950 & 5.840 / 5.838\\
+4 & 3.870 / 3.869 & 0.000 / 0.000 & 0.000 / 0.000\\
+8 & 1.033 / 1.033 & 0.892 / 0.892 & 0.647 / 0.647\\
+\bottomrule
+\end{tabular}
+\end{table}
+The four-asset strict saving disappears with cheaper lookup. Under measured
+lookup, 23 cases tie between generic and cap-aware full conditioning, one
+uniquely favours cap-aware full conditioning and three favour direct
+evaluation. Interval conditioning attains no minimum. The eight-asset
+paired cap-aware reduction still does not beat direct evaluation.
+The 81 matched full/interval identities pass, with minimum same-prefix
+gap 42,408 T gates. These facts do not establish full-conditioning dominance
+over direct evaluation or all possible quantum constructions.
+
+The prior reduces the same controller's complete worst-case T budget by
+factors 1.82 to 36.15 over all 819 profiles. The equally
+supplied classical prior yields between 6,744 and 11,495,538
+certified finite-function samples. These costs have different units and
+do not demonstrate quantum advantage. All 819 complete financial, confidence,
+selection and resource records pass the independent audit. Thirty regression
+tests pass. The 540 ideal-binomial simulations are diagnostics; their
+observed coverage is not the confidence proof.
+
+% END COMPLETE NUMERICAL RESULTS
+\clearpage
+\begin{thebibliography}{99}
+\bibitem[Aaronson and Rall(2020)]{aaronson} Aaronson, S. and Rall, P. (2020). Quantum approximate counting, simplified. \emph{Symposium on Simplicity in Algorithms}, pp. 24--32. SIAM. \url{https://doi.org/10.1137/1.9781611976014.5}.
+\bibitem[Babbush et al.(2018)]{babbush} Babbush, R., Gidney, C., Berry, D. W., Wiebe, N., McClean, J., Paler, A., Fowler, A. and Neven, H. (2018). Encoding electronic spectra in quantum circuits with linear T complexity. \emph{Physical Review X}, 8(4), 041015. \url{https://doi.org/10.1103/PhysRevX.8.041015}.
+\bibitem[Bayer et al.(2018)]{bayer} Bayer, C., Siebenmorgen, M. and Tempone, R. (2018). Smoothing the payoff for efficient computation of basket option prices. \emph{Quantitative Finance}, 18(3), 491--505. \url{https://doi.org/10.1080/14697688.2017.1308003}.
+\bibitem[Bhaskar et al.(2016)]{bhaskar} Bhaskar, S., Hadfield, S., Papageorgiou, A. and Petras, I. (2016). Quantum algorithms and circuits for scientific computing. \emph{Quantum Information and Computation}, 16(3--4), 197--236. \url{https://doi.org/10.26421/QIC16.3-4-2}.
+\bibitem[Brassard et al.(2002)]{brassard} Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002). Quantum amplitude amplification and estimation. \emph{Contemporary Mathematics}, 305, 53--74. \url{https://doi.org/10.1090/conm/305/05215}.
+\bibitem[Chakrabarti et al.(2021)]{chakrabarti} Chakrabarti, S., Krishnakumar, R., Mazzola, G., Stamatopoulos, N., Woerner, S. and Zeng, W. J. (2021). A threshold for quantum advantage in derivative pricing. \emph{Quantum}, 5, 463. \url{https://doi.org/10.22331/q-2021-06-01-463}.
+\bibitem[Gidney(2018)]{gidney} Gidney, C. (2018). Halving the cost of quantum addition. \emph{Quantum}, 2, 74. \url{https://doi.org/10.22331/q-2018-06-18-74}.
+\bibitem[Grinko et al.(2021)]{grinko} Grinko, D., Gacon, J., Zoufal, C. and Woerner, S. (2021). Iterative quantum amplitude estimation. \emph{npj Quantum Information}, 7, 52. \url{https://doi.org/10.1038/s41534-021-00379-1}.
+\bibitem[Kemna and Vorst(1990)]{kemna} Kemna, A. G. Z. and Vorst, A. C. F. (1990). A pricing method for options based on average asset values. \emph{Journal of Banking \& Finance}, 14(1), 113--129. \url{https://doi.org/10.1016/0378-4266(90)90039-5}.
+\bibitem[McArdle et al.(2026)]{mcardle} McArdle, S., Gily\'en, A. and Berta, M. (2026). Quantum state preparation without coherent arithmetic. \emph{Physical Review Letters}, 136, 240603. \url{https://doi.org/10.1103/ntvs-c48s}.
+\bibitem[O'Brien and S\"underhauf(2025)]{obrien} O'Brien, L. and S\"underhauf, C. (2025). Quantum state preparation via piecewise QSVT. \emph{Quantum}, 9, 1786. \url{https://doi.org/10.22331/q-2025-07-03-1786}.
+\bibitem[Rebentrost et al.(2018)]{rebentrost} Rebentrost, P., Gupt, B. and Bromley, T. R. (2018). Quantum computational finance: Monte Carlo pricing of financial derivatives. \emph{Physical Review A}, 98, 022321. \url{https://doi.org/10.1103/PhysRevA.98.022321}.
+\bibitem[Selinger(2013)]{selinger} Selinger, P. (2013). Quantum circuits of T-depth one. \emph{Physical Review A}, 87, 042302. \url{https://doi.org/10.1103/PhysRevA.87.042302}.
+\bibitem[Stamatopoulos and Zeng(2024)]{stamatopoulos} Stamatopoulos, N. and Zeng, W. J. (2024). Derivative pricing using quantum signal processing. \emph{Quantum}, 8, 1322. \url{https://doi.org/10.22331/q-2024-04-30-1322}.
+\end{thebibliography}
+\end{document}

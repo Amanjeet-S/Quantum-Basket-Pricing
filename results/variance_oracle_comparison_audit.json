@@ -1,0 +1,1650 @@
+{
+  "status": "passed",
+  "input_path": "/private/tmp/qbp-variance-oracle-step/results/variance_oracle_comparison.json.gz",
+  "input_sha256": "bb65b3340bcfcd736ce95b6bc52f3ca155fa135cd78f411a27a791f48868aed8",
+  "uncompressed_sha256": "1b179220f2912afddbf1c98ba5c15e87b54649e17b16e0096699fe744e58677f",
+  "audit_source_sha256": "a78c8276d0c75411b0f6237265c0525f1b7a180c6bbbe81df986c2b1f4fb5f64",
+  "checks": {
+    "source_hashes": 7,
+    "input_hashes": 2,
+    "shared_moment_support_rows": 819,
+    "classical_certificates": 819,
+    "all_scalar_metric_charges": 8892,
+    "scalar_candidates": 8892,
+    "dyadic_buckets": 42024,
+    "all_dyadic_metric_charges": 3276,
+    "dyadic_candidates": 3276,
+    "profile_minima": 8190,
+    "financial_case_minima": 162,
+    "summary_families": 6
+  },
+  "gate_emitter_source_hashes": {
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686"
+  },
+  "postshot_reinitialisation_protocol_upper_caps": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "plain",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 73439,
+      "conditional_Clifford_X_resets_upper": 75808,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "best_range",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 73439,
+      "conditional_Clifford_X_resets_upper": 75808,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "best_clipped",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 73439,
+      "conditional_Clifford_X_resets_upper": 75808,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 73439,
+      "conditional_Clifford_X_resets_upper": 75808,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 1246671,
+      "conditional_Clifford_X_resets_upper": 1292448,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "family": "best_all",
+      "candidate_id": "0a9cce122c1bcd6464e0",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 73439,
+      "conditional_Clifford_X_resets_upper": 75808,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "plain",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 159985,
+      "conditional_Clifford_X_resets_upper": 164556,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "best_range",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 159985,
+      "conditional_Clifford_X_resets_upper": 164556,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "best_clipped",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 159985,
+      "conditional_Clifford_X_resets_upper": 164556,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 159985,
+      "conditional_Clifford_X_resets_upper": 164556,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 3035917,
+      "conditional_Clifford_X_resets_upper": 3141451,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "family": "best_all",
+      "candidate_id": "649eb9608734f5385f05",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 159985,
+      "conditional_Clifford_X_resets_upper": 164556,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "plain",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 183573,
+      "conditional_Clifford_X_resets_upper": 188280,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "best_range",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 183573,
+      "conditional_Clifford_X_resets_upper": 188280,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "best_clipped",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 183573,
+      "conditional_Clifford_X_resets_upper": 188280,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 183573,
+      "conditional_Clifford_X_resets_upper": 188280,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 3747660,
+      "conditional_Clifford_X_resets_upper": 3860951,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "family": "best_all",
+      "candidate_id": "ee1c9f8f1031c7e56a81",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 183573,
+      "conditional_Clifford_X_resets_upper": 188280,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "plain",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 39015,
+      "conditional_Clifford_X_resets_upper": 40460,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "best_range",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 38050,
+      "conditional_Clifford_X_resets_upper": 39572,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "best_clipped",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 36336,
+      "conditional_Clifford_X_resets_upper": 37850,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 36336,
+      "conditional_Clifford_X_resets_upper": 37850,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 555915,
+      "conditional_Clifford_X_resets_upper": 581062,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "family": "best_all",
+      "candidate_id": "93c7731d047c58aec4c6",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 36336,
+      "conditional_Clifford_X_resets_upper": 37850,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "plain",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 114512,
+      "conditional_Clifford_X_resets_upper": 117880,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "best_range",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 109659,
+      "conditional_Clifford_X_resets_upper": 112982,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "best_clipped",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 109659,
+      "conditional_Clifford_X_resets_upper": 112982,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 109659,
+      "conditional_Clifford_X_resets_upper": 112982,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 2011074,
+      "conditional_Clifford_X_resets_upper": 2082128,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "family": "best_all",
+      "candidate_id": "00fc3669335efc07b6aa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 109659,
+      "conditional_Clifford_X_resets_upper": 112982,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "plain",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 175960,
+      "conditional_Clifford_X_resets_upper": 180359,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "best_range",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 169377,
+      "conditional_Clifford_X_resets_upper": 173720,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "best_clipped",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 169377,
+      "conditional_Clifford_X_resets_upper": 173720,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 169377,
+      "conditional_Clifford_X_resets_upper": 173720,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 3116449,
+      "conditional_Clifford_X_resets_upper": 3209534,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "family": "best_all",
+      "candidate_id": "c424c2232f509d3d0304",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 169377,
+      "conditional_Clifford_X_resets_upper": 173720,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "plain",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 44712,
+      "conditional_Clifford_X_resets_upper": 46368,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "best_range",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 18538,
+      "conditional_Clifford_X_resets_upper": 19251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "best_clipped",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 38088,
+      "conditional_Clifford_X_resets_upper": 39744,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 38088,
+      "conditional_Clifford_X_resets_upper": 39744,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 387629,
+      "conditional_Clifford_X_resets_upper": 405631,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "family": "best_all",
+      "candidate_id": "78789ee62d2360cf3106",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 38088,
+      "conditional_Clifford_X_resets_upper": 39744,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "plain",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 86730,
+      "conditional_Clifford_X_resets_upper": 89208,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "best_range",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 80817,
+      "conditional_Clifford_X_resets_upper": 83266,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "best_clipped",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 80817,
+      "conditional_Clifford_X_resets_upper": 83266,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 80817,
+      "conditional_Clifford_X_resets_upper": 83266,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 1587284,
+      "conditional_Clifford_X_resets_upper": 1642683,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "family": "best_all",
+      "candidate_id": "3392136b899a92b5303a",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 80817,
+      "conditional_Clifford_X_resets_upper": 83266,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "plain",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 120925,
+      "conditional_Clifford_X_resets_upper": 124380,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "best_range",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 112728,
+      "conditional_Clifford_X_resets_upper": 116144,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "best_clipped",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 112728,
+      "conditional_Clifford_X_resets_upper": 116144,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 112728,
+      "conditional_Clifford_X_resets_upper": 116144,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 2145562,
+      "conditional_Clifford_X_resets_upper": 2222353,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "family": "best_all",
+      "candidate_id": "1357a4f8217d38cfe889",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 112728,
+      "conditional_Clifford_X_resets_upper": 116144,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "plain",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 132552,
+      "conditional_Clifford_X_resets_upper": 134919,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "best_range",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 132552,
+      "conditional_Clifford_X_resets_upper": 134919,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "best_clipped",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 132552,
+      "conditional_Clifford_X_resets_upper": 134919,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 132552,
+      "conditional_Clifford_X_resets_upper": 134919,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 2563031,
+      "conditional_Clifford_X_resets_upper": 2613634,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "family": "best_all",
+      "candidate_id": "0b89f8ca9bd0102eb369",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 132552,
+      "conditional_Clifford_X_resets_upper": 134919,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "plain",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 365680,
+      "conditional_Clifford_X_resets_upper": 370251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "best_range",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 365680,
+      "conditional_Clifford_X_resets_upper": 370251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "best_clipped",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 365680,
+      "conditional_Clifford_X_resets_upper": 370251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 365680,
+      "conditional_Clifford_X_resets_upper": 370251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 7764963,
+      "conditional_Clifford_X_resets_upper": 7870425,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "family": "best_all",
+      "candidate_id": "570d388dcfa4900c438b",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 365680,
+      "conditional_Clifford_X_resets_upper": 370251,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "plain",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 338904,
+      "conditional_Clifford_X_resets_upper": 343611,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "best_range",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 338904,
+      "conditional_Clifford_X_resets_upper": 343611,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "best_clipped",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 338904,
+      "conditional_Clifford_X_resets_upper": 343611,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 338904,
+      "conditional_Clifford_X_resets_upper": 343611,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 7720919,
+      "conditional_Clifford_X_resets_upper": 7839818,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "family": "best_all",
+      "candidate_id": "9fe906edff88b7aa5d63",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 338904,
+      "conditional_Clifford_X_resets_upper": 343611,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "plain",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 77868,
+      "conditional_Clifford_X_resets_upper": 79310,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "best_range",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 78970,
+      "conditional_Clifford_X_resets_upper": 80460,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "best_clipped",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 116050,
+      "conditional_Clifford_X_resets_upper": 118371,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 116050,
+      "conditional_Clifford_X_resets_upper": 118371,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 1360437,
+      "conditional_Clifford_X_resets_upper": 1388000,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "family": "best_all",
+      "candidate_id": "531fd269d8b4b88f45be",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 116050,
+      "conditional_Clifford_X_resets_upper": 118371,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "plain",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 228956,
+      "conditional_Clifford_X_resets_upper": 232323,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "best_range",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222507,
+      "conditional_Clifford_X_resets_upper": 225828,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "best_clipped",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222507,
+      "conditional_Clifford_X_resets_upper": 225828,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222507,
+      "conditional_Clifford_X_resets_upper": 225828,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 4249522,
+      "conditional_Clifford_X_resets_upper": 4317882,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "family": "best_all",
+      "candidate_id": "72626f8b8fb65308ede2",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222507,
+      "conditional_Clifford_X_resets_upper": 225828,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "plain",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 307930,
+      "conditional_Clifford_X_resets_upper": 312329,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "best_range",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 299667,
+      "conditional_Clifford_X_resets_upper": 304010,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "best_clipped",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 299667,
+      "conditional_Clifford_X_resets_upper": 304010,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 299667,
+      "conditional_Clifford_X_resets_upper": 304010,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 5831109,
+      "conditional_Clifford_X_resets_upper": 5923019,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "family": "best_all",
+      "candidate_id": "8d26724ec7dcb03518b4",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 299667,
+      "conditional_Clifford_X_resets_upper": 304010,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "plain",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 34839,
+      "conditional_Clifford_X_resets_upper": 35550,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "best_range",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 34176,
+      "conditional_Clifford_X_resets_upper": 34888,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "best_clipped",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 59383,
+      "conditional_Clifford_X_resets_upper": 60764,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 59383,
+      "conditional_Clifford_X_resets_upper": 60764,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 808580,
+      "conditional_Clifford_X_resets_upper": 827134,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "family": "best_all",
+      "candidate_id": "074c31dfc80880270fb7",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 59383,
+      "conditional_Clifford_X_resets_upper": 60764,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "plain",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 161070,
+      "conditional_Clifford_X_resets_upper": 163548,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "best_range",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 154287,
+      "conditional_Clifford_X_resets_upper": 156736,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "best_clipped",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 154287,
+      "conditional_Clifford_X_resets_upper": 156736,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 154287,
+      "conditional_Clifford_X_resets_upper": 156736,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 3144592,
+      "conditional_Clifford_X_resets_upper": 3198288,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "family": "best_all",
+      "candidate_id": "4dbb616f1d3017e62d91",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 154287,
+      "conditional_Clifford_X_resets_upper": 156736,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "plain",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 231418,
+      "conditional_Clifford_X_resets_upper": 234872,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "best_range",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222040,
+      "conditional_Clifford_X_resets_upper": 225456,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "best_clipped",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222040,
+      "conditional_Clifford_X_resets_upper": 225456,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222040,
+      "conditional_Clifford_X_resets_upper": 225456,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 4427164,
+      "conditional_Clifford_X_resets_upper": 4501200,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "family": "best_all",
+      "candidate_id": "14211706b4ab39d394c9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 222040,
+      "conditional_Clifford_X_resets_upper": 225456,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "plain",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 255744,
+      "conditional_Clifford_X_resets_upper": 258112,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "best_range",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 255744,
+      "conditional_Clifford_X_resets_upper": 258112,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "best_clipped",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 255744,
+      "conditional_Clifford_X_resets_upper": 258112,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 255744,
+      "conditional_Clifford_X_resets_upper": 258112,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 4975937,
+      "conditional_Clifford_X_resets_upper": 5024332,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "family": "best_all",
+      "candidate_id": "72a29217cc297aadd7ec",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 255744,
+      "conditional_Clifford_X_resets_upper": 258112,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "plain",
+      "candidate_id": "8ca11cacb9810ed8cabf",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 662795,
+      "conditional_Clifford_X_resets_upper": 667366,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "best_range",
+      "candidate_id": "8ca11cacb9810ed8cabf",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 662795,
+      "conditional_Clifford_X_resets_upper": 667366,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "best_clipped",
+      "candidate_id": "8ca11cacb9810ed8cabf",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 662795,
+      "conditional_Clifford_X_resets_upper": 667366,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "8ca11cacb9810ed8cabf",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 662795,
+      "conditional_Clifford_X_resets_upper": 667366,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "117c095f02e9ea1a0639",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 12762217,
+      "conditional_Clifford_X_resets_upper": 12862465,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "family": "best_all",
+      "candidate_id": "8ca11cacb9810ed8cabf",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 662795,
+      "conditional_Clifford_X_resets_upper": 667366,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "plain",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 748413,
+      "conditional_Clifford_X_resets_upper": 753120,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "best_range",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 748413,
+      "conditional_Clifford_X_resets_upper": 753120,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "best_clipped",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 748413,
+      "conditional_Clifford_X_resets_upper": 753120,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 748413,
+      "conditional_Clifford_X_resets_upper": 753120,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 17922538,
+      "conditional_Clifford_X_resets_upper": 18040465,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "family": "best_all",
+      "candidate_id": "0da58a90301eef56c6b1",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 748413,
+      "conditional_Clifford_X_resets_upper": 753120,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "plain",
+      "candidate_id": "245c69ad1aa860a7bb3c",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 152958,
+      "conditional_Clifford_X_resets_upper": 154401,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "best_range",
+      "candidate_id": "245c69ad1aa860a7bb3c",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 156555,
+      "conditional_Clifford_X_resets_upper": 158046,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "best_clipped",
+      "candidate_id": "30e036eccc10526d169d",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 226442,
+      "conditional_Clifford_X_resets_upper": 228684,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "30e036eccc10526d169d",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 226442,
+      "conditional_Clifford_X_resets_upper": 228684,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "245c69ad1aa860a7bb3c",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 2768662,
+      "conditional_Clifford_X_resets_upper": 2795982,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "family": "best_all",
+      "candidate_id": "30e036eccc10526d169d",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 226442,
+      "conditional_Clifford_X_resets_upper": 228684,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "plain",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 444444,
+      "conditional_Clifford_X_resets_upper": 447811,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "best_range",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 444444,
+      "conditional_Clifford_X_resets_upper": 447811,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "best_clipped",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 442780,
+      "conditional_Clifford_X_resets_upper": 446160,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 442780,
+      "conditional_Clifford_X_resets_upper": 446160,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 9161315,
+      "conditional_Clifford_X_resets_upper": 9233768,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "family": "best_all",
+      "candidate_id": "39a26a9dddcf402e22a9",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 442780,
+      "conditional_Clifford_X_resets_upper": 446160,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "plain",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 620259,
+      "conditional_Clifford_X_resets_upper": 624658,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "best_range",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 620259,
+      "conditional_Clifford_X_resets_upper": 624658,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "best_clipped",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 620259,
+      "conditional_Clifford_X_resets_upper": 624658,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 620259,
+      "conditional_Clifford_X_resets_upper": 624658,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 13131284,
+      "conditional_Clifford_X_resets_upper": 13228755,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "family": "best_all",
+      "candidate_id": "05bea5811c53c6d7edaa",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 620259,
+      "conditional_Clifford_X_resets_upper": 624658,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "plain",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 70290,
+      "conditional_Clifford_X_resets_upper": 71000,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "best_range",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 69678,
+      "conditional_Clifford_X_resets_upper": 70389,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "best_clipped",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 152352,
+      "conditional_Clifford_X_resets_upper": 154008,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "best_single_flag",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 152352,
+      "conditional_Clifford_X_resets_upper": 154008,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "best_dyadic",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 1721448,
+      "conditional_Clifford_X_resets_upper": 1739846,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "family": "best_all",
+      "candidate_id": "994082a8929110702816",
+      "architecture": "measured4t",
+      "controller": "three_five",
+      "nonflag_Z_measurements_upper": 152352,
+      "conditional_Clifford_X_resets_upper": 154008,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "plain",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 302316,
+      "conditional_Clifford_X_resets_upper": 304794,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "best_range",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 300443,
+      "conditional_Clifford_X_resets_upper": 302926,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "best_clipped",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 294720,
+      "conditional_Clifford_X_resets_upper": 297176,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "best_single_flag",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 294720,
+      "conditional_Clifford_X_resets_upper": 297176,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "best_dyadic",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 6649337,
+      "conditional_Clifford_X_resets_upper": 6706742,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "family": "best_all",
+      "candidate_id": "77257e0f0a5152bf79ae",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 294720,
+      "conditional_Clifford_X_resets_upper": 297176,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "plain",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 473061,
+      "conditional_Clifford_X_resets_upper": 476514,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "best_range",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 470424,
+      "conditional_Clifford_X_resets_upper": 473883,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "best_clipped",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 476685,
+      "conditional_Clifford_X_resets_upper": 480216,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "best_single_flag",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 476685,
+      "conditional_Clifford_X_resets_upper": 480216,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "best_dyadic",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 10290575,
+      "conditional_Clifford_X_resets_upper": 10369667,
+      "additional_T_count": 0
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "family": "best_all",
+      "candidate_id": "58dcea168428e060fb65",
+      "architecture": "measured4t",
+      "controller": "miqae",
+      "nonflag_Z_measurements_upper": 476685,
+      "conditional_Clifford_X_resets_upper": 480216,
+      "additional_T_count": 0
+    }
+  ],
+  "scope": "exact stored accounting/minima, support/moment/error transfer and independent 300-digit classical confidence; no production comparator/planner imports; separate scalar audit remains required for DP tightness"
+}

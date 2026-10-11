@@ -1,0 +1,105 @@
+% Supporting derivation for the freshly registered four-case experiment.
+\section{Direct global transfer bounds for the positive first residual}
+Let $w_i>0$, $\sum_iw_i=1$, and let
+\[
+ X(y)=\sum_iw_i\exp(\mu_i+R_i\cdot y),\qquad
+ G(y)=\prod_i\exp(\mu_i+R_i\cdot y)^{w_i}.
+\]
+Write $\ell=\log X$, $m=\log G$ and $r_j=\sum_iw_iR_{ij}$.
+The common independent Gaussian factor is integrated into a smooth
+conditional capped-call price $P$. Suppose the checked global constants
+satisfy $\|P'\|_\infty\leq M_1$ and
+$\|P''-P'\|_\infty\leq M_2$.
+Weighted arithmetic--geometric mean and monotonicity of the payoff give
+$0\leq F(y):=P(\ell(y))-P(m(y))\leq H$.
+The constants in this review use the full asset loadings
+$A_j:=\max_i|R_{ij}|$, rather than the centred loadings.
+
+Define $\pi_i(y)=w_i\exp(\mu_i+R_i\cdot y)/X(y)$.
+These weights are nonnegative and sum to one. Direct differentiation yields
+\[
+ \ell_j=\sum_i\pi_iR_{ij},\qquad
+ \ell_{jj}=\sum_i\pi_iR_{ij}^{2}-\ell_j^2.
+\]
+Consequently $|\ell_j|\leq A_j$ and
+$\sum_i\pi_iR_{ij}^{2}\leq A_j^2$. The first derivative is
+$F_j=P'(\ell)\ell_j-P'(m)r_j$, so
+\[
+ |F_j|\leq M_1(A_j+|r_j|)=:D_{1j}.
+\]
+For the second derivative it is essential to retain the cancellation
+between the log-basket Hessian and the $P'$ part of $P''$:
+\[
+ (P\circ\ell)_{jj}
+  =(P''-P')(\ell)\ell_j^2
+   +P'(\ell)\sum_i\pi_iR_{ij}^{2}.
+\]
+The geometric log $m$ is affine. The triangle inequality therefore proves
+\[
+ |F_{jj}|\leq(M_1+M_2)(A_j^2+r_j^2)=:D_{2j}.
+\]
+No sign condition on $R_{ij}$ or $r_j$ is needed. Replacing $A_j$ by a
+centred-loading maximum would not follow from this proof.
+
+Let $\nu$ be the unnormalised Gaussian measure restricted to $[-L,L]$,
+with mass $a$, and let $\tau$ be its equal-mass rounded-node rule,
+also of mass $a$. For each cell let $c$ be its actual rounded node and
+$\mu_{1,c}=\int(y-c)\,\nu(dy)$,
+$\mu_{2,c}=\int(y-c)^2\,\nu(dy)$.
+The established second-order cell identity gives an atomic signed first
+moment and a positive Peano measure of mass
+$\mu_{2,c}/2$. Tensor telescoping and the preceding global bounds give
+\[
+ \left|\int F\,d\nu^{\otimes p}-\int F\,d\tau^{\otimes p}\right|
+ \leq a^{p-1}\sum_{j=1}^p
+ \left(D_{1j}\sum_c|\mu_{1,c}|
+       +\frac{D_{2j}}{2}\sum_c\mu_{2,c}\right).
+\]
+Every other factor of each hybrid measure has mass $a$. Normalising those
+factors without restoring this mass would change the priced quantity.
+The excluded Gaussian region contributes at most $H(1-a^p)$ because
+$0\leq F\leq H$. Adding this tail gives the full continuous-to-finite-grid
+allowance. I require an undiscounted monetary radius of $0.01$ in the
+four-case experiment. The fixed rate is $r=0.03$ and maturity is one year,
+so multiplication by $e^{-0.03}<1$ preserves this radius for the actual
+discounted derivative price. This is a conservative accuracy requirement.
+The minimum of this valid allowance and another valid allowance remains
+a valid allowance; this is deterministic selection and has no statistical
+selection penalty.
+
+\section{Scope of the independent review}
+The derivative envelopes follow from established differentiation,
+weighted arithmetic--geometric mean and the established Gaussian cell
+identity. I do not claim a new general transport theorem. The experiment
+uses the minimum of the older residual-decomposition certificate and this
+direct bounded-payoff certificate, and supplies the resulting information
+equally to the first-residual comparison.
+
+The registered comparison retains all scalar-address-12 baselines.
+The eight-asset boundary residual exhausts the tolerance in that baseline;
+the declared repair uses scalar addresses of width 14 with unchanged
+$q=28$, outer address width 10, $L=6$ and Beta address width 8. Both
+coherent lookup architectures and centred or split preparations are retained
+where applicable. The complete logical charge for an active flag is
+\[
+ R\{T(A)+(M-1)T(CQ)+T(\mathcal F^{-1})\},
+\]
+with one clean preparation, $M-1$ controlled Grover iterates and the
+retained inverse Fourier tape per fresh repetition. The controlled iterate
+includes both the full preparation and its actual phase adjoint, the
+controlled good reflection, controlled all-zero reflection and conditional
+global-minus phase. Input Hadamards, observations and conditional resets
+are included in their corresponding complete-operation fields. The
+preparation's internal Boolean cleanup reverses logical self-inverse
+operations and freshly emits their implementations. Its expanded gate
+multiset can therefore equal that of the forward body without being the
+literal expanded phase adjoint. The full $A^\dagger$ inside the Grover
+iterate separately swaps $T$ with $T^\dagger$ and $S$ with $S^\dagger$.
+
+The retained audit reconstructs all 80 profiles and 104 finite-confidence
+plans, including the earlier financial first-residual budgets and their
+previous or coefficient-informed priors. The logical gate-resource formula
+is an ideal algorithmic plan, rather than observed physical-device execution
+or a wall-clock quantum runtime. The construction, mathematical derivation
+and finite-pool resource comparison do not establish literature priority,
+global precision optimality or a practical quantum advantage.

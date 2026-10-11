@@ -1,0 +1,32 @@
+{
+  "schema": "qbp-asymmetric-mathematical-review-v1",
+  "status": "passed",
+  "proof_fragment_sha256": "e6255926a16ac07eef48f9d36bb04556f489c311d931e4c80cecbcf18fe426e0",
+  "independent_auditor_sha256": "89397ccf60d068c7d47c4b735b5d936eed1dde40ea6125e0e2d6201a4b220d9c",
+  "independent_audit_sha256": "93d4a853a148ba39e85eb4e9431831cc9c72a32a72d1779f99885b09871fe865",
+  "negative_order_witness_sha256": "982a04a47c1b3d2e229aeb94cecf71ae557caf97cbc7862927432f0e96092d0f",
+  "registered_error_rule": "Conservative 2E_m rule only. Prospective E_m and gap refinements were proved before registration but are not used in any frozen outcome.",
+  "projection_finding": "Two individually monotone tables do not establish mutual ordering. Final unsigned positive_sub/clamp exactly projects their represented difference onto[0,1]; its1-Lipschitz property fixes the exact nonnegative financial target and validates the separate scalar error sum.",
+  "negative_witness": {
+    "q": 28,
+    "input_integer": 43691,
+    "input_exact": "43691/268435456",
+    "PG_bits": 8,
+    "PA_bits": 12,
+    "PG_exp_integer": 268479151,
+    "PA_exp_integer": 268479150,
+    "unprojected_payoff_difference_integer": -100,
+    "projected_payoff_difference_integer": 0
+  },
+  "negative_witness_verified_against_freshly_recomputed_archive": true,
+  "negative_witness_scope": "Equal mathematical arguments are ordered, but independently interpolated q28 exponentials can reverse represented PG/PA ordering. This is a scalar-domain witness, not an assertion that this particular equal argument occurs in one of the financial grid cases.",
+  "CDF_finding": "Both closed and left empirical CDF discrepancies are bounded at every finite atom. Repeated quantile labels retain their multiplicity. The continuous payoff-difference Stieltjes measure makes atoms admissible and contributes at most2D_N.",
+  "normal_rounding_allocation": "Realised outer coordinates are exact inputs to the body graph. Outer rounding is inherited in the financial transfer; inner normal rounding is charged only by D_N in the smoothing bound. No differentiation of an atomic law is used.",
+  "asymmetric_cost_interpretation": "All four300-setting winners havePG9/PA9. The disclosed expansion checks asymmetric alternatives, but the attained improvement comes from a newly included symmetric width9. These outcomes do not support a gain attributable to asymmetric precision allocation.",
+  "prospective_refinement_scope": "The common-shift E_m coefficient and its Delta-dependent minimum are mathematically valid but remain uncosted. A future contribution must recertify and recost all applicable rival preparations fairly before comparing revised caps. Generic smoothing, projection and derivative bounds do not establish theoretical novelty.",
+  "audit_diagnostic_correction": "An initial320-bit fresh Gaussian-normalisation upper endpoint was wider than the retained384-bit bound, so the prerequisite comparison rejected. The corrected audit checks that prerequisite at512-bit precision and resets to320 for exact retained node-field reconstruction. This was an audit precision issue, not a financial or resource outcome repair.",
+  "fresh_node_count": 37899,
+  "conditional_rows": 252,
+  "CDF_atom_checks": 10752,
+  "scope": "Mathematical certification only. Full literal resources are reviewed independently by root; no physical quantum execution, practical advantage, global precision optimum or originality claim."
+}

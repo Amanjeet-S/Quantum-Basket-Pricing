@@ -1,0 +1,51 @@
+{
+  "schema": "qbp-preparation-review-validation-v1",
+  "date": "2026-10-11",
+  "status": "passed",
+  "primary_purpose": "Mathematical/computational preparation; original contribution remains optional research extension.",
+  "module_inventory_records": 737,
+  "programme_routes": 11,
+  "counts_include_cross_listings_terms_activities_and_non_running_items": true,
+  "no_fully_mastered_module_claim": true,
+  "entry_vs_taught_vs_optional_distinction": true,
+  "peripheral_syllabuses_and_future_offerings_not_all_verified": true,
+  "new_source_register_sha256": "5a4320f7dfbcd3c317166a073d19a16ce9ed50a7f19453dbf79a7b2f1e9b4644",
+  "new_module_screen_sha256": "be9d2b5fcbf82d420b732f59353e229d595ff92dca074030cf03518990b873d2",
+  "retained_file_sha256": {
+    "README.md": "d1fc3f8d358dee052032140632e36d5e7d5e85d136e7fe0f60d0e5a30eef29af",
+    "PREPARATION.md": "6fec02af178c04f1c59e363b936f44d599f9c92cc9d9fa9eb0cf7f81105508ef",
+    "quantum_method_redesign.md": "0cb157daa3429990f7493a342ee53a9ac465c37e827394bd423357278e0199a9",
+    "results/preparation_review/programme_curricula.json": "5a4320f7dfbcd3c317166a073d19a16ce9ed50a7f19453dbf79a7b2f1e9b4644",
+    "results/preparation_review/module_alignment.csv": "be9d2b5fcbf82d420b732f59353e229d595ff92dca074030cf03518990b873d2",
+    "results/preparation_review/independent_project_evidence.md": "bd8f5d072071a7b65b963b23b4b40500da41e90e7d7e1284da267c58beac12cc"
+  },
+  "original_files_unchanged": {
+    "generalisation_proofs.tex": "0761733b57af35cceb3a6e2cc707670844e46df78ec94436d1844d3c31a1572b",
+    "raw_payoff_proof.tex": "b4f0b50bb5f5e71014dbaa9d2df7dccb4d67bd6f4bd23b1592804d8b8e6ec5b9",
+    "originality_assessment.md": "955300c524b7d9ab417ba91a95d611680aa78cec2ffc21c1d648c1a8b5c9d2f7",
+    "SOURCES.md": "f16421fe3916dcc9187fc53490b445e9827ccd84d59201a628fe07be8d238153",
+    "supporting_proofs_index.md": "c1dce2b04f820623ab7e4401a731d909ce19ace02a691a1758de641350a91d1c",
+    "results/deferred_cleanup/deferred_cleanup_protocol.json": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+    "results/deferred_cleanup/deferred_cleanup_resources.json.gz": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+    "results/matched_deferred_chebyshev/matched_chebyshev_protocol.json": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+    "results/four_case_classical_protocol.json": "a7b9b82311ba5f0d9fcd21d3e72f334a25203676e5c6b718ceb11bf2f8f9ba75",
+    "results/four_case_classical_pricing.json": "ec3517b2e13f0e2fb99a94c7cafa240e6ec8420a841b76e5d74cc3d0b61d1da3"
+  },
+  "byte_exact_prior_document_archive": {
+    "README.md": "1a5be6364d4e9f232ccb79ef7062eef12dbf98827d5c7f4df6670c8a8dc2a692",
+    "quantum_method_redesign.md": "a6cd4f27a02fc8c07b6a51d40efb18f064fa83dafcbd74f0aeaa0a44d14c280c"
+  },
+  "local_documentation_links_checked": 33,
+  "main_source_unchanged": true,
+  "supporting_source_unchanged": true,
+  "new_theorems_or_numerical_experiments": false,
+  "new_pdf_or_pdf_compile": false,
+  "thesis_read_locally_not_redistributed": true,
+  "private_data_acquired_or_redistributed": false,
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_staging_pushes": false,
+  "PREPARATION_words": 2096,
+  "README_words": 666,
+  "plan_words": 436
+}

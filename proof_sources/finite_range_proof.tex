@@ -1,0 +1,301 @@
+\section{A uniform certificate for the actual finite residual support}
+\label{sec:finite-range}
+
+I now certify the support of the finite numerical oracle rather than
+inferring that support from a mean, a variance or sampled extrema. The
+certificate is conditional on the retained uniform arithmetic-error
+certificate and the exact frozen model coefficients. Its finite quantile
+support does not impose a bounded-support assumption on the underlying
+continuous Gaussian financial model. The previously charged distributional
+transfer error remains necessary when reporting a continuous-model price.
+The convexity and moment inequalities used below are established results;
+the project-specific construction is their uniform application to the
+actual finite circuit and the resulting fair comparison between encodings.
+
+\subsection{Exact latent support and the vertex maximum}
+
+Let the emitted rounded marginal table, after removing its offset, consist
+of integer values \(z_0,\ldots,z_{2^b-1}\), representing
+\(2^{-q}z_j\). Its exact constructor is symmetric and increasing.
+The independently checked maximum is therefore
+\(v=2^{-q}z_{2^b-1}\), and every outer latent coordinate belongs to
+\([-v,v]\). This is a statement about the actual integer table, whose
+hash is retained. It is not a statement about the largest value of an
+unbounded Gaussian random variable.
+
+Write the frozen weights as \(w_i>0\), \(\sum_iw_i=1\), the outer
+loadings as \(r_i\), and the log drifts as \(\mu_i\). Define
+\(r_G=\sum_iw_i r_i\), \(\mu_G=\sum_iw_i\mu_i\),
+\(s_i=r_i-r_G\), and \(d_i=\mu_i-\mu_G\). The ideal arithmetic to
+geometric basket ratio at an exact rounded latent input \(y\) is
+\[
+ J(y)=\log\frac{A(y)}{G(y)}
+     =\log\left(\sum_i w_i\exp(d_i+s_i\cdot y)\right).
+                                                               \tag{R1}
+\]
+The shared inner factor cancels from this ratio. Since
+\(\sum_iw_i d_i=0\) and \(\sum_iw_i s_i=0\), Jensen's inequality
+for the exponential gives \(J(y)\geq0\).
+
+For a direct convexity proof, put
+\(\pi_i(y)=w_i\exp(d_i+s_i\cdot y)/\sum_jw_j\exp(d_j+s_j\cdot y)\).
+Then
+\[
+ \nabla J=\sum_i\pi_i s_i,\qquad
+ \nabla^2J=\sum_i\pi_i s_i s_i^{\mathsf T}
+             -\left(\sum_i\pi_i s_i\right)
+              \left(\sum_i\pi_i s_i\right)^{\mathsf T}.
+\]
+For every vector \(h\), the corresponding quadratic form is
+\(\sum_i\pi_i(h\cdot s_i)^2-(\sum_i\pi_i h\cdot s_i)^2\),
+a nonnegative variance. Thus \(J\) is convex. For \(v>0\), every
+\(y\in[-v,v]^p\) is the convex combination of the vertices
+\(v\sigma\), \(\sigma\in\{-1,1\}^p\), with coefficients
+\[
+ \lambda_\sigma(y)=\prod_{j=1}^p\frac{1+\sigma_j y_j/v}{2}.
+\]
+These coefficients are nonnegative, sum to one, and have weighted vertex
+mean \(y\). Convexity therefore proves
+\[
+ 0\leq J(y)\leq
+ J_*:=\max_{\sigma\in\{-1,1\}^p}J(v\sigma).               \tag{R2}
+\]
+If \(v=0\), the box has one point and the same statement uses \(J(0)\).
+The vertex search is exhaustive in the finite family \(p\leq7\);
+it is not a numerical optimiser whose termination is assumed to find a
+global maximum. The geometric outer log price has the independent bound
+\[
+ m_G(y)=\mu_G+r_G\cdot y
+       \leq m_G^*:=\mu_G+v\sum_j\lvert r_{G,j}\rvert.        \tag{R3}
+\]
+The maxima in (R2) and (R3) need not occur at the same vertex. Multiplying
+their separate nonnegative bounds below remains conservative.
+
+\subsection{Method-specific ideal residual bounds}
+
+Let \(K\) be the strike, \(H>0\) the payoff cap, \(h=H/K\), and
+\(F_H(s)=\min((s-K)_+,H)\). The normalised capped payoff is one-Lipschitz
+after scaling prices by \(H\). More precisely,
+\[
+ 0\leq\frac{F_H(s)-F_H(t)}{H}\leq\frac{s-t}{H}
+ \quad(s\geq t>0).
+\]
+As a function of log price, \(F_H(S_0e^m)/H\) has derivative
+\(S_0e^m/H\) only while \(K<S_0e^m<K+H\), and derivative zero
+outside that interval. Its global log-price Lipschitz constant is therefore
+\(L_H=(K+H)/H=(1+h)/h\). This conclusion also follows by integrating
+the bounded derivative across the two kinks.
+
+For the direct method, the rounded inner table has exact support
+\([-v_Z,v_Z]\), and the declared shared loading satisfies \(\lambda>0\).
+The ideal rounded-grid normalised residual is bounded uniformly by
+\[
+ U_{\mathrm{direct}}=
+ \min\left\{1,\ L_HJ_*,\
+  \frac{S_0}{H}\exp(m_G^*+\lambda v_Z)(e^{J_*}-1)\right\}.   \tag{R4}
+\]
+Indeed, the arithmetic price equals the geometric price times \(e^{J(y)}\),
+so its positive gap is at most the last expression. The other two terms
+follow from the payoff cap and the log-price Lipschitz bound.
+
+For a fixed strike sampled in the interval method, the residual is the
+difference of two Gaussian distribution functions whose arguments differ
+by \(J(y)/\lambda\). The Gaussian density is at most
+\(\varphi(0)=(2\pi)^{-1/2}\). Hence
+\[
+ U_{\mathrm{interval}}=
+ \min\{1,\ \varphi(0)J_*/\lambda\}.                       \tag{R5}
+\]
+This bound is uniform in the strike uniform, so the vertex search does not
+need to enumerate that additional input.
+
+For either fully conditioned method, averaging over the inner Gaussian
+and over the capped payoff preserves the log-price slope bound \(L_H\)
+and also gives the slope bound \(\varphi(0)/\lambda\).
+The latter follows by writing the cap payoff as an integral of strike
+indicators over \([K,K+H]\), dividing by \(H\), and differentiating
+the bounded Gaussian distribution function. The positive price-gap bound
+uses \(\mathbb E e^{\lambda Z}=e^{\lambda^2/2}\). Consequently,
+\[
+ U_{\mathrm{full}}=
+ \min\left\{1,
+   \min\{\varphi(0)/\lambda,L_H\}J_*,
+   \frac{S_0}{H}\exp(m_G^*+\lambda^2/2)(e^{J_*}-1)\right\}.  \tag{R6}
+\]
+Equations (R4)--(R6) bound the ideal functions evaluated at the actual
+rounded outer latent coordinates. They do not remove function-table
+approximation, arithmetic truncation, or the continuous distributional
+transfer allowance.
+
+\subsection{Uniform body error, outward evaluation and lattice flooring}
+
+Let \(a(y,\ldots)\) be the actual integer output and let the retained
+arithmetic certificate prove a currency error no greater than \(\beta_A\).
+Put \(\eta=\beta_A/H\). The same certificate remains conservative
+when the exact rounded quantile values are taken as ideal body inputs:
+their initial quantile error then becomes zero instead of the original
+charged one-ULP bound. All retained domains still contain those inputs.
+The ensuing error recurrences are monotone in the nonnegative preceding
+error bounds, and their function domains shrink when those errors decrease.
+Thus retaining the original \(\eta\) cannot undercharge the remaining
+body arithmetic or interpolation error. In particular, this is a
+pointwise body-error argument. An expectation-level distribution error is
+not being converted to a pointwise or squared-error bound.
+
+Use outward enclosures \(\overline J_*\), \(\overline L\) and
+\(\overline U_{\mathrm{ideal}}\) in the appropriate preceding formula.
+Then
+\[
+ 0\leq X=2^{-q}a\leq
+ U:=\min\{1,\overline U_{\mathrm{ideal}}+\eta+\epsilon_{\mathrm{num}}\},
+ \qquad
+ a\leq M:=\lfloor2^qU\rfloor.                            \tag{R7}
+\]
+The floor is justified by integrality: an integer no greater than a real
+upper bound is no greater than its floor. It is not applied to an inward
+rounding or to a sampled maximum. The conversion of the retained decimal
+\(U\) to a rational number is exact. Therefore the final finite support
+\(\{0,2^{-q},\ldots,M2^{-q}\}\) is exact conditional on the outward
+range certificate, including the possible endpoint \(M=2^q\).
+
+The generator evaluates at 220 decimal digits and adds a declared
+\(10^{-100}\) outward allowance. Its finite numerical family has at
+most eight assets, seven coordinates and 128 vertices, with exponential
+arguments bounded in absolute value by 20. Correctly rounded Decimal
+exponential and logarithm operations, rational-to-decimal conversions,
+positive weighted sums and the bounded denominators in this family have
+aggregate centre errors far smaller than that allowance. More explicitly,
+the correctly rounded relative-error unit is at most
+\(u=5\times10^{-220}\). Conversion of an exact exponent of magnitude
+at most 20 contributes at most \(20u\) absolute error. Since
+\(e^{20}<5\times10^8\), the mean-value bound for its exponential,
+the eight weighted terms and their additions together give a conservative
+absolute exponential-sum centre error below \(10^{-206}\).
+The exact sum is at least one, so a perturbation of that size remains above
+one half and the logarithm amplifies it by at most two. The subsequent
+positive-gap candidate involves two exponentials with arguments of magnitude
+at most 20 in the independently checked family and a coefficient
+\(S_0/H\leq100\). Allowing all their conversions, products and
+subtractions, the deliberately loose centre-error bound \(10^{-190}\)
+still dominates those errors. The density slope divides only by
+\(\lambda\geq0.05\), and its other denominator has \(h\geq0.01\),
+so it does not invalidate that bound. Each added \(10^{-100}\)
+allowance dominates this finite computation bound by ninety decimal orders.
+Maximisation and minimisation select stored real enclosures and add no
+new rounding operation. Weighted
+arithmetic--geometric order keeps the exact exponential sum at least one,
+so the logarithm does not amplify a small denominator. The independent
+audit evaluates scaled log-sum-exp at 450 digits, uses a distinct positive
+series for \(\pi\), and checks the retained upper enclosures against
+all reference vertices with an explicit \(10^{-350}\) reference envelope.
+That high-precision calculation supplements the numerical premise and
+the uniform analytical proof; it is not a claim of a formally verified
+implementation of Decimal itself.
+
+To specify the density calculation's numerical premise in detail, the
+generator evaluates Machin's identity
+\(\pi=16\arctan(1/5)-4\arctan(1/239)\) by the alternating series
+\(\arctan x=\sum_{n\geq0}(-1)^n x^{2n+1}/(2n+1)\).
+Its loop includes the first power no greater than \(10^{-230}\).
+For \(x=1/5\), it takes at most 166 updates; for \(x=1/239\),
+at most 49. The margins at those powers are much larger than their
+relative rounding errors, so these bounds also hold for the emitted
+recurrences. For \(k\) successive rounded operations, the standard
+product bound follows directly by expanding the product of their
+\((1+\delta_j)\) factors:
+\[
+ \left\lvert\prod_{j=1}^k(1+\delta_j)-1\right\rvert
+ \leq\frac{ku}{1-ku}=: \gamma_k\quad
+ (\lvert\delta_j\rvert\leq u,\ ku<1).
+\]
+Each power update has at most two rounded multiplications. Since
+\(\sum_{n\geq0}x^{2n+1}\leq x/(1-x^2)<0.21\) for both
+arguments, the power, term-division and summation errors together are
+bounded conservatively by
+\(0.21(\gamma_{332}+\gamma_{167}+3u)<230u\).
+The second argument's initial reciprocal error is at most \(u/239\);
+the derivative of arctangent has magnitude at most one, so adding \(u\)
+covers this perturbation. The alternating remainder is at most
+\(10^{-230}\). Multiplying by the Machin coefficients and charging
+their products and subtraction gives a pi error less than
+\(20(231u+10^{-230})+100u<10^{-210}\).
+The exact and computed pi therefore remain above three minus
+\(10^{-210}\). The derivative of \((2\pi)^{-1/2}\) there is less
+than 0.08 in magnitude. The correctly rounded reciprocal and square root
+add less than \(10u\) absolute error. Thus the computed
+\(\varphi(0)\) has absolute error below \(10^{-210}\).
+Division by \(\lambda\geq0.05\) amplifies it by at most twenty,
+which remains covered by the stated \(10^{-190}\) aggregate centre
+bound before the \(10^{-100}\) outward pad.
+
+For the other centre-error claims, exact rational exponent conversion has
+absolute error at most \(20u\). The mean-value theorem and correct
+rounding bound each exponential's error by
+\(e^{20+20u}(20u)+u e^{20+20u}<6\times10^9u\).
+Converting a weight in \([0,1]\), multiplying it by that exponential,
+and summing at most eight positive terms contributes less than
+\(10^{-206}\) in total. Dividing the logarithmic perturbation by a sum
+at least one half and charging the rounded logarithm gives less than
+\(3\times10^{-206}\). Every vertex obeys that bound, so taking the
+maximum does too. The frozen weights have minimum at least 0.04. At least
+one centred affine exponent is nonpositive because their weighted mean
+is zero; consequently,
+\(J_*\leq\log(0.96e^{20}+0.04)<19.96\).
+Thus even its padded centre remains below 20. The independent audit also
+checks the geometric-price exponential arguments in (R4) and (R6) against
+the bound 20. Their conversions and products, two exponentials no greater
+than \(5\times10^8\), and the coefficient at most 100 give an absolute
+candidate centre error below \(10^{-190}\), including cancellation in
+\(e^{\overline J_*}-1\): an absolute-error estimate is used, so a small
+gap does not invalidate it. The slope product, final sum and bounded
+normalisations satisfy the same loose bound. Every such candidate receives
+an outward \(10^{-100}\) addition before the minimum is taken.
+These estimates prove the numerical enclosure on the stated finite
+parameter domain conditional on correct rounding of the declared Decimal
+primitives; they do not extrapolate that envelope to arbitrary parameters.
+
+\subsection{Exact transfer to mean and second-moment priors}
+
+Let \(R=M2^{-q}\), and suppose previous certificates give
+\(m\geq\mathbb E X\) and \(s\geq\mathbb E[X^2]\).
+The support inequality \(X^2\leq RX\) gives the valid initial
+tightenings
+\[
+ m_0=\min(m,R),\qquad s_0=\min(s,Rm_0,R^2).                \tag{R8}
+\]
+If \(M=0\), the finite output is identically zero and both bounds are
+zero. Otherwise, write \(\delta=2^{-q}\). For every integer
+\(a\in\{0,\ldots,M\}\) and every integer \(j\geq0\),
+\((a-j)(a-j-1)\geq0\). For adjacent grid points
+\(x=j\delta\), \(y=(j+1)\delta\), this proves the exact pointwise
+linear moment certificate
+\[
+ X^2\geq(x+y)X-xy,
+ \qquad \mathbb E X\leq\frac{s_0+xy}{x+y}.                \tag{R9}
+\]
+When \(s_0<R^2\), choose the unique \(j\in\{0,\ldots,M-1\}\)
+with \(j^2\delta^2\leq s_0<(j+1)^2\delta^2\). The right side
+of (R9) is the inverse of the lower convex hull of the finite squared-value
+graph at \(s_0\). It is attained in the unrestricted lattice support
+class by a mixture of \(x\) and \(y\) with second moment \(s_0\).
+For \(j=0\), that mixture uses zero and \(\delta\), and (R9) reads
+\(\mathbb E X\leq s_0/\delta\). If \(s_0\geq R^2\), the support
+bound \(R\) is the corresponding hull bound. Denoting this inverse by
+\(H_q(s_0,M)\), I retain
+\[
+ m_1=\min(m_0,H_q(s_0,M)),\qquad
+ s_1=\min(s_0,Rm_1).                                      \tag{R10}
+\]
+Every step applies a pointwise inequality or a previously valid moment
+bound, so it remains an upper bound for the actual finite financial law.
+Sharpness is asserted only over all probability laws on the permitted
+lattice, not over the narrower values attained by a particular financial
+circuit. The circuit need not realise the extremising mixture. These
+fair mean and second-moment priors are supplied to every eligible encoding,
+including the single-flag range and clipping opponents.
+
+The retained production-point checks evaluate the exact integer graph at
+latent vertices, central and boundary addresses and reproducible random
+inputs, then independently cross-check selected outputs using unbounded
+Python integer replay. They can reveal a construction or coding failure,
+but their maxima are not substituted for the uniform proof in (R7).

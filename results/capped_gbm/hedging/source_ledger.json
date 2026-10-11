@@ -1,0 +1,87 @@
+{
+  "scope": "Limited primary-source foundations for a static funded capped-GBM mean-square hedge and convex KKT. This is not a complete literature-priority review.",
+  "review_date": "2026-10-11",
+  "sources": [
+    {
+      "key": "boydvandenberghe2004",
+      "authors": "Boyd, S. and Vandenberghe, L.",
+      "year": 2004,
+      "title": "Convex Optimization",
+      "publication_type": "Published textbook, not a journal article.",
+      "publisher": "Cambridge University Press",
+      "doi": "10.1017/CBO9780511804441",
+      "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "actual_version": "Author-hosted published-book PDF; the author page states that Cambridge University Press permits free web access.",
+      "consulted_scope": "Section 4.2.3, pp. 139–140, inequalities (4.20)–(4.21); Section 5.2.3, pp. 226–227, refined Slater qualification; Sections 5.5.2–5.5.3, pp. 242–245, complementary slackness, KKT and equality-constrained quadratic example; Section 5.8.3 Farkas lemma, p. 263; normal-cone definition in Exercise 2.38(c), p. 66. Central KKT pages inspected visually.",
+      "claim_supported": "Established convex first-order optimality, affine-constraint duality/KKT, normal-cone definition and finite-dimensional quadratic programming.",
+      "not_supported": "An exercise defining normal cones is not itself a completed polyhedral normal-cone proof. The project must derive its active-set representation, degeneracies and numerical error statement. Book results do not confer a new financial model or originality.",
+      "accessed": "2026-10-11",
+      "sha256": "40d976c83c18cce1900eff8c41bd5ad408c102b813af39d05ff85678ccf8d76e",
+      "raw_source_redistributed": false
+    },
+    {
+      "key": "czichowskyschweizer2012",
+      "authors": "Czichowsky, C. and Schweizer, M.",
+      "year": 2012,
+      "title": "Convex duality in mean-variance hedging under convex trading constraints",
+      "publication_type": "Published peer-reviewed journal article.",
+      "journal": "Advances in Applied Probability",
+      "volume": "44",
+      "issue": "4",
+      "pages": "1084–1112",
+      "doi": "10.1239/aap/1354716590",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/70062CD4A47E46665635AFD72F46644D/S0001867800006054a.pdf/convex_duality_in_meanvariance_hedging_under_convex_trading_constraints.pdf",
+      "actual_version": "Final publisher journal PDF, journal-paginated 1084–1112 and bearing Applied Probability Trust copyright. Journal issue is December 2012; the later Cambridge platform publication date is not the original journal year.",
+      "consulted_scope": "Introduction and Section 2, pp. 1084–1088: discounted wealth, fixed-versus-optimised initial capital, constrained mean-square loss. Section 4, p. 1095, Theorem 4.1 and proof, inspected visually. General semimartingale closedness and duality machinery in Sections 3 and 5 were not fully read or independently verified.",
+      "claim_supported": "Established fixed-capital mean-square hedging and convex trading constraints, distinguished from optimising the initial capital and from unrestricted pricing.",
+      "not_supported": "The source studies dynamic predictable semimartingale strategies. This project restricts holdings to a finite static terminal basis, proves existence directly, and does not implement the general dynamic/duality theorem or local risk minimisation. No transfer of unverified closedness assumptions.",
+      "accessed": "2026-10-11",
+      "sha256": "b7fb92ab18995eecc691ebc58c8cbf16debf0c70f02c527077bf3a4eb75e1755",
+      "raw_source_redistributed": false
+    },
+    {
+      "key": "leunglorig2016",
+      "authors": "Leung, T. and Lorig, M.",
+      "year": 2016,
+      "title": "Optimal static quadratic hedging",
+      "publication_type": "Published peer-reviewed journal successor, with an explicitly identified pre-publication body consulted.",
+      "journal": "Quantitative Finance",
+      "volume": "16",
+      "issue": "9",
+      "pages": "1341–1355",
+      "doi": "10.1080/14697688.2016.1161229",
+      "publisher_url": "https://www.tandfonline.com/doi/full/10.1080/14697688.2016.1161229",
+      "url": "https://arxiv.org/pdf/1506.02074v2",
+      "actual_version": "arXiv:1506.02074v2, posted 19 November 2015; manuscript title page dated 20 November 2015. This is a pre-publication version, not represented as the accepted or final journal body. Final article publication details and abstract were verified in Safari and Crossref.",
+      "consulted_scope": "Section 2, manuscript pp. 3–4, equations (2.1)–(2.2); Section 3.2, pp. 11–12, Assumption 3.5, Proposition 3.6, equations (3.24)–(3.27); Appendix A, pp. 26–27. Finite-asset proposition and Appendix A inspected visually.",
+      "claim_supported": "Closest antecedent: physical-measure expected squared static hedging error, pricing-measure cost, finite tradable basis, raw payoff moment matrices and a cost-constrained quadratic programme.",
+      "not_supported": "The consulted model assumes zero interest and no dividends and permits signed holdings with one cost constraint. The project must derive dividend reinvestment and funded-gain accounting, additional long-only/position constraints and its own numerical checks. The static QP is an established method, not a new theory. Final-body textual identity or literature priority is not established.",
+      "access_attempt": "Ordinary publisher retrieval returned 403. A separate Safari tab reached the final article abstract/get-access page and displayed no available full body. No credentials, login changes, purchase, trial or new entitlement were initiated; the temporary tab was closed.",
+      "accessed": "2026-10-11",
+      "sha256": "2b1a7addfc6710b1c6ceb9783798b9632942152ce3946a08249487db57777dc6",
+      "raw_source_redistributed": false
+    }
+  ],
+  "access_summary": [
+    "The paper-index search was attempted and failed DNS resolution; no paid access or entitlement acquired.",
+    "Final Cambridge journal PDF and author-hosted optimisation textbook read freely.",
+    "Final Leung–Lorig metadata/abstract checked in Safari; actual body consulted is named arXiv v2."
+  ],
+  "financial_distinctions": [
+    "Loss is under P; initial claim and hedge prices are stipulated no-arbitrage Q prices.",
+    "Initial capital V0 is fixed, not optimised to produce a minimum-variance price.",
+    "For dividend reinvestment into stock, g_S=exp((q-r)T)S_T-S0. Fixed-share/cash-dividend gains are a different path-dependent convention.",
+    "With fixed funded capital, the moment matrix is E_P[gg^T], not Cov_P(g), unless the relevant P means actually vanish.",
+    "The Black–Scholes–Merton model is dynamically complete; the allowed static instrument set can fail to span the capped payoff.",
+    "A static terminal decision is not a dynamic/local-risk-minimising strategy, a Monte Carlo prediction control, or a new quantum algorithm."
+  ],
+  "comparison_conclusion": "Established quadratic hedging and convex optimisation supply the method. The project-specific value is transparent funded/dividend accounting, checked moments and constraints, matched comparisons and retained synthetic evidence. No theoretical priority or empirical market adequacy is claimed.",
+  "inherited_pricing_foundations": {
+    "ledger": "results/capped_gbm/source_ledger.json",
+    "keys": [
+      "blackscholes1973",
+      "merton1973"
+    ],
+    "scope": "Previously consulted published financial pricing/dividend material, retained byte-for-byte."
+  }
+}

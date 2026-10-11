@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "audit_source_sha256": "84bf554ac63309ad46091302763c3fdd777c68bda109019257ac1bb9116780ba",
+  "comparison_sha256": "88bbfa6ca0c296e30781bf897014f4f53ef97da29a06a7de3d66bd0ea94741e3",
+  "scalar_archive_sha256": "e53cce1d51d56a49b69755c4035d041df0e6513953e81e47842ee81a224539e3",
+  "retained_candidates": 173,
+  "method_groups": 48,
+  "profiles_checked": 730,
+  "scalar_certificates_checked": 338,
+  "scalar_ordinates_linked_to_independent_seed_audit": 414161,
+  "unique_program_certificates_reconstructed": 8733,
+  "greedy_proposals_checked": 23766,
+  "starting_infeasible_allocations_checked": 6,
+  "chosen_greedy_steps_checked": 4072,
+  "complete_QPE_flag_plans_checked": 570,
+  "deterministic_prior_strategy_records_checked": 110,
+  "rejected_strategy_records_checked": 0,
+  "selected_price_cases_checked": 12,
+  "scope": "Exact retained scalar subsets, preserved input law, full graph guards, declared greedy tie/choice replay, deterministic monetary and auxiliary envelopes, correlated native positive priors, independent binary QPE ceilings/binomial tails, complete controlled reflection/QFT/observation/reset accounting and full-cost selection. Norm and literal primitive-body audits are retained separately.",
+  "elapsed_seconds_diagnostic": 36.386247207999986
+}

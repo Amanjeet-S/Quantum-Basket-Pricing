@@ -1,0 +1,172 @@
+\section{A cancellation-preserving Gaussian derivative certificate}
+\label{sec:joint-gaussian-norm}
+
+I refine the scalar certificate without changing the classical financial
+model or the Gaussian-tilt coefficients. The signed-Stirling relation between
+price and log-price derivatives has an explicit financial antecedent in
+\citet{carr2001}, equation (9). Conditional Gaussian polynomial basket
+pricing is also established \citep{olivaresalvarez2016}. The object I check
+here is the norm of the combined derivative, followed by its concrete effect
+on the finite financial remainder. I distinguish it from a sum of separately
+bounded derivatives.
+
+Let $\nu$ be a finite nonnegative Borel measure on real log thresholds, with
+mass $H>0$, and let $\lambda>0$. Define
+\[
+ P_\nu(m)=\int_{\mathbb R}\Phi((m-x)/\lambda)\,\nu(dx),\qquad
+ g_m(t)=P_\nu(m+\log t),\quad t>0.
+\]
+For the capped call with strike and reference spot $K$, the measure is
+$\nu(dx)=K e^x\mathbf1_{[0,\log(1+H/K)]}(x)\,dx$, of mass $H$.
+A cash digital corresponds to a point mass. Positive finite mixtures of
+such threshold payoffs are therefore included. This statement does not
+assume an unbounded call payoff, negative basket weights or a signed
+threshold measure.
+
+For integer $r\geq1$, let
+\begin{equation}
+ A_{r,\lambda}(z)=\sum_{\ell=1}^r s(r,\ell)\lambda^{-\ell}
+              (-1)^{\ell-1}\operatorname{He}_{\ell-1}(z),\qquad
+ D_r(\lambda)=\sup_{z\in\mathbb R}|A_{r,\lambda}(z)\phi(z)|.
+ \label{eq:joint-gaussian-norm}
+\end{equation}
+The Hermite identity
+$\phi^{(j)}(z)=(-1)^j\operatorname{He}_j(z)\phi(z)$ follows by induction
+from $\phi'=-z\phi$ and the polynomial recurrence. Every polynomial times
+$\phi$ is bounded and tends to zero at both infinities. For each finite
+derivative order, dominated differentiation under $\nu$ is consequently
+valid because its total mass is finite. Applying the already derived
+signed-Stirling identity gives
+\begin{equation}
+ g_m^{(r)}(t)=t^{-r}\int A_{r,\lambda}((m+\log t-x)/\lambda)
+                    \phi((m+\log t-x)/\lambda)\,\nu(dx).
+ \label{eq:joint-gaussian-integral-derivative}
+\end{equation}
+
+\begin{theorem}[A sharp threshold-measure derivative bound]
+\label{thm:joint-threshold-norm}
+For $t>0$, $|g_m^{(r)}(t)|\leq H D_r(\lambda)t^{-r}$.
+The constant $H D_r(\lambda)$ is the smallest uniform constant over all
+nonnegative threshold measures of mass $H$ and all $m$ and $t$.
+For the Gaussian basket with $T\geq1$, the same coefficients as in
+Theorem~\ref{thm:finite-gaussian-price-certificate} satisfy
+\begin{equation}
+ \left|V-\sum_{j=0}^k c_j\right|
+ \leq {H D_{k+1}(\lambda)\over(k+1)!}
+                      \mathbb E[(T-1)^{k+1}].
+ \label{eq:joint-norm-price-remainder}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Taking absolute values in
+equation~\eqref{eq:joint-gaussian-integral-derivative} and using the
+nonnegative measure gives the upper bound. The nonzero polynomial
+$A_{r,\lambda}$ has leading coefficient
+$(-1)^{r-1}\lambda^{-r}$, because $s(r,r)=1$ and the Hermite polynomial
+is monic. Its Gaussian-weighted absolute maximum is positive and attained:
+continuity and decay place every positive maximum inside a compact interval.
+Choose a maximiser $z_*$, $t=1$, any threshold $x_*$, $m=x_*+\lambda z_*$
+and $\nu=H\delta_{x_*}$. The integral then has absolute value exactly
+$H D_r$. No smaller uniform constant can work. This attainment is over
+the stated measure class; the particular capped-call measure need not
+attain it. Taylor's integral remainder on $[1,T]$ is bounded using
+$t^{-r}\leq1$, and its expectation is finite under the Gaussian model.
+This proves the last assertion without altering a coefficient or assuming
+convergence of the infinite expansion.
+\end{proof}
+
+\subsection{A complete rational root and outward arithmetic certificate}
+
+Put $Q_{r,\lambda}=A'_{r,\lambda}-zA_{r,\lambda}$. Its degree is $r$.
+At every nonzero absolute maximum of $A\phi$, differentiation gives
+$(A\phi)'=Q\phi=0$. Zeros of $A$ have zero absolute value, and the
+limits at infinity are zero. Thus it suffices to evaluate every real
+root of $Q$. When $\lambda$ is rational, every coefficient is rational.
+I remove multiplicities exactly by replacing $Q$ with
+$q=Q/\gcd(Q,Q')$, with a positive-leading monic normalisation.
+Removing multiplicities preserves the set of distinct roots.
+
+For completeness I spell out the root-counting certificate. Start with
+$q_0=q$, $q_1=q'$ and let $q_{j+1}$ be the negative remainder in division
+of $q_{j-1}$ by $q_j$. Positive rescaling of each new polynomial leaves
+all signs unchanged. Square-freeness makes the final polynomial a nonzero
+constant. Let $V(x)$ be the number of sign variations, omitting zeros.
+Consecutive members cannot vanish together: the division recurrence would
+propagate that zero to the final constant. At a zero of an internal member,
+its neighbours have opposite signs by the same recurrence, so their two
+adjacent comparisons always contribute one variation. Passing that zero
+does not change $V$. At a zero of $q_0$, $q_1=q'$ is nonzero, and $q_0$
+changes from the opposite sign to the same sign as $q_1$; $V$ decreases by
+one. These are all possible changes. Therefore $V(a)-V(b)$ counts the
+distinct roots in $(a,b)$ when the endpoints are not roots.
+
+For a degree-$d$ polynomial with leading coefficient $a_d$, every root
+has modulus at most $1+\max_{j<d}|a_j/a_d|$. To check this bound, outside
+that radius the absolute sum of the lower terms is at most
+$|a_d|M(|z|^d-1)/(|z|-1)<|a_d z^d|$, so the leading term cannot cancel.
+I use a strictly larger integer bound. Exact rational subdivision retains
+only intervals with a positive variation difference, until each contains
+one root and has width at most $2^{-120}$. If a trial midpoint is a root,
+I select a nonroot interior rational point. A polynomial of degree $d$
+cannot vanish at all $d+1$ proposed alternatives. I take these alternatives
+at fractions $j/(d+2)$ of the interval, $1\leq j\leq d+1$.
+Every resulting child has width at most $(d+1)/(d+2)$ times its parent
+width; an ordinary midpoint split has factor $1/2$. The contraction is
+uniformly strictly below one at a fixed degree. Every split preserves
+the sum of root counts. Separate roots have positive separation, so
+contraction first isolates them and then reaches the required width.
+This proves termination, including intervals whose midpoint is a root.
+
+For each root interval $[a,b]$, I construct an Arb ball containing both
+exact rational endpoints and evaluate $|A(z)\phi(z)|$ at 384 bits on that
+ball. Its outward upper endpoint bounds the value at the root. The largest
+of these endpoints is a global norm upper certificate. Function evaluations
+at interval midpoints provide lower bounds on the global supremum, even
+when those midpoints are not roots. The independent implementation uses
+Flint rational polynomials reconstructed from falling factorials and closed
+Hermite coefficients, counts roots from signs at both infinities, checks
+every interval and verifies every Arb box against its exact endpoints.
+Fresh 640-bit evaluations provide an additional envelope check.
+
+I also certify the separate norms
+$\mathcal M_j=\sup_z|\operatorname{He}_j(z)\phi(z)|$. The three distinct comparisons
+are
+\[
+ D_r\leq E_r^{\rm tri}:=
+       \sum_{\ell=1}^r|s(r,\ell)|\lambda^{-\ell}\mathcal M_{\ell-1}
+       \leq C_r.
+\]
+The first inequality is the triangle inequality; the second follows from
+the original Fourier bounds. This intermediate opponent distinguishes
+cancellation from improving the individual derivative envelopes. I retain
+all three certified bounds, not just their largest numerical difference.
+
+\subsection{Matched finite pricing consequences}
+
+All 27 coupled constants, nine individual Hermite norms and 180 real
+stationary points pass the independent audit. Relative to the original
+triangle constants, the coupled upper bounds range from equality at order
+one to a ratio of approximately $0.088959$. Against the sharper individual
+norm triangle, the smallest ratio is approximately $0.094075$.
+These are derivative constants, not pricing errors or running times.
+
+I reuse the retained exact coefficient intervals, recompute their moment
+geometry and tighten all nine degree intervals. The same 25 contracts
+certify; the two weak-smoothing controls remain unresolved by this family
+of Taylor bounds. Three first certifying degrees decrease:
+the four-asset $\lambda=0.2$, $H=10$ case from two to one;
+the eight-asset $\lambda=0.05$, $H=1$ case from two to one; and its
+$H=25$ case from four to three. I then execute the stopping hierarchy with
+fresh geometry banks. It uses 793 scalar kernels and 760 geometric
+exponentials, compared with 1,169 and 1,552 under the preceding bound.
+The constant-generation run takes approximately $4.52$ seconds; the
+executed hierarchy takes approximately $0.156$ seconds. The generation
+cost is additional shared setup. A single cold run is therefore not
+established to be faster in total host time, and the counts do not
+constitute superiority over the best published pricer.
+
+The raw-remainder divergence proposition remains a statement about its
+original $C_r$ bound. I do not silently transfer it to $D_r$. The sharp
+operator statement is likewise not sharpness of the expected financial
+remainder. Its role in the revised quantum design is to supply a rigorous
+normalisation for a signed density-derivative oracle.

@@ -1,0 +1,224 @@
+{
+  "protocol_sha256": "c0c7d0934747960badaaedfdbe14de5f9cce1290ce387e35d932a90c504a30f0",
+  "protocol": {
+    "registration_time_utc": "2026-10-11T21:23:43.942759+00:00",
+    "data": "synthetic constant-coefficient GBM only; no raw simulated paths saved",
+    "cases": [
+      "lower_kink",
+      "upper_kink",
+      "inside_spread",
+      "deep_cap",
+      "low_vol_short_dated",
+      "negative_rate_dividend",
+      "high_volatility"
+    ],
+    "physical_total_returns": [
+      0.03,
+      0.06,
+      0.12
+    ],
+    "budget_multipliers": [
+      0,
+      0.25,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "instruments": [
+      "reinvested-dividend stock",
+      "vanilla call at lower strike"
+    ],
+    "bounds": [
+      0,
+      1
+    ],
+    "budget": "initial instrument cost <= kappa*analytic risk-neutral capped premium",
+    "objective": "physical-law mean-square discounted terminal replication error, including mean residual",
+    "primary_solver": "two-dimensional unconstrained, five boundary stationary points, ten boundary intersections with numerical KKT diagnostics",
+    "comparators": [
+      "no hedge",
+      "unconstrained mean-square hedge",
+      "same-constraint centred-variance hedge",
+      "Euclidean projection of unconstrained centred-variance hedge",
+      "SciPy SLSQP mean-square solver",
+      "exact call-spread reference with absent upper call, a different instrument set"
+    ],
+    "population_oracle": "truncated Gaussian lognormal moments; independent Gaussian quadrature split at payoff kinks; non-negative residual-square integration for cancellation audit",
+    "simulation_paths_per_regime": 65536,
+    "simulation_seed": 674193,
+    "simulation_seed_rule": "seed+1009*(3*case_index+mu_index)",
+    "expected_primary_rows": 126,
+    "expected_unconstrained_rows": 21,
+    "expected_nohedge_rows": 21,
+    "expected_constrained_variance_rows": 126,
+    "expected_projected_variance_rows": 126,
+    "expected_monte_carlo_rows": 420,
+    "no_exclusions": "retain numerical failures, negative quadratic cancellations, adverse rankings and unresolved risk floors",
+    "software": {
+      "python": "3.13",
+      "numpy": "2.3.5",
+      "scipy": "1.16.3"
+    },
+    "claims": "exact mathematical results distinguished from non-certified numerical and floating-point diagnostics; no empirical market validation or novelty claimed"
+  },
+  "code_sha256": {
+    "run_hedging_study.py": "64769ef60da40b8aa3d9a3080837285dda07ce98953b652564ba10a10cf0ddbb",
+    "gbm_hedging.py": "e60f8c364434eae28e7a160ebe146eb6f5243005551998cc93cc162df9ab4b8a",
+    "capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+  },
+  "registration_status": "written before any study outcome is computed",
+  "data_status": "entirely synthetic; no raw paths retained",
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "contracts": [
+    {
+      "case": "lower_kink",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "upper_kink",
+      "parameters": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "inside_spread",
+      "parameters": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "deep_cap",
+      "parameters": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "low_vol_short_dated",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      }
+    },
+    {
+      "case": "negative_rate_dividend",
+      "parameters": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      }
+    },
+    {
+      "case": "high_volatility",
+      "parameters": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      }
+    }
+  ],
+  "row_counts": {
+    "constrained_mse.csv": 126,
+    "constrained_variance.csv": 126,
+    "projected_variance.csv": 126,
+    "unconstrained.csv": 21,
+    "nohedge.csv": 21,
+    "moment_quadrature.csv": 168,
+    "monte_carlo.csv": 420,
+    "external_spread_reference.csv": 21
+  },
+  "failure_count": 0,
+  "risk_reporting": "non-negative residual-square Gaussian quadrature is primary numerical risk; cancellation-prone moment quadratic and all discrepancies retained",
+  "roundoff_floor": "128*machine_epsilon*(sum absolute quadratic terms), heuristic diagnostic only; not an error certificate",
+  "constraint_scope": "long-only holdings <=1, initial instrument-cost budget; finite initial cash/borrowing retained; unconstrained relaxation may be unbounded below",
+  "objective_scope": "uncentred physical-law MSE includes bias; centred-variance and projected-variance comparators are separately labelled",
+  "mc_scope": "same independent normal paths per case/physical law across holdings; no training data or path archive; no finite interval guarantee",
+  "arithmetic_status": "all moment formulas, KKT diagnostics, SciPy quadrature/SLSQP and simulated normals are floating-point implementations, not certified",
+  "originality_status": "established quadratic optimisation and Gaussian moment methods with project-specific financial comparison; no theoretical priority claim",
+  "results": {
+    "constrained_mse.csv": {
+      "sha256": "c01054508608f198bc943c05891304a3bd6c09467200e432a37a4ea4d572df86",
+      "bytes": 99602
+    },
+    "constrained_variance.csv": {
+      "sha256": "6678fc3354860e1f94fad3d2f12e098d002e187d430622787a08ab83be951cd1",
+      "bytes": 80004
+    },
+    "projected_variance.csv": {
+      "sha256": "eed9ed9e789682fdbef05c4474b3fc64e04f53f2b9fcf3ba8319acae6be5e679",
+      "bytes": 80403
+    },
+    "unconstrained.csv": {
+      "sha256": "abf3b8485cdff4e9d1ee818c008a26b7535747599788a3ea7c85786de9c89b27",
+      "bytes": 15377
+    },
+    "nohedge.csv": {
+      "sha256": "715e2e87e0149e4d8da52a9f225602cb861aaa53fba38d75cca94e7d5ae057c8",
+      "bytes": 7691
+    },
+    "moment_quadrature.csv": {
+      "sha256": "a6c6bd5c42d1ad93e00df579ea59e47b2464d55b7a6264a65954ac61f3a874d6",
+      "bytes": 37946
+    },
+    "monte_carlo.csv": {
+      "sha256": "cf6c216643f3eea9221d2c7379a9c30c4cc0fc7d0227162be23b5bb3609b2528",
+      "bytes": 159081
+    },
+    "external_spread_reference.csv": {
+      "sha256": "2ac64d4fada29fe7c931008a2b9b08a74faad26beafd1bb762e31cbfec5ebffa",
+      "bytes": 5417
+    },
+    "failures.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "registration.json": {
+      "sha256": "bbba4777fa22a10e4fab3ed006b1fba44c718a8fffbc7fe3f66dfc8047e69b70",
+      "bytes": 2756
+    }
+  }
+}

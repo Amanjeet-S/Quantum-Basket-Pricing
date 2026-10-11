@@ -1,0 +1,70 @@
+{
+  "schema": "qbp-deferred-precision-native-mapping-audit-v1",
+  "status": "passed",
+  "source_resource_sha256": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+  "plot_data_sha256": "7a69aa7b7ceb4c5935adfc53344b45e0b4143dae846488812d503ef9332548ec",
+  "native_figure_sha256": "bc9ef6bdcc8261dbbd05b26f95dd9a86cbda91a4809a63e0fbe039ba6faad07e",
+  "audit_source_sha256": "1063f67e599a34a068e9327a542984c15fab1e25e76b3e891d154c2da53ca047",
+  "configurations": 64,
+  "admitted_cells": 52,
+  "rejected_cells": 12,
+  "admitted_architecture_plans_checked": 104,
+  "exact_numerical_minima": 4,
+  "unchanged_rejection_identities": true,
+  "ratio_clipping": false,
+  "palette_reused_from_native_source": true,
+  "colour_method": "Piecewise linear RGB interpolation at log-ratio positions over the retained sixty-sample viridis palette.",
+  "exact_ratio_and_three_decimal_label_mapping": true,
+  "all_native_cell_colours_and_coordinates_checked": true,
+  "centring_and_existing_canvas_preserved": true,
+  "native_external_file_dependency": false,
+  "rows": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "numerical_B_minimum_T": 11904194525,
+      "event_B_minimum_T": 10467507700,
+      "event_B_over_numerical_B_exact": "418700308/476167781",
+      "event_B_over_numerical_B_display": "0.879",
+      "minimum": {
+        "PA_bits": 10,
+        "PG_bits": 10
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "numerical_B_minimum_T": 44122469300,
+      "event_B_minimum_T": 41861923075,
+      "event_B_over_numerical_B_exact": "239210989/252128396",
+      "event_B_over_numerical_B_display": "0.949",
+      "minimum": {
+        "PA_bits": 10,
+        "PG_bits": 10
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "numerical_B_minimum_T": 47622408050,
+      "event_B_minimum_T": 44709494725,
+      "event_B_over_numerical_B_exact": "255482827/272128046",
+      "event_B_over_numerical_B_display": "0.939",
+      "minimum": {
+        "PA_bits": 10,
+        "PG_bits": 10
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "numerical_B_minimum_T": 104771938000,
+      "event_B_minimum_T": 101750688975,
+      "event_B_over_numerical_B_exact": "4070027559/4190877520",
+      "event_B_over_numerical_B_display": "0.971",
+      "minimum": {
+        "PA_bits": 10,
+        "PG_bits": 10
+      }
+    }
+  ],
+  "native_pdf_compiled": false,
+  "native_pdf_pixel_reviewed": false,
+  "scope": "Independent direct source-to-data/native-source check. This verifies mathematical mapping and source geometry; it does not claim native PDF compilation or visual pixel inspection."
+}

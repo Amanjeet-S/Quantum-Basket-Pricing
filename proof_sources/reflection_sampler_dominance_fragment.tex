@@ -1,0 +1,138 @@
+\section{Representation dominance for reflection-only sampling}
+\label{sec:representation-sampler-dominance}
+
+The following theorem separates an implementation cost statement from an
+estimator comparison. Let $A_i$ be a completely clean financial
+preparation with its adjoint, and let $S_{0,i}$ reflect the complete
+invariant input-zero subspace. The good reflection is a single Clifford
+$Z$ on the already computed flag. Write $a_i=T(A_i)$ and
+$s_i=T(S_{0,i})$, counting $T$ and $T^\dagger$ together. The complete
+adjoint costs $a_i$. Measurement, classical conjunction of the observed
+input-zero bits and conditional Pauli resets require no $T$ gates under
+the declared logical architecture; their non-$T$ counts and allocated
+wire counts remain separately charged. Scratch may be excluded from
+the zero reflection only after its cleanliness invariant has been
+proved. This theorem assumes those preparations and reflections, and
+does not supply a missing coherent state-access or cleanliness proof.
+The declared charge adds the complete retained preparation, adjoint and
+reflection templates. It applies no cancellation or optimisation across
+their boundaries. A different composition or cross-template optimisation
+must be recosted before applying the theorem; the identities are not a
+lower bound on every circuit realisation of the same polynomial signal.
+
+\begin{theorem}[All-degree reflection-sampler dominance]
+\label{thm:representation-sampler-dominance}
+For every integer $d\geq1$, the retained parity-specific reflection-only
+sampler has complete per-shot logical $T$ count
+\begin{equation}
+ t_i(d)=
+ \begin{cases}
+   da_i+(d-1)s_i/2,&d\text{ odd},\\
+   da_i+(d/2-1)s_i,&d\text{ even}.
+ \end{cases}
+ \label{eq:representation-parity-cost}
+\end{equation}
+Candidate $c$ has $t_c(d)\leq t_b(d)$ for every positive integer $d$
+if and only if
+\begin{equation}
+ a_c\leq a_b,\qquad 2a_c+s_c\leq2a_b+s_b.
+ \label{eq:representation-all-degree-condition}
+\end{equation}
+If $a_b>0$ and $2a_b+s_b>0$, then every degree obeys the uniform ratio
+bound
+\begin{equation}
+ \frac{t_c(d)}{t_b(d)}\leq
+ \max\left\{\frac{a_c}{a_b},
+             \frac{2a_c+s_c}{2a_b+s_b}\right\}.
+ \label{eq:representation-all-degree-ratio}
+\end{equation}
+Both endpoint ratios are necessary for a uniform bound of this form:
+the first is attained at $d=1,2$ and the second is approached as
+$d\longrightarrow\infty$. Strict superiority for every degree holds
+if and only if $a_c<a_b$ and $2a_c+s_c\leq2a_b+s_b$.
+\end{theorem}
+\begin{proof}
+Put $Q_i=-A_iS_{0,i}A_i^\dagger S_g$. The unconditional global minus
+can be omitted because it changes a terminal shot only by a global
+phase. It cannot be omitted from a controlled-QPE comparison. For
+$d=2k+1$, the chronological sampler prepares $A_i$ and then applies
+$Q_i$ exactly $k$ times. It uses $k+1$ preparations, $k$ adjoints,
+$k$ zero reflections and $k$ Clifford good reflections. For $d=2k$
+with $k\geq1$, it prepares $A_i$, applies $Q_i^{k-1}$, applies $S_g$
+and then $A_i^\dagger$, observing the invariant input-zero event. It
+uses $k$ preparations, $k$ adjoints, $k-1$ zero reflections and $k$
+Clifford good reflections. Complete measurement and reset are appended
+to both constructions. Their declared $T$ charge is zero, so these
+counts prove \eqref{eq:representation-parity-cost}.
+
+Let $q_i=2a_i+s_i$, $\delta a=a_c-a_b$ and $\delta q=q_c-q_b$.
+The odd costs are $a_i+kq_i$ for $k\geq0$ and the even costs are
+$2a_i+(k-1)q_i$ for $k\geq1$. If $\delta a\leq0$ and
+$\delta q\leq0$, subtracting these formulae gives nonpositive
+differences in both parities. Conversely, degree one requires
+$\delta a\leq0$. If $\delta q>0$, the odd difference
+$\delta a+k\delta q$ is positive at a sufficiently large integer
+$k$, contradicting all-degree dominance. This proves necessity and
+sufficiency. At $d=1$ strict dominance requires $\delta a<0$; together
+with $\delta q\leq0$ this is also sufficient in both parities.
+
+For odd degrees the ratio of costs is
+$(a_c+kq_c)/(a_b+kq_b)$. It is a convex combination of $a_c/a_b$
+and $q_c/q_b$, with nonnegative weights
+$a_b/(a_b+kq_b)$ and $kq_b/(a_b+kq_b)$. For even degrees replace
+$a_i$ by $2a_i$ and $k$ by $k-1$; the two endpoint ratios are
+unchanged. A convex combination is bounded by the larger endpoint.
+Degrees one and two attain $a_c/a_b$. Along either parity the ratio
+tends to $q_c/q_b$ as its degree tends to infinity, proving the final
+uniform sharpness statement.
+\end{proof}
+
+\begin{corollary}[Same-history adaptive sampler comparison]
+\label{cor:representation-same-history}
+Suppose two clean representations have the same implemented good
+probability $p$, and an estimator uses the same initial prior, tolerance,
+confidence allocation and deterministic history-dependent degree/batch
+policy for both. Under ideal logical operation their complete reflection
+shots can be coupled to have identical observed Bernoulli outcomes,
+chosen degrees, batch sizes and stopping decisions. If
+\eqref{eq:representation-all-degree-condition} holds, every coupled
+history has no larger candidate reflection-shot $T$ cost. If
+\eqref{eq:representation-all-degree-ratio} has right side $r$, then
+the total candidate reflection-shot cost on every history is at most
+$r$ times the corresponding rival reflection-shot cost. Consequently
+the same comparison holds for expectations whenever they exist.
+\end{corollary}
+\begin{proof}
+The two-dimensional reflection algebra gives the same
+Chebyshev Bernoulli parameter $q_d(p)$ for both clean representations
+at each degree. This includes $p=0,1$ by direct endpoint evaluation,
+without normalising a zero-probability basis component. At each shot,
+use a fresh common uniform random variable $V$ to define both observed
+bits as $\mathbf1_{\{V\leq q_d(p)\}}$. Inductively, identical preceding
+histories imply the same next degree and batch size, which imply
+identical next observation under this coupling. The deterministic
+policy then makes the same next decision. Apply the pointwise
+per-shot inequality to each degree in the common history and sum its
+nonnegative costs. Taking expectation preserves the inequality.
+For unbounded stopping histories, apply the same argument to finite
+prefixes and then use monotone convergence. Any additional fallback
+or non-reflection primitive requires its own cost comparison; it is not
+included by this corollary merely because it belongs to the estimator.
+\end{proof}
+
+The continuous ideal numerical, raw-payoff and shared-threshold
+constructions target the same financial mean and hence the same ideal
+Grover angle after a matched monetary normaliser. Their separately
+rounded finite implementations need not have identical $p$. Their
+deterministic allowances, probability priors, admissible degrees and
+stopping histories can therefore differ. The all-degree cost theorem
+compares the actual complete preparation resources at matched degrees;
+the same-history corollary is conditional on matched implemented
+probability and controller information. Neither theorem alone proves
+smaller realised adaptive costs, a new amplitude-estimation query law,
+dominance over non-reflection estimators or physical quantum advantage.
+The generic reflection algebra is established. The project-specific
+positive consequence is an exact, fully charged representation
+comparison if the retained preparations satisfy its two affine
+inequalities; mathematical priority remains a separate literature
+question.

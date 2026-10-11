@@ -1,0 +1,49 @@
+{
+  "schema": "qbp-strategic-matched-qpe-figure-audit-v1",
+  "date": "2026-10-07",
+  "source_sha256": "921c9b458fd6e33be7a907c101f822365e81d7ce177d0cd7d7b91d6ffc9e5355",
+  "all_27_matched_case_rows_retained": true,
+  "all_54_native_coordinates_match_exact_source_values": true,
+  "jitter_applied": false,
+  "sizes_encode_resource_amounts": false,
+  "minimum_ratio_exact_fraction": "56663278441/549405678496",
+  "maximum_ratio_exact_fraction": "144037663/344116800",
+  "phase_register_widths": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "each_probability_prior_tolerance_alpha_verified": true,
+  "compiled_qft_allowance_rounds_up_by_less_than_2_to_minus_80": true,
+  "exact_binomial_failure_each_at_most_001": true,
+  "native_additional_packages": [
+    "xcolor",
+    "graphicx"
+  ],
+  "self_contained_native_picture": true,
+  "external_graphics_or_inputs": false,
+  "rendered_png_inspection": "Inspected at full resolution. Matching scientific font/palette style with Taylor figure. Axis exponents, labels, case symbols, both references and simple legends are legible. The equal-cap label was moved away from the reference line. Hollow nested symbols retain near-coincident data without coordinate jitter. Native source requires verification in the existing native document editor.",
+  "matplotlib_version": "3.10.6",
+  "claims": [
+    "Logical upper-cap comparison only.",
+    "Phase-register width is not exact peak-qubit growth.",
+    "No physical quantum advantage or observed runtime is plotted."
+  ],
+  "artifact_hashes": {
+    "plot_qpe_matched_resources.py": "2630198e8c0d582da3a6298e9a2dc70304a2047748aa7567946290b01f23c826",
+    "plot_taylor_certificate.py": "5be4cbc66078619b2e643cd7253fb71c857711148653b1b438e03e1c9d5a2e84",
+    "qpe_matched_resources.svg": "f1764f1613849ddc93539fe91169fa1334cc241f16786448547ee890952fcec3",
+    "qpe_matched_resources.png": "6fdb3c47d57fe419e9903996e701de35b0172f7af31047bf09494b6a5c95ed17",
+    "qpe_matched_resources_plot_data.json": "9a7ae28b47cd2c86e9af1b351040a4fc7b62b54037be5e35f7c6373b950f88df",
+    "qpe_matched_resources_coordinates.json": "52a3254a420964d917489f8995a077b0b9a7396a1f7ac13e11b96e209769af29",
+    "qpe_matched_resources_case_rows.csv": "bb41142bf6c4aca24ac9d8f52815279794686ed8802d7b50330178fa00e03120",
+    "qpe_matched_resources_caption.txt": "643f6f2694cd050f631fac840e0428359628b626dfedb8daad7dff9d0faf2181",
+    "qpe_matched_resources_figure.tex": "f05546e939d3245beb9e0e1b668d921e9624961acc11ec15775be87f94891db7"
+  },
+  "portable_reproduction": "Generators installed in figures/ resolve defaults to the repository results/ directory. Refreshed after this path-only edit; exact source data and coordinates checked unchanged."
+}

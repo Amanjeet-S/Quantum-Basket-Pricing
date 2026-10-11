@@ -1,0 +1,27 @@
+{
+  "schema": "qbp-independent-four-survivor-resources-audit-v1",
+  "status": "passed",
+  "resource_file_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "producer_sha256": "c0f09ed3ecaec2cb18be05d1ae7c23973f8eb70ce0325db51080842d4d9cc4e2",
+  "audit_source_sha256": "2f598e94d6f3c6f4ec68111b4e8b854dd674cf19f22abe5991166b0f08021422",
+  "protocol_sha256": "4dea1f09df9e8960a02949fad0bf1e4dd3304903585ed680c83fe8330cd9f405",
+  "checked_profiles": 80,
+  "checked_confidence_plans": 104,
+  "checked_complete_strategies": 80,
+  "checked_deterministic_budgets": 21,
+  "checked_direct_R1_coordinate_bounds": 14,
+  "checked_scalar_certificates": 28,
+  "checked_scalar_and_quantile_nodes": 160795,
+  "width_specific_table_reconstruction_file": "four_survivor_quantum_table_width_reconstruction.json.gz",
+  "width_specific_table_reconstruction_sha256": "6f9bf811912d5dea3cc55359b7eac3ee87028792a4e9d9ce34e186089e3a59ee",
+  "reconstructed_width_specific_packed_tables": 3,
+  "retained_rejections": [
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "kind": "boundary_r2",
+      "label": "all12_baseline"
+    }
+  ],
+  "independence": "Producer, compiler resource and estimator/confidence APIs are not imported. Exact rational formulas, literal retained rotation strings, separate CCX reflection expansion and table-word reconstruction are used.",
+  "scope": "Complete ideal-logical counts and finite confidence, synthetic financial inputs and retained arithmetic certificates. No physical hardware execution, wall-clock speedup, novelty or global optimality claim."
+}

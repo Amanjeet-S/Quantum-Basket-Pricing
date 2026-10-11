@@ -1,0 +1,1778 @@
+{
+  "status": "primitive phase, corrected Kraus branches, dirty-output XOR and complete coarse composition passed",
+  "base_source_hashes": {
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "generalisation.py": "a7a5b0e3c49a6e7a4a8137bd565ed6c5ac691c3732553c890c4c556ed2bc2655",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "resource_study.py": "309cdd04390ef64f68d5ccf96e726a66535a1d0313602032d3fc003a87b32765",
+    "generalisation_models.py": "6532bb0baefb69670717e198f7deb1a70bcf5d2de3aea6d190911df9823b3555",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  },
+  "architecture_sha256": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+  "audit_sha256": "82edc596e2eb45486b777fc561b8319d91d668a8f22f74ac13e9bfe0044cad5e",
+  "AND_isometry": {
+    "explicit_compute_gate_order": [
+      [
+        "H",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "T",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          1,
+          2
+        ],
+        null
+      ],
+      [
+        "TD",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          0,
+          2
+        ],
+        null
+      ],
+      [
+        "T",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          1,
+          2
+        ],
+        null
+      ],
+      [
+        "TD",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "H",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "SD",
+        [
+          2
+        ],
+        null
+      ]
+    ],
+    "explicit_unitary_inverse_gate_order": [
+      [
+        "S",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "H",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "T",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          1,
+          2
+        ],
+        null
+      ],
+      [
+        "TD",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          0,
+          2
+        ],
+        null
+      ],
+      [
+        "T",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "CX",
+        [
+          1,
+          2
+        ],
+        null
+      ],
+      [
+        "TD",
+        [
+          2
+        ],
+        null
+      ],
+      [
+        "H",
+        [
+          2
+        ],
+        null
+      ]
+    ],
+    "compute_T_or_Tdag_count": 4,
+    "compute_matrix_error": 2.220446049250313e-16,
+    "erase_branches": [
+      {
+        "outcome": 0,
+        "maximum_Kraus_matrix_error": 1.1102230246251565e-16
+      },
+      {
+        "outcome": 1,
+        "maximum_Kraus_matrix_error": 2.220446049250313e-16
+      }
+    ],
+    "phase_statement": "each corrected erase branch is +1/sqrt(2) times the identity on arbitrary control states",
+    "precondition": "AND target starts clean; this is not a four-T Toffoli on a dirty target"
+  },
+  "complete_lookup_phase_audits": [
+    {
+      "address_bits": 0,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": false,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 8,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2
+        },
+        "T_count": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 2,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 1,
+      "output_bits": 3,
+      "table": [
+        3,
+        5
+      ],
+      "controlled": false,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 16,
+      "measurement_bits": 1,
+      "branches_checked": 2,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 2.220446049250313e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 2.220446049250313e-16,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "H": 3,
+          "T": 2,
+          "CX": 9,
+          "TD": 2,
+          "SD": 1,
+          "MZ": 1,
+          "CZ_IF": 1,
+          "X_IF": 1
+        },
+        "T_count": 4,
+        "measurement_count": 1,
+        "classical_feedback_CZ_count": 1,
+        "classical_reset_X_count": 1,
+        "selector_AND_computations": 1,
+        "selector_unitary_erases": 0,
+        "physical_operations": 22,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        3,
+        6,
+        7,
+        1
+      ],
+      "controlled": false,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 32,
+      "measurement_bits": 3,
+      "branches_checked": 8,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 3.331715444771625e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 2.220446049250313e-16,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "H": 9,
+          "T": 6,
+          "CX": 23,
+          "TD": 6,
+          "SD": 3,
+          "MZ": 3,
+          "CZ_IF": 3,
+          "X_IF": 3
+        },
+        "T_count": 12,
+        "measurement_count": 3,
+        "classical_feedback_CZ_count": 3,
+        "classical_reset_X_count": 3,
+        "selector_AND_computations": 3,
+        "selector_unitary_erases": 0,
+        "physical_operations": 58,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "controlled": true,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 3,
+      "branches_checked": 8,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 3.339162269657133e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 2.220446049250313e-16,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 9,
+          "T": 6,
+          "CX": 18,
+          "TD": 6,
+          "SD": 3,
+          "MZ": 3,
+          "CZ_IF": 3,
+          "X_IF": 3
+        },
+        "T_count": 12,
+        "measurement_count": 3,
+        "classical_feedback_CZ_count": 3,
+        "classical_reset_X_count": 3,
+        "selector_AND_computations": 3,
+        "selector_unitary_erases": 0,
+        "physical_operations": 51,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": true,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 2,
+      "branches_checked": 4,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 3.3306690738754696e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 3.3306690738754696e-16,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 6,
+          "T": 4,
+          "CX": 12,
+          "TD": 4,
+          "SD": 2,
+          "MZ": 2,
+          "CZ_IF": 2,
+          "X_IF": 2
+        },
+        "T_count": 8,
+        "measurement_count": 2,
+        "classical_feedback_CZ_count": 2,
+        "classical_reset_X_count": 2,
+        "selector_AND_computations": 2,
+        "selector_unitary_erases": 0,
+        "physical_operations": 34,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 3,
+      "output_bits": 2,
+      "table": [
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        1
+      ],
+      "controlled": true,
+      "mode": "measured4t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 7,
+      "branches_checked": 3,
+      "all_branches": false,
+      "maximum_complete_complex_Kraus_matrix_error": 1.6654301528072773e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 2.862293735361732e-17,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 21,
+          "T": 14,
+          "CX": 44,
+          "TD": 14,
+          "SD": 7,
+          "MZ": 7,
+          "CZ_IF": 7,
+          "X_IF": 7
+        },
+        "T_count": 28,
+        "measurement_count": 7,
+        "classical_feedback_CZ_count": 7,
+        "classical_reset_X_count": 7,
+        "selector_AND_computations": 7,
+        "selector_unitary_erases": 0,
+        "physical_operations": 121,
+        "logical_inverse": "fresh identical XOR instrument"
+      }
+    },
+    {
+      "address_bits": 0,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": false,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 8,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2
+        },
+        "T_count": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 2,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 1,
+      "output_bits": 3,
+      "table": [
+        3,
+        5
+      ],
+      "controlled": false,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 16,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 3.3465051065045716e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 6.661338147750939e-16,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "H": 4,
+          "T": 4,
+          "CX": 12,
+          "TD": 4,
+          "SD": 1,
+          "S": 1
+        },
+        "T_count": 8,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 1,
+        "selector_unitary_erases": 1,
+        "physical_operations": 28,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        3,
+        6,
+        7,
+        1
+      ],
+      "controlled": false,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 32,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 1.1102230246251565e-15,
+      "maximum_address_and_output_independent_branch_probability_error": 2.220446049250313e-15,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "H": 12,
+          "T": 12,
+          "CX": 32,
+          "TD": 12,
+          "SD": 3,
+          "S": 3
+        },
+        "T_count": 24,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 3,
+        "selector_unitary_erases": 3,
+        "physical_operations": 76,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "controlled": true,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 1.1102230246251565e-15,
+      "maximum_address_and_output_independent_branch_probability_error": 2.220446049250313e-15,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 12,
+          "T": 12,
+          "CX": 27,
+          "TD": 12,
+          "SD": 3,
+          "S": 3
+        },
+        "T_count": 24,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 3,
+        "selector_unitary_erases": 3,
+        "physical_operations": 69,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": true,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 6.674591968645591e-16,
+      "maximum_address_and_output_independent_branch_probability_error": 1.3322676295501878e-15,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 8,
+          "T": 8,
+          "CX": 18,
+          "TD": 8,
+          "SD": 2,
+          "S": 2
+        },
+        "T_count": 16,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 2,
+        "selector_unitary_erases": 2,
+        "physical_operations": 46,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 3,
+      "output_bits": 2,
+      "table": [
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        1
+      ],
+      "controlled": true,
+      "mode": "unitary8t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 3,
+      "all_branches": false,
+      "maximum_complete_complex_Kraus_matrix_error": 2.3314950531314814e-15,
+      "maximum_address_and_output_independent_branch_probability_error": 4.6629367034256575e-15,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "H": 28,
+          "T": 28,
+          "CX": 65,
+          "TD": 28,
+          "SD": 7,
+          "S": 7
+        },
+        "T_count": 56,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 7,
+        "selector_unitary_erases": 7,
+        "physical_operations": 163,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 0,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": false,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 8,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2
+        },
+        "T_count": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 2,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 1,
+      "output_bits": 3,
+      "table": [
+        3,
+        5
+      ],
+      "controlled": false,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 16,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "CCX": 2,
+          "CX": 6
+        },
+        "T_count": 14,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 10,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        3,
+        6,
+        7,
+        1
+      ],
+      "controlled": false,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 32,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "X": 2,
+          "CCX": 6,
+          "CX": 14
+        },
+        "T_count": 42,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 22,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "controlled": true,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "CCX": 6,
+          "CX": 9
+        },
+        "T_count": 42,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 15,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 2,
+      "output_bits": 3,
+      "table": [
+        5
+      ],
+      "controlled": true,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 1,
+      "all_branches": true,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "CCX": 4,
+          "CX": 6
+        },
+        "T_count": 28,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 10,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    },
+    {
+      "address_bits": 3,
+      "output_bits": 2,
+      "table": [
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        1
+      ],
+      "controlled": true,
+      "mode": "exact7t",
+      "complete_dirty_output_logical_basis_columns": 64,
+      "measurement_bits": 0,
+      "branches_checked": 3,
+      "all_branches": false,
+      "maximum_complete_complex_Kraus_matrix_error": 0,
+      "maximum_address_and_output_independent_branch_probability_error": 0,
+      "private_work_reset": true,
+      "logical_inverse": "fresh same lookup instrument; XOR involution",
+      "resources": {
+        "primitive_gate_counts": {
+          "CCX": 14,
+          "CX": 23
+        },
+        "T_count": 98,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "selector_AND_computations": 0,
+        "selector_unitary_erases": 0,
+        "physical_operations": 37,
+        "logical_inverse": "clean-subspace XOR lookup is its own logical inverse"
+      }
+    }
+  ],
+  "boolean_lookup_audits": [
+    {
+      "mode": "measured4t",
+      "address_bits": 0,
+      "dirty_basis_checks": 32,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 0,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CX": 0,
+          "CCX": 0
+        },
+        "logical_T_count": 0,
+        "expanded_gates": 4,
+        "logical_tape_tokens": 2,
+        "wires": 5,
+        "peak_active_wires": 5,
+        "active_wires_at_end": 5,
+        "all_gate_dependency_depth": 2,
+        "logical_T_layer_depth_upper": 0,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 0,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 0,
+        "architecture": "measured4t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "measured4t",
+      "address_bits": 1,
+      "dirty_basis_checks": 64,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 16,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 6,
+          "T": 4,
+          "CX": 16,
+          "TD": 4,
+          "SD": 2,
+          "MZ": 2,
+          "CZ_IF": 2,
+          "X_IF": 2,
+          "CCX": 0
+        },
+        "logical_T_count": 8,
+        "expanded_gates": 42,
+        "logical_tape_tokens": 2,
+        "wires": 8,
+        "peak_active_wires": 8,
+        "active_wires_at_end": 8,
+        "all_gate_dependency_depth": 37,
+        "logical_T_layer_depth_upper": 8,
+        "measurement_layer_depth_upper": 2,
+        "measurement_count": 2,
+        "classical_feedback_CZ_count": 2,
+        "classical_reset_X_count": 2,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 2,
+        "lookup_selector_internal_nodes": 2,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 8,
+        "architecture": "measured4t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "measured4t",
+      "address_bits": 2,
+      "dirty_basis_checks": 128,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 42,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 18,
+          "T": 12,
+          "CX": 42,
+          "TD": 12,
+          "SD": 6,
+          "MZ": 6,
+          "CZ_IF": 6,
+          "X_IF": 6,
+          "CCX": 0
+        },
+        "logical_T_count": 24,
+        "expanded_gates": 112,
+        "logical_tape_tokens": 2,
+        "wires": 10,
+        "peak_active_wires": 10,
+        "active_wires_at_end": 10,
+        "all_gate_dependency_depth": 93,
+        "logical_T_layer_depth_upper": 20,
+        "measurement_layer_depth_upper": 6,
+        "measurement_count": 6,
+        "classical_feedback_CZ_count": 6,
+        "classical_reset_X_count": 6,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 6,
+        "lookup_selector_internal_nodes": 6,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 24,
+        "architecture": "measured4t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "measured4t",
+      "address_bits": 3,
+      "dirty_basis_checks": 256,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 106,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 42,
+          "T": 28,
+          "CX": 106,
+          "TD": 28,
+          "SD": 14,
+          "MZ": 14,
+          "CZ_IF": 14,
+          "X_IF": 14,
+          "CCX": 0
+        },
+        "logical_T_count": 56,
+        "expanded_gates": 264,
+        "logical_tape_tokens": 2,
+        "wires": 12,
+        "peak_active_wires": 12,
+        "active_wires_at_end": 12,
+        "all_gate_dependency_depth": 217,
+        "logical_T_layer_depth_upper": 44,
+        "measurement_layer_depth_upper": 14,
+        "measurement_count": 14,
+        "classical_feedback_CZ_count": 14,
+        "classical_reset_X_count": 14,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 14,
+        "lookup_selector_internal_nodes": 14,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 56,
+        "architecture": "measured4t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "measured4t",
+      "address_bits": 4,
+      "dirty_basis_checks": 512,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 230,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 90,
+          "T": 60,
+          "CX": 230,
+          "TD": 60,
+          "SD": 30,
+          "MZ": 30,
+          "CZ_IF": 30,
+          "X_IF": 30,
+          "CCX": 0
+        },
+        "logical_T_count": 120,
+        "expanded_gates": 564,
+        "logical_tape_tokens": 2,
+        "wires": 14,
+        "peak_active_wires": 14,
+        "active_wires_at_end": 14,
+        "all_gate_dependency_depth": 461,
+        "logical_T_layer_depth_upper": 92,
+        "measurement_layer_depth_upper": 30,
+        "measurement_count": 30,
+        "classical_feedback_CZ_count": 30,
+        "classical_reset_X_count": 30,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 30,
+        "lookup_selector_internal_nodes": 30,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 120,
+        "architecture": "measured4t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "unitary8t",
+      "address_bits": 0,
+      "dirty_basis_checks": 32,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 0,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CX": 0,
+          "CCX": 0
+        },
+        "logical_T_count": 0,
+        "expanded_gates": 4,
+        "logical_tape_tokens": 2,
+        "wires": 5,
+        "peak_active_wires": 5,
+        "active_wires_at_end": 5,
+        "all_gate_dependency_depth": 2,
+        "logical_T_layer_depth_upper": 0,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 0,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 0,
+        "architecture": "unitary8t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "unitary8t",
+      "address_bits": 1,
+      "dirty_basis_checks": 64,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 22,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 8,
+          "T": 8,
+          "CX": 22,
+          "TD": 8,
+          "SD": 2,
+          "S": 2,
+          "CCX": 0
+        },
+        "logical_T_count": 16,
+        "expanded_gates": 54,
+        "logical_tape_tokens": 2,
+        "wires": 8,
+        "peak_active_wires": 8,
+        "active_wires_at_end": 8,
+        "all_gate_dependency_depth": 50,
+        "logical_T_layer_depth_upper": 16,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 2,
+        "lookup_selector_internal_nodes": 2,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 16,
+        "architecture": "unitary8t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "unitary8t",
+      "address_bits": 2,
+      "dirty_basis_checks": 128,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 68,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 24,
+          "T": 24,
+          "CX": 68,
+          "TD": 24,
+          "SD": 6,
+          "S": 6,
+          "CCX": 0
+        },
+        "logical_T_count": 48,
+        "expanded_gates": 156,
+        "logical_tape_tokens": 2,
+        "wires": 10,
+        "peak_active_wires": 10,
+        "active_wires_at_end": 10,
+        "all_gate_dependency_depth": 134,
+        "logical_T_layer_depth_upper": 40,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 6,
+        "lookup_selector_internal_nodes": 6,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 48,
+        "architecture": "unitary8t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "unitary8t",
+      "address_bits": 3,
+      "dirty_basis_checks": 256,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 150,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 56,
+          "T": 56,
+          "CX": 150,
+          "TD": 56,
+          "SD": 14,
+          "S": 14,
+          "CCX": 0
+        },
+        "logical_T_count": 112,
+        "expanded_gates": 350,
+        "logical_tape_tokens": 2,
+        "wires": 12,
+        "peak_active_wires": 12,
+        "active_wires_at_end": 12,
+        "all_gate_dependency_depth": 292,
+        "logical_T_layer_depth_upper": 88,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 14,
+        "lookup_selector_internal_nodes": 14,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 112,
+        "architecture": "unitary8t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "unitary8t",
+      "address_bits": 4,
+      "dirty_basis_checks": 512,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 326,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 4,
+          "H": 120,
+          "T": 120,
+          "CX": 326,
+          "TD": 120,
+          "SD": 30,
+          "S": 30,
+          "CCX": 0
+        },
+        "logical_T_count": 240,
+        "expanded_gates": 750,
+        "logical_tape_tokens": 2,
+        "wires": 14,
+        "peak_active_wires": 14,
+        "active_wires_at_end": 14,
+        "all_gate_dependency_depth": 620,
+        "logical_T_layer_depth_upper": 184,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 30,
+        "lookup_selector_internal_nodes": 30,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 240,
+        "architecture": "unitary8t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "exact7t",
+      "address_bits": 0,
+      "dirty_basis_checks": 32,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 8,
+        "cnot": 0,
+        "toffoli": 0,
+        "primitive_gate_counts": {
+          "X": 8,
+          "CX": 0,
+          "CCX": 0
+        },
+        "logical_T_count": 0,
+        "expanded_gates": 8,
+        "logical_tape_tokens": 2,
+        "wires": 5,
+        "peak_active_wires": 5,
+        "active_wires_at_end": 5,
+        "all_gate_dependency_depth": 2,
+        "logical_T_layer_depth_upper": 0,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 0,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 0,
+        "architecture": "exact7t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "exact7t",
+      "address_bits": 1,
+      "dirty_basis_checks": 64,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 6,
+        "toffoli": 4,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CCX": 4,
+          "CX": 6
+        },
+        "logical_T_count": 28,
+        "expanded_gates": 14,
+        "logical_tape_tokens": 2,
+        "wires": 8,
+        "peak_active_wires": 8,
+        "active_wires_at_end": 8,
+        "all_gate_dependency_depth": 14,
+        "logical_T_layer_depth_upper": 12,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 2,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 28,
+        "architecture": "exact7t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "exact7t",
+      "address_bits": 2,
+      "dirty_basis_checks": 128,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 28,
+        "toffoli": 12,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CCX": 12,
+          "CX": 28
+        },
+        "logical_T_count": 84,
+        "expanded_gates": 44,
+        "logical_tape_tokens": 2,
+        "wires": 10,
+        "peak_active_wires": 10,
+        "active_wires_at_end": 10,
+        "all_gate_dependency_depth": 44,
+        "logical_T_layer_depth_upper": 36,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 6,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 84,
+        "architecture": "exact7t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "exact7t",
+      "address_bits": 3,
+      "dirty_basis_checks": 256,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 62,
+        "toffoli": 28,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CCX": 28,
+          "CX": 62
+        },
+        "logical_T_count": 196,
+        "expanded_gates": 94,
+        "logical_tape_tokens": 2,
+        "wires": 12,
+        "peak_active_wires": 12,
+        "active_wires_at_end": 12,
+        "all_gate_dependency_depth": 94,
+        "logical_T_layer_depth_upper": 84,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 14,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 196,
+        "architecture": "exact7t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    },
+    {
+      "mode": "exact7t",
+      "address_bits": 4,
+      "dirty_basis_checks": 512,
+      "logical_inverse_checked": true,
+      "metrics": {
+        "x": 4,
+        "cnot": 132,
+        "toffoli": 60,
+        "primitive_gate_counts": {
+          "X": 4,
+          "CCX": 60,
+          "CX": 132
+        },
+        "logical_T_count": 420,
+        "expanded_gates": 196,
+        "logical_tape_tokens": 2,
+        "wires": 14,
+        "peak_active_wires": 14,
+        "active_wires_at_end": 14,
+        "all_gate_dependency_depth": 196,
+        "logical_T_layer_depth_upper": 180,
+        "measurement_layer_depth_upper": 0,
+        "measurement_count": 0,
+        "classical_feedback_CZ_count": 0,
+        "classical_reset_X_count": 0,
+        "lookup_macro_invocations": 2,
+        "selector_AND_computations": 0,
+        "lookup_selector_internal_nodes": 30,
+        "arithmetic_exact_Toffoli_count": 0,
+        "selector_T_count": 420,
+        "architecture": "exact7t",
+        "counting": "all primitive lookup gates emitted; conditional Clifford operations charged at worst-case execution"
+      }
+    }
+  ],
+  "financial_composition_audits": [
+    {
+      "mode": "measured4t",
+      "model_id": "n2_lambda0.05",
+      "method": "direct",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 14,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 117784,
+      "measurement_count": 46,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n2_lambda0.05",
+      "method": "interval",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 16,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 147116,
+      "measurement_count": 134,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n2_lambda0.05",
+      "method": "full_cap",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 8,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 131904,
+      "measurement_count": 104,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n4_lambda0.2",
+      "method": "direct",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 34,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 253404,
+      "measurement_count": 78,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n4_lambda0.2",
+      "method": "interval",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 64,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 260828,
+      "measurement_count": 170,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n4_lambda0.2",
+      "method": "full_cap",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 245616,
+      "measurement_count": 140,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n8_lambda0.4",
+      "method": "direct",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 568744,
+      "measurement_count": 142,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n8_lambda0.4",
+      "method": "interval",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 524036,
+      "measurement_count": 242,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "measured4t",
+      "model_id": "n8_lambda0.4",
+      "method": "full_cap",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 508824,
+      "measurement_count": 212,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n2_lambda0.05",
+      "method": "direct",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 14,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 117968,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n2_lambda0.05",
+      "method": "interval",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 16,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 147652,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n2_lambda0.05",
+      "method": "full_cap",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 8,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 132320,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n4_lambda0.2",
+      "method": "direct",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 34,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 253716,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n4_lambda0.2",
+      "method": "interval",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 64,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 261508,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n4_lambda0.2",
+      "method": "full_cap",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 246176,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n8_lambda0.4",
+      "method": "direct",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 569312,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n8_lambda0.4",
+      "method": "interval",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 525004,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "unitary8t",
+      "model_id": "n8_lambda0.4",
+      "method": "full_cap",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 509672,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n2_lambda0.05",
+      "method": "direct",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 14,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 118244,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n2_lambda0.05",
+      "method": "interval",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 16,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 148456,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n2_lambda0.05",
+      "method": "full_cap",
+      "cap": 25,
+      "complete_boolean_comparator_checks": 8,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 132944,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n4_lambda0.2",
+      "method": "direct",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 34,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 254184,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n4_lambda0.2",
+      "method": "interval",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 64,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 262528,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n4_lambda0.2",
+      "method": "full_cap",
+      "cap": 10,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 247016,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n8_lambda0.4",
+      "method": "direct",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 32,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 570164,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n8_lambda0.4",
+      "method": "interval",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 526456,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    },
+    {
+      "mode": "exact7t",
+      "model_id": "n8_lambda0.4",
+      "method": "full_cap",
+      "cap": 1,
+      "complete_boolean_comparator_checks": 38,
+      "all_work_reset": true,
+      "phase_argument": "composition of exact arithmetic permutations and separately verified phase-free QROM logical maps",
+      "complete_vs_composed_primitive_counts_match": true,
+      "logical_T_count": 510944,
+      "measurement_count": 0,
+      "qualification": "coarse gate/instrument composition audit, not production financial price accuracy"
+    }
+  ],
+  "summary": {
+    "lookup_phase_configurations": 18,
+    "instrument_branches_checked": 42,
+    "dirty_boolean_lookup_checks": 2976,
+    "complete_financial_circuits": 27,
+    "financial_comparator_checks": 828
+  },
+  "proof": "The displayed clean AND isometry is phase free. H/measurement followed by conditional CZ/reset gives each erasure Kraus map +1/sqrt(2) times deletion of the encoded AND. Intermediate controlled data writes preserve its controls and restore its AND target before erasure. Induction over the prefix tree gives every branch 2^(-I/2) times the same address-preserving dirty-output XOR unitary, including coherent enable controls. The branch record is therefore independent of logical input. A fresh complete instrument implements the logical inverse; no measurement tape is reversed.",
+  "limits": [
+    "ideal logical gates and measurements only",
+    "conditional Clifford costs charged at worst-case execution",
+    "no physical feedback latency or hardware advantage claim",
+    "arithmetic exact Toffolis retain the specified seven-T decomposition",
+    "lookup instrument proof requires initially clean private selector work"
+  ]
+}

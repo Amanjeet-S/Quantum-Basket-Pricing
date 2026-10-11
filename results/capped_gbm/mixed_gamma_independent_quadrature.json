@@ -1,0 +1,49 @@
+{
+  "method": "256-point Gauss-Legendre integration on the exact active normal interval, independent of the Monte Carlo implementation",
+  "maximum_absolute_difference": 2.4424906541753444e-15,
+  "case_count": 7,
+  "rows": [
+    {
+      "case": "lower_kink",
+      "deterministic_integrated_mixed_gamma": 0.0040263618685262475,
+      "analytic_gamma": 0.004026361868526247,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case": "upper_kink",
+      "deterministic_integrated_mixed_gamma": -0.00725908591436877,
+      "analytic_gamma": -0.007259085914368774,
+      "absolute_difference": 3.469446951953614e-18
+    },
+    {
+      "case": "inside_spread",
+      "deterministic_integrated_mixed_gamma": -0.00318335087603871,
+      "analytic_gamma": -0.0031833508760387118,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case": "deep_cap",
+      "deterministic_integrated_mixed_gamma": -0.0027468843579794666,
+      "analytic_gamma": -0.0027468843579794683,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case": "low_vol_short_dated",
+      "deterministic_integrated_mixed_gamma": 0.29622613597937975,
+      "analytic_gamma": 0.2962261359793822,
+      "absolute_difference": 2.4424906541753444e-15
+    },
+    {
+      "case": "negative_rate_dividend",
+      "deterministic_integrated_mixed_gamma": 0.002713457011697815,
+      "analytic_gamma": 0.0027134570116978188,
+      "absolute_difference": 3.903127820947816e-18
+    },
+    {
+      "case": "high_volatility",
+      "deterministic_integrated_mixed_gamma": -0.0003680273887849926,
+      "analytic_gamma": -0.000368027388784992,
+      "absolute_difference": 5.963111948670274e-19
+    }
+  ]
+}

@@ -1,0 +1,1867 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[british]{babel}
+\usepackage{url,xcolor,graphicx}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\setlength{\emergencystretch}{1.5em}
+\renewcommand{\bibfont}{\small}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\title{Capped GBM pricing\\[2mm]\large Replication, numerical convergence and Monte Carlo sensitivities}
+\author{Amanjeet Singh}
+\date{11 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I connect no-arbitrage replication, martingale valuation and numerical
+pricing for a capped European claim under geometric Brownian motion with
+continuous dividends. A heat-coordinate transformation permits a monotone
+backward-Euler scheme with unconditional maximum-norm stability. I prove
+convergence for the actual kinked payoff and separate finite-domain,
+interpolation and discretisation errors. Explicit central-difference bounds
+establish joint price and Greek consistency when domains, meshes and bumps
+are refined appropriately. Exact terminal simulation supplies pathwise
+first sensitivities and likelihood-ratio gamma. A mixed sensitivity
+derivation gives a bounded gamma estimator with finite-sample concentration.
+Seven synthetic contracts compare analytic, PDE and Monte Carlo prices and
+five Greeks at declared sampling budgets. The mixed gamma estimator lowers
+measured raw variance, while independently fitted stock controls worsen
+some sensitivities. Conditional expectation is derived as an $L^2$ projection, with jointly
+transformed controls and independent-pilot error decompositions. Detailed
+derivations and adverse numerical findings are retained. The analytic call spread remains the strongest valuation baseline;
+this companion demonstrates and checks the financial and computational
+foundations supporting the basket-pricing project.
+\end{abstract}
+\noindent\begin{minipage}{\linewidth}
+\small\emergencystretch=2em
+\textit{Keywords:} derivative pricing; geometric Brownian motion; replication;
+finite differences; numerical stability; convergence; Monte Carlo Greeks;
+conditional expectation; control variates.\par
+\smallskip\textit{JEL classification:} C15, C63, G13.\par
+\end{minipage}
+% The parent document supplies amsmath, amssymb, amsthm, natbib and hyperref.
+% This fragment deliberately contains no claim of theoretical originality.
+
+\section{Financial model and no-arbitrage valuation}
+\label{sec:cgbm-model}
+
+I use a one-asset claim to connect replication, martingale valuation,
+parabolic equations and statistical estimation under one financial model.
+The purpose is to demonstrate the mathematics underlying the numerical
+comparisons. The classical valuation framework follows
+\citet{blackscholes1973} and \citet{merton1973}; these established methods
+do not establish a quantum advantage or a new financial theory. Replication and call valuation specialise
+\citet{blackscholes1973}; the continuous-dividend treatment follows
+\citet{merton1973}. The pricing and sensitivity derivations below retain
+the assumptions required for these specialisations.
+
+Let $S>0$, $K>0$, $H>0$, $\sigma>0$ and $\tau>0$. The interest rate $r$ and
+continuous dividend yield $q$ are constant. Write $J=K+H$ and
+\begin{equation}
+ F(x)=\min\{(x-K)^+,H\}=(x-K)^+-(x-J)^+,
+ \qquad D=\exp(-r\tau),\qquad v=\sigma\sqrt{\tau}.
+ \label{eq:cgbm-payoff}
+\end{equation}
+Under the selected pricing measure $Q$, the ex-dividend asset follows
+\begin{equation}
+ dS_t=(r-q)S_t\,dt+\sigma S_t\,dW_t^Q,
+ \qquad
+ X=S\exp\{b\tau+vZ\},
+ \qquad b=r-q-\tfrac12\sigma^2,
+ \label{eq:cgbm-law}
+\end{equation}
+where $Z$ is standard normal. The price is
+\begin{equation}
+ V(S,\tau;r,q,\sigma)=D\,\mathbb E_Q[F(X)].
+ \label{eq:cgbm-price}
+\end{equation}
+This is a model comparison with synthetic parameters, rather than a
+calibrated empirical test. A physical return mean cannot be substituted
+for the pricing drift $r-q$.
+I assume frictionless continuous trading, reinvestable dividends,
+borrowing and lending at the same rate $r$, and an unrestricted stock
+position within the stated admissible strategy class. The probability
+space carries the usual augmented Brownian filtration, satisfying the
+usual completeness and right-continuity conditions.
+
+\begin{proposition}[Replication and the pricing equation]
+\label{prop:cgbm-replication}
+The price in \eqref{eq:cgbm-price} is bounded, continuous at expiry and smooth
+for $S,\tau>0$. It satisfies
+\begin{equation}
+ V_\tau=\tfrac12\sigma^2S^2V_{SS}+(r-q)SV_S-rV,
+ \qquad V(S,0)=F(S).
+ \label{eq:cgbm-pde}
+\end{equation}
+Holding $V_S$ shares and placing $V-SV_S$ in the money-market account
+replicates the claim when dividends are reinvested within the
+self-financing strategy. Its discounted wealth is non-negative, and its
+stochastic gain is square-integrable on each finite horizon. Under the
+usual admissibility condition that discounted wealth is bounded below,
+the stipulated market has no arbitrage. This replicating price is the
+unique no-arbitrage price among bounded claim valuations and the unique
+bounded classical solution of the terminal-value problem. Here a classical
+solution is $C^{1,2}$ for positive remaining maturity and is continuous
+at expiry.
+\end{proposition}
+
+The dividend term belongs in the self-financing gain equation, not in
+the terminal payoff. Appendix~\ref{app:cgbm-financial} derives both the
+measure change and the replication argument, including the limiting
+argument at the payoff kinks.
+
+\section{Analytic prices and Greeks}
+\label{sec:cgbm-analytic}
+
+Let $\Phi$ and $\varphi$ denote the standard normal distribution function
+and density. For strike $A>0$, define
+\begin{equation}
+ d_{1,A}=\frac{\log(S/A)+(r-q+\sigma^2/2)\tau}{v},
+ \qquad d_{2,A}=d_{1,A}-v,
+ \qquad C_A=S e^{-q\tau}\Phi(d_{1,A})-A D\Phi(d_{2,A}).
+ \label{eq:cgbm-call}
+\end{equation}
+Then $V=C_K-C_J$. Write
+$\Delta\Phi_i=\Phi(d_{i,K})-\Phi(d_{i,J})$ and
+$\Delta\varphi=\varphi(d_{1,K})-\varphi(d_{1,J})$. Differentiation gives
+\begin{align}
+ \Delta=V_S&=e^{-q\tau}\Delta\Phi_1,\label{eq:cgbm-delta}\\
+ \Gamma=V_{SS}&=\frac{e^{-q\tau}\Delta\varphi}{Sv},\label{eq:cgbm-delta-gamma}\\
+ \mathcal V=V_\sigma&=S e^{-q\tau}\sqrt{\tau}\,\Delta\varphi,\label{eq:cgbm-vega}\\
+ \mathcal R=V_r&=\tau D\{K\Phi(d_{2,K})-J\Phi(d_{2,J})\},\label{eq:cgbm-vega-rho}\\
+ \Theta=-V_\tau&=-\frac{S e^{-q\tau}\sigma}{2\sqrt{\tau}}\Delta\varphi
+ +q S e^{-q\tau}\Delta\Phi_1\notag\\
+ &\quad-rD\{K\Phi(d_{2,K})-J\Phi(d_{2,J})\}.\label{eq:cgbm-theta}
+\end{align}
+Vega and rho are derivatives per unit change in volatility and interest
+rate. Calendar theta uses a fixed expiry and advances the valuation date,
+so it is the negative maturity derivative. Gamma and vega can be negative
+for a capped claim; this is a property of the call spread, not a numerical
+failure.
+
+\section{A monotone heat-equation discretisation}
+\label{sec:cgbm-heat}
+
+Introduce $y=\log(S/K)+b\tau$, $a=\sigma^2/2$ and
+$f(y)=F(K e^y)$. The whole-line heat solution $w$ satisfies
+\begin{equation}
+ w_\tau=a w_{yy},\qquad w(0,y)=f(y),\qquad
+ V(S,\tau)=D w(\tau,y).
+ \label{eq:cgbm-heat}
+\end{equation}
+Its payoff kinks lie at $0$ and $c=\log(J/K)$. Moreover,
+$0\leq f\leq H$ and $f$ is globally Lipschitz with constant
+$L_f=J$. For a finite domain $L<0<c<U$, let $w^{\mathrm{box}}$ solve the
+same equation with fixed boundary values $0$ and $H$.
+These values approximate the exact financial far-field limits
+\begin{equation}
+ \lim_{S\downarrow0}V(S,\tau)=0,\qquad
+ \lim_{S\to\infty}V(S,\tau)=DH.
+ \label{eq:cgbm-far-field}
+\end{equation}
+Indeed the terminal asset tends pointwise to zero or infinity as its
+initial spot does, and the bounded continuous payoff permits dominated
+convergence. At remaining maturity $\tau$, the heat-domain endpoints
+correspond to asset values $K\exp(L-b\tau)$ and
+$K\exp(U-b\tau)$. Their finite values do not make the imposed boundary
+prices exact; the exit-tail bound below quantifies the approximation.
+
+For integers $M\geq3$ and $N\geq1$, set
+$h=(U-L)/M$, $y_j=L+jh$, $k=\tau/N$ and
+$\lambda=ak/h^2$. Backward Euler gives
+\begin{equation}
+ -\lambda W_{j-1}^{n}+(1+2\lambda)W_j^{n}
+ -\lambda W_{j+1}^{n}=W_j^{n-1},\qquad
+ W_0^n=0,\quad W_M^n=H,\quad W_j^0=f(y_j).
+ \label{eq:cgbm-be}
+\end{equation}
+I interpolate the final grid values linearly at the query $y$ and then
+apply the discount factor. Subtracting the affine boundary lift diagonalises
+this same finite-difference operator in the discrete sine basis. Its
+eigenvalues and backward-Euler factors are
+\begin{equation}
+ \nu_\ell=\frac{4}{h^2}\sin^2\!\left(\frac{\ell\pi}{2M}\right),
+ \qquad (1+ak\nu_\ell)^{-N},\qquad 1\leq\ell\leq M-1.
+ \label{eq:cgbm-dst}
+\end{equation}
+This is a faster evaluation of \eqref{eq:cgbm-be}, rather than a different
+spatial method. A direct tridiagonal time-step implementation checks that
+equivalence numerically. A floating-point implementation is not an
+interval-arithmetic certificate merely because its mathematical scheme
+has a proved bound.
+
+\begin{theorem}[Unconditional stability and a nonsmooth-payoff error bound]
+\label{thm:cgbm-be}
+For every $h,k>0$, \eqref{eq:cgbm-be} preserves $0\leq W_j^n\leq H$.
+Differences between two solutions with the same boundary values contract
+in the maximum norm at every step. Fix an even, non-negative
+$\rho\in C_c^\infty(-1,1)$ with integral one, and set
+\begin{equation}
+ m_1=\int_{-1}^1|z|\rho(z)\,dz,\qquad
+ c_3=\|\rho'''\|_{L^1},\qquad
+ 0<\eta<\min\{-L,U-c\}.
+ \label{eq:cgbm-mollifier}
+\end{equation}
+For exact arithmetic, the nodal error at maturity obeys
+\begin{equation}
+ \max_{1\leq j\leq M-1}
+ |W_j^N-w^{\mathrm{box}}(\tau,y_j)|
+ \leq 2L_fm_1\eta
+ +\tau\left(\frac{ah^2}{12}+\frac{a^2k}{2}\right)
+ L_f c_3\eta^{-3}.
+ \label{eq:cgbm-be-error}
+\end{equation}
+Consequently the scheme converges to the finite-domain solution, with
+a rigorous upper bound of order $(h^2+k)^{1/4}$ for this nonsmooth payoff
+on a fixed time interval. This conservative bound does not assert that
+the observed rate is exactly one quarter.
+\end{theorem}
+
+The proof uses the maximum principle, a compact mollifier and an odd
+periodic extension after the boundary lift. It does not assume that the
+unmollified payoff has four derivatives. The full proof is in
+Appendix~\ref{app:cgbm-numerical}.
+
+\begin{proposition}[Domain and interpolation errors]
+\label{prop:cgbm-domain}
+For $x\in[L,U]$, put
+\begin{equation}
+ \beta(\tau,x)=\min\!\left\{1,
+ 2\Phi\!\left(-\frac{x-L}{\sigma\sqrt{\tau}}\right)
+ +2\Phi\!\left(-\frac{U-x}{\sigma\sqrt{\tau}}\right)\right\}.
+ \label{eq:cgbm-domain-beta}
+\end{equation}
+Then $|w(\tau,x)-w^{\mathrm{box}}(\tau,x)|\leq H\beta(\tau,x)$.
+Let $y$ lie between grid nodes $y_j,y_{j+1}$ and define
+$\beta_* =\max\{\beta(\tau,y_j),\beta(\tau,y_{j+1})\}$.
+The interpolated, discounted price $\widehat V$ satisfies
+\begin{align}
+ |\widehat V-V|\leq D\Bigg[
+ &H\beta_*+2L_fm_1\eta
+ +\tau\left(\frac{ah^2}{12}+\frac{a^2k}{2}\right)
+ L_f c_3\eta^{-3}\notag\\
+ &+\frac{h^2 L_f}{8\sigma\sqrt{\tau}}
+ \sqrt{\frac{2}{\pi}}\Bigg].
+ \label{eq:cgbm-total-error}
+\end{align}
+\end{proposition}
+
+The four terms control the finite domain, payoff smoothing, numerical
+consistency and interpolation. Payoff smoothing is a proof device; the
+implemented initial condition remains the original capped payoff.
+On a fixed domain, mesh refinement converges to
+$w^{\mathrm{box}}$, leaving a domain error relative to the whole-line
+financial price. Full-price consistency requires the domain error to
+vanish as well.
+
+\section{Greek consistency and Monte Carlo comparisons}
+\label{sec:cgbm-greeks}
+
+Nonsmooth payoffs require separate control of sensitivities; the analysis of 
+\citet{gilescarter2006} gives a published comparison for Crank--Nicolson/
+Rannacher schemes. I prove the bounds for the backward-Euler scheme used here.
+
+I compute PDE Greeks by central price differences on the same domain and
+grid. This fixes the numerical heat domain under a bump; the transformed
+query $y$, diffusivity $a$ and discount factor still change with the bumped
+parameter. The small-bump limit must respect the price error.
+
+\begin{proposition}[Propagation into central differences]
+\label{prop:cgbm-bumps}
+Suppose $|\widehat V-V|\leq E$ at every required bumped point. For a scalar
+parameter $p$, if $|\partial_p^3 V|\leq M_3$ on its bump interval, then
+\begin{equation}
+ \left|\frac{\widehat V(p+d)-\widehat V(p-d)}{2d}
+ -\partial_p V(p)\right|
+ \leq \frac{E}{d}+\frac{M_3d^2}{6}.
+ \label{eq:cgbm-first-bump}
+\end{equation}
+For spot gamma, if $|\partial_S^4 V|\leq M_4$ on the spot bump interval,
+then
+\begin{equation}
+ \left|\frac{\widehat V(S+d)-2\widehat V(S)+\widehat V(S-d)}{d^2}
+ -\Gamma\right|
+ \leq \frac{4E}{d^2}+\frac{M_4d^2}{12}.
+ \label{eq:cgbm-second-bump}
+\end{equation}
+These statements apply uniformly on a compact parameter set with
+$S,\sigma,\tau$ bounded away from zero, provided all queries lie inside
+the domain. Refining the mesh and enlarging the domain so that $E_n\to0$,
+then choosing $d_n\to0$ and $E_n/d_n\to0$ for first derivatives or
+$E_n/d_n^2\to0$ for gamma, proves consistency for the whole-line Greeks.
+\end{proposition}
+
+After fixing units, choices proportional to $E_n^{1/3}$ and $E_n^{1/4}$
+balance the displayed error terms for first derivatives and gamma,
+respectively. Practical comparisons also retain the exact analytic
+central-difference bias at each implemented bump. This diagnoses numerical
+price error separately from bump bias and prevents an apparent Greek
+discrepancy from being assigned wholly to the PDE scheme.
+
+The implemented bump recipe uses a dimensionless log-grid spacing $h$,
+a positive spot reference scale $S_*$, and positive reference scales for
+the other parameters. The spot bump is proportional to $S_*h^{1/8}$;
+first-order parameter bumps are proportional to $h^{1/4}$ in their
+respective reference units. With $k=O(h^2)$, the rigorous price bound is
+$O(h^{1/2})$ after making the domain error $o(h^{1/2})$. The resulting
+spot gamma error is $O(h^{1/4})$, and the first-order errors are at most
+$O(h^{1/4})$. These are conservative guaranteed upper rates, not fitted
+empirical orders. A finite fixed domain retains its displayed exit-tail
+allowance, regardless of this bump recipe.
+
+Pathwise and likelihood-ratio estimators have established foundations
+\citep{broadieglasserman1996}. The capped-payoff formulae and their ranges
+are derived explicitly in Appendix~\ref{app:cgbm-monte-carlo}.
+
+For exact terminal sampling, write $I=\mathbf 1_{\{K<X<J\}}$ and
+define the following one-path estimators:
+\begin{align}
+ Y_V&=D F(X),
+ &Y_\Delta&=D I X/S,\notag\\
+ Y_{\mathcal V}&=D I X(\sqrt{\tau}Z-\sigma\tau),
+ &Y_{\mathcal R}&=D\tau\{IX-F(X)\},
+ \label{eq:cgbm-pw-estimators}\\
+ Y_\Theta&=D\left[rF(X)-IX
+ \left(b+\frac{\sigma Z}{2\sqrt{\tau}}\right)\right],
+ \label{eq:cgbm-theta-estimator}\\
+ Y_\Gamma&=\frac{D F(X)}{S^2}
+ \left\{\frac{Z^2-1}{v^2}-\frac{Z}{v}\right\}.
+ \label{eq:cgbm-lr-estimator}
+\end{align}
+The first-order Greeks use pathwise differentiation, following the
+simulation sensitivity framework of \citet{broadieglasserman1996}.
+Gamma uses the
+second likelihood-ratio weight: differentiating the pathwise indicator
+as though it were smooth would omit its boundary contribution.
+I also retain the bounded mixed pathwise/likelihood-ratio rival
+\begin{equation}
+ Y_{\Gamma,\mathrm{mix}}
+ =\frac{D I X}{S^2}\left(\frac{Z}{v}-1\right).
+ \label{eq:cgbm-mixed-gamma}
+\end{equation}
+It follows by differentiating delta's fixed-asset density representation,
+rather than differentiating a random indicator pointwise. Its derivation
+appears in Appendix~\ref{app:cgbm-monte-carlo}. Boundedness gives a
+different finite-sample uncertainty guarantee, but does not by itself
+prove variance dominance over the ordinary likelihood-ratio estimator.
+
+\begin{proposition}[Unbiased estimators and finite-sample uncertainty]
+\label{prop:cgbm-mc}
+Each estimator in \eqref{eq:cgbm-pw-estimators}--\eqref{eq:cgbm-mixed-gamma}
+has expectation equal to its analytic price or Greek and finite second
+moment. Let
+\begin{equation}
+ z_- =\frac{\log(K/S)-b\tau}{v},\quad
+ z_+ =\frac{\log(J/S)-b\tau}{v},\quad
+ m=\max\{|z_-|,|z_+|\}.
+ \label{eq:cgbm-active-z}
+\end{equation}
+Deterministic ranges for price, delta, vega, rho and theta are, respectively,
+\begin{align}
+ &[0,DH],\quad[0,DJ/S],\quad[-B_{\mathcal V},B_{\mathcal V}],
+ \quad[-D\tau H,D\tau K],\quad[-B_\Theta,B_\Theta],\notag\\
+ &B_{\mathcal V}=DJ(\sqrt{\tau}m+\sigma\tau),\qquad
+ B_\Theta=D\left[|r|H+J\left(|b|+
+ \frac{\sigma m}{2\sqrt{\tau}}\right)\right].
+ \label{eq:cgbm-mc-ranges}
+\end{align}
+For $n$ independent raw paths and a range width $R$, a distribution-free
+two-sided confidence radius with failure probability at most $\alpha$,
+following \citet{hoeffding1963}, is
+\begin{equation}
+ R\sqrt{\frac{\log(2/\alpha)}{2n}}.
+ \label{eq:cgbm-hoeffding}
+\end{equation}
+For gamma, the bound
+\begin{equation}
+ \operatorname{Var}(Y_\Gamma)
+ \leq B_\Gamma^2
+ :=\frac{D^2H^2}{S^4}\left(\frac{2}{v^4}+\frac{1}{v^2}\right)
+ \label{eq:cgbm-gamma-variance}
+\end{equation}
+gives the finite-sample Chebyshev radius $B_\Gamma/\sqrt{n\alpha}$.
+The mixed gamma estimator has range
+\begin{equation}
+ [-B_{\mathrm{mix}},B_{\mathrm{mix}}],\qquad
+ B_{\mathrm{mix}}=\frac{DJ}{S^2}\left(\frac{m}{v}+1\right),
+ \label{eq:cgbm-mixed-gamma-bound}
+\end{equation}
+so it admits the Hoeffding radius with width $2B_{\mathrm{mix}}$.
+Allocating failure probabilities across outputs and using a union bound
+gives a simultaneous statement. Sample-variance normal intervals are
+separate asymptotic diagnostics and do not have these finite-sample
+coverage guarantees.
+\end{proposition}
+
+The numerical study allocates $0.05/49$ to each of the six ordinary raw
+outputs and the additional raw mixed gamma across seven contracts.
+The corresponding 49-interval family has failure probability at most
+0.05 under the ideal independent-normal sampling model. Comparisons
+between Monte Carlo methods additionally report sample-variance normal
+intervals as asymptotic diagnostics.
+
+The strongest implemented Monte Carlo comparison combines antithetic
+normal pairs with a centred discounted-stock control,
+$D X-S e^{-q\tau}$. I fit each control coefficient on independent pilot
+pairs and hold it fixed for the main sample. Conditional on the pilot,
+the controlled mean is unbiased because the control has expectation zero.
+Each independent pair, rather than its two correlated paths, is the
+sampling unit. The pilot and both terminal evaluations per pair belong
+in the computational work. The controlled estimators contain an unbounded
+lognormal control, so their sample-variance intervals remain asymptotic;
+the bounded raw-path Hoeffding guarantees are not transferred to them.
+
+\section{Synthetic comparison design and numerical evidence}
+\label{sec:cgbm-results}
+
+I use seven designed contracts, all with $K=100$, to exercise both payoff
+kinks, the interior spread, deep capping, a short low-volatility horizon,
+negative interest with dividends and a volatile long horizon.
+Table~\ref{tab:cgbm-contracts} defines the inputs. No observations are
+estimated from LSEG or another data provider. The full comparisons and
+source/code hashes are retained in \texttt{results/capped\_gbm}.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrrrrrr}\toprule
+Contract & $S$ & $H$ & $\tau$ & $\sigma$ & $r$ & $q$\\\midrule
+Lower kink & 100 & 20 & 1 & 0.2 & 0.03 & 0.01 \\
+Upper kink & 120 & 20 & 1 & 0.2 & 0.03 & 0.01 \\
+Inside spread & 110 & 20 & 1 & 0.2 & 0.03 & 0.01 \\
+Deep cap & 160 & 20 & 1 & 0.2 & 0.03 & 0.01 \\
+Low-volatility short dated & 100 & 20 & 0.05 & 0.06 & 0.03 & 0.01 \\
+Negative rate/dividend & 105 & 20 & 1 & 0.25 & -0.015 & 0.045 \\
+High volatility & 95 & 30 & 2 & 0.65 & 0.03 & 0.01 \\
+\bottomrule\end{tabular}
+\caption{Wholly synthetic inputs. Rates, volatility and dividend yields are expressed per year; the cap and spot use common monetary units. The labels describe designed test cases rather than an empirical asset sample.}
+\label{tab:cgbm-contracts}\end{table}
+
+The coupled meshes use $M=128,256,512,1024,2048,4096,8192,16384$ and
+$N=\lceil M^2/8\rceil$. Additional experiments refine time at fixed space
+and space at fixed time. The per-contract heat boxes contain both kinks
+and use nine diffusion standard deviations of margin, with a minimum
+margin of $0.3$. These finite experiments keep the box fixed; the
+whole-line convergence theorem additionally requires its tail allowance
+to vanish. Domain-enlargement checks preserve both $h$ and $k$, so a
+boundary change is not confused with changing the spatial resolution.
+
+The spot bump is
+$\min\{0.1S,S(0.006h^{1/8}+h)\}$.
+Volatility, rate and maturity bumps are respectively
+$\min\{0.25\sigma,0.10\sigma h^{1/4}\}$,
+$0.01h^{1/4}$ and
+$\min\{0.25\tau,0.05\tau h^{1/4}\}$.
+All actual steps and signed bump biases are retained per comparison.
+The analytic central difference uses precisely the PDE bump and therefore
+isolates its bias. The tridiagonal and sine-basis solvers are compared
+at one, three and 64 time steps, including large values of $\lambda$.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrl}\toprule
+Quantity & Maximum absolute error at $M=16384$ & Units\\\midrule
+Price & $9.950\!\times\!10^{-7}$ & Monetary units \\
+Delta & $1.111\!\times\!10^{-4}$ & Per unit spot \\
+Gamma & $4.137\!\times\!10^{-4}$ & Per unit spot squared \\
+Vega & $1.829\!\times\!10^{-3}$ & Per unit volatility \\
+Rho & $3.171\!\times\!10^{-4}$ & Per unit rate \\
+Theta & $1.026\!\times\!10^{-3}$ & Per year of calendar time \\
+\bottomrule\end{tabular}
+\caption{Worst absolute discrepancy from the analytic price/Greek across the seven synthetic contracts. Greek errors include the declared bump bias. Different derivative units are not combined into a single accuracy score.}
+\label{tab:cgbm-fine-errors}\end{table}
+
+\begin{figure}[tb]
+\centering
+\setlength{\unitlength}{1mm}
+\resizebox{\linewidth}{!}{%
+\begin{picture}(164,71)%
+\put(14,62){\makebox(61,5)[c]{\small (a) Absolute price error}}%
+\put(14.000,22){\line(0,1){38}}%
+\put(14.000,17){\makebox(0,3){\scriptsize 128}}%
+{\color[HTML]{E5E5E5}\put(22.714,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(31.429,22){\line(0,1){38}}}%
+\put(31.429,17){\makebox(0,3){\scriptsize 512}}%
+{\color[HTML]{E5E5E5}\put(40.143,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(48.857,22){\line(0,1){38}}}%
+\put(48.857,17){\makebox(0,3){\scriptsize 2048}}%
+{\color[HTML]{E5E5E5}\put(57.571,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(66.286,22){\line(0,1){38}}}%
+\put(66.286,17){\makebox(0,3){\scriptsize 8192}}%
+\put(75.000,22){\line(0,1){38}}%
+\put(75.000,17){\makebox(0,3){\scriptsize 16384}}%
+{\color[HTML]{E5E5E5}\put(14.000,22.000){\line(1,0){61}}}%
+\put(12.000,20.500){\makebox(0,3)[r]{\scriptsize $10^{-8}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,28.333){\line(1,0){61}}}%
+\put(12.000,26.833){\makebox(0,3)[r]{\scriptsize $10^{-7}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,34.667){\line(1,0){61}}}%
+\put(12.000,33.167){\makebox(0,3)[r]{\scriptsize $10^{-6}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,41.000){\line(1,0){61}}}%
+\put(12.000,39.500){\makebox(0,3)[r]{\scriptsize $10^{-5}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,47.333){\line(1,0){61}}}%
+\put(12.000,45.833){\makebox(0,3)[r]{\scriptsize $10^{-4}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,53.667){\line(1,0){61}}}%
+\put(12.000,52.167){\makebox(0,3)[r]{\scriptsize $10^{-3}$}}%
+{\color[HTML]{E5E5E5}\put(14.000,60.000){\line(1,0){61}}}%
+\put(12.000,58.500){\makebox(0,3)[r]{\scriptsize $10^{-2}$}}%
+\put(14,13){\makebox(61,3)[c]{\scriptsize Space intervals $M$}}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(14.000,58.723)(18.357,55.865)(22.714,53.006)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(22.714,53.006)(27.071,49.345)(31.429,45.683)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(31.429,45.683)(35.786,42.675)(40.143,39.667)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(40.143,39.667)(44.500,39.188)(48.857,38.708)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(48.857,38.708)(53.214,35.349)(57.571,31.990)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(57.571,31.990)(61.929,32.270)(66.286,32.551)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(66.286,32.551)(70.643,32.055)(75.000,31.560)}%
+{\color[HTML]{0072B2}\put(14.000,58.723){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(22.714,53.006){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(31.429,45.683){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(40.143,39.667){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(48.857,38.708){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(57.571,31.990){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(66.286,32.551){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(75.000,31.560){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(14.000,8){\line(1,0){4}}}\put(19.000,6.5){\makebox(0,3)[l]{\scriptsize Lower kink}}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(14.000,59.561)(18.357,56.515)(22.714,53.469)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(22.714,53.469)(27.071,51.001)(31.429,48.533)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(31.429,48.533)(35.786,46.170)(40.143,43.808)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(40.143,43.808)(44.500,42.554)(48.857,41.300)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(48.857,41.300)(53.214,37.178)(57.571,33.057)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(57.571,33.057)(61.929,33.850)(66.286,34.644)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(66.286,34.644)(70.643,33.475)(75.000,32.306)}%
+{\color[HTML]{D55E00}\put(14.000,59.561){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(22.714,53.469){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(31.429,48.533){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(40.143,43.808){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(48.857,41.300){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(57.571,33.057){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(66.286,34.644){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(75.000,32.306){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(46.000,8){\line(1,0){4}}}\put(51.000,6.5){\makebox(0,3)[l]{\scriptsize Upper kink}}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(14.000,50.759)(18.357,53.165)(22.714,55.572)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(22.714,55.572)(27.071,51.773)(31.429,47.974)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(31.429,47.974)(35.786,47.221)(40.143,46.469)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(40.143,46.469)(44.500,45.572)(48.857,44.675)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(48.857,44.675)(53.214,43.009)(57.571,41.342)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(57.571,41.342)(61.929,37.264)(66.286,33.186)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(66.286,33.186)(70.643,30.244)(75.000,27.302)}%
+{\color[HTML]{009E73}\put(14.000,50.759){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(22.714,55.572){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(31.429,47.974){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(40.143,46.469){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(48.857,44.675){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(57.571,41.342){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(66.286,33.186){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(75.000,27.302){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(14.000,4){\line(1,0){4}}}\put(19.000,2.5){\makebox(0,3)[l]{\scriptsize Short dated}}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(14.000,58.452)(18.357,57.875)(22.714,57.298)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(22.714,57.298)(27.071,54.178)(31.429,51.059)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(31.429,51.059)(35.786,51.974)(40.143,52.888)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(40.143,52.888)(44.500,50.223)(48.857,47.557)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(48.857,47.557)(53.214,42.496)(57.571,37.434)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(57.571,37.434)(61.929,37.659)(66.286,37.885)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(66.286,37.885)(70.643,36.269)(75.000,34.653)}%
+{\color[HTML]{CC79A7}\put(14.000,58.452){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(22.714,57.298){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(31.429,51.059){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(40.143,52.888){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(48.857,47.557){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(57.571,37.434){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(66.286,37.885){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(75.000,34.653){\circle*{0.8}}}%
+{\color[HTML]{CC79A7}\put(46.000,4){\line(1,0){4}}}\put(51.000,2.5){\makebox(0,3)[l]{\scriptsize High volatility}}%
+\put(100,62){\makebox(61,5)[c]{\small (b) Absolute gamma error}}%
+\put(100.000,22){\line(0,1){38}}%
+\put(100.000,17){\makebox(0,3){\scriptsize 128}}%
+{\color[HTML]{E5E5E5}\put(108.714,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(117.429,22){\line(0,1){38}}}%
+\put(117.429,17){\makebox(0,3){\scriptsize 512}}%
+{\color[HTML]{E5E5E5}\put(126.143,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(134.857,22){\line(0,1){38}}}%
+\put(134.857,17){\makebox(0,3){\scriptsize 2048}}%
+{\color[HTML]{E5E5E5}\put(143.571,22){\line(0,1){38}}}%
+{\color[HTML]{E5E5E5}\put(152.286,22){\line(0,1){38}}}%
+\put(152.286,17){\makebox(0,3){\scriptsize 8192}}%
+\put(161.000,22){\line(0,1){38}}%
+\put(161.000,17){\makebox(0,3){\scriptsize 16384}}%
+{\color[HTML]{E5E5E5}\put(100.000,22.000){\line(1,0){61}}}%
+\put(98.000,20.500){\makebox(0,3)[r]{\scriptsize $10^{-5}$}}%
+{\color[HTML]{E5E5E5}\put(100.000,31.500){\line(1,0){61}}}%
+\put(98.000,30.000){\makebox(0,3)[r]{\scriptsize $10^{-4}$}}%
+{\color[HTML]{E5E5E5}\put(100.000,41.000){\line(1,0){61}}}%
+\put(98.000,39.500){\makebox(0,3)[r]{\scriptsize $10^{-3}$}}%
+{\color[HTML]{E5E5E5}\put(100.000,50.500){\line(1,0){61}}}%
+\put(98.000,49.000){\makebox(0,3)[r]{\scriptsize $10^{-2}$}}%
+{\color[HTML]{E5E5E5}\put(100.000,60.000){\line(1,0){61}}}%
+\put(98.000,58.500){\makebox(0,3)[r]{\scriptsize $10^{-1}$}}%
+\put(100,13){\makebox(61,3)[c]{\scriptsize Space intervals $M$}}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(100.000,47.306)(104.357,47.409)(108.714,47.513)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(108.714,47.513)(113.071,46.206)(117.429,44.900)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(117.429,44.900)(121.786,42.675)(126.143,40.449)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(126.143,40.449)(130.500,40.749)(134.857,41.049)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(134.857,41.049)(139.214,40.563)(143.571,40.077)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(143.571,40.077)(147.929,38.847)(152.286,37.617)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(152.286,37.617)(156.643,37.488)(161.000,37.359)}%
+{\color[HTML]{0072B2}\put(100.000,47.306){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(108.714,47.513){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(117.429,44.900){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(126.143,40.449){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(134.857,41.049){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(143.571,40.077){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(152.286,37.617){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(161.000,37.359){\circle*{0.8}}}%
+{\color[HTML]{0072B2}\put(100.000,8){\line(1,0){4}}}\put(105.000,6.5){\makebox(0,3)[l]{\scriptsize Total error}}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(100.000,50.957)(104.357,49.188)(108.714,47.418)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(108.714,47.418)(113.071,45.986)(117.429,44.555)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(117.429,44.555)(121.786,43.458)(126.143,42.362)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(126.143,42.362)(130.500,41.536)(134.857,40.710)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(134.857,40.710)(139.214,40.072)(143.571,39.434)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(143.571,39.434)(147.929,38.915)(152.286,38.397)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(152.286,38.397)(156.643,37.949)(161.000,37.501)}%
+{\color[HTML]{D55E00}\put(100.000,50.957){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(108.714,47.418){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(117.429,44.555){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(126.143,42.362){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(134.857,40.710){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(143.571,39.434){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(152.286,38.397){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(161.000,37.501){\circle*{0.8}}}%
+{\color[HTML]{D55E00}\put(132.000,8){\line(1,0){4}}}\put(137.000,6.5){\makebox(0,3)[l]{\scriptsize Bump bias}}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(100.000,48.761)(104.357,40.326)(108.714,31.892)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(108.714,31.892)(113.071,39.741)(117.429,47.591)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(117.429,47.591)(121.786,42.931)(126.143,38.272)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(126.143,38.272)(130.500,34.421)(134.857,30.569)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(134.857,30.569)(139.214,31.330)(143.571,32.092)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(143.571,32.092)(147.929,31.614)(152.286,31.137)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(152.286,31.137)(156.643,27.335)(161.000,23.533)}%
+{\color[HTML]{009E73}\put(100.000,48.761){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(108.714,31.892){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(117.429,47.591){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(126.143,38.272){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(134.857,30.569){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(143.571,32.092){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(152.286,31.137){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(161.000,23.533){\circle*{0.8}}}%
+{\color[HTML]{009E73}\put(100.000,4){\line(1,0){4}}}\put(105.000,2.5){\makebox(0,3)[l]{\scriptsize PDE difference}}%
+\end{picture}}%
+\caption{Synthetic convergence evidence. Panel (a) contrasts the lower and upper payoff kinks, a short-dated low-volatility claim and a high-volatility claim. Panel (b) separates the short-dated gamma total error into analytic bump bias and the PDE difference at the same bump. Absolute component errors need not add because their signed contributions can cancel. Both axes are logarithmic. All seven contracts and all five Greeks are retained in the comparison files.}
+\label{fig:cgbm-convergence}
+\end{figure}
+Figure~\ref{fig:cgbm-convergence} exposes non-monotone refinement rather
+than imposing a fitted rate. Kink/grid alignment and interpolation can
+affect price error; differencing amplifies these errors in the Greeks.
+For the short-dated gamma at the finest mesh, the analytic bump bias is
+approximately $-4.28\times10^{-4}$, while the PDE difference at that bump
+is approximately $1.45\times10^{-5}$. The larger gamma discrepancy is
+therefore mainly a finite-bump effect. Finer price accuracy alone does not
+remove it. Independent mesh refinements and all five Greek comparisons
+remain available even where a selected plot would conceal adverse behaviour.
+
+Every Monte Carlo method receives 262,144 terminal-payoff evaluations per
+contract. Raw sampling uses that many independent normals. Antithetic
+sampling uses 131,072 independent pairs. Controlled sampling uses 16,384
+independent pilot pairs and 114,688 production pairs, charging both
+terminal evaluations of each pair. A control coefficient is fitted
+separately for each output and clipped to $[-10^6,10^6]$; the pilot is
+independent of production. Shared production normals between methods are
+declared, and no confidence claim is made for their paired differences.
+The seed is 732451, with deterministic case offsets.
+Terminal-evaluation budgets measure sampling work; arithmetic costs and
+wall-clock time are not asserted to be identical between estimators.
+
+The 49 raw outputs comprise the price, five Greeks and additional mixed
+gamma in each of seven contracts. Each receives failure allowance
+$0.05/49$. Their simultaneous finite-sample bounds apply to ideal
+independent exact normal draws and exact arithmetic. Their floating-point
+constants and pseudo-random normal generation have not been formally
+certified. Normal sample-variance intervals are reported separately as
+pointwise asymptotic diagnostics. Observed inclusion in the conservative
+bounds is a sanity check, not a proof of coverage.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrrrr}\toprule
+Contract & Analytic $\Gamma$ & Raw LR SE & Raw mixed SE & Variance ratio\\\midrule
+Lower kink & $4.026\!\times\!10^{-3}$ & $7.689\!\times\!10^{-5}$ & $1.966\!\times\!10^{-5}$ & 15.293 \\
+Upper kink & $-7.259\!\times\!10^{-3}$ & $6.210\!\times\!10^{-5}$ & $2.269\!\times\!10^{-5}$ & 7.493 \\
+Inside spread & $-3.183\!\times\!10^{-3}$ & $7.019\!\times\!10^{-5}$ & $1.523\!\times\!10^{-5}$ & 21.240 \\
+Deep cap & $-2.747\!\times\!10^{-3}$ & $4.014\!\times\!10^{-5}$ & $2.021\!\times\!10^{-5}$ & 3.945 \\
+Low-volatility short dated & $0.296226$ & $3.320\!\times\!10^{-3}$ & $8.632\!\times\!10^{-4}$ & 14.792 \\
+Negative rate/dividend & $2.713\!\times\!10^{-3}$ & $4.478\!\times\!10^{-5}$ & $1.272\!\times\!10^{-5}$ & 12.400 \\
+High volatility & $-3.680\!\times\!10^{-4}$ & $4.251\!\times\!10^{-6}$ & $2.287\!\times\!10^{-6}$ & 3.455 \\
+\bottomrule\end{tabular}
+\caption{Raw gamma estimators at equal terminal-evaluation budgets. SE is the measured standard error, not a finite-sample confidence radius. The variance ratio is ordinary payoff-LR estimator variance divided by mixed-estimator variance. All antithetic and independently fitted control variants remain in the full comparison.}
+\label{tab:cgbm-gamma-mc}\end{table}
+
+The bounded mixed estimator reduces measured raw gamma variance in every
+tested contract. This is an observed comparison, not uniform dominance
+over model parameters. Controlled ordinary likelihood-ratio gamma remains
+more efficient in several cases. Stock controls also worsen measured
+delta and rho efficiency for the interior-spread contract at the matched
+total budget. The analytic call spread has neither sampling error nor a
+finite-domain or mesh error and remains the strongest baseline here.
+
+\section{Conditional valuation and jointly transformed controls}
+\label{sec:cgbm-projection}
+
+I use conditional valuation to connect measure-theoretic probability with
+an implemented variance comparison. Conditional Monte Carlo is established
+\citep{asmussen2018}. The following argument supplies complete proofs and
+an explicit GBM specialisation; it does not claim a new quantum theory.
+The expectation and variance in this section are under the stipulated
+pricing measure $Q$. For a sub-$\sigma$-algebra $\mathcal G$, write
+$P_{\mathcal G}Y=\mathbb E_Q[Y\mid\mathcal G]$. The space
+$L^2(\mathcal G)$ consists of equivalence classes admitting a
+$\mathcal G$-measurable square-integrable representative.
+
+\begin{theorem}[Conditional expectation as an orthogonal projection]
+\label{thm:cgbm-projection}
+For $Y\in L^2(Q)$, $L^2(\mathcal G)$ is a closed subspace of $L^2(Q)$
+and $m=P_{\mathcal G}Y$ is its unique nearest element. Equivalently,
+$m\in L^2(\mathcal G)$ and
+$\mathbb E_Q[\mathbf1_A m]=\mathbb E_Q[\mathbf1_A Y]$
+for every $A\in\mathcal G$. For every $Z\in L^2(\mathcal G)$,
+\begin{align}
+ \mathbb E_Q[(Y-Z)^2]
+ &=\mathbb E_Q[(Y-m)^2]+\mathbb E_Q[(m-Z)^2],
+ \label{eq:cgbm-projection-pythagoras}\\
+ m^2&\leq\mathbb E_Q[Y^2\mid\mathcal G]\quad Q\text{-almost surely},
+ \label{eq:cgbm-conditional-jensen}\\
+ \operatorname{Var}_Q(Y)
+ &=\operatorname{Var}_Q(m)+\mathbb E_Q[(Y-m)^2].
+ \label{eq:cgbm-projection-total-variance}
+\end{align}
+For $\mathcal G_1\subseteq\mathcal G_2$, the projections satisfy the
+tower property. The variance of the conditional mean increases with
+information, while its mean-square prediction error decreases.
+\end{theorem}
+
+The two variance statements concern different objects. Replacing $Y$ by
+$m$ in an estimator lowers its intrinsic sampling variance. Increasing
+the retained information makes $m$ closer to $Y$ and consequently raises
+the variance of $m$. Appendix~\ref{app:cgbm-projection} proves the closedness,
+projection characterisation, conditional inequality and nested-information
+identities without assuming the result being demonstrated.
+
+The control-variate construction is established \citep{nelson1990}.
+For a centred control vector $C\in L^2(Q)^d$, let
+$\Sigma_C=\mathbb E_Q[CC^{\mathsf T}]$,
+$\kappa_C=\mathbb E_Q[C(Y-\mathbb E_QY)]$ and
+$\mathcal J(\beta)=\operatorname{Var}_Q(Y-\beta^{\mathsf T}C)$.
+Let $C_{\mathcal G}=P_{\mathcal G}C$, componentwise, and define
+$\mathcal J_{\mathcal G}(\beta)=
+\operatorname{Var}_Q(m-\beta^{\mathsf T}C_{\mathcal G})$.
+
+\begin{proposition}[Conditioning and control optimisation]
+\label{prop:cgbm-projected-controls}
+The covariance matrix $\Sigma_C$ is positive semidefinite, $\kappa_C$ lies in its range,
+and all minimisers of $\mathcal J$ are $\Sigma_C^\dagger \kappa_C+\ker \Sigma_C$, where $\Sigma_C^\dagger$
+is the Moore--Penrose inverse. For every fixed coefficient vector,
+\begin{equation}
+ \mathcal J(\beta)=\mathcal J_{\mathcal G}(\beta)
+ +\mathbb E_Q\!\left[
+ \{Y-m-\beta^{\mathsf T}(C-C_{\mathcal G})\}^{2}\right].
+ \label{eq:cgbm-joint-projection}
+\end{equation}
+Consequently $\min_\beta \mathcal J_{\mathcal G}(\beta)\leq\min_\beta \mathcal J(\beta)$.
+If $\beta_{\rm raw}$ and $\beta_{\mathcal G}$ are population minimisers,
+then
+\begin{align}
+ \mathcal J_{\mathcal G}(\beta_{\rm raw})-
+ \mathcal J_{\mathcal G}(\beta_{\mathcal G})
+ &=(\beta_{\rm raw}-\beta_{\mathcal G})^{\mathsf T}
+ \Sigma_{C,\mathcal G}(\beta_{\rm raw}-\beta_{\mathcal G}),
+ \label{eq:cgbm-coefficient-penalty}\\
+ \Sigma_{C,\mathcal G}&=\mathbb E_Q[C_{\mathcal G}C_{\mathcal G}^{\mathsf T}].\notag
+\end{align}
+Thus projection is linear at fixed coefficients, but the optimal raw
+coefficient need not remain optimal after conditioning.
+\end{proposition}
+
+For a terminal claim with horizon $T$ and initial spot $S_0=S$, set
+$Y=e^{-rT}F(S_T)$ and choose $t=uT$ with $0<u<1$. Independent Brownian
+increments give
+\begin{align}
+ m_t&=\mathbb E_Q[Y\mid\mathcal F_t]
+ =\mathbb E_Q[Y\mid\sigma(S_t)]
+ =e^{-rt}V(S_t,T-t),\label{eq:cgbm-conditional-price}\\
+ C&=e^{-rT}S_T-S_0e^{-qT},\notag\\
+ c_t&=\mathbb E_Q[C\mid\mathcal F_t]
+ =e^{-rt-q(T-t)}S_t-S_0e^{-qT}.
+ \label{eq:cgbm-conditional-control}
+\end{align}
+The Brownian filtrations $\mathcal F_t$ are nested; the individual
+$\sigma(S_t)$ need not be. This distinction justifies comparing
+population conditional variances across observation times. In particular,
+\begin{equation}
+ \operatorname{Var}_Q(c_t)
+ =S_0^2e^{-2qT}(e^{\sigma^2t}-1).
+ \label{eq:cgbm-conditional-control-variance}
+\end{equation}
+At $t=0$, $m_0=V(S_0,T)$ is the already available analytic price.
+This zero-variance endpoint requires evaluating that price and is not a
+new valuation algorithm.
+
+I fit coefficients on a pilot independent of the production sample and
+bound their norm before reuse. Appendix~\ref{app:cgbm-pilot} proves
+conditional unbiasedness and finite variance for this procedure. The
+population inequality in Proposition~\ref{prop:cgbm-projected-controls}
+does not guarantee that a separately fitted conditional coefficient wins
+on a finite production sample. The comparison therefore charges pilot
+observations, terminal simulation and conditional-price evaluations
+separately. The call-spread formula remains the strongest price baseline.
+Unbiasedness here concerns exact projections; evaluating them in
+floating-point arithmetic is not itself an unbiasedness certificate.
+
+For the quantum basket method, the auxiliary-variance proposition already
+uses the established total-variance identity. The present projection
+argument explains that identity as a least-squares result and shows why
+controls must be transformed jointly with the score. It does not change
+the earlier finite-law or gate certificates. Reducing intrinsic variance
+alone proves neither an overall computational advantage nor a quantum
+advantage: the conditional evaluator and its required accuracy must also
+be charged.
+\subsection{Matched-information comparisons and evaluator work}
+
+I reuse the seven synthetic contracts in Table~\ref{tab:cgbm-contracts}
+and choose $u=0.25,0.5,0.9$. Every method has the same model parameters,
+known stock-control means and analytic pricing function. The study uses
+independent pilots of 8,192 observations and production samples of 65,536,
+with coefficient norm bound $10^6$ and seed 840731. Methods share production
+draws within each split. The split simulations have correct marginal
+Brownian laws, but different observation times are not coupled into one
+sampled Brownian path.
+
+I compare raw payoffs, exact conditional valuation, raw pilot controls,
+conditional valuation with the raw pilot coefficient, separately refitted
+conditional controls, and the unbiased comparator that conditions the
+payoff but leaves its control unprojected. The analytic call spread is
+included in every case as the zero-sampling-error reference. There are
+147 comparison rows, including that reference. Thirty-two additional
+independent pilot fits per case/split give 672 coefficient-risk diagnostics.
+
+Population raw moments use the truncated lognormal formulae derived in
+Appendix~\ref{app:cgbm-moment-evaluation}. Conditional moments use
+one-dimensional Gaussian quadrature at orders 160 and 320. These numerical
+integrals are diagnostics, not rigorous interval enclosures. The maximum
+refinement difference across recorded smooth moments is approximately
+$3.83\times10^{-8}$; a different representation integrates the analytic
+residual-life variance to check the projection decomposition.
+Its maximum discrepancy is approximately $1.21\times10^{-10}$.
+Coarse $80\times80$ quadrature of the kinked joint payoff instead has an
+identity discrepancy as large as $4.62$ and remains an explicitly failed
+resolution diagnostic. It is not used as validation of the smooth results.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrrrr}\toprule
+Contract & Raw optimal & Conditional optimal & Ratio & Unprojected penalty\\\midrule
+Lower kink & $14.303$ & $1.1166$ & 12.810 & $24.327$ \\
+Upper kink & $21.919$ & $2.9954$ & 7.318 & $21.04$ \\
+Inside spread & $17.683$ & $1.5105$ & 11.707 & $27.345$ \\
+Deep cap & $7.0584$ & $1.1945$ & 5.909 & $0.71552$ \\
+Short dated & $0.16239$ & $0.036354$ & 4.467 & $0.25742$ \\
+Negative rate/dividend & $17.781$ & $1.2724$ & 13.975 & $25.975$ \\
+High volatility & $70.98$ & $5.5678$ & 12.748 & $44.194$ \\
+\bottomrule\end{tabular}
+\caption{Population-variance diagnostics at $t=T/2$, in squared monetary units. Conditional quantities are approximated by order-320 Gaussian quadrature. The ratio is optimal raw-control variance divided by optimal conditional-control variance. The final column is the additional variance from leaving the stock control unprojected at the raw population coefficient. These are oracle comparisons, not finite-pilot efficiency guarantees.}
+\label{tab:cgbm-projection-variance}\end{table}
+
+Across the 21 interior cases/splits, the numerical oracle variance ratios
+range from 1.2866 to 93.7667. They illustrate the population inequality,
+without proving a universal numerical gain of that magnitude. The
+conditional pilot fit has greater computed population excess variance than the
+raw pilot coefficient reused on the projected control in 152 of 672
+independent pilot realisations. This is a descriptive diagnostic of
+coefficient-estimation risk, not a general probability or efficiency claim.
+The fixed-coefficient projection inequality and the oracle optimum
+inequality remain separate from this fitted-coefficient comparison.
+
+\begin{figure}[tb]
+\centering
+\setlength{\unitlength}{1mm}
+\begin{picture}(160,66)%
+{\color[HTML]{E5E5E5}\put(20.000,21){\line(0,1){36}}}\put(20.000,16){\makebox(0,3){\scriptsize 0}}%
+{\color[HTML]{E5E5E5}\put(20,21.000){\line(1,0){115}}}\put(17,19.500){\makebox(0,3)[r]{\scriptsize 0}}%
+{\color[HTML]{E5E5E5}\put(48.750,21){\line(0,1){36}}}\put(48.750,16){\makebox(0,3){\scriptsize 0.25}}%
+{\color[HTML]{E5E5E5}\put(20,30.000){\line(1,0){115}}}\put(17,28.500){\makebox(0,3)[r]{\scriptsize 0.25}}%
+{\color[HTML]{E5E5E5}\put(77.500,21){\line(0,1){36}}}\put(77.500,16){\makebox(0,3){\scriptsize 0.5}}%
+{\color[HTML]{E5E5E5}\put(20,39.000){\line(1,0){115}}}\put(17,37.500){\makebox(0,3)[r]{\scriptsize 0.5}}%
+{\color[HTML]{E5E5E5}\put(106.250,21){\line(0,1){36}}}\put(106.250,16){\makebox(0,3){\scriptsize 0.75}}%
+{\color[HTML]{E5E5E5}\put(20,48.000){\line(1,0){115}}}\put(17,46.500){\makebox(0,3)[r]{\scriptsize 0.75}}%
+{\color[HTML]{E5E5E5}\put(135.000,21){\line(0,1){36}}}\put(135.000,16){\makebox(0,3){\scriptsize 1}}%
+{\color[HTML]{E5E5E5}\put(20,57.000){\line(1,0){115}}}\put(17,55.500){\makebox(0,3)[r]{\scriptsize 1}}%
+\put(20,60){\makebox(115,4){\small Retained variance $\operatorname{Var}(m_t)/\operatorname{Var}(Y)$}}%
+\put(20,12){\makebox(115,3){\scriptsize Observation fraction $t/T$}}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(20.000,21.000)(34.375,24.383)(48.750,27.766)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(48.750,27.766)(63.125,31.474)(77.500,35.183)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(77.500,35.183)(100.500,42.974)(123.500,50.766)}%
+{\color[HTML]{0072B2}\linethickness{0.5pt}\qbezier(123.500,50.766)(129.250,53.883)(135.000,57.000)}%
+{\color[HTML]{0072B2}\put(20.000,21.000){\circle*{.8}}}%
+{\color[HTML]{0072B2}\put(48.750,27.766){\circle*{.8}}}%
+{\color[HTML]{0072B2}\put(77.500,35.183){\circle*{.8}}}%
+{\color[HTML]{0072B2}\put(123.500,50.766){\circle*{.8}}}%
+{\color[HTML]{0072B2}\put(135.000,57.000){\circle*{.8}}}%
+{\color[HTML]{0072B2}\put(20,7){\line(1,0){5}}}\put(26,5.500){\makebox(0,3)[l]{\scriptsize Lower kink}}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(20.000,21.000)(34.375,22.570)(48.750,24.141)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(48.750,24.141)(63.125,26.921)(77.500,29.701)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(77.500,29.701)(100.500,38.747)(123.500,47.793)}%
+{\color[HTML]{D55E00}\linethickness{0.5pt}\qbezier(123.500,47.793)(129.250,52.397)(135.000,57.000)}%
+{\color[HTML]{D55E00}\put(20.000,21.000){\circle*{.8}}}%
+{\color[HTML]{D55E00}\put(48.750,24.141){\circle*{.8}}}%
+{\color[HTML]{D55E00}\put(77.500,29.701){\circle*{.8}}}%
+{\color[HTML]{D55E00}\put(123.500,47.793){\circle*{.8}}}%
+{\color[HTML]{D55E00}\put(135.000,57.000){\circle*{.8}}}%
+{\color[HTML]{D55E00}\put(80,7){\line(1,0){5}}}\put(86,5.500){\makebox(0,3)[l]{\scriptsize Deep cap}}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(20.000,21.000)(34.375,24.633)(48.750,28.265)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(48.750,28.265)(63.125,32.406)(77.500,36.548)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(77.500,36.548)(100.500,44.432)(123.500,52.316)}%
+{\color[HTML]{009E73}\linethickness{0.5pt}\qbezier(123.500,52.316)(129.250,54.658)(135.000,57.000)}%
+{\color[HTML]{009E73}\put(20.000,21.000){\circle*{.8}}}%
+{\color[HTML]{009E73}\put(48.750,28.265){\circle*{.8}}}%
+{\color[HTML]{009E73}\put(77.500,36.548){\circle*{.8}}}%
+{\color[HTML]{009E73}\put(123.500,52.316){\circle*{.8}}}%
+{\color[HTML]{009E73}\put(135.000,57.000){\circle*{.8}}}%
+{\color[HTML]{009E73}\put(20,3){\line(1,0){5}}}\put(26,1.500){\makebox(0,3)[l]{\scriptsize Short dated}}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(20.000,21.000)(34.375,23.829)(48.750,26.659)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(48.750,26.659)(63.125,29.884)(77.500,33.109)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(77.500,33.109)(100.500,40.544)(123.500,47.978)}%
+{\color[HTML]{CC79A7}\linethickness{0.5pt}\qbezier(123.500,47.978)(129.250,52.489)(135.000,57.000)}%
+{\color[HTML]{CC79A7}\put(20.000,21.000){\circle*{.8}}}%
+{\color[HTML]{CC79A7}\put(48.750,26.659){\circle*{.8}}}%
+{\color[HTML]{CC79A7}\put(77.500,33.109){\circle*{.8}}}%
+{\color[HTML]{CC79A7}\put(123.500,47.978){\circle*{.8}}}%
+{\color[HTML]{CC79A7}\put(135.000,57.000){\circle*{.8}}}%
+{\color[HTML]{CC79A7}\put(80,3){\line(1,0){5}}}\put(86,1.500){\makebox(0,3)[l]{\scriptsize High volatility}}%
+\end{picture}
+\caption{Retained conditional-price variance for selected synthetic contracts. Interior markers use the one-dimensional moment diagnostics; endpoints follow the analytic model. Lines join evaluated points. Increasing the observation time retains more terminal-price randomness: estimator variance rises while payoff-prediction loss falls. These are distinct quantities. All seven contracts remain in the comparison files; the figure reports no computational speed or quantum advantage.}
+\label{fig:cgbm-conditioning}
+\end{figure}
+A stand-alone raw estimate requires one Gaussian variate, one terminal
+stock exponential and one capped payoff evaluation per observation. A
+conditional estimate requires one Gaussian variate, one intermediate stock
+exponential and four normal-CDF evaluations. Its independent conditional
+pilot has the same conditional-evaluation requirement. Reusing a raw pilot
+coefficient charges the raw pilot, while the unprojected-control comparator
+also needs the additional terminal simulation. Per-policy counts and the
+actual shared diagnostic generation counts are retained separately; shared
+code execution is not presented as individual estimator timings.
+
+For a population variance $v$ and per-observation work $c$, an idealised
+large-sample work proxy at target mean-square sampling error $\epsilon^2$
+is $cv/\epsilon^2$. The numerical variance ratio can therefore identify a
+break-even production-cost ratio, but it excludes pilots, finite confidence,
+kernel error and arithmetic. No CDF-to-payoff work conversion or wall-clock
+superiority is established. The available analytic price still dominates
+sampling in this model.
+
+The conditional call-spread evaluator uses survival-function differences
+for intervals in the upper normal tail and avoids subtracting two large
+stock-valued calls. A range fallback removes tiny floating-point violations:
+49 production states, four main-pilot states and 149 repeated-pilot states
+use it, with largest recorded discounted adjustment
+$3.46\times10^{-15}$. Those observations do not bound the complete kernel
+error or prove numerical unbiasedness. The oracle/projection statements
+refer to the exact conditional operator; the reported arithmetic and
+quadrature diagnostics retain their narrower scope.
+
+\section{Interpretation and reproducibility}
+
+This companion closes a specific preparation gap by connecting an
+admissible financial strategy, a PDE, a nonsmooth numerical convergence
+proof and independently checked sensitivities. The bounded mixed-gamma
+derivation gives a useful estimator and a finite-sample uncertainty
+statement for this claim. It is an explicit specialisation of sensitivity
+principles, not a claimed new quantum theory or a completed priority claim.
+The comparison retains negative gamma/vega, non-monotone errors and
+adverse control rankings where they occur.
+
+The study checks a stipulated one-asset model with known parameters. It
+does not calibrate a financial model, validate market prices, solve a
+general portfolio/control problem or establish a quantum advantage.
+It also does not extend a one-asset analytic benchmark into a closed-form
+solution for arbitrary baskets. Those boundaries are essential when
+using the companion as evidence of financial mathematics and computation.
+
+The engine is \texttt{capped\_gbm.py};
+\texttt{run\_capped\_gbm\_study.py} reproduces the comparisons.
+The tests include active-region Gaussian quadrature of the mixed gamma,
+analytic sensitivity checks, the direct/sine-basis backward-Euler comparison
+and projection/singular-control checks. The conditioning code and source
+ledger are retained in \texttt{results/capped\_gbm/conditioning}. The source ledger retains the final published
+versions and precise sections consulted. Detailed arguments follow in
+the appendices. I retain this document as a completed companion study;
+the main quantum basket paper remains a working paper.
+
+\appendix
+
+
+\section{Financial and analytic derivations}
+\label{app:cgbm-financial}
+
+\subsection{Change of measure and the self-financing equation}
+
+For a concrete construction, suppose under a physical measure $P$ that
+$dS_t=(\mu-q)S_t\,dt+\sigma S_t\,dW_t^P$ with constant total-return drift
+$\mu$. Set $\vartheta=(\mu-r)/\sigma$. Novikov's condition follows from
+$\exp(\vartheta^2T/2)<\infty$ on every finite horizon. Thus
+\begin{equation}
+ \frac{dQ}{dP}\bigg|_{\mathcal F_T}
+ =\exp\{-\vartheta W_T^P-\vartheta^2T/2\},\qquad
+ W_t^Q=W_t^P+\vartheta t
+ \label{eq:cgbm-rn}
+\end{equation}
+defines an equivalent probability measure and yields
+\eqref{eq:cgbm-law}. The stochastic exponential is strictly positive
+and has expectation one by the Gaussian moment-generating function.
+For this constant coefficient, the Brownian conclusion can also be
+checked directly. On any deterministic partition, the density is the
+product of factors
+$\exp\{-\vartheta\Delta W^P-\vartheta^2\Delta t/2\}$.
+Multiplying the independent $N(0,\Delta t)$ increment densities by these
+factors and completing the square changes each mean to
+$-\vartheta\Delta t$, leaves its variance $\Delta t$ and preserves their
+factorisation. Thus the increments of $W^Q=W^P+\vartheta t$ are independent
+centred normals with the Brownian variances. The same calculation
+conditional on the preceding Brownian filtration proves independence
+from its past. Continuity is inherited from $W^P$. Hence $W^Q$ is a
+Brownian motion under $Q$, an elementary verification of this established
+constant-coefficient measure change.
+Consequently this construction does not depend on an unverified
+calibration of $\mu$.
+
+Let $B_t=e^{rt}$, let $\delta_t$ be the share holding and let $\gamma_t$
+be the bank-account holding. A self-financing wealth $P_t=\delta_tS_t+
+\gamma_tB_t$ receives asset dividends, so
+\begin{equation}
+ dP_t=\delta_t\,dS_t+q\delta_tS_t\,dt+
+ r(P_t-\delta_tS_t)\,dt
+ =rP_t\,dt+\delta_t\sigma S_t\,dW_t^Q.
+ \label{eq:cgbm-self-financing}
+\end{equation}
+For an admissible strategy, the share holding is predictable and
+\begin{equation}
+ \int_0^T e^{-2rt}\delta_t^2\sigma^2S_t^2\,dt<\infty
+ \quad Q\text{-almost surely},\label{eq:cgbm-admissible-integrand}
+\end{equation}
+while discounted wealth is bounded below by a deterministic constant. For such a strategy, discounted
+wealth is a local martingale bounded below and hence a supermartingale.
+One may see the latter implication by localisation and conditional
+Fatou's lemma after adding the fixed lower bound. An arbitrage with zero
+initial wealth and non-negative, sometimes strictly positive terminal
+wealth would contradict the supermartingale expectation inequality.
+This proves no arbitrage within this explicit admissible strategy class;
+it does not assert a general fundamental theorem for arbitrary markets.
+
+\subsection{The analytic call and replication}
+
+The event $X>A$ is $Z>-d_{2,A}$. Completing the square gives
+\begin{equation}
+ \mathbb E[e^{vZ}\mathbf 1_{\{Z>z\}}]
+ =e^{v^2/2}\Phi(v-z).
+ \label{eq:cgbm-gaussian-tilt}
+\end{equation}
+Substitution in $D\mathbb E[(X-A)^+]$ yields
+\eqref{eq:cgbm-call}; payoff linearity yields the call spread. The normal
+identity
+\begin{equation}
+ S e^{-q\tau}\varphi(d_{1,A})=A D\varphi(d_{2,A})
+ \label{eq:cgbm-density-identity}
+\end{equation}
+follows directly by subtracting the two squared normal arguments. It
+cancels the derivative-of-$\Phi$ terms when differentiating the call
+formula. The normal arguments have derivatives
+\begin{align}
+ \partial_S d_{1,A}&=\partial_S d_{2,A}=\frac1{Sv},\notag\\
+ \partial_\sigma d_{1,A}&=\sqrt{\tau}-\frac{d_{1,A}}{\sigma},
+ &\partial_\sigma d_{2,A}&=-\frac{d_{1,A}}{\sigma},\notag\\
+ \partial_r d_{1,A}&=\partial_r d_{2,A}=\frac{\sqrt{\tau}}{\sigma},
+ \label{eq:cgbm-d-derivatives}\\
+ \partial_\tau d_{1,A}&=
+ \frac{r-q+\sigma^2/2}{\sigma\sqrt{\tau}}
+ -\frac{d_{1,A}}{2\tau},
+ &\partial_\tau d_{2,A}&=\partial_\tau d_{1,A}
+ -\frac{\sigma}{2\sqrt{\tau}}.
+ \notag
+\end{align}
+In the spot derivative of $C_A$, the two density terms cancel exactly,
+leaving $e^{-q\tau}\Phi(d_{1,A})$; another spot derivative gives
+$e^{-q\tau}\varphi(d_{1,A})/(Sv)$. In the volatility derivative, their
+combined contribution is
+$S e^{-q\tau}\varphi(d_{1,A})
+(\partial_\sigma d_{1,A}-\partial_\sigma d_{2,A})
+=S e^{-q\tau}\varphi(d_{1,A})\sqrt{\tau}$.
+The rate-argument derivatives cancel, leaving
+$\tau A D\Phi(d_{2,A})$ from differentiating the discount factor.
+Finally,
+\begin{equation}
+ \partial_\tau C_A=-q S e^{-q\tau}\Phi(d_{1,A})
+ +r A D\Phi(d_{2,A})
+ +\frac{S e^{-q\tau}\sigma\varphi(d_{1,A})}{2\sqrt{\tau}}.
+ \label{eq:cgbm-call-time}
+\end{equation}
+Subtracting the corresponding strike-$J$ expressions from those at
+strike $K$ proves every formula in
+\eqref{eq:cgbm-delta}--\eqref{eq:cgbm-theta}.
+The lognormal convolution is smooth at positive maturity, even though
+$F$ has two kinks. Dominated convergence proves continuity at expiry:
+$X\to S$ almost surely, $F$ is continuous and $0\leq F\leq H$.
+
+To verify the heat transformation explicitly, first write
+$x=\log(S/K)$ and $V=e^{-r\tau}u(\tau,x)$. The chain rule gives
+$SV_S=e^{-r\tau}u_x$ and
+$S^2V_{SS}=e^{-r\tau}(u_{xx}-u_x)$. Equation
+\eqref{eq:cgbm-pde} therefore reduces to
+$u_\tau=a u_{xx}+b u_x$. Setting $u(\tau,x)=w(\tau,x+b\tau)$ gives
+$w_\tau=a w_{yy}$. Conversely, Gaussian convolution proves
+\eqref{eq:cgbm-heat}; reversing the calculation proves
+\eqref{eq:cgbm-pde} without assuming it in the valuation argument.
+
+With calendar time $t$ and expiry $T$, apply It\^o's formula to
+$V(S_t,T-t)$ on $[0,T-\varepsilon]$. The pricing equation gives
+\begin{equation}
+ dV(S_t,T-t)=rV(S_t,T-t)\,dt+
+ \sigma S_tV_S(S_t,T-t)\,dW_t^Q.
+ \label{eq:cgbm-replication-ito}
+\end{equation}
+This agrees with \eqref{eq:cgbm-self-financing} for $\delta=V_S$ and
+$\gamma=(V-SV_S)/B$. Furthermore
+$0\leq V_S\leq e^{-q(T-t)}$ by \eqref{eq:cgbm-delta}, and
+the Gaussian moment-generating function gives the explicit second moment
+\begin{equation}
+ \mathbb E_Q S_t^2=S_0^2
+ \exp\{[2(r-q)+\sigma^2]t\}.
+ \label{eq:cgbm-asset-second-moment}
+\end{equation}
+It is finite and bounded on every finite horizon. Hence
+$\mathbb E_Q\int_0^T e^{-2rt}\sigma^2 S_t^2 V_S^2\,dt<\infty$.
+The discounted stochastic gain is therefore a true square-integrable
+martingale. Continuity at expiry gives terminal wealth $F(S_T)$ as
+$\varepsilon\downarrow0$. Its discounted wealth is non-negative, so the
+strategy is admissible. Any bounded quoted claim valuation different from
+the replication cost permits buying the cheaper position, selling the dearer
+one and investing the initial difference; their terminal claim cash
+flows cancel. This gives a strictly positive terminal gain with zero
+initial wealth and a bounded-below discounted wealth process, contradicting
+no arbitrage. Any other bounded classical solution with this terminal
+payoff has a discounted martingale representation with the same
+conditional terminal expectation; equivalently, apply the stopped
+It\^o argument and bounded convergence. Its price equals
+\eqref{eq:cgbm-price}. This proves the stated uniqueness.
+
+\section{Numerical stability and convergence proofs}
+\label{app:cgbm-numerical}
+
+\subsection{The matrix maximum principle}
+
+Let $A_h$ be the $(M-1)\times(M-1)$ matrix with diagonal
+$1+2\lambda$ and off-diagonals $-\lambda$. If $A_h z\geq0$ componentwise
+and $z$ had a negative minimum at an interior row, that row would satisfy
+$(A_hz)_j\leq z_j<0$. At an edge row, the missing neighbour is interpreted
+as zero and gives an even stronger contradiction. Thus $z\geq0$.
+The same argument applied to a null vector and its negative proves that
+$A_h$ is nonsingular; consequently $A_h^{-1}\geq0$. The row sums of
+$A_h$ are one in interior rows and $1+\lambda$ at the two edge rows.
+Therefore $A_h\mathbf 1\geq\mathbf 1$, whence
+\begin{equation}
+ 0\leq A_h^{-1}\mathbf 1\leq\mathbf 1,
+ \qquad \|A_h^{-1}\|_\infty\leq1.
+ \label{eq:cgbm-mmatrix}
+\end{equation}
+This proves contraction for two solutions with equal boundary values.
+For positivity and the upper bound, the actual right-hand side is the
+previous interior vector plus $\lambda H$ at the last row. If the previous
+vector lies between $0$ and $H\mathbf 1$, this right-hand side lies between
+$0$ and $A_h(H\mathbf 1)$. Applying the non-negative inverse proves the
+invariant interval by induction. No condition relating $k$ and $h$ is used.
+
+The discrete eigenvectors are $\sin(j\ell\pi/M)$ and substitution in the
+centred second difference gives $-\nu_\ell$. The affine lift
+$\ell(y)=H(y-L)/(U-L)$ has zero discrete second difference. Each lifted
+mode is consequently multiplied by $(1+ak\nu_\ell)^{-1}$ per step,
+which proves \eqref{eq:cgbm-dst} after $N$ steps. This identity is in exact
+arithmetic; the direct-step comparison checks implementation error.
+
+\subsection{Mollification without a false smooth-payoff assumption}
+
+Let $\rho_\eta(z)=\eta^{-1}\rho(z/\eta)$ and
+$f_\eta=f*\rho_\eta$. Global Lipschitz continuity gives
+\begin{equation}
+ \|f_\eta-f\|_\infty\leq L_fm_1\eta,
+ \qquad
+ \|f_\eta^{(4)}\|_\infty
+ \leq L_f\|\rho_\eta'''\|_1=L_f c_3\eta^{-3}.
+ \label{eq:cgbm-mollifier-bounds}
+\end{equation}
+The second estimate uses the weak first derivative $f'$, which exists
+almost everywhere and is bounded by $L_f$. Moving the three remaining
+derivatives to the smooth kernel proves the formula and its bound.
+Since the radius is smaller than the distance of either kink to the
+boundary, $f_\eta$ equals $0$ near $L$ and $H$ near $U$.
+
+Subtract the affine lift from $f_\eta$ and shift the domain to
+$[0,U-L]$. The lifted function is zero at both endpoints and affine in
+their neighbourhoods. Its even derivatives, of order at least two,
+vanish there. Odd reflection at both endpoints therefore produces a
+smooth function of period $2(U-L)$: the value and every derivative agree
+at each reflection. In particular, the fourth derivative of the extension
+has maximum norm at most $L_f c_3\eta^{-3}$. Convolve this extension with
+the whole-line Gaussian heat kernel and add the affine lift back. Oddness
+keeps the lifted solution zero at both boundaries, so this is precisely
+the finite-domain smooth solution $u_\eta$. Gaussian convolution contracts
+the maximum norm and commutes with derivatives; hence
+\begin{equation}
+ \sup_{0\leq s\leq\tau}\|\partial_y^4u_\eta(s,\cdot)\|_\infty
+ \leq L_f c_3\eta^{-3},\qquad
+ \partial_s^2u_\eta=a^2\partial_y^4u_\eta.
+ \label{eq:cgbm-smooth-regularity}
+\end{equation}
+
+At time $s_n=nk$, insert $u_\eta(s_n,y_j)$ into the numerical equation
+and divide its residual by $k$. The integral remainder for backward
+time differencing is at most
+$k\sup|\partial_s^2u_\eta|/2$. The integral or Taylor remainder for the
+centred second difference is at most
+$h^2\sup|\partial_y^4u_\eta|/12$. Thus the residual $R_j^n$ obeys
+\begin{equation}
+ |R_j^n|\leq
+ \left(\frac{a^2k}{2}+\frac{ah^2}{12}\right)L_f c_3\eta^{-3}.
+ \label{eq:cgbm-residual}
+\end{equation}
+If the smooth grid starts from $f_\eta$, its error satisfies
+$A_h e^n=e^{n-1}-kR^n$ with $e^0=0$. Equation
+\eqref{eq:cgbm-mmatrix} and induction give
+$\|e^N\|_\infty\leq Nk\sup_n\|R^n\|_\infty$.
+Both the continuous maximum principle and the discrete contraction bound
+the change from $f_\eta$ back to $f$ by $L_fm_1\eta$. Adding these two
+changes proves \eqref{eq:cgbm-be-error}. Taking
+$\eta$ proportional to $(h^2+k)^{1/4}$, eventually below the fixed boundary
+margin, proves convergence and the stated upper rate. This is a proof
+for the actual kinked initial condition, not for a replacement smooth
+contract.
+
+\subsection{Domain truncation and interpolation}
+
+Let $Y_s=x+\sigma B_s$, and let $\zeta$ be its first exit from $[L,U]$.
+The stopped Brownian representation of the finite-domain solution is
+\begin{equation}
+ w^{\mathrm{box}}(\tau,x)=
+ \mathbb E_x[f(Y_\tau)\mathbf 1_{\{\zeta>\tau\}}]
+ +\mathbb E_x[g(Y_\zeta)\mathbf 1_{\{\zeta\leq\tau\}}],
+ \qquad g(L)=0,\quad g(U)=H.
+ \label{eq:cgbm-stopped-heat}
+\end{equation}
+It follows either from the stopped It\^o formula for positive-time smooth
+solutions and bounded convergence, or from the killed heat semigroup.
+The full solution is $\mathbb E_x f(Y_\tau)$. On exit, the terminal payoff
+and boundary value are both in $[0,H]$, so their difference is bounded
+in absolute value by $H$. The reflection principle bounds each one-sided
+exit event by twice its corresponding normal tail; a union bound proves
+\eqref{eq:cgbm-domain-beta}. The upper and lower exit contributions can
+have opposite signs, so this is an absolute error bound rather than an
+ordering of the two prices.
+
+At positive maturity, differentiate the whole-line convolution once using
+the bounded weak derivative $f'$, then once using the Gaussian density.
+For a Gaussian with standard deviation $v$, the $L^1$ norm of its density
+derivative is $\sqrt{2/\pi}/v$. Therefore
+\begin{equation}
+ \|w_{yy}(\tau,\cdot)\|_\infty
+ \leq \frac{L_f}{\sigma\sqrt{\tau}}\sqrt{\frac{2}{\pi}}.
+ \label{eq:cgbm-heat-curvature}
+\end{equation}
+Linear interpolation on an interval of width $h$ has error at most
+$h^2\sup|w_{yy}|/8$. Interpolation weights are non-negative and sum to
+one. Apply the domain bound at the two bracketing nodes and the nodal
+discretisation bound to these same weights; add the whole-line
+interpolation error and discount. This proves
+\eqref{eq:cgbm-total-error}, without requiring a new boundary regularity
+bound for $w^{\mathrm{box}}$.
+
+\subsection{Uniform consistency for Greeks}
+
+For a central first difference, price error contributes at most
+$(E+E)/(2d)=E/d$. Taylor's theorem with an integral remainder gives
+bias at most $M_3d^2/6$. For the central second difference, price error
+contributes at most $(E+2E+E)/d^2=4E/d^2$, and the fourth-order remainder
+is at most $M_4d^2/12$. These prove
+\eqref{eq:cgbm-first-bump} and \eqref{eq:cgbm-second-bump}.
+
+On a compact parameter set with positive lower bounds for $S$, $\sigma$
+and $\tau$, the analytic formula is smooth and its third and fourth
+parameter derivatives are bounded. Its transformed queries also lie in
+a compact interval. Let $L\to-\infty$ and $U\to\infty$, keep
+$h\to0$ and $k\to0$, and use a radius proportional to
+$(h^2+k)^{1/4}$. The Gaussian exit tails vanish uniformly because
+$\sigma\sqrt{\tau}$ has a finite upper bound, and the other terms in
+\eqref{eq:cgbm-total-error} vanish uniformly. The discount factors are
+bounded even when $r$ is negative. Thus $E_n\to0$ uniformly. Choosing
+the bump sequence as stated in Proposition~\ref{prop:cgbm-bumps} proves
+Greek convergence. A fixed domain or a fixed price error does not meet
+this argument merely because its bumps are made smaller.
+
+\section{Monte Carlo derivations and uncertainty proofs}
+\label{app:cgbm-monte-carlo}
+
+\subsection{Pathwise first derivatives}
+
+The capped payoff is Lipschitz in its asset argument, with derivative
+$\mathbf 1_{\{K<x<J\}}$ except at two points. The continuously distributed
+$X$ hits those points with probability zero. Its parameter derivatives are
+\begin{equation}
+ X_S=X/S,\qquad X_\sigma=X(\sqrt{\tau}Z-\sigma\tau),\qquad
+ X_r=\tau X,\qquad
+ X_\tau=X\left(b+\frac{\sigma Z}{2\sqrt{\tau}}\right).
+ \label{eq:cgbm-path-derivatives}
+\end{equation}
+On any compact parameter neighbourhood with $S,\sigma,\tau>0$, difference
+quotients of the Lipschitz payoff are dominated by a constant times
+$(1+|Z|)\exp(C|Z|)$, which is integrable against a Gaussian. This follows
+from the mean-value theorem for the smooth terminal map $X$ and the
+Lipschitz bound for $F$. Dominated convergence therefore justifies
+interchanging differentiation and expectation. Differentiating the
+discount factor as well gives
+\eqref{eq:cgbm-pw-estimators} and \eqref{eq:cgbm-theta-estimator}.
+Neither payoff kink contributes a first-order term because the payoff
+itself is continuous there.
+
+On the active region, $X\leq J$ and $Z\in(z_-,z_+)$, giving the delta,
+vega and theta ranges in \eqref{eq:cgbm-mc-ranges}. For rho the expression
+$IX-F(X)$ is exactly $0$, $K$ or $-H$ in the below-strike, active and
+capped regions, respectively. This proves its stated tighter range.
+
+\subsection{The likelihood-ratio gamma}
+
+For $x>0$, the lognormal density is
+\begin{equation}
+ p_S(x)=\frac{1}{xv\sqrt{2\pi}}
+ \exp\!\left[-\frac{1}{2}
+ \left(\frac{\log(x/S)-b\tau}{v}\right)^2\right].
+ \label{eq:cgbm-density}
+\end{equation}
+Writing $z=(\log(x/S)-b\tau)/v$, direct differentiation gives
+\begin{equation}
+ \frac{\partial_Sp_S(x)}{p_S(x)}=\frac{z}{Sv},\qquad
+ \frac{\partial_S^2p_S(x)}{p_S(x)}
+ =\frac{1}{S^2}\left(\frac{z^2-1}{v^2}-\frac{z}{v}\right).
+ \label{eq:cgbm-lr-weight}
+\end{equation}
+On a compact spot neighbourhood away from zero, the density and its first
+two spot derivatives admit a common envelope
+\begin{equation}
+ C(1+|\log x|^2)x^{-1}
+ \exp\{-|\log x|^2/(4v^2)\},\qquad x>0,
+ \label{eq:cgbm-lr-envelope}
+\end{equation}
+for a finite constant $C$. Indeed $\log S+b\tau$ is bounded on the
+neighbourhood and $(u-m)^2\geq u^2/2-m^2$; the derivative weights are
+polynomials of degree at most two in $u=\log x$, with bounded inverse
+spot factors. The envelope is integrable by the substitution $u=\log x$,
+and remains integrable after multiplication by $F\leq H$.
+Two applications of dominated convergence
+to $D\int F(x)p_S(x)\,dx$ prove unbiasedness of
+\eqref{eq:cgbm-lr-estimator}. Using $F\leq H$ gives
+\begin{align}
+ \mathbb E[Y_\Gamma^2]
+ &\leq \frac{D^2H^2}{S^4}
+ \mathbb E\left[
+ \left(\frac{Z^2-1}{v^2}-\frac{Z}{v}\right)^2\right]\notag\\
+ &=\frac{D^2H^2}{S^4}
+ \left(\frac{2}{v^4}+\frac{1}{v^2}\right),
+ \label{eq:cgbm-lr-moment}
+\end{align}
+because $\mathbb E(Z^2-1)^2=2$, $\mathbb E Z^2=1$ and the odd mixed
+moment is zero. Variance is no larger than the second moment, proving
+\eqref{eq:cgbm-gamma-variance}. Gamma's likelihood-ratio estimator is
+unbounded; a bounded-payoff concentration inequality cannot be applied
+to it without this separate argument.
+
+\subsection{A bounded mixed gamma rival}
+
+The pathwise delta has the fixed-asset representation
+\begin{equation}
+ \Delta=\frac{D}{S}\int_K^J x p_S(x)\,dx.
+ \label{eq:cgbm-delta-density}
+\end{equation}
+The integration limits are fixed when spot varies. On this bounded
+interval away from zero, $x\partial_S p_S(x)$ has a common integrable
+envelope on every compact spot neighbourhood. Differentiation is
+therefore legitimate even though the payoff derivative is an indicator.
+Using \eqref{eq:cgbm-lr-weight},
+\begin{align}
+ \partial_S\Delta
+ &=-\frac{D}{S^2}\int_K^J x p_S(x)\,dx
+ +\frac{D}{S}\int_K^J x\partial_Sp_S(x)\,dx\notag\\
+ &=\frac{D}{S^2}\int_K^J x p_S(x)
+ \left(\frac{z}{v}-1\right)\,dx.
+ \label{eq:cgbm-mixed-gamma-derivation}
+\end{align}
+This proves unbiasedness of \eqref{eq:cgbm-mixed-gamma}. It includes the
+boundary effect through the density derivative. On the active region,
+$X<J$ and $|Z|\leq m$, proving \eqref{eq:cgbm-mixed-gamma-bound} and its
+finite second moment. As an independent analytic check, Gaussian tilting
+reduces its expectation to
+$e^{-q\tau}\{\varphi(d_{1,K})-\varphi(d_{1,J})\}/(Sv)$,
+in agreement with \eqref{eq:cgbm-delta-gamma}. I combine the established
+pathwise and likelihood-ratio constructions of
+\citet{broadieglasserman1996}, deriving the capped-payoff expression
+explicitly here; I make no priority claim. The ordinary and mixed gamma
+estimators are compared using identical financial parameters and matched
+terminal evaluation budgets; neither estimator is discarded after
+seeing its variance.
+
+\subsection{Confidence guarantees and stronger classical sampling}
+
+For completeness, the bounded-variable concentration argument of
+\citet{hoeffding1963} can be checked directly. If $Y$ lies in an interval
+of width $R>0$, define
+$A(s)=\log\mathbb E\exp\{s(Y-\mathbb E Y)\}$ for real $s$.
+Boundedness justifies differentiating twice. The second derivative is
+the variance of $Y$ under the exponentially tilted probability law.
+That law has the same interval support; centring at its midpoint gives
+$A''(s)\leq R^2/4$. Since $A(0)=A'(0)=0$, integration twice yields
+\begin{equation}
+ A(s)\leq R^2s^2/8,\qquad s\in\mathbb R.
+ \label{eq:cgbm-hoeffding-mgf}
+\end{equation}
+For independent observations and $s>0$, exponential Markov's inequality
+and the product moment-generating function therefore give
+\begin{equation}
+ \mathbb P(\overline Y-\mathbb E Y\geq t)
+ \leq\exp\{n(R^2s^2/8-st)\}.
+ \label{eq:cgbm-hoeffding-chernoff}
+\end{equation}
+The minimiser is $s=4t/R^2$, giving the upper-tail bound
+$\exp(-2nt^2/R^2)$. Apply the same argument to $-Y$ and sum the two
+tail bounds. Solving
+$2\exp(-2nt^2/R^2)=\alpha$ proves
+\eqref{eq:cgbm-hoeffding}. If $R=0$, the observation is constant and
+its confidence radius is zero. Independence gives
+$\operatorname{Var}(\overline Y_\Gamma)\leq B_\Gamma^2/n$;
+Chebyshev's inequality gives the stated gamma radius. A union bound
+requires no independence between different outputs calculated on the
+same paths. Their allocated failure probabilities must sum to the
+intended familywise level.
+
+For the stock control $C=D X-S e^{-q\tau}$, the Gaussian exponential
+moment gives $\mathbb E C=0$ and a finite second moment. For any estimator
+$Y$, a deterministic coefficient $\beta$ yields
+\begin{equation}
+ \operatorname{Var}(Y-\beta C)
+ =\operatorname{Var}(Y)-2\beta\operatorname{Cov}(Y,C)
+ +\beta^2\operatorname{Var}(C).
+ \label{eq:cgbm-control-variance}
+\end{equation}
+When $\operatorname{Var}(C)>0$, the population minimiser is
+$\beta_* =\operatorname{Cov}(Y,C)/\operatorname{Var}(C)$ and the
+minimum variance is
+$\operatorname{Var}(Y)-\operatorname{Cov}(Y,C)^2/
+\operatorname{Var}(C)$. An estimated pilot coefficient need not attain
+that minimum. Independence of pilot and main sample preserves conditional
+unbiasedness; a zero pilot denominator is handled by selecting zero
+control coefficient. Antithetic pairs replace $Y(Z)$ and $C(Z)$ with
+their averages at $Z$ and $-Z$ and preserve their expectations, but variance
+reduction for every Greek is not guaranteed merely by symmetry. The
+comparison therefore reports measured variance and complete sampling work.
+For fixed finite pilot coefficients, the main-pair estimators have finite
+variance, so their studentised normal intervals have asymptotic validity
+under non-zero variance. Finite-sample exact coverage is not claimed.
+
+\section{Conditional projection and control-variate proofs}
+\label{app:cgbm-projection}
+
+\subsection{Completeness, closedness and the nearest-point construction}
+
+For this appendix write $\mathbb E=\mathbb E_Q$,
+$\langle X,Z\rangle=\mathbb E[XZ]$ and
+$\|X\|_2=(\mathbb E[X^2])^{1/2}$. Random variables are identified when
+they agree $Q$-almost surely. All variables are real-valued.
+First, $L^2(Q)$ is complete. From any Cauchy sequence $(X_n)$ choose a
+subsequence $(X_{n_j})$ with
+$\|X_{n_{j+1}}-X_{n_j}\|_2\leq2^{-j}$. Minkowski's inequality and
+Fatou's lemma give
+\begin{equation}
+ \left\|\sum_{j\geq k}|X_{n_{j+1}}-X_{n_j}|\right\|_2
+ \leq\sum_{j\geq k}2^{-j}.
+ \label{eq:cgbm-completeness-tail}
+\end{equation}
+The non-negative infinite sum is consequently finite almost surely.
+The subsequence converges pointwise to a measurable finite limit $X$,
+with the value zero assigned on its null non-convergence set. The same
+tail bound proves $X\in L^2(Q)$ and $X_{n_j}\to X$ in $L^2$.
+The Cauchy property then gives $X_n\to X$ in $L^2$.
+If each $X_n$ admits a $\mathcal G$-measurable representative, the
+convergence set and pointwise limit of this subsequence are
+$\mathcal G$-measurable. Hence $X$ admits a $\mathcal G$-measurable
+representative. This proves that $L^2(\mathcal G)$ is closed; linearity
+of that space follows directly from measurability and the triangle
+inequality.
+
+Fix $Y\in L^2(Q)$ and set
+$d=\inf_{Z\in L^2(\mathcal G)}\|Y-Z\|_2$. Choose $(Z_n)$ whose
+distances converge to $d$. The midpoint lies in the subspace, so the
+parallelogram identity yields
+\begin{equation}
+ \|Z_n-Z_k\|_2^2
+ =2\|Y-Z_n\|_2^2+2\|Y-Z_k\|_2^2
+ -4\left\|Y-\frac{Z_n+Z_k}{2}\right\|_2^2
+ \leq2\|Y-Z_n\|_2^2+2\|Y-Z_k\|_2^2-4d^2.
+ \label{eq:cgbm-projection-existence}
+\end{equation}
+Thus $(Z_n)$ is Cauchy. Completeness and closedness give a limit
+$m\in L^2(\mathcal G)$ attaining $d$. For each
+$h\in L^2(\mathcal G)$, the quadratic
+\begin{equation}
+ \|Y-m-sh\|_2^2
+ =\|Y-m\|_2^2-2s\langle Y-m,h\rangle+s^2\|h\|_2^2
+ \label{eq:cgbm-projection-orthogonality}
+\end{equation}
+has its minimum at $s=0$, implying
+$\langle Y-m,h\rangle=0$. Conversely this orthogonality proves
+\eqref{eq:cgbm-projection-pythagoras}, and therefore minimality.
+If two minimisers exist, their difference is in the subspace and
+orthogonal to itself, so they agree almost surely.
+
+\subsection{The integral characterisation and conditional Jensen inequality}
+
+Taking $h=\mathbf1_A$ in the orthogonality relation proves the displayed
+indicator-integral characterisation in
+Theorem~\ref{thm:cgbm-projection}. Conversely, that characterisation
+first implies orthogonality against every $\mathcal G$-measurable
+simple function by finite linearity. For any $h\in L^2(\mathcal G)$,
+truncate $h$ to $[-n,n]$ and then approximate that truncation by a simple
+function with pointwise error at most $1/n$. The resulting simple
+sequence converges to $h$ in $L^2$, since
+$\mathbb E[h^2\mathbf1_{\{|h|>n\}}]\to0$ by dominated convergence.
+Cauchy--Schwarz then extends orthogonality to $h$. Thus the integral
+characterisation is equivalent to the projection construction.
+It is also the usual definition of conditional expectation. Its
+uniqueness among integrable $\mathcal G$-measurable candidates follows
+by testing the difference on its positive and negative sets.
+
+The conditional expectation of $Y^2$ requires an $L^1$ extension rather
+than an assumption that $Y\in L^4$. The projection preserves positivity:
+if $U\geq0$, $U\in L^2$, the integral identity on
+$A=\{P_{\mathcal G}U<0\}$ contradicts a negative integral unless
+$Q(A)=0$. Linearity and this positivity show that the projection
+preserves order. For $U\geq0$, $U\in L^1$, define
+$h_n=P_{\mathcal G}(U\wedge n)$, choosing simultaneous representatives
+with $0\leq h_n\leq h_{n+1}$. Monotone convergence gives
+\begin{align}
+ h&=\lim_nh_n<\infty\ \text{almost surely},\qquad
+ \mathbb E h=\mathbb E U,\notag\\
+ \mathbb E[\mathbf1_A h]&=\mathbb E[\mathbf1_A U]\quad(A\in\mathcal G).
+ \label{eq:cgbm-conditional-l1}
+\end{align}
+The almost-sure finiteness follows because $\mathbb E h<\infty$.
+Assigning zero on the $\mathcal G$-measurable null set where the limit
+is infinite gives an integrable representative. Positive and negative
+parts define conditional expectation for every $L^1$ variable. The
+integral characterisation proves linearity and positivity of this
+extension by uniqueness.
+
+For every $A\in\mathcal G$, $\mathbf1_A m\in L^2(\mathcal G)$, so
+orthogonality implies
+$\mathbb E[\mathbf1_A Ym]=\mathbb E[\mathbf1_A m^2]$.
+Expanding the square on $A$ therefore proves
+\begin{equation}
+ \mathbb E[(Y-m)^2\mid\mathcal G]
+ =\mathbb E[Y^2\mid\mathcal G]-m^2\geq0
+ \quad\text{almost surely}.
+ \label{eq:cgbm-conditional-square}
+\end{equation}
+Here products are integrable by Cauchy--Schwarz, and the equality follows
+from the $L^1$ integral characterisation on every $A$.
+This proves conditional Jensen in the required square case. Taking
+expectations proves $\|P_{\mathcal G}Y\|_2\leq\|Y\|_2$.
+Linearity follows from the indicator-integral identity and uniqueness;
+idempotence follows because the projection fixes every element of its
+subspace. Taking $Z=\mathbb E Y$ in
+\eqref{eq:cgbm-projection-pythagoras}, and using
+$\mathbb E m=\mathbb E Y$, proves the total-variance identity.
+
+\subsection{Nested information and the direction of variance comparisons}
+
+Let $m_i=P_{\mathcal G_i}Y$ for
+$\mathcal G_1\subseteq\mathcal G_2$. Every indicator of
+$\mathcal G_1$ is also an indicator of $\mathcal G_2$; applying the
+integral characterisation twice gives
+$P_{\mathcal G_1}m_2=m_1$. Also
+$P_{\mathcal G_2}m_1=m_1$ by measurability. The first identity is the
+tower property. Orthogonality against $m_2-m_1$ gives
+\begin{align}
+ \operatorname{Var}(m_2)
+ &=\operatorname{Var}(m_1)+\mathbb E[(m_2-m_1)^2],
+ \label{eq:cgbm-nested-variance}\\
+ \mathbb E[(Y-m_1)^2]
+ &=\mathbb E[(Y-m_2)^2]+\mathbb E[(m_2-m_1)^2].
+ \label{eq:cgbm-nested-loss}
+\end{align}
+For the first equality, the cross term vanishes by projecting
+$m_2-m_1$ onto $\mathcal G_1$. For the second, $Y-m_2$ is orthogonal
+to the $\mathcal G_2$-measurable difference $m_2-m_1$.
+These exact identities distinguish dispersion of the conditional mean
+from the prediction loss of approximating the terminal variable by it.
+
+\subsection{Multivariate controls, singular covariance and optimal coefficients}
+
+Let $C$ have $d$ centred square-integrable components and let
+$\mu=\mathbb E Y$. The matrix $\Sigma_C=\mathbb E[CC^{\mathsf T}]$ is
+symmetric and positive semidefinite, since
+$v^{\mathsf T}\Sigma_C v=\mathbb E[(v^{\mathsf T}C)^2]\geq0$.
+If $v\in\ker \Sigma_C$, this square has zero expectation and
+$v^{\mathsf T}C=0$ almost surely. Therefore
+$v^{\mathsf T}\kappa_C=\mathbb E[(v^{\mathsf T}C)(Y-\mu)]=0$.
+For a finite symmetric matrix, its spectral decomposition gives
+$\operatorname{range}\Sigma_C=(\ker \Sigma_C)^\perp$, so $\kappa_C\in\operatorname{range}\Sigma_C$.
+Writing $\Sigma_C=U\operatorname{diag}(\lambda_i)U^{\mathsf T}$, define
+$\Sigma_C^\dagger=U\operatorname{diag}(d_i)U^{\mathsf T}$, where
+$d_i=1/\lambda_i$ when $\lambda_i>0$ and $d_i=0$ when $\lambda_i=0$.
+Then $\beta_*=\Sigma_C^\dagger \kappa_C$ satisfies $\Sigma_C\beta_*=\kappa_C$.
+Direct square expansion gives
+\begin{align}
+ \mathcal J(\beta)&=\operatorname{Var}(Y)-2\beta^{\mathsf T}\kappa_C+
+ \beta^{\mathsf T}\Sigma_C\beta\notag\\
+ &=\operatorname{Var}(Y)-\kappa_C^{\mathsf T}\Sigma_C^\dagger \kappa_C+
+ (\beta-\beta_*)^{\mathsf T}\Sigma_C(\beta-\beta_*).
+ \label{eq:cgbm-singular-control-minimum}
+\end{align}
+All minimisers are exactly $\beta_*+\ker \Sigma_C$. A singular coefficient
+vector is not uniquely identifiable, but its controlled random variable
+is unique almost surely because null directions produce zero controls.
+
+Componentwise conditional projection preserves centring and
+square-integrability of $C$. By linearity,
+$P_{\mathcal G}(Y-\beta^{\mathsf T}C)=m-\beta^{\mathsf T}C_{\mathcal G}$
+for every fixed $\beta$. Its residual
+$Y-m-\beta^{\mathsf T}(C-C_{\mathcal G})$ is orthogonal to
+$L^2(\mathcal G)$. Applying total variance proves
+\eqref{eq:cgbm-joint-projection}. Minimising first on the conditional
+side, then evaluating at a raw population minimiser, proves
+\begin{equation}
+ \min_\beta \mathcal J_{\mathcal G}(\beta)
+ \leq \mathcal J_{\mathcal G}(\beta_{\rm raw})
+ \leq \mathcal J(\beta_{\rm raw})=\min_\beta \mathcal J(\beta).
+ \label{eq:cgbm-oracle-control-order}
+\end{equation}
+Applying \eqref{eq:cgbm-singular-control-minimum} to the projected
+variables proves \eqref{eq:cgbm-coefficient-penalty}, including singular
+$\Sigma_{C,\mathcal G}$.
+
+Optimisation does not generally commute with conditioning. For an
+explicit example, let $A,B$ be independent symmetric random signs,
+$Y=A+B$, $C=A+2B$ and $\mathcal G=\sigma(A)$. Then
+$m=A$, $C_{\mathcal G}=A$, $\beta_{\rm raw}=3/5$ and
+$\beta_{\mathcal G}=1$. The respective variances are
+$\mathcal J(3/5)=1/5$, $\mathcal J_{\mathcal G}(3/5)=4/25$ and
+$\mathcal J_{\mathcal G}(1)=0$. The square penalty is exactly $4/25$.
+For nested information and projected controls, applying
+\eqref{eq:cgbm-nested-variance} to the fixed terminal residual
+$Y-\beta^{\mathsf T}C$ shows
+$\mathcal J_{\mathcal G_1}(\beta)\leq \mathcal J_{\mathcal G_2}(\beta)$ for every
+$\beta$. Taking infima gives the same non-decreasing order for the
+population-optimised residual variance.
+
+Conditioning the response while leaving the control untransformed is
+a different estimator. Since $m$ and $C_{\mathcal G}$ are
+$\mathcal G$-measurable, orthogonality gives
+\begin{equation}
+ \operatorname{Var}(m-\beta^{\mathsf T}C)
+ =\mathcal J_{\mathcal G}(\beta)
+ +\beta^{\mathsf T}(\Sigma_C-\Sigma_{C,\mathcal G})\beta.
+ \label{eq:cgbm-unprojected-control-penalty}
+\end{equation}
+The extra term is non-negative. Both estimators are unbiased for a fixed
+coefficient, because both controls have mean zero; the distinction here
+is a variance penalty rather than a bias assertion.
+
+\subsection{Independent pilots and the limits of the oracle comparison}
+\label{app:cgbm-pilot}
+
+Let $\mathcal P$ be the pilot $\sigma$-algebra, independent of the
+production pairs $(Y_i,C_i)_{i=1}^n$, which are independent copies of
+$(Y,C)$. Choose a $\mathcal P$-measurable coefficient
+$\widehat\beta$ with $\|\widehat\beta\|\leq B<\infty$ almost surely.
+For example, project a fitted coefficient onto a deterministic Euclidean
+ball. This restriction supplies moment control even when an empirical
+covariance matrix is nearly singular. Define
+\begin{equation}
+ \widehat\mu=n^{-1}\sum_{i=1}^n
+ (Y_i-\widehat\beta^{\mathsf T}C_i).
+ \label{eq:cgbm-independent-pilot-estimator}
+\end{equation}
+Each summand is square-integrable, because
+$(Y_i-\widehat\beta^{\mathsf T}C_i)^2
+\leq2Y_i^2+2B^2\|C_i\|^2$.
+Independence fixes the production distribution when conditioning on
+$\mathcal P$, while centring gives
+$\mathbb E[C_i\mid\mathcal P]=0$. Conditional independence therefore
+proves
+\begin{align}
+ \mathbb E[\widehat\mu\mid\mathcal P]&=\mu,
+ \label{eq:cgbm-pilot-unbiased}\\
+ \operatorname{Var}(\widehat\mu\mid\mathcal P)
+ &=n^{-1}\mathcal J(\widehat\beta),\qquad
+ \operatorname{Var}(\widehat\mu)
+ =n^{-1}\mathbb E[\mathcal J(\widehat\beta)].
+ \label{eq:cgbm-pilot-variance}
+\end{align}
+The unconditional variance follows from total variance; the variance of
+the conditional mean is zero. The same argument applies to
+$(m_i,C_{\mathcal G,i})$ if the production projections are exact.
+For any such pilot,
+\begin{equation}
+ \operatorname{Var}(\widehat\mu)
+ =\frac{\operatorname{Var}(Y)-\kappa_C^{\mathsf T}\Sigma_C^\dagger \kappa_C}{n}
+ +\frac{\mathbb E[(\widehat\beta-\beta_*)^{\mathsf T}
+ \Sigma_C(\widehat\beta-\beta_*)]}{n}.
+ \label{eq:cgbm-pilot-excess-risk}
+\end{equation}
+This non-negative excess-risk term explains why separately estimated
+raw and conditional coefficients need not preserve the oracle ranking.
+If the same pilot coefficient is applied to both jointly projected
+production variables, however,
+\eqref{eq:cgbm-joint-projection} holds conditionally on the pilot and
+its population variance order survives averaging over that pilot.
+None of these arguments applies automatically to coefficients fitted
+on the production sample: mean-zero controls alone do not make a
+data-dependent product have expectation zero. Pilot observations remain
+part of the computational budget. Normal intervals based on production
+sample variance are asymptotic, not finite-sample guarantees. Specifically,
+with a fixed finite pilot held constant while $n\to\infty$ and
+$\mathcal J(\widehat\beta)>0$ for almost every pilot, the conditional
+central limit theorem and consistency of the production sample variance
+give a studentised normal limit. The finite second moments proved above
+suffice for these two statements; no fourth moment is required.
+A zero-variance endpoint is excluded from this studentised limit.
+
+If numerical projections $\widetilde m,\widetilde C_{\mathcal G}$ obey
+the almost-sure deterministic bounds
+$|\widetilde m-m|\leq\varepsilon_m$ and
+$\|\widetilde C_{\mathcal G}-C_{\mathcal G}\|\leq\varepsilon_C$,
+then their pilot-controlled mean satisfies
+\begin{equation}
+ \left|\mathbb E\!\left[
+ n^{-1}\sum_i(\widetilde m_i-
+ \widehat\beta^{\mathsf T}\widetilde C_{\mathcal G,i})\right]-\mu\right|
+ \leq\varepsilon_m+B\varepsilon_C.
+ \label{eq:cgbm-projection-evaluator-bias}
+\end{equation}
+Indeed subtract the exact estimator, apply the triangle and
+Cauchy--Schwarz inequalities to each summand, then take expectations.
+Without a validated evaluator-error bound, the floating-point computation
+does not inherit an exact numerical unbiasedness guarantee from the
+projection theorem.
+
+\subsection{GBM conditional valuation, stock controls and endpoint limits}
+
+Under \eqref{eq:cgbm-law}, for $0\leq t<T$,
+\begin{equation}
+ S_T=S_t\exp\{b(T-t)+\sigma(W_T^Q-W_t^Q)\}.
+ \label{eq:cgbm-markov-split}
+\end{equation}
+The increment is independent of $\mathcal F_t$ and normally distributed
+with variance $T-t$. Integrating the bounded payoff against its normal
+density gives \eqref{eq:cgbm-conditional-price}. The resulting expression
+is measurable with respect to $\sigma(S_t)$. Testing indicators of that
+smaller $\sigma$-algebra shows that it is also
+$\mathbb E[Y\mid\sigma(S_t)]$. This equality for the terminal payoff
+does not imply that the spot-generated $\sigma$-algebras are nested.
+
+The Gaussian exponential moment gives
+$\mathbb E[S_T\mid\mathcal F_t]=S_t e^{(r-q)(T-t)}$, proving
+\eqref{eq:cgbm-conditional-control} and $\mathbb E c_t=0$.
+Moreover
+$c_t=S_0e^{-qT}\{\exp(\sigma W_t^Q-\sigma^2t/2)-1\}$, so
+\begin{align}
+ \operatorname{Var}(C)&=S_0^2e^{-2qT}(e^{\sigma^2T}-1),\notag\\
+ \mathbb E[(C-c_t)^2]
+ &=S_0^2e^{-2qT}(e^{\sigma^2T}-e^{\sigma^2t}).
+ \label{eq:cgbm-control-residual-variance}
+\end{align}
+The first two moments of the exponential and total variance prove these
+expressions and \eqref{eq:cgbm-conditional-control-variance}.
+Since $0\leq Y,m_t\leq e^{-rT}H$, continuity of the GBM paths and
+continuity of $V$ at positive remaining maturity imply
+$m_t\to V(S_0,T)$ in $L^2$ as $t\downarrow0$ by dominated convergence.
+Continuity at expiry gives $m_t\to Y$ in $L^2$ as $t\uparrow T$.
+Equation~\eqref{eq:cgbm-control-residual-variance} gives the corresponding
+$L^2$ limits for the controls. The nested-filtration identities therefore
+apply through both endpoint limits. They concern prices under the
+fixed model, not parameter derivatives of a simulation coupling; no
+conditional Greek identity is asserted here.
+\subsection{Analytic raw moments and smooth conditional diagnostics}
+\label{app:cgbm-moment-evaluation}
+
+Let $D_T=e^{-rT}$, $J=K+H$, $\theta=\mathbb E Y$ and
+$s_C=S_0e^{-qT}$. For $\ell=0,1,2$ and $0\leq A<B\leq\infty$, define
+\begin{align}
+ M_\ell(A,B)&=\mathbb E[S_T^\ell\mathbf1_{\{A<S_T<B\}}]\notag\\
+ &=S_0^\ell e^{\ell bT+\ell^2\sigma^2T/2}
+ \left[\Phi\!\left(\frac{\log(B/S_0)-bT-\ell\sigma^2T}{\sigma\sqrt T}\right)
+ -\Phi\!\left(\frac{\log(A/S_0)-bT-\ell\sigma^2T}{\sigma\sqrt T}\right)\right].
+ \label{eq:cgbm-truncated-moments}
+\end{align}
+Zero and infinite endpoints use the corresponding normal-tail limits.
+To derive the expression, substitute $S_T=S_0e^{bT+\sigma\sqrt T Z}$,
+complete the square in $e^{\ell\sigma\sqrt T z}\varphi(z)$ and shift
+the normal integration endpoints by $\ell\sigma\sqrt T$. Thus
+\begin{align}
+ \mathbb E[Y^2]&=D_T^2\{M_2(K,J)-2KM_1(K,J)+K^2M_0(K,J)
+ +H^2M_0(J,\infty)\},\label{eq:cgbm-raw-second}\\
+ \operatorname{Cov}(Y,C)&=D_T^2\{M_2(K,J)-KM_1(K,J)
+ +HM_1(J,\infty)\}-\theta s_C.
+ \label{eq:cgbm-raw-stock-covariance}
+\end{align}
+These follow by splitting the terminal stock into below-strike, active
+and capped regions and expanding the respective payoff polynomials.
+Subtracting $\theta^2$ gives $\operatorname{Var}(Y)$, while the stock-control
+variance is already derived in \eqref{eq:cgbm-control-residual-variance}.
+
+For conditional diagnostics, let $s(z)=S_0e^{bt+\sigma\sqrt t z}$,
+$m(z)=e^{-rt}V(s(z),T-t)$ and
+$c(z)=e^{-rt-q(T-t)}s(z)-s_C$. Their moment integrals are
+\begin{equation}
+ v_t=\int_{\mathbb R}(m(z)-\theta)^2\varphi(z)\,dz,
+ \qquad \kappa_t=\int_{\mathbb R}(m(z)-\theta)c(z)\varphi(z)\,dz.
+ \label{eq:cgbm-conditional-moment-integrals}
+\end{equation}
+For an independently expressed projection check, condition the residual
+$Y-\beta C$ on $S_t=s$. Put $R=T-t$ and
+$X_R=s\exp(bR+\sigma\sqrt R Z')$, where $Z'$ is independent standard normal.
+The exact inner variance is
+\begin{equation}
+ \operatorname{Var}(Y-\beta C\mid S_t=s)
+ =e^{-2rt}\operatorname{Var}\{e^{-rR}F(X_R)-\beta e^{-rR}X_R\}.
+ \label{eq:cgbm-inner-residual-variance}
+\end{equation}
+The constant $\beta s_C$ does not affect variance. Applying the raw
+truncated-moment formulae with spot $s$ and horizon $R$, then integrating
+the displayed quantity against the density of $S_t$, evaluates the residual
+term in \eqref{eq:cgbm-joint-projection}. This changes the representation
+being checked and avoids coarse quadrature of the payoff kinks. Its
+floating-point numerical agreement does not certify an integration remainder.
+
+\begin{thebibliography}{99}
+\bibitem[Asmussen(2018)]{asmussen2018}
+Asmussen, S. (2018). Conditional Monte Carlo for sums, with applications to insurance and finance. \emph{Annals of Actuarial Science}, 12(2), 455--478. \url{https://doi.org/10.1017/S1748499517000252}. Final publisher PDF consulted, Section 1, printed pages 455--456.
+
+\bibitem[Black and Scholes(1973)]{blackscholes1973}
+Black, F. and Scholes, M. (1973). The pricing of options and corporate liabilities. \emph{Journal of Political Economy}, 81(3), 637--654. \url{https://doi.org/10.1086/260062}. Final journal scan consulted, printed pages 637--644.
+
+\bibitem[Broadie and Glasserman(1996)]{broadieglasserman1996}
+Broadie, M. and Glasserman, P. (1996). Estimating security price derivatives using simulation. \emph{Management Science}, 42(2), 269--285. \url{https://doi.org/10.1287/mnsc.42.2.269}. Final journal scan consulted, Sections 2--3, printed pages 270--274, and Appendices A--C, printed pages 280--284.
+
+\bibitem[Giles and Carter(2006)]{gilescarter2006}
+Giles, M. B. and Carter, R. (2006). Convergence analysis of Crank--Nicolson and Rannacher time-marching. \emph{Journal of Computational Finance}, 9(4), 89--112. \url{https://doi.org/10.21314/JCF.2006.152}. Final journal PDF consulted, Sections 1--3, printed pages 89--103, and Section 5, page 111.
+
+\bibitem[Hoeffding(1963)]{hoeffding1963} Hoeffding, W. (1963). Probability inequalities for sums of bounded random variables. \emph{Journal of the American Statistical Association}, 58(301), 13--30. \url{https://doi.org/10.1080/01621459.1963.10500830}. Earlier final-journal-scan consultation retained in the project source ledger, printed pages 13--16, particularly Theorem 2, equation (2.6).
+
+\bibitem[Merton(1973)]{merton1973}
+Merton, R. C. (1973). Theory of rational option pricing. \emph{The Bell Journal of Economics and Management Science}, 4(1), 141--183. \url{https://doi.org/10.2307/3003143}. Final journal PDF consulted, selected material in Sections 6--7, printed pages 162--166 and 168--171, particularly equation (44), page 170, and footnote 62, page 171.
+
+\bibitem[Nelson(1990)]{nelson1990}
+Nelson, B. L. (1990). Control variate remedies. \emph{Operations Research}, 38(6), 974--992. \url{https://doi.org/10.1287/opre.38.6.974}. Final author-hosted journal scan consulted, Sections 1--2, printed pages 975--977, and Section 6, pages 979--980.
+\end{thebibliography}
+\end{document}

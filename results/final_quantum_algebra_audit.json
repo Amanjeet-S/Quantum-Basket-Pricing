@@ -1,0 +1,24 @@
+{
+  "schema": "qbp-four-case-independent-quantum-algebra-audit-v1",
+  "status": "passed",
+  "date": "2026-10-09",
+  "auditor_sha256": "a045b68aab9b5ed1f248ecde6e1280c26facfdc15a23964c2f9fe38105d3bf9f",
+  "result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "protocol_sha256": "4dea1f09df9e8960a02949fad0bf1e4dd3304903585ed680c83fe8330cd9f405",
+  "producer_sha256": "c0f09ed3ecaec2cb18be05d1ae7c23973f8eb70ce0325db51080842d4d9cc4e2",
+  "counts": {
+    "synthetic_models": 4,
+    "direct_R1_coordinates": 14,
+    "financial_budgets": 21,
+    "priors": 24,
+    "emitted_profiles": 80,
+    "full_QPE_flag_charges": 104,
+    "strategies": 80,
+    "failures": 1
+  },
+  "quantum_data_origin_verified": "Exact same four installed synthetic stress-model dictionaries as the classical protocol; no classical price answer or LSEG input.",
+  "compiler_distinction": "The body cleanup re-emits self-inverse logical operations, so its expanded gate multiset matches the forward body. The complete A adjoint within controlled Q separately swaps T/Tdg and S/Sdg in expanded profiles.",
+  "limits": "This bounded audit independently checks financial and prior algebra, full block/profile arithmetic, actual QPE phase/error/binomial linkage, reflection and reset charges and input/source hashes. It does not rebuild or revalidate all scalar tables, execute quantum hardware, prove classical superiority or establish original theory.",
+  "licensed_data_access_or_deletion": false,
+  "seconds_diagnostic": 0.28711425000074087
+}

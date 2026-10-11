@@ -1,0 +1,73 @@
+{
+  "case_count": 7,
+  "mesh_count": 8,
+  "pde_rows": 336,
+  "mc_rows": 147,
+  "finest_case_price_comparisons": [
+    {
+      "case": "lower_kink",
+      "estimate": "6.305736984192783",
+      "analytic": "6.3057373074164005",
+      "total_error": "-3.2322361764869356e-07",
+      "domain_error_upper_bound": "4.386999760116557e-18"
+    },
+    {
+      "case": "upper_kink",
+      "estimate": "12.91308195835789",
+      "analytic": "12.913081534441744",
+      "total_error": "4.2391614663017663e-07",
+      "domain_error_upper_bound": "4.3869997601165074e-18"
+    },
+    {
+      "case": "inside_spread",
+      "estimate": "9.754705424876748",
+      "analytic": "9.754705352964642",
+      "total_error": "7.191210649182267e-08",
+      "domain_error_upper_bound": "1.2686543381052032e-19"
+    },
+    {
+      "case": "deep_cap",
+      "estimate": "18.74034984060417",
+      "analytic": "18.740349703176378",
+      "total_error": "1.374277935894952e-07",
+      "domain_error_upper_bound": "4.430205485606163e-18"
+    },
+    {
+      "case": "low_vol_short_dated",
+      "estimate": "0.5861328435187816",
+      "analytic": "0.5861329122587406",
+      "total_error": "-6.873995905820607e-08",
+      "domain_error_upper_bound": "4.451393960002258e-110"
+    },
+    {
+      "case": "negative_rate_dividend",
+      "estimate": "6.024450419816678",
+      "analytic": "6.0244501056692314",
+      "total_error": "3.1414744672275674e-07",
+      "domain_error_upper_bound": "4.5962419610293035e-18"
+    },
+    {
+      "case": "high_volatility",
+      "estimate": "7.572864456881722",
+      "analytic": "7.572863461876825",
+      "total_error": "9.950048971418823e-07",
+      "domain_error_upper_bound": "6.398745336060978e-18"
+    }
+  ],
+  "finest_maximum_absolute_error_by_quantity": {
+    "price": 9.950048971418823e-07,
+    "delta": 0.00011114478679541406,
+    "gamma": 0.00041370170148130603,
+    "vega": 0.0018293543079135333,
+    "rho": 0.0003171493084597188,
+    "theta": 0.0010264709655993798
+  },
+  "status": "synthetic verification, established classical methods; no new quantum or practical-speedup claim",
+  "tests": "9 structural/regression tests pass",
+  "important_adverse_findings": [
+    "Gamma grid errors need not decrease monotonically because central bump differences amplify linear interpolation error.",
+    "Matched-budget stock control increases variance for inside-spread delta/rho and offers no improvement for high-volatility rho."
+  ],
+  "reproduction_command": "python3.13 run_capped_gbm_study.py --output results/capped_gbm",
+  "finite_sample_bounds": "49 predeclared raw case/quantity/estimator outputs use individual alpha0.05/49; Hoeffding except unbounded payoff-LR Gamma Chebyshev; mixed PW/LR Gamma bounded; floating constants and pseudorandom draws not formally certified."
+}

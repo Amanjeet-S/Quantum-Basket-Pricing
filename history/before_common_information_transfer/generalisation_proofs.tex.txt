@@ -1,0 +1,2730 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[british]{babel}
+\usepackage{url}
+\usepackage{xcolor,graphicx}
+\usepackage[round,authoryear]{natbib}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ph}{\varphi}
+\newcommand{\ind}{\mathbf 1}
+\DeclareMathOperator{\Var}{Var}
+\title{Certified curvature corrections for quantum basket pricing\\[3mm]
+\large Payoff boundary kernels, positive encodings and matched resource tests}
+\author{Amanjeet Singh}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I develop certified coherent corrections for derivative pricing under a
+classical no-arbitrage lognormal basket model. Gaussian conditioning and
+payoff-boundary curvature yield positive or signed corrections, while a
+moment-factorised transport certificate controls the rounded financial
+grid without a continuous price answer. Shared classical bounds resolve
+18 of 36 original contracts; stronger classical methods certify all 36
+and four additional stressed capped calls. For the stressed claims, I
+compare a shared-threshold preparation with conditional-price tables and
+common-normal raw-payoff circuits. A smoothing-first arithmetic certificate
+strengthens the raw rival before complete estimation costs are rebuilt.
+Independent payoff precisions select previously untested symmetric width nine
+within the declared pool. Against the cheaper admitted rival in each case,
+the shared-threshold method reduces complete logical T caps by 2.40 to
+10.26 per cent. Financial tails, rounding, confidence, clean preparation
+and reflections are charged throughout. These synthetic comparisons
+establish implementation gains under declared compiler and precision
+policies. Literature priority and practical quantum advantage remain
+unestablished.
+\end{abstract}
+
+\smallskip
+\noindent\begin{minipage}{\linewidth}
+\small\emergencystretch=2em
+\textit{Keywords:} financial mathematics; basket option; Gaussian conditioning;
+payoff boundary curvature; Gaussian transport; reversible arithmetic;
+amplitude estimation; quantum finance.\par
+\smallskip
+\textit{JEL classification:} C63, C65, G13.\par
+\end{minipage}
+
+\section{Research question and relation to the literature}
+\label{sec:question}
+
+I ask whether coherent representations of controlled basket-price
+corrections reduce complete quantum pricing cost when strong opponents
+receive the same financial model, analytic controls, derivative constants,
+moment information, accuracy and confidence. I compare an integrated
+boundary kernel, a stable two-node quadrature kernel, raw direct second
+correction, numerical positive first correction, a shared threshold
+first correction and a common-normal capped-payoff first correction. Quantum
+mechanics enters through coherent preparation, reversible arithmetic,
+interference and measurement. The underlying risk-neutral law remains
+classical, and the priced claim has an explicit no-arbitrage interpretation.
+
+Geometric conditioning and financial smoothing are established
+\citep{curran,dingechormann,bayer}. Polynomial and conditional Taylor pricing
+have close antecedents \citep{ju,olivaresalvarez2016}; general basket bounds
+also supply substantive classical competitors \citep{caldana}. Curran's geometric-tail evaluation and approximate below-strike gap
+calculation already establish the conditioning architecture.
+\footnote{I consulted the complete final Curran scan and the final publisher
+analysis of Olivares--Alvarez, supplemented by its distinct author version
+where the source ledger identifies formula gaps. Ju's complete article
+remains unavailable and is not a completed source-level priority exclusion.} The falling log-price derivative operator is
+already given by \citet{carr2001}. Neither Gaussian call pricing, this
+operator nor Gaussian quadrature is a new generic mechanism.
+
+Amplitude estimation and amplification provide the established estimation
+framework \citep{brassard,montanaro}. Published quantum derivative-pricing
+analyses cover signed or unbounded payoffs and substantial implementation
+costs \citep{rebentrost,chakrabarti}. In particular,
+\citet{chenlineufeld2026} analyses piecewise-affine payoffs of linear growth,
+state preparation, financial grids and tails. \footnote{I verified its published \emph{Mathematical Finance} record;
+the detailed sections actually consulted are from the authors' May 2026
+preprint, as recorded in the source ledger.}
+Its state-preparation assumptions and elementary-gate complexity are not
+identical to the realised logical-T contract here. Consequently, an
+unbounded payoff or a finite error decomposition alone does not establish
+novelty. Quantum signal-processing pricing and estimation are further
+published opponents \citep{stamatopoulos,rallfuller2023}. I implement a
+bounded Chebyshev sampling adaptation for the four selected first-correction
+flags, with parity-correct circuits, confidence spending and a charged
+fallback. It does not reproduce every heuristic of published ChebAE,
+replace the financial payoff arithmetic, or defeat an unimplemented
+upstream QSP evaluator.
+
+The project-specific argument combines sparse payoff-boundary curvature,
+shared certified norms and positive or signed coherent corrections with a
+moment-factorised Gaussian transport certificate. The latter integrates
+derivative envelopes against positive error measures, keeping the small
+basket-dispersion terms which a global box maximum loses. I derive each part and test
+their complete composition against stronger evaluators. The general
+positive-threshold norm theorem is distinguished from the sharper
+payoff-specific result. The positive second-order cell identity is an exact specialisation of
+\citet{cerone2002}, Theorem~3, equations~(2.13)--(2.15). Neither that
+identity, its transform nor block refinement is new generic theory.
+Transform-kernel representations have further published antecedents
+\citep{blair2016}.\footnote{Only the publisher abstract of Blair et al. was accessible; its full proof-level comparison remains incomplete.}
+The narrower contribution candidate is the residual-specific derivative
+envelope and its finite-moment closure, tested with the same information
+in both transport orders. A close unpublished supplement
+\citep{herman2026} bounds GBM discretisation on uniform physical-coordinate
+left-endpoint grids. I adapt its first-derivative mechanism to the actual
+rounded equal-CDF grid; its asymptotic theorem is not a numerical guarantee
+for these different nodes. The completed common-grid comparison identifies
+smaller second-order allowances, but almost no value from block refinement.
+The numerical comparison concerns a frozen compiler,
+a declared finite precision pool and synthetic models. It can
+identify conditional implementation gains and adverse cases; it cannot
+prove a globally optimal quantum algorithm, theoretical priority, a device
+advantage or empirical exotic-price accuracy. Detailed proofs, consulted
+source versions and earlier rejected investigations are retained outside
+the main argument.
+
+\section{Financial model and the frozen contracts}
+\label{sec:model}
+
+Let $\tau>0$, $r_f\in\R$ and dividend yields $q_i\in\R$ be constant.
+Under a physical probability, suppose the ex-dividend stock system is
+\begin{equation}
+ dS_i/S_i=b_i\,dt+\Sigma_i\,dW,
+\end{equation}
+where the filtration is generated by a $d_B$-dimensional Brownian motion
+and the constant matrix $\Sigma\in\R^{n\times d_B}$ has full row rank.
+Choose $\theta$ satisfying
+$\Sigma\theta=b-r_f\mathbf1+q$.  The exponential density $L_t=\exp(-\theta\cdot W_t-\|\theta\|^2t/2)$
+defines an equivalent measure $Q$ on the finite horizon. Under $Q$, asset
+drifts are $r_f-q_i$ and discounted cumulative gains are true martingales.
+Admissible self-financing discounted wealth bounded below is a
+supermartingale, precluding arbitrage. Appendix~\ref{app:measure-change}
+gives the Gaussian density shift, integrability and localisation proof.
+\footnote{Full row rank is sufficient for the stated measure construction.
+If Brownian risk is unspanned, I use the stipulated pricing measure $Q$;
+the quantum estimator does not select another measure.}
+
+At maturity, independent standard normals $Y\in\R^p$ and $Z\in\R$ give
+\begin{equation}
+ S_i=K\exp(\mu_i+R_i\cdot Y+\lambda Z),\qquad
+ \mu_i=(r_f-q_i)\tau-\tfrac12(\|R_i\|^2+\lambda^2),
+ \label{eq:stocks}
+\end{equation}
+with $K>0$ and $\lambda>0$.  The loadings include the horizon scale.
+It\^o's formula for $\log S_i$ proves this expression and gives
+$\E_QS_i=Ke^{(r_f-q_i)\tau}$.  For positive weights summing to one, define
+\begin{equation}
+ \begin{aligned}
+ A&=\sum_iw_iS_i, &G&=\prod_iS_i^{w_i},\\
+ F_H(x)&=\min\{(x-K)_+,H\}, &F_\infty(x)&=(x-K)_+,\\
+ V&=\E_QF(A), &\Pi&=e^{-r_f\tau}V.
+ \end{aligned}
+ \label{eq:financial-target}
+\end{equation}
+Here $F$ is the specified capped or ordinary call. Its time-$t$ price is
+$e^{-r_f(\tau-t)}\E_Q[F(A)\mid\mathcal F_t]$.
+For either payoff $0\leq F(A)\leq A$ and
+$\E A^2\leq\sum_iw_i\E S_i^2<\infty$ by convexity.
+The discounted conditional price is therefore a true square-integrable
+martingale. Adding this claim at that price preserves the same no-arbitrage
+argument. Boundedness of the raw payoff is unnecessary.  \footnote{The numerical certificate concerns this single model price.
+Separately rounded quotes across strikes need not form an arbitrage-free
+quoted surface.}
+
+Write
+\begin{equation}
+ \mu_G=\sum_iw_i\mu_i,\quad R_G=\sum_iw_iR_i,\quad
+ d_i=\mu_i-\mu_G,\quad s_i=R_i-R_G,
+ \quad m(y)=\mu_G+R_G\cdot y.
+ \label{eq:geometry}
+\end{equation}
+Then $\sum_iw_id_i=0$ and $\sum_iw_is_i=0$ exactly.  With
+\begin{equation}
+ T(y)=\sum_iw_ie^{d_i+s_i\cdot y},\qquad U(y)=T(y)-1,
+ \label{eq:ratio}
+\end{equation}
+the identity $A=GT(Y)$ holds.  Jensen's inequality gives $T\geq1$;
+hence the arithmetic basket exceeds its geometric control pointwise.
+This deterministic ordering justifies the positive first correction.
+It does not imply that the ratio and the geometric level are independent.
+
+Every positive-definite maturity log-covariance matrix $C$ admits the
+common loading
+\begin{equation}
+\lambda^2=(\mathbf1^{\mathsf T}C^{-1}\mathbf1)^{-1},\qquad
+RR^{\mathsf T}=C-\lambda^2\mathbf1\mathbf1^{\mathsf T}.
+\end{equation}
+The residual matrix is positive semidefinite of rank $n-1$; its factor and
+an independent common normal reproduce the original covariance and
+drifts. Appendix~\ref{app:common-factor} proves these claims. The
+decomposition establishes model coverage, while numerical cost remains
+a separate comparison.
+
+The numerical family has $K=100$, $\tau=1$, $r_f=0.03$, $q_i=0.02$,
+$n\in\{2,4,8\}$, $\lambda\in\{0.05,0.2,0.4\}$ and
+$H\in\{1,10,25\}$, giving 27 capped contracts from nine covariance models.
+I add an ordinary call for each model, giving 36 financial cases.
+The two-asset anchor uses $w=(1/2,1/2)$ and $R=(-0.1,0.2)^{\mathsf T}$.
+For four and eight assets, the residual loading matrix is a scaled Helmert
+contrast matrix, with weights
+$(0.4,0.3,0.2,0.1)$ and
+$(0.3,0.2,0.15,0.1,0.08,0.07,0.06,0.04)$ respectively.
+Its scale gives weighted contrast dispersion $0.0225$ in the ideal matrix,
+matching the two-asset anchor.  The actual 70-digit decimal loadings are
+frozen as exact rationals, their drifts are computed from those rationals,
+and exact rational $LDL^{\mathsf T}$ factorisation checks positive
+covariance pivots and full volatility row rank.  The ideal-to-frozen
+dispersion discrepancy is below $1.8\times10^{-71}$.
+Matching this one dispersion does not match the full payoff distribution
+or isolate a causal effect of dimension.
+
+These are reproducible synthetic experiments. All figures and tables use
+synthetic model inputs or generated verification results; no LSEG
+observations or inaccessible option sample enter the certificates.
+\footnote{Any future LSEG calibration is restricted to my authorised
+individual-use entitlement. Extraction and analysis code, together with
+only the permitted limited academic, non-commercial summaries, may be
+released. Underlying observations and systematic derived datasets remain
+excluded from GitHub and other third-party redistribution under the
+supplied institutional guidance.}
+Historical returns alone would not validate an observed exotic price.
+The present claims depend on exact model inputs and retained arithmetic
+certificates, rather than an unreported private empirical sample.
+
+\section{Conditional smoothing and the joint derivative certificate}
+\label{sec:norm}
+
+The capped payoff has the positive layer-cake representation
+$F_H(x)=\int_K^{K+H}\ind\{x>k\}\,dk$.
+Tonelli's theorem therefore gives the conditional kernel
+\begin{equation}
+ P_{\lambda,H}(m)=\E_ZF_H(Ke^{m+\lambda Z})
+ =\int_0^{\log(1+H/K)}Ke^x\Phi((m-x)/\lambda)\,dx.
+ \label{eq:kernel}
+\end{equation}
+The undiscounted price is
+$V=\E_Y P_{\lambda,H}(m(Y)+\log T(Y))$.
+Conditioning has removed the nonsmooth payoff threshold from the financial
+integrand.  It also supplies the exact geometric control
+$c_0=\E P_{\lambda,H}(m(Y))$.
+The positive first correction
+$R_1=P_{\lambda,H}(m+\log T)-P_{\lambda,H}(m)$ is in $[0,H]$.
+Gaussian smoothing and control identities are useful classical reductions
+before any quantum encoding is considered \citep{curran,bayer}.
+
+The derivative result extends beyond a single capped call.  Let $\nu$ be a
+finite nonnegative Borel measure on real log thresholds, of mass $H$,
+and define
+\begin{equation}
+ P_\nu(m)=\int\Phi((m-x)/\lambda)\nu(dx),\qquad
+ g_m(t)=P_\nu(m+\log t),\quad t>0.
+ \label{eq:measure-kernel}
+\end{equation}
+For the capped call,
+$\nu(dx)=Ke^x\ind_{[0,\log(1+H/K)]}(x)dx$.
+A cash digital is a point mass; finite positive mixtures of thresholds are
+also covered.  Negative threshold weights, unbounded payoff mass and
+negative basket weights are not hypotheses of this theorem.
+
+Let $s(r,\ell)$ be signed Stirling numbers of the first kind, with
+$s(0,0)=1$ and
+$s(r+1,\ell)=s(r,\ell-1)-rs(r,\ell)$.
+The Hermite polynomials satisfy
+$\operatorname{He}_0=1$, $\operatorname{He}_1=z$ and
+$\operatorname{He}_{j+1}=z\operatorname{He}_j-j\operatorname{He}_{j-1}$.
+Define
+\begin{equation}
+ A_{r,\lambda}(z)=\sum_{\ell=1}^r s(r,\ell)\lambda^{-\ell}
+ (-1)^{\ell-1}\operatorname{He}_{\ell-1}(z),\qquad
+ D_r(\lambda)=\sup_z|A_{r,\lambda}(z)\phi(z)|.
+ \label{eq:joint-norm}
+\end{equation}
+Every polynomial times the Gaussian density is bounded and tends to zero
+at both infinities.  In particular $D_r$ is finite and strictly positive.
+The separate Hermite norms
+$\mathcal H_j=\sup_z|\operatorname{He}_j(z)\phi(z)|$ give the valid
+triangle bound
+$D_r\leq\sum_{\ell=1}^r|s(r,\ell)|\lambda^{-\ell}\mathcal H_{\ell-1}$.
+Computing the combined norm preserves cancellation between derivative
+terms which this triangle inequality loses.
+
+\begin{theorem}[Sharp positive-threshold bound]
+\label{thm:norm}
+For $r\geq1$, $\lambda>0$ and the finite positive measure in
+\eqref{eq:measure-kernel},
+\begin{equation}
+ g_m^{(r)}(t)=t^{-r}\int
+ A_{r,\lambda}((m+\log t-x)/\lambda)
+ \phi((m+\log t-x)/\lambda)\nu(dx),\qquad
+ |g_m^{(r)}(t)|\leq HD_r(\lambda)t^{-r}.
+ \label{eq:norm-derivative}
+\end{equation}
+The constant $HD_r$ is the smallest uniform constant over measures of mass
+$H$, real $m$ and positive $t$.
+\end{theorem}
+The falling log-price derivative operator produces the polynomial in \eqref{eq:joint-norm}; positivity bounds its integral. A point-mass threshold attains the resulting operator norm. Appendix~\ref{app:proof-norm} gives the full differentiation and sharpness proof.
+
+This sharpness concerns the stated measure class; a particular capped-call
+measure or basket remainder need not attain the norm.  The proof also
+identifies exactly which object must be computed.  For rational $\lambda$,
+$Q_{r,\lambda}=A_{r,\lambda}'-zA_{r,\lambda}$ is a rational polynomial of
+degree $r$.  Every positive absolute maximum of $A_{r,\lambda}\phi$ lies
+at a real root of $Q_{r,\lambda}$.  Exact square-free reduction, a rational
+root-counting sequence and finite rational isolation find every distinct
+root; Gaussian evaluations over the isolating intervals give an outward
+upper certificate $\overline D_r\geq D_r$.
+Appendix~\ref{app:roots} supplies the termination and enclosure argument.
+All finite calculations below use $\overline D_r$, rather than an
+uncertified maximisation on a numerical mesh.  Their arithmetic is
+implemented with Arb midpoint-radius enclosures \citep{johansson2017}.
+
+The separate Hermite and Fourier triangle norms remain competent comparators. They distinguish cancellation gains from tighter individual derivative bounds; Appendix~\ref{app:fourier-comparators} gives their recurrences.
+
+\section{Exact Gaussian coefficients and finite classical screening}
+\label{sec:coefficients}
+
+Put $\sigma^2=\lambda^2+\|R_G\|^2$.
+For a multi-index $\gamma\in\mathbb N_0^n$, define
+$|\gamma|=\sum_i\gamma_i$, $\gamma!=\prod_i\gamma_i!$,
+$w^\gamma=\prod_iw_i^{\gamma_i}$,
+$d_\gamma=\sum_i\gamma_id_i$ and
+$v_\gamma=\sum_i\gamma_is_i$.
+The multinomial theorem and completion of the Gaussian square imply
+\begin{align}
+ T(y)^j&=\sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+                   e^{d_\gamma+v_\gamma\cdot y},\label{eq:T-multinomial}\\
+ \E[e^{v\cdot Y}P_{\lambda,H}^{(\ell)}(\mu_G+R_G\cdot Y)]
+ &=e^{\|v\|^2/2}P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v).
+ \label{eq:gaussian-tilt}
+\end{align}
+The square-completion and dominated-differentiation argument is given in Appendix~\ref{app:gaussian-tilt-detail}.
+
+For ordinary calls the same tilt formula follows from the Gaussian
+exponential moment and dominated differentiation on compact argument
+intervals. In the second-correction study I need only
+\begin{equation}
+ c_1=\sum_iw_i e^{d_i+\|s_i\|^2/2}
+ P_\sigma'(\mu_G+R_G\cdot s_i)-P_\sigma'(\mu_G),
+\end{equation}
+where $P_\sigma$ is the chosen capped or vanilla kernel.
+The finite positive-threshold theorem below remains a capped-payoff result;
+the vanilla remainder uses the boundary theorem in Section~\ref{sec:oracles}.
+The shift $R_G\cdot v$ retains the covariance between the geometric level
+and the ratio.  Removing it generally changes the coefficient.
+
+Let
+\begin{align}
+ J_{j,\ell}&=\sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+ e^{d_\gamma+\|v_\gamma\|^2/2}
+ P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v_\gamma),\label{eq:J}\\
+ \mathcal M_r&=\sum_{j=0}^r(-1)^{r-j}\binom rj
+ \sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+ e^{d_\gamma+\|v_\gamma\|^2/2}.
+ \label{eq:continuous-moments}
+\end{align}
+Then $\mathcal M_r=\E U^r$ and all terms are finite.
+Taylor's theorem about $t=1$ defines
+\begin{equation}
+ c_0=P_{\sigma,H}(\mu_G),\qquad
+ c_a=\frac1{a!}\sum_{\ell=1}^as(a,\ell)
+        \sum_{j=0}^a(-1)^{a-j}\binom ajJ_{j,\ell},\quad a\geq1.
+ \label{eq:coefficients}
+\end{equation}
+The inner alternating sum is the exact expectation of
+$U^aP_{\lambda,H}^{(\ell)}(m(Y))$.
+Its cancellation is kept inside outward arithmetic, not estimated from
+printed decimal precision.
+
+\begin{theorem}[Finite Gaussian price certificate]
+\label{thm:finite-price}
+Under \eqref{eq:stocks}--\eqref{eq:ratio}, for every finite integer $k\geq0$,
+\begin{equation}
+ \left|V-\sum_{a=0}^kc_a\right|
+ \leq\frac{H\overline D_{k+1}(\lambda)\mathcal M_{k+1}}{(k+1)!}.
+ \label{eq:finite-certificate}
+\end{equation}
+Each coefficient and moment is evaluated by the finite sums above.
+For rational inputs and positive common scale, validated enclosures of all
+endpoints exist at any prescribed positive arithmetic accuracy.
+\end{theorem}
+The integral Taylor remainder and Theorem~\ref{thm:norm} give the displayed radius. Gaussian exponential moments make every finite-order coefficient and remainder integrable. Appendix~\ref{app:proof-finite-price} supplies the full argument.
+
+For ordinary calls and finite $k\geq1$, write $C_r=\prod_{j=0}^{r-1}(\partial_m-j)P_{\lambda,\infty}$ and take $M_r\geq\|C_r\|_\infty$ for $r\geq2$. The same Gaussian tilts evaluate
+$c_a=\E[U^aC_a(m)]/a!$ and yield
+\begin{equation}
+ \left|V-\sum_{a=0}^kc_a\right|
+ \leq M_{k+1}\E U^{k+1}/(k+1)!.
+\end{equation}
+Indeed, $g_m^{(k+1)}(t)=t^{-k-1}C_{k+1}(m+\log t)$ is bounded by
+$M_{k+1}$ for $t\geq1$. The integral Taylor remainder and finite Gaussian
+moments prove the inequality exactly as above. The unbounded $P,P'$ terms
+remain integrable under each Gaussian tilt; the higher falling derivatives
+have bounded Gaussian boundary kernels. At $k=1$ positivity of the ordinary
+call curvature gives the one-sided interval in
+Corollary~\ref{cor:convex-screen}. This is a finite-order classical
+competitor, with no infinite-series convergence claim.
+
+If $[L_k,U_k]$ encloses the coefficient sum and $\overline R_k$ bounds the
+right side, I use
+$[L_k-\overline R_k,U_k+\overline R_k]\cap[0,H]$.
+Intersections across finitely many retained degrees can only improve this
+interval.  I stop when its midpoint radius meets the monetary target,
+and otherwise use a separately certified method or declare failure.
+The argument is finite-order: finite lognormal moments do not establish
+convergence of the infinite Taylor expansion.  The earlier Fourier
+triangle remainder eventually grows for any nonzero centred loading,
+so taking ever more terms is not a valid convergence policy.
+
+The kernel evaluations are explicit.  With $L_H=\log(1+H/K)$,
+$x_0=m/\sigma$, $x_1=(m-L_H)/\sigma$ and $z_i=x_i+\sigma$,
+\begin{equation}
+ P_{\sigma,H}(m)=K\{e^{m+\sigma^2/2}[\Phi(z_0)-\Phi(z_1)]
+                   -\Phi(x_0)+(1+H/K)\Phi(x_1)\}.
+ \label{eq:closed-kernel}
+\end{equation}
+Independent derivative-series and strike-integral checks verify the kernel evaluations; Appendix~\ref{app:kernel-differentiation} gives the cancellation identities and differentiation details.
+
+The certificate extends to unequal positive spots by replacing $d_i$ with
+$\log(S_{i,0}/G_0)+\mu_i-\mu_G$, where
+$G_0=\prod_iS_{i,0}^{w_i}$, and shifting every scalar-kernel argument by
+$\log(G_0/K)$.  Weighted centring and the covariance shift survive.
+Positive asset-monitor observations can likewise be treated as basket
+components when their joint Gaussian log prices admit an equal independent
+common loading $\lambda>0$.  The component count then includes monitoring
+times; the multinomial cost can grow substantially.  These are analytical
+extensions, not additional empirical tests.
+
+\section{Payoff curvature and coherent correction evaluators}
+\label{sec:oracles}
+
+Let $P_F(m)=\E F(S_{\rm ref}e^{m+\lambda Z})$, $D=\partial_m$ and
+$C_r=D(D-1)\cdots(D-r+1)P_F$. I write $m=m(Y)$ and $U=U(Y)$.
+Taylor's integral identity gives the exact correction
+\begin{equation}
+ \begin{aligned}
+ R_2&=P_F(m+\log(1+U))-P_F(m)-UP_F'(m)\\
+ &=\frac{U^2}{2}\E_{Z_B}[(1+Z_BU)^{-2}C_2(m+\log(1+Z_BU))].
+ \end{aligned}
+ \label{eq:beta-identity}
+\end{equation}
+where $Z_B\sim\operatorname{Beta}(1,2)$. The zero extension at $U=0$
+requires no division. Analytic evaluation of the payoff boundary removes
+the strike auxiliary variable from the earlier integral construction.
+
+\begin{theorem}[Sparse payoff-boundary correction]
+\label{thm:boundary}
+Suppose $F(s)=a+bs+\sum_{j=1}^J\alpha_j(s-K_j)_+$ with finite $J$ and
+positive $K_j,S_{\rm ref},\lambda$. Then
+\begin{equation}
+ C_2(m)=\sum_{j=1}^J\frac{\alpha_jK_j}{\lambda}
+ \phi\!\left(\frac{m-\log(K_j/S_{\rm ref})}{\lambda}\right).
+ \label{eq:boundary-kernel}
+\end{equation}
+If $\alpha_j\geq0$ for all $j$, then $R_2\geq0$ for every $U\geq0$.
+For all finite signed kink weights,
+$|R_2|\leq M_2U^2/2$ whenever $M_2\geq\|C_2\|_\infty$.
+\end{theorem}
+Each payoff kink contributes a Gaussian boundary density to $P_F^{\prime\prime}-P_F^\prime$; the affine payoff terms vanish under $D(D-1)$. The nonnegative Taylor weight gives the sign under convexity and the absolute norm bound for signed kink weights. Appendix~\ref{app:proof-boundary} proves every step.
+
+Adding $a+bs$ to the payoff leaves $R_2$ exactly unchanged: its
+conditional $g_m(t)=a+bS_{\rm ref}e^{m+\lambda^2/2}t$ is affine in $t$
+and has zero second remainder. Calls and puts at the same strike therefore
+share the ideal curvature correction; the deterministic coefficients
+restore their established discounted difference
+$e^{-r_f\tau}(\E A-K)$. This is an applicability consequence of the
+derivation, rather than a new put--call parity claim or an additional
+numerically tested payoff family.
+
+\begin{corollary}[Continuous convex screening]
+\label{cor:convex-screen}
+For a convex finite-kink payoff under \eqref{eq:stocks}, suppose
+$M_2\geq\|C_2\|_\infty$. Then, in every retained asset dimension,
+\begin{equation}
+ c_0+c_1\leq V\leq c_0+c_1+M_2\E U^2/2.
+\end{equation}
+\end{corollary}
+Taking expectations of the positive bounded residual gives the interval, with Gaussian tilts evaluating its coefficients. Appendix~\ref{app:proof-convex-screen} gives the complete proof.
+This analytical screen precedes financial discretisation and quantum
+estimation. It does not require an exponentially large product grid or
+assume that a small correction deserves a quantum computation.
+
+For the cap, set $c=1+H/K$, $\ell=\log c$ and $z=m/\lambda$; then
+\begin{equation}
+ C_2(m)=\frac K\lambda\{\phi(z)-c\phi(z-\ell/\lambda)\}.
+ \label{eq:cap-curvature}
+\end{equation}
+For the vanilla call $C_2=K\phi(m/\lambda)/\lambda\geq0$ and its exact
+norm is $K/(\lambda\sqrt{2\pi})$. I use a rational outward upper endpoint
+$M_2$ in every graph. For the cap, the two stationary points in
+Appendix~\ref{app:payoff-norms} certify its exact global norm. I also
+certify the unique global peak of $P'$ as $M_1$.
+At $\lambda=0.05,H=25$, the resulting upper constants are approximately
+39.23 and 54.99 per cent of $H\overline D_2$ and $H\overline D_1$,
+respectively. The first-derivative comparator also has the valid bound
+$\min\{K+H,H\overline D_1\}$; against that stronger bound, its reduction
+at this case is approximately 12.25 per cent. These constants are supplied
+to every current coherent opponent and
+the new classical evaluators; they are not reserved for the proposed oracle.
+
+On the realised financial support, $0\leq U\leq U_*$.
+For $U_*>0$, define
+\begin{equation}
+ \begin{aligned}
+ B_2&=M_2U_*^2/2, &t&=1+z_BU,\\
+ a&=(U/U_*)^2t^{-2}, &h&=(1+C_2(m+\log t)/M_2)/2.
+ \end{aligned}
+ \label{eq:factorised-kernel}
+\end{equation}
+For capped calls, the boundary evaluator prepares
+\begin{equation}
+ p^{\rm boundary}=(1-a)/2+ah,\quad X=2p^{\rm boundary}-1,
+ \quad B_2X=U^2t^{-2}C_2(m+\log t)/2.
+ \label{eq:integral-probability}
+\end{equation}
+All factors lie in $[0,1]$ and $|X|\leq U^2/U_*^2$.
+For vanilla calls the native positive encoding is
+$p^{\rm boundary}=a\gamma(m+\log t)$ with
+$\gamma=C_2/M_2\in[0,1]$, and its monetary decoder is $B_2p$, rather
+than $B_2(2p-1)$. The raw payoff is unbounded, but this encoded correction
+is bounded on the certified finite financial support. Gaussian tails
+remain a separate financial obligation.
+
+A strong deterministic evaluator uses the two-node Gauss-Jacobi rule for
+$2(1-z)dz$:
+\begin{equation}
+ z_\mp=(4\mp\sqrt6)/10,\quad
+ w_\mp=\tfrac12\pm1/(3\sqrt6),\quad
+ R_2^{\rm GJ}=\frac{U^2}{2}\sum_\pm
+ w_\pm(1+z_\pm U)^{-2}C_2(m+\log(1+z_\pm U)).
+ \label{eq:stable-kernel}
+\end{equation}
+It preserves the same small-factor representation without a sampled
+auxiliary or raw price subtraction. I implement its exact dyadic constants,
+with complementary positive weights summing to one, and charge the
+algebraic node and weight discrepancies. A fourth-order Hermite remainder
+proves its monetary quadrature bound, not a heuristic comparison of two
+quadrature values.
+
+The raw direct opponent uses the same $c_0+c_1$, $M_2$ and $B_2$:
+\begin{equation}
+ p^{\rm raw}=\tfrac12+R_2/(2B_2)
+ \label{eq:direct-probability}
+\end{equation}
+for the cap and $p^{\rm raw}=R_2/B_2$ for vanilla calls. Its arithmetic
+errors are propagated before cancellation. The positive first-correction
+opponent uses $c_0$, $R_1=P(m+\log T)-P(m)$ and
+\begin{equation}
+ p^{(1)}=R_1/B_1,\qquad B_1=\min\{H,M_1U_*\}
+ \label{eq:first-probability}
+\end{equation}
+for the cap. For vanilla calls $B_1=M_{1,\rm finite}U_*$, where
+$M_{1,\rm finite}=Ke^{m_++\lambda^2/2}$ bounds the conditional forward on
+its certified argument interval. There is no globally bounded vanilla
+first log-price derivative. Every scalar, normaliser and input-domain
+certificate is method-specific, with identical information sharing.
+
+\begin{proposition}[Auxiliary variance penalty]
+\label{prop:variance}
+With continuous auxiliaries and the same finite financial law, the exact
+boundary score has conditional mean $R_2(Y)$ and
+$\Var(B_2X)=\Var(R_2(Y))+\E\Var(B_2X\mid Y)$ for the capped encoding;
+the analogous identity uses $B_2p$ for the vanilla encoding.
+\end{proposition}
+The conditional mean is $R_2(Y)$, so the law of total variance separates financial dispersion from auxiliary randomisation. The full square-expansion argument is in Appendix~\ref{app:proof-variance}.
+This established variance decomposition prevents attributing an intrinsic
+variance reduction to auxiliary randomisation. Any gain must survive its
+actual evaluator and estimation costs. The stable quadrature opponent is
+an implemented comparator; the finite pool is not a lower bound on every
+possible cancellation-preserving pricing method.
+
+\section{Finite preparation and complete monetary error}
+\label{sec:finite}
+
+Independent uniform labels prepare a realised truncated-normal quantile
+law. With $L>0$, $N=2^{b_y}$ and $\alpha_1=\Phi(L)-\Phi(-L)$, I use
+\begin{equation}
+ y_j=\Phi^{-1}(\Phi(-L)+\alpha_1(j+1/2)/N),\quad
+ \widehat y_j=2^{-q}\operatorname{round}(2^qy_j),\quad \alpha=\alpha_1^p.
+ \label{eq:quantile-grid}
+\end{equation}
+Outward CDF brackets prove unique rounding, order and domain membership.
+Duplicate coordinates keep their label multiplicities. Hadamards prepare
+labels; coherent lookup computes coordinates and its inverse clears work.
+If $[\ell_y,h_y]$ covers every ideal enclosure and actual node, then
+\begin{equation}
+ U_*\geq\max_{v\in\{\ell_y,h_y\}^p}\sum_iw_ie^{d_i+s_i\cdot v}-1
+ \label{eq:finite-vertex}
+\end{equation}
+is sufficient: the sum is convex in each coordinate, so maximisation can
+move successively to endpoints. Outward vertex evaluation certifies all
+nine model bounds. The continuous tail box and finite normalisation support
+have different roles.
+
+The boundary method samples the exact cell-mass midpoint Beta law. The
+minimum of two $b_Z$-bit uniform labels has mass $2h_Z(1-z_j)$ at
+$z_j=(j+1/2)h_Z$, $h_Z=2^{-b_Z}$, which equals the continuous
+$\operatorname{Beta}(1,2)$ mass of that cell. No strike register is needed.
+The stable method instead uses the two exact dyadic Gauss constants.
+Let $M_{r,N}=\E_NU^r$ under the actual financial label law. Appendix~\ref{app:aux}
+proves, before the external financial factor,
+\begin{align}
+ \beta_{\rm B}&\leq h_Z^2(M_3M_{3,N}/12+M_4M_{4,N}/48),
+ \label{eq:beta-error}\\
+ \beta_{\rm GJ}&\leq M_6M_{6,N}/14400+
+ \frac{M_3M_{3,N}}2\sum_\pm w_\pm\delta z_\pm+
+ \frac{M_2M_{2,N}}2\sum_\pm\delta w_\pm.
+ \label{eq:gauss-error}
+\end{align}
+Here $M_r\geq\|C_r\|_\infty$ is a derivative bound, distinct from the
+moment $M_{r,N}$. The common norm ledger uses
+$C_{r+1}=(D-r)C_r$, exact polynomial stationary-root isolation and outward
+Gaussian evaluation. Actual fourth and sixth moments strengthen the
+stable opponent; finite-support fallbacks remain valid but are not used
+to weaken it. Raw direct and first-correction methods have zero auxiliary
+error.
+
+Every function is implemented by a one-dimensional endpoint table with
+outward nodal enclosures and signed-magnitude interpolation. The graph
+propagates absolute errors and implemented ranges through exponentials,
+positive ratio arithmetic, logarithms, inverse squares and the specified
+payoff kernels. Direct subtraction receives no assumed favourable relative
+error. Domain violations, overflow and ambiguous signed ranges reject a
+graph. Appendix~\ref{app:arithmetic} states the interpolation and arithmetic
+contracts; the supporting source retains every node. Computing a numerical
+threshold, toggling a comparator flag and applying the literal inverse
+cleans private work. For integer $k\in\{0,\ldots,2^q\}$ and uniform
+$j\in\{0,\ldots,2^q-1\}$, the predicate $j<k$ gives exact Born success
+probability $k/2^q$, including both endpoints. Complete emitted preparations
+replace any free-oracle assumption.
+
+Appendix~\ref{app:financial-transfer} derives the price-independent
+financial certificate. A local signed-cell calculation supplies the
+sharper two-asset bounds. For higher dimensions, I express the cell error
+as a positive measure, compute its exponential moments and use tensor
+hybrids to integrate dispersion-weighted derivative envelopes. All 36
+first- and second-correction targets now have complete financial transfers.
+The global transport family retains its three insufficient two-asset bounds;
+I use the stronger local certificate in those cases. The construction is
+classical setup, with explicit operation counts and outward errors.
+
+\begin{theorem}[Complete monetary error]
+\label{thm:error}
+Let $e_c$ bound the chosen coefficient midpoint error, let
+$[F_-,F_+]$ enclose the external mass with midpoint and radius $e_F$, and
+let the continuous-to-finite correction discrepancy be at most $\beta_Y$.
+Suppose the ideal and implemented probabilities differ by at most $\eta_p$
+and the implemented score has absolute value at most one. On the jointly
+certified estimation event,
+\begin{equation}
+ |\widehat V-V|\leq e_c+\beta_Y+
+ F_+(\beta_{\rm aux}+dB\eta_p+e_{\rm stat})+e_FB,
+ \label{eq:total-error}
+\end{equation}
+where $(B,d)=(B_2,2)$ for a capped centred second correction and
+$(B,d)=(B_2,1)$ for a native positive second correction, or $(B_1,1)$ for
+the first correction. The auxiliary term is chosen from
+\eqref{eq:beta-error} or \eqref{eq:gauss-error}, or is zero for a raw
+opponent. Statistical error is monetary before the mass, at its separately
+certified joint confidence. Discounting multiplies the bound by
+$e^{-r_f\tau}$.
+\end{theorem}
+Each deterministic replacement is charged before the bounded probability decoder is applied. The decoder contributes $dB\eta_p$, and uncertain external mass contributes $e_FB$ on the joint estimation event. Appendix~\ref{app:proof-error} gives the full decomposition.
+
+A graph is admitted by the complete monetary budget in
+Theorem~\ref{thm:error}, rather than by its number of fractional bits.
+
+\section{Signed flags and competent finite moment priors}
+\label{sec:priors}
+
+The centred encoding can have probability near one half even when its
+monetary correction is small.  I therefore also implement two exact signed
+parts of the represented probability:
+\begin{equation}
+ \widehat p_+=\max(0,2\widehat p-1),\qquad
+ \widehat p_-=\max(0,1-2\widehat p),\qquad
+ \widehat p_+-\widehat p_-=2\widehat p-1.
+ \label{eq:signed-parts}
+\end{equation}
+The transformations use exact dyadic scaling and positive subtraction.
+They preserve the difference on every represented basis input, including
+$\widehat p\in\{0,1/2,1\}$.
+They are separate success flags with separately charged preparation and
+confidence costs; I do not estimate a fictitious flag with the variance of
+a signed classical output.  Their deterministic recombination uses the
+centred base certificate in Theorem~\ref{thm:error}, avoiding a double
+charge for an exact integer identity.
+
+The retained truncated-normal quantile law has $\omega=1$ and external
+mass $\alpha=\alpha_1^p$. For the uniform-box variant on $[-L,L]^p$,
+$\omega(y)=e^{-\|y\|^2/2}$ and $C_L=(2L/\sqrt{2\pi})^p$.
+These weights belong to the prepared score; their monetary factors are
+decoded after estimation. The uniform-box variant prepares
+$p_\omega=(1+X_\omega)/2$, where $X_\omega=\omega X$, and forms the
+signed parts of its represented probability in \eqref{eq:signed-parts}.
+The quantile variant has $X_\omega=X$. For each capped construction,
+$p_\pm\leq|X_\omega|\leq\omega U^2/U_*^2$.
+The positive-part map is one-Lipschitz, so the implemented flags satisfy
+\begin{equation}
+ \E_N\widehat p_\pm\leq
+ u_2:=\min\{1,M_{2,N}/U_*^2+2\eta_p\}.
+ \label{eq:rare-prior}
+\end{equation}
+The expectation is under the prepared label law.  Neither its Gaussian
+box mass $\alpha$ nor its uniform-box monetary factor $C_L$ belongs in
+this probability prior.  They enter monetary reconstruction after
+estimation.  A prior reduction improves a canonical estimator's amplitude
+error bound only if the increased flag-preparation costs and two confidence
+allocations are also included.
+
+For the native positive vanilla correction the tighter implemented prior is
+$u_2=\min\{1,M_{2,N}/U_*^2+\eta_p\}$, since its decoder has no factor two.
+These bounds also apply to the stable rule: its positive weights sum one
+and preserve the same pointwise envelope.
+
+The finite moments are exactly computable without a financial price.
+Define the one-dimensional exponential sum
+\begin{equation}
+ \mathcal L_N(v)=N^{-1}\sum_{j=0}^{N-1}e^{v\widehat y_j},
+ \label{eq:finite-mgf}
+\end{equation}
+and, for uniform-box weighting, replace each summand by
+$e^{vy_j-y_j^2/2}$.  Independence and the multinomial expansion give
+\begin{equation}
+ \E_N[\omega T^r]=
+ \sum_{|\gamma|=r}\frac{r!}{\gamma!}w^\gamma e^{d_\gamma}
+ \prod_{k=1}^p\mathcal L_N\!\left(\sum_i\gamma_is_{ik}\right),\qquad
+ M_{r,N}=\sum_{j=0}^r(-1)^{r-j}\binom rj\E_N[\omega T^j].
+ \label{eq:finite-moment}
+\end{equation}
+These are finite sums over actual dyadic nodes.
+For the weighted law the zeroth raw moment is $\E_N\omega$, not one.
+All cancellations remain enclosed outwards.
+Thus a moment calculation can use products of one-dimensional sums instead
+of $N^p$ financial price evaluations.  Its scalar preprocessing cost is
+still retained; separability does not make it free.
+
+The positive first-correction comparator also receives a competent prior.
+Both tested payoffs are increasing and one-Lipschitz in the underlying price.
+For fixed $Y=y$, $A=GT$ and the independent common factor therefore imply
+\begin{equation}
+ 0\leq R_1(y)\leq Ke^{m(y)+\lambda^2/2}U(y).
+ \label{eq:underlying-gap}
+\end{equation}
+The corresponding finite expectation retains the level-ratio correlation:
+\begin{equation}
+ \Gamma_N=Ke^{\mu_G+\lambda^2/2}
+ \left\{\sum_iw_ie^{d_i}\prod_{k=1}^p\mathcal L_N(R_{G,k}+s_{ik})
+       -\prod_{k=1}^p\mathcal L_N(R_{G,k})\right\}.
+ \label{eq:correlated-gap}
+\end{equation}
+Expanding $e^{R_G\cdot Y}(T-1)$ proves this identity.
+Combining it with $R_1\leq H$ and $R_1\leq M_1U$ gives
+\begin{equation}
+ u_1=\min\left\{1,
+ \frac{\min\{H\E_N\omega,M_1M_{1,N},\overline\Gamma_N\}}{B_1}
+ +\eta_{p,1}\right\},
+ \label{eq:first-prior}
+\end{equation}
+where $\overline\Gamma_N$ is an outward upper endpoint.
+For vanilla calls the mean bound is $\overline\Gamma_N$; I omit the
+finite-cap bounds rather than assuming a globally bounded $P'$.
+For the three one-dimensional grids, I also enclose $M_{4,N}$ and $M_{6,N}$
+by direct nonnegative summation over the actual 1,024 nodes, charging its
+2,048 conditional exponential evaluations per model.
+Replacing $\E(e^{R_G\cdot Y}U)$ by a product of separate expectations
+would generally invalidate this bound.  The prior is derived from moments
+and the Lipschitz property, not a secretly supplied option price.
+
+The first-correction comparator also receives the Gaussian coefficient
+$c_1$, already supplied to every second-correction method. Define
+$B_Q=M_2\E_Q U^2/2$. For a cap,
+$\E_Q R_1=c_1+\E_Q R_2\in[c_{1,-}-B_Q,c_{1,+}+B_Q]$;
+for an ordinary call the lower endpoint is $c_{1,-}$, since $R_2\geq0$.
+If this continuous interval is $[L_Q,U_Q]$ and the first-residual transfer
+is $\beta_1$, with $0<\alpha_-\leq\alpha\leq\alpha_+$, then
+\begin{equation}
+ L_N=\frac{\max\{0,L_Q-\beta_1\}}{\alpha_+},\qquad
+ U_N=\min\{B_1,(U_Q+\beta_1)/\alpha_-,U_{N,\rm previous}\}.
+ \label{eq:informed-first-mean}
+\end{equation}
+These endpoints enclose the exact finite mean: insert
+$|\E_QR_1-\alpha\E_NR_1|\leq\beta_1$, use positivity and divide by
+the adverse mass endpoints. Intersecting the earlier upper bound is valid.
+The implemented probability mean therefore belongs to
+\begin{equation}
+ [\ell,u]=[\max\{0,L_N/B_1-\eta_p\},
+           \min\{1,U_N/B_1+\eta_p,u_{1,\rm previous}\}].
+\end{equation}
+Its midpoint gives an analytical stop when
+$\alpha_+B_1(u-\ell)/2$ plus the full deterministic allowance meets the
+target. Otherwise $u$ supplies the canonical Bernoulli variance bound.
+The full Gaussian second moment is another finite exponential sum; no
+basket-price answer enters this information refinement.
+
+Before any method estimates a correction, I also apply the same continuous
+low-order price screen. The capped interval is
+$[c_0+c_1-B_Q,c_0+c_1+B_Q]\cap[0,H]$; the ordinary-call interval is
+$[c_0+c_1,c_0+c_1+B_Q]\cap[0,\infty)$, with all coefficient endpoints
+outward. The global remainder theorem proves containment and its rational
+midpoint radius proves the stop. A sufficient continuous interval requires
+no grid or quantum circuit, so every competing method receives this same
+decision. Higher-order classical pricing remains a separately reported
+practical opponent. The supporting proof retains all interval and decoder
+steps of the information refinement.
+
+\section{Estimation and complete logical resource accounting}
+\label{sec:estimation}
+
+Let $\mathcal A$ be a clean preparation with success probability $p$,
+including every financial and comparator register.  The Grover iterate is
+formed from $\mathcal A$, its inverse and the good-state and zero-state
+reflections.  Canonical phase estimation uses controlled powers of this
+iterate \citep{brassard}; I retain the controlled global signs of the
+reflections, since a global sign becomes a relative phase under control.
+For $M=2^m$, the standard amplitude estimate obeys, on its success event,
+\begin{equation}
+ |\widetilde p-p|\leq
+ \frac{2\pi\sqrt{p(1-p)}}M+\frac{\pi^2}{M^2}.
+ \label{eq:canonical-error}
+\end{equation}
+Appendix~\ref{app:canonical-sketch} derives the bound from the two Grover eigenphases and the phase-grid displacement. The retained confidence calculation supplies its certified success probability.
+
+If $p\leq u$, the variance term is bounded by $u(1-u)$ for $u\leq1/2$
+and by $1/4$ otherwise.  I apply \eqref{eq:rare-prior} or
+\eqref{eq:first-prior}, rather than assuming an arbitrary favourable
+amplitude.  Exact finite postprocessing error and the compiled inverse
+Fourier transform's implementation error are charged separately.
+Fresh median repetitions amplify confidence by the exact binomial tail
+for their certified single-shot success probability.  The allocation is
+fixed before observing results.  Two signed-part estimates share a union
+budget; at most 36 prespecified prices share an overall failure allowance of
+one per cent.  The retained protocol assigns $1/3600$ per selected price.
+\footnote{The four-case stressed comparison is reported separately from
+the original 36-contract family, using the same per-price allowance.}
+Deterministic selection among certified implementations requires no
+statistical selection penalty because no measurement outcomes are used to
+choose their resource plans.
+
+The inverse Fourier transform uses explicitly certified Clifford and T sequences \citep{rossselinger2016}. Its retained and omitted phase errors are charged in every complete plan. Appendix~\ref{app:fourier-diagnostics} gives the synthesis details and largest-width diagnostics.
+
+A complete count includes the initial preparation, every controlled
+financial preparation and inverse, good and zero reflections, inverse
+Fourier transform, confidence repetitions, observed qubits and reset of
+reused shot registers.  Each method receives both coherent lookup architectures and can select
+its lowest complete cap before any estimator shots.  The study retains both exact seven-T and
+coherent eight-T construction profiles and their emitted chronological
+tapes.  QROM mechanisms have established predecessors \citep{babbush};
+using them correctly is an implementation obligation, not a novelty claim.
+An exact lookup compute/erase pair costs 14 T gates, while the coherent
+AND pair costs eight; ordinary arithmetic uses literal seven-T Toffolis
+in both modes. Financial table generation, norm generation, finite moment sums and
+financial-grid certification are reported as classical setup.
+A logical T count is not directly equated to CPU time or fault-tolerant
+wall-clock time.
+
+For a centred second-correction flag with probability tolerance $e_p$,
+the monetary statistical allowance is $2B_2e_p$ before the factor.
+For two signed flags with tolerances $e_+,e_-$ it is
+$B_2(e_++e_-)$, at their joint confidence.
+The positive first correction uses $B_1e_p$, and the native positive
+vanilla second correction uses $B_2e_p$.
+I select only configurations satisfying the complete monetary constraint,
+with at most half the requested radius assigned to deterministic error.
+The final study fixes $q=28$, $b_y=10$ and the remaining Beta width
+at eight, then tunes each scalar table independently within six to twelve
+address bits. The unchanged all-twelve program remains in every method
+pool, alongside three greedy searches with deterministic allowances
+$0.001$, $0.0025$ and $0.005$. The search ranks certified cell savings
+per marginal monetary error, with a fixed node-name tie rule; the final
+choice minimises the actual complete T cap. Every proposed map, guard
+result, chosen step and cost is retained. I also admit an exact integer
+constant-propagation pass and the unchanged emitter equally for all methods.
+The pass preserves represented outputs, widths and all input registers.
+It produces no rewrite in the 204 higher-dimensional production graph
+structures; its small-fixture simplifications are not extrapolated into
+financial resource savings. This is a reproducible finite
+search, rather than a global precision optimum.  Equal financial accuracy, information, confidence,
+architecture and admissibility are the matched requirements.
+
+\section{Retained findings and comparison boundary}
+\label{sec:results}
+
+The completed study retains 502 candidate programs and 141,676 recorded
+allocation decisions. The higher-dimensional pool adds 329 candidates,
+117,871 genuine precision proposals and 33 infeasible starting allocations.
+The combined record preserves every earlier implementation and strengthens
+113 first-correction information intervals. Both coherent architectures
+receive the same controls, financial accuracy and selection policy.
+The family confidence allocation remains $1/3600$ per selected price,
+with a union allowance of one per cent across all 36 cases.
+
+Table~\ref{tab:transfer} identifies the resolved financial gap. The nominal
+product grid contains $2^{70}$ labels in seven dimensions, but the transfer
+construction evaluates finite exponential-polynomial moments, not that
+Cartesian set. The derivative bounds retain $U$, $T_j$ and $T_{jj}$
+moments, actual rounded nodes, Gaussian tails and all geometric-loading
+terms. The loadings $R_G$ are nonzero in both higher-dimensional families;
+weighted centring of $s_i$ does not justify discarding them.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+Assets&Outer dimension&Nominal labels&Max. $\beta_{Y,2}$&Max. $\beta_{Y,1}$&Cases\\
+\midrule
+2&1&$2^{10}$&$0.000937$&$0.001168$&12\\
+4&3&$2^{30}$&$0.002284$&$0.004914$&12\\
+8&7&$2^{70}$&$0.001107$&$0.003572$&12\\
+\bottomrule
+\end{tabular}
+\caption{Complete continuous-to-finite financial allowances, rounded
+upwards, under unchanged $L=6$, $b_y=10$, $q=28$. The target allowance is
+$0.005$. Two-asset rows use the sharper local cell certificate;
+higher-dimensional rows use positive transport moments. Arithmetic,
+auxiliary and statistical errors are additional terms, not included in
+these financial allowances. The table makes the distinction between
+nominal grid size and executed certificate work explicit.}
+\label{tab:transfer}
+\end{table}
+
+Shared continuous second-order intervals resolve 18 contracts before
+quantum estimation. In the remaining 18 active comparisons, the best
+second correction beats the informed positive first correction in ten
+cases, with reductions of approximately 13.9 to 92.6 per cent.
+Table~\ref{tab:n2} displays the complete-cap ratios for the entire family;
+it reveals adverse cases as well as improvements. Matching one dispersion
+quantity across models does not isolate a causal dimension effect.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+Assets&$\lambda$&$H=1$&$H=10$&$H=25$&Ordinary call\\
+\midrule
+2&0.05&$3.071_{\rm D}$&$3.022_{\rm D}$&$1.700_{\rm D}$&$0.349_{\rm D}$\\
+2&0.2&A&$0.861_{\rm D}$&$0.689_{\rm D}$&$0.088_{\rm D}$\\
+2&0.4&A&A&$0.355_{\rm D}$&A\\
+4&0.05&$2.595_{\rm D}$&$1.323_{\rm D}$&$1.310_{\rm D}$&$0.261_{\rm D}$\\
+4&0.2&A&A&$0.366_{\rm D}$&$0.074_{\rm D}$\\
+4&0.4&A&A&A&A\\
+8&0.05&A&$2.238_{\rm D}$&$1.205_{\rm D}$&$0.240_{\rm B}$\\
+8&0.2&A&A&$0.584_{\rm D}$&A\\
+8&0.4&A&A&A&A\\
+\bottomrule
+\end{tabular}
+\caption{Lowest second-correction complete T cap divided by the informed
+first-correction cap, rounded to three decimals. D denotes raw direct
+$R_2$, B the boundary oracle and J stable Gauss-Jacobi; J is never the
+lowest active second correction here. A denotes the shared analytical
+price interval, with zero quantum calls for every method. A ratio below
+one is a conditional logical-resource improvement, with the same monetary
+radius $0.01$, confidence, architectures and precision-pool policy.
+Exact caps, selected maps and full budgets remain in the archive.}
+\label{tab:n2}
+\end{table}
+
+Raw direct evaluation is the cheapest second-correction implementation
+in 17 active cases. For the eight-asset ordinary call at $\lambda=0.05$,
+the boundary oracle has complete T cap 421,318,601,825 against
+435,151,104,775 for raw evaluation, a reduction of approximately
+3.18 per cent. The same case improves on the informed first correction
+by about 76.0 per cent. This is a positive implementation result for
+the strike-integrated, nonnegative curvature preparation in the retained
+pool. Stable quadrature loses to the best second-correction implementation
+in every active case; its exact finite sixth moments and fixed-parameter
+error allowances are nevertheless supplied in full. The exact integer
+simplifier produces no production improvement.
+
+The independent checks reconstruct scalar contracts, integer profiles,
+allocation decisions and full estimator plans, with separate small-fixture
+replay of dirty numerical and flag workspaces. They verify actual node
+rounding, retained information, clean inverse and controlled-phase
+conventions. Large production profiles are checked by composition, rather
+than exhaustive state simulation. Complete counts and setup ledgers are
+retained in the supporting index and result archives.
+
+The financial certificate uses factorised finite MGFs with explicit
+exponential-series remainders. Scalar recurrence, coefficient formation,
+normal quantiles, tensor-factor products and review work remain real
+construction costs. The previous higher-dimensional precision search and
+its audit took about 22.71 and 8.87 minutes in retained diagnostics.
+These are research setup times, not single-price execution times or
+conversions of T gates to CPU time.
+
+I separately compare two discretisation certificates for the same $R_2$,
+with the same actual nodes, boundary norms, dispersion envelopes and full
+Gaussian tail. The first uses the positive absolute weighted
+fundamental-theorem-of-calculus (FTC) measure; the second uses the
+published centred Peano identity. This is a comparison of transport order,
+not of the pricing corrections $R_1$ and $R_2$. Neither opponent uses a
+whole-box dispersion maximum or Cartesian price enumeration.
+I refine only the transported coordinate into $B=1,8,32,128,1024$
+contiguous blocks, keeping other coordinates factorised. Both orders use
+512-bit outward arithmetic and the same finite-moment closure.
+
+The $0.005$ allocation concerns undiscounted financial transfer, not a
+complete price or confidence guarantee. At every level, the second-order
+certificate meets that allocation
+in 33 of 36 cases and FTC in 32. At $B=1024$ the second-order allowances
+are approximately 25.7 to 72.3 per cent smaller than FTC. Refinement from
+$B=1$ tightens those second-order allowances by only 0.0702 to 0.3480
+per cent and rescues none of the three two-asset failures. The previously
+retained sharper local certificate still handles those cases. Thus this
+experiment supports inexpensive aggregate residual certificates; it does
+not identify a new refinement principle or an additional accepted price.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrrr}
+\toprule
+Assets&$p$&FTC passes&Peano passes&Refinement (\%)&$B=1$ (s)&$B=1024$ (s)\\
+\midrule
+2&1&9/12&9/12&0.0702--0.0839&0.019&16.95\\
+4&3&11/12&12/12&0.2162--0.2573&0.095&80.13\\
+8&7&12/12&12/12&0.3250--0.3481&0.470&206.67\\
+\bottomrule
+\end{tabular}
+\caption{Value and construction cost of transported-coordinate refinement.
+Pass counts concern undiscounted transfer only and are unchanged at all
+five levels. Refinement is the range of
+second-order allowance reductions from $B=1$ to $1024$, including the same
+tail. Each time covers geometry and both certificate orders for all twelve
+payoffs in that asset family, excluding common prefix setup (1.276 seconds)
+and serialisation. The first level forms fresh grouped coefficients;
+later levels reuse them. These joint incremental diagnostics are neither
+order-specific timings nor cold-run speed ratios. The table tests whether
+a tighter certificate justifies additional construction work.}
+\label{tab:certificate-refinement}
+\end{table}
+
+Independent checks reproduce the one-block aggregate bounds, evaluate
+38,313 production block transforms at 768-bit precision and check 198
+positive interval quadratures. A separate 1,024-bit small-grid audit checks
+1,584 hybrid polynomial moments. The retained finite-measure proof covers
+negative and zero transform rates, raw masses and monotone Cauchy
+refinement. These checks support the computed allowances; they do not
+establish a uniform ordering of transport orders for other residuals.
+
+The continuous classical test now uses only the same $M_2,M_3,M_4$
+boundary constants and exponential geometry available to transport,
+plus additional Gaussian moment and covariance-shifted kernel evaluations.
+Finite Taylor pricing through degree three has remainder radius
+$M_4\E U^4/24$. I retain the earlier successful lower orders rather than
+assuming each higher order improves the bound. Table~\ref{tab:classical-information}
+shows that this bounded calculation certifies 33 complete cent prices,
+including all 24 higher-dimensional contracts, before preparing a grid.
+Those are exactly the cases which pass the aggregate $R_2$ transfer
+allocation. This is a cohort observation, not a theorem relating the
+$0.005$ transfer allocation to the complete $0.01$ price radius.
+Hybrid moments are not themselves continuous price coefficients; the
+additional Gaussian queries and kernel evaluations are charged explicitly.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+Assets&Degree $\leq1$&Degree $\leq2$&Degree $\leq3$&Geometric bounds\\
+\midrule
+2&4/12&8/12&9/12&0/12\\
+4&6/12&9/12&12/12&0/12\\
+8&8/12&10/12&12/12&0/12\\
+\bottomrule
+\end{tabular}
+\caption{Complete classical cent certificates at unchanged model inputs.
+Degree columns retain the union of successful orders up to the cap;
+all saved outward discounted endpoints also pass the cent target.
+The last column combines the published geometric exercise-set lower bound
+with the arithmetic--geometric upper bound, and uses a derived separate-strike
+call-spread enclosure for caps. It is not the strongest possible capped
+specialisation of that method. The table identifies how much pricing work
+remains when the transport's model and derivative information are shared.}
+\label{tab:classical-information}
+\end{table}
+
+The degree-three panel uses 580 shared geometry exponentials, 2,520
+additional paired boundary-kernel evaluations and 4,410 density evaluations;
+its diagnostic is about 0.185 seconds, excluding imports and serialisation.
+No speed ratio is inferred against joint incremental transport timings.
+The independent 1,024-bit check reconstructs 180 moment enclosures,
+144 coefficients, 108 remainders and all price-interval propagations.
+The three failures are the same two-asset $\lambda=0.05$ cap-10,
+cap-25 and ordinary calls; retained validated quadrature covers them.
+The previous higher-degree checks remain unchanged. Strong classical
+methods therefore still resolve all 36 prices with zero quantum calls.
+
+I implement the published geometric bounds of \citet{caldana} from the
+repository-labelled accepted manuscript, including its equation (27).
+I write
+\begin{equation}
+\begin{aligned}
+\sigma_G^2 &= \operatorname{Var}(\log G),\\
+a_i &= \frac{\operatorname{Cov}(\log S_i,\log G)}{\sigma_G},\\
+A_i &= w_i\E S_i.
+\end{aligned}
+\end{equation}
+The lower-bound objective has derivative
+$\phi(z)\{k-\sum_i A_ie^{a_i z-a_i^2/2}\}$.
+Strict convexity handles the two mixed-sign covariance families; positive
+basket weights do not imply a monotone conditional mean. The complete
+root and endpoint proof, exact brackets and cap subtraction are retained
+outside the main argument. This implemented enclosure meets no cent
+allocation here, which does not defeat the published method's stronger
+variants or its use as a control. Correctness and literature priority
+remain separate from this numerical finding.
+
+I test the observed admission coincidence beyond the original cohort
+by multiplying each outer loading by $c\in\{1,3/2,2,3\}$ and recomputing
+its risk-neutral drift. The common $\lambda$, weights, carry, contracts
+and numerical widths remain fixed. This gives 144 contracts. Exact
+scaling gives $d_i(c)=c^2d_i(1)$, $s_i(c)=cs_i(1)$ and
+$R_G(c)=cR_G(1)$; every asset forward remains $100e^{0.01}$.
+The supporting proof derives these identities and the unchanged pricing
+conditions. For $V_R=\sum_iw_i\|s_i(1)\|^2>0$, Jensen also gives
+$\E U_c^k\geq\{e^{c^2V_R/2}-1\}^k$. Thus the raw fixed-degree
+Taylor radius can grow without the price range becoming unbounded.
+This does not prove difficulty for all classical pricing methods.
+
+The fixed panel admits 81 transfer allowances and 71 strengthened
+Taylor-price intervals through degree three. Ten cases separate those
+criteria; targeted degree five resolves six and leaves four. I intersect
+all available lower orders and intrinsic payoff ranges before classifying
+a price failure. This opponent strengthening follows the first executed
+run and is recorded transparently; its panel and financial targets are
+unchanged. Earlier executions and all adverse cases remain retained.
+The four survivors are capped calls with $H=1$: $(n,\lambda,c)$ equals
+$(2,0.4,3)$, $(4,0.05,3/2)$, $(4,0.2,3)$ and $(8,0.2,3)$.
+Their transfer allowances are approximately $0.00342842$, $0.00270704$,
+$0.00466658$ and $0.00163955$, rounded upwards, while their best
+strengthened degree-five price radii are approximately $0.0279505$,
+$0.0305001$, $0.0509043$ and $0.0127283$, also rounded upwards.
+This establishes useful transfer certification beyond this declared
+finite Taylor screen. It establishes neither complete quantum prices for
+these stresses nor failure of stronger classical algorithms. The original
+quantum resource caps are not extrapolated to altered supports or
+normalisers. Figure~\ref{fig:dispersion-separation} shows the distinct
+certificate behaviour and the effect of the stronger classical check.
+
+% Self-contained scientific figure: standard xcolor and graphicx only.
+\begin{figure}[!htb]%
+\centering%
+\begingroup%
+\definecolor{QBPStressBlue}{HTML}{0072B2}%
+\definecolor{QBPStressOrange}{HTML}{D55E00}%
+\definecolor{QBPStressGrid}{HTML}{DDDDDD}%
+\setlength{\unitlength}{1mm}%
+\resizebox{\linewidth}{!}{%
+\begin{picture}(160,75)(0,10)%
+\fontsize{8}{10}\selectfont%
+\color{black}%
+\put(48.5,82){\makebox(0,0){(a) Eight-asset ordinary-call family}}%
+\put(128.5,82){\makebox(0,0){(b) Complete stress panel}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,23.0000)(48.5000,23.0000)(80.0000,23.0000)%
+\color{black}\put(15.000,23.0000){\makebox(0,0)[r]{$10^{-3}$}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,33.6000)(48.5000,33.6000)(80.0000,33.6000)%
+\color{black}\put(15.000,33.6000){\makebox(0,0)[r]{$10^{-2}$}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,44.2000)(48.5000,44.2000)(80.0000,44.2000)%
+\color{black}\put(15.000,44.2000){\makebox(0,0)[r]{$10^{-1}$}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,54.8000)(48.5000,54.8000)(80.0000,54.8000)%
+\color{black}\put(15.000,54.8000){\makebox(0,0)[r]{$10^{0}$}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,65.4000)(48.5000,65.4000)(80.0000,65.4000)%
+\color{black}\put(15.000,65.4000){\makebox(0,0)[r]{$10^{1}$}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(17.0000,76.0000)(48.5000,76.0000)(80.0000,76.0000)%
+\color{black}\put(15.000,76.0000){\makebox(0,0)[r]{$10^{2}$}}%
+\color{black}\linethickness{0.4pt}%
+\qbezier(17.0000,23.0000)(48.5000,23.0000)(80.0000,23.0000)%
+\qbezier(17.0000,23.0000)(17.0000,49.5000)(17.0000,76.0000)%
+\put(3,23){\rotatebox{90}{\makebox(53,0){Allowance/its allocation}}}%
+\qbezier(21.1087,23.0000)(21.1087,22.5000)(21.1087,22.0000)%
+\put(21.1087,20){\makebox(0,0){1}}%
+\qbezier(34.8043,23.0000)(34.8043,22.5000)(34.8043,22.0000)%
+\put(34.8043,20){\makebox(0,0){1.5}}%
+\qbezier(48.5000,23.0000)(48.5000,22.5000)(48.5000,22.0000)%
+\put(48.5000,20){\makebox(0,0){2}}%
+\qbezier(75.8913,23.0000)(75.8913,22.5000)(75.8913,22.0000)%
+\put(75.8913,20){\makebox(0,0){3}}%
+\put(48.5,15){\makebox(0,0){Loading scale $c$}}%
+\color{black}\linethickness{0.5pt}%
+\qbezier(17.0000,54.8000)(17.9000,54.8000)(18.8000,54.8000)%
+\qbezier(19.8000,54.8000)(20.7000,54.8000)(21.6000,54.8000)%
+\qbezier(22.6000,54.8000)(23.5000,54.8000)(24.4000,54.8000)%
+\qbezier(25.4000,54.8000)(26.3000,54.8000)(27.2000,54.8000)%
+\qbezier(28.2000,54.8000)(29.1000,54.8000)(30.0000,54.8000)%
+\qbezier(31.0000,54.8000)(31.9000,54.8000)(32.8000,54.8000)%
+\qbezier(33.8000,54.8000)(34.7000,54.8000)(35.6000,54.8000)%
+\qbezier(36.6000,54.8000)(37.5000,54.8000)(38.4000,54.8000)%
+\qbezier(39.4000,54.8000)(40.3000,54.8000)(41.2000,54.8000)%
+\qbezier(42.2000,54.8000)(43.1000,54.8000)(44.0000,54.8000)%
+\qbezier(45.0000,54.8000)(45.9000,54.8000)(46.8000,54.8000)%
+\qbezier(47.8000,54.8000)(48.7000,54.8000)(49.6000,54.8000)%
+\qbezier(50.6000,54.8000)(51.5000,54.8000)(52.4000,54.8000)%
+\qbezier(53.4000,54.8000)(54.3000,54.8000)(55.2000,54.8000)%
+\qbezier(56.2000,54.8000)(57.1000,54.8000)(58.0000,54.8000)%
+\qbezier(59.0000,54.8000)(59.9000,54.8000)(60.8000,54.8000)%
+\qbezier(61.8000,54.8000)(62.7000,54.8000)(63.6000,54.8000)%
+\qbezier(64.6000,54.8000)(65.5000,54.8000)(66.4000,54.8000)%
+\qbezier(67.4000,54.8000)(68.3000,54.8000)(69.2000,54.8000)%
+\qbezier(70.2000,54.8000)(71.1000,54.8000)(72.0000,54.8000)%
+\qbezier(73.0000,54.8000)(73.9000,54.8000)(74.8000,54.8000)%
+\qbezier(75.8000,54.8000)(76.7000,54.8000)(77.6000,54.8000)%
+\qbezier(78.6000,54.8000)(79.3000,54.8000)(80.0000,54.8000)%
+\color{QBPStressBlue}\linethickness{0.65pt}%
+\qbezier(21.1087,38.0906)(27.9565,42.2325)(34.8043,46.3744)%
+\qbezier(34.8043,46.3744)(41.6522,49.5662)(48.5000,52.7579)%
+\qbezier(48.5000,52.7579)(62.1957,58.0177)(75.8913,63.2775)%
+\put(21.1087,38.0906){\circle*{1.2}}%
+\put(34.8043,46.3744){\circle*{1.2}}%
+\put(48.5000,52.7579){\circle*{1.2}}%
+\put(75.8913,63.2775){\circle*{1.2}}%
+\color{QBPStressOrange}\linethickness{0.65pt}%
+\qbezier(21.1087,26.1776)(27.9565,33.7994)(34.8043,41.4212)%
+\qbezier(34.8043,41.4212)(41.6522,46.9407)(48.5000,52.4602)%
+\qbezier(48.5000,52.4602)(62.1957,60.5910)(75.8913,68.7219)%
+\put(20.5587,25.6276){\rule{1.1mm}{1.1mm}}%
+\put(34.2543,40.8712){\rule{1.1mm}{1.1mm}}%
+\put(47.9500,51.9102){\rule{1.1mm}{1.1mm}}%
+\put(75.3413,68.1719){\rule{1.1mm}{1.1mm}}%
+\color{QBPStressBlue}\put(21,70){\circle*{1.2}}%
+\color{black}\put(23,70){\makebox(0,0)[l]{Grid transfer}}%
+\color{QBPStressOrange}\put(20.45,65.45){\rule{1.1mm}{1.1mm}}%
+\color{black}\put(23,66){\makebox(0,0)[l]{Taylor $\leq3$ price interval}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,23.0000)(128.5000,23.0000)(154.0000,23.0000)%
+\color{black}\put(101.000,23.0000){\makebox(0,0)[r]{0}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,33.6000)(128.5000,33.6000)(154.0000,33.6000)%
+\color{black}\put(101.000,33.6000){\makebox(0,0)[r]{1}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,44.2000)(128.5000,44.2000)(154.0000,44.2000)%
+\color{black}\put(101.000,44.2000){\makebox(0,0)[r]{2}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,54.8000)(128.5000,54.8000)(154.0000,54.8000)%
+\color{black}\put(101.000,54.8000){\makebox(0,0)[r]{3}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,65.4000)(128.5000,65.4000)(154.0000,65.4000)%
+\color{black}\put(101.000,65.4000){\makebox(0,0)[r]{4}}%
+\color{QBPStressGrid}\linethickness{0.18pt}%
+\qbezier(103.0000,76.0000)(128.5000,76.0000)(154.0000,76.0000)%
+\color{black}\put(101.000,76.0000){\makebox(0,0)[r]{5}}%
+\color{black}\linethickness{0.4pt}%
+\qbezier(103.0000,23.0000)(128.5000,23.0000)(154.0000,23.0000)%
+\qbezier(103.0000,23.0000)(103.0000,49.5000)(103.0000,76.0000)%
+\put(89,23){\rotatebox{90}{\makebox(53,0){Separating contracts}}}%
+\color{black}\put(109.3750,20){\makebox(0,0){1}}%
+\color{QBPStressBlue}\put(118.3250,23.0000){\rule{3.5mm}{31.8000mm}}%
+\color{QBPStressOrange}\put(122.4250,23.0000){\rule{3.5mm}{10.6000mm}}%
+\color{black}\put(122.1250,20){\makebox(0,0){1.5}}%
+\color{QBPStressBlue}\put(131.0750,23.0000){\rule{3.5mm}{31.8000mm}}%
+\color{black}\put(134.8750,20){\makebox(0,0){2}}%
+\color{QBPStressBlue}\put(143.8250,23.0000){\rule{3.5mm}{42.4000mm}}%
+\color{QBPStressOrange}\put(147.9250,23.0000){\rule{3.5mm}{31.8000mm}}%
+\color{black}\put(147.6250,20){\makebox(0,0){3}}%
+\put(128.5,15){\makebox(0,0){Loading scale $c$}}%
+\color{QBPStressBlue}\put(106,71){\rule{2mm}{1mm}}%
+\color{black}\put(110,71.5){\makebox(0,0)[l]{After Taylor $\leq3$}}%
+\color{QBPStressOrange}\put(106,67){\rule{2mm}{1mm}}%
+\color{black}\put(110,67.5){\makebox(0,0)[l]{After targeted $\leq5$}}%
+\end{picture}%
+}%
+
+\endgroup%
+\small\setlength{\abovecaptionskip}{6pt}%
+\caption{Financial-transfer and price certificates under a controlled dispersion stress. Panel (a) uses the eight-asset ordinary-call family at $\lambda=0.2$, selected before outcomes. Transfer allowances are divided by $0.005$ and complete Taylor-price intersection radii by $0.01$; the dashed line marks admission at one. These are different error targets. Joined points guide the eye between tested scales. Panel (b) counts transfer-admitted contracts whose strengthened Taylor-price intervals fail, among all 36 contracts per scale. Degree five is evaluated only for provisional degree-three separators. Price intervals include lower-order intersections and intrinsic bounds. These are synthetic certified allowances, not observed errors, quantum prices or speed-ups.}
+\label{fig:dispersion-separation}
+\end{figure}
+
+I next price the four cap-one candidates completely. A direct conditional
+price certificate combines the bounded kernel with global log-basket
+coordinate derivatives; Appendix~\ref{app:direct-capped-price} derives the
+financial transfer and full confidence interval. I sum all 1,024 grid scores
+for the two-asset case. For each remaining case, a fixed 100,000-draw
+calculation uses the non-asymptotic inequality of \citet{hoeffding1963},
+with statistical radius $1/150$ and failure allowance $1/3600$.
+Actual 10-bit labels come from retained operating-system words; coverage
+explicitly assumes independent uniform words. Every evaluated score is
+enclosed and rounded outwards to 40-bit endpoints. The whole Gaussian
+tail and retained mass are included. All four complete undiscounted price
+radii are below $0.01$.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrlrr}
+\toprule
+Assets&$\lambda$&$c$&Classical method&Undiscounted interval&Selected $R_1$ T cap\\
+\midrule
+2&0.4&3&Exact sum&$[0.406517,0.406908]$&25,306,395,925\\
+4&0.05&1.5&Conditional MC&$[0.479091,0.496631]$&90,433,832,750\\
+4&0.2&3&Conditional MC&$[0.437322,0.452372]$&97,976,923,250\\
+8&0.2&3&Conditional MC&$[0.442736,0.460092]$&216,055,259,050\\
+\bottomrule
+\end{tabular}
+\caption{Complete classical prices and independently constructed quantum
+resource caps for the four synthetic cap-one candidates. Classical interval
+endpoints are rounded outwards to six decimals. The two-asset exact sum is
+deterministic; each Monte Carlo price has failure allowance $1/3600$ under
+the stated source premise. Quantum columns are ideal-logical resource plans,
+not measured prices or running times, with the same per-price failure
+budget and radius $0.01$. The informed positive first correction is cheapest
+among the declared quantum constructions in every case. Exact results,
+financial errors, all alternatives and source hashes remain retained.}
+\label{tab:four-complete-prices}
+\end{table}
+
+Fresh quantum construction costs all sixteen method targets, both coherent
+lookup architectures and every monetary obligation. One eight-asset boundary
+baseline fails with deterministic allowance approximately $0.01673354$;
+the declared scalar-address-width-14 repair passes at approximately
+$0.00441931$. The original rejection is retained. The direct first-residual
+certificate is supplied to the informed $R_1$ opponent by taking its minimum
+with the older bound; no classical Monte Carlo answer is imported into that
+prior. Selected first-correction caps range from approximately 25.3 to
+216.1 billion logical T gates. Raw second corrections require approximately
+0.301 to 2.045 trillion, and the boundary construction is not the cheapest
+in any of these four cases. These are conditional costs in the declared
+baseline and repair policy, not globally optimised resource bounds.
+
+Independent replays verify financial enclosures, complete confidence and
+emitted resource charges. Full traces, rejected plans, scalar tables,
+source versions and reconstruction records remain in the supporting
+archive. The reconstruction protocol precedes fresh execution with earlier
+expected outcomes known; no blind first-outcome registration is claimed.
+All retained evidence is synthetic. The complete comparison resolves the
+four candidates classically and supplies valid conditional quantum plans.
+Figure~\ref{fig:dispersion-separation} identifies failures of the declared
+Taylor screen, rather than prices unavailable to classical calculation.
+
+\subsection{A certified factor-basis comparison}
+\label{sec:factor-basis}
+
+Orthogonal Gaussian reparameterisation is established in classical
+derivative pricing \citep{imai2006}. For an exact orthogonal matrix $O$,
+replacing $R$ by $RO$ preserves $RR^{\mathsf T}$, risk-neutral drifts and
+the continuous asset law because $OY$ has the law of $Y$. It also preserves
+$c_0,c_1$ and continuous $U$ moments. The truncated and rounded product
+laws generally change. With full loading maxima $A_j(O)=\max_i|(RO)_{ij}|$
+and $r_j(O)=(R_G O)_j$, the direct cap-one transfer becomes
+\begin{align}
+B_1(O)&=\sum_j\{A_j(O)+|r_j(O)|\},\\
+B_2(O)&=\sum_j A_j(O)^2+\|R_G\|_2^2,\\
+\beta(O)&=a^{p-1}\{b_1M_1B_1(O)+b_2(M_1+M_2)B_2(O)\}+(1-a^p).
+\end{align}
+Here $a$ is one-coordinate retained mass, $b_1$ is the sum of absolute
+cell first moments and $b_2$ is half the summed second moment. The earlier
+global derivative proof applies in the new coordinates; cell Taylor
+expansion and tensor telescoping give this allowance. The full invariance
+and finite-law proof is retained in the supporting derivation.
+
+I register identity and each single plane with cosine $3/5$ and sine
+$\pm4/5$, giving $1,7,7,43$ candidates across the four cases. Earlier
+loading diagnostics were known. The exact minimum direct allowance selects
+one candidate per case; I then rebuild every finite moment, support,
+normaliser, arithmetic certificate and complete method cost for that basis
+and identity. The direct bounds improve by about 25.25, 23.83 and 10.56
+per cent in the three multi-factor cases, but complete selected T caps fall
+by only 0.05, 0.16 and 2.07 per cent. The phase sizes remain unchanged.
+One rotated stable-Gauss allocation fails and a boundary cost rises
+substantially; both remain recorded. The two-asset identity is the control.
+This is a restricted paired cost comparison, not cost optimisation over
+all 58 bases. Every representation and certificate is available to the
+classical opponents; their existing continuous price certificates remain
+valid for the invariant target.
+
+\subsection{A shared threshold pricing preparation}
+\label{sec:shared-threshold}
+
+I develop the existing positive kernel representation into a different
+coherent first correction. It trades conditional-price evaluation for a
+binary event; the financial law and analytic control remain unchanged.
+
+\begin{proposition}[A positive coupled price correction]
+\label{prop:shared-threshold}
+For the finite nonnegative measure $\nu$ in
+\eqref{eq:measure-kernel}, of mass $0<H<\infty$, let $X$ have law
+$\nu/H$ and let $N$ be an independent standard normal variable. For
+$\Delta\geq0$ and $\lambda>0$,
+\begin{equation}
+P_\nu(m+\Delta)-P_\nu(m)
+=H\Pr\{m<X-\lambda N\leq m+\Delta\}.
+\end{equation}
+For a capped call, $X=\log(1+(H/K)U_0)$ with $U_0$ uniform on $[0,1]$.
+Cash digitals and finite positive mixtures have the same representation;
+the prepared threshold law must separately be certified.
+\end{proposition}
+Conditioning on the common threshold converts each endpoint to a Gaussian half-line probability. Subtracting nested events gives the positive correction while preserving its payoff normaliser. Appendix~\ref{app:proof-shared-threshold} gives the full proof.
+
+The same auxiliary draw is essential for both endpoints. The score has
+normaliser $H$ for every draw. In contrast,
+$\Delta P'(m+t\Delta)$ is bounded by $\Delta_*M_1$; clipping that
+integrand at $H$ can change its expectation. Its retained allowance screen
+does not constitute a fully costed rival.
+
+For the cap-one implementation I use 10-bit inner normal labels, four-bit
+uniform strike labels and a six-bit strike-log table. Outer scalar
+addresses remain at twelve bits. Let $\mathcal L$ be this finite set of
+labels, with $|\mathcal L|=2^{10p+14}$. The clean reversible preparation is
+\begin{align}
+A_{\rm ev}|0\rangle
+&=|\mathcal L|^{-1/2}\sum_{\ell\in\mathcal L}
+ |\ell\rangle|b_\ell\rangle|0_{\rm work}\rangle,\\
+b_\ell&=\mathbf1\{\widehat L_\ell<\widehat Z_\ell
+                         \leq\widehat R_\ell\}.
+\end{align}
+Here $\widehat L_\ell,\widehat R_\ell,\widehat Z_\ell$ are the actual
+represented lower, upper and threshold registers with a common exact
+offset $J$. Removing $J$ gives the financial endpoints and threshold.
+Two ordered comparisons and their inverses implement the interval flag;
+all private work is cleaned before reflection. The represented upper
+endpoint is the same lower register plus a nonnegative log-ratio, with
+range guards excluding overflow. Canonical estimation uses this actual
+flag and its actual reflected core.
+
+The added approximation is explicit. With $M_S=16$, $M_N=1024$,
+$a_N=\Phi(6)-\Phi(-6)$ and normal node displacement $\delta_N$, take
+checked $\nu_0\geq\sup\phi$ and $\nu_1\geq\sup|\phi'|$ and put
+\begin{align}
+\beta_S/H&=\frac{(H/K)^2}{12M_S^2}
+               (\nu_1/\lambda^2+\nu_0/\lambda),\\
+D_N&=(1-a_N)/2+a_N/(2M_N)+\nu_0\delta_N,\\
+\eta&=\min\{1,\beta_S/H+2D_N+
+                    \nu_0(e_\ell+e_u+2e_z)/\lambda\}.
+\end{align}
+The $e$ terms bound actual endpoint and threshold arithmetic. A midpoint
+Taylor bound proves $\beta_S$; a labelled quantile coupling bounds both
+CDF conventions by $D_N$. Expanding and shrinking event endpoints against
+the continuous Gaussian proves the arithmetic allowance, including empty
+intervals and discrete ties. Finite atoms are not treated as continuous
+points. The supporting proof gives every derivation and circuit invariant.
+The outer transfer applies to the smooth conditional correction, and
+the uniform $\eta$ then relates its nodal values to expected binary flags.
+No derivative of a discontinuous flag is assumed. Only the outer mass is
+decoded: inner normal truncation is already in $D_N$. If $\bar a_p$ bounds
+the outer mass and $r_a$ is its radius, then on the certified estimation event
+\begin{equation}
+|\widehat V-V|\leq r_{c_0}+\beta_y+
+             \bar a_pH(\eta+\varepsilon_{\rm AE})+r_aH.
+\end{equation}
+The complete plan selects $\varepsilon_{\rm AE}$ to meet radius $0.01$
+with failure allowance $1/3600$.
+
+I test the encoding at four already selected bases, with no repairs.
+I then strengthen the numerical competitor by independently allowing
+$b_A,b_G\in\{6,8,10,12\}$ for its two price tables, leaving other widths
+fixed. This registered 64-configuration pool retains twelve rejected
+budgets. Every admitted cost includes the same full financial and
+confidence obligations. Its numerical minima use $b_A=b_G=10$.
+Figure~\ref{fig:pricing-precision} exposes that numerical pool.
+
+I also cost a direct common-normal rival. With
+$f(x)=\min\{1,100(e^x-1)_+\}$ and $\Delta=\log T\geq0$, its score is
+\begin{equation}
+h_{m,\Delta}(N)=f(m+\Delta+\lambda N)-f(m+\lambda N)\in[0,1].
+\end{equation}
+Both payoffs use the same normal label. Exact monotone clamps restrict
+exponential evaluation to $[0,1/64]$, since
+$\log(101/100)<1/64$. The power-series inequality
+$e^x\leq(1-x)^{-1}$ gives the rational output bound $64/63$.
+I retain the initial broad-headroom, rational-range and common-width
+studies. I then register independent geometric and arithmetic exponential
+addresses $b_G,b_A\in\{8,9,10,11,12\}$ with normal widths
+$\{8,10,12\}$. This gives 300 settings: 48 exact diagonal references and
+252 fresh graphs, including the previously untested diagonal width nine.
+All pointwise and smoothing budgets are admitted under the same conservative
+certificate policy. Both lookup architectures and all outcomes remain retained.
+
+Individually monotone approximations need not preserve their mutual order.
+I retain the final projection in the actual probability score:
+\begin{equation}
+\begin{aligned}
+\widehat h_y(n)&=\operatorname{clip}_{[0,1]}
+ \bigl(\widehat f_A(\widehat X_A)-\widehat f_G(\widehat X_G)\bigr),\\
+\operatorname{clip}_{[0,1]}(v)&=\min\{1,\max\{0,v\}\}.
+\end{aligned}
+\label{eq:projected-raw-score}
+\end{equation}
+An independently checked scalar-domain witness gives a negative represented
+difference at equal arguments. The guarded positive subtraction masks this
+modular difference before it becomes a financial value, and its inverse
+cleans the workspace. Projection is $1$-Lipschitz and fixes the ordered
+ideal payoff difference, so it preserves the charged approximation bound.
+The full proof and exact witness are retained in the supporting appendix;
+the witness does not assert occurrence in the four financial grids.
+
+A pointwise payoff slope can overcharge outer endpoint errors. I therefore
+derive and separately register a smoothing-first certificate for the same
+circuits. Let $e_{\exp,G},e_{\exp,A}$ be intrinsic exponential approximation
+bounds, $E_s$ the common inner scale-rounding bound, $E_m$ the common outer
+shift error and $e_\Delta$ the log-ratio error. Then
+\begin{align}
+B_{\rm sm}&=100(e_{\exp,G}+e_{\exp,A})+202E_s+2D_N,\\
+\eta_{\rm raw}&=\min\{\eta_{\rm point},1,
+           B_{\rm sm}+(\nu_0/\lambda)(2E_m+e_\Delta)\}.
+\end{align}
+To derive this bound, the exact payoff clamps are $1$-Lipschitz and
+$f$ is $101$-Lipschitz. I charge the scalar and inner coefficient errors
+pointwise, then transfer the realised inner law using $2D_N$. For the
+remaining outer shifts I integrate the continuous normal first:
+$\int f'=1$ implies $0\leq P_\lambda'\leq\nu_0/\lambda$.
+Thus no derivative of a finite atomic law or a kinked payoff is assumed.
+Full shifted-register, rounding and monetary derivations are retained in
+the standalone raw-payoff proof. I rebuild every prior and complete QPE
+plan with the smaller valid certificate. The eight-asset raw rival then
+uses $M=512$ rather than its preceding $M=1024$, and the third case selects
+eight-bit inner normal labels. The new minima use $b_G=b_A=9$ in every
+case. The lower caps arise from adding that missing diagonal, and no tested
+unequal allocation beats these symmetric minima. I preserve the preceding
+96 common-width plans and compare the cheapest admitted rival across both
+stages and the numerical-price-table pool.
+
+Under the fixed graph, word precision, normal widths, unary emitters and
+canonical controller, an optimistic charge floor now excludes either
+payoff table at widths fifteen through twenty-two, irrespective of the
+other feasible width. Each side contributes four unary lookups in the
+complete preparation, with selector charge proportional to $2^b+b$.
+The supporting proof derives the exact count and excludes both zero-shot
+prior decisions. Lower omitted widths, unequal widths thirteen/fourteen,
+shared arithmetic and other estimators remain open. A sharper common-shift
+certificate is proved prospectively but is not used in these frozen costs.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+Assets&$\lambda$&$c$&Rival T cap&Event T cap&Saving (\%)\\
+\midrule
+2&0.4&3&23,240,600,025&20,855,422,300&10.26\\
+4&0.05&1.5&88,203,283,550&83,560,988,725&5.26\\
+4&0.2&3&93,933,514,350&89,247,538,825&4.99\\
+8&0.2&3&208,323,372,150&203,322,773,325&2.40\\
+\bottomrule
+\end{tabular}
+\caption{Complete canonical-QPE caps against the cheaper admitted numerical or smoothing-certified raw-payoff rival in each case. Raw payoff supplies the first, third and fourth comparator rows; numerical conditional pricing supplies the second. Every alternative has the same model, basis, analytic mean information, monetary radius $0.01$ and failure allowance $1/3600$. Savings are rounded to two decimals; exact costs and ratios are retained. These are sufficient logical implementation caps under synthetic contracts and finite policies, not global precision optima, quantum price observations or physical runtimes.}
+\label{tab:shared-threshold}
+\end{table}
+
+The event representation reduces complete caps by 2.40 to 10.26 per cent
+against these stronger implemented rivals. Their selected phase sizes
+and 25 repetitions coincide with the event plans. The result is a
+finite implementation improvement; tighter certificates already reduce
+its magnitude. Independent checks reconstruct all 252 fresh graphs,
+504 profiles and 1,008 pointwise or smoothing full-charge plans, together with the actual clean flags and reflected cores of
+the winning preparations. Pointwise-only and broad-headroom results
+remain historical. Efficient shared multipliers, per-node widths,
+matched modern estimators and compatible published encodings remain
+further comparisons.
+
+The broader identity is not an efficient-state-preparation theorem for
+every $\nu$, and does not cover negative measures, infinite payoff mass
+or negative basket weights. A classical opponent integrates both
+auxiliaries to recover the smooth conditional score $F(Y)$; explicitly,
+\begin{equation}
+\operatorname{Var}(H\mathbf1_{\rm event})
+=\operatorname{Var}(F(Y))+\E[F(Y)(H-F(Y))].
+\end{equation}
+The unconditioned classical score therefore has no variance improvement.
+For these cap-one targets, all three encodings have the same ideal
+global probability $\E F/H$ and Grover angle before discretisation.
+The encoder does not improve the generic query law. The complete classical prices remain valid, and no practical quantum
+advantage or priority for the established threshold identity is inferred.
+
+% Self-contained vector figure; xcolor and graphicx only.
+\begin{figure}[!htb]%
+\centering\begingroup%
+\definecolor{QBPRejected}{HTML}{E2E2E2}%
+\definecolor{QBPInterval}{HTML}{D55E00}%
+\setlength{\unitlength}{1mm}%
+\noindent\makebox[\linewidth][c]{%
+\resizebox{0.96\linewidth}{!}{%
+\begin{picture}(162,84)(-2,4)%
+\fontsize{7}{9}\selectfont%
+\put(80,85){\makebox(0,0){Complete numerical T cap/numerical minimum}}%
+\definecolor{QBPBar0}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPBar0}\put(25.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar1}{rgb}{0.274952,0.037752,0.364543}%
+\color{QBPBar1}\put(26.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar2}{rgb}{0.278791,0.062145,0.386592}%
+\color{QBPBar2}\put(28.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar3}{rgb}{0.281446,0.084320,0.407414}%
+\color{QBPBar3}\put(30.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar4}{rgb}{0.283091,0.110553,0.431554}%
+\color{QBPBar4}\put(32.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar5}{rgb}{0.283072,0.130895,0.449241}%
+\color{QBPBar5}\put(34.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar6}{rgb}{0.281887,0.150881,0.465405}%
+\color{QBPBar6}\put(36.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar7}{rgb}{0.279574,0.170599,0.479997}%
+\color{QBPBar7}\put(37.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar8}{rgb}{0.275191,0.194905,0.496005}%
+\color{QBPBar8}\put(39.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar9}{rgb}{0.270595,0.214069,0.507052}%
+\color{QBPBar9}\put(41.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar10}{rgb}{0.265145,0.232956,0.516599}%
+\color{QBPBar10}\put(43.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar11}{rgb}{0.257322,0.256130,0.526563}%
+\color{QBPBar11}\put(45.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar12}{rgb}{0.250425,0.274290,0.533103}%
+\color{QBPBar12}\put(47.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar13}{rgb}{0.243113,0.292092,0.538516}%
+\color{QBPBar13}\put(48.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar14}{rgb}{0.235526,0.309527,0.542944}%
+\color{QBPBar14}\put(50.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar15}{rgb}{0.225863,0.330805,0.547314}%
+\color{QBPBar15}\put(52.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar16}{rgb}{0.218130,0.347432,0.550038}%
+\color{QBPBar16}\put(54.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar17}{rgb}{0.210503,0.363727,0.552206}%
+\color{QBPBar17}\put(56.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar18}{rgb}{0.203063,0.379716,0.553925}%
+\color{QBPBar18}\put(58.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar19}{rgb}{0.194100,0.399323,0.555565}%
+\color{QBPBar19}\put(59.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar20}{rgb}{0.187231,0.414746,0.556547}%
+\color{QBPBar20}\put(61.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar21}{rgb}{0.180629,0.429975,0.557282}%
+\color{QBPBar21}\put(63.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar22}{rgb}{0.172719,0.448791,0.557885}%
+\color{QBPBar22}\put(65.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar23}{rgb}{0.166617,0.463708,0.558119}%
+\color{QBPBar23}\put(67.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar24}{rgb}{0.160665,0.478540,0.558115}%
+\color{QBPBar24}\put(69.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar25}{rgb}{0.154815,0.493313,0.557840}%
+\color{QBPBar25}\put(70.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar26}{rgb}{0.147607,0.511733,0.557049}%
+\color{QBPBar26}\put(72.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar27}{rgb}{0.141935,0.526453,0.555991}%
+\color{QBPBar27}\put(74.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar28}{rgb}{0.136408,0.541173,0.554483}%
+\color{QBPBar28}\put(76.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar29}{rgb}{0.131172,0.555899,0.552459}%
+\color{QBPBar29}\put(78.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar30}{rgb}{0.125394,0.574318,0.549086}%
+\color{QBPBar30}\put(80.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar31}{rgb}{0.121831,0.589055,0.545623}%
+\color{QBPBar31}\put(81.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar32}{rgb}{0.119738,0.603785,0.541400}%
+\color{QBPBar32}\put(83.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar33}{rgb}{0.119699,0.618490,0.536347}%
+\color{QBPBar33}\put(85.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar34}{rgb}{0.123444,0.636809,0.528763}%
+\color{QBPBar34}\put(87.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar35}{rgb}{0.130067,0.651384,0.521608}%
+\color{QBPBar35}\put(89.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar36}{rgb}{0.140210,0.665859,0.513427}%
+\color{QBPBar36}\put(91.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar37}{rgb}{0.157851,0.683765,0.501686}%
+\color{QBPBar37}\put(92.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar38}{rgb}{0.175707,0.697900,0.491033}%
+\color{QBPBar38}\put(94.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar39}{rgb}{0.196571,0.711827,0.479221}%
+\color{QBPBar39}\put(96.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar40}{rgb}{0.220124,0.725509,0.466226}%
+\color{QBPBar40}\put(98.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar41}{rgb}{0.252899,0.742211,0.448284}%
+\color{QBPBar41}\put(100.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar42}{rgb}{0.281477,0.755203,0.432552}%
+\color{QBPBar42}\put(102.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar43}{rgb}{0.311925,0.767822,0.415586}%
+\color{QBPBar43}\put(103.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar44}{rgb}{0.344074,0.780029,0.397381}%
+\color{QBPBar44}\put(105.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar45}{rgb}{0.386433,0.794644,0.372886}%
+\color{QBPBar45}\put(107.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar46}{rgb}{0.421908,0.805774,0.351910}%
+\color{QBPBar46}\put(109.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar47}{rgb}{0.458674,0.816363,0.329727}%
+\color{QBPBar47}\put(111.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar48}{rgb}{0.496615,0.826376,0.306377}%
+\color{QBPBar48}\put(113.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar49}{rgb}{0.545524,0.838039,0.275626}%
+\color{QBPBar49}\put(114.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar50}{rgb}{0.585678,0.846661,0.249897}%
+\color{QBPBar50}\put(116.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar51}{rgb}{0.626579,0.854645,0.223353}%
+\color{QBPBar51}\put(118.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar52}{rgb}{0.678489,0.863742,0.189503}%
+\color{QBPBar52}\put(120.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar53}{rgb}{0.720391,0.870350,0.162603}%
+\color{QBPBar53}\put(122.16667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar54}{rgb}{0.762373,0.876424,0.137064}%
+\color{QBPBar54}\put(124.00000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar55}{rgb}{0.804182,0.882046,0.114965}%
+\color{QBPBar55}\put(125.83333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar56}{rgb}{0.855810,0.888601,0.097452}%
+\color{QBPBar56}\put(127.66667,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar57}{rgb}{0.896320,0.893616,0.096335}%
+\color{QBPBar57}\put(129.50000,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar58}{rgb}{0.935904,0.898570,0.108131}%
+\color{QBPBar58}\put(131.33333,77){\rule{1.85333mm}{3mm}}%
+\definecolor{QBPBar59}{rgb}{0.974417,0.903590,0.130215}%
+\color{QBPBar59}\put(133.16667,77){\rule{1.85333mm}{3mm}}%
+\color{black}\put(25.00000,74){\makebox(0,0){1}}%
+\color{black}\put(55.26868,74){\makebox(0,0){1.25}}%
+\color{black}\put(80.00000,74){\makebox(0,0){1.5}}%
+\color{black}\put(119.02312,74){\makebox(0,0){2}}%
+\color{black}\put(22,67){\makebox(0,0){2 assets}}%
+\put(22,62){\makebox(0,0){$\lambda=0.4,c=3$}}%
+\definecolor{QBPCell0_6_6}{rgb}{0.741388,0.873449,0.149561}%
+\color{QBPCell0_6_6}\put(8,29){\rule{7mm}{7mm}}%
+\color{black}\put(11.5,32.5){\makebox(0,0){2.075}}%
+\definecolor{QBPCell0_6_8}{rgb}{0.699415,0.867117,0.175971}%
+\color{QBPCell0_6_8}\put(8,36){\rule{7mm}{7mm}}%
+\color{black}\put(11.5,39.5){\makebox(0,0){2.049}}%
+\definecolor{QBPCell0_6_10}{rgb}{0.688944,0.865448,0.182725}%
+\color{QBPCell0_6_10}\put(8,43){\rule{7mm}{7mm}}%
+\color{black}\put(11.5,46.5){\makebox(0,0){2.043}}%
+\definecolor{QBPCell0_6_12}{rgb}{0.814576,0.883393,0.110347}%
+\color{QBPCell0_6_12}\put(8,50){\rule{7mm}{7mm}}%
+\color{black}\put(11.5,53.5){\makebox(0,0){2.119}}%
+\definecolor{QBPCell0_8_6}{rgb}{0.274952,0.037752,0.364543}%
+\color{QBPCell0_8_6}\put(15,29){\rule{7mm}{7mm}}%
+\color{white}\put(18.5,32.5){\makebox(0,0){1.022}}%
+\definecolor{QBPCell0_8_8}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPCell0_8_8}\put(15,36){\rule{7mm}{7mm}}%
+\color{white}\put(18.5,39.5){\makebox(0,0){1.009}}%
+\definecolor{QBPCell0_8_10}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell0_8_10}\put(15,43){\rule{7mm}{7mm}}%
+\color{white}\put(18.5,46.5){\makebox(0,0){1.006}}%
+\definecolor{QBPCell0_8_12}{rgb}{0.280894,0.078907,0.402329}%
+\color{QBPCell0_8_12}\put(15,50){\rule{7mm}{7mm}}%
+\color{white}\put(18.5,53.5){\makebox(0,0){1.044}}%
+\definecolor{QBPCell0_10_6}{rgb}{0.272594,0.025563,0.353093}%
+\color{QBPCell0_10_6}\put(22,29){\rule{7mm}{7mm}}%
+\color{white}\put(25.5,32.5){\makebox(0,0){1.016}}%
+\definecolor{QBPCell0_10_8}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell0_10_8}\put(22,36){\rule{7mm}{7mm}}%
+\color{white}\put(25.5,39.5){\makebox(0,0){1.003}}%
+\definecolor{QBPCell0_10_10}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell0_10_10}\put(22,43){\rule{7mm}{7mm}}%
+\color{white}\put(25.5,46.5){\makebox(0,0){1.000}}%
+\color{white}\linethickness{1.6pt}%
+\put(22,43){\framebox(7,7){}}%
+\color{black}\linethickness{0.8pt}%
+\put(22,43){\framebox(7,7){}}%
+\definecolor{QBPCell0_10_12}{rgb}{0.279566,0.067836,0.391917}%
+\color{QBPCell0_10_12}\put(22,50){\rule{7mm}{7mm}}%
+\color{white}\put(25.5,53.5){\makebox(0,0){1.038}}%
+\definecolor{QBPCell0_12_6}{rgb}{0.280267,0.073417,0.397163}%
+\color{QBPCell0_12_6}\put(29,29){\rule{7mm}{7mm}}%
+\color{white}\put(32.5,32.5){\makebox(0,0){1.042}}%
+\definecolor{QBPCell0_12_8}{rgb}{0.277018,0.050344,0.375715}%
+\color{QBPCell0_12_8}\put(29,36){\rule{7mm}{7mm}}%
+\color{white}\put(32.5,39.5){\makebox(0,0){1.029}}%
+\definecolor{QBPCell0_12_10}{rgb}{0.277018,0.050344,0.375715}%
+\color{QBPCell0_12_10}\put(29,43){\rule{7mm}{7mm}}%
+\color{white}\put(32.5,46.5){\makebox(0,0){1.026}}%
+\definecolor{QBPCell0_12_12}{rgb}{0.283091,0.110553,0.431554}%
+\color{QBPCell0_12_12}\put(29,50){\rule{7mm}{7mm}}%
+\color{white}\put(32.5,53.5){\makebox(0,0){1.064}}%
+\color{black}\put(11.5,26){\makebox(0,0){6}}%
+\put(6.5,32.5){\makebox(0,0)[r]{6}}%
+\color{black}\put(18.5,26){\makebox(0,0){8}}%
+\put(6.5,39.5){\makebox(0,0)[r]{8}}%
+\color{black}\put(25.5,26){\makebox(0,0){10}}%
+\put(6.5,46.5){\makebox(0,0)[r]{10}}%
+\color{black}\put(32.5,26){\makebox(0,0){12}}%
+\put(6.5,53.5){\makebox(0,0)[r]{12}}%
+\put(22,22){\makebox(0,0){$b_A$}}%
+\put(1,43){\rotatebox{90}{\makebox(0,0){$b_G$}}}%
+\color{QBPInterval}\put(22,17){\makebox(0,0){Event/min=0.877}}%
+\color{black}\put(61,67){\makebox(0,0){4 assets}}%
+\put(61,62){\makebox(0,0){$\lambda=0.05,c=1.5$}}%
+\color{QBPRejected}\put(47,29){\rule{7mm}{7mm}}%
+\color{black}\put(50.5,32.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(47,36){\rule{7mm}{7mm}}%
+\color{black}\put(50.5,39.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(47,43){\rule{7mm}{7mm}}%
+\color{black}\put(50.5,46.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(47,50){\rule{7mm}{7mm}}%
+\color{black}\put(50.5,53.5){\makebox(0,0){X}}%
+\definecolor{QBPCell1_8_6}{rgb}{0.668054,0.861999,0.196293}%
+\color{QBPCell1_8_6}\put(54,29){\rule{7mm}{7mm}}%
+\color{black}\put(57.5,32.5){\makebox(0,0){2.029}}%
+\definecolor{QBPCell1_8_8}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPCell1_8_8}\put(54,36){\rule{7mm}{7mm}}%
+\color{white}\put(57.5,39.5){\makebox(0,0){1.007}}%
+\definecolor{QBPCell1_8_10}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell1_8_10}\put(54,43){\rule{7mm}{7mm}}%
+\color{white}\put(57.5,46.5){\makebox(0,0){1.004}}%
+\definecolor{QBPCell1_8_12}{rgb}{0.273809,0.031497,0.358853}%
+\color{QBPCell1_8_12}\put(54,50){\rule{7mm}{7mm}}%
+\color{white}\put(57.5,53.5){\makebox(0,0){1.019}}%
+\definecolor{QBPCell1_10_6}{rgb}{0.271305,0.019942,0.347269}%
+\color{QBPCell1_10_6}\put(61,29){\rule{7mm}{7mm}}%
+\color{white}\put(64.5,32.5){\makebox(0,0){1.010}}%
+\definecolor{QBPCell1_10_8}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell1_10_8}\put(61,36){\rule{7mm}{7mm}}%
+\color{white}\put(64.5,39.5){\makebox(0,0){1.003}}%
+\definecolor{QBPCell1_10_10}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell1_10_10}\put(61,43){\rule{7mm}{7mm}}%
+\color{white}\put(64.5,46.5){\makebox(0,0){1.000}}%
+\color{white}\linethickness{1.6pt}%
+\put(61,43){\framebox(7,7){}}%
+\color{black}\linethickness{0.8pt}%
+\put(61,43){\framebox(7,7){}}%
+\definecolor{QBPCell1_10_12}{rgb}{0.272594,0.025563,0.353093}%
+\color{QBPCell1_10_12}\put(61,50){\rule{7mm}{7mm}}%
+\color{white}\put(64.5,53.5){\makebox(0,0){1.015}}%
+\definecolor{QBPCell1_12_6}{rgb}{0.274952,0.037752,0.364543}%
+\color{QBPCell1_12_6}\put(68,29){\rule{7mm}{7mm}}%
+\color{white}\put(71.5,32.5){\makebox(0,0){1.020}}%
+\definecolor{QBPCell1_12_8}{rgb}{0.272594,0.025563,0.353093}%
+\color{QBPCell1_12_8}\put(68,36){\rule{7mm}{7mm}}%
+\color{white}\put(71.5,39.5){\makebox(0,0){1.013}}%
+\definecolor{QBPCell1_12_10}{rgb}{0.271305,0.019942,0.347269}%
+\color{QBPCell1_12_10}\put(68,43){\rule{7mm}{7mm}}%
+\color{white}\put(71.5,46.5){\makebox(0,0){1.010}}%
+\definecolor{QBPCell1_12_12}{rgb}{0.276022,0.044167,0.370164}%
+\color{QBPCell1_12_12}\put(68,50){\rule{7mm}{7mm}}%
+\color{white}\put(71.5,53.5){\makebox(0,0){1.025}}%
+\color{black}\put(50.5,26){\makebox(0,0){6}}%
+\put(45.5,32.5){\makebox(0,0)[r]{6}}%
+\color{black}\put(57.5,26){\makebox(0,0){8}}%
+\put(45.5,39.5){\makebox(0,0)[r]{8}}%
+\color{black}\put(64.5,26){\makebox(0,0){10}}%
+\put(45.5,46.5){\makebox(0,0)[r]{10}}%
+\color{black}\put(71.5,26){\makebox(0,0){12}}%
+\put(45.5,53.5){\makebox(0,0)[r]{12}}%
+\put(61,22){\makebox(0,0){$b_A$}}%
+\put(40,43){\rotatebox{90}{\makebox(0,0){$b_G$}}}%
+\color{QBPInterval}\put(61,17){\makebox(0,0){Event/min=0.947}}%
+\color{black}\put(100,67){\makebox(0,0){4 assets}}%
+\put(100,62){\makebox(0,0){$\lambda=0.2,c=3$}}%
+\color{QBPRejected}\put(86,29){\rule{7mm}{7mm}}%
+\color{black}\put(89.5,32.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(86,36){\rule{7mm}{7mm}}%
+\color{black}\put(89.5,39.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(86,43){\rule{7mm}{7mm}}%
+\color{black}\put(89.5,46.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(86,50){\rule{7mm}{7mm}}%
+\color{black}\put(89.5,53.5){\makebox(0,0){X}}%
+\definecolor{QBPCell2_8_6}{rgb}{0.271305,0.019942,0.347269}%
+\color{QBPCell2_8_6}\put(93,29){\rule{7mm}{7mm}}%
+\color{white}\put(96.5,32.5){\makebox(0,0){1.013}}%
+\definecolor{QBPCell2_8_8}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell2_8_8}\put(93,36){\rule{7mm}{7mm}}%
+\color{white}\put(96.5,39.5){\makebox(0,0){1.006}}%
+\definecolor{QBPCell2_8_10}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell2_8_10}\put(93,43){\rule{7mm}{7mm}}%
+\color{white}\put(96.5,46.5){\makebox(0,0){1.004}}%
+\definecolor{QBPCell2_8_12}{rgb}{0.276022,0.044167,0.370164}%
+\color{QBPCell2_8_12}\put(93,50){\rule{7mm}{7mm}}%
+\color{white}\put(96.5,53.5){\makebox(0,0){1.023}}%
+\definecolor{QBPCell2_10_6}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPCell2_10_6}\put(100,29){\rule{7mm}{7mm}}%
+\color{white}\put(103.5,32.5){\makebox(0,0){1.008}}%
+\definecolor{QBPCell2_10_8}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell2_10_8}\put(100,36){\rule{7mm}{7mm}}%
+\color{white}\put(103.5,39.5){\makebox(0,0){1.002}}%
+\definecolor{QBPCell2_10_10}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell2_10_10}\put(100,43){\rule{7mm}{7mm}}%
+\color{white}\put(103.5,46.5){\makebox(0,0){1.000}}%
+\color{white}\linethickness{1.6pt}%
+\put(100,43){\framebox(7,7){}}%
+\color{black}\linethickness{0.8pt}%
+\put(100,43){\framebox(7,7){}}%
+\definecolor{QBPCell2_10_12}{rgb}{0.273809,0.031497,0.358853}%
+\color{QBPCell2_10_12}\put(100,50){\rule{7mm}{7mm}}%
+\color{white}\put(103.5,53.5){\makebox(0,0){1.019}}%
+\definecolor{QBPCell2_12_6}{rgb}{0.273809,0.031497,0.358853}%
+\color{QBPCell2_12_6}\put(107,29){\rule{7mm}{7mm}}%
+\color{white}\put(110.5,32.5){\makebox(0,0){1.017}}%
+\definecolor{QBPCell2_12_8}{rgb}{0.271305,0.019942,0.347269}%
+\color{QBPCell2_12_8}\put(107,36){\rule{7mm}{7mm}}%
+\color{white}\put(110.5,39.5){\makebox(0,0){1.010}}%
+\definecolor{QBPCell2_12_10}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPCell2_12_10}\put(107,43){\rule{7mm}{7mm}}%
+\color{white}\put(110.5,46.5){\makebox(0,0){1.009}}%
+\definecolor{QBPCell2_12_12}{rgb}{0.277018,0.050344,0.375715}%
+\color{QBPCell2_12_12}\put(107,50){\rule{7mm}{7mm}}%
+\color{white}\put(110.5,53.5){\makebox(0,0){1.028}}%
+\color{black}\put(89.5,26){\makebox(0,0){6}}%
+\put(84.5,32.5){\makebox(0,0)[r]{6}}%
+\color{black}\put(96.5,26){\makebox(0,0){8}}%
+\put(84.5,39.5){\makebox(0,0)[r]{8}}%
+\color{black}\put(103.5,26){\makebox(0,0){10}}%
+\put(84.5,46.5){\makebox(0,0)[r]{10}}%
+\color{black}\put(110.5,26){\makebox(0,0){12}}%
+\put(84.5,53.5){\makebox(0,0)[r]{12}}%
+\put(100,22){\makebox(0,0){$b_A$}}%
+\put(79,43){\rotatebox{90}{\makebox(0,0){$b_G$}}}%
+\color{QBPInterval}\put(100,17){\makebox(0,0){Event/min=0.937}}%
+\color{black}\put(139,67){\makebox(0,0){8 assets}}%
+\put(139,62){\makebox(0,0){$\lambda=0.2,c=3$}}%
+\color{QBPRejected}\put(125,29){\rule{7mm}{7mm}}%
+\color{black}\put(128.5,32.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(125,36){\rule{7mm}{7mm}}%
+\color{black}\put(128.5,39.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(125,43){\rule{7mm}{7mm}}%
+\color{black}\put(128.5,46.5){\makebox(0,0){X}}%
+\color{QBPRejected}\put(125,50){\rule{7mm}{7mm}}%
+\color{black}\put(128.5,53.5){\makebox(0,0){X}}%
+\definecolor{QBPCell3_8_6}{rgb}{0.647257,0.858400,0.209861}%
+\color{QBPCell3_8_6}\put(132,29){\rule{7mm}{7mm}}%
+\color{black}\put(135.5,32.5){\makebox(0,0){2.014}}%
+\definecolor{QBPCell3_8_8}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell3_8_8}\put(132,36){\rule{7mm}{7mm}}%
+\color{white}\put(135.5,39.5){\makebox(0,0){1.003}}%
+\definecolor{QBPCell3_8_10}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell3_8_10}\put(132,43){\rule{7mm}{7mm}}%
+\color{white}\put(135.5,46.5){\makebox(0,0){1.002}}%
+\definecolor{QBPCell3_8_12}{rgb}{0.269944,0.014625,0.341379}%
+\color{QBPCell3_8_12}\put(132,50){\rule{7mm}{7mm}}%
+\color{white}\put(135.5,53.5){\makebox(0,0){1.008}}%
+\definecolor{QBPCell3_10_6}{rgb}{0.636902,0.856542,0.216620}%
+\color{QBPCell3_10_6}\put(139,29){\rule{7mm}{7mm}}%
+\color{black}\put(142.5,32.5){\makebox(0,0){2.011}}%
+\definecolor{QBPCell3_10_8}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell3_10_8}\put(139,36){\rule{7mm}{7mm}}%
+\color{white}\put(142.5,39.5){\makebox(0,0){1.001}}%
+\definecolor{QBPCell3_10_10}{rgb}{0.267004,0.004874,0.329415}%
+\color{QBPCell3_10_10}\put(139,43){\rule{7mm}{7mm}}%
+\color{white}\put(142.5,46.5){\makebox(0,0){1.000}}%
+\color{white}\linethickness{1.6pt}%
+\put(139,43){\framebox(7,7){}}%
+\color{black}\linethickness{0.8pt}%
+\put(139,43){\framebox(7,7){}}%
+\definecolor{QBPCell3_10_12}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell3_10_12}\put(139,50){\rule{7mm}{7mm}}%
+\color{white}\put(142.5,53.5){\makebox(0,0){1.006}}%
+\definecolor{QBPCell3_12_6}{rgb}{0.647257,0.858400,0.209861}%
+\color{QBPCell3_12_6}\put(146,29){\rule{7mm}{7mm}}%
+\color{black}\put(149.5,32.5){\makebox(0,0){2.019}}%
+\definecolor{QBPCell3_12_8}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell3_12_8}\put(146,36){\rule{7mm}{7mm}}%
+\color{white}\put(149.5,39.5){\makebox(0,0){1.005}}%
+\definecolor{QBPCell3_12_10}{rgb}{0.268510,0.009605,0.335427}%
+\color{QBPCell3_12_10}\put(146,43){\rule{7mm}{7mm}}%
+\color{white}\put(149.5,46.5){\makebox(0,0){1.004}}%
+\definecolor{QBPCell3_12_12}{rgb}{0.271305,0.019942,0.347269}%
+\color{QBPCell3_12_12}\put(146,50){\rule{7mm}{7mm}}%
+\color{white}\put(149.5,53.5){\makebox(0,0){1.010}}%
+\color{black}\put(128.5,26){\makebox(0,0){6}}%
+\put(123.5,32.5){\makebox(0,0)[r]{6}}%
+\color{black}\put(135.5,26){\makebox(0,0){8}}%
+\put(123.5,39.5){\makebox(0,0)[r]{8}}%
+\color{black}\put(142.5,26){\makebox(0,0){10}}%
+\put(123.5,46.5){\makebox(0,0)[r]{10}}%
+\color{black}\put(149.5,26){\makebox(0,0){12}}%
+\put(123.5,53.5){\makebox(0,0)[r]{12}}%
+\put(139,22){\makebox(0,0){$b_A$}}%
+\put(118,43){\rotatebox{90}{\makebox(0,0){$b_G$}}}%
+\color{QBPInterval}\put(139,17){\makebox(0,0){Event/min=0.971}}%
+\color{QBPRejected}\put(20,7){\rule{3mm}{3mm}}%
+\color{black}\put(24,8.5){\makebox(0,0)[l]{X: rejected budget}}%
+\linethickness{0.8pt}\put(73,7){\framebox(3,3){}}%
+\put(77,8.5){\makebox(0,0)[l]{Exact numerical minimum}}%
+\end{picture}%
+}%
+}\par%
+\endgroup%
+\small\setlength{\abovecaptionskip}{6pt}%
+\caption{Complete T caps over the 64 registered numerical-rival configurations. Panels give asset count, common volatility $\lambda$ and loading multiplier $c$. Columns and rows give the address widths $b_A$ and $b_G$ of $P(m_A)$ and $P(m_G)$; other widths and inputs are fixed. Colours and labels show each admitted cap/its panel minimum, using a shared logarithmic colour scale. Labels have three decimals; exact costs and ratios are retained. Grey crosses mark twelve rejected monetary budgets. Outlines identify the numerical minima, $b_A=b_G=10$. Orange footers compare the fixed shared-threshold encoding with minima of this numerical pool; Table~\ref{tab:shared-threshold} also includes the raw-payoff pool. Every alternative uses radius $0.01$ and per-price failure allowance $1/3600$. These are synthetic deterministic logical resource caps, not price observations or device timings.}
+\label{fig:pricing-precision}
+\end{figure}
+
+\subsection{A bounded Chebyshev comparison}
+
+I also implement a bounded two-parity adaptation of \citet{rallfuller2023}
+at the numerical first-correction flags in
+Table~\ref{tab:four-complete-prices}. On the declared 400 scalar diagnostic
+histories, 111 pilots certify; every median charge is higher than its
+preceding canonical cap, although three diagnostic means are lower.
+Failed pilots retain their full work and fallback. The worst-history cap
+is at most $1.188T_0$ here, not an improvement against that comparator.
+The standalone supporting proof retains the full parity, inverse-branch,
+exact-binomial confidence, fallback and break-even derivations; all
+diagnostic histories and the detailed table remain archived. This bounded
+adaptation does not defeat the unchanged published controller, and a
+matched modern-estimator comparison on both new preparations remains
+necessary. Mesh averages do not identify cost at an unknown financial flag.
+
+The transport theorem applies beyond one payoff and asset count. It
+certifies Gaussian integration whenever residual derivatives have finite
+exponential-polynomial envelopes, including conditioned classical grids
+and coherent financial preparation. For these baskets, moments through
+degree four suffice for the second-residual transfer. Their construction
+is polynomial in the number of exponential terms, with explicit scalar
+setup and tensor-factor products; the error itself is not dimension-free.
+The abstract finite-transform reduction shows that scalar factorisation
+and Cauchy closure follow from established positive-measure tools. The
+residual derivative calculation is a necessary financial specialisation,
+with practical bounds, rather than a new general integration principle.
+The checked argument supplies a reusable financial certificate and
+reconstructed logical resource evidence. It establishes neither
+superiority over classical pricing nor global precision optimality.
+Complete comparison with compatible modern quantum estimators across the
+original cohort and broader market validation remain required before
+broader claims. The
+supporting index maps complete derivations, source versions, failures and
+byte-exact earlier archives and semantically reconstructible new evidence
+without expanding the main argument.
+
+\appendix
+\section{Detailed proofs and standard derivations}
+\label{app:main-derivations}
+
+\subsection{Proof of Theorem~\ref{thm:norm}}
+\label{app:proof-norm}
+
+\begin{proof}
+The identity $\phi^{(j)}=(-1)^j\operatorname{He}_j\phi$ follows by
+induction from $\phi'=-z\phi$ and the recurrence.  Its boundedness and
+finite measure mass justify dominated differentiation under $\nu$.
+If $D=\partial_m$, differentiating $t^{-r}Q(D)P(m+\log t)$ gives
+$t^{-r-1}(D-r)Q(D)P(m+\log t)$.  Induction therefore yields
+$g_m^{(r)}=t^{-r}\sum_\ell s(r,\ell)P_\nu^{(\ell)}$ and then the
+integral in \eqref{eq:norm-derivative}.  Positivity of $\nu$ gives the
+bound.  Since the leading term of $A_{r,\lambda}$ is
+$(-1)^{r-1}\lambda^{-r}z^{r-1}$, the polynomial is nonzero.
+Continuity and Gaussian decay give a maximiser $z_*$.  Take
+$t=1$, $m=x_*+\lambda z_*$ and $\nu=H\delta_{x_*}$.
+The absolute derivative is exactly $HD_r$, proving uniform sharpness.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:finite-price}}
+\label{app:proof-finite-price}
+
+\begin{proof}
+The integral Taylor remainder is
+$k!^{-1}\int_1^T(T-t)^kg_m^{(k+1)}(t)dt$.
+Since $T\geq1$, Theorem~\ref{thm:norm} bounds its absolute value by
+$H\overline D_{k+1}U^{k+1}/(k+1)!$.
+Every Gaussian exponential has all finite moments; finite sums preserve
+this property, so the remainder is integrable.  Taking expectations gives
+\eqref{eq:finite-certificate}.  The signed-Stirling derivative formula,
+\eqref{eq:T-multinomial} and \eqref{eq:gaussian-tilt} evaluate all its
+coefficients.  The finite collection of exponential and scalar normal
+functions is computable at a positive scale, and outward arithmetic
+preserves their enclosures.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:boundary}}
+\label{app:proof-boundary}
+
+\begin{proof}
+Linear growth gives an integrable payoff. For a single call, put
+$x=m-\log(K_j/S_{\rm ref})$. Completing the Gaussian square gives
+$P_j=K_j\{e^{x+\lambda^2/2}\Phi((x+\lambda^2)/\lambda)
+-\Phi(x/\lambda)\}$.
+The identity $e^{x+\lambda^2/2}\phi((x+\lambda^2)/\lambda)=\phi(x/\lambda)$
+gives $P_j'=K_je^{x+\lambda^2/2}\Phi((x+\lambda^2)/\lambda)$ and
+$P_j''-P_j'=K_j\phi(x/\lambda)/\lambda$.
+Gaussian density times an exponential and a polynomial dominates every
+required derivative on a compact $m$ interval, justifying differentiation.
+The affine terms are killed by $D(D-1)$; finite linearity proves
+\eqref{eq:boundary-kernel}. The chain rule gives
+$g_m''(t)=t^{-2}C_2(m+\log t)$ for $g_m(t)=P_F(m+\log t)$.
+Integrating $g_m''$ twice proves \eqref{eq:beta-identity}.
+Its measure and $U^2$ are nonnegative, and $t\geq1$, proving both bounds.
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:convex-screen}}
+\label{app:proof-convex-screen}
+
+\begin{proof}
+Theorem~\ref{thm:boundary} bounds the exact residual between zero and
+$M_2U^2/2$ pointwise on the full Gaussian law. All lognormal ratio moments
+are finite, so taking expectations proves both endpoints. Gaussian tilts
+evaluate $c_0,c_1$ and the continuous moment in finite sums. Outward
+coefficient errors enlarge the endpoints when they are implemented.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:variance}}
+\label{app:proof-variance}
+
+\begin{proof}
+Equation~\eqref{eq:beta-identity} gives the conditional mean. The finite
+support makes second moments finite. Subtract the conditional mean and
+expand the square; the mixed term has conditional expectation zero.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:error}}
+\label{app:proof-error}
+
+\begin{proof}
+Insert the exact coefficient, mass-weighted finite financial correction,
+finite auxiliary expectation and implemented expectation in succession.
+Their deterministic discrepancies are bounded by the stated terms.
+The decoder is $B(2p-1)$ or $Bp$, giving $dB\eta_p$.
+Write the external-factor discrepancy against the implemented bounded
+score, giving $e_FB$. The triangle inequality proves the bound on the
+estimator success event. Exact integer signed-part recombination preserves
+the centred observable, so its deterministic bound is the centred one.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:shared-threshold}}
+\label{app:proof-shared-threshold}
+
+\begin{proof}
+Conditioning on $X=x$ gives
+$\Pr\{x-\lambda N\leq m\}=\Phi((m-x)/\lambda)$.
+Integrating against $\nu/H$ and subtracting the two nested half-line
+events proves the identity. Gaussian convolution removes continuous
+endpoint atoms. The cap law follows from the threshold payoff integral
+and the change of variables $x=\log(1+(H/K)u)$.
+\end{proof}
+
+\subsection{Equivalent pricing measure and admissible trading}
+\label{app:measure-change}
+
+The strictly positive process
+$L_t=\exp(-\theta\cdot W_t-\|\theta\|^2t/2)$ is a martingale of mean one:
+the assertion follows by conditioning on independent Gaussian increments
+and evaluating their exponential moment.  It defines an equivalent
+probability $Q$ on the finite horizon.  Multiplying an increment's normal
+density by its exponential factor shifts its mean by
+$-\theta\Delta t$, preserving covariance and independence.  Therefore
+$W_t^Q=W_t+\theta t$ is Brownian under $Q$, and the stock drift becomes
+$r_f-q_i$.
+
+The discounted cumulative gain
+\begin{equation}
+ e^{-r_ft}S_i(t)+\int_0^t e^{-r_fu}q_iS_i(u)\,du
+\end{equation}
+has zero drift under $Q$.  The explicit GBM solution has finite second
+moments on $[0,\tau]$, so its stochastic integral is a true martingale.
+For a self-financing admissible zero-cost strategy whose discounted wealth
+is bounded below, localisation followed by conditional Fatou's lemma makes
+the discounted wealth a supermartingale.  Nonnegative terminal wealth which
+is positive with positive probability would contradict its nonpositive
+expectation.  This establishes absence of arbitrage in the stated
+admissibility class.  Full row rank is sufficient, rather than necessary.
+If Brownian risk is unspanned, I use this stipulated $Q$; the quantum
+estimator does not select a new pricing measure.
+
+\subsection{Common-factor covariance decomposition}
+\label{app:common-factor}
+
+The equal common Gaussian loading is available for every positive-definite
+maturity log-covariance matrix $C$. Let
+$\lambda^2=(\mathbf1^{\mathsf T}C^{-1}\mathbf1)^{-1}$.
+Cauchy--Schwarz applied to $C^{1/2}v$ and $C^{-1/2}\mathbf1$ gives
+\begin{equation}
+ v^{\mathsf T}Cv\geq
+ \lambda^2(\mathbf1^{\mathsf T}v)^2,
+\end{equation}
+so $C-\lambda^2\mathbf1\mathbf1^{\mathsf T}$ is positive semidefinite.
+It kills $C^{-1}\mathbf1$ and has rank $n-1$, because a rank-one
+subtraction from positive-definite $C$ loses exactly that one direction.
+A factor $RR^{\mathsf T}$ of this residual matrix and an independent
+common $Z$ reproduce $C$ exactly. The original drifts use its unchanged
+diagonal variances. This established Gaussian factorisation shows the
+analytical model coverage; extracting a common factor is not itself a
+new asset law or a proof of a favourable numerical cost.
+
+\subsection{Gaussian tilt and differentiated conditioning}
+\label{app:gaussian-tilt-detail}
+
+For \eqref{eq:gaussian-tilt}, use
+$e^{v\cdot y-\|y\|^2/2}=e^{\|v\|^2/2}e^{-\|y-v\|^2/2}$ and shift the
+integration variable.  Independent Gaussian convolution changes the common
+scale to $\sigma$.  Bounded differentiated kernels justify passing each
+finite derivative through the expectation.  This remains valid at $R_G=0$.
+
+\subsection{Closed-kernel differentiation and independent verification}
+\label{app:kernel-differentiation}
+
+With the variables in \eqref{eq:closed-kernel}, the density identities
+$e^{m+\sigma^2/2}\phi(z_0)=\phi(x_0)$ and
+$e^{m+\sigma^2/2}\phi(z_1)=(1+H/K)\phi(x_1)$ cancel the boundary terms
+in differentiation.  They give
+$P'_{\sigma,H}=Ke^{m+\sigma^2/2}[\Phi(z_0)-\Phi(z_1)]$;
+higher derivatives follow by the product rule and Hermite recurrence.
+The retained audit compares these evaluations with differentiated series
+and the strike-integral representation.  A formal closed formula is not
+used as its own verification.
+
+\subsection{Separated Fourier and Hermite comparators}
+\label{app:fourier-comparators}
+
+For comparison with the earlier separated bounds, Gaussian Fourier
+inversion gives
+$\mathcal B_j=(2\pi)^{-1}\int_\R |u|^je^{-u^2/2}du$ and
+$\mathcal H_j\leq\mathcal B_j$.
+Direct integration gives $\mathcal B_0=(2\pi)^{-1/2}$,
+$\mathcal B_1=\pi^{-1}$ and
+integration by parts gives $\mathcal B_j=(j-1)\mathcal B_{j-2}$.
+Thus the individual-norm triangle and Fourier triangle are distinct
+competent comparators.  Retaining both separates a gain from cancellation
+from a gain obtained by tightening each derivative separately.
+
+\subsection{Canonical phase-grid error derivation}
+\label{app:canonical-sketch}
+
+Equation~\eqref{eq:canonical-error} follows from the two Grover eigenphases and the nearest phase-grid
+outcomes: writing $p=\sin^2\theta$, the relevant phase error is at most
+$\pi/M$, and Taylor expansion of $\sin^2$ bounds the first-order term by
+$2\sqrt{p(1-p)}\pi/M$ and the second-order term by $\pi^2/M^2$.
+The probability of the nearest-grid event is bounded below by the retained
+canonical phase-estimation theorem.  The exact finite confidence calculation
+and phase-tape verification remain in the supporting derivations.
+
+\subsection{Fourier synthesis and retained tape diagnostics}
+\label{app:fourier-diagnostics}
+
+The inverse Fourier transform has explicit Clifford and T sequences,
+based on certified single-qubit rotation approximations
+\citep{rossselinger2016}.  Scalar phases are retained until they are
+physically irrelevant to the final measurement.  For phase widths through
+64, distant unsupported controlled phases are replaced by identity with a
+charged operator-norm error; retained approximations and omitted phases
+are summed by a telescoping product bound.
+The complete largest-width bound is about $0.0022013$, below the stipulated
+$1/64$ implementation limit.  The 64-bit tape has 167,223 T gates; the earlier 32-bit
+profile is preserved at 68,823 T gates.  The extension charges omitted
+distant phases rather than silently assigning them exact rotations.
+This is an implementation-error statement, not an execution on a quantum
+device.
+
+
+\section{Complete root isolation for the joint norm}
+\label{app:roots}
+
+This appendix gives the finite certificate behind
+Theorem~\ref{thm:norm}.  Write $A=A_{r,\lambda}$ and $Q=A'-zA$.
+Since $(A\phi)'=Q\phi$, every nonzero absolute maximum is at a real root
+of $Q$.  Zeros of $A$ and limits at infinity contribute zero.
+For rational $\lambda$, all coefficients are rational and $\deg Q=r$.
+Replace $Q$ by its monic square-free part $q=Q/\gcd(Q,Q')$; this keeps
+every distinct root.
+
+Start a remainder sequence with $q_0=q$, $q_1=q'$ and define
+$q_{j+1}$ as minus the polynomial remainder of $q_{j-1}$ by $q_j$.
+Positive rescalings do not change signs.  The sequence ends in a nonzero
+constant.  Consecutive terms cannot vanish together, since the recurrence
+would propagate that zero to the last constant.  At an internal zero the
+neighbouring terms have opposite signs, so their adjacent comparisons
+contribute one sign variation on both sides.  At a root of $q_0$, its
+nonzero derivative makes the variation count decrease by one.
+Thus, omitting zero values, $V(a)-V(b)$ counts roots in $(a,b)$ when
+$a,b$ are nonroots.
+
+Every root lies within
+$1+\max_{j<r}|a_j/a_r|$ for the coefficients of $q$.
+Outside that radius the absolute sum of its lower terms is strictly less
+than the leading term, so cancellation is impossible.
+Choose a larger integer radius and subdivide rationally, preserving the
+exact root-count sum.  If a proposed midpoint is a root, choose a nonroot
+among the $r+1$ interior fractions $j/(r+2)$ of the interval; a degree-$r$
+polynomial cannot vanish at all of them.  Every such split contracts each
+child by at most $(r+1)/(r+2)$.  Distinct roots have positive separation,
+so repeated contraction first isolates each and then attains the required
+interval width.  This proves finite termination, including rational roots.
+
+Evaluate $|A\phi|$ with an outward Arb ball covering both exact endpoints
+of each isolating interval.  The largest upper endpoint is a global upper
+certificate, because all maximising roots are covered.  Evaluation at
+midpoints gives lower bounds on the global supremum even when those points
+are not roots.  The independent implementation reconstructs the rational
+polynomials, verifies total root counts and interval endpoint signs, and
+uses higher-precision Gaussian evaluations to check the retained envelopes.
+No claim that interval midpoint evaluation is the exact maximum is needed.
+
+\section{Signed interpolation and arithmetic contracts}
+\label{app:arithmetic}
+
+Let $f\in C^2([a,a+s])$ and grid spacing $h=s/2^b$, with a power-of-two
+span $s$ and $b\leq q+\log_2s$.  At every endpoint $x_j$, retain an
+unsigned dyadic value $n_j2^{-q}$ and an outward error $e_j$.
+On a cell $[u,v]$, the exact linear interpolation error equals
+$f''(\zeta)(x-u)(x-v)/2$ for some interior $\zeta$.
+Subtract the linear interpolant and a multiple of $(t-u)(t-v)$ chosen to
+give a third zero at $x$, then apply Rolle's theorem twice to prove this
+identity.  Since $(x-u)(v-x)\leq h^2/4$, endpoint rounding and one integer
+truncation give
+\begin{equation}
+ e_f\leq\max_je_j+\|f''\|_\infty h^2/8+2^{-q}.
+ \label{eq:appendix-interpolation}
+\end{equation}
+An argument error $\eta_x$ adds $\|f'\|_\infty\eta_x$ if both arguments
+remain in the declared interval.  Projection onto that interval does not
+enlarge the distance from an admissible exact argument.
+
+The actual table stores the base integer, the absolute difference to the
+next endpoint, and its decreasing bit.  It multiplies the unsigned magnitude
+by the within-cell remainder and chooses unsigned addition or subtraction.
+The adjustment cannot underflow a decreasing base: it is at most the
+endpoint difference, and both endpoints are nonnegative.
+The final endpoint has its own address, so saturation at the right endpoint
+does not wrap to the left.  The packed magnitudes, intermediate additions
+and input slices are checked against their actual widths.
+Outward endpoints are coarsened downwards and upwards to
+$2^{-384}\mathbb Z$ before serialization; the enlarged intervals determine
+all nodal errors.  Extreme Gaussian tails are not treated as exact zeros.
+
+For $x\geq a>0$, usable first and second derivative bounds are
+$a^{-1},a^{-2}$ for $\log x$, and $2a^{-3},6a^{-4}$ for $x^{-2}$.
+For $e^x$ both are $e^{a+s}$.
+For the boundary scalar,
+$C_2'=C_3+2C_2$ and $C_2''=C_4+5C_3+4C_2$ give valid slope and
+curvature bounds, divided by $2M_2$ for the capped $h$ kernel.
+I intersect them with independent two-density derivative bounds when
+smaller. Capped price tables receive $|P'|\leq M_1$,
+$|P''|\leq M_1+M_2$ and $|P'''|\leq M_1+3M_2+M_3$, intersected with
+$H\lambda^{-j}\|\phi^{(j-1)}\|_\infty$.
+Vanilla raw-price tables use the finite-domain forward bound for $P'$;
+its boundary-density scalar remains globally bounded. These inequalities
+are shared across methods and never change a probability's decoder.
+
+For products, either identity
+$\widehat x\widehat y-xy=x(\widehat y-y)+\widehat y(\widehat x-x)
+=y(\widehat x-x)+\widehat x(\widehat y-y)$ yields a valid absolute error.
+Taking the smaller range-based upper bound and adding one truncation unit
+preserves small-factor suppression.  Addition and subtraction add operand
+errors.  Scaling charges its rounded coefficient and any dropped bits.
+Each node independently propagates implemented ranges; intersecting them
+with an ideal range expanded by its certified error retains correlations
+without removing rounding.  Empty intersections or domain violations reject
+the graph.  Signed final differences must fit strictly within the
+unambiguous two's-complement range before projection.  Positive-subtraction
+temporaries are predicate-masked before any downstream multiplication.
+These checks are essential hypotheses of the monetary certificate.
+
+\section{Auxiliary midpoint and stable quadrature proofs}
+\label{app:aux}
+
+For a Beta cell centred at $z_j$ with width $h$, write $u=z-z_j$.
+The density is $2(1-z_j)-2u$; direct integration gives first centred
+moment $-h^3/6$ and second centred moment $2(1-z_j)h^3/12$.
+Taylor's formula, summed over cells with their exact positive masses,
+therefore gives
+\begin{equation}
+ |\E f(Z_B)-\E f(Z_{B,N})|
+ \leq h^2\{\|f'\|_\infty/6+\|f''\|_\infty/24\}.
+\end{equation}
+For $f_y(z)=g_{m(y)}''(1+zU)$, the derivatives are bounded by
+$M_3U$ and $M_4U^2$. Multiplication by $U^2/2$ and finite financial
+expectation prove \eqref{eq:beta-error}.
+
+For the stable rule the Beta moments are $2/((j+1)(j+2))$.
+The monic polynomial $\pi_2(z)=z^2-4z/5+1/10$ is orthogonal to
+$1,z$, by substitution of these moments. Its roots and positive weights
+are those in \eqref{eq:stable-kernel}; the first four moments show
+exactness through degree three. Direct integration gives
+$\int\pi_2^2\,2(1-z)dz=1/300$.
+For $f\in C^4[0,1]$, its cubic Hermite interpolant $H_f$ agrees with
+$f,f'$ at both nodes. At any non-node $z$, subtract a multiple of
+$\pi_2^2$ chosen to create an additional zero there. Four applications of
+Rolle's theorem, counting the two double zeros, give
+$f(z)-H_f(z)=f^{(4)}(\xi_z)\pi_2(z)^2/4!$.
+At a node the error is zero. Positivity and exactness of the quadrature
+then imply error at most $\|f^{(4)}\|_\infty/7200$.
+Taking $f=f_y$ bounds its fourth derivative by $M_6U^4$.
+The factor $U^2/2$ gives the first term of \eqref{eq:gauss-error}.
+Replace nodes first under the true positive weights, using $M_3U$;
+then replace weights at the dyadic nodes, using $M_2$. This gives the two
+remaining terms after finite expectation. All nodes lie in $[0,1]$.
+The graph's dyadic constants are exact rational operations; their discrepancy
+from the ideal quadrature is charged here once.
+
+\section{Gaussian transport and factorised financial error}
+\label{app:financial-transfer}
+
+I complete the financial transfer for the four- and eight-asset models
+by integrating derivative envelopes against a positive transport measure.
+This retains dispersion moments instead of replacing $U$ by its largest
+value on $[-L,L]^p$. Let $\nu$ be the unnormalised truncated Gaussian
+measure, with mass $a$, and let $\tau=(a/N)\sum_c\delta_{c_c}$ use the
+actual rounded nodes in the same CDF cells. For their centred cell moments
+$\mu_{1,c},\mu_{2,c}$, the weighted identity of \citet{cerone2002}
+(Theorem~3, $n=1$, $\alpha=a_c$, $\beta=b_c$, $x=c_c$, $w=\phi$) gives
+\begin{equation}
+ \int f\,d(\nu-\tau)=\sum_c\mu_{1,c}f'(c_c)
+                         +\int f''\,d\rho_2,
+\end{equation}
+where $\rho_2$ has nonnegative densities
+$\int_{a_c}^{z}(z-y)\phi(y)dy$ to the left of $c_c$ and
+$\int_z^{b_c}(y-z)\phi(y)dy$ to its right. Its mass is
+$\sum_c\mu_{2,c}/2$. For
+$\rho_1=\sum_c\widehat\mu_{1,c}\delta_{c_c}$ with certified
+$\widehat\mu_{1,c}\geq|\mu_{1,c}|$, the absolute transfer is bounded
+by $\int|f'|d\rho_1+\int|f''|d\rho_2$.
+
+For the two-asset local variant, I keep the signed linear sum and
+bound the curvature on retained cell segments:
+\begin{equation}
+ \beta_Y\leq B_{\rm tail}+\left|\sum_c\mu_{1,c}R'(c_c)\right|
+                    +\sum_{c,I}D_{c,I}\rho_2(I),
+ \label{eq:reference-transfer}
+\end{equation}
+where $D_{c,I}$ encloses $\sup_I|R''|$. Nonnegative transport weights
+justify outward endpoint extensions. The full local proof retains the
+closed Gaussian residual derivatives, primitive weight integrals and
+independent automatic-differentiation checks.
+
+The exact moment-generating function of the second transport measure is
+\begin{equation}
+ \mathcal M_{\rho_2}(v)=\frac{
+ e^{v^2/2}\{\Phi(L-v)-\Phi(-L-v)\}
+ -(a/N)\sum_c e^{vc_c}-v\sum_c\mu_{1,c}e^{vc_c}}{v^2},
+ \qquad v\ne0.
+ \label{eq:positive-transport-mgf}
+\end{equation}
+This follows by substituting $f(y)=e^{vy}$ into the exact identity,
+with continuous minus rounded measures in that order. At zero I use its
+mass directly. Near zero, the enclosure
+$e^{-|v|L}\rho_2(\mathbb R)\leq\mathcal M_{\rho_2}(v)
+\leq e^{|v|L}\rho_2(\mathbb R)$ prevents cancellation in the quotient.
+
+Define
+$\Lambda_{j,k}=\nu^{\otimes(j-1)}\otimes\rho_k
+\otimes\tau^{\otimes(p-j)}$ and
+$\langle h\rangle_{j,k}=\int h\,d\Lambda_{j,k}$.
+The product-measure telescoping identity then proves
+\begin{equation}
+ \left|\int R_2d\nu^{\otimes p}-\int R_2d\tau^{\otimes p}\right|
+ \leq\sum_j\{\langle|\partial_jR_2|\rangle_{j,1}
+                   +\langle|\partial_{jj}R_2|\rangle_{j,2}\}.
+ \label{eq:positive-tensor-transfer}
+\end{equation}
+All raw masses remain inside the hybrid measures.
+
+For $u=T_j$, $v=T_{jj}\geq0$ and $r=r_j$, let
+$D_1\geq\|C_2'\|_\infty$, $D_2\geq\|C_2''\|_\infty$ and
+$D_{31}\geq\|C_3'\|_\infty$, in addition to the shared $M_k$ bounds.
+The integral representation of $R_2$ implies
+\begin{align}
+ |\partial_jR_2|&\leq M_2U|u|+\tfrac12|r|D_1U^2
+                                  +\tfrac16M_3U^2|u|,\\
+ |\partial_{jj}R_2|&\leq M_2(u^2+Uv)+2|r|D_1U|u|
+ +\tfrac23M_3Uu^2+\tfrac12r^2D_2U^2\\
+ &\quad+\tfrac13|r|D_{31}U^2|u|
+                +\tfrac16M_3U^2v+\tfrac1{12}M_4U^2u^2.
+\end{align}
+Let $E_{j,1}$ and $E_{j,2}$ denote these two nonnegative derivative
+envelopes. Under the stated positive-weight exponential geometry and
+bounded curvature derivatives, they give the following full certificate.
+\begin{theorem}[Factorised Gaussian financial transfer]
+\label{thm:tensor-transfer}
+For actual nodes certified inside their Gaussian CDF cells,
+\begin{equation}
+ |\E R_2-\alpha_1^p\E_NR_2|
+ \leq \frac{M_2}{2}\E[U^2\ind_{Y\notin[-L,L]^p}]
+ +\sum_j\{\langle E_{j,1}\rangle_{j,1}
+                    +\langle E_{j,2}\rangle_{j,2}\}.
+\end{equation}
+All envelope terms are bounded by finite positive-measure moments of
+exponential polynomials of degree at most four, using the Cauchy bounds
+below. Their factorisation preserves the raw Gaussian masses.
+\end{theorem}
+\begin{proof}
+Split the full Gaussian integral into the box and its complement.
+The global curvature bound controls the latter by the displayed outside
+moment. The positive one-coordinate representation, applied to each term
+of the tensor telescope, controls the former by the two derivative
+envelopes. Their derivation and finite-moment evaluation follow directly.
+To verify the coefficients, differentiate
+$G=t^{-2}C_2(m+\log t)$ with $t=1+zU$:
+\begin{equation}
+ G_j=rt^{-2}C_2'+zu t^{-3}C_3,
+\quad G_{jj}=r^2t^{-2}C_2''+2rzu t^{-3}C_3'
+                         +zv t^{-3}C_3+z^2u^2t^{-4}C_4.
+\end{equation}
+Apply the product rule to $U^2G$, use $t\geq1$, and integrate
+$1-z$, $z(1-z)$ and $z^2(1-z)$, whose integrals are $1/2$, $1/6$
+and $1/12$. Cauchy's inequality gives
+$\langle U|u|\rangle\leq\sqrt{\langle U^2\rangle\langle u^2\rangle}$
+and
+\begin{equation}
+ \langle U^2|u|\rangle\leq
+ \min\{\sqrt{\langle U^2\rangle\langle U^2u^2\rangle},
+          \sqrt{\langle U^4\rangle\langle u^2\rangle}\}.
+\end{equation}
+These inequalities hold for finite positive measures without a mass
+divisor. Every remaining moment is a polynomial of degree at most four
+in the asset exponentials. Its signed multinomial sum factorises into
+scalar MGFs, using $\rho_k$ in coordinate $j$, $\nu$ before it and
+$\tau$ after it. Thus no $N^p$ residual values enter the certificate.
+The outside-box $U^2$ moment follows by Gaussian tilting and contributes
+$M_2\mathbb E[U^2\mathbf1_{Y\notin[-L,L]^p}]/2$.
+
+\end{proof}
+
+For the matched FTC comparator, compact-cell Fubini applied to
+$f(y)-f(c)$ gives a signed kernel $\Phi(a_c)-\Phi(z)$ on the left and
+$\Phi(b_c)-\Phi(z)$ on the right. Its absolute density defines $\rho_0$.
+Writing $J_v(a,b)=e^{v^2/2}\{\Phi(b-v)-\Phi(a-v)\}$, integration by parts
+on both segments gives, for $v\ne0$,
+\begin{equation}
+ \mathcal M_{\rho_{0,c}}(v)=
+ \frac{e^{vc}\{2\Phi(c)-\Phi(a_c)-\Phi(b_c)\}
+             +J_v(c,b_c)-J_v(a_c,c)}{v}.
+\end{equation}
+At zero I use $\int_{a_c}^{b_c}|y-c|\phi(y)dy$ directly. Replacing
+$\rho_1,\rho_2$ by $\rho_0$ and integrating $E_{j,1}$ gives its bound
+for the same $R_2$. This independently derived common-grid adaptation
+does not assert equivalence to the uniform-grid theorem of
+\citet{herman2026}.
+
+For any transported-coordinate block partition and nonnegative moment
+pairs $(A_D,B_D)$, discrete Cauchy gives
+$\sum_D\sqrt{A_DB_D}\leq\sqrt{(\sum_DA_D)(\sum_DB_D)}$.
+The minimum of the two alternative Cauchy closures also cannot increase
+under exact refinement, since $\sum_D\min(a_D,b_D)\leq
+\min(\sum_Da_D,\sum_Db_D)$. All envelope coefficients are nonnegative
+and direct moments add. Independently rounded numerical bounds are made
+monotone by taking the minimum of parent and summed-child upper bounds;
+both are valid. For $M$ monomials, the implemented shared grouping uses
+$O(p^2M)$ other-coordinate products and $O(BpM)$ subsequent block dot
+products, with scalar transforms, rate formation and prefix preparation
+charged separately. Full cell transforms, interval-series remainders,
+refinement proofs and independent audits are retained in the supporting
+comparison record.
+
+For a fair first-correction comparison, I also transfer
+$R_1=R_2+UP'(m)$. The extra derivatives are
+$uP'+rUP''$ and $vP'+2ruP''+r^2UP'''$. Capped kernels use the shared
+global Greek bounds; vanilla kernels use
+$P'\leq Ke^{m+\lambda^2/2}$, $|P''|\leq Ke^{m+\lambda^2/2}+M_2$
+and $|P'''|\leq Ke^{m+\lambda^2/2}+3M_2+M_3$.
+The corresponding tilted positive-measure moments also factorise.
+Its tail is bounded by the tilted outside moment of
+$Ke^{m+\lambda^2/2}U$, with the additional $H$ tail bound for a cap.
+I replace the second-residual tail by this first-residual tail.
+
+At unchanged $L=6$, $b_y=10$, $q=28$, all 24 four- and eight-asset
+second-correction transfer bounds pass $0.005$; their largest allowance
+is $0.002284$ rounded upwards. All 24 first-correction competitors
+also pass; their largest allowance is $0.004914$ rounded upwards.
+Each global-envelope family retains three two-asset allocation failures,
+for which the earlier sharper local certificate remains available.
+The transport argument applies to arbitrary finite positive basket
+weights and bounded boundary derivatives, beyond these frozen models.
+Its numerical scope and polynomial moment-construction cost do not
+establish a quantum advantage or a literature-priority claim.
+
+\section{Direct capped-price transfer and full confidence}
+\label{app:direct-capped-price}
+
+For the same positive-weight model let $f(y)=P(m_A(y))$ with
+$m_A(y)=\log\sum_iw_i e^{\mu_i+R_i\cdot y}$ and $0\leq f\leq H$.
+Define the positive weights $\pi_i=w_i e^{\mu_i+R_i\cdot y}/
+\sum_kw_k e^{\mu_k+R_k\cdot y}$ and $A_j^*=\max_i|R_{ij}|$.
+Differentiation gives $a_j=\partial_jm_A=\sum_i\pi_iR_{ij}$ and
+$b_j=\partial_{jj}m_A=\sum_i\pi_iR_{ij}^2-a_j^2\geq0$. Combining
+terms with $C_2=P''-P'$ yields
+\begin{equation}
+ f_{jj}=P'(m_A)(a_j^2+b_j)+C_2(m_A)a_j^2,
+ \qquad a_j^2+b_j=\sum_i\pi_iR_{ij}^2\leq(A_j^*)^2.
+\end{equation}
+The shared global capped-kernel norms consequently imply
+$|f_j|\leq M_1A_j^*$ and
+$|f_{jj}|\leq(M_1+M_2)(A_j^*)^2$ on all real coordinates.
+These use full asset loadings, not centred residual loadings.
+
+For retained measure mass $a$, positive cell-error masses
+$b_k=\rho_k(\R)$ and $F=a^p$, tensor telescoping proves
+\begin{equation}
+ \beta_{\rm cell}=a^{p-1}\sum_j
+ \{M_1A_j^*b_1+(M_1+M_2)(A_j^*)^2b_2\},\quad
+ V=F\mu_N+e_{\rm cell}+e_{\rm tail},
+\end{equation}
+where $|e_{\rm cell}|\leq\beta_{\rm cell}$,
+$0\leq e_{\rm tail}\leq H(1-F)$, and $\mu_N$ is the direct
+uniform-label mean at the actual rounded nodes. The global bounds grow
+quadratically with exposure scale and do not require residual ratio moments.
+They are a financial specialisation of established cell and derivative tools.
+
+For independent bounded scores, \citet{hoeffding1963}, Theorem~2,
+equation~(2.6), and the two-sided union in equation~(1.4), give
+$\Pr\{|\overline f-\mu_N|>\epsilon\}\leq2e^{-2n\epsilon^2/H^2}$.
+The full supporting proof derives this from the tilted variance for both
+signs. I fix $n=100000$, $H=1$, $\epsilon=1/150$ before new draws.
+Outward evaluation verifies that the failure bound is at most $1/3600$.
+Masked 16-bit independent uniform words give exact 10-bit labels, each
+with 64 preimages. Retained words verify this implementation; they do not
+prove physical source independence.
+
+Validated 128-bit scores are stored as outward 40-bit integer endpoints.
+Exact summation gives $\overline\ell\leq\overline f\leq\overline u$.
+On the confidence event, put $L_N=\max(0,\overline\ell-\epsilon)$ and
+$U_N=\min(H,\overline u+\epsilon)$. With outward mass endpoints $F_-,F_+$,
+\begin{equation}
+ V\in[\max(0,F_-L_N-\widehat\beta_{\rm cell}),\;
+ \min(H,F_+U_N+\widehat\beta_{\rm cell}+H(1-F_-))].
+\end{equation}
+All financial, numerical, statistical and mass errors enter this interval;
+discounting is applied once afterwards. The exact finite sum replaces the
+sample interval and removes the statistical term for the two-asset case.
+
+The same bounds strengthen the first-correction opponent. For the normalised
+weights, define $m_G(y)=\sum_iw_i(\mu_i+R_i\cdot y)=m(y)$ and
+$R_{Gj}=\sum_iw_iR_{ij}$. Jensen and monotonicity give
+$h=f-P(m_G)\in[0,H]$. Derivative subtraction bounds
+$|h_j|$ by $M_1(A_j^*+|R_{Gj}|)$ and $|h_{jj}|$ by
+$(M_1+M_2)((A_j^*)^2+R_{Gj}^2)$. The same cell formula and bounded tail
+therefore certify $R_1$. Taking the minimum with its earlier valid transfer
+is deterministic. The oracle and scalar words remain unchanged; monetary
+and confidence plans use this stronger shared information. Full proofs,
+all observed enclosures and independent replays are indexed separately.
+
+\section{Global payoff-specific norm certificates}
+\label{app:payoff-norms}
+
+For the cap put $a=\ell/\lambda$ and
+$q(z)=\phi(z)-c\phi(z-a)$. On $[0,a]$,
+$q'=-z\phi(z)+c(z-a)\phi(z-a)<0$, including the endpoints.
+Outside that interval, its stationary equation is equivalent to
+\begin{equation}
+ f(z)=\log(z/(z-a))-az-\ell+a^2/2=0.
+\end{equation}
+The ratio is positive on each component and no sign is lost in taking
+logarithms. Its derivative is $-a/[z(z-a)]-a<-a$.
+The limits on $(-\infty,0)$ are $+\infty,-\infty$, and on
+$(a,\infty)$ they are again $+\infty,-\infty$. There is exactly one
+root on each component. At a root,
+$q(z)=-ca\phi(z-a)/z$, positive on the negative component and negative
+on the positive one. Gaussian tails vanish. Thus
+\begin{equation}
+ \|C_2\|_\infty=\frac K\lambda
+ \max\{q(z_-),-q(z_+)\}.
+\end{equation}
+Outward rational brackets with strict endpoint signs and the monotonicity
+margin enclose both roots and their full stationary-value intervals.
+An enclosed stationary midpoint gives a lower norm bound; the larger
+stationary upper enclosure gives the required upper bound. Uncertainty in
+$\ell$ and $a$ is retained throughout, rather than rounding them first.
+
+For the capped first derivative,
+$P'(m)=(K/\lambda)\int_0^\ell e^x\phi((m-x)/\lambda)dx>0$.
+Normalising this integrand defines a truncated normal $X$ of mean parameter
+$m+\lambda^2$ and variance parameter $\lambda^2$. Differentiation gives
+\begin{equation}
+ (\log P')'=(\E_mX-m)/\lambda^2,\qquad
+ (\log P')''=-1/\lambda^2+\Var_m(X)/\lambda^4.
+\end{equation}
+For its density $p_m$ and mean $\bar x$, integration by parts yields
+\begin{equation}
+ -\Var_m(X)/\lambda^2
+ =(\ell-\bar x)p_m(\ell)+\bar x p_m(0)-1.
+\end{equation}
+Both boundary terms are positive, since $0<\bar x<\ell$.
+Therefore $\Var_m(X)<\lambda^2$ and $P'$ is strictly log-concave.
+Its logarithmic derivative is positive at zero and negative at $\ell$,
+so it has exactly one global maximum. Strict outward signs enclose that
+zero of $P''$; evaluation on the whole bracket certifies $M_1$.
+The supporting proof retains an explicit positive monotonicity margin.
+
+For $r\geq2$, define
+$\mathcal P_2=1$ and $\mathcal P_{r+1}=\lambda^{-1}(\mathcal P_r'-z\mathcal P_r)-r\mathcal P_r$.
+The chain rule proves
+$C_r^{\rm vanilla}(m)=K\mathcal P_r(m/\lambda)\phi(m/\lambda)/\lambda$;
+the cap subtracts its $c$-weighted translate by $a$.
+Exact stationary-root isolation for $\mathcal P_r'-z\mathcal P_r$ gives
+$N_r=\|\mathcal P_r\phi\|_\infty$ outwards. Valid higher cap bounds are the
+smaller of $H\overline D_r$ and $(2K+H)\overline N_r/\lambda$.
+For $r=2$ the two-root result replaces this triangle bound. All competitors
+receive the same constants, and the globally unbounded vanilla $P'$ is
+bounded only on its certified finite argument domain.
+
+\begin{thebibliography}{99}
+\bibitem[Blair et al.(2016)]{blair2016} Blair, J., Luttman, A. and Machorro, E. (2016). A generalized Peano Kernel Theorem for distributions of exponential decay. \emph{Journal of Mathematical Analysis and Applications}, 433(1), 622--641. \url{https://doi.org/10.1016/j.jmaa.2015.07.072}. Publisher abstract consulted; full-text access was unavailable.
+
+\bibitem[Babbush et al.(2018)]{babbush} Babbush, R., Gidney, C., Berry, D. W., Wiebe, N., McClean, J., Paler, A., Fowler, A. and Neven, H. (2018). Encoding electronic spectra in quantum circuits with linear T complexity. \emph{Physical Review X}, 8(4), 041015. \url{https://doi.org/10.1103/PhysRevX.8.041015}.
+
+\bibitem[Bayer et al.(2018)]{bayer} Bayer, C., Siebenmorgen, M. and Tempone, R. (2018). Smoothing the payoff for efficient computation of basket option prices. \emph{Quantitative Finance}, 18(3), 491--505. \url{https://doi.org/10.1080/14697688.2017.1308003}.
+
+\bibitem[Brassard et al.(2002)]{brassard} Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002). Quantum amplitude amplification and estimation. \emph{Contemporary Mathematics}, 305, 53--74. \url{https://doi.org/10.1090/conm/305/05215}.
+
+\bibitem[Caldana et al.(2016)]{caldana}
+Caldana, R., Fusai, G., Gnoatto, A. and Grasselli, M. (2016).
+General closed-form basket option pricing bounds.
+\emph{Quantitative Finance}, 16(4), 535--554.
+\url{https://doi.org/10.1080/14697688.2015.1073854}. Detailed version consulted: City Research Online accepted manuscript, Sections 1--3 and Appendices B and D.
+
+\bibitem[Carr(2001)]{carr2001} Carr, P. (2001). Deriving derivatives of derivative securities. \emph{Journal of Computational Finance}, 4(2), Winter 2000/2001. \url{https://doi.org/10.21314/JCF.2001.075}.
+
+\bibitem[Cerone(2002)]{cerone2002} Cerone, P. (2002). Weighted Three Point Identities and their Bounds. \emph{SUT Journal of Mathematics}, 38(1), 17--37. \url{https://www.rs.tus.ac.jp/sutjmath/_userdata/38-1/02-cerone.pdf}. Final published PDF consulted, Theorems 3 and 5, pages 23--30.
+
+\bibitem[Chakrabarti et al.(2021)]{chakrabarti} Chakrabarti, S., Krishnakumar, R., Mazzola, G., Stamatopoulos, N., Woerner, S. and Zeng, W. J. (2021). A threshold for quantum advantage in derivative pricing. \emph{Quantum}, 5, 463. \url{https://doi.org/10.22331/q-2021-06-01-463}.
+
+\bibitem[Chen et al.(2026)]{chenlineufeld2026} Chen, J., Li, Y. and Neufeld, A. (2026). Quantum Monte Carlo algorithm for option pricing and its complexity analysis. \emph{Mathematical Finance}, Early View, first published 10 June 2026. \url{https://doi.org/10.1111/mafi.70036}. Detailed version consulted: arXiv:2301.09241v6, 3 May 2026.
+
+\bibitem[Curran(1994)]{curran} Curran, M. (1994). Valuing Asian and portfolio options by conditioning on the geometric mean price. \emph{Management Science}, 40(12), 1705--1711. \url{https://doi.org/10.1287/mnsc.40.12.1705}. Final journal scan, pages 1705--1711, obtained from the author upload through Safari.
+
+\bibitem[Dinge\c{c} and H\"ormann(2013)]{dingechormann} Dinge\c{c}, K. D. and H\"ormann, W. (2013). Control variates and conditional Monte Carlo for basket and Asian options. \emph{Insurance: Mathematics and Economics}, 52(3), 421--434. \url{https://doi.org/10.1016/j.insmatheco.2013.03.002}.
+
+\bibitem[Herman et al.(2026)]{herman2026} Herman, D., Sun, Y., Liu, J.-P., Pistoia, M., Che, C., Otter, R., Chakrabarti, S. and Harrow, A. (2026). Quantum Speedups for Derivative Pricing Beyond Black-Scholes. Unpublished preprint, arXiv:2602.03725v1, 3 February. \url{https://arxiv.org/html/2602.03725v1}. No published successor identified in the retained source audit.
+
+\bibitem[Hoeffding(1963)]{hoeffding1963} Hoeffding, W. (1963). Probability inequalities for sums of bounded random variables. \emph{Journal of the American Statistical Association}, 58(301), 13--30. \url{https://doi.org/10.1080/01621459.1963.10500830}. Final journal scan consulted, printed pages 13--16, particularly Theorem 2, equation (2.6).
+
+\bibitem[Imai and Tan(2006)]{imai2006}
+Imai, J. and Tan, K. S. (2006). A general dimension reduction technique for
+derivative pricing. \emph{Journal of Computational Finance}, 10(2), 129--155.
+\url{https://doi.org/10.21314/JCF.2006.143}. Material consulted: final publisher abstract and author-uploaded final journal page 129.
+
+\bibitem[Johansson(2017)]{johansson2017} Johansson, F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. \emph{IEEE Transactions on Computers}, 66(8), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}.
+
+\bibitem[Ju(2002)]{ju}
+Ju, N. (2002).
+Pricing Asian and basket options via Taylor expansion.
+\emph{Journal of Computational Finance}, 5(3), 79--103.
+\url{https://doi.org/10.21314/JCF.2002.088}.
+
+\bibitem[Montanaro(2015)]{montanaro} Montanaro, A. (2015). Quantum speedup of Monte Carlo methods. \emph{Proceedings of the Royal Society A}, 471(2181), 20150301. \url{https://doi.org/10.1098/rspa.2015.0301}.
+
+\bibitem[Olivares and Alvarez(2016)]{olivaresalvarez2016} Olivares, P. and Alvarez, A. (2016). Pricing basket options by polynomial approximations. \emph{Journal of Applied Mathematics}, 2016, 9747394. \url{https://doi.org/10.1155/2016/9747394}.
+
+\bibitem[Rall and Fuller(2023)]{rallfuller2023} Rall, P. and Fuller, B. (2023). Amplitude estimation from quantum signal processing. \emph{Quantum}, 7, 937. \url{https://doi.org/10.22331/q-2023-03-02-937}.
+
+\bibitem[Rebentrost et al.(2018)]{rebentrost} Rebentrost, P., Gupt, B. and Bromley, T. R. (2018). Quantum computational finance: Monte Carlo pricing of financial derivatives. \emph{Physical Review A}, 98, 022321. \url{https://doi.org/10.1103/PhysRevA.98.022321}.
+
+\bibitem[Ross and Selinger(2016)]{rossselinger2016}
+Ross, N.J. and Selinger, P. (2016).
+Optimal ancilla-free Clifford+T approximation of z-rotations.
+\emph{Quantum Information and Computation}, 16(11--12), 901--953.
+\url{https://doi.org/10.26421/QIC16.11-12-1}.
+
+\bibitem[Stamatopoulos and Zeng(2024)]{stamatopoulos} Stamatopoulos, N. and Zeng, W. J. (2024). Derivative pricing using quantum signal processing. \emph{Quantum}, 8, 1322. \url{https://doi.org/10.22331/q-2024-04-30-1322}.
+\end{thebibliography}
+\end{document}

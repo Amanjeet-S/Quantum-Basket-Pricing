@@ -1,0 +1,27 @@
+{
+  "schema": "qbp-chebyshev-independent-mathematics-audit-v1",
+  "status": "passed",
+  "source_sha256": {
+    "chebyshev_controller.py": "b14c66374c9211dd4449018c0be704e80b98c6d21f502f396b80f6b0f875350a",
+    "chebyshev_resources.py": "d732a875e3787ec6c50eb7db3b8ef19e0f0213dc7f8770383f19808d4e96a88b",
+    "chebyshev_estimator_proof.tex": "7fc82dccda2c3221295d924e43e59c82b3b746a8aa48b16576664931337a998b"
+  },
+  "auditor_sha256": "84f198567a9854f11147fec26fcf60d1d70982e8c98e0774fae5835c2167ce80",
+  "checks": {
+    "exact_parity_matrix_checks": 78,
+    "exact_binomial_root_brackets": 1548,
+    "exact_finite_confidence_coverage_checks": 65,
+    "adaptive_and_fallback_failure_identity_checks": 2,
+    "outward_monotone_branch_and_decode_checks": 1500,
+    "deterministic_prior_inverse_checks": 7,
+    "finite_worst_history_cap_checks": 4,
+    "sampler_parity_cost_checks": 52,
+    "independent_retained_branch_inverse_checks": 673,
+    "independent_retained_probability_decode_checks": 673,
+    "retained_adaptive_history_look_checks": 673,
+    "retained_terminal_probability_and_cost_checks": 400,
+    "independent_retained_degree_selection_checks": 562
+  },
+  "result_sha256": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232",
+  "scope": "Independent exact two-dimensional coherent parity matrices, exact binomial root/coverage checks, outward branch inversion, adaptive look/cost bookkeeping and complete finite fallback cap. Numerical diagnostics supplement the fully stated proof. No physical execution, source priority or practical quantum advantage is inferred."
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-05",
+  "protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "financial_cases_changed": false,
+  "chronology": [
+    "matched-dispersion Helmert design corrected before financial protocol freeze",
+    "financial protocol frozen before precision tuning",
+    "smoke diagnostic at n2 lambda0.05 cap25",
+    "shared inner-averaged financial outer sensitivity derived after smoke and before full108row run, applied to allmethods",
+    "complete108row resource study",
+    "fixed-prefix causal and matched-interval diagnostic after full outputs; original108rows retained"
+  ],
+  "amendment": "Use min(K+H,H*L_cap)*(max_i abs(R_ij)+abs(weighted_R_j)) in outer mean transfer for every evaluator, before discretising its inner variable.",
+  "prespecification_limit": "Financial family and search bounds frozen; every derivation/implementation detail was not frozen before smoke.",
+  "post_study_diagnostics": [
+    "generalisation_precision_effects.json",
+    "generalisation_matched_interval.json"
+  ],
+  "scope": "synthetic evaluator certificate study; no retrospective case filtering"
+}

@@ -1,0 +1,12 @@
+{
+  "cases": [
+    "lower_kink",
+    "negative_rate_dividend",
+    "high_volatility"
+  ],
+  "physical_total_return": 0.06,
+  "grid_points_per_case": 121,
+  "rows": 363,
+  "purpose": "Illustrate risk/funding trade-off and dual marginal value; no 3D or decorative figure.",
+  "scope": "Supplemental to preregistered126rows; not an additional comparative outcome claim."
+}

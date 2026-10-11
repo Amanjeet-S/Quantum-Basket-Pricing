@@ -1,0 +1,336 @@
+\section{Common-information stability of a positive Gaussian correction}
+\label{sec:common-information-stability}
+
+I separate the mathematics of a common shift from the finite arithmetic
+which implements it. A common shift is a perturbation of both endpoint
+arguments by the same amount; it need not be probabilistically independent
+of the outer financial coordinate or of the gap. The essential condition
+for Gaussian smoothing is that, after conditioning on the outer labels
+and any fixed strike label, the shift and gap are independent of the
+inner normal label. A label-dependent scaling remainder does not satisfy
+this condition and receives a separate allowance.
+
+Let $\mu$ be a positive finite Borel measure of mass one, let $\lambda>0$,
+and define
+\begin{equation}
+ P_{\lambda,\mu}(m)=\int_{\mathbb R}
+       \Phi((m-a)/\lambda)\,\mu(da),\qquad
+ R_{\lambda,\mu}(m,\Delta)=P_{\lambda,\mu}(m+\Delta)
+                              -P_{\lambda,\mu}(m).
+ \label{eq:common-information-definition}
+\end{equation}
+This includes a fixed strike, a finite positive strike mixture and a
+bounded increasing payoff normalised to total variation one. In the last
+case $\mu=df$, where $f(-\infty)=0$ and $f(+\infty)=1$; Tonelli's theorem
+identifies $P_{\lambda,\mu}(m)$ with $\mathbb E f(m+\lambda N)$.
+These identities and Gaussian convolution are established mechanisms.
+The calculation below concerns their shared perturbations and their
+specific guarded pricing implementations; it is not a claim of priority
+for convolution or Lipschitz estimates.
+
+Choose $\nu_0\geq\sup_x\phi(x)$ and
+$\nu_1\geq\sup_x|\phi'(x)|$, and put
+\begin{equation}
+ c_0=\frac{\nu_0}{\lambda},\qquad
+ c_1=\frac{\nu_1}{\lambda^2},\qquad
+ C(d)=\min\{c_0,c_1d\}\quad(d\geq0).
+ \label{eq:common-information-constants}
+\end{equation}
+
+\begin{theorem}[Common-shift and gap stability]
+\label{thm:common-information-stability}
+For finite $m,\widehat m,\Delta,\widehat\Delta$ with $\Delta\geq0$, let
+$|\widehat m-m|\leq E_m$ and
+$|\widehat\Delta-\Delta|\leq e_\Delta$. The represented gap may be
+negative. Then
+\begin{equation}
+ |R_{\lambda,\mu}(\widehat m,\widehat\Delta)
+                       -R_{\lambda,\mu}(m,\Delta)|
+ \leq C(\Delta)E_m+c_0e_\Delta.
+ \label{eq:common-information-stability}
+\end{equation}
+Consequently a uniform true-gap bound $0\leq\Delta\leq\Delta_*$ permits
+the coefficient $C(\Delta_*)$. If $\widehat\Delta\geq0$ as well, the
+coefficient in \eqref{eq:common-information-stability} can be replaced
+by $C(\min\{\Delta,\widehat\Delta\})$.
+Let $\Pi_{[0,B]}$ be metric projection onto $[0,B]$, where $B>0$ and
+$R_{\lambda,\mu}(m,\Delta)\in[0,B]$. The same upper bound applies after
+projecting the represented difference onto $[0,B]$. Projection need not
+be inserted into the implemented gap register.
+\end{theorem}
+\begin{proof}
+The first and second derivatives of the Gaussian kernel are bounded
+uniformly in $a$ by $c_0$ and $c_1$. Difference quotients of the kernel
+are dominated by these constants by the mean value theorem. Since
+$\mu$ is finite, dominated convergence justifies differentiation under
+its integral twice, giving
+\begin{align}
+ P_{\lambda,\mu}'(m)&=\int\lambda^{-1}
+                 \phi((m-a)/\lambda)\,\mu(da),\nonumber\\
+ P_{\lambda,\mu}''(m)&=\int\lambda^{-2}
+                 \phi'((m-a)/\lambda)\,\mu(da),\qquad
+ 0\leq P_{\lambda,\mu}'\leq c_0,\quad
+ |P_{\lambda,\mu}''|\leq c_1.
+ \label{eq:common-information-derivatives}
+\end{align}
+The difference of two numbers in $[0,c_0]$ has absolute value at most
+$c_0$. The fundamental theorem of calculus also bounds the difference
+of the derivatives at arguments separated by a nonnegative distance $d$
+by $c_1d$. Thus
+\begin{equation}
+ |\partial_m R_{\lambda,\mu}(m,d)|
+   =|P_{\lambda,\mu}'(m+d)-P_{\lambda,\mu}'(m)|\leq C(d),\qquad
+ |\partial_dR_{\lambda,\mu}(m,d)|\leq c_0.
+ \label{eq:common-information-partial-bounds}
+\end{equation}
+For the gap partial derivative the bound holds for all real $d$.
+Split the difference exactly as
+\begin{align}
+ R(\widehat m,\widehat\Delta)-R(m,\Delta)
+ &=R(\widehat m,\widehat\Delta)-R(\widehat m,\Delta)
+       +R(\widehat m,\Delta)-R(m,\Delta).
+ \label{eq:common-information-path}
+\end{align}
+Integrating the gap derivative along the first segment gives
+$c_0|\widehat\Delta-\Delta|$, including a segment crossing zero.
+Integrating the common-shift derivative along the second segment, whose
+gap is the true nonnegative $\Delta$, gives
+$C(\Delta)|\widehat m-m|$. This proves the stated inequality. If the
+represented gap is nonnegative, reversing the order of the two segments
+gives $C(\widehat\Delta)|\widehat m-m|+c_0|\widehat\Delta-\Delta|$;
+the smaller valid bound gives the refinement. Since $C$ is nondecreasing,
+a valid upper gap bound may replace the gap. Finally, metric projection
+is $1$-Lipschitz and fixes the true correction. Applying it to the
+represented difference cannot increase its distance from that correction.
+No cancellation of two distinct scalar-table approximation errors is
+asserted.
+\end{proof}
+
+\begin{lemma}[Common inner perturbations of capped payoffs]
+\label{lem:common-information-inner-payoff}
+For the normalised cap
+$f(x)=H^{-1}\min\{K(e^x-1)_+,H\}$, put
+$\ell=\log(1+H/K)$ and $L_f=(K+H)/H$. For every $d\geq0$, the map
+$g_d(x)=f(x+d)-f(x)$ is globally $L_f$-Lipschitz. For any real
+perturbation $\zeta$, which may depend on the inner label,
+\begin{equation}
+ |g_d(x+\zeta)-g_d(x)|\leq L_f|\zeta|.
+ \label{eq:common-information-inner-payoff}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The payoff is absolutely continuous and has almost-everywhere derivative
+$f'(x)=(K/H)e^x\mathbf1_{(0,\ell)}(x)$, which lies in $[0,L_f]$.
+The difference $g_d$ is absolutely continuous on every finite interval
+and its almost-everywhere derivative is $f'(x+d)-f'(x)$.
+Its absolute value is at most $L_f$, since both terms belong to the same
+interval $[0,L_f]$. Integrating that derivative between $x$ and $x+\zeta$
+proves the inequality. At $d=0$ the difference is identically zero.
+This argument acts on the continuous payoff as a pointwise function and
+does not differentiate a finite atomic probability law.
+\end{proof}
+
+\subsection{Matched finite raw-payoff implementation}
+
+Retain $K=100$, $H=1$, $q=28$ and the guarded graph. Conditional on an
+actual outer coordinate $y$, its decoded endpoints satisfy exactly
+\begin{equation}
+ \widehat X_G=\widehat m+\lambda\widetilde N+\zeta(\widetilde N),\qquad
+ \widehat X_A=\widehat X_G+\widehat\Delta,\qquad
+ |\widehat m-m|\leq E_m=e_m+e_C+e_O,\quad
+ \widehat\Delta\geq0.
+ \label{eq:common-information-raw-endpoints}
+\end{equation}
+Here $C=J-B_G$ and $O=J+\lambda L$ are constants, and their errors
+$e_C,e_O$ are independent of the inner label. The exact emitted scaling
+coefficient is $\widehat\lambda=I_\lambda2^{-d_\lambda}$ and
+\begin{equation}
+ |\zeta|\leq E_s=2L|\widehat\lambda-\lambda|
+                    +2^{-q}\mathbf1_{\{d_\lambda>0\}}.
+ \label{eq:common-information-scale-error}
+\end{equation}
+Let the two distinct scalar maps have intrinsic exponential errors
+$e_{\exp,G},e_{\exp,A}$ on their guarded domains. Intrinsic errors exclude
+propagated argument perturbations. Let the rounded inner normal law have
+both right-CDF and left-CDF discrepancy at most $D_N$ from $\Phi$.
+The prepared flag encodes the exact projected dyadic payoff difference.
+Its conditional probability $p(y)$ obeys
+\begin{equation}
+ |p(y)-R_1(y)|\leq\eta_{\rm raw}:=
+ \min\left\{1,100(e_{\exp,G}+e_{\exp,A})+101E_s+2D_N
+                       +C(\Delta_*)E_m+c_0e_\Delta\right\}.
+ \label{eq:common-information-raw-bound}
+\end{equation}
+An independently valid pointwise or earlier smoothing bound may be
+included in this minimum.
+
+To prove \eqref{eq:common-information-raw-bound}, replace the two
+represented scalar maps by exact payoffs at their represented arguments.
+Their separate errors contribute $100(e_{\exp,G}+e_{\exp,A})$.
+Lemma~\ref{lem:common-information-inner-payoff} removes the common
+label-dependent $\zeta$ for a charge $101E_s$. Projection is
+$1$-Lipschitz and fixes the resulting ideal nonnegative difference.
+That difference as a function of the normal coordinate has bounded
+variation at most two; integration by parts against the signed CDF
+difference therefore charges at most $2D_N$. This statement retains
+atomic label multiplicities and uses the left limit at strict endpoints.
+Only after this finite-to-continuous transfer is the Gaussian
+convolution differentiated. Theorem~\ref{thm:common-information-stability}
+then charges $C(\Delta_*)E_m+c_0e_\Delta$. The total is capped at one
+because both target and prepared probability belong to $[0,1]$.
+Normal quantile rounding is contained in $D_N$; it is not also included
+in $E_s$ or $E_m$. Outer quantile rounding remains solely in the existing
+financial outer-law transfer.
+
+\subsection{Matched finite numerical conditional-price implementation}
+
+For the retained numerical pool, the cap and the positive monetary
+normaliser are exactly $H=B_1=1$. Consequently its two scaling nodes
+multiply by the exact integer one and introduce neither coefficient
+rounding nor a fixed-point floor. Write the scalar domains as
+$[-B_G,B_G]$ and $[-B_A,B_A]$. The encoded nodes satisfy
+\begin{equation}
+ \widehat M_A=\widehat M_G+\widehat C_{AG}+\widehat\Delta,\qquad
+ C_{AG}=B_A-B_G,\qquad
+ \widehat m=\widehat M_G-B_G,\qquad
+ \widehat d=\widehat\Delta+(\widehat C_{AG}-C_{AG}).
+ \label{eq:common-information-numerical-endpoints}
+\end{equation}
+Suppose the retained actual-range certificate additionally shows that
+the input clamps preceding both price tables are inactive on every
+actual guarded input. A function-input domain check after a clamp alone
+does not establish this premise. Let $e_{P,G},e_{P,A}$ be the intrinsic
+conditional-price table errors, $e_{AG}$ the constant error and $e_m$
+the lower encoded node error. The prepared projected difference then
+satisfies
+\begin{equation}
+ |p_{\rm num}(y)-R_1(y)|\leq\eta_{\rm num}:=
+ \min\{1,e_{P,G}+e_{P,A}+C(\Delta_*)e_m
+                             +c_0(e_\Delta+e_{AG})\}.
+ \label{eq:common-information-numerical-bound}
+\end{equation}
+Indeed, replacing both tables by their exact scalar functions at the
+actual arguments costs their summed intrinsic errors. Exact decoded
+addition gives \eqref{eq:common-information-numerical-endpoints}.
+The effective gap need not be nonnegative, but the path bound in
+Theorem~\ref{thm:common-information-stability} remains valid and the
+final signed projection fixes the true correction. In the retained
+graphs $B_A-B_G$ is dyadic and exactly encoded; retaining $e_{AG}$ in
+the rule makes the required premise explicit. There is no sampled
+inner Gaussian or strike law in this implementation, so adding $D_N$
+or $\beta_S$ would charge an approximation it does not perform.
+Normalisers other than one require separately certified scaling
+coefficient and floor allowances and are not covered by this specialised
+numerical formula.
+
+\subsection{Matched finite shared-threshold implementation}
+
+For a fixed ideal uniform strike midpoint $s$, put $a(s)=\log(1+s/100)$.
+The exact graph computes a lower encoded endpoint, its upper endpoint
+and one shared threshold as
+\begin{equation}
+ \widehat\ell=\widehat M_G+\widehat C,\qquad
+ \widehat u=\widehat\ell+\widehat\Delta,\qquad
+ \widehat z=\widehat a(s)+\widehat O
+                       -\mathsf S_\lambda(\widetilde N+L).
+ \label{eq:common-information-threshold-endpoints}
+\end{equation}
+Its predicate is $\widehat\ell<\widehat z\leq\widehat u$ and the gap
+word is nonnegative. The represented strike error
+$|\widehat a(s)-a(s)|\leq e_a$ includes its input-ratio arithmetic
+and intrinsic logarithm error; it does not include normal quantile
+rounding. The same $C,O,E_s$ as above identify the conceptual threshold
+$a(s)-\lambda\widetilde N-\zeta(\widetilde N)$ relative to a common
+represented lower endpoint. The represented strike and common endpoint
+errors give a fixed-strike common shift bounded by
+\begin{equation}
+ E_{m,a}=e_m+e_C+e_O+e_a.
+ \label{eq:common-information-threshold-common-error}
+\end{equation}
+They may depend arbitrarily on the fixed outer and strike labels.
+They are independent of the inner normal label, which is the required
+conditioning condition. With the retained strike midpoint bias $\beta_S$
+in probability units, the implemented conditional event probability
+obeys
+\begin{equation}
+ |p_{\rm thr}(y)-R_1(y)|\leq\eta_{\rm thr}:=
+ \min\{1,\beta_S+2D_N+2c_0E_s
+                     +C(\Delta_*)E_{m,a}+c_0e_\Delta\}.
+ \label{eq:common-information-threshold-bound}
+\end{equation}
+
+For completeness, at a fixed strike and outer coordinate the bounded
+$\zeta$ moves each of the two strict/non-strict Gaussian boundaries by
+at most $E_s$. The represented event is contained in the interval
+obtained by expanding the unperturbed interval by $E_s$ at each end.
+It contains the interval obtained by shrinking by $E_s$ at each end,
+whenever that interval is nonempty. The probability of either fixed
+interval under the finite normal law differs from the continuous normal
+probability by at most $2D_N$: an interval probability is a difference
+of two right-CDF or left-CDF values. The continuous density is bounded
+by $c_0$, so expansion or shrinkage changes probability by at most
+$2c_0E_s$. If the shrunken interval is empty, its original width is
+at most $2E_s$ and its entire continuous probability is bounded by
+$2c_0E_s$. Thus the finite event transfer costs $2D_N+2c_0E_s$ once.
+After this transfer, each fixed-strike continuous interval is the
+Gaussian correction with threshold measure $\delta_{a(s)}$, which has
+mass one. The common shift and gap allowances follow from
+Theorem~\ref{thm:common-information-stability}. Averaging those uniform
+allowances over the equal-weight strike labels preserves them; replacing
+that strike law by the ideal uniform law charges the separately retained
+$\beta_S$. This proves \eqref{eq:common-information-threshold-bound}.
+Finite atoms are retained, and no second inner Gaussian-box mass is
+multiplied into the decoder.
+
+The label-dependent $\zeta$ cannot be charged merely with
+$C(\Delta_*)E_s$ by invoking Gaussian convolution: it is correlated with
+the normal label and the conditioning premise of that invocation fails.
+The preceding sandwich proves the required allowance without such an
+independence assumption.
+
+\subsection{Gap-sensitive finite-law allowances and their limits}
+
+The exact capped exponential difference is unimodal. Its total variation
+in the normal coordinate is
+\begin{equation}
+ \operatorname{TV}\{f(m+\Delta+\lambda\,\cdot)-f(m+\lambda\,\cdot)\}
+ =2v(\Delta),\qquad
+ v(\Delta)=\min\{1,101(1-e^{-\Delta})\}.
+ \label{eq:common-information-gap-variation}
+\end{equation}
+The retained earlier piecewise derivation proves this exact expression.
+Accordingly, the raw finite-law transfer can use
+$2D_Nv(\widehat\Delta)$; a true gap bound alone must first be enlarged
+by its represented gap error. If $U=e^\Delta-1\geq0$, then
+$v(\Delta)=\min\{1,101U/(1+U)\}$. This is a nondecreasing concave
+function of $U$. Given an independently certified finite outer moment
+$\mathbb E U\leq\overline U$, Jensen's inequality and the Lipschitz
+constant $101$ of $v$ yield
+\begin{equation}
+ \mathbb E v(\widehat\Delta)
+ \leq\min\left\{1,
+       \min\left\{1,\frac{101\overline U}{1+\overline U}\right\}
+                   +101e_\Delta\right\}.
+ \label{eq:common-information-gap-mean}
+\end{equation}
+This is an averaged outer-law certificate, not a uniform conditional
+certificate or an automatic two-sided prepared-probability prior.
+For the four retained winning bases the certified first moments are
+approximately $0.10888$, $0.02563$, $0.10684$ and $0.10666$.
+The inner minimum in \eqref{eq:common-information-gap-mean} equals one
+in all four cases. This moment-only refinement therefore provides no
+positive cost consequence in the retained study. A tighter polynomial
+moment majorant would require its own proved domination, optimisation
+record and complete prior/budget reconstruction.
+
+All three prepared methods can use their corresponding common-information
+formula with the same $\nu_0,\nu_1$, true gap premise and financial
+information. For the implemented basket, $\Delta=\log(1+U)\leq U\leq U_*$
+provides a price-independent rational choice $\Delta_*=U_*$. A smaller
+certified gap bound may be used only when retained with its derivation.
+Any smaller probability allowance must be propagated through the
+unchanged analytic coefficient, external outer-law mass, continuous
+financial transfer, finite mean prior, estimation accuracy, confidence
+and complete clean circuit cost. A certificate improvement changes
+neither the ideal financial price nor the generic amplitude-estimation
+query law.

@@ -1,0 +1,12 @@
+{
+  "status": "local uncommitted research step",
+  "date": "2026-10-05",
+  "unit_test_command": "python3 -m unittest discover -s checks -p 'test_*.py' -v",
+  "unit_tests_passed": 20,
+  "uniform_certificate_configurations": 108,
+  "post_study_matched_certificates": 54,
+  "full_enclosure_endpoint_assertion": "observed + reference_error <= half_ulp + allowance",
+  "financial_protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "source_scope": "retained resource outputs carry source hashes; pre-existing historical outputs refer to prior committed sources",
+  "no_commits_or_pushes": true
+}

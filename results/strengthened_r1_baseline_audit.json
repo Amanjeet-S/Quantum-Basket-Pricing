@@ -1,0 +1,152 @@
+{
+  "schema": "qbp-independent-strengthened-r1-baseline-audit-v1",
+  "status": "passed",
+  "registered_configurations": 64,
+  "retained_rejections": [
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 6,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 8,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 10,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 12,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 6,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 8,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 10,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "PA_bits": 6,
+      "PG_bits": 12,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "PA_bits": 6,
+      "PG_bits": 6,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "PA_bits": 6,
+      "PG_bits": 8,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "PA_bits": 6,
+      "PG_bits": 10,
+      "reason": "Deterministic monetary tolerance exhausted"
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "PA_bits": 6,
+      "PG_bits": 12,
+      "reason": "Deterministic monetary tolerance exhausted"
+    }
+  ],
+  "fresh_scalar_ordinate_checks": 1845728,
+  "fresh_complete_profiles": 104,
+  "complete_confidence_plans": 104,
+  "financial_budget_scalar_checks": 448,
+  "implemented_prior_scalar_checks": 384,
+  "all12_exact_historical_replays": 4,
+  "selected_comparisons": [
+    {
+      "original_model_id": "n2_lambda0.4_scale3",
+      "candidate_id": "identity",
+      "selected_PA_bits": 10,
+      "selected_PG_bits": 10,
+      "selected_numerical_T": 23789339125,
+      "untuned_fixed_threshold_T": 20855422300,
+      "threshold_saving_exact": "117356673/951573565",
+      "admitted": 16,
+      "rejected": 0
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "selected_PA_bits": 10,
+      "selected_PG_bits": 10,
+      "selected_numerical_T": 88203283550,
+      "untuned_fixed_threshold_T": 83560988725,
+      "threshold_saving_exact": "185691793/3528131342",
+      "admitted": 12,
+      "rejected": 4
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "selected_PA_bits": 10,
+      "selected_PG_bits": 10,
+      "selected_numerical_T": 95203161050,
+      "untuned_fixed_threshold_T": 89247538825,
+      "threshold_saving_exact": "238224889/3808126442",
+      "admitted": 12,
+      "rejected": 4
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "selected_PA_bits": 10,
+      "selected_PG_bits": 10,
+      "selected_numerical_T": 209495066950,
+      "untuned_fixed_threshold_T": 203322773325,
+      "threshold_saving_exact": "246891745/8379802678",
+      "admitted": 12,
+      "rejected": 4
+    }
+  ],
+  "resource_sha256": "51763571fb159323e19148b7c8ca4f87f8863ef73234d728486c75a8da123af3",
+  "protocol_sha256": "476006203964763ab7f7226bb6efc4e4b2efbd6462ce8e056e5243496170b13a",
+  "producer_sha256": "8f89e9dd5f9794e0c034f35be6546b47ebabfa0b0e4aafbc48373941e3540e1b",
+  "audit_source_sha256": "1a8dcc4101a61e7494a9e41bd135cc7e0a8389d2457303791b92b2aaeff81fda",
+  "threshold_resource_sha256": "40979b5224abeaa96cd313d7e4071ea3f98247d39213f8e6f48749d991e722f5",
+  "factor_resource_sha256": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+  "own_formula_charge_auditor_sha256": "fcba4350aa4efaaba10f4b36f4613e802b0510bfd78d0db2ef080ab250954227",
+  "scalar_archive_sha256": "3ec0def91317ba2f5bb552984815041c58b67886dc1b687b65559cf5a85526c5",
+  "scope": "Independent full reconstruction of every finite PA/PG precision candidate, arithmetic/range reject, price-independent prior, emitted financial profile, confidence target and complete T cap. Exact matched all12 predecessor replay. Finite-pool comparison only; no global optimum, physical runtime or theoretical originality claim."
+}

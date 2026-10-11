@@ -1,0 +1,115 @@
+{
+  "schema": "qbp-four-case-data-publication-review-v1",
+  "date": "2026-10-09",
+  "status": "verified synthetic origin in the checked producer chains",
+  "guidance_basis": "University licence guidance I received on 9 October 2026. No external legal opinion or blanket permission is asserted.",
+  "financial_data": "Exact stipulated synthetic GBM and synthetic exposure-stress parameters. No LSEG observations or calibrated market sample.",
+  "current_outputs": "Existing reviewed figures, new price table, retained simulation words and score arrays, scalar ordinates and quantum resource records are generated synthetic computational evidence.",
+  "code": "Publishable research extraction and analysis code must omit provider data, credentials and embedded licensed output.",
+  "LSEG_controls": {
+    "raw_and_reconstructible_data": "Excluded from every GitHub repository, including private repositories, and all other third parties.",
+    "derived_outputs": "Only insubstantial portions with no independent commercial value, distributed non-systematically; assess cumulative disclosure and reconstructibility.",
+    "academic_uses": "Limited non-commercial research results in journal papers and university applications may be permitted under the supplied guidance; a GitHub release is assessed separately.",
+    "attribution": "Identify the actual LSEG product and relevant scope, period, access date and calculation method when it was actually used.",
+    "acquisition": "Existing entitled minimal study/research extracts only; no systematic bulk downloading or new purchase.",
+    "retention": "Delete underlying licensed working observations and their copies/caches on completion of the project; no active-project deletion is performed in this phase.",
+    "external_projects": "Academic entitlement is not used for external-company projects, internships or commercial services."
+  },
+  "independent_evidence": {
+    "results/four_case_classical_independent_audit.json": {
+      "sha256": "96db8f96f2059f142ea4b03c3ed89fc6f881e1a3098e6c98874bdd246c502119"
+    },
+    "results/four_survivor_quantum_independent_audit.json": {
+      "sha256": "460cb611592411b55eaae779f674bb5534e8a5f5de348f705c1278e984271918"
+    },
+    "reviews/audit_four_quantum_auxiliary.py": {
+      "sha256": "84e29f166494f9e5bb5938cc8246de28712e9cceb7165ab23dc8d92abe22f217"
+    },
+    "reviews/audit_four_quantum_mathematics.py": {
+      "sha256": "6a6d76337b1666d57f4be229572a0709ea7fdd5efdb8c6fb8b25599a0e93919e"
+    },
+    "reviews/four_quantum_auxiliary_audit.json": {
+      "sha256": "4125e89c1f2b9f026b04662321cd8b28f14fcfdb54e539c847757bc46572ccee"
+    },
+    "reviews/four_quantum_mathematics_audit.json": {
+      "sha256": "68353b06295c2fcaf0a61478d371e55bfbcf1c6460f968fda5ccd29c7337400d"
+    },
+    "reviews/four_case_stage_audits/audit_final_classical_arithmetic.py": {
+      "sha256": "5f13cfc9c909973a02bdf960da2bfa44431d01bd4936b63108b80445284e6730"
+    },
+    "reviews/four_case_stage_audits/audit_final_quantum_algebra.py": {
+      "sha256": "a045b68aab9b5ed1f248ecde6e1280c26facfdc15a23964c2f9fe38105d3bf9f"
+    },
+    "results/final_classical_arithmetic_audit.json": {
+      "sha256": "b0d3e96ff74c37c94308e6987114795412fd0969f0a3a3b307c31d3fc7c2ae0c"
+    },
+    "results/final_quantum_algebra_audit.json": {
+      "sha256": "7f1601f527b6c39915c1de9220a18bd66ccc82539d77511688f61f412d7a3246"
+    },
+    "results/four_case_provenance_audit.json": {
+      "sha256": "43a04dac7381c129068cd86ffa673ef638aaa55ce94def19c89b1cf8413cd63c"
+    },
+    "results/four_case_persistent_stage_input_audit.json": {
+      "sha256": "952f6639029d868cf23b345b09386870cc85889585e69eb9ff0c210551295d26"
+    },
+    "results/four_case_final_data_provenance_review.json": {
+      "sha256": "bee5656387998abee254800ccbba6133b1bbac46d981eb09f3cc07a9180de662"
+    },
+    "reviews/four_case_provenance_findings.md": {
+      "sha256": "4876f0f1488a396c5dae413d7af9f8f8c98c732301c02c9c5a331441a2cb08e6"
+    }
+  },
+  "installation_mapping": {
+    "classical/four_case_classical_pricing.py": "four_case_classical_pricing.py",
+    "classical/four_case_classical_proof.tex": "four_case_classical_proof.tex",
+    "classical/checks/audit_four_case_classical.py": "checks/audit_four_case_classical.py",
+    "classical/results/four_case_classical_independent_audit.json": "results/four_case_classical_independent_audit.json",
+    "classical/results/four_case_classical_pricing.json": "results/four_case_classical_pricing.json",
+    "classical/results/four_case_classical_protocol.json": "results/four_case_classical_protocol.json",
+    "classical/results/four_case_classical_summary.json": "results/four_case_classical_summary.json",
+    "classical/results/n2_lambda0.4_scale3_exactsum_lower_u64.bin": "results/n2_lambda0.4_scale3_exactsum_lower_u64.bin",
+    "classical/results/n2_lambda0.4_scale3_exactsum_upper_u64.bin": "results/n2_lambda0.4_scale3_exactsum_upper_u64.bin",
+    "classical/results/n2_lambda0.4_scale3_fresh_lower_u64.bin": "results/n2_lambda0.4_scale3_fresh_lower_u64.bin",
+    "classical/results/n2_lambda0.4_scale3_fresh_random_u16.bin": "results/n2_lambda0.4_scale3_fresh_random_u16.bin",
+    "classical/results/n2_lambda0.4_scale3_fresh_upper_u64.bin": "results/n2_lambda0.4_scale3_fresh_upper_u64.bin",
+    "classical/results/n4_lambda0.05_scale3over2_fresh_lower_u64.bin": "results/n4_lambda0.05_scale3over2_fresh_lower_u64.bin",
+    "classical/results/n4_lambda0.05_scale3over2_fresh_random_u16.bin": "results/n4_lambda0.05_scale3over2_fresh_random_u16.bin",
+    "classical/results/n4_lambda0.05_scale3over2_fresh_upper_u64.bin": "results/n4_lambda0.05_scale3over2_fresh_upper_u64.bin",
+    "classical/results/n4_lambda0.2_scale3_fresh_lower_u64.bin": "results/n4_lambda0.2_scale3_fresh_lower_u64.bin",
+    "classical/results/n4_lambda0.2_scale3_fresh_random_u16.bin": "results/n4_lambda0.2_scale3_fresh_random_u16.bin",
+    "classical/results/n4_lambda0.2_scale3_fresh_upper_u64.bin": "results/n4_lambda0.2_scale3_fresh_upper_u64.bin",
+    "classical/results/n8_lambda0.2_scale3_fresh_lower_u64.bin": "results/n8_lambda0.2_scale3_fresh_lower_u64.bin",
+    "classical/results/n8_lambda0.2_scale3_fresh_random_u16.bin": "results/n8_lambda0.2_scale3_fresh_random_u16.bin",
+    "classical/results/n8_lambda0.2_scale3_fresh_upper_u64.bin": "results/n8_lambda0.2_scale3_fresh_upper_u64.bin",
+    "quantum/four_survivor_quantum_resources.py": "four_survivor_quantum_resources.py",
+    "quantum/four_survivor_direct_r1_proof.tex": "four_survivor_direct_r1_proof.tex",
+    "quantum/checks/audit_four_survivor_quantum_resources.py": "checks/audit_four_survivor_quantum_resources.py",
+    "quantum/checks/reproduce_four_survivor_quantum.py": "checks/reproduce_four_survivor_quantum.py",
+    "quantum/results/four_survivor_quantum_independent_audit.json": "results/four_survivor_quantum_independent_audit.json",
+    "quantum/results/four_survivor_quantum_protocol.json": "results/four_survivor_quantum_protocol.json",
+    "quantum/results/four_survivor_quantum_resource_summary.json": "results/four_survivor_quantum_resource_summary.json",
+    "quantum/results/four_survivor_quantum_resources.json": "results/four_survivor_quantum_resources.json",
+    "quantum/results/four_survivor_quantum_scalar_ordinates.jsonl.gz": "results/four_survivor_quantum_scalar_ordinates.jsonl.gz",
+    "quantum/results/four_survivor_quantum_table_width_reconstruction.json.gz": "results/four_survivor_quantum_table_width_reconstruction.json.gz",
+    "quantum/reviews/audit_four_quantum_auxiliary.py": "reviews/audit_four_quantum_auxiliary.py",
+    "quantum/reviews/audit_four_quantum_mathematics.py": "reviews/audit_four_quantum_mathematics.py",
+    "quantum/reviews/four_quantum_auxiliary_audit.json": "reviews/four_quantum_auxiliary_audit.json",
+    "quantum/reviews/four_quantum_mathematical_review.md": "reviews/four_quantum_mathematical_review.md",
+    "quantum/reviews/four_quantum_mathematics_audit.json": "reviews/four_quantum_mathematics_audit.json",
+    "licence_review/audit_final_classical_arithmetic.py": "reviews/four_case_stage_audits/audit_final_classical_arithmetic.py",
+    "licence_review/audit_final_quantum_algebra.py": "reviews/four_case_stage_audits/audit_final_quantum_algebra.py",
+    "licence_review/final_classical_arithmetic_audit.json": "results/final_classical_arithmetic_audit.json",
+    "licence_review/final_quantum_algebra_audit.json": "results/final_quantum_algebra_audit.json",
+    "licence_review/provenance_audit.json": "results/four_case_provenance_audit.json",
+    "licence_review/persistent_stage_input_audit.json": "results/four_case_persistent_stage_input_audit.json",
+    "licence_review/final_data_provenance_review.json": "results/four_case_final_data_provenance_review.json",
+    "licence_review/final_independent_review.md": "reviews/four_case_final_independent_review.md",
+    "licence_review/provenance_findings.md": "reviews/four_case_provenance_findings.md",
+    "checks/replay_four_case_stage_reviews.py": "checks/replay_four_case_stage_reviews.py",
+    "recovery_record.json": "results/four_case_recovery_record.json"
+  },
+  "limits": "The checks cover identified current producer/input/figure chains and the new evidence. They do not exhaustively inspect historical or remote Git objects, establish contract interpretation, empirically validate a market law or prove physical random-source independence.",
+  "licensed_data_acquired": false,
+  "licensed_data_deleted": false,
+  "commits_created": 0
+}

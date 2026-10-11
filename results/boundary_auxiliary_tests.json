@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "checks": 54,
+  "source_sha256": "90bce08acce905f75e5439027a50907381b3b0db18ac0e77f067bf9d8389bbfb",
+  "coverage": "Exact independent Q(sqrt6) degree3 rule, degree4 sharp error, polynomial orthogonality/norm, finite Beta cell mass and linear/quadratic examples, dyadic complement weights and zero-support graph conventions."
+}

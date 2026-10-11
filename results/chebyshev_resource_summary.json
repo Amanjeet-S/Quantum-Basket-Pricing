@@ -1,0 +1,76 @@
+{
+  "schema": "qbp-bounded-chebyshev-resource-summary-v1",
+  "result_sha256": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232",
+  "cases": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "previous_complete_QPE_T": 25306395925,
+      "half_alpha_QPE_fallback_T": 27330907599,
+      "pilot_T_cap": 2733090759,
+      "whole_history_T_cap": 30063998358,
+      "diagnostic_summary": {
+        "histories": 100,
+        "pilot_certified": 39,
+        "fallback_charged": 61,
+        "observed_history_T_min": 1782799400,
+        "observed_history_T_median": 29113706999.0,
+        "observed_history_T_max": 29113706999,
+        "coverage_diagnostic_failures": 0,
+        "scope": "Descriptive fixed synthetic mesh and seeds only; these observations do not certify best-case or expected complexity."
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "previous_complete_QPE_T": 90433832750,
+      "half_alpha_QPE_fallback_T": 97668539370,
+      "pilot_T_cap": 9766853937,
+      "whole_history_T_cap": 107435393307,
+      "diagnostic_summary": {
+        "histories": 100,
+        "pilot_certified": 28,
+        "fallback_charged": 72,
+        "observed_history_T_min": 4596697200,
+        "observed_history_T_median": 101558033970.0,
+        "observed_history_T_max": 107215654770,
+        "coverage_diagnostic_failures": 0,
+        "scope": "Descriptive fixed synthetic mesh and seeds only; these observations do not certify best-case or expected complexity."
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "previous_complete_QPE_T": 97976923250,
+      "half_alpha_QPE_fallback_T": 105815077110,
+      "pilot_T_cap": 10581507711,
+      "whole_history_T_cap": 116396584821,
+      "diagnostic_summary": {
+        "histories": 100,
+        "pilot_certified": 31,
+        "fallback_charged": 69,
+        "observed_history_T_min": 1149246000,
+        "observed_history_T_median": 109645950310.0,
+        "observed_history_T_max": 115775395310,
+        "coverage_diagnostic_failures": 0,
+        "scope": "Descriptive fixed synthetic mesh and seeds only; these observations do not certify best-case or expected complexity."
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "previous_complete_QPE_T": 216055259050,
+      "half_alpha_QPE_fallback_T": 233339679774,
+      "pilot_T_cap": 23333967977,
+      "whole_history_T_cap": 256673647751,
+      "diagnostic_summary": {
+        "histories": 100,
+        "pilot_certified": 13,
+        "fallback_charged": 87,
+        "observed_history_T_min": 5068602400,
+        "observed_history_T_median": 250235202174.0,
+        "observed_history_T_max": 255303940374,
+        "coverage_diagnostic_failures": 0,
+        "scope": "Descriptive fixed synthetic mesh and seeds only; these observations do not certify best-case or expected complexity."
+      }
+    }
+  ],
+  "scope": "Fixed finite adaptation of published ChebAE sampling geometry with exact-rational sequential confidence, complete retained pricing preparations and a canonical QPE fallback. No theoretical novelty or physical advantage asserted.",
+  "data_origin": "Only previously retained synthetic model certificates, quantum resource profiles and compiled Fourier tapes; no LSEG observations, derived LSEG data or classical price answers."
+}

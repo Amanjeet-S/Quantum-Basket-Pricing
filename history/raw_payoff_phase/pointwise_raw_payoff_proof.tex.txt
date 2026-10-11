@@ -1,0 +1,289 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[british]{babel}
+\usepackage[round,authoryear]{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\title{Supporting certificate for a common-normal capped-payoff pricing rival}
+\author{Amanjeet Singh}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I construct a matched quantum pricing rival which represents a nonnegative
+capped-payoff difference directly on a shared Gaussian draw. Exact monotone
+clamps restrict exponential evaluation to a narrow finite interval; a
+Kolmogorov bound controls the nonsmooth inner Gaussian discretisation.
+The argument certifies a finite implementation under the unchanged classical
+no-arbitrage financial model. Common random numbers, monotonicity, clamping,
+linear interpolation, bounded variation and canonical amplitude estimation
+are established mechanisms. No generic theoretical originality or physical
+quantum advantage is claimed.
+\end{abstract}
+\noindent Keywords: quantum derivative pricing; common random numbers;
+capped basket options; Gaussian discretisation; reversible arithmetic.
+
+\section{Exact financial target}
+
+Fix the outer factor coordinate $y$ in the classical risk-neutral model,
+and let $m=m_G(y)$, $\Delta=\log T(y)\geq0$ and $\lambda>0$.
+The ratio inequality follows from the positive basket weights and exact
+weighted-centred drift and loading identities. Those premises and the
+finite outer box, its grid transfer and analytic coefficient $c_0$ are
+retained from the main paper. The geometric-conditioning and conditional
+smoothing foundations are established financial methods
+\citep{curran,bayer}; the retained main-paper source ledger records the
+versions and sections previously consulted. Put $K=100$ and $H=1$, and define
+\[
+ f(x)=\min\{1,\max\{100(e^x-1),0\}\},\qquad
+ h_{m,\Delta}(n)=f(m+\Delta+\lambda n)-f(m+\lambda n).
+\]
+The monotonicity of $f$ gives $0\leq h_{m,\Delta}\leq1$ pointwise.
+For $N\sim N(0,1)$,
+\[
+ R_1(y)=\E h_{m,\Delta}(N)
+       =P_\lambda(m+\Delta)-P_\lambda(m).
+\]
+Both terms use the same normal label. The financial model is unchanged;
+only the coherent representation of its first correction changes.
+
+\section{Exact narrow-domain payoff implementation}
+
+\begin{lemma}[Clamp decomposition]\label{lem:raw-clamp}
+Let $b=1/64$ and $x_+=\max(x,0)$. For every real $x$,
+\[
+ f(x)=\min\{1,100\max\{\exp(\min\{b,x_+\})-1,0\}\}.
+\]
+\end{lemma}
+\begin{proof}
+Let $\ell=\log(101/100)$. Since $\log(1+u)<u$ for $u>0$,
+$0<\ell<1/100<1/64$. If $x\leq0$, both expressions vanish.
+If $0<x<\ell$, neither clamp changes $x$, so both expressions are
+$100(e^x-1)$. If $\ell\leq x\leq b$, this value is at least one
+and the final clamp returns one. If $x>b$, the exponential argument
+is $b>\ell$, and the final clamp again returns one. Endpoints follow
+from the same equalities. Thus no exponential outside $[0,b]$ is needed.
+\end{proof}
+
+At fixed precision $q=28$, each constant, addition, positive subtraction,
+scaling and clamp uses the retained exact reversible integer emitter.
+The nonnegative exponential on $[0,b]$ uses certified rounded ordinates
+and signed-magnitude linear interpolation. The exact smooth interpolation
+error is at most $e^b b^2/(8M^2)$ for $M=2^{b_e}$ cells, in addition
+to certified nodal rounding and one interpolation floor unit.
+The exact exponential output range is bounded by $[1,64/63]$:
+for $0\leq x\leq1/64$, the power series gives
+$e^x=\sum_{k\geq0}x^k/k!\leq\sum_{k\geq0}x^k=1/(1-x)\leq64/63$.
+This avoids gratuitous fixed-point headroom.
+No derivative is taken across a payoff kink: both kinks are implemented
+by exact monotone clamps. The retained graph certificate propagates
+all intermediate rounding errors and proves that every subtraction,
+scalar input, fixed-point product and register remains in its guarded
+domain. In particular, the scalar error cannot silently replace its
+input-perturbation charge.
+
+The represented upper endpoint is computed by adding the same represented
+nonnegative $\log T$ register to the represented lower endpoint. Both
+payoffs use the same normal draw, offset, constants and scalar table.
+The exponential table is monotone: rounded node integers are nondecreasing,
+and floor interpolation within a cell is nondecreasing and does not exceed
+the next node. Positive subtraction, clipping and positive scaling preserve
+this order. Hence the represented payoff difference is nonnegative before
+its defensive positive subtraction, provided the independently checked
+overflow guards hold. The final clamp yields a probability in $[0,1]$.
+
+\section{Inner Gaussian discretisation}
+
+\begin{lemma}[Normal-grid Kolmogorov bound]\label{lem:raw-cdf}
+Let $L>0$, $a=\Phi(L)-\Phi(-L)$ and $M=2^{b_N}$. Define the exact
+conditional midpoint quantiles
+\[
+ z_j=\Phi^{-1}\!\left(\Phi(-L)+a\frac{2j+1}{2M}\right),
+ \qquad j=0,\ldots,M-1.
+\]
+Let $\widetilde z_j$ satisfy $|\widetilde z_j-z_j|\leq e_N$,
+and let $\widetilde N$ choose these values uniformly. If
+$\nu_0\geq\sup_x\phi(x)$, then
+\[
+ \sup_x|\Prb\{\widetilde N\leq x\}-\Phi(x)|
+ \leq D_N:=\frac{1-a}{2}+\frac{a}{2M}+\nu_0e_N.
+\]
+An outward lower enclosure of $a$ may replace $a$ on the right.
+\end{lemma}
+\begin{proof}
+First consider exact $z_j$. Between consecutive quantiles, its empirical
+CDF is $j/M$ for some $j$, whereas the normal CDF ranges between the
+neighbouring midpoint probabilities
+$\Phi(-L)+a(j-1/2)/M$ and $\Phi(-L)+a(j+1/2)/M$.
+Since $\Phi(-L)=(1-a)/2$, its deviation from $j/M$ is bounded by
+$|(1-a)(1/2-j/M)|+a/(2M)$, which is at most
+$(1-a)/2+a/(2M)$. Below the first quantile and above the last one,
+the same bound follows directly from their midpoint probabilities and
+the normal tail limits. At atoms the one-sided limits give the same bound.
+If $F_M$ is this empirical CDF and $\widetilde F_M$ the rounded CDF,
+then $F_M(x-e_N)\leq\widetilde F_M(x)\leq F_M(x+e_N)$,
+regardless of duplicate rounded quantiles. Since
+$|\Phi(x\pm e_N)-\Phi(x)|\leq\nu_0e_N$, the stated estimate follows.
+Finally, $(1-a)/2+a/(2M)$ is decreasing in $a$ for $M\geq1$;
+an outward lower endpoint therefore preserves the upper bound.
+\end{proof}
+
+\begin{proposition}[Nonsmooth payoff-difference transfer]\label{prop:raw-tv}
+For every $m\in\mathbb R$, $\Delta\geq0$ and $\lambda>0$,
+\[
+ |\E h_{m,\Delta}(\widetilde N)-\E h_{m,\Delta}(N)|\leq2D_N.
+\]
+\end{proposition}
+\begin{proof}
+Both maps $n\mapsto f(m+\Delta+\lambda n)$ and
+$n\mapsto f(m+\lambda n)$ are continuous and nondecreasing,
+with limits zero and one. Each consequently defines a positive
+Lebesgue--Stieltjes derivative measure of mass one. Their difference
+$h_{m,\Delta}$ has signed derivative $dh$ with total variation
+$|dh|(\mathbb R)\leq2$. It is continuous and tends to zero at
+both infinities. For the signed probability measure
+$d(\widetilde F_M-\Phi)$, integration by parts, first on finite
+intervals and then by bounded convergence against the finite measure
+$|dh|$, gives
+\[
+ \E h(\widetilde N)-\E h(N)
+   =-\int_{\mathbb R}(\widetilde F_M(x)-\Phi(x))\,dh(x).
+\]
+Boundary terms vanish because both CDF differences vanish at infinities
+and $h$ is bounded. The absolute integral is bounded by
+$D_N|dh|(\mathbb R)\leq2D_N$. This proof permits atoms, coincident
+rounded quantiles and nondifferentiable payoff kinks. It uses no empirical
+price value and no local Gaussian smoothness of the payoff.
+\end{proof}
+
+\section{Complete monetary certificate and quantum preparation}
+
+Let $e_{\rm ar}$ be the complete graph's pointwise output-error upper
+bound relative to the exact payoff difference at the realised outer
+coordinates and the realised rounded normal draw. Normal-node rounding
+is charged in Lemma~\ref{lem:raw-cdf}, while the retained graph treats
+its realised quantile integers as exact inputs. Therefore
+\[
+ \eta=\min\{1,e_{\rm ar}+2D_N\}
+\]
+bounds the difference between the prepared flag probability and the
+ideal finite-outer-grid conditional mean $R_1$. The factor two in the
+normal discrepancy is a sufficient bounded-variation estimate, not a
+claim that the discrepancy is attained.
+
+For each graph the preparation first places its outer Gaussian labels,
+inner Gaussian label and $q$ comparator bits in a uniform superposition.
+It computes the guarded numerical probability, XORs the comparison
+$U_q<p_q$ into a separate good flag and reverses the complete arithmetic
+body. Here $U_q$ is uniform on $\{0,\ldots,2^q-1\}$ and the
+probability integer $p_q$ lies in $\{0,\ldots,2^q\}$, so the
+conditional good probability is exactly $p_q/2^q$. The comparator's
+endpoint-high-zero wire is allocated but excluded from the reflected
+active core. The core consists of the actual uniform input wires,
+comparator wires and actual good flag. All clean private arithmetic
+wires may be reused for reflection scratch. Full controlled reflections,
+the conditional global-minus gate, $A$ and $A^\dagger$, the synthesised
+inverse Fourier transform, measurements and resets are included in
+the complete canonical QPE charge. This retains the published amplitude
+estimation and derivative-pricing framework \citep{brassard,rebentrost};
+no new generic amplitude-estimation result is claimed.
+
+Let the retained outer finite law have external factor in
+$[a_-,a_+]$, midpoint $a_c$ and radius $a_r$. Let $\beta$ be its
+price-independent complete continuous financial transfer and $e_0$
+the analytic coefficient radius. The direct difference's normaliser
+is $H=1$, and its whole deterministic undiscounted monetary error obeys
+\[
+ D=e_0+\beta+a_+\eta+a_r.
+\]
+To derive this bound, let $r$ be the ideal finite-outer-grid mean correction,
+$p$ the implemented flag probability and $a$ the exact external outer mass.
+By construction, $|V-(c_0+ar)|\leq\beta$,
+$|\widehat c_0-c_0|\leq e_0$, $|p-r|\leq\eta$ and
+$|a-a_c|\leq a_r$, with $a\leq a_+$. Clip any reported probability
+to $[0,1]$, which cannot increase its error from $p\in[0,1]$.
+On the estimator's coverage event $|\widehat p-p|\leq\varepsilon_p$,
+the decoder $\widehat V=\widehat c_0+a_c\widehat p$ satisfies
+\[
+ |\widehat V-V|
+ \leq e_0+\beta+a|p-r|+a|\widehat p-p|
+             +|a-a_c|\,|\widehat p|
+ \leq D+a_+\varepsilon_p.
+\]
+Thus the probabilistic estimator allowance is added exactly once; none
+of its confidence budget is spent again on the deterministic bounds.
+The inner finite Gaussian law is normalised and requires no further
+external mass multiplier. The inherited ideal finite-mean prior $[l,u]$
+is enlarged to $[\max(0,l-\eta),\min(1,u+\eta)]$. Neither a
+basket-price answer nor an earlier sampled estimate enters this prior.
+If $D<1/100$, the canonical QPE target is
+$\varepsilon_p=(1/100-D)/a_+$ with per-price failure allowance
+$1/3600$. Its retained explicit amplitude bound, outward Fourier error,
+exact binomial amplification and postprocessing allowance certify the
+full monetary radius. The controller records any exhausted budget,
+domain failure or production exception as a rejection; none is repaired
+after inspection within this protocol.
+
+\section{Registered finite comparison and interpretation}
+
+The outer financial parameters, selected exact rational factor bases,
+$L=6$, outer quantile width ten, outer scalar width twelve and $q=28$
+are fixed. Before fresh costs I registered inner normal widths
+$\{8,10,12\}$, narrow-exponential address widths $\{4,6,8,10\}$
+and both coherent lookup architectures. The first registered run used the
+safe exponential output interval $[1,2]$; I retained its complete evidence
+and separately froze the exact $[1,64/63]$ range amendment before new costs.
+The amendment changes only semantic range bounds and resulting integer
+headroom, while retaining the target, scalar ordinates, precision pool and
+confidence policy. Its complete resource record is retained in deterministic
+gzip. These are disclosed sequential design choices, not a blind initial
+registration. This gives twelve configurations
+per financial case and forty-eight in total, with ninety-six complete
+architectural resource plans. All forty-eight configurations were admitted.
+Every selected minimum uses inner width ten and exponential width ten.
+Thus a wider precision search could strengthen this rival; the registered
+finite minimum is not a global optimisation claim.
+
+Its minimum complete logical T caps are
+$23\,346\,683\,625$, $88\,548\,390\,850$,
+$94\,437\,597\,250$ and $417\,229\,413\,325$ in the retained
+case order. The fixed shared-threshold representation is respectively
+$10.67$, $5.63$, $5.50$ and $51.27$ per cent cheaper. This new rival
+is $1.86$ and $0.80$ per cent cheaper than the strengthened numerical
+conditional-price rival in the first and third cases. It is $0.39$ and
+$99.16$ per cent more expensive in the second and fourth cases. A strongest
+registered-rival comparison therefore selects the less costly numerical or
+raw-payoff rival independently in each case.
+These are matched sufficient logical resource caps under synthetic
+contracts and the registered finite policies. They are not quantum
+price outcomes, physical runtimes, a general theorem of algorithmic
+superiority or evidence of practical quantum advantage.
+\begin{thebibliography}{99}
+\bibitem[Bayer et al.(2018)]{bayer}
+Bayer, C., Siebenmorgen, M. and Tempone, R. (2018).
+Smoothing the payoff for efficient computation of basket option prices.
+\emph{Quantitative Finance}, 18(3), 491--505.
+\url{https://doi.org/10.1080/14697688.2017.1308003}.
+\bibitem[Brassard et al.(2002)]{brassard}
+Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002).
+Quantum amplitude amplification and estimation.
+\emph{Contemporary Mathematics}, 305, 53--74.
+\url{https://doi.org/10.1090/conm/305/05215}.
+\bibitem[Curran(1994)]{curran}
+Curran, M. (1994). Valuing Asian and portfolio options by conditioning
+on the geometric mean price.
+\emph{Management Science}, 40(12), 1705--1711.
+\url{https://doi.org/10.1287/mnsc.40.12.1705}.
+\bibitem[Rebentrost et al.(2018)]{rebentrost}
+Rebentrost, P., Gupt, B. and Bromley, T. R. (2018).
+Quantum computational finance: Monte Carlo pricing of financial derivatives.
+\emph{Physical Review A}, 98, 022321.
+\url{https://doi.org/10.1103/PhysRevA.98.022321}.
+\end{thebibliography}
+\end{document}

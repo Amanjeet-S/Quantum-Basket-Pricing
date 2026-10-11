@@ -1,0 +1,12 @@
+{
+  "original_sha256": "630d0d9dc271e8f310b90ca3172d93e4b1ee922f99c3025558e17a430547bddc",
+  "updated_sha256": "ae73716c7f5859e17e569df5dcff838203a65045c1c9d613deb6f8b284207414",
+  "removed_duplicate_keyword_blocks": 5,
+  "reference_source": "/Users/amanjeetsingh/Projects/Option-Exercise-Policy-Evaluation/paper/main.tex",
+  "reference_layout": "end abstract; smallskip; noindent textit Keywords:; first numbered section",
+  "preserved_main_keyword_text": true,
+  "date": "2026-10-06",
+  "native_compilation": "success",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "no_staging_commits_or_pushes": true
+}

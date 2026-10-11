@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-11",
+  "purpose": "Byte-preserved source, paper and navigation before the synthetic Gaussian calibration extension. Earlier validation hashes resolve here.",
+  "files": {
+    "capped_gbm_companion.tex": "57864f076fb8d7ead543034aa9c0c8047a7a84ef9b775e4ac9b874f2cdad3638",
+    "SOURCES.md": "de0541abdafa56689b8f7d509e48d3b8c1b80952d20147113adcde00944dc408",
+    "PREPARATION.md": "207d1b425656b20f9fee418c2980aedd6917e8c4cf713dc85d14848368e01b16",
+    "README.md": "81dc2060794c0271019d3cb484535385961c967d9d26b4a0d89c9660452d9edf",
+    "quantum_method_redesign.md": "467567afb73ddfbad1fd3c36c5dee2af7f974b4319b03abf4de7f8cd2a4f9f82",
+    "results/preparation_review/module_descriptors.json": "2bada2885b4bc7b3a2cb24677f2c3ff287f5196f9224a858543cd7ada890774a",
+    "results/preparation_review/programme_curricula.json": "f01198a137708fa67f6356694cb023e070b1ea58232f21219f9b4d89df9e2e26",
+    "capped_gbm_companion.pdf": "07a00cdec34d5fcee32effee6461f1e7c8f68e415037009980cc395394607ab2"
+  }
+}

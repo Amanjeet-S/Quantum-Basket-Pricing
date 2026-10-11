@@ -1,0 +1,351 @@
+{
+  "schema": "qbp-higherdim-preparation-cost-ledger-v1",
+  "status": "retained explicit shared work",
+  "preparation_sha256": "62b09dbee09a0e1c6d823503f8603aaa095845be4d7fec331bb454013d145912",
+  "source_sha256": "e817f4d55181025f77de4199396c459af82ede8f87ddeee3d98818040cbacbf4",
+  "coefficient_source_sha256": "fe7ada516a74a0806b46ad7d08cdae208c75f110adc43951ae67702c82fe1087",
+  "coefficient_cases": [
+    {
+      "model_id": "n4_lambda0.05",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.05",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.05",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.05",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 7,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.2",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.2",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.2",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.2",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 7,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.4",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.4",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.4",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 14,
+        "logarithm_calls": 6,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n4_lambda0.4",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 10,
+        "Gaussian_CDF_calls": 7,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.05",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.05",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.05",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.05",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 11,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.2",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.2",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.2",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.2",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 11,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.4",
+      "payoff": "capped",
+      "cap": 1,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.4",
+      "payoff": "capped",
+      "cap": 10,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.4",
+      "payoff": "capped",
+      "cap": 25,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 22,
+        "logarithm_calls": 10,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    },
+    {
+      "model_id": "n8_lambda0.4",
+      "payoff": "vanilla",
+      "cap": null,
+      "coefficient_kernel_operation_counts": {
+        "exponential_calls": 18,
+        "Gaussian_CDF_calls": 11,
+        "logarithm_calls": 0,
+        "square_root_calls": 1
+      },
+      "count_basis": "Direct source-level tally of boundary_grid_certificate.coefficient_certificate, including repeated arguments. No scalar caching claimed for coefficients."
+    }
+  ],
+  "totals": {
+    "coefficient_exponential_calls": 336,
+    "coefficient_Gaussian_CDF_calls": 378,
+    "coefficient_logarithm_calls": 144,
+    "coefficient_square_root_calls": 24,
+    "multinomial_and_correlated_gap_exponential_evaluations": 3227,
+    "vertex_exponential_evaluations": 1056
+  },
+  "shared_MGF_profile": {
+    "node_certificate": {
+      "schema": "qbp-compressed-rounded-quantiles-v1",
+      "L": "6",
+      "b_y": 10,
+      "q": 28,
+      "node_count": 1024,
+      "inverse_error_function_evaluations": 512,
+      "maximum_node_error_upper": "6215610938512245106519884758325592098972612187505402577846103386014161304507532331055180107380042583616537440593514798426848530010439390956818673/3351951982485649274893506249551461531869841455148098344430890360930441007518386744200468574541725856922507964546621512713438470702986642486608412251521024",
+      "minimum_strict_rounding_bin_margin_lower": "27886162119739356243309701260740512524584097824539723872210533236582173131998909185432098746941358703116421649298447364047421348137179655761679/3351951982485649274893506249551461531869841455148098344430890360930441007518386744200468574541725856922507964546621512713438470702986642486608412251521024",
+      "coordinate_min": "-885083447/268435456",
+      "coordinate_max": "885083447/268435456",
+      "symmetric_actual_nodes": true,
+      "actual_signed_coordinate_integer_sha256": "1611c6b9ab6a8d4516cccab0cba766daf8fb4f606b1c040d7907220c50bd03c0",
+      "mass_interval": {
+        "lower_exact_fraction": "13407807903486641798134342423234434695973012718036485270067288843954088707263246572468924434342416021521677365563384160885961944837756453975679618980153405/13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096",
+        "upper_exact_fraction": "13407807903486641798134342423234434695973012718036485270067288843954088707263246572468924434342416021521677365563384160885961944837756453975679618980153409/13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096"
+      },
+      "precision_bits": 512,
+      "generation_seconds_diagnostic": 0.03136199999971723,
+      "scope": "Uniform labels on the exactly rounded truncated-normal midpoint quantiles. Symmetry is a proved construction, not a distribution approximation."
+    },
+    "series_order": 120,
+    "empirical_even_power_multiplications": 30720,
+    "distinct_MGF_rates": 628,
+    "MGF_requests": 21729,
+    "polynomial_coefficient_evaluations": 38247,
+    "remainder_exponential_evaluations": 627,
+    "distinct_moment_geometries": 2,
+    "distinct_finite_domain_geometries": 2,
+    "maximum_MGF_remainder_upper": "27299880682197007905336241579545875409914281765805020357592812783651574677884661801619447748648680523/1552518092300708935148979488462502555256886017116696611139052038026050952686376886330878408828646477950487730697131073206171580044114814391444287275041181139204454976020849905550265285631598444825262999193716468750892846853816057856",
+    "generation_seconds_diagnostic": 0.04311520900000687,
+    "scope": "Paid deterministic shared preparation. Rates are exact rational model combinations; the finite law is unchanged. No financial payoff or basket-price answer is an input."
+  },
+  "finite_MGF_evaluation_policy": {
+    "nodal_exponential_evaluations": 0,
+    "remainder_exponential_evaluations": 627,
+    "empirical_even_power_multiplications": 30720,
+    "empirical_even_power_recurrence_divisions": 30720,
+    "polynomial_coefficient_evaluations": 38247,
+    "inverse_error_function_evaluations": 512,
+    "node_generation_Gaussian_erf_evaluations": 1,
+    "node_generation_square_root_evaluations": 1,
+    "recurrence_reference": "higherdim_preparation_proof.tex, finite empirical exponential moments proposition. Actual dyadic powers are accumulated once by the factorial-divided recurrence. Each distinct rate is evaluated by Horner recurrence plus a certified positive remainder; no rate*N nodal exponentials are omitted from the count."
+  },
+  "comparison_policy": "Exactly the same paid moments, coefficients, correlated gap, norm and finite-domain information enters all competitors. Existing shared derivative-norm generation has its own retained certificates and is reused here."
+}

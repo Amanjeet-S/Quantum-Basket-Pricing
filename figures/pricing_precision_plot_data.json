@@ -1,0 +1,1680 @@
+{
+  "schema": "qbp-pricing-precision-figure-data-v2",
+  "source_sha256": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+  "source_protocol_sha256": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+  "source_producer_sha256": "1e78f51c6ffc9f49a56ddf785a72424531b8261a69ce996b984f5561d254b477",
+  "checked_proof_sha256": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+  "source_variant": "deferred_B",
+  "source_resource_filename": "deferred_cleanup_resources.json.gz",
+  "widths": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "rows": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "assets": 2,
+      "lambda": "0.4",
+      "scale": "3",
+      "base_T_count": 11904194525,
+      "numerical_minimum_architecture": "unitary8t",
+      "numerical_minimum_record_index": 358,
+      "interval_T_count": 10467507700,
+      "interval_ratio_exact_fraction": "418700308/476167781",
+      "interval_ratio_display": "0.879",
+      "event_architecture": "unitary8t",
+      "event_record_index": 412,
+      "cells": [
+        {
+          "PA_bits": 6,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 24704040250,
+          "ratio_exact_fraction": "988161610/476167781",
+          "ratio_display": "2.075",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 348,
+          "source_row_index": 0,
+          "selected_record_sha256": "63b61116eba8709c298608f3fd7a938001eea4376a047ca23179b2895cf80074",
+          "deferred_profile_sha256": "65515dbfba3a609e29706bfe0ef212a8b49ad68907c9a7c5862f0f89e5cf4510",
+          "architecture_caps": {
+            "exact7t": 28683152200,
+            "unitary8t": 24704040250
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 24388137850,
+          "ratio_exact_fraction": "975525514/476167781",
+          "ratio_display": "2.049",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 349,
+          "source_row_index": 1,
+          "selected_record_sha256": "b34d08415450b2eed7fd082cd26d78fd6501b57fb5c0f8420b066ba75398b9cd",
+          "deferred_profile_sha256": "458d58ca96b28f7a90474aecc437c5bda248ca7b11a2b5b0c19564e669397205",
+          "architecture_caps": {
+            "exact7t": 28426788400,
+            "unitary8t": 24388137850
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 24325121050,
+          "ratio_exact_fraction": "973004842/476167781",
+          "ratio_display": "2.043",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 350,
+          "source_row_index": 2,
+          "selected_record_sha256": "753b50f577852c18908da183970a65844e28eb72890d73e55e6bd6b758bd1784",
+          "deferred_profile_sha256": "117f83eb274301078344b912d9332a25a164345c6031180673b0442dadcea5d0",
+          "architecture_caps": {
+            "exact7t": 28600084600,
+            "unitary8t": 24325121050
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 25222087450,
+          "ratio_exact_fraction": "1008883498/476167781",
+          "ratio_display": "2.119",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 351,
+          "source_row_index": 3,
+          "selected_record_sha256": "979071f6051a4da9e73e72d4996e5333329740376f5963f514f5e7da0a5f7247",
+          "deferred_profile_sha256": "ed2e2476f30c210ca939a8e0ce16cde4931fda41a212e3635444e52da57faf4e",
+          "architecture_caps": {
+            "exact7t": 30440461600,
+            "unitary8t": 25222087450
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 12165622125,
+          "ratio_exact_fraction": "486624885/476167781",
+          "ratio_display": "1.022",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 352,
+          "source_row_index": 4,
+          "selected_record_sha256": "e02462ff0319dcd28241b3ae2b60a506f2604f00f213074508b58dca0d8fa2a3",
+          "deferred_profile_sha256": "43d3632af6454501fb4fe7b3271d490198ce7aba53bd163c004b5e8f02343ec4",
+          "architecture_caps": {
+            "exact7t": 14176994775,
+            "unitary8t": 12165622125
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 12007825325,
+          "ratio_exact_fraction": "480313013/476167781",
+          "ratio_display": "1.009",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 353,
+          "source_row_index": 5,
+          "selected_record_sha256": "c1c436ed7a03976d2a8cdf7fcfc73a3b34b2cbd8eaeec4bb31e81906a9dcee18",
+          "deferred_profile_sha256": "91169b999107a5dd2b8f13a013ef33409a354d330cfab1f8df4e95a225cc454a",
+          "architecture_caps": {
+            "exact7t": 14048938175,
+            "unitary8t": 12007825325
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 11976347725,
+          "ratio_exact_fraction": "479053909/476167781",
+          "ratio_display": "1.006",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 354,
+          "source_row_index": 6,
+          "selected_record_sha256": "e07c53a06bc8b192097165e50cf360f7366c4d5ad015d0f78f65b8cb62967b0d",
+          "deferred_profile_sha256": "3d4e467aacf158440cbdb72a46afac0d31dff361a947db1f262d5480cde0ae0d",
+          "architecture_caps": {
+            "exact7t": 14135501575,
+            "unitary8t": 11976347725
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 12424392525,
+          "ratio_exact_fraction": "496975701/476167781",
+          "ratio_display": "1.044",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 355,
+          "source_row_index": 7,
+          "selected_record_sha256": "890b350252a11382aea0c612f9d34c66faad70fcd1d2b1acec63ac937a13298a",
+          "deferred_profile_sha256": "f99ae5eb5dcc2df4c04666b88aa080f30278414c305a831c21f7e03bbd66d671",
+          "architecture_caps": {
+            "exact7t": 15054790575,
+            "unitary8t": 12424392525
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 12093468925,
+          "ratio_exact_fraction": "483738757/476167781",
+          "ratio_display": "1.016",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 356,
+          "source_row_index": 8,
+          "selected_record_sha256": "4781333e2e56814fbf93df9cea7660919d248cfadb8ff36b1eb9d477d38fb30c",
+          "deferred_profile_sha256": "4b804c9a88b3293285783a100a2123f2a94ed5a91e69eb9fc9cd23df2031e3d5",
+          "architecture_caps": {
+            "exact7t": 14198814475,
+            "unitary8t": 12093468925
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 11935672125,
+          "ratio_exact_fraction": "477426885/476167781",
+          "ratio_display": "1.003",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 357,
+          "source_row_index": 9,
+          "selected_record_sha256": "b245f7236599681fd868d993a2679948ab8d8d113348372d17b6f00fcafbed11",
+          "deferred_profile_sha256": "5bbe1f3e701336d1508fefd5cb4408592ff8d93a78acd42353943d3f0d40bc2a",
+          "architecture_caps": {
+            "exact7t": 14070757875,
+            "unitary8t": 11935672125
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 11904194525,
+          "ratio_exact_fraction": "1",
+          "ratio_display": "1.000",
+          "exact_numerical_winner": true,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 358,
+          "source_row_index": 10,
+          "selected_record_sha256": "c25c971a88c99c18f95e91a9d773b66d49de6aa4f8ad9a4798bae4b9eaf9ba60",
+          "deferred_profile_sha256": "6243add83a2238048873d52a548031fd61d61972959fc6429395488b4ddc2233",
+          "architecture_caps": {
+            "exact7t": 14157321275,
+            "unitary8t": 11904194525
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 12352239325,
+          "ratio_exact_fraction": "494089573/476167781",
+          "ratio_display": "1.038",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 359,
+          "source_row_index": 11,
+          "selected_record_sha256": "c7713bdcafbbc1588d4fb6089e23a46adb5e3fd971d00b9719c81bb74e0ec935",
+          "deferred_profile_sha256": "6fa44989198b9f2507eea5f90382827294d5eefb0fed582105eab2f372595557",
+          "architecture_caps": {
+            "exact7t": 15076610275,
+            "unitary8t": 12352239325
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 12403952525,
+          "ratio_exact_fraction": "496158101/476167781",
+          "ratio_display": "1.042",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 360,
+          "source_row_index": 12,
+          "selected_record_sha256": "1ca8bb1e2e2a08073b7411f2b735b20613709b3581822c99a19be925efae67cc",
+          "deferred_profile_sha256": "f82bcfd9389ed699ffe9aca130032fccdb55e0bb442a8b2fe61205342fc5696a",
+          "architecture_caps": {
+            "exact7t": 14883809975,
+            "unitary8t": 12403952525
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 12246155725,
+          "ratio_exact_fraction": "489846229/476167781",
+          "ratio_display": "1.029",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 361,
+          "source_row_index": 13,
+          "selected_record_sha256": "7420cb07a24754534de50d6e729f437ee1ba86a84ad0e91ed4b988ae54d49d48",
+          "deferred_profile_sha256": "852bbfbc908b44ba283ae89c2bd30929f7ac9417a69c642dcbd8d92f507c515d",
+          "architecture_caps": {
+            "exact7t": 14755753375,
+            "unitary8t": 12246155725
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 12214678125,
+          "ratio_exact_fraction": "15760875/15360251",
+          "ratio_display": "1.026",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 362,
+          "source_row_index": 14,
+          "selected_record_sha256": "aa61edd24d71e9c15979cc559a8c1e6aeff576c7584a2c480a967c3dc0fe0a3d",
+          "deferred_profile_sha256": "8e09c1718cbab079bd7b03f90c37b5cbe74967c82b1d15f14dc2f4db7c148e29",
+          "architecture_caps": {
+            "exact7t": 14842316775,
+            "unitary8t": 12214678125
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 12662722925,
+          "ratio_exact_fraction": "506508917/476167781",
+          "ratio_display": "1.064",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 363,
+          "source_row_index": 15,
+          "selected_record_sha256": "2b0986133f512d39734c533a326fea69e26d5fdc0a40b17322d0660bd6959007",
+          "deferred_profile_sha256": "8f0de07bc6c500b6a4dfbb4fa02c510f0e24eefb972a5cc8686bdf1940e48b7e",
+          "architecture_caps": {
+            "exact7t": 15761605775,
+            "unitary8t": 12662722925
+          },
+          "rejection": null
+        }
+      ]
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "assets": 4,
+      "lambda": "0.05",
+      "scale": "1.5",
+      "base_T_count": 44122469300,
+      "numerical_minimum_architecture": "unitary8t",
+      "numerical_minimum_record_index": 374,
+      "interval_T_count": 41861923075,
+      "interval_ratio_exact_fraction": "239210989/252128396",
+      "interval_ratio_display": "0.949",
+      "event_architecture": "unitary8t",
+      "event_record_index": 413,
+      "cells": [
+        {
+          "PA_bits": 6,
+          "PG_bits": 6,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 364,
+          "source_row_index": 16,
+          "selected_record_sha256": "bd86381bfbd589ba469fa458425faf18b5fd46e3d4a5d3fb8148a2477adc8f14",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "79404340462648297387140543817381849773033224578804891434592710797718509537467207537431757233921363489065745965722858426876121716661981474377556572352908669318497478561949309963182239639764362659214519888779007001295534709120241503745051379553268584485141014773492929712618937602839643279704515820442447649252840275055700297436618492387097944170626001239480706741061794477419050135613152155301146468054773044271615246436395202361635842040927346707100112794312310286216166473859138309512011806754188508033943814481838496380220744859591359351424727038453289558251019611552734051397565006333190159956703928143/4820624853842065177160233212056628225824186495891377902719350078130514783183606401338170048214692099326897532561776009575724833957589916649939225975781549302910426678763250449541564155835362999353691086274775640115194691715809198218922774244199015929995631282684601355258946710563234856823588327935571740740737938218443183886108464023125516900161159175701801987429784566953293262363030127609746750364521012493985675797411942025051686648802465973714009520678633472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 8,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 365,
+          "source_row_index": 17,
+          "selected_record_sha256": "266c0653402c8c5521b20fdf1229ba01c3dc5d7c11a7c9f12d3dd624665021fc",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "66055378675447971218885047469929632651682602811193994054224349645500930293370469516586266325281002038657972075043523929569762582947973292163332592897853160973300605588600572810333694775259466609855940806209645591962728493956292343491956895696197243862905712977986402153870029330823410627788620954920455290272128736014820225899096256990656224192924897802993940867950245552639603223180213193074308357964119171807940878466352731236280609167256837280836795662491254286216166473859138309512011806754188508033943814481838496380220744859591359351424727038453289558251019611552734051397565006333190159956703928143/4820624853842065177160233212056628225824186495891377902719350078130514783183606401338170048214692099326897532561776009575724833957589916649939225975781549302910426678763250449541564155835362999353691086274775640115194691715809198218922774244199015929995631282684601355258946710563234856823588327935571740740737938218443183886108464023125516900161159175701801987429784566953293262363030127609746750364521012493985675797411942025051686648802465973714009520678633472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 10,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 366,
+          "source_row_index": 18,
+          "selected_record_sha256": "c0accf5d74842184c7fcc08721aaa2cbd45bafe9e8ed664b08a10215b72d0828",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "65221068614907828485696291783986756538475277982995655556698193335241627446942368230985279842117705543736277000133140624521536250518386327275384291036545033614666089771135460340708361069053009422048388158391921068184050111993309614323259676747095286295599144734884467294155001500501878813541837629891217769914477065656588334439786539168094343759749099620708315643645713532246755574916383007499387601940841072517505562793305516384242017351990486028054642100166262286216166473859138309512011806754188508033943814481838496380220744859591359351424727038453289558251019611552734051397565006333190159956703928143/4820624853842065177160233212056628225824186495891377902719350078130514783183606401338170048214692099326897532561776009575724833957589916649939225975781549302910426678763250449541564155835362999353691086274775640115194691715809198218922774244199015929995631282684601355258946710563234856823588327935571740740737938218443183886108464023125516900161159175701801987429784566953293262363030127609746750364521012493985675797411942025051686648802465973714009520678633472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 12,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 367,
+          "source_row_index": 19,
+          "selected_record_sha256": "986c8bdd1dedd64a80b2e0707b5763498e98ae966f2c19ff3775e6d88db42bff",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "65168924232835693160966793556789531952533343682522653627419441016527259113112244951980071289420009137982441588284505995958985308009453312278982367101612315475903898788535825971648784472106556417934792250448503812732989170593700220862872672957865817817139285846238645307868942772841324523303101143521604221957592504372284447690227346406313148012194095484021284439670127209992906029956895455975483323395699021157129401740191745659351921251762844476851041667014262286216166473859138309512011806754188508033943814481838496380220744859591359351424727038453289558251019611552734051397565006333190159956703928143/4820624853842065177160233212056628225824186495891377902719350078130514783183606401338170048214692099326897532561776009575724833957589916649939225975781549302910426678763250449541564155835362999353691086274775640115194691715809198218922774244199015929995631282684601355258946710563234856823588327935571740740737938218443183886108464023125516900161159175701801987429784566953293262363030127609746750364521012493985675797411942025051686648802465973714009520678633472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 89522735675,
+          "ratio_exact_fraction": "3580909427/1764898772",
+          "ratio_display": "2.029",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 368,
+          "source_row_index": 20,
+          "selected_record_sha256": "0194a8afed0f032b2a849dd0efe34d6afab61431a48e53d704364527eae69141",
+          "deferred_profile_sha256": "830e1e16b7315fbd32c93e5803355e0093983b3e6f21e6420e98847ecbeae1d8",
+          "architecture_caps": {
+            "exact7t": 103224841925,
+            "unitary8t": 89522735675
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 44416274900,
+          "ratio_exact_fraction": "444162749/441224693",
+          "ratio_display": "1.007",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 369,
+          "source_row_index": 21,
+          "selected_record_sha256": "7273e1b7ae59315c1495d56808985f2d22ef980126a03a02886696fb5375ab6a",
+          "deferred_profile_sha256": "ea5180eed7d6b14fd983eaf31a66b221af94db60d45a883ae4775b6db55585bd",
+          "architecture_caps": {
+            "exact7t": 51311550650,
+            "unitary8t": 44416274900
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 44296379300,
+          "ratio_exact_fraction": "442963793/441224693",
+          "ratio_display": "1.004",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 370,
+          "source_row_index": 22,
+          "selected_record_sha256": "ae9175d201b3a316b911a32fe8475cc0181119c52850f87a245e60e6ba699b69",
+          "deferred_profile_sha256": "a088a1fe60546d0b9e0a95b4628f3639d251c5e0ad3e6720ba75c0f9d3ad21db",
+          "architecture_caps": {
+            "exact7t": 51378864050,
+            "unitary8t": 44296379300
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 44938823300,
+          "ratio_exact_fraction": "64198319/63032099",
+          "ratio_display": "1.019",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 371,
+          "source_row_index": 23,
+          "selected_record_sha256": "ef0e46da49f68b2f1af4a5f91de2d5c3f627228b44b62662b92c345583469906",
+          "deferred_profile_sha256": "a6059f86b26f25e54d00c1fdddaa91b212166fa190ba8aa422c635f0b7be712b",
+          "architecture_caps": {
+            "exact7t": 52767381950,
+            "unitary8t": 44938823300
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 44565632900,
+          "ratio_exact_fraction": "445656329/441224693",
+          "ratio_display": "1.010",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 372,
+          "source_row_index": 24,
+          "selected_record_sha256": "be27951762e77637343d8e5564cb48075cd673ffd15cd86b030d46e15afbd306",
+          "deferred_profile_sha256": "e41fddf27e69c0cd62a20443300154f7a0d98dec7b752433a6bdc48b042b9256",
+          "architecture_caps": {
+            "exact7t": 51566482250,
+            "unitary8t": 44565632900
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 44242364900,
+          "ratio_exact_fraction": "442423649/441224693",
+          "ratio_display": "1.003",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 373,
+          "source_row_index": 25,
+          "selected_record_sha256": "257cb569aed1ec3ca2b2007cf9f54fa5a0848b156ede9d6e01ddd523f7c94588",
+          "deferred_profile_sha256": "b752e1d4c1a2e0bd612ae8a40129097684591184a97b24045dfa504cd98ff08e",
+          "architecture_caps": {
+            "exact7t": 51290783750,
+            "unitary8t": 44242364900
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 44122469300,
+          "ratio_exact_fraction": "1",
+          "ratio_display": "1.000",
+          "exact_numerical_winner": true,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 374,
+          "source_row_index": 26,
+          "selected_record_sha256": "b3d250446677aa548005cfbe2a823823bbd764a810d99610005fa34188e1d4a7",
+          "deferred_profile_sha256": "0af2d886b434c2a05193b4e11613736fe63446b82f8462fef8434686cace0363",
+          "architecture_caps": {
+            "exact7t": 51358097150,
+            "unitary8t": 44122469300
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 44764913300,
+          "ratio_exact_fraction": "447649133/441224693",
+          "ratio_display": "1.015",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 375,
+          "source_row_index": 27,
+          "selected_record_sha256": "b74715d97ed230d967dce899e37f501b8b8d4b3e9abf15b33b0f026779cc4305",
+          "deferred_profile_sha256": "7e58aeb5795cb892d2dff1767ac15f4010e2c498c68748118164bf9da2b529d4",
+          "architecture_caps": {
+            "exact7t": 52746615050,
+            "unitary8t": 44764913300
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 45016980500,
+          "ratio_exact_fraction": "450169805/441224693",
+          "ratio_display": "1.020",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 376,
+          "source_row_index": 28,
+          "selected_record_sha256": "9d73229cc38b747e37e4015debcf7c3e373441b8f8e95d367e2d585d755b2867",
+          "deferred_profile_sha256": "ae9c9ec3f028bef7b066a09fb7aaaf77cf40cbad342672da691b398c7c87b2b3",
+          "architecture_caps": {
+            "exact7t": 52627026350,
+            "unitary8t": 45016980500
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 44693712500,
+          "ratio_exact_fraction": "446937125/441224693",
+          "ratio_display": "1.013",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 377,
+          "source_row_index": 29,
+          "selected_record_sha256": "29fb83415a0b50efbfab64397f06d8d9bd0ef414173dc65b67e45a434072ad33",
+          "deferred_profile_sha256": "b231cf3b2e9fc6f77b2ddef1880a20d2889d5695ccc6cb0919c005a69b23199a",
+          "architecture_caps": {
+            "exact7t": 52351327850,
+            "unitary8t": 44693712500
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 44573816900,
+          "ratio_exact_fraction": "445738169/441224693",
+          "ratio_display": "1.010",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 378,
+          "source_row_index": 30,
+          "selected_record_sha256": "daf5d6309b00f236686b9fa3f515d107f92b0d3087a2da24abecc42a5e515321",
+          "deferred_profile_sha256": "3b61b019fcefd38f8f64d2a577422e24154be69259efa834a72d8f59fc787f9f",
+          "architecture_caps": {
+            "exact7t": 52418641250,
+            "unitary8t": 44573816900
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 45216260900,
+          "ratio_exact_fraction": "452162609/441224693",
+          "ratio_display": "1.025",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 379,
+          "source_row_index": 31,
+          "selected_record_sha256": "62863e1e9cf25bd918c94001e6f2474a9d7350575765b445aacff10d149ca91c",
+          "deferred_profile_sha256": "dad2a168a3247f6d71155c0218ab2e6894b66d3154be379d5f486174354083aa",
+          "architecture_caps": {
+            "exact7t": 53807159150,
+            "unitary8t": 45216260900
+          },
+          "rejection": null
+        }
+      ]
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "assets": 4,
+      "lambda": "0.2",
+      "scale": "3",
+      "base_T_count": 47622408050,
+      "numerical_minimum_architecture": "unitary8t",
+      "numerical_minimum_record_index": 390,
+      "interval_T_count": 44709494725,
+      "interval_ratio_exact_fraction": "255482827/272128046",
+      "interval_ratio_display": "0.939",
+      "event_architecture": "unitary8t",
+      "event_record_index": 414,
+      "cells": [
+        {
+          "PA_bits": 6,
+          "PG_bits": 6,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 380,
+          "source_row_index": 32,
+          "selected_record_sha256": "e4234a69a03a74255956f9d7eb535c3a746e025848f2a43a3d6f168699365fb3",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "128242680427641522684265941447620846972657206152759213269495197742531676852853587551701752603857627912500072719962001032461861237203316118736291581924593585185045945070339040003333079147102660276940585124767161442795181043733437389601056561127095889808950668830162439890448436418794663908978690450483926515470376783362857669749346616795664547132074381964402179098453298331825627693487588644341963855618322807137302746445800618275880160040802717706166174278681500560637187795853774222935164977461037108038908147813904363540915597081176757821307818908574583413554251368836296977246657713091751873018901660439/9641249707684130354320466424113256451648372991782755805438700156261029566367212802676340096429384198653795065123552019151449667915179833299878451951563098605820853357526500899083128311670725998707382172549551280230389383431618396437845548488398031859991262565369202710517893421126469713647176655871143481481475876436886367772216928046251033800322318351403603974859569133906586524726060255219493500729042024987971351594823884050103373297604931947428019041357266944000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 8,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 381,
+          "source_row_index": 33,
+          "selected_record_sha256": "28efd6bd871714624835e018ef69ecae6d89c31cb49a0390e304492e8b0b97fb",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "121568199560855733013188588028520205612105924450356495272141535880441491712910035554827462530294165975964894919766124921281842083137783396815854816274233886405926522516165971846595380787186643875953021207822520158244465431507030135026308655859071031034569939281825313569326417571962268854167613186281305408075888523324862671518837852341128038285839413257771067196435460394640326461847540379316892957321627976345988870479559012815645228622039159318503922884871068560637187795853774222935164977461037108038908147813904363540915597081176757821307818908574583413554251368836296977246657713091751873018901660439/9641249707684130354320466424113256451648372991782755805438700156261029566367212802676340096429384198653795065123552019151449667915179833299878451951563098605820853357526500899083128311670725998707382172549551280230389383431618396437845548488398031859991262565369202710517893421126469713647176655871143481481475876436886367772216928046251033800322318351403603974859569133906586524726060255219493500729042024987971351594823884050103373297604931947428019041357266944000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 10,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 382,
+          "source_row_index": 34,
+          "selected_record_sha256": "eef5580245821f0dd32319a8be82e66acc6f61c14fa5da1c8b7c1f716b52045a",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "121151044583867486979216447406655176354646076798589564720414079576161241355834474751009105949367923364990034594464670773447533464689383348102915473790848728563352841414675017466983137779185982659436377798675995822238585884525456864074050424597958167881194624585732922846827266582249878112936009063167919237053417733100414840143023550777947815209586702865460818193348705873170012012718798670809906988265198049472942594764720973960909961229259771702874583842096028560637187795853774222935164977461037108038908147813904363540915597081176757821307818908574583413554251368836296977246657713091751873018901660439/9641249707684130354320466424113256451648372991782755805438700156261029566367212802676340096429384198653795065123552019151449667915179833299878451951563098605820853357526500899083128311670725998707382172549551280230389383431618396437845548488398031859991262565369202710517893421126469713647176655871143481481475876436886367772216928046251033800322318351403603974859569133906586524726060255219493500729042024987971351594823884050103373297604931947428019041357266944000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 12,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 383,
+          "source_row_index": 35,
+          "selected_record_sha256": "adba3de13e303cd22b7faaf03c399243c1e95a5b8225b155287e5193d0d6a238",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "121124972392831419316851698293056564061675109648353063755774703416804057188919413111506501673019075162113116888540353459166257993434916840604714511823382369493971745923375200282453349480712756157379579844704287194513055413825652167343856922703343433641964695141410011853684237218419600967816640819983112463074975452458262896768243954397057217335809200797117302591360912712043087240239054895047954848992627023792754514238164088598464913179145950927272783625520028560637187795853774222935164977461037108038908147813904363540915597081176757821307818908574583413554251368836296977246657713091751873018901660439/9641249707684130354320466424113256451648372991782755805438700156261029566367212802676340096429384198653795065123552019151449667915179833299878451951563098605820853357526500899083128311670725998707382172549551280230389383431618396437845548488398031859991262565369202710517893421126469713647176655871143481481475876436886367772216928046251033800322318351403603974859569133906586524726060255219493500729042024987971351594823884050103373297604931947428019041357266944000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 48226387250,
+          "ratio_exact_fraction": "964527745/952448161",
+          "ratio_display": "1.013",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 384,
+          "source_row_index": 36,
+          "selected_record_sha256": "b19e573c6373fc391f9d6f61629af7d506c2e025d8bded23e1382e32b9c28299",
+          "deferred_profile_sha256": "58288231eb964e5d47cc22e52df37fb360077763c89b7f14747a2cc572d16d21",
+          "architecture_caps": {
+            "exact7t": 55077162500,
+            "unitary8t": 48226387250
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 47899027250,
+          "ratio_exact_fraction": "957980545/952448161",
+          "ratio_display": "1.006",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 385,
+          "source_row_index": 37,
+          "selected_record_sha256": "bbed0c5a380e36910959b2b53ef0dadd3f9aa883aafac4137efbf23d6b0cfecd",
+          "deferred_profile_sha256": "0909d9f190af9f7156524f34b16a3581a933ce7152dee50f8a36d29b5353285e",
+          "architecture_caps": {
+            "exact7t": 54809341100,
+            "unitary8t": 47899027250
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 47824552850,
+          "ratio_exact_fraction": "956491057/952448161",
+          "ratio_display": "1.004",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 386,
+          "source_row_index": 38,
+          "selected_record_sha256": "4819854e02fb88f559359db727e134bb40d2cfff8473cf4e9225acd7a1a19762",
+          "deferred_profile_sha256": "6907778c1f1b1e182d1a10d20b90702851305bee8c7bb3ba5dec47fb8e255800",
+          "architecture_caps": {
+            "exact7t": 54971179700,
+            "unitary8t": 47824552850
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 48710061650,
+          "ratio_exact_fraction": "974201233/952448161",
+          "ratio_display": "1.023",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 387,
+          "source_row_index": 39,
+          "selected_record_sha256": "68e1cf4088b3e593619537b931750bf6c23d1049cbcbdc904f7e555694bea3b4",
+          "deferred_profile_sha256": "27ef834c610162c64632a67924a3a70610d8eae68346fce6442cd5aa2e7f64ea",
+          "architecture_caps": {
+            "exact7t": 56800099100,
+            "unitary8t": 48710061650
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 48024242450,
+          "ratio_exact_fraction": "960484849/952448161",
+          "ratio_display": "1.008",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 388,
+          "source_row_index": 40,
+          "selected_record_sha256": "8b283f8fc505d75bdb6b91cdc93e4116859fd21ec86731b22a79b45a8746797d",
+          "deferred_profile_sha256": "a3675d7aef2e35dbda2a426f32e7fce93f42f8531da2b9ed361c996056a08b10",
+          "architecture_caps": {
+            "exact7t": 55028467700,
+            "unitary8t": 48024242450
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 47696882450,
+          "ratio_exact_fraction": "136276807/136064023",
+          "ratio_display": "1.002",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 389,
+          "source_row_index": 41,
+          "selected_record_sha256": "e51d6ed24f3416ba13e2fac09c737800fb996d7aa9ca5e5a501ae2f704dc3951",
+          "deferred_profile_sha256": "82440cfb26117d807c73c7cc42524b96255df3201a26c92a69249051ecf5f28d",
+          "architecture_caps": {
+            "exact7t": 54760646300,
+            "unitary8t": 47696882450
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 47622408050,
+          "ratio_exact_fraction": "1",
+          "ratio_display": "1.000",
+          "exact_numerical_winner": true,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 390,
+          "source_row_index": 42,
+          "selected_record_sha256": "fdde044e900553af6821cfb29964c81408f1268c3384c97114a9ba0221a7a053",
+          "deferred_profile_sha256": "b15ab043603f6c0cf5788e6e95d1f095fbdc451cf35bf5ab4636112e767e6076",
+          "architecture_caps": {
+            "exact7t": 54922484900,
+            "unitary8t": 47622408050
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 48507916850,
+          "ratio_exact_fraction": "970158337/952448161",
+          "ratio_display": "1.019",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 391,
+          "source_row_index": 43,
+          "selected_record_sha256": "2f4e5d1f3127fa75aece68fe60a6e37c61200f96c30e5f8021123c2aa98d4bf9",
+          "deferred_profile_sha256": "5aa248d1bdfc14a2170efabaaa54fd6e10540f067f8cc791e84743a136e66857",
+          "architecture_caps": {
+            "exact7t": 56751404300,
+            "unitary8t": 48507916850
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 48448992050,
+          "ratio_exact_fraction": "968979841/952448161",
+          "ratio_display": "1.017",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 392,
+          "source_row_index": 44,
+          "selected_record_sha256": "d1a93d26902890c5ac4851c0227340767f28da8b43bca8ff76dcc453fe6bffe3",
+          "deferred_profile_sha256": "5b40512955f5112272bf77102f6707e055cb24901700448c92f0dddf81c9b9a6",
+          "architecture_caps": {
+            "exact7t": 56063948300,
+            "unitary8t": 48448992050
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 48121632050,
+          "ratio_exact_fraction": "962432641/952448161",
+          "ratio_display": "1.010",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 393,
+          "source_row_index": 45,
+          "selected_record_sha256": "af09c47c8b7e6b043e900808fb7b76827a5f98fe52a80d8ddf328fd96897ebf2",
+          "deferred_profile_sha256": "18b780997c0dfcbabffd7ea0b10d62cbbbf96aafa02e93ed5937131694990cf6",
+          "architecture_caps": {
+            "exact7t": 55796126900,
+            "unitary8t": 48121632050
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 48047157650,
+          "ratio_exact_fraction": "960943153/952448161",
+          "ratio_display": "1.009",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 394,
+          "source_row_index": 46,
+          "selected_record_sha256": "2404d54fa3936dc87fbaee5c57d0998704b13b1f6b485ec82f50b0eaa4980d77",
+          "deferred_profile_sha256": "fe0f57e719a965f152edbb7661f855076eb711b8dc1f682a54bacb0dd06045f6",
+          "architecture_caps": {
+            "exact7t": 55957965500,
+            "unitary8t": 48047157650
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 48932666450,
+          "ratio_exact_fraction": "978653329/952448161",
+          "ratio_display": "1.028",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 395,
+          "source_row_index": 47,
+          "selected_record_sha256": "33682b663370c9d324bcb155ff386d26404dd2632311e14c2e6feaecad1e768a",
+          "deferred_profile_sha256": "e847d7c0b8433d35abe36e069ee8a7872d15d9f3e1b7552618443522c3e676b0",
+          "architecture_caps": {
+            "exact7t": 57786884900,
+            "unitary8t": 48932666450
+          },
+          "rejection": null
+        }
+      ]
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "assets": 8,
+      "lambda": "0.2",
+      "scale": "3",
+      "base_T_count": 104771938000,
+      "numerical_minimum_architecture": "unitary8t",
+      "numerical_minimum_record_index": 406,
+      "interval_T_count": 101750688975,
+      "interval_ratio_exact_fraction": "4070027559/4190877520",
+      "interval_ratio_display": "0.971",
+      "event_architecture": "unitary8t",
+      "event_record_index": 415,
+      "cells": [
+        {
+          "PA_bits": 6,
+          "PG_bits": 6,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 396,
+          "source_row_index": 48,
+          "selected_record_sha256": "c21fad92db76e66feb89764304db9fa0d12cd6256c5b63405fcd5a2c8d3d4783",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "10323315455437092025686654899721934085152231946974200685768575944323696333160191161201925313347501926972074564351279252794389244861812076096508610940649920835215499545322980654796642734042537365803923630862761947184018937903001284754671909166183254890650603683000040778086661799561348077365038667267989437719708109469603885850858531020899332503769862130295677564629584399336228906688863970185800402946330038064881530818153294822276789049218877552768052596376061578622873463183557481717620150939133472291805217932988170048179643778800410094419333076495822815688703046580043968533695303036684851574110623101797/617039981291784342676509851143248412905495871474096371548076810000705892247501619371285766171480588713842884167907329225692778746571509331192220924900038310772534614881696057541320211946926463917272459043171281934744920539623577372022115103257474039039440804183628973473145178952094061673419305975753182814814456091960727537421883394960066163220628374489830654391012424570021537582467856334047584046658689599230166502068728579206615891046715644635393218646865084416000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 8,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 397,
+          "source_row_index": 49,
+          "selected_record_sha256": "fad777e6f16f5b958b10be975476794586a32ab944330aceedd88338368bdb53",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "8614648357183360560432425075932991743563177226324254607665413628287980344451706041681503676323707642140761611268619738542472111498800478714631380790532995844428679204931649867525527125958940337750979323839194912069947137660649668813313312384879290282505893968368791861874697843901951148636174519791732231998844575866240447908255348382345345545006253776602773281428734291497590937317391297444696461863016660022107051535270587123865521065495136723419245966590461578622873463183557481717620150939133472291805217932988170048179643778800410094419333076495822815688703046580043968533695303036684851574110623101797/617039981291784342676509851143248412905495871474096371548076810000705892247501619371285766171480588713842884167907329225692778746571509331192220924900038310772534614881696057541320211946926463917272459043171281934744920539623577372022115103257474039039440804183628973473145178952094061673419305975753182814814456091960727537421883394960066163220628374489830654391012424570021537582467856334047584046658689599230166502068728579206615891046715644635393218646865084416000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 10,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 398,
+          "source_row_index": 50,
+          "selected_record_sha256": "25ff8163e857fa02c23bbc937b306b9a7826853fa3c2421a031bf231724623ba",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "8507856670120706104177790088815524412838350364400145093796099815139931165667917298739123833237448085590964771968073256531537183360448974139752383392653950969260628445592047028343320556465203861083956527996577033794310028769911017501419828697088927806365925048395726048069785354161984373989921122419283887241443830785640852668584647363447221142793831163207466417456259440779374098760660372584011756600589455200161966234331895806293171456007057675086178189797475978622873463183557481717620150939133472291805217932988170048179643778800410094419333076495822815688703046580043968533695303036684851574110623101797/617039981291784342676509851143248412905495871474096371548076810000705892247501619371285766171480588713842884167907329225692778746571509331192220924900038310772534614881696057541320211946926463917272459043171281934744920539623577372022115103257474039039440804183628973473145178952094061673419305975753182814814456091960727537421883394960066163220628374489830654391012424570021537582467856334047584046658689599230166502068728579206615891046715644635393218646865084416000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 6,
+          "PG_bits": 12,
+          "admitted": false,
+          "T_count": null,
+          "ratio_exact_fraction": null,
+          "ratio_display": "X",
+          "exact_numerical_winner": false,
+          "selected_architecture": null,
+          "selected_record_index": 399,
+          "source_row_index": 51,
+          "selected_record_sha256": "8cf19c8c5312fb80acb113882cbf5cc3d57b753631e06d31982a13db3e88ab85",
+          "deferred_profile_sha256": null,
+          "architecture_caps": {},
+          "rejection": {
+            "deterministic_error_upper": "8501182190244276227016221437671445494952596691536355108863670148831398781453411783388048940790928707866973242170322821338868601330500404217725305176724885911111142070845320257200531850251463597405834080491990681519992407961437038963742116629213482575124464042296495206568946781295760828903828263281017318677403182192494693902611030738583215859905172297690396659660204423197779840562265403944752544531663146820054251531503692129671148102668250629516664321357104778622873463183557481717620150939133472291805217932988170048179643778800410094419333076495822815688703046580043968533695303036684851574110623101797/617039981291784342676509851143248412905495871474096371548076810000705892247501619371285766171480588713842884167907329225692778746571509331192220924900038310772534614881696057541320211946926463917272459043171281934744920539623577372022115103257474039039440804183628973473145178952094061673419305975753182814814456091960727537421883394960066163220628374489830654391012424570021537582467856334047584046658689599230166502068728579206615891046715644635393218646865084416000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "reason": "Amended deterministic monetary tolerance exhausted"
+          }
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 211049638775,
+          "ratio_exact_fraction": "8441985551/4190877520",
+          "ratio_display": "2.014",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 400,
+          "source_row_index": 52,
+          "selected_record_sha256": "097ac7e453517c36c331cb8a52f33f42d8c7a38096ed851cc7e805bc40b38de5",
+          "deferred_profile_sha256": "a369519dbec0b9df517b72d93dced324a8b1b407fdedbb567e7125c51e71f356",
+          "architecture_caps": {
+            "exact7t": 236099084825,
+            "unitary8t": 211049638775
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 105121394800,
+          "ratio_exact_fraction": "262803487/261929845",
+          "ratio_display": "1.003",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 401,
+          "source_row_index": 53,
+          "selected_record_sha256": "cc9ca76ef5722181e1febca4c5e64af00c7d90abda7e64823f975d38af419e22",
+          "deferred_profile_sha256": "730da61222134a2d7c52d7a666f489e93251dabed294d3387180581bd97b8271",
+          "architecture_caps": {
+            "exact7t": 117687568750,
+            "unitary8t": 105121394800
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 104974082800,
+          "ratio_exact_fraction": "262435207/261929845",
+          "ratio_display": "1.002",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 402,
+          "source_row_index": 54,
+          "selected_record_sha256": "4b446f8cf5fbb1bc388143b5479ad2f1b2bfcf54888166f0c3f2d225503a85a1",
+          "deferred_profile_sha256": "9bca11f9f3f974316ee62f7f4fdf555dd3c0097627899b0cccf38d3c6b90d673",
+          "architecture_caps": {
+            "exact7t": 117728386450,
+            "unitary8t": 104974082800
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 8,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 105591974800,
+          "ratio_exact_fraction": "263979937/261929845",
+          "ratio_display": "1.008",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 403,
+          "source_row_index": 55,
+          "selected_record_sha256": "2e2a35b737091fdd706d2e972c5043216fec43ab477a9d947438efdcd4b3837a",
+          "deferred_profile_sha256": "afa92d56b77e6f66e00ce728fd590d8d368148ae44fd6c1eeea8a2ab780c12de",
+          "architecture_caps": {
+            "exact7t": 119095421350,
+            "unitary8t": 105591974800
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 210645151575,
+          "ratio_exact_fraction": "8425806063/4190877520",
+          "ratio_display": "2.011",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 404,
+          "source_row_index": 56,
+          "selected_record_sha256": "0ad6f9071c35a63a7e47ac2c0f323a1b4e1cd49a74155ae4356bda3161eefd96",
+          "deferred_profile_sha256": "cfe6525eccc77f4f2bd88899594500534e22e7c26a3912b99029b5d14ad3fce4",
+          "architecture_caps": {
+            "exact7t": 236001647625,
+            "unitary8t": 210645151575
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 104919250000,
+          "ratio_exact_fraction": "52459625/52385969",
+          "ratio_display": "1.001",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 405,
+          "source_row_index": 57,
+          "selected_record_sha256": "8e2e7705a743c1720679b4fb2cbfa6d08fc1a26dfa0a997985a7cfb7e56bac39",
+          "deferred_profile_sha256": "9e6537739ff3fd38b61aa22f645c909baa2e88e8899630860fc2762e320a2c2f",
+          "architecture_caps": {
+            "exact7t": 117638873950,
+            "unitary8t": 104919250000
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 104771938000,
+          "ratio_exact_fraction": "1",
+          "ratio_display": "1.000",
+          "exact_numerical_winner": true,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 406,
+          "source_row_index": 58,
+          "selected_record_sha256": "084e7238fddbe43a05a31227101ad1864448b5ef57264f49a309ad1e21d33c0c",
+          "deferred_profile_sha256": "71e616f51bc4df4aaaad8dcfd63bb81a706945b57156497d1542f6b1f463c1e1",
+          "architecture_caps": {
+            "exact7t": 117679691650,
+            "unitary8t": 104771938000
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 10,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 105389830000,
+          "ratio_exact_fraction": "52694915/52385969",
+          "ratio_display": "1.006",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 407,
+          "source_row_index": 59,
+          "selected_record_sha256": "3db854143e97b74bb9ce8584161cdbabc4665d86587c69d24af7d319c8341d43",
+          "deferred_profile_sha256": "85867c660c0fff8d528d862ae05a89b61d4c7dde77c754f55c5b16a4b07549cb",
+          "architecture_caps": {
+            "exact7t": 119046726550,
+            "unitary8t": 105389830000
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 6,
+          "admitted": true,
+          "T_count": 211495065975,
+          "ratio_exact_fraction": "8459802639/4190877520",
+          "ratio_display": "2.019",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 408,
+          "source_row_index": 60,
+          "selected_record_sha256": "cf6795b78865a7feb749077f3c2d5b29419e332567e6899d640a42c2bf7915c3",
+          "deferred_profile_sha256": "2d5f640361e2bdf2903966c99e1a028b5b0da69360a5c15dcd13e4d34ed4a2b0",
+          "architecture_caps": {
+            "exact7t": 238073621025,
+            "unitary8t": 211495065975
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 8,
+          "admitted": true,
+          "T_count": 105343999600,
+          "ratio_exact_fraction": "263359999/261929845",
+          "ratio_display": "1.005",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 409,
+          "source_row_index": 61,
+          "selected_record_sha256": "eee89a41145f8396ed0bb304e8dd1c387f3cbf14162924edcbd546442d8c0ca9",
+          "deferred_profile_sha256": "dc028c71aadbff24cdf8bb7dc9b2521d5ab51bce3762565360809c1338d66017",
+          "architecture_caps": {
+            "exact7t": 118674354550,
+            "unitary8t": 105343999600
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 10,
+          "admitted": true,
+          "T_count": 105196687600,
+          "ratio_exact_fraction": "262991719/261929845",
+          "ratio_display": "1.004",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 410,
+          "source_row_index": 62,
+          "selected_record_sha256": "d9245f7b4a274a8f76f007eb89f98e8c7d429845591df7ecd839131d4cec968b",
+          "deferred_profile_sha256": "0059d55407037772ea1c31e410d4e037d39ee94971e9f6cb4bb021316bdfb9da",
+          "architecture_caps": {
+            "exact7t": 118715172250,
+            "unitary8t": 105196687600
+          },
+          "rejection": null
+        },
+        {
+          "PA_bits": 12,
+          "PG_bits": 12,
+          "admitted": true,
+          "T_count": 105814579600,
+          "ratio_exact_fraction": "264536449/261929845",
+          "ratio_display": "1.010",
+          "exact_numerical_winner": false,
+          "selected_architecture": "unitary8t",
+          "selected_record_index": 411,
+          "source_row_index": 63,
+          "selected_record_sha256": "aff13a122e338ce30c39a522422477dc9631b8646b628639bd654801df3e4685",
+          "deferred_profile_sha256": "ad114ea47ab0df9becb4c5b2af33f5def82f842627e1143f9020047ba0849d53",
+          "architecture_caps": {
+            "exact7t": 120082207150,
+            "unitary8t": 105814579600
+          },
+          "rejection": null
+        }
+      ]
+    }
+  ],
+  "colour_transform": "log2(T_B/numerical_B_minimum)",
+  "colour_upper_ratio": 2.25,
+  "maximum_ratio_exact_fraction": "1008883498/476167781",
+  "colour_ticks": [
+    1,
+    1.25,
+    1.5,
+    2
+  ],
+  "colour_clipped_cells": 0,
+  "colour_palette": "Retained sixty-sample viridis RGB knots, linearly interpolated in logarithmic colour position; endpoint half-bins use the nearest knot.",
+  "colour_palette_RGB_knots": [
+    [
+      0.269944,
+      0.014625,
+      0.341379
+    ],
+    [
+      0.274952,
+      0.037752,
+      0.364543
+    ],
+    [
+      0.278791,
+      0.062145,
+      0.386592
+    ],
+    [
+      0.281446,
+      0.08432,
+      0.407414
+    ],
+    [
+      0.283091,
+      0.110553,
+      0.431554
+    ],
+    [
+      0.283072,
+      0.130895,
+      0.449241
+    ],
+    [
+      0.281887,
+      0.150881,
+      0.465405
+    ],
+    [
+      0.279574,
+      0.170599,
+      0.479997
+    ],
+    [
+      0.275191,
+      0.194905,
+      0.496005
+    ],
+    [
+      0.270595,
+      0.214069,
+      0.507052
+    ],
+    [
+      0.265145,
+      0.232956,
+      0.516599
+    ],
+    [
+      0.257322,
+      0.25613,
+      0.526563
+    ],
+    [
+      0.250425,
+      0.27429,
+      0.533103
+    ],
+    [
+      0.243113,
+      0.292092,
+      0.538516
+    ],
+    [
+      0.235526,
+      0.309527,
+      0.542944
+    ],
+    [
+      0.225863,
+      0.330805,
+      0.547314
+    ],
+    [
+      0.21813,
+      0.347432,
+      0.550038
+    ],
+    [
+      0.210503,
+      0.363727,
+      0.552206
+    ],
+    [
+      0.203063,
+      0.379716,
+      0.553925
+    ],
+    [
+      0.1941,
+      0.399323,
+      0.555565
+    ],
+    [
+      0.187231,
+      0.414746,
+      0.556547
+    ],
+    [
+      0.180629,
+      0.429975,
+      0.557282
+    ],
+    [
+      0.172719,
+      0.448791,
+      0.557885
+    ],
+    [
+      0.166617,
+      0.463708,
+      0.558119
+    ],
+    [
+      0.160665,
+      0.47854,
+      0.558115
+    ],
+    [
+      0.154815,
+      0.493313,
+      0.55784
+    ],
+    [
+      0.147607,
+      0.511733,
+      0.557049
+    ],
+    [
+      0.141935,
+      0.526453,
+      0.555991
+    ],
+    [
+      0.136408,
+      0.541173,
+      0.554483
+    ],
+    [
+      0.131172,
+      0.555899,
+      0.552459
+    ],
+    [
+      0.125394,
+      0.574318,
+      0.549086
+    ],
+    [
+      0.121831,
+      0.589055,
+      0.545623
+    ],
+    [
+      0.119738,
+      0.603785,
+      0.5414
+    ],
+    [
+      0.119699,
+      0.61849,
+      0.536347
+    ],
+    [
+      0.123444,
+      0.636809,
+      0.528763
+    ],
+    [
+      0.130067,
+      0.651384,
+      0.521608
+    ],
+    [
+      0.14021,
+      0.665859,
+      0.513427
+    ],
+    [
+      0.157851,
+      0.683765,
+      0.501686
+    ],
+    [
+      0.175707,
+      0.6979,
+      0.491033
+    ],
+    [
+      0.196571,
+      0.711827,
+      0.479221
+    ],
+    [
+      0.220124,
+      0.725509,
+      0.466226
+    ],
+    [
+      0.252899,
+      0.742211,
+      0.448284
+    ],
+    [
+      0.281477,
+      0.755203,
+      0.432552
+    ],
+    [
+      0.311925,
+      0.767822,
+      0.415586
+    ],
+    [
+      0.344074,
+      0.780029,
+      0.397381
+    ],
+    [
+      0.386433,
+      0.794644,
+      0.372886
+    ],
+    [
+      0.421908,
+      0.805774,
+      0.35191
+    ],
+    [
+      0.458674,
+      0.816363,
+      0.329727
+    ],
+    [
+      0.496615,
+      0.826376,
+      0.306377
+    ],
+    [
+      0.545524,
+      0.838039,
+      0.275626
+    ],
+    [
+      0.585678,
+      0.846661,
+      0.249897
+    ],
+    [
+      0.626579,
+      0.854645,
+      0.223353
+    ],
+    [
+      0.678489,
+      0.863742,
+      0.189503
+    ],
+    [
+      0.720391,
+      0.87035,
+      0.162603
+    ],
+    [
+      0.762373,
+      0.876424,
+      0.137064
+    ],
+    [
+      0.804182,
+      0.882046,
+      0.114965
+    ],
+    [
+      0.85581,
+      0.888601,
+      0.097452
+    ],
+    [
+      0.89632,
+      0.893616,
+      0.096335
+    ],
+    [
+      0.935904,
+      0.89857,
+      0.108131
+    ],
+    [
+      0.974417,
+      0.90359,
+      0.130215
+    ]
+  ],
+  "colour_palette_knot_positions": [
+    0.008333333333333333,
+    0.025,
+    0.041666666666666664,
+    0.058333333333333334,
+    0.075,
+    0.09166666666666666,
+    0.10833333333333334,
+    0.125,
+    0.14166666666666666,
+    0.15833333333333333,
+    0.175,
+    0.19166666666666668,
+    0.20833333333333334,
+    0.225,
+    0.24166666666666667,
+    0.25833333333333336,
+    0.275,
+    0.2916666666666667,
+    0.30833333333333335,
+    0.325,
+    0.3416666666666667,
+    0.35833333333333334,
+    0.375,
+    0.39166666666666666,
+    0.4083333333333333,
+    0.425,
+    0.44166666666666665,
+    0.4583333333333333,
+    0.475,
+    0.49166666666666664,
+    0.5083333333333333,
+    0.525,
+    0.5416666666666666,
+    0.5583333333333333,
+    0.575,
+    0.5916666666666667,
+    0.6083333333333333,
+    0.625,
+    0.6416666666666667,
+    0.6583333333333333,
+    0.675,
+    0.6916666666666667,
+    0.7083333333333334,
+    0.725,
+    0.7416666666666667,
+    0.7583333333333333,
+    0.775,
+    0.7916666666666666,
+    0.8083333333333333,
+    0.825,
+    0.8416666666666667,
+    0.8583333333333333,
+    0.875,
+    0.8916666666666667,
+    0.9083333333333333,
+    0.925,
+    0.9416666666666667,
+    0.9583333333333334,
+    0.975,
+    0.9916666666666667
+  ],
+  "colour_palette_source_sha256": "fa6688499f50b205d6a37d7fbb80396ef49a8d81f443dc49308681740f94be2c",
+  "old_plot_data_sha256": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+  "admitted_cells": 52,
+  "rejected_cells": 12,
+  "architecture_selection": "Minimum complete full-alpha deferred-B cap at each admitted configuration across exact7t and unitary8t.",
+  "footer_denominator": "Numerical deferred-B pool minimum only; excludes the raw-payoff minimum.",
+  "figure_choice": "Post-result explanatory display of the complete registered numerical pool, preserving the existing two-dimensional layout.",
+  "claims": "Exact deterministic logical caps with pricing confidence charged. Financial certificates, priors and phase plans are retained per configuration; no market data or device timing."
+}

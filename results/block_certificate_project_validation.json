@@ -1,0 +1,70 @@
+{
+  "schema": "qbp-block-certificate-project-validation-v1",
+  "status": "passed",
+  "date": "2026-10-08",
+  "scope": "Saved-file consistency, preserved baseline, original/fundamental archive linkage, retained independent-audit source hashes, five-level decisions, manuscript citation/keyword conventions and native compiler success. Independent mathematical and reconstruction audits are retained separately; not rerun unnecessarily after an exact-hash installation.",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_created": 0,
+  "baseline_protected_files": 590,
+  "protected_files_unchanged": 582,
+  "revised_documents": 8,
+  "exact_prior_document_snapshots": 8,
+  "new_frozen_artifact_hashes_verified": 15,
+  "by_partition": [
+    {
+      "blocks": 1,
+      "FTC_passes": 32,
+      "second_order_passes": 33,
+      "cases": 36
+    },
+    {
+      "blocks": 8,
+      "FTC_passes": 32,
+      "second_order_passes": 33,
+      "cases": 36
+    },
+    {
+      "blocks": 32,
+      "FTC_passes": 32,
+      "second_order_passes": 33,
+      "cases": 36
+    },
+    {
+      "blocks": 128,
+      "FTC_passes": 32,
+      "second_order_passes": 33,
+      "cases": 36
+    },
+    {
+      "blocks": 1024,
+      "FTC_passes": 32,
+      "second_order_passes": 33,
+      "cases": 36
+    }
+  ],
+  "canonical_giant_archive_installed": false,
+  "fundamental_archive_sha256": "e74376713977a260315032c2776b60f4dfc1afe0753967b07e9133d069898a51",
+  "original_archive_sha256": "0f4fb697e8fb25b959c65eec67731d68677570e1f5a7a1be553c9d0457be0c9d",
+  "reconstruction_semantic_hash_matches": 840,
+  "reconstructed_block_records": 157476,
+  "reconstructed_component_values": 2047188,
+  "compressed_original_byte_identity_claim": false,
+  "source_and_additional_norm_input_hashes_verified": true,
+  "git_diff_whitespace_check": "passed",
+  "manuscript": {
+    "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+    "source_sha256": "b775cf5a15bc03b464a9b638b79001ec91051ae98cbf0cf4f54b100790e7cade",
+    "source_words": 9759,
+    "bibliography_entries": 20,
+    "all_citation_keys_defined": true,
+    "keywords_below_abstract_above_first_section": true,
+    "no_em_dash": true,
+    "native_compiler": {
+      "kind": "success",
+      "message": "The current source compiled successfully with the desktop editor's compiler."
+    },
+    "exact_native_PDF_page_count": null,
+    "page_count_scope": "The compiler result provides success, not an exact page count. No separate PDF or replacement source was compiled."
+  },
+  "claim_boundary": "Generic positive cell identity is already published. Residual-specific moment closure and conditional numerical evidence remain the contribution candidate. No theoretical priority, practical quantum advantage, uniformly superior transport order or new complete quantum cap is inferred from this certificate benchmark."
+}

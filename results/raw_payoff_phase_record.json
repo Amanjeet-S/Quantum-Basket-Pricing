@@ -1,0 +1,90 @@
+{
+  "schema": "qbp-raw-payoff-staged-phase-record-v1",
+  "status": "Corrected finite pool and separate interface/resource replay complete; independent mathematics review and any installation remain pending.",
+  "data_origin": "Synthetic exact rational no-arbitrage model and certified scalar tables only. No licensed observations acquired or published.",
+  "installed_in_repository": false,
+  "commits_or_staging_changes": false,
+  "native_supporting_proof_compilation": "success; confirmed again after final edit separately",
+  "amendment": "The exact exp(1/64)<=64/63 semantic range corrects unnecessary broad [1,2] headroom. Initial evidence preserved unchanged.",
+  "exact_amendment_invariance_checks": {
+    "all_48_priors_unchanged": true,
+    "all_48_deterministic_budgets_unchanged": true,
+    "all_96_QPE_plans_unchanged": true,
+    "all_scalar_certificate_SHA_sets_unchanged": true,
+    "integer_packing_word_widths_may_differ": true
+  },
+  "file_sha256": {
+    "raw_payoff_oracle.py": "b181d361b0bd2ffc85a5d0819c85c9e5f5e01927fb899d74fe75e2140ddbbcbe",
+    "raw_payoff_oracle_tight.py": "2c859624add5d79e85b2f7974a7d1592a4949951abd000f856eedc4c2b6d4857",
+    "check_raw_payoff_resources.py": "1869b3798f171fc5323b00126cbeda0a81333ad585eb5a1d8c1c1a81107e3762",
+    "check_raw_payoff_resources_tight.py": "639520f6540aff35650e282064f765de9e279887acbd08e5df84c0600a2470d6",
+    "raw_payoff_proof.tex": "398cff41801a3abb4b16929b5cbe4e28ad654988e873161dec7b61895c981a0e",
+    "results/raw_payoff_protocol.json": "f7fa537aa43af54f55bedfc147ef3dec1cb0bc0ac1c6b39b83829aff65747f97",
+    "results/raw_payoff_resources.json": "80a9324dd1c7b7afb45673212c2af707de57d60c4e989439cc3bfe3aa2a15527",
+    "results/raw_payoff_scalar_ordinates.json.gz": "129d561685e2848b4544d6edb40c77c5489487e696ab0f5644c520021ee0117b",
+    "results/raw_payoff_interface_resource_check.json": "0c9d9b1c98f89393fd809790b8c91b94c084a4d44eedda5a55a8d1015019a0f5",
+    "results_tight/raw_payoff_protocol.json": "f591efb7bdd009f1d129192e97daa5230a0f0228203a3e2c04f4861af3922e9e",
+    "results_tight/raw_payoff_resources.json.gz": "9b8386a17bc050578beed1d07793d16b233918ff10f48fe527e6fa3e70bce5f5",
+    "results_tight/raw_payoff_scalar_ordinates.json.gz": "493d69a77692dea05e33ac0032fdd51599820fc5065a18b2cf8ac581bae57a78",
+    "results_tight/raw_payoff_interface_resource_check.json": "127a07c136ac16b460ebf64344b705e89985ab04add97b333fe1ace130853329"
+  },
+  "comparisons": [
+    {
+      "original_model_id": "n2_lambda0.4_scale3",
+      "candidate_id": "identity",
+      "raw_T": 23346683625,
+      "numerical_T": 23789339125,
+      "threshold_T": 20855422300,
+      "strongest_registered_rival_T": 23346683625,
+      "strongest_registered_rival": "raw_payoff",
+      "threshold_saving_against_strongest_rival_exact": "99650453/933867345",
+      "threshold_saving_against_strongest_rival_per_cent_diagnostic": 10.670728935275063
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "candidate_id": "plane_1_2_minus",
+      "raw_T": 88548390850,
+      "numerical_T": 88203283550,
+      "threshold_T": 83560988725,
+      "strongest_registered_rival_T": 88203283550,
+      "strongest_registered_rival": "conditional_price",
+      "threshold_saving_against_strongest_rival_exact": "185691793/3528131342",
+      "threshold_saving_against_strongest_rival_per_cent_diagnostic": 5.263176877500724
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "candidate_id": "plane_1_2_minus",
+      "raw_T": 94437597250,
+      "numerical_T": 95203161050,
+      "threshold_T": 89247538825,
+      "strongest_registered_rival_T": 94437597250,
+      "strongest_registered_rival": "raw_payoff",
+      "threshold_saving_against_strongest_rival_exact": "207602337/3777503890",
+      "threshold_saving_against_strongest_rival_per_cent_diagnostic": 5.495754419990815
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "candidate_id": "plane_2_3_minus",
+      "raw_T": 417229413325,
+      "numerical_T": 209495066950,
+      "threshold_T": 203322773325,
+      "strongest_registered_rival_T": 209495066950,
+      "strongest_registered_rival": "conditional_price",
+      "threshold_saving_against_strongest_rival_exact": "246891745/8379802678",
+      "threshold_saving_against_strongest_rival_per_cent_diagnostic": 2.946271582840247
+    }
+  ],
+  "limitations": [
+    "Finite registered pool only, with winning narrow-exp address10 on its upper boundary. No global precision optimum.",
+    "No classical price answers or sampled option estimates enter the coherent preparation or prior.",
+    "No quantum derivative price or hardware outcome was generated.",
+    "The bounded-variation and clamp arguments are established mechanisms applied to this finite rival, not generic originality claims.",
+    "Initial broad-headroom results must not be used as the final strongest-rival comparison."
+  ],
+  "storage_block": "Several small amendment writes failed ENOSPC before the parent freed hash-verified task-owned duplicate replay inputs. No protocol or outcome was produced during those failed amendment attempts.",
+  "metadata_repair": {
+    "pre_repair_sha256": "4ed9c375f9cd504c014346936b6791c40666bb875ac5473463a06825b25bd60e",
+    "reason": "Literal backslash-n after closing brace replaced by a real newline; scientific records unchanged."
+  },
+  "installation_context": "This is a repaired copy of the producer staging-phase record. Its staging status and original proof hash describe that earlier phase; the corresponding original proof is retained in history/raw_payoff_phase. Later installation, amended proof and replay are recorded in results/raw_payoff_project_validation.json."
+}

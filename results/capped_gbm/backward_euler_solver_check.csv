@@ -1,0 +1,22 @@
+case,space_intervals,time_steps,lambda,maximum_absolute_dst_thomas_difference,minimum_heat_value,maximum_heat_value,cap,status
+lower_kink,64,1,5.72628616670781,1.4210854715202004e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+lower_kink,64,3,1.9087620555692701,4.973799150320701e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+lower_kink,64,64,0.08947322135480953,1.0302869668521453e-13,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+upper_kink,64,1,5.72628616670781,1.4210854715202004e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+upper_kink,64,3,1.9087620555692701,4.973799150320701e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+upper_kink,64,64,0.08947322135480953,1.0302869668521453e-13,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+inside_spread,64,1,5.72628616670781,1.4210854715202004e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+inside_spread,64,3,1.9087620555692701,4.973799150320701e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+inside_spread,64,64,0.08947322135480953,1.0302869668521453e-13,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+deep_cap,64,1,4.945387771914783,1.0658141036401503e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+deep_cap,64,3,1.6484625906382608,1.7763568394002505e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+deep_cap,64,64,0.07727168393616848,1.8474111129762605e-13,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+low_vol_short_dated,64,1,0.6023263500186976,1.0658141036401503e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+low_vol_short_dated,64,3,0.2007754500062325,7.105427357601002e-15,-5.551115123125783e-16,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+low_vol_short_dated,64,64,0.00941134921904215,3.552713678800501e-14,-5.551115123125783e-16,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+negative_rate_dividend,64,1,5.733852689297317,7.105427357601002e-15,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+negative_rate_dividend,64,3,1.9112842297657722,4.973799150320701e-14,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+negative_rate_dividend,64,64,0.08959144827027057,1.0302869668521453e-13,0.0,20.0,20.0,numerical cross-check; exact-arithmetic stability proved separately
+high_volatility,64,1,5.820876651958062,1.0658141036401503e-14,0.0,30.0,30.0,numerical cross-check; exact-arithmetic stability proved separately
+high_volatility,64,3,1.940292217319354,3.552713678800501e-14,0.0,30.0,30.0,numerical cross-check; exact-arithmetic stability proved separately
+high_volatility,64,64,0.09095119768684472,3.801403636316536e-13,0.0,30.0,30.0,numerical cross-check; exact-arithmetic stability proved separately

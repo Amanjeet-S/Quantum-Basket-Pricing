@@ -1,0 +1,14 @@
+{
+  "schema": "qbp-boundary-audit-version-linkage-v1",
+  "scope": "The frozen financial summary identifies the historical grid audit by content hash. Portability replay is retained separately without changing numerical inputs or the executed comparison.",
+  "frozen_summary_sha256": "89c8472a80a8d595448e8a54c63adbc2a9069793dc1f57ff487d2ebd15ab5a4e",
+  "original_summary_audit_reference": {
+    "file": "boundary_grid_independent_audit.json",
+    "sha256": "9ef2cebebcd7435624e81b7fbcfcc4ec49e105445eca783f1075fa25c94fb0af"
+  },
+  "resolved_original_audit_file": "boundary_grid_original_audit.json",
+  "resolved_original_audit_sha256": "9ef2cebebcd7435624e81b7fbcfcc4ec49e105445eca783f1075fa25c94fb0af",
+  "portable_audit_file": "boundary_grid_independent_audit.json",
+  "portable_audit_sha256": "990772bd8993a1e5f5a2cd4de43571e1ea4a8d87c3d930156b23a9d86aa81535",
+  "portable_source_sha256": "ac32aa97e710085fc39e3afef94e8f83cef20a35d4b8a2bdda3995157edd5a12"
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "qbp-matched-chebyshev-amendment-summary-review-v1",
+  "status": "passed",
+  "current_resources_sha256": "f6f64568b45e8eaba705360c5df53df321d71cde51de0623d48620c2836498cc",
+  "amended_resources_sha256": "c11df5170921cdaa01b86fb69f7bb08a520e2ae0f17e738def24d82e271480c3",
+  "priors_changed": 12,
+  "tolerances_changed": 12,
+  "same_profile_bindings": 12,
+  "alternative_histories": 1200,
+  "paired_histories": 400,
+  "total_pilot_certified": 254,
+  "total_confidence_looks": 1968,
+  "all_degrees_counts_and_resource_charges_unchanged": true,
+  "rows": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 20855422300,
+          "half_alpha_fallback_T": 22523856084,
+          "pilot_T_cap": 2252385608,
+          "whole_history_T_cap": 24776241692,
+          "worst_cap_over_canonical_exact": "6194060423/5213855575",
+          "pilot_certified": 23,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "470315167117/25",
+          "common_mesh_median_complete_T_exact": "23993093584",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 23240600025,
+          "half_alpha_fallback_T": 25099848027,
+          "pilot_T_cap": 2509984802,
+          "whole_history_T_cap": 27609832829,
+          "worst_cap_over_canonical_exact": "27609832829/23240600025",
+          "pilot_certified": 23,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "2096413998079/100",
+          "common_mesh_median_complete_T_exact": "26737105027",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 23789339125,
+          "half_alpha_fallback_T": 25692486255,
+          "pilot_T_cap": 2569248625,
+          "whole_history_T_cap": 28261734880,
+          "worst_cap_over_canonical_exact": "5652346976/4757867825",
+          "pilot_certified": 39,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "346966784311/20",
+          "common_mesh_median_complete_T_exact": "27368408855",
+          "same_degrees_counts_and_costs_as_current": true
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 83560988725,
+          "half_alpha_fallback_T": 90245867823,
+          "pilot_T_cap": 9024586782,
+          "whole_history_T_cap": 99270454605,
+          "worst_cap_over_canonical_exact": "19854090921/16712197745",
+          "pilot_certified": 24,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "1827554206637/25",
+          "common_mesh_median_complete_T_exact": "93839785523",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 88336016050,
+          "half_alpha_fallback_T": 95402897334,
+          "pilot_T_cap": 9540289733,
+          "whole_history_T_cap": 104943187067,
+          "worst_cap_over_canonical_exact": "104943187067/88336016050",
+          "pilot_certified": 24,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "1931987486196/25",
+          "common_mesh_median_complete_T_exact": "99202142334",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 88203283550,
+          "half_alpha_fallback_T": 95259546234,
+          "pilot_T_cap": 9525954623,
+          "whole_history_T_cap": 104785500857,
+          "worst_cap_over_canonical_exact": "104785500857/88203283550",
+          "pilot_certified": 30,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "357239120289/5",
+          "common_mesh_median_complete_T_exact": "99053103234",
+          "same_degrees_counts_and_costs_as_current": true
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 89247538825,
+          "half_alpha_fallback_T": 96387341931,
+          "pilot_T_cap": 9638734193,
+          "whole_history_T_cap": 106026076124,
+          "worst_cap_over_canonical_exact": "106026076124/89247538825",
+          "pilot_certified": 29,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "7363448143501/100",
+          "common_mesh_median_complete_T_exact": "99876909731",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 93933514350,
+          "half_alpha_fallback_T": 101448195498,
+          "pilot_T_cap": 10144819549,
+          "whole_history_T_cap": 111593015047,
+          "worst_cap_over_canonical_exact": "111593015047/93933514350",
+          "pilot_certified": 2,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "2616782372451/25",
+          "common_mesh_median_complete_T_exact": "105855528098",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 95203161050,
+          "half_alpha_fallback_T": 102819413934,
+          "pilot_T_cap": 10281941393,
+          "whole_history_T_cap": 113101355327,
+          "worst_cap_over_canonical_exact": "113101355327/95203161050",
+          "pilot_certified": 40,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "338907684722/5",
+          "common_mesh_median_complete_T_exact": "105052832334",
+          "same_degrees_counts_and_costs_as_current": true
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 203322773325,
+          "half_alpha_fallback_T": 219588595191,
+          "pilot_T_cap": 21958859519,
+          "whole_history_T_cap": 241547454710,
+          "worst_cap_over_canonical_exact": "48309490942/40664554665",
+          "pilot_certified": 4,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "5608197674709/25",
+          "common_mesh_median_complete_T_exact": "236283521691",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 208323372150,
+          "half_alpha_fallback_T": 224989241922,
+          "pilot_T_cap": 22498924192,
+          "whole_history_T_cap": 247488166114,
+          "worst_cap_over_canonical_exact": "123744083057/104161686075",
+          "pilot_certified": 4,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "5746126709328/25",
+          "common_mesh_median_complete_T_exact": "242094724722",
+          "same_degrees_counts_and_costs_as_current": true
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 209495066950,
+          "half_alpha_fallback_T": 226254672306,
+          "pilot_T_cap": 22625467230,
+          "whole_history_T_cap": 248880139536,
+          "worst_cap_over_canonical_exact": "124440069768/104747533475",
+          "pilot_certified": 12,
+          "diagnostic_histories": 100,
+          "common_mesh_mean_complete_T_exact": "5325936464532/25",
+          "common_mesh_median_complete_T_exact": "243046782106",
+          "same_degrees_counts_and_costs_as_current": true
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold"
+    }
+  ],
+  "interpretation": "All12 revised priors and tolerances improve, but these meshes have the same adaptive degrees, binomial counts and charges as their previous interfaces. Complete worst-history caps remain about1.188 times matched canonical caps. All medians worsen. This descriptive replay gives no actual financial flag or expected-resource advantage. The numerical conditional-price rival has the lowest paired-mesh mean in all four cases; the shared-threshold branch has the lowest mesh median and complete worst-history cap among the three. The contrast prevents an unsupported estimator-level mean-dominance claim."
+}

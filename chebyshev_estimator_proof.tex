@@ -1,0 +1,365 @@
+% Standalone presentation wrapper; the retained proof body is unchanged.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[british]{babel}
+\usepackage{url}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\title{Supporting proofs for the bounded Chebyshev pricing estimator}
+\author{Amanjeet Singh}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\noindent Keywords: quantum derivative pricing; Chebyshev sampling;
+amplitude estimation; confidence coverage; logical resource bounds.
+
+% BEGIN RETAINED CHEBYSHEV PROOF BODY
+% Supporting fragment. The main paper supplies notation and references.
+\section{A bounded reflection-only Chebyshev pricing estimator}
+\label{supp:bounded-chebyshev-estimator}
+
+I develop a finite, completely chargeable adaptation of the published
+Chebyshev sampling framework of \citet{rallfuller2023}. The final published
+ChebAE pseudocode permits repeated confidence looks at an unchanged degree.
+For the adaptation below I spend failure probability on every fresh look,
+including such repeats. I do not identify the bounded policy, its fixed
+batch size or its fallback as the unmodified published algorithm. Nor do I
+claim a new quantum signal-processing theorem.
+
+\subsection{Exact logical signal and both parities}
+
+Let $A$ be the already certified clean preparation of a finite financial
+flag, with all private work initially zero. Write $P_g$ for its good-flag
+projector, $p=\langle0|A^\dagger P_gA|0\rangle$, and
+\[
+ S_g=I-2P_g,\qquad S_0=I-2|0\rangle\langle0|,
+ \qquad Q=-AS_0A^\dagger S_g.
+\]
+Here $|0\rangle$ refers to the invariant logical input, comparison and
+flag register. Private workspace is excluded from this reflection only
+because its clean-work invariance has already been proved. A measured
+lookup architecture would additionally require its scalar-Kraus channel
+proof, including the adjoint. The present comparison uses the retained
+coherent unitary architecture.
+
+For $0<p<1$ define the orthonormal vectors
+$|g\rangle=P_gA|0\rangle/\sqrt p$ and
+$|b\rangle=(I-P_g)A|0\rangle/\sqrt{1-p}$. Put
+$\theta=\arcsin\sqrt p$ and
+$|a\rangle=A|0\rangle=\sin\theta|g\rangle+
+\cos\theta|b\rangle$. On the ordered basis $(|g\rangle,|b\rangle)$,
+$S_g=\operatorname{diag}(-1,1)$, and
+\[
+ -AS_0A^\dagger=2|a\rangle\langle a|-I,
+ \qquad
+ Q=\begin{pmatrix}
+ \cos(2\theta)&\sin(2\theta)\\
+ -\sin(2\theta)&\cos(2\theta)
+ \end{pmatrix}.
+\]
+The matrix follows by multiplying the displayed rank-one reflection by
+$S_g$. Induction using the sine and cosine addition formulae proves
+\[
+ Q^k|a\rangle
+ =\sin((2k+1)\theta)|g\rangle+
+  \cos((2k+1)\theta)|b\rangle.
+\]
+This is the usual amplitude-amplification subspace calculation, rather
+than a new primitive.
+
+Let $T_d$ denote the degree-$d$ Chebyshev polynomial characterised by
+$T_d(\cos x)=\cos(dx)$. For odd $d=2k+1$, apply $Q^kA$ and measure
+the original good flag. Its success probability is
+\[
+ \sin^2(d\theta)
+ =\cos^2(d(\pi/2-\theta))=T_d(\sqrt p)^2.
+\]
+For even $d=2k$, $k\geq1$, apply chronologically $A$, $Q^{k-1}$,
+$S_g$, then $A^\dagger$, and observe the event that the invariant input
+register is zero. The zero-event amplitude is
+\begin{align*}
+ \langle0|A^\dagger S_gQ^{k-1}A|0\rangle
+ &=\langle a|S_gQ^{k-1}|a\rangle\\
+ &=\cos\theta\cos((2k-1)\theta)
+   -\sin\theta\sin((2k-1)\theta)\\
+ &=\cos(2k\theta).
+\end{align*}
+Its squared modulus is $T_{2k}(\sqrt p)^2$. This construction uses
+$d$ preparations or adjoints, $k$ good reflections and $k-1$ zero
+reflections. The odd construction uses $d$ preparations or adjoints and
+$k$ reflections of each kind. I retain these compositions in the charge;
+the longer even circuit $A^\dagger Q^kA$ would require $d+2$ preparations
+or adjoints. No saving from additional unevaluated fusion is presumed.
+
+The uncontrolled global minus in $Q$ can be omitted from the physical
+shot, because replacing $Q$ by $-Q$ contributes only $(-1)^k$ to the
+whole final state. This omission is inapplicable to the controlled QPE
+fallback, where the conditional minus is retained. All good and zero
+reflection predicates are unchanged. For the even terminal event I
+observe the logical input wires and compute their conjunction classically;
+this has no additional coherent conjunction circuit. Every allocated
+wire is nevertheless observed and conditionally reset before the next
+fresh shot. At $p=0$ or $p=1$, the same probabilities follow directly by
+applying the reflections to $A|0\rangle$; alternatively their values are
+the continuous limits of the finite polynomial expressions. Thus no
+singular normalisation of $|g\rangle$ or $|b\rangle$ is used at endpoints.
+
+\subsection{A certified monotone inverse branch}
+
+Set
+\[
+ t={2\over\pi}\arccos\sqrt p
+ =1-{2\over\pi}\arcsin\sqrt p\in[0,1],
+ \qquad q_d(p)=\cos^2(\pi dt/2).
+\]
+The map $p\mapsto t$ is decreasing. I enclose $t$ from the deterministic
+two-sided probability prior using the existing directed rational sine
+and inverse-sine calculation. Suppose the current outward enclosure is
+$[t_-,t_+]$, and an integer $j\geq0$ satisfies
+\[
+ j\leq dt_-\leq dt_+\leq j+1.
+ \tag{C1}\label{eq:cheb-monotone-branch}
+\]
+Write $dt=j+v$, $v\in[0,1]$, and let
+$h(v)=\sin^2(\pi v/2)$. If $j$ is even then
+$q_d=1-h(v)$; if $j$ is odd then $q_d=h(v)$. The derivative
+$h'(v)=(\pi/2)\sin(\pi v)$ is positive for $0<v<1$, so each
+restriction is one-to-one, including its endpoints. The zero derivative
+at an endpoint does not invalidate this monotonicity argument.
+
+If $[q_-,q_+]$ contains $q_d(p)$, let $h^{-1}(x)=
+2\arcsin\sqrt x/\pi$. In an even branch the resulting exact $t$
+interval is
+\[
+ \left[{j+h^{-1}(1-q_+)\over d},
+       {j+h^{-1}(1-q_-)\over d}\right];
+\]
+in an odd branch it is
+\[
+ \left[{j+h^{-1}(q_-)\over d},
+       {j+h^{-1}(q_+)\over d}\right].
+\]
+I replace each inverse endpoint by its separately certified outward
+endpoint, then intersect with the preceding $t$ interval. Finally,
+$p=1-h(t)$ gives the outward probability interval
+\[
+ [1-h(t_+)^{+},\,1-h(t_-)^{-}]
+\]
+intersected with the original deterministic prior. All intersections
+retain containment whenever their input confidence events hold. An empty
+intersection is recorded as an unsuccessful pilot, rather than repaired
+by inserting an unproved point estimate.
+
+The degree policy tests integers in descending order up to 2,047 and
+accepts only a degree for which \eqref{eq:cheb-monotone-branch} is checked
+by rational comparisons. A previous accepted degree remains valid on
+every nonempty subset of its branch. After the first look the policy
+changes degree only when the new accepted degree is at least twice the
+previous one; otherwise it repeats the previous degree. This is a finite
+implementation choice, not a proof of globally optimal degree selection.
+Every terminal midpoint is formed from exact rational probability
+endpoints. If their half-width is at most the required probability
+tolerance $\varepsilon$, its error from the true $p$ is at most
+$\varepsilon$ on the simultaneous confidence event.
+
+\subsection{Fresh-batch confidence under adaptive decisions}
+
+Let the total permitted failure probability be $\alpha\in(0,1)$.
+There are at most twelve pilot looks. Each look uses exactly 100 fresh
+complete shots, and spends $\alpha_{
+\mathrm{look}}=\alpha/24$. A look reusing a degree is still a new look
+for this allocation. I do not pool a random number of batches into a
+fixed-sample interval. Conditional on the complete preceding history,
+the selected degree is fixed and the new observations $X_1,\ldots,X_{100}$
+are independent Bernoulli variables with common mean $q_d(p)$ under the
+specified ideal logical experiment.
+
+I use fixed-sample equal-tail binomial inversion. This is the established
+Clopper--Pearson construction; I prove the relevant coverage here rather
+than assuming that finite-sample coverage follows from a numerical root.
+For $n=100$, $K=\sum_iX_i$ and $\gamma=\alpha_{\mathrm{look}}/2$, put
+\[
+ L_k(q)=\sum_{x=k}^n\binom nxq^x(1-q)^{n-x},\qquad
+ U_k(q)=\sum_{x=0}^k\binom nxq^x(1-q)^{n-x}.
+\]
+For $k>0$, $L_k$ is strictly increasing on $(0,1)$ and has endpoint
+values zero and one. One proof differentiates its finite sum and uses
+$x\binom nx=n\binom{n-1}{x-1}$ and
+$(n-x)\binom nx=n\binom{n-1}{x}$; cancellation gives
+\[
+ L_k'(q)=n\binom{n-1}{k-1}q^{k-1}(1-q)^{n-k}>0.
+\]
+For $k<n$, $U_k=1-L_{k+1}$ is strictly decreasing, with endpoint
+values one and zero. Consequently the lower root $l_k$ of
+$L_k(l_k)=\gamma$ exists uniquely for $k>0$, and the upper root
+$u_k$ of $U_k(u_k)=\gamma$ exists uniquely for $k<n$. I set
+$l_0=0$ and $u_n=1$.
+
+Fix a true binomial parameter $q$. The sequence $L_k(q)$ decreases
+with $k$. The event $q<l_K$ is therefore, when nonempty, the event
+$K\geq k_*$ for the smallest $k_*$ such that $L_{k_*}(q)<\gamma$.
+Its probability is $L_{k_*}(q)<\gamma$. If it is empty its probability
+is zero. Similarly, $U_k(q)$ increases with $k$. The event $q>u_K$
+is, when nonempty, $K\leq k^*$ for the largest $k^*$ such that
+$U_{k^*}(q)<\gamma$, with probability below $\gamma$. Thus
+\[
+ \Pr_q\{q\notin[l_K,u_K]\}\leq2\gamma
+ =\alpha_{\mathrm{look}}.
+\]
+The argument also treats $q=0,1$ directly, where the observed count is
+deterministic and the interval contains its endpoint.
+
+I isolate each root by exact dyadic bisection, retaining a bracket of
+width at most $2^{-64}$. At an endpoint $q=z/2^b$, the numerator of a
+binomial tail is the integer sum
+\[
+ \sum_{x\in I}\binom nxz^x(2^b-z)^{n-x},
+\]
+over the appropriate tail index set, with denominator $2^{bn}$.
+Comparisons with rational $\gamma$ use integer cross multiplication,
+so no floating-point root or unreported numerical tolerance enters.
+The lower root is replaced by its bracket's lower endpoint and the
+upper root by its bracket's upper endpoint. This enlarges the exact
+confidence interval, preserving the proved coverage. Each interval is a
+deterministic function of $k,n,\gamma$ and the fixed inverse precision;
+the construction rule is registered before examining simulated outcomes.
+Caching repeated counts changes only construction cost.
+
+Conditional on the preceding history, this coverage argument applies
+to the new fixed batch because its degree is already selected and its
+parameter is $q_d(p)$. Integrating the conditional inequality over the preceding histories
+bounds the unconditional failure probability of every reached look by
+$\alpha/24$. The union of at most twelve such events therefore has
+probability at most $\alpha/2$. Independence of different looks after
+conditioning is not needed for that union bound. On its complement,
+induction through the inverse-branch calculation proves containment of
+the true $t$ and $p$ in every retained pilot interval. Adaptive stopping
+therefore preserves the claimed probability error and confidence.
+
+This statement requires fresh shots with the exact proved logical flag
+and reflection channels. Retained simulated records or a finite
+statistical audit do not demonstrate physical-device independence, gate
+fault tolerance or empirical hardware execution. Those are separate
+requirements for a physical result.
+
+\subsection{Fallback coverage and a finite complete cost cap}
+
+Before pilot execution I construct the canonical QPE fallback at the
+same probability tolerance and the original deterministic prior, with
+failure allowance $\alpha/2$. Let its complete retained logical T count
+be $T_{\mathrm{fb}}$. The fallback includes its emitted Fourier tape,
+confidence repetitions, controlled signs and reflections, observations
+and resets. I set the pilot budget to
+$B=\lfloor T_{\mathrm{fb}}/10\rfloor$.
+
+Let $c_d$ be the completely charged T count for one shot of degree $d$
+using the parity-specific construction above. Before each fresh batch
+the controller checks that its accumulated count plus $100c_d$ is at
+most $B$. If this check fails, the degree or look cap is reached, or a
+confidence intersection is empty, I run the fixed QPE fallback with
+fresh repetitions. The fallback answer is projected only onto the
+original deterministic prior. I do not intersect its interval with a
+pilot confidence interval, which could already have failed.
+
+Let $E_P$ be the event that any pilot interval used in a terminal answer
+fails, and let $E_F$ be failure of the fresh QPE fallback when reached.
+The preceding result gives $\Pr(E_P)\leq\alpha/2$. Conditional on every
+history reaching the fallback its fixed plan still has failure at most
+$\alpha/2$, so $\Pr(E_F)\leq\alpha/2$. Every erroneous terminal answer
+belongs to $E_P\cup E_F$. Hence the complete policy has probability
+error at most $\varepsilon$ with confidence at least $1-\alpha$.
+If the deterministic prior already has half-width at most
+$\varepsilon$, its midpoint stops without quantum shots or confidence
+expenditure.
+
+The budget checks are independent of confidence validity and hold for
+every possible history, including histories in which the intervals
+fail. A successful pilot costs at most $B$. Every fallback history costs
+at most
+\[
+ B+T_{\mathrm{fb}}\leq{11\over10}T_{\mathrm{fb}}.
+\]
+This is a finite worst-history guarantee, not an average over favourable
+simulations. The comparator is the newly charged $\alpha/2$ fallback;
+it is not the earlier $\alpha$ QPE cap, which can use fewer repetitions.
+The bound concerns logical T gates. Classical control, preprocessing,
+gate categories, observations, reset and memory retain their explicit
+ledgers; I do not equate this inequality with physical elapsed time.
+
+\subsection{An expected-gate break-even condition}
+
+I fix the financial flag and its unknown true probability $p$. Let $S$
+be the indicator that the pilot certifies its probability tolerance, and
+let $C_P$ be its actual complete T charge. The randomness in this
+paragraph concerns fresh shots at this fixed flag, rather than a
+distribution over financial prices. If $T_0$ is the earlier full-$\alpha$
+QPE charge, the complete hybrid charge has the pointwise identity
+\[
+ C=C_P+(1-S)T_{\mathrm{fb}}.
+\]
+All variables are bounded by the finite policy, so their expectations
+exist. Linearity, without an independence assumption between $C_P$ and
+$S$, gives
+\[
+ \mathbb EC=\mathbb EC_P+
+       \{1-\Pr(S=1)\}T_{\mathrm{fb}}.
+\]
+Consequently the exact condition for a strict expected saving against
+the earlier full-$\alpha$ comparator is
+\begin{equation}
+ \mathbb EC<T_0
+ \quad\Longleftrightarrow\quad
+ \Pr(S=1)>1-{T_0\over T_{\mathrm{fb}}}
+                   +{\mathbb EC_P\over T_{\mathrm{fb}}}.
+ \label{eq:cheb-expected-break-even}
+\end{equation}
+This remains valid when pilot success and pilot cost are strongly
+dependent. It applies to any finitely charged pilot with a fixed
+fallback, and follows from established elementary expectation rather
+than a new quantum or statistical theorem.
+
+In the four retained implementations the additional confidence
+repetitions give the exact ratio $T_{\mathrm{fb}}/T_0=27/25$.
+Since $0\leq C_P\leq B$, a necessary condition for a strict expected
+saving is $\Pr(S=1)>2/27$. A sufficient condition is
+\[
+ \Pr(S=1)>{2\over27}+{B\over T_{\mathrm{fb}}}.
+\]
+The simpler uniform condition $\Pr(S=1)>47/270$ is also sufficient,
+because $B/T_{\mathrm{fb}}\leq1/10$. The inequalities are strict:
+equality in \eqref{eq:cheb-expected-break-even} gives equal expected
+charges, not a saving. Equality at the conservative sufficient
+threshold requires separately checking the actual mean pilot cost;
+the budget envelope alone need not decide it. A success probability
+above $2/27$ is not sufficient on its own. Even if the mean pilot cost
+were zero, the necessary strict threshold would remain $2/27$.
+
+The retained 400 synthetic histories use a fixed mesh of possible
+probabilities and fixed pseudorandom seeds. Their success fractions and
+pilot charges are descriptive properties of that mesh. They neither
+identify $\Pr(S=1)$ at the unknown financial flag nor estimate
+$\mathbb EC_P$ there. Thus they cannot establish that
+\eqref{eq:cheb-expected-break-even} holds for the actual pricing task.
+I retain the median-cost increases in all four diagnostic families;
+neither an observed pilot success nor a smaller conditional path proves
+an expected advantage.
+
+For an undiscounted financial decoding satisfying
+$|\widehat V-V|\leq\eta_{\mathrm{det}}+F\varepsilon$, I retain the
+same deterministic allowance and exact monetary factor $F$ as the
+existing R1 flag. Choosing $\varepsilon$ so that this sum is at most
+the financial tolerance transfers the proved coverage to its derivative
+price. No continuous classical price, sampled price or new financial
+law enters this controller. Originality and algorithmic superiority
+would require separate literature and complete performance comparisons;
+the proved adaptation alone establishes neither.
+% END RETAINED CHEBYSHEV PROOF BODY
+
+\begin{thebibliography}{99}
+\bibitem[Rall and Fuller(2023)]{rallfuller2023} Rall, P. and Fuller, B. (2023). Amplitude estimation from quantum signal processing. \emph{Quantum}, 7, 937. \url{https://doi.org/10.22331/q-2023-03-02-937}.
+\end{thebibliography}
+\end{document}

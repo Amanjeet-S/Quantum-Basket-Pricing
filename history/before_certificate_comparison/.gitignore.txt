@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+data/private/
+*.pem
+*.key
+.DS_Store
+
+# Local expanded copy; complete portable results retained as deterministic gzip.
+results/variance_oracle_comparison.json
+results/variance_oracle_part_*.json
+results/variance_oracle_checkpoint*.json
+
+# Optional expanded canonical copy; lossless byte shards and manifest are retained.
+/results/higherdim_precision_comparison.json.gz

@@ -1,0 +1,306 @@
+\subsection{Signed coherent preparation of a Taylor remainder}
+\label{sec:coherent-tilt-remainder}
+
+I retain the classical probability model throughout. Quantum states in
+this construction represent computational sampling distributions and do
+not replace the financial risk-neutral measure. The following is a
+project-specific derivation of an importance preparation; a literature
+comparison is required before claiming an original quantum method.
+
+\begin{proposition}[Continuous coherent tilt identity]
+Let $Y\sim N(0,I_p)$, $w_i>0$, $\sum_iw_i=1$, and let
+\[
+ T(y)=\sum_{i=1}^n w_i e^{d_i+v_i\cdot y},\qquad U(y)=T(y)-1,
+ \qquad\sum_iw_i d_i=0,\quad\sum_iw_i v_i=0.
+\]
+For an integer $s\geq1$, set $M_{2s}=\mathbb E U(Y)^{2s}$ and
+$\psi_0(y)=(2\pi)^{-p/4}e^{-\|y\|^2/4}$. Assume $M_{2s}>0$.
+For $j=0,\ldots,s$ and multi-indices $\alpha\in\mathbb N_0^n$
+with $|\alpha|=j$, define
+\[
+ c_{j,\alpha}=(-1)^{s-j}\binom sj\frac{j!}{\alpha!}w^\alpha,
+ \quad d_\alpha=\sum_i\alpha_i d_i,
+ \quad v_\alpha=\sum_i\alpha_i v_i,
+ \quad \beta_{j,\alpha}=c_{j,\alpha}e^{d_\alpha+\|v_\alpha\|^2}.
+\]
+Let $\psi_m(y)=(2\pi)^{-p/4}e^{-\|y-m\|^2/4}$ and
+$L=\sum_{j,\alpha}|\beta_{j,\alpha}|$. Then
+\[
+ U^s\psi_0=\sum_{j,\alpha}\beta_{j,\alpha}\psi_{2v_\alpha},
+ \qquad
+ \psi_s=\frac{U^s\psi_0}{\sqrt{M_{2s}}},
+ \qquad
+ \eta=\frac{M_{2s}}{L^2}\in(0,1].
+\]
+There are $\binom{n+s}{s}$ labelled components before any exact merging.
+\end{proposition}
+
+\begin{proof}
+Weighted Jensen gives $T\geq\exp(\sum_iw_i(d_i+v_i\cdot y))=1$,
+so $U\geq0$. The binomial and multinomial formulae give
+\[
+ U^s=\sum_{j=0}^s(-1)^{s-j}\binom sj
+       \sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+       e^{d_\alpha+v_\alpha\cdot y}.
+\]
+Completing the square gives
+$e^{v\cdot y}\psi_0(y)=e^{\|v\|^2}\psi_{2v}(y)$.
+Substitution proves the coherent identity. Every component is normalised,
+so the triangle inequality gives
+$\sqrt{M_{2s}}=\|U^s\psi_0\|\leq L$. The density of $\psi_s$ is
+$q_s(y)=U(y)^{2s}\phi_p(y)/M_{2s}$. Gaussian exponential moments
+justify its finite normalisation for every fixed $s$. The number of
+multi-indices at degree $j$ is $\binom{n+j-1}{j}$; summing these
+counts gives $\binom{n+s}{s}$.
+\end{proof}
+
+\begin{proposition}[Finite-register construction]
+Let the finite base distribution factor as
+$p(y)=\prod_{r=1}^p p_r(y_r)$ on a finite product grid, with all
+$p_r(y_r)>0$. Define
+\[
+ Z(v)=\mathbb E_p e^{2v\cdot Y}
+      =\prod_{r=1}^p\sum_{y_r}p_r(y_r)e^{2v_r y_r},
+ \qquad
+ |\varphi_v\rangle=\sum_y
+       \frac{\sqrt{p(y)}e^{v\cdot y}}{\sqrt{Z(v)}}|y\rangle,
+\]
+and $\beta^{\mathrm{fin}}_{j,\alpha}
+=c_{j,\alpha}e^{d_\alpha}\sqrt{Z(v_\alpha)}$.
+Let $P_\ell$ be an explicitly emitted unitary preparing
+$|\varphi_{v_\ell}\rangle$ from zero, let
+$L_{\mathrm{fin}}=\sum_\ell|\beta^{\mathrm{fin}}_\ell|$, and let
+$P_\chi$ prepare
+$|\chi\rangle=\sum_\ell\sqrt{|\beta^{\mathrm{fin}}_\ell|/
+L_{\mathrm{fin}}}|\ell\rangle$.
+Define
+\[
+ \mathrm{SELECT}=\sum_\ell |\ell\rangle\langle\ell|
+          \otimes\operatorname{sign}(\beta^{\mathrm{fin}}_\ell)P_\ell,
+ \qquad
+ B=(P_\chi^\dagger\otimes I)\mathrm{SELECT}(P_\chi\otimes I).
+\]
+Padding indices have zero weight and any stated unitary extension.
+Then the zero-selector block of $B|0\rangle$ is
+\[
+ \frac1{L_{\mathrm{fin}}}\sum_y\sqrt{p(y)}U(y)^s|y\rangle,
+\]
+and its probability is
+$\eta_{\mathrm{fin}}=M_{2s}^{\mathrm{fin}}/L_{\mathrm{fin}}^2$.
+\end{proposition}
+
+\begin{proof}
+The first preparation supplies amplitudes
+$\sqrt{|\beta_\ell|/L}$. The selector-controlled sign and component
+unitary produce that amplitude times
+$\operatorname{sign}(\beta_\ell)|\varphi_{v_\ell}\rangle$.
+Projecting the unprepared selector onto zero multiplies by
+$\langle0|P_\chi^\dagger|\ell\rangle
+=\sqrt{|\beta_\ell|/L}$. The resulting vector is
+$L^{-1}\sum_\ell\beta_\ell|\varphi_{v_\ell}\rangle$.
+Substitution of the finite tilt normalisation cancels $\sqrt Z$ and
+leaves the same binomial expansion of $U^s$. Squaring its norm proves
+the probability formula. The component signs are conditional phases;
+discarding them would prepare a different vector and invalidate the
+identity.
+\end{proof}
+
+\begin{proposition}[Financial correction identity]
+Let $g_y(t)$ be the monetary conditioned payoff, with $T(y)=1+U(y)$.
+Let the order $k=2s-1$ Taylor polynomial be $J_k(y)$ and its remainder
+$R(y)=g_y(T(y))-J_k(y)$. Suppose the checked derivative certificate gives
+\[
+ |R(y)|\leq b_s U(y)^{2s},\qquad
+ b_s=\frac{H D_{2s,\lambda}}{(2s)!}.
+\]
+Define $v(y)=R(y)/(b_sU(y)^{2s})$ when $U(y)>0$ and $v(y)=0$
+when $U(y)=0$. Then $|v|\leq1$ and
+\[
+ \mathbb E_p g_Y(T(Y))
+ =\mathbb E_pJ_k(Y)+b_sM_{2s}^{\mathrm{fin}}\mathbb E_{q_s}v(Y).
+\]
+For the continuous identity, replace the finite measures and moments
+by their continuous counterparts.
+\end{proposition}
+
+\begin{proof}
+The remainder bound implies $R=0$ at $U=0$. On the other points,
+$q_s(y)v(y)=p(y)R(y)/(b_sM_{2s})$. Summing proves the identity.
+The continuous version follows by integration; the same remainder bound
+ensures integrability. A flag of probability $(1+v(y))/2$ estimates the
+signed expectation, not the expectation of a squared amplitude.
+The classical polynomial term and its arithmetic errors remain part
+of the total price and error budget.
+
+The apparent singular quotient is avoidable. Set $m=2s$. The integral
+Taylor remainder gives
+\[
+ R(y)=\frac{U(y)^m}{(m-1)!}\int_0^1(1-t)^{m-1}
+                  g_y^{(m)}(1+tU(y))\,dt.
+\]
+Consequently a bounded extension of the importance observable is
+\[
+ v(y)=\frac{m}{H D_{m,\lambda}}\int_0^1(1-t)^{m-1}
+                  g_y^{(m)}(1+tU(y))\,dt.
+\]
+The factor $m(1-t)^{m-1}$ integrates to one. Since $1+tU\geq1$,
+the derivative certificate bounds the integrand divided by $H D_m$
+in absolute value by one. This is a Beta$(1,m)$ expectation and remains
+bounded at $U=0$, where its continuous value is
+$g_y^{(m)}(1)/(H D_m)$. The importance measure gives that event zero
+weight, so either bounded definition there yields the same identity.
+An implementation must charge the Beta preparation or finite quadrature,
+its bias, and the derivative oracle. This identity eliminates a
+conditioning problem but does not establish an inexpensive circuit.
+\end{proof}
+
+An integer number of ordinary amplitude-amplification iterations does
+not in general prepare $q_s$ with probability one. If
+$\theta=\arcsin\sqrt\eta$ and $r$ iterations are used, the ideal good
+probability is $\kappa=\sin^2((2r+1)\theta)$. A fully coherent
+implementation can avoid postselection by defining
+$W=\mathbf1_{\mathrm{good}}v$ and estimating
+$\mathbb E W=\kappa\mathbb E_{q_s}v$, then dividing by a certified
+positive $\kappa$. This includes failure branches in the observable,
+charges the success predicate, and requires a rigorous error enclosure
+for the moment, $\eta$, the chosen integer $r$ and $\kappa$. Treating
+the prepared state as exactly $q_s$ without this correction is invalid.
+Alternatively, generalised final amplification phases or conditional
+postselection need their own gates, norm certificates and reset costs.
+
+\begin{proposition}[Finite-precision cancellation cost]
+Suppose an emitted $\widetilde B$ satisfies
+$\|\widetilde B-B\|\leq\zeta<\sqrt\eta$. Conditional on a good
+selector observation, its prepared state differs from the ideal
+normalised good state by at most $2\zeta/\sqrt\eta$ in vector norm.
+For any observable with operator norm at most one, the monetary
+correction bias is at most
+\[
+ 4b_sM_{2s}\frac\zeta{\sqrt\eta}
+   =4b_sL\sqrt{M_{2s}}\zeta.
+\]
+For a fixed $r$-iteration coherent amplification tape, the operator-norm
+error is bounded by $(2r+1)\zeta$ plus any reflection or phase errors.
+\end{proposition}
+
+\begin{proof}
+Let $u$ and $\widetilde u$ be the two projected output vectors.
+Projection is contractive, hence
+$\|u-\widetilde u\|\leq\zeta$ and
+$|\|u\|-\|\widetilde u\||\leq\zeta$.
+Writing the difference of the two normalised vectors using the
+denominator $\|u\|=\sqrt\eta$ gives a bound equal to the sum of these
+two errors divided by $\sqrt\eta$. The conditional state exists since
+$\|\widetilde u\|\geq\sqrt\eta-\zeta>0$.
+The expectation difference for a norm-one observable between two unit
+vectors is at most twice their vector distance, by insertion and
+subtraction of one bra or ket at a time. Multiplication by the monetary
+coefficient proves the bias bound. The amplification tape contains
+$2r+1$ occurrences of $B$ or its adjoint; telescoping products of
+unitaries sum their operator errors, proving the final assertion.
+\end{proof}
+
+\subsection{Weak-dispersion scaling and the required opponent}
+
+Assume $d_i(\delta)=\delta a_i+O(\delta^2)$ and
+$v_i(\delta)=\delta b_i+O(\delta^2)$, with the weighted centring
+identities holding at every $\delta$. Suppose
+$Q(y)=\tfrac12\sum_iw_i(a_i+b_i\cdot y)^2$ is not identically zero.
+Expanding the exponentials with their integral remainders gives
+$U(\delta,y)/\delta^2\to Q(y)$. On a fixed finite grid convergence
+is uniform. On the Gaussian space a dominating envelope of the form
+$C(1+\|y\|^2)e^{C\delta_0\|y\|}$ follows from
+$|e^x-1-x|\leq x^2e^{|x|}/2$ and the centring identities.
+Its every finite Gaussian moment is finite. Dominated convergence
+therefore gives
+\[
+ M_{2s}=\Theta(\delta^{4s}),\quad
+ L\longrightarrow2^s,\quad
+ \eta=\Theta(\delta^{4s}).
+\]
+These statements concern the displayed labelled LCU; they are not
+lower bounds for every possible representation of the importance state.
+
+Repeated rejection preparation has expected cost $\Theta(\delta^{-4s})$
+uses of $B$. Amplification can reduce the preparation-query order to
+$\Theta(\delta^{-2s})$, provided all component preparation,
+reflections and finite-precision errors are charged. Ideal amplitude
+estimation of the normalised signed correction needs order
+$b_sM_{2s}/\varepsilon$ calls at fixed confidence in the active regime.
+The resulting preparation-query order is
+$\delta^{2s}/\varepsilon$, before financial observable costs.
+With rejection preparation the same calculation is order
+$1/\varepsilon$. If $b_sM_{2s}\leq\varepsilon$, the deterministic
+certificate already suffices and no correction estimator is necessary.
+
+On the certified finite support an essential comparator is stronger.
+Let $U_{\max}$ be a checked support bound and
+$\rho_s=b_sU_{\max}^{2s}$. Estimating the direct signed observable
+$R/\rho_s$ with the original base preparation needs order
+$\rho_s/\varepsilon$ queries. For a fixed finite weak-dispersion
+family $U_{\max}=O(\delta^2)$, hence this order is
+$\delta^{4s}/\varepsilon$. It avoids the LCU preparation penalty.
+Thus the proposed importance preparation is asymptotically worse in
+this regime when oracle evaluation costs are comparable. A contrary
+complete-cost conclusion requires a separately established saving in
+the observable oracle, support certificate or another input regime.
+The division by $U^{2s}$ in the importance observable can add substantial
+fixed-point cost and conditioning error near zero; its definition at
+zero must be implemented on all numerical inputs.
+
+\subsection{No-arbitrage interface and the finite toy}
+
+Let $\mathbb Q$ be the stipulated classical terminal measure and let
+$D>0$ be the deterministic discount factor. I price each integrable
+terminal cash flow $F$ by $\Pi(F)=D\mathbb E_{\mathbb Q}F$.
+This is linear and positive, and $\Pi(1)=D$. If a traded forward
+delivery is $\overline S_i$, I require
+$\mathbb E_{\mathbb Q}S_i=\overline S_i$, so that the zero-cost
+forward cash flow $S_i-\overline S_i$ has price zero. A nonnegative
+terminal portfolio which is strictly positive on an event of positive
+$\mathbb Q$ probability then has strictly positive price. Consequently
+it cannot be acquired for nonpositive cost within this common pricing
+functional. Quantum importance reweighting preserves this conclusion
+only through the exact correction identity, not by treating $q_s$ as
+a different financial pricing measure.
+
+In the retained toy, each of two independent outer coordinates has
+points $(-3/2,-1/2,1/2,3/2)$ with probability proportional to
+$e^{-y^2/2}$. With independent $Z\sim N(0,1)$ and
+$z_1(\delta)=\mathbb E e^{\delta Y_1}$, I set
+\[
+ S_\pm=K\exp\{\mu\pm\delta(Y_1+Y_2)+\lambda Z\},\qquad
+ \mu=\log(\overline S/K)-\lambda^2/2-2\log z_1(\delta).
+\]
+Symmetry and independence give
+$\mathbb E S_\pm=\overline S$ exactly. Their equal-weight basket
+has ratio $T=\cosh(\delta(Y_1+Y_2))$ to its geometric basket.
+The conditional capped payoff and its first Taylor coefficient are
+computed in this same classical model; the retained numerical identity
+checks the polynomial price plus signed correction against all sixteen
+finite outer evaluations. It is a signal-construction test, not an
+empirical sample or a replacement for the paper's continuous GBM model.
+
+At $s=1$ and $\delta=1/4$, the exact finite LCU has three components,
+coefficients $(-1,z_1(2\delta)/2,z_1(2\delta)/2)$, and success
+probability approximately $0.00153885$. Its emitted signal circuit uses
+eight qubits, sixty exact Toffolis and forty-two single-qubit rotation
+uses. Eleven distinct retained rotation tapes have independent Acb
+operator-norm certificates; the complete preparation has $4416$ T
+gates and norm-error upper bound approximately $2.215\times10^{-8}$.
+Nineteen ordinary amplification iterations use thirty-nine preparations
+or adjoints. Charging the full zero reflection increases this to ten
+qubits and $173288$ T gates, with an aggregate norm-error upper bound
+approximately $8.637\times10^{-7}$. Literal gate replay gives good
+probability approximately $0.99836037$ and clean work. Floating replay
+is a diagnostic; the retained matrix enclosures supply gate-error rigour.
+
+The remainder evaluator, its signed flag, deterministic representation
+error, the end-to-end estimator, confidence postprocessing, readout and
+reset are not yet supplied by this toy. I therefore make no complete
+pricing-cost or advantage claim. Approximate prices must retain certified
+intervals and the same risk-neutral expectation target. Independent
+rounded point estimates can violate joint arbitrage constraints even
+when each is accurate within its tolerance; the exact underlying
+functional, or a jointly feasible price vector within the certified
+intervals, is required for an across-contract no-arbitrage claim.

@@ -1,0 +1,41 @@
+{
+  "files": {
+    "coherent_tilt_derivation.tex": "6dea54ea88e0880f7b5e21ef5c338d6a35c352d791f6967e028a2b8adbf13ed8",
+    "coherent_tilt_toy.py": "f0f7170f7df4b1fbe1d3c00d0f4b9f5a96cfe30278261293f45e729de2ac8e72",
+    "synthesise_tilt_toy.py": "9924734d881b672b131f983ce8a9b4d85089bcca23b76abae9b2e462ee098741",
+    "audit_tilt_toy.py": "cc430343d5f148676c13bf124e4b5fce4e7fd593e0e4a9d81407a5af8d87dc7b",
+    "certify_tilt_toy.py": "e03905f045965e27fb1d6c0fd1786bdf3b9b81a12786a19fbee3a7f4514d873b",
+    "review.md": "668427bfdc13ee000e1d76490921cd9a9d9faaebaba8c1b07a2d493748b35f69",
+    "checks/test_coherent_tilt_toy.py": "64a472d41a1c1406c4152a49f0975aa38920a00adc97ce5b5f3c3674dd87833c",
+    "results/coherent_tilt_toy_tape.json": "a63be1be803d6e53e0e052f86c9e9c87584d392a83dbdbfc77fb9f90fc615c7d",
+    "results/coherent_tilt_toy_rotation_certificates.json": "13c9526eb330d2aaf47da3422740a79ee03600438f2a37348003d61cd0cf219c",
+    "results/coherent_tilt_toy_audit.json": "d0f5bbad5df25ca8b865ec1a971e062f27cfe50895529c34e719408844ed4265",
+    "results/coherent_tilt_toy.json": "68e6ffb9af6fb9d021a9b1e15c409b1a49f7fb80fdc1fd6c280d6b8fea26f3ed",
+    "results/coherent_tilt_toy_compiled.json": "23cffafbeecbcb2e5719005acef72a99f078323960524e20ed54d269276ec8c6"
+  },
+  "existing_dependencies": {
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "pygridsynth_1_2_0": {
+      "__init__.py": "a053c7ff9ed36a6386b33eb2ec7efc4fd3bd8d39c0c9d0ee1db544b07098846b",
+      "__main__.py": "d583ffde48d3fcdcd29277f0d2de0bd60fe9e4e85d663c6eb6ad2f084f320f8f",
+      "cli.py": "3665c87b284f6154913fad578c93f08a471b4bb085027325f043b863345a9a55",
+      "config.py": "dc1fc0ea1db8f0d6ccfb71bab5136b2945fe879f2da0d85557866becfee0f0e3",
+      "diophantine.py": "58292dc3ff91a9125632bd23125595f3c2ead64aef325023254f56a058add237",
+      "grid_op.py": "4fce6ccb925e012719c5e4268215129528cfa31f195f44fd1a6963d0cc3ccb78",
+      "gridsynth.py": "23607de9e1c1d2fbffdd1aed99b3b78c3c23fce71cffe53d8b1e6fdb937b9f06",
+      "loop_controller.py": "188d7d6dbeef59f4d70c0758ac2d1eb6bb600d6cbf0fe3c1dc2fbe82811ad440",
+      "mymath.py": "b7a6e24b69c5fbaf7b208fe7ece69c4b4e3e4cd8f1d2d80a2f6d0dc8a96ddfb4",
+      "myplot.py": "efbcdc89b082e569b76d7e0d508d6c24cfcdd812908063dd2729775ec56fa7ad",
+      "normal_form.py": "bd37c073c90d0c848df3bc17f0b67ff8b055a2309b817e1e4e0933a42c453b78",
+      "odgp.py": "e43a2ef2d1ddfa115f515052dcf9d97b43ba51d8d141d4f9b7decce76fe148d6",
+      "quantum_gate.py": "16db5e7930f271ce76eebfb8fad586871bf858ce9c7fe9a1163044595583ee28",
+      "region.py": "571ca4fc62a283504d681cf69be432c27044457cba4a0bf477dbd4f1677de6cc",
+      "ring.py": "d30a782a0262402930d45c9bcf3095a45cf74bd2be0d7872c56a70a5b14ce46c",
+      "synthesis_of_cliffordT.py": "ac74d85bbef1c6475a984d77661c2738db1b485dd3c709650b102760837dc2d2",
+      "tdgp.py": "094ac708c6a9cf2744b7e0832c30335f8e9344639308ad8428cfb0f850c99166",
+      "to_upright.py": "37ad39c4d75571ae47ca3cf034b09f17fc1dfeb7dd8a9ba738064e3cc5fcd238",
+      "unitary.py": "7b51488bd169bb3d83f56ad791b86bef7a704f99d40462f5f47fcd3d955676e0"
+    }
+  },
+  "scope": "No financial observable or full pricing estimator is implemented. Main repository untouched."
+}

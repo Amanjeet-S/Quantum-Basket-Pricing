@@ -1,0 +1,28 @@
+{
+  "schema": "qbp-chebyshev-source-access-v1",
+  "date": "2026-10-09",
+  "source": {
+    "authors": "Rall, P. and Fuller, B.",
+    "year": 2023,
+    "title": "Amplitude estimation from quantum signal processing",
+    "journal": "Quantum",
+    "volume": 7,
+    "article": 937,
+    "DOI": "10.22331/q-2023-03-02-937",
+    "url": "https://quantum-journal.org/papers/q-2023-03-02-937/pdf/",
+    "version_actually_consulted": "Final publisher-hosted PDF, acceptance stamp 20 February 2023; its title page includes arXiv:2207.08628v3 dated 27 February 2023. Publication information matches the retained final-source ledger.",
+    "fresh_consultation": "Safari PDF accessibility text, printed pages28\u201332. I examined Empirical Claim 18, equation (69), Figure 5, the full ChebAE algorithm and equation (70), find_next_cheb, the confidence explanation, source code link and reported empirical query fits. Earlier reading of Section 1.1 is recorded in qsp_source_ledger.md; I do not present it as newly reread.",
+    "technical_use": "Chebyshev sampling architecture, monotone-degree selection and probability-versus-amplitude distinction. Repeated looks receive separate confidence spending in the new bounded adaptation; empirical averages do not supply complete worst-history costs.",
+    "changes_from_published_controller": "A proved two-sided financial probability prior, fresh fixed 100-shot batches without pooling, maximum 12 adaptive confidence looks, degree cap 2,047, explicit logical T pilotbudget and canonical QPE fallback. Both polynomial parities retain their correct success events. This is a bounded adaptation, not an unchanged reproduction of the published ChebAE controller.",
+    "copyright": "Only consultation metadata and project derivations are distributed; no publisherPDF or full accessibility text enters the repository."
+  },
+  "browser_preservation": {
+    "initial_existing_tabs": 8,
+    "one_new_academic_tab_opened": true,
+    "user_changed_browser_during_reading": true,
+    "state_after_user_change": "10 tabs, academic PDF tab inactive, user Start Page active. I stopped UI interaction without attempting to close or alter that tab.",
+    "existing_tabs_intentionally_modified": false
+  },
+  "new_purchase_subscription_or_data_entitlement": false,
+  "LSEG_inputs": false
+}

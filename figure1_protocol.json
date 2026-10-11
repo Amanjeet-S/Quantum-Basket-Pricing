@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-08",
+  "fixed_before_outcomes": false,
+  "model_family": "n8_lambda0.2",
+  "payoff": "vanilla",
+  "scales": [
+    "1",
+    "3/2",
+    "2",
+    "3"
+  ],
+  "transfer_series": "Aggregate R2 financial transfer allowance divided by 1/200.",
+  "classical_series": "Intersection of valid Taylor intervals through degree3 and intrinsic price range, normalised by 1/100. Original individual-minimum data remain retained.",
+  "purpose": "Show whether the original cohort admission equality persists under fixed dispersion stress. Error targets differ; not a speed or pricing-advantage comparison.",
+  "outward_results_retained": true,
+  "original_boxed_text_figure": "Remove redundant text flow beside monetary theorem.",
+  "no_selection_from_observed_separators": true,
+  "model_selection_fixed_before_outcomes": true,
+  "comparator_strengthening_scope": "Figure model/payoff/scales remain the original pre-outcome choice. Classical interval-intersection policy is a transparent strengthening after the first registered experiment began; not falsely labelled pre-outcome."
+}

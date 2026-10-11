@@ -1,0 +1,38 @@
+{
+  "source_sha256": "3a4439556a39b3ff7c26386079bee14d9a27f505c22be50fa371fdae764aab30",
+  "data_sha256": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+  "matplotlib_version": "3.10.6",
+  "python_version": "3.14.6",
+  "all64_registered_configurations_displayed": true,
+  "colour": true,
+  "3D_used": false,
+  "native_figure_file": "pricing_precision_figure.tex",
+  "native_external_file_dependency": false,
+  "caption": "Complete T caps over the 64 registered numerical-rival configurations. Panels give asset count, common volatility $\\lambda$ and loading multiplier $c$. Columns and rows give the address widths $b_A$ and $b_G$ of $P(m_A)$ and $P(m_G)$; other widths and inputs are fixed. Colours and labels show each admitted cap/its panel minimum, using a shared logarithmic colour scale. Labels have three decimals; exact costs and ratios are retained. Grey crosses mark twelve rejected monetary budgets. Outlines identify the numerical minima, $b_A=b_G=10$. Orange footers compare the fixed shared-threshold encoding with minima of this numerical pool; Table~\\ref{tab:shared-threshold} also includes the raw-payoff pool. Every alternative uses radius $0.01$ and per-price failure allowance $1/3600$. These are synthetic deterministic logical resource caps, not price observations or device timings.",
+  "export_generation_source_sha256": "a576dfd3b2acc4ccfa9557932047855cd81d71fa8445193acbf1dd332c09d35a",
+  "native_figure_sha256": "fa6688499f50b205d6a37d7fbb80396ef49a8d81f443dc49308681740f94be2c",
+  "native_layout_revision": {
+    "date": "2026-10-10",
+    "previous_native_sha256": "d3121c92094388290b16607ea46ee7afa15a68abc7680fec78de0e52ff8015bd",
+    "native_drawing_tokens_preserved": true,
+    "native_width": "linewidth",
+    "float_placement": "!htb",
+    "inter_command_whitespace_suppressed": true,
+    "caption_font": "small",
+    "caption_above_skip_pt": 6,
+    "PNG_SVG_regenerated": false,
+    "scope": "Only native LaTeX layout and captions were revised. Exported PNG/SVG files and exact plot data remain unchanged; their earlier rendering provenance is preserved."
+  },
+  "native_centring_revision": {
+    "date": "2026-10-10",
+    "previous_native_sha256": "a6a54a8346d10408f8d681b5e73473e7d65db9ed6cf4b79df66733507f40498f",
+    "paragraph_ended_before_group_close": true,
+    "explicit_box": "makebox[linewidth][c]",
+    "drawing_width": "0.96 linewidth",
+    "equal_side_margins": "0.02 linewidth",
+    "drawing_commands_and_coordinates_unchanged": true,
+    "PNG_SVG_regenerated": false,
+    "scope": "Source-level centring with native compilation; no native PDF pixel review is asserted."
+  },
+  "caption_scope_revision": "Explicitly distinguishes numerical-pool Event/min footers from the stronger combined numerical/raw comparison. Coordinates, colours, labels, plot data and PNG/SVG exports are unchanged."
+}

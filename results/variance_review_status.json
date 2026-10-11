@@ -1,0 +1,18 @@
+{
+  "status": "review_passed_after_source_corrections",
+  "reviewed_source_hashes": {
+    "variance_certificate.py": "543aa40fe855748ac412c61f3c7cd1ce5b93a0fd3ae299f422d6e69a73df0007",
+    "classical_variance_proof.tex": "bf6d9447c75e6f1485f3795e77139faced58ad3831fbb7eb71a68560a7704192",
+    "general_moment_dispersion_proof.tex": "c5281af271ac2067caeb6da59d21ed6f45a7376d91742724f8bae9588e93c328"
+  },
+  "resolved_defects": [
+    "LaTeX carriage returns",
+    "aggregate rather than per-operation Taylor numerical allowance",
+    "constant quadratic form alone does not imply zero leading variance"
+  ],
+  "retained_independent_evidence": [
+    "variance_review_audit.json",
+    "quantile_body_domain_audit.json"
+  ],
+  "claim_limit": "mathematical and retained-parameter review; theoretical novelty and quantum advantage unverified"
+}

@@ -1,0 +1,225 @@
+{
+  "schema": "qbp-matched-chebyshev-independent-audit-v1",
+  "status": "passed",
+  "auditor_sha256": "b9d32542762717c42bc27ed473e96b31157c8ace6b2a64fd2d21314672c6bff4",
+  "retained_independent_formula_source_sha256": "56d4183a35596e95504cf80c46a0178a259dc8a637eb565626f54f9a661e37bb",
+  "protocol_sha256": "d169a88e11f815aadd12498866f751328137550d8567c9262a0d61fff8a297b9",
+  "result_sha256": "f6f64568b45e8eaba705360c5df53df321d71cde51de0623d48620c2836498cc",
+  "histories": 1200,
+  "paired_mesh_seed_histories": 400,
+  "fresh_batches": 1968,
+  "replayed_u64_words": 196800,
+  "sampler_profiles": 157,
+  "512_bit_signal_floors": 77,
+  "fresh_half_alpha_plans": 12,
+  "all_degree_dominance": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "rival": "raw_payoff",
+      "candidate_A_T": 1632343,
+      "rival_A_T": 1818882,
+      "candidate_S0_T": 322,
+      "rival_S0_T": 658,
+      "candidate_pair_T": 3265008,
+      "rival_pair_T": 3638422,
+      "uniform_matched_degree_saving_lower": "186539/1818882",
+      "uniform_matched_degree_saving_per_cent": 10.255695531650762
+    },
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "rival": "numerical_conditional",
+      "candidate_A_T": 1632343,
+      "rival_A_T": 1861906,
+      "candidate_S0_T": 322,
+      "rival_S0_T": 518,
+      "candidate_pair_T": 3265008,
+      "rival_pair_T": 3724330,
+      "uniform_matched_degree_saving_lower": "229563/1861906",
+      "uniform_matched_degree_saving_per_cent": 12.329462389615802
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "rival": "raw_payoff",
+      "candidate_A_T": 3266979,
+      "rival_A_T": 3453518,
+      "candidate_S0_T": 602,
+      "rival_S0_T": 938,
+      "candidate_pair_T": 6534560,
+      "rival_pair_T": 6907974,
+      "uniform_matched_degree_saving_lower": "186539/3453518",
+      "uniform_matched_degree_saving_per_cent": 5.401419653813879
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "rival": "numerical_conditional",
+      "candidate_A_T": 3266979,
+      "rival_A_T": 3448398,
+      "candidate_S0_T": 602,
+      "rival_S0_T": 798,
+      "candidate_pair_T": 6534560,
+      "rival_pair_T": 6897594,
+      "uniform_matched_degree_saving_lower": "60473/1149466",
+      "uniform_matched_degree_saving_per_cent": 5.260964656631862
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "rival": "raw_payoff",
+      "candidate_A_T": 3489327,
+      "rival_A_T": 3672398,
+      "candidate_S0_T": 602,
+      "rival_S0_T": 910,
+      "candidate_pair_T": 6979256,
+      "rival_pair_T": 7345706,
+      "uniform_matched_degree_saving_lower": "183071/3672398",
+      "uniform_matched_degree_saving_per_cent": 4.98505336295249
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "rival": "numerical_conditional",
+      "candidate_A_T": 3489327,
+      "rival_A_T": 3722098,
+      "candidate_S0_T": 602,
+      "rival_S0_T": 798,
+      "candidate_pair_T": 6979256,
+      "rival_pair_T": 7444994,
+      "uniform_matched_degree_saving_lower": "232771/3722098",
+      "uniform_matched_degree_saving_per_cent": 6.2537579612358405
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "rival": "raw_payoff",
+      "candidate_A_T": 7949467,
+      "rival_A_T": 8144826,
+      "candidate_S0_T": 1162,
+      "rival_S0_T": 1498,
+      "candidate_pair_T": 15900096,
+      "rival_pair_T": 16291150,
+      "uniform_matched_degree_saving_lower": "195359/8144826",
+      "uniform_matched_degree_saving_per_cent": 2.398565666105083
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "rival": "numerical_conditional",
+      "candidate_A_T": 7949467,
+      "rival_A_T": 8190710,
+      "candidate_S0_T": 1162,
+      "rival_S0_T": 1358,
+      "candidate_pair_T": 15900096,
+      "rival_pair_T": 16382778,
+      "uniform_matched_degree_saving_lower": "12697/431090",
+      "uniform_matched_degree_saving_per_cent": 2.9453246421860864
+    }
+  ],
+  "summary": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "method": "shared_threshold",
+      "canonical_T": 20855422300,
+      "half_alpha_fallback_T": 22523856084,
+      "whole_history_cap": 24776241692,
+      "pilot_certified": 23,
+      "diagnostic_median_T": "23993093584"
+    },
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "method": "raw_payoff",
+      "canonical_T": 23240600025,
+      "half_alpha_fallback_T": 25099848027,
+      "whole_history_cap": 27609832829,
+      "pilot_certified": 23,
+      "diagnostic_median_T": "26737105027"
+    },
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "method": "numerical_conditional",
+      "canonical_T": 23789339125,
+      "half_alpha_fallback_T": 25692486255,
+      "whole_history_cap": 28261734880,
+      "pilot_certified": 39,
+      "diagnostic_median_T": "27368408855"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "method": "shared_threshold",
+      "canonical_T": 83560988725,
+      "half_alpha_fallback_T": 90245867823,
+      "whole_history_cap": 99270454605,
+      "pilot_certified": 24,
+      "diagnostic_median_T": "93839785523"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "method": "raw_payoff",
+      "canonical_T": 88336016050,
+      "half_alpha_fallback_T": 95402897334,
+      "whole_history_cap": 104943187067,
+      "pilot_certified": 24,
+      "diagnostic_median_T": "99202142334"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "method": "numerical_conditional",
+      "canonical_T": 88203283550,
+      "half_alpha_fallback_T": 95259546234,
+      "whole_history_cap": 104785500857,
+      "pilot_certified": 30,
+      "diagnostic_median_T": "99053103234"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "method": "shared_threshold",
+      "canonical_T": 89247538825,
+      "half_alpha_fallback_T": 96387341931,
+      "whole_history_cap": 106026076124,
+      "pilot_certified": 29,
+      "diagnostic_median_T": "99876909731"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "method": "raw_payoff",
+      "canonical_T": 93933514350,
+      "half_alpha_fallback_T": 101448195498,
+      "whole_history_cap": 111593015047,
+      "pilot_certified": 2,
+      "diagnostic_median_T": "105855528098"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "method": "numerical_conditional",
+      "canonical_T": 95203161050,
+      "half_alpha_fallback_T": 102819413934,
+      "whole_history_cap": 113101355327,
+      "pilot_certified": 40,
+      "diagnostic_median_T": "105052832334"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "method": "shared_threshold",
+      "canonical_T": 203322773325,
+      "half_alpha_fallback_T": 219588595191,
+      "whole_history_cap": 241547454710,
+      "pilot_certified": 4,
+      "diagnostic_median_T": "236283521691"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "method": "raw_payoff",
+      "canonical_T": 208323372150,
+      "half_alpha_fallback_T": 224989241922,
+      "whole_history_cap": 247488166114,
+      "pilot_certified": 4,
+      "diagnostic_median_T": "242094724722"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "method": "numerical_conditional",
+      "canonical_T": 209495066950,
+      "half_alpha_fallback_T": 226254672306,
+      "whole_history_cap": 248880139536,
+      "pilot_certified": 12,
+      "diagnostic_median_T": "243046782106"
+    }
+  ],
+  "imports_matched_producer_or_controller": false,
+  "scope": "Exact preparation/profile bindings, independently reconstructed parity/reflection/opcode costs, complete QPE fallback, exact binomial root brackets, monetary interfaces and every paired synthetic history. All-degree claim follows the separate affine proof, not finite tests. Controller scheduling/inverse guarantees reuse unchanged previously audited controller mathematics. Diagnostics are not financial prices or certified expected costs."
+}

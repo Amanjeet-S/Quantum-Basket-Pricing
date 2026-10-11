@@ -1,0 +1,111 @@
+% Compact core statement; full derivation is in integral_value_proof.tex.
+\subsection{An integral correction with a complete price certificate}
+\label{sec:integral-core-certificate}
+
+I retain the classical risk-neutral basket model and alter the representation
+of its pricing correction.  Let
+\[
+ P(m)=H\int_0^1\Phi\!\left(\frac{m-\log(1+Hs/K)}{\lambda}\right)ds,
+ \quad T(y)=\sum_iw_ie^{d_i+s_i\cdot y},\quad U=T-1,\quad m=m_0+a\cdot y,
+\]
+where $w_i>0$, $\sum_iw_i=1$, $\sum_iw_id_i=0$ and $\sum_iw_is_i=0$.
+Jensen's inequality gives $U\geq0$.  The undiscounted price is
+$V=c_0+c_1+\mathbb E R_2$, with
+$R_2=P(m+\log T)-P(m)-UP'(m)$ and the same continuous coefficients
+$c_0,c_1$ used by the direct second-correction comparator.  Define
+\[
+ A_2(x)=-\lambda^{-1}-x\lambda^{-2},\quad
+ D_2\geq\sup_x|A_2(x)\phi(x)|,\quad
+ B_2=HD_2U_*^2/2,
+\]
+where $U_*>0$ bounds $U$ on the actual retained financial nodes.  I obtain
+$U_*$ by outward evaluation of the $2^p$ vertices of their covering box:
+coordinatewise convexity of $T$ proves that its maximum is at a vertex.
+This finite normaliser does not replace the continuous-tail certificate.
+
+Differentiation of $g_m(t)=P(m+\log t)$ and the integral Taylor remainder give
+\begin{equation}
+ R_2(y)=\frac{HU(y)^2}{2}\mathbb E_{Z,S}
+ \left[\frac{A_2(\xi)\phi(\xi)}{(1+ZU(y))^2}\right],\qquad
+ \xi=\frac{m+\log(1+ZU)-\log(1+HS/K)}{\lambda},
+ \label{eq:core-integral-correction}
+\end{equation}
+where $S$ is uniform and $Z$ is the minimum of two independent uniforms.
+Thus $Z$ has density $2(1-z)$.  With
+\[
+ a=(U/U_*)^2(1+ZU)^{-2},\qquad
+ h(x)=\{1+A_2(x)\phi(x)/D_2\}/2,
+\]
+both $a,h$ lie in $[0,1]$ and
+$p=(1-a)/2+ah(\xi)$ is a valid probability.
+Its signed score is $X=2p-1$, with
+$|X|\leq U^2/U_*^2$.  The matched direct comparator computes
+$p^{\mathrm{dir}}=\{1+R_2/B_2\}/2$ with the same normaliser; it satisfies
+the same pointwise score bound.  A further comparator uses the nonnegative
+first correction $R_1=P(m+\log T)-P(m)$, bounded by
+$B_1=\min\{H,HD_1U_*\}$.
+
+I prepare independent uniform labels by Hadamards and compute actual dyadic
+midpoint truncated-normal coordinates by reversible lookup.  All financial
+scalar operations are enclosed endpoint tables with unsigned magnitude and
+an explicit decreasing bit.  For a $C^2$ scalar on an interval of length $s$,
+$2^b$ equal interpolation cells, endpoint error $e_*$ and output unit $2^{-q}$,
+\[
+ e_f\leq e_*+\|f''\|_\infty s^2/(8\,2^{2b})+2^{-q}.
+\]
+The proof is the two-endpoint interpolation remainder plus convex propagation
+of nodal errors and one integer truncation unit.  Argument perturbation adds
+$\|f'\|_\infty e_x$.  Products use absolute range-dependent errors, for
+example $|\widehat x\widehat y-xy|\leq |x|e_y+|\widehat y|e_x$ before
+truncation.  Every actual scalar domain, integer range and signed final
+subtraction is checked.  Final projection onto $[0,1]$ is nonexpansive.
+These checks yield a probability error $\eta_p$ and monetary arithmetic error
+$2B_2\eta_p$, with no hidden tail or grid allowance.
+
+Two exact dyadic transformations,
+$p_+=\max(0,2p-1)$ and $p_-=\max(0,1-2p)$, satisfy $p_+-p_-=2p-1$.
+If $M_{2,N}$ bounds the exact finite-law moment $\mathbb E U^2$, each
+implemented flag has the prior
+\begin{equation}
+ \mathbb E\widehat p_\pm\leq
+ \min\{1,M_{2,N}/U_*^2+2\eta_p\}.
+ \label{eq:core-rare-prior}
+\end{equation}
+Indeed the ideal flag is at most $|X|$ and the positive-part map is
+one-Lipschitz.  The flag difference remains exact, so its combined arithmetic
+error is $2B_2\eta_p$.  I compute $M_{2,N}$ by the multinomial expansion of
+$T^2$ and products of one-dimensional finite exponential sums, without
+requiring a financial price.  Both flags and their joint statistical
+confidence are charged.  This prior alone is not a physical-cost advantage.
+The positive first-correction comparator receives its own finite mean prior,
+using the smallest of $H\mathbb E\omega$, $HD_1\mathbb E[\omega U]$ and
+$K e^{m_0+\lambda^2/2}\mathbb E[\omega e^{a\cdot Y}U]$, divided by $B_1$
+and enlarged by its arithmetic error.  The last expectation is evaluated by
+the same product sums and retains the level-ratio correlation; $\omega=1$
+for the quantile construction.
+
+Let $M_{3,N}$ bound the third finite moment, $D_3$ the third joint norm and
+$E_2\geq\sup|(A_2\phi)'|$.  Coupling auxiliaries to cell midpoints gives
+\[
+ \beta_Z\leq HD_3M_{3,N}/2^{b_Z+2},\qquad
+ \beta_S\leq H^2E_2M_{2,N}/(K\lambda\,2^{b_S+2}).
+\]
+Let $\beta_Y$ certify the original continuous correction against the
+mass-weighted finite financial correction, $e_c$ bound the coefficient error,
+and $[F_-,F_+]$ enclose the external Gaussian mass factor, whose midpoint is
+used.  With $e_F=(F_+-F_-)/2$, the full deterministic undiscounted error is
+\begin{equation}
+ e_{\mathrm{det}}\leq e_c+\beta_Y+
+ F_+(\beta_Z+\beta_S+2B_2\eta_p)+e_FB_2.
+ \label{eq:core-monetary-certificate}
+\end{equation}
+This follows by inserting the exact coefficient, finite financial correction,
+finite auxiliary average and implemented bounded score, and applying the
+triangle inequality.  The direct second correction omits the auxiliary
+terms; the first correction also replaces $2B_2\eta_p$ by $B_1\eta_p$.
+Statistical error is added separately, and discounting multiplies the whole
+bound to obtain the price $\Pi$.  The retained one-dimensional financial
+transfer uses an already validated continuous reference and charges that
+classical premise explicitly.  Higher-dimensional grid-only envelopes are
+not presented as complete pricing certificates.  The full derivation, node
+records and rejected budgets are retained in the supplementary material.

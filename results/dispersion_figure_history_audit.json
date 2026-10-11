@@ -1,0 +1,37 @@
+{
+  "schema": "qbp-dispersion-figure-history-independent-audit-v1",
+  "status": "passed",
+  "audit_counts": {
+    "historical_file_hashes": 10,
+    "historical_input_result_links": 4,
+    "historical_immutable_degree3_snapshots": 288,
+    "unchanged_historical_raw_radii": 864,
+    "representative_exact_curve_points": 8,
+    "full_panel_exact_bar_counts": 8,
+    "native_coordinate_checks": 40,
+    "native_mark_checks": 13
+  },
+  "history_records": [
+    {
+      "history": "registered_run1_before_intersection",
+      "result_sha256": "ed5fc10abd61637b6882b9ad71d1e25935d30c7c18e7f30a618f1d1226d10735",
+      "protocol_sha256": "3715a04847f66669966f7a8d5d068eba1725c8d73412f12e6731edc8ee8f9213",
+      "source_sha256": "2cd1bc04e4d1c20902dae60605d98550981abaeea3b2b8f23ffdc3ba07d2d98f"
+    },
+    {
+      "history": "registered_run2_before_exact_interval_storage",
+      "result_sha256": "15b76b2a2599c41344b4352296505820b371e2f12029a9b574438db6f6a5c375",
+      "protocol_sha256": "4b3cfe09a8f6da1307509b6d2ebb8559d8d5279b1006354a73160b7c01ff5cbd",
+      "source_sha256": "06b56c3c1598f2036fcab814dbba83ff8e8efb43b150f447cbe1192573ec9cc8"
+    }
+  ],
+  "representative_point_count": 8,
+  "full_panel_bar_count": 8,
+  "source_sha256": "d7b21c4601776aef12e25b0d90f20a3775e38e53eced1da45e2b04175daaf45d",
+  "result_sha256": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+  "plot_data_sha256": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+  "selection_sha256": "d45cc7e4d0b13ab45cb14a531fbd3d4dd37a8f4deaf22a6ab4367ec3db00d4bd",
+  "native_figure_sha256": "92e90c0f39005c06c444c8496e9d76693d3de20e1c02f9c246c2284a1b8f5c9e",
+  "coordinate_sha256": "567912b2c0e70d3fb96be88cc0b3b95ede539d519e12e1c95e0060640fefb48a",
+  "scope": "Exact allowance/count selection and native mark geometry. Neither certificate is an observed price error. Original family is pre-outcome; strengthened opponent and aggregate presentation are transparently subsequent."
+}

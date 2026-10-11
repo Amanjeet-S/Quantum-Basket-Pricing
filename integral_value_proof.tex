@@ -1,0 +1,555 @@
+% Retained detailed derivation for the complete integral-value certificate.
+% This is a supplementary source fragment, not a replacement manuscript.
+\subsection{Complete arithmetic and continuous-price certificates}
+\label{sec:integral-full-certificate}
+
+I state the finite-law, scalar-arithmetic and monetary error premises separately,
+because a unitary circuit which evaluates a finite table correctly does not,
+by itself, price the original continuous financial claim accurately.  The
+arguments below certify the particular integral and direct constructions.  They
+do not establish that either construction is the cheapest possible quantum or
+classical implementation.
+
+Let $K>0$, $H>0$ and $\lambda>0$.  In the retained implementation $K=100$.
+Write $\phi$ and $\Phi$ for the standard normal density and distribution
+function.  The conditional capped-payoff kernel is
+\begin{equation}
+ P(m)=\int_K^{K+H}\Phi\!\left(\frac{m-\log(k/K)}{\lambda}\right)\,dk
+     =H\int_0^1\Phi\!\left(\frac{m-\log(1+Hs/K)}{\lambda}\right)\,ds.
+ \label{eq:iv-P-strike}
+\end{equation}
+This equality follows by expressing the capped payoff as the integral of cash
+digitals and then applying Tonelli's theorem to its nonnegative integrand.
+In particular $0\leq P\leq H$.  Differentiation under the integral is justified
+at every finite order by the boundedness of a polynomial times $\phi$.
+For $j\geq1$,
+\begin{equation}
+ P^{(j)}(m)=\int_K^{K+H}\lambda^{-j}(-1)^{j-1}
+ \operatorname{He}_{j-1}\!\left(\frac{m-\log(k/K)}{\lambda}\right)
+ \phi\!\left(\frac{m-\log(k/K)}{\lambda}\right)\,dk.
+ \label{eq:iv-P-derivative}
+\end{equation}
+Here $\operatorname{He}_j$ denotes the probabilists' Hermite polynomial.
+If $M_j\geq\sup_x|\phi^{(j)}(x)|$ is a retained upper certificate, then
+$\|P^{(j)}\|_\infty\leq HM_{j-1}\lambda^{-j}$.  Positivity gives $P'\geq0$.
+The pathwise derivative of the capped payoff with respect to its log-scale is
+$Ke^{m+\lambda Z}\boldsymbol 1_{K<Ke^{m+\lambda Z}<K+H}$ except at its
+two thresholds, which have probability zero.  This derivative is bounded by
+$K+H$.  The payoff as a function of its log-scale is itself $(K+H)$-Lipschitz,
+so dominated convergence for difference quotients gives $P'\leq K+H$.
+I therefore use
+\begin{equation}
+ P'_* = \min\{K+H,HM_0/\lambda\}.
+ \label{eq:iv-Pprime-bound}
+\end{equation}
+
+Let $w_i>0$, $\sum_iw_i=1$, $d_i\in\mathbb R$ and
+$s_i\in\mathbb R^p$ satisfy
+\begin{equation}
+ \sum_iw_id_i=0,\qquad \sum_iw_is_i=0.
+ \label{eq:iv-centre}
+\end{equation}
+Define $T(y)=\sum_iw_i\exp(d_i+s_i\cdot y)$,
+$U(y)=T(y)-1$ and $m(y)=m_0+a\cdot y$.  Jensen's inequality and
+\eqref{eq:iv-centre} give $T(y)\geq1$ for every $y$, so $U(y)\geq0$.
+These are the same geometric-basket ratio and common-factor conditioning
+coordinates as in the classical risk-neutral model.  No change of financial
+dynamics is made here.
+
+Put $g_m(t)=P(m+\log t)$ for $t>0$ and
+\begin{equation}
+ A_2(x)=-\lambda^{-1}-x\lambda^{-2},\qquad
+ D_2\geq\sup_{x\in\mathbb R}|A_2(x)\phi(x)|.
+ \label{eq:iv-A2}
+\end{equation}
+The retained rational $D_2$ is an outward upper endpoint of the previously
+certified joint Gaussian derivative norm.  Direct differentiation of
+\eqref{eq:iv-P-strike} gives
+\begin{equation}
+ g_m''(t)=\frac{H}{t^2}\int_0^1
+ A_2\!\left(\frac{m+\log t-\log(1+Hs/K)}{\lambda}\right)
+ \phi\!\left(\frac{m+\log t-\log(1+Hs/K)}{\lambda}\right)\,ds.
+ \label{eq:iv-g2}
+\end{equation}
+Taylor's theorem in integral form, with the substitution $t=1+zU$, gives
+\begin{align}
+ R_2(y)&=P(m(y)+\log T(y))-P(m(y))-U(y)P'(m(y))\notag\\
+ &=\frac{HU(y)^2}{2}\mathbb E_{Z,S}
+ \left[\frac{A_2(\xi)\phi(\xi)}{(1+ZU(y))^2}\right],
+ \quad \xi=\frac{m(y)+\log(1+ZU(y))-\log(1+HS/K)}{\lambda},
+ \label{eq:iv-R2-identity}
+\end{align}
+where $S$ is uniform on $[0,1]$ and $Z$ has density $2(1-z)$ on $[0,1]$.
+One exact construction of $Z$ is the minimum of two independent uniforms.
+Indeed $\mathbb P(\min(V_1,V_2)>z)=(1-z)^2$.
+The bounded first correction is
+\begin{equation}
+ R_1(y)=P(m(y)+\log T(y))-P(m(y)),\qquad
+ 0\leq R_1(y)\leq \min\{H,HD_1U(y)\},
+ \label{eq:iv-R1}
+\end{equation}
+where $D_1\geq\sup_x\lambda^{-1}\phi(x)$.
+
+\subsubsection{Finite preparation and admissible normalisation}
+
+For a finite quantile construction let $L>0$, $N=2^{b_y}$,
+$\alpha_1=\Phi(L)-\Phi(-L)$ and
+\begin{equation}
+ y_j=\Phi^{-1}\!\left(\Phi(-L)+\alpha_1\frac{j+1/2}{N}\right),
+ \qquad 0\leq j<N.
+ \label{eq:iv-quantile}
+\end{equation}
+An outward enclosure of each $y_j$ is computed, and the actual circuit
+coordinate $\widehat y_j$ is the retained integer divided by $2^q$, minus the
+specified offset $L$.  All comparisons and finite moments below use these
+actual dyadic coordinates.  They are not silently replaced by the ideal
+quantiles.  The table is checked to be nondecreasing and to lie in $[-L,L]$.
+Independent $b_y$-qubit Hadamard registers prepare all $N^p$ coordinate labels
+with equal amplitudes.  A reversible integer lookup computes their coordinates.
+Duplicate rounded coordinates keep their distinct labels and their weights.
+The retained Gaussian box factor is $\alpha=\alpha_1^p$.
+
+A second preparation uses independent uniform coordinate midpoints
+$y_j=-L+2L(j+1/2)/N$, with a dyadic $L$ and a large enough $q$ for exact
+representation.  Its relative density weight is
+$\omega(y)=\exp(-\|y\|^2/2)\in[0,1]$, and its external monetary factor is
+\begin{equation}
+ C_L=(2L/\sqrt{2\pi})^p.
+ \label{eq:iv-box-factor}
+\end{equation}
+Thus $C_L\mathbb E_{\mathrm{uniform\ box}}[\omega(y)R(y)]$ is the
+continuous Gaussian box integral, before midpoint discretisation.
+Neither construction assumes a free Gaussian state-preparation oracle.
+
+A finite normaliser must dominate $U$ at every realised coordinate, but it
+need not dominate the discarded continuous tail.  Let $[\ell,h]$ cover the
+outward quantile-node enclosures and the actual dyadic coordinates.  Since
+$T$ is convex in each coordinate separately,
+\begin{equation}
+ U_*\geq\max_{v\in\{\ell,h\}^p}T(v)-1
+ \label{eq:iv-vertex}
+\end{equation}
+is valid throughout the tensor box.  To prove this, fix all but one
+coordinate and bound the value of its convex univariate function by the
+larger endpoint value.  Apply this argument successively to all $p$
+coordinates.  Each of the $2^p$ vertex sums is evaluated outwards, so the
+maximum of their upper endpoints is a valid bound.  This is generally tighter
+than adding the separate peak of every exponential term.  The full
+continuous tail and grid transfer remain separate error premises.
+
+If $U_*=0$, the correction vanishes and no correction estimator is required.
+Otherwise set
+\begin{equation}
+ B_2=HD_2U_*^2/2,\qquad B_1=\min\{H,HD_1U_*\}.
+ \label{eq:iv-normalisers}
+\end{equation}
+The same $B_2$ applies to the integral and direct second corrections, because
+\eqref{eq:iv-R2-identity} implies
+$|R_2(y)|\leq B_2U(y)^2/U_*^2$.
+Writing
+\begin{equation}
+ a(y,z)=\left(\frac{U(y)}{U_*}\right)^2(1+zU(y))^{-2},\qquad
+ h(x)=\frac{1+A_2(x)\phi(x)/D_2}{2},
+ \label{eq:iv-a-h}
+\end{equation}
+gives $0\leq a,h\leq1$.  The integral circuit computes
+\begin{equation}
+ p_2(y,z,s)=\frac{1-a(y,z)}2+a(y,z)h(\xi)
+          =\frac{1+X_2(y,z,s)}2,
+ \qquad |X_2|\leq U(y)^2/U_*^2.
+ \label{eq:iv-probability}
+\end{equation}
+The direct second-correction probability is
+$\{1+R_2(y)/B_2\}/2$; the positive first-correction probability is
+$R_1(y)/B_1$.  With a uniform-box preparation, $X_2$ is multiplied by
+$\omega$, or the positive first-correction probability is multiplied by
+$\omega$.  Final projection onto $[0,1]$ ensures a valid comparator threshold
+and is nonexpansive relative to the ideal probability already in that interval.
+
+\subsubsection{Certified scalar tables}
+
+Let $f\in C^2([a,a+s])$, with $s>0$ a power of two.  Its endpoint grid is
+$x_j=a+sj/M$, $0\leq j\leq M$, where $M=2^b$ and
+$b\leq q+\log_2s$.  Suppose the retained unsigned integer $n_j$ satisfies
+\begin{equation}
+ |2^{-q}n_j-f(x_j)|\leq e_j.
+ \label{eq:iv-node-enclosure}
+\end{equation}
+The implementation stores $n_j$, $|n_{j+1}-n_j|$ and the decreasing bit
+$\boldsymbol 1_{n_{j+1}<n_j}$.  It multiplies the unsigned magnitude by
+the within-cell integer remainder, drops the appropriate lower bits, then
+adds or subtracts the resulting nonnegative adjustment according to that bit.
+The final grid endpoint is stored explicitly, so an argument exactly at the
+right endpoint has its own address.  No modular representation of a negative
+slope is multiplied.
+
+Let $L_1\geq\sup|f'|$, $L_2\geq\sup|f''|$ and $e_*\geq\max_je_j$.
+For every represented argument in the declared interval,
+\begin{equation}
+ |\widehat f(x)-f(x)|\leq e_*+\frac{L_2s^2}{8M^2}+2^{-q}.
+ \label{eq:iv-interpolation}
+\end{equation}
+To see this, let $I f$ be the exact linear interpolant on a cell
+$[u,v]$.  The two-endpoint interpolation error is
+$f(x)-I f(x)=f''(\zeta)(x-u)(x-v)/2$ for some $\zeta\in(u,v)$.
+This follows by subtracting the linear interpolant, subtracting a multiple
+of $(t-u)(t-v)$ chosen to give a third zero at $x$, and applying Rolle's
+theorem twice.  Since $(x-u)(v-x)\leq(v-u)^2/4$, its magnitude is at most
+$L_2(v-u)^2/8$.  Interpolating the two rounded endpoint values adds at most
+$e_*$, by their nonnegative interpolation weights.  Integer truncation of
+the adjustment adds less than one output unit $2^{-q}$, whether the table
+is increasing or decreasing.  This proves \eqref{eq:iv-interpolation}.
+For an argument with absolute error at most $\eta_x$, add $L_1\eta_x$,
+provided both exact and implemented arguments are in the declared interval.
+A preliminary projection of the implemented input onto that interval does
+not enlarge its distance from an admissible exact argument.
+
+Every endpoint value is enclosed using outward Arb arithmetic.  For portable
+metadata, an exact rational lower endpoint is rounded down and an upper
+endpoint up to the lattice $2^{-384}\mathbb Z$.  These enlarged intervals,
+rather than the narrower internal balls, determine $e_j$ in
+\eqref{eq:iv-node-enclosure}.  Nearest rounding to the output lattice is
+chosen from their midpoint; the largest distance from the chosen dyadic value
+to either enlarged endpoint is retained.  This also covers extreme Gaussian
+tails without assuming that a printed floating-point zero is exact.
+
+The whole-domain derivative bounds used in these tables are
+\begin{align}
+ e^x &: \quad L_1=L_2=e^{a+s},\notag\\
+ \log x &: \quad L_1=a^{-1},\quad L_2=a^{-2},\quad a>0,\notag\\
+ x^{-2} &: \quad L_1=2a^{-3},\quad L_2=6a^{-4},\quad a>0,\notag\\
+ x^2 &: \quad L_1=2\max\{|a|,|a+s|\},\quad L_2=2,\notag\\
+ h(x) &: \quad
+ L_1=\frac{M_1/\lambda+M_2/\lambda^2}{2D_2},\quad
+ L_2=\frac{M_2/\lambda+M_3/\lambda^2}{2D_2},\notag\\
+ P(m) &: \quad L_1=P'_*,\quad L_2=HM_1/\lambda^2,\notag\\
+ P'(m) &: \quad L_1=HM_1/\lambda^2,\quad L_2=HM_2/\lambda^3.
+ \label{eq:iv-scalar-derivatives}
+\end{align}
+The first four follow by ordinary differentiation.  For $h$, use
+$A_2\phi=-\phi/\lambda+\phi'/\lambda^2$ and then differentiate once or
+twice.  The last two follow from \eqref{eq:iv-P-derivative} and
+\eqref{eq:iv-Pprime-bound}.  The range checks use $h\in[0,1]$, $P\in[0,H]$
+and $P'\in[0,P'_*]$.  They are analytical bounds on the full declared
+interval, not sampled derivative maxima.
+
+\subsubsection{Absolute arithmetic propagation and integer guards}
+
+Each graph node carries an ideal real range, an independently propagated
+implemented range, and an absolute error.  Suppose
+$|\widehat x-x|\leq\eta_x$ and $|\widehat y-y|\leq\eta_y$.
+Addition and subtraction have error at most $\eta_x+\eta_y$.  Projection
+onto a fixed closed interval is nonexpansive.  Positive subtraction
+$\max(0,x-y)$ therefore has the same error bound.  A rounded projection
+endpoint introduces at most its own rounding error.
+
+For a product followed by one fixed-point truncation, either identity
+\begin{equation}
+ \widehat x\widehat y-xy=x(\widehat y-y)+\widehat y(\widehat x-x)
+ =y(\widehat x-x)+\widehat x(\widehat y-y)
+ \label{eq:iv-product-identity}
+\end{equation}
+gives a valid upper bound.  If $X,Y,\widehat X,\widehat Y$ bound the absolute
+values of the corresponding real quantities, the retained error is
+\begin{equation}
+ \eta_{xy}\leq
+ \min\{X\eta_y+\widehat Y\eta_x,
+        Y\eta_x+\widehat X\eta_y\}+2^{-q}.
+ \label{eq:iv-product-error}
+\end{equation}
+For a nonnegative scale $c$ implemented as $\widehat c$,
+\begin{equation}
+ |\widehat c\widehat x-cx|\leq
+ c\eta_x+\widehat X|\widehat c-c|,
+ \label{eq:iv-scale-error}
+\end{equation}
+with one additional output unit when a right shift truncates the result.
+Exact dyadic scales use their exact integer and shift; other scales use the
+retained nearest $q$-bit coefficient.  Scalar-function errors are propagated
+with \eqref{eq:iv-interpolation} and $L_1\eta_x$.  All these are absolute
+bounds.  They do not divide by a small difference of capped-price terms.
+
+Implemented interval endpoints are computed for the actual rounded
+constants, table nodes, additions, differences, products and shifts.  They
+may then be intersected with the independently justified ideal range
+expanded by the absolute error.  This intersection retains correlations
+such as a tightly bounded affine combination, without suppressing its
+rounding error.  A contradictory intersection rejects the configuration.
+
+Every unsigned operation is checked to have a nonnegative output below the
+representable upper limit.  Positive subtraction uses an unsigned comparison
+to copy the difference only when its operands are ordered; its temporary
+modular difference is never fed into a financial multiplication.  The direct
+second-correction construction forms separately nonnegative positive and
+negative scaled terms.  Only their final difference uses two's-complement
+arithmetic, followed immediately by an explicit signed projection onto
+$[0,1]$.  Its full real interval must lie strictly within the signed
+representable range, including all propagated errors.  A negative signed
+intermediate is not subsequently treated as an unsigned multiplicand.
+Endpoint table addressing, interpolation magnitudes, all scale constants and
+final comparator thresholds are checked against their actual integer widths.
+The final threshold lies in $\{0,\ldots,2^q\}$ and uses $q+1$ output bits.
+A $q$-bit uniform comparator, with a zero-extended high bit, consequently has
+success probability exactly equal to this threshold divided by $2^q$,
+including both probability endpoints zero and one.
+
+If the resulting probability error certificate is $\eta_p$, the monetary
+value error before the external factor is at most $2B_2\eta_p$ for either
+second correction and $B_1\eta_p$ for the positive first correction.
+No continuous-tail, grid or estimator-confidence allowance is included in
+this arithmetic certificate.
+
+\subsubsection{Exact finite moments and two rare signed flags}
+
+The moment certificate uses the realised financial labels alone.  It does
+not require a financial price reference.  If $Y$ has an independent product
+of the retained coordinate laws, define its one-dimensional moment generating
+sum by
+\begin{equation}
+ \mathcal M(v)=\frac1N\sum_{j=0}^{N-1}\exp(v\widehat y_j).
+ \label{eq:iv-finite-mgf}
+\end{equation}
+For a uniform-box law replace each summand by
+$\exp(vy_j-y_j^2/2)$, thus including the relative density weight.
+Expanding a finite power of $T$ gives
+\begin{equation}
+ \mathbb E[\omega(Y)T(Y)^r]
+ =\sum_{|\gamma|=r}\frac{r!}{\prod_i\gamma_i!}
+    \left(\prod_iw_i^{\gamma_i}\right)
+    \exp\!\left(\sum_i\gamma_id_i\right)
+    \prod_{k=1}^p\mathcal M\!\left(\sum_i\gamma_is_{ik}\right),
+ \label{eq:iv-finite-raw-moment}
+\end{equation}
+where $\omega=1$ for quantiles and is the relative Gaussian weight for the
+uniform box.  This follows from the multinomial theorem and independence;
+all sums are finite.  The centred moments follow from
+\begin{equation}
+ \mathbb E[\omega(Y)U(Y)^r]
+ =\sum_{j=0}^r(-1)^{r-j}\binom rj
+   \mathbb E[\omega(Y)T(Y)^j].
+ \label{eq:iv-finite-centred-moment}
+\end{equation}
+In particular the zeroth weighted moment is not replaced by one for a
+uniform-box construction.  Every exponential sum and subsequent cancellation
+is evaluated outwards.  This reduces a tensor-grid moment calculation to a
+finite collection of one-dimensional sums, not $N^p$ price evaluations.
+The calculation and its classical preprocessing cost remain recorded.
+
+For a represented probability $\widehat p\in[0,1]$, define
+\begin{equation}
+ \widehat p_+=\max(0,2\widehat p-1),\qquad
+ \widehat p_-=\max(0,1-2\widehat p).
+ \label{eq:iv-rare-flags}
+\end{equation}
+Both are exactly represented on the same dyadic lattice, and
+$\widehat p_+-\widehat p_-=2\widehat p-1$ exactly.  For the ideal integral
+probability in \eqref{eq:iv-probability}, each ideal flag is at most
+$U^2/U_*^2$, since $|2h-1|\leq1$ and $(1+zU)^{-2}\leq1$.
+For the ideal direct second correction the same result follows from its
+pointwise Taylor bound.  With a uniform-box preparation both are at most
+$\omega U^2/U_*^2$.  Since $x\mapsto\max(0,x)$ is one-Lipschitz and
+$|\widehat p-p|\leq\eta_p$, each implemented success probability has the
+rigorous prior
+\begin{equation}
+ \mathbb E\widehat p_\pm\leq
+ \min\!\left\{1,\frac{\mathbb E[\omega(Y)U(Y)^2]}{U_*^2}+2\eta_p\right\}.
+ \label{eq:iv-rare-prior}
+\end{equation}
+The expectation here is under the prepared conditional quantile law or the
+uniform label law.  Its external monetary factor $\alpha$ or $C_L$ does not
+belong in this probability prior.  The combined arithmetic error is still
+$2B_2\eta_p$, because the implemented flag difference is exact; it is not
+necessary to charge two independent pointwise arithmetic estimates of that
+difference.  Separate statistical estimates of the two expectations do,
+however, require a joint confidence allocation.  A success-prior reduction
+is not a physical-cost reduction until both complete flag preparations and
+their chosen estimators have been charged.
+
+The positive first-correction comparator also receives a finite-law mean
+prior rather than the uninformative upper bound one.  The capped payoff is
+one-Lipschitz in its underlying price and is nondecreasing.  Conditional on
+$y$, the arithmetic underlying is $T(y)$ times the geometric underlying;
+their expected positive difference is
+$K\exp(m(y)+\lambda^2/2)U(y)$ after integrating the independent common
+Gaussian factor.  Consequently
+\begin{equation}
+ 0\leq\mathbb E[\omega R_1]\leq
+ K e^{m_0+\lambda^2/2}\left[
+ \sum_iw_ie^{d_i}\prod_{j=1}^p\mathcal M(a_j+s_{ij})
+ -\prod_{j=1}^p\mathcal M(a_j)\right].
+ \label{eq:iv-R1-correlated-gap}
+\end{equation}
+The finite sums $\mathcal M$ are those of
+\eqref{eq:iv-finite-mgf}, including the relative density when appropriate.
+This expansion follows by multiplying $T-1$ by $e^{a\cdot y}$ and applying
+independence.  It retains the correlation between the level and the ratio;
+replacing them by separate expectations would generally be invalid.
+The pointwise bound in \eqref{eq:iv-R1} also yields
+$\mathbb E[\omega R_1]\leq HD_1\mathbb E[\omega U]$, and boundedness gives
+$\mathbb E[\omega R_1]\leq H\mathbb E\omega$.  I use the smallest of
+these three outward upper bounds.  Dividing by $B_1$ and adding its own
+probability arithmetic error $\eta_{p,1}$ gives a valid prior for the actual
+first-correction success probability.  No price reference or external
+monetary factor enters this finite prepared-law probability bound.
+
+\subsubsection{Auxiliary and financial discretisation errors}
+
+Couple each ideal uniform auxiliary variable to the midpoint of its dyadic
+cell.  Their distance is at most $2^{-b-1}$.  The minimum map is
+one-Lipschitz in the maximum norm, so the same bound applies to the minimum
+of two coupled variables.  Let $D_3$ be the certified third joint norm and
+$E_2\geq\sup_x|(A_2\phi)'(x)|$.  Differentiation of the Taylor integrand
+with respect to $z$, before normalising it, gives magnitude at most
+$HD_3U^3/2$.  Differentiation with respect to $s$ gives magnitude at most
+$H^2E_2U^2/(2K\lambda)$, because
+$|\partial_s\log(1+Hs/K)|\leq H/K$.
+Under the actual finite financial law, the monetary auxiliary bias is therefore
+\begin{equation}
+ \beta_Z\leq\frac{HD_3\mathbb E[\omega U^3]}{2^{b_Z+2}},\qquad
+ \beta_S\leq\frac{H^2E_2\mathbb E[\omega U^2]}
+                         {K\lambda\,2^{b_S+2}}.
+ \label{eq:iv-aux-bias}
+\end{equation}
+These are before the external factor.  Continuous Gaussian moments cannot
+be substituted for finite-law moments without their own transfer bound.
+A valid $E_2$ is $M_1/\lambda+M_2/\lambda^2$; the general signed-Stirling
+triangle bound also applies.  This conservative estimate does not claim
+that either auxiliary width is optimal.
+
+For the one-dimensional retained prototypes, let $[V_-,V_+]$ be an
+independently validated enclosure of the original continuous undiscounted
+price $V$, and let $[c_-,c_+]$ enclose the continuous Taylor coefficient
+sum $c_0$ or $c_0+c_1$.  Let $[J_-,J_+]$ enclose the exact finite,
+mass-weighted correction, using the actual dyadic financial labels and exact
+conditional kernels.  Then
+\begin{equation}
+ |J-(V-c)|\leq
+ \max\{|J_--(V_+-c_-)|,\ |J_+-(V_--c_+)|\}.
+ \label{eq:iv-reference-transfer}
+\end{equation}
+Indeed $J-(V-c)$ lies between the two displayed endpoint differences.  This
+bound includes the discarded continuous tail, ideal financial grid and
+financial-node rounding together.  It does not include auxiliary sampling,
+value-oracle arithmetic or statistical estimation.  The source interval,
+reference hash, actual source version and finite computation are retained.
+The continuous reference is paid validation or preprocessing: it already
+resolves the price, and cannot be treated as free information in a practical
+quantum-advantage comparison.
+
+For a higher-dimensional analytical alternative, let $R_r$ denote the
+order-$r$ correction, $r=1$ or $2$, and let $Q(z)$ be the Taylor integrand
+$g_m^{(r)}(1+zU)/H$.  On a full box, suppose $U\leq\overline U$,
+$|\partial_jU|\leq U_j$ and $|\partial_{jj}U|\leq U_{jj}$.
+Let $D_r,D_{r+1},D_{r+2}$ bound the relevant $t$ derivatives, and
+$E_r,E_{r+1},F_r$ bound the first $x$ derivative, mixed derivative and
+second $x$ derivative of their Gaussian kernels.  The integral remainder
+and the chain rule imply
+\begin{align}
+ |\partial_jR_r|&\leq\frac H{r!}
+ \left[r\overline U^{r-1}U_jD_r+
+ \overline U^r\left(|a_j|E_r/\lambda+U_jD_{r+1}\right)\right],
+ \label{eq:iv-R-first}\\
+ |\partial_{jj}R_r|&\leq\frac H{r!}\left[
+ r(r-1)\overline U^{r-2}U_j^2D_r+
+ r\overline U^{r-1}U_{jj}D_r\right.\notag\\
+ &\quad+2r\overline U^{r-1}U_j
+           (|a_j|E_r/\lambda+U_jD_{r+1})\notag\\
+ &\quad\left.+\overline U^r\left(
+ a_j^2F_r/\lambda^2+2|a_j|U_jE_{r+1}/\lambda+
+ U_j^2D_{r+2}+U_{jj}D_{r+1}\right)\right].
+ \label{eq:iv-R-second}
+\end{align}
+The first term in \eqref{eq:iv-R-second} is zero when $r=1$; a negative
+power at $\overline U=0$ is not evaluated.  To derive these formulae,
+differentiate $U^rQ$ once and twice.  The factors $\partial_jt=z\partial_jU$
+and $\partial_{jj}t=z\partial_{jj}U$ are bounded by $U_j$ and $U_{jj}$,
+while $\partial_jm=a_j$.  The normalized Beta weight integrates to one.
+Every term in the twice-differentiated product appears explicitly above.
+The bounds $U_j=\sum_iw_i|s_{ij}|e^{d_i+L\|s_i\|_1}$ and
+$U_{jj}=\sum_iw_is_{ij}^2e^{d_i+L\|s_i\|_1}$ are valid on $[-L,L]^p$.
+
+For $f(y)=R_r(y)\exp(-\|y\|^2/2)$,
+\begin{equation}
+ |\partial_{jj}f|\leq
+ \|\partial_{jj}R_r\|_\infty+
+ 2L\|\partial_jR_r\|_\infty+(L^2+1)\|R_r\|_\infty.
+ \label{eq:iv-density-second}
+\end{equation}
+This follows from the product rule and
+$\partial_j\omega=-y_j\omega$,
+$\partial_{jj}\omega=(y_j^2-1)\omega$, $0\leq\omega\leq1$.
+For an interval of length $2L$, midpoint integration with $N$ equal cells
+has expectation error at most $(2L)^2\|f''\|_\infty/(24N^2)$.
+One proof integrates the second-order Taylor formula around each cell midpoint;
+the linear term integrates to zero and the quadratic remainder integrates
+to at most $\|f''\|_\infty h^3/24$.  Summing and dividing by $2L$ gives
+the stated expectation bound.  A telescoping tensor-product argument,
+applying one coordinate quadrature at a time and using the fact that both
+integration and positive midpoint averaging are sup-norm contractions, gives
+\begin{equation}
+ \beta_{Y,\mathrm{box}}\leq
+ C_L\frac{(2L)^2}{24N^2}\sum_{j=1}^p
+ \|\partial_{jj}f\|_\infty.
+ \label{eq:iv-box-midpoint}
+\end{equation}
+This grid-only bound still requires a continuous tail certificate.  Its
+conservative sufficient widths may be impractical and are retained as failures
+rather than assumed to be attainable.
+
+For ideal conditional-normal quantile midpoints, a physical-coordinate
+Lipschitz constant $L_j$ gives a grid-only bound $L\sum_jL_j/N$.
+To verify the one-coordinate coupling, split each probability cell at its
+midpoint.  Monotonicity of the quantile function bounds the two half-cell
+integrals by their half-cell probability width times the two corresponding
+endpoint increments.  Summing telescopes to
+$(1/(2N))(L-(-L))=L/N$.  The multivariate bound follows by successive
+coordinate coupling.  Actual dyadic node rounding adds
+$\sum_jL_j\max_k|\widehat y_k-y_k|$ separately.  A grid-only width derived
+from $L\sum_jL_j/N$ is consequently not a complete financial certificate.
+
+\subsubsection{Complete monetary allowance and precision interpretation}
+
+Let $\beta_Y$ be a certified continuous-to-finite financial transfer,
+$e_c$ the radius of the retained coefficient interval, $[F_-,F_+]$ the
+external-factor interval, $\overline F=(F_-+F_+)/2$ and
+$e_F=(F_+-F_-)/2$.  The implementation uses the interval midpoints.
+Let $B=B_2$ for either second correction and $B=B_1$ for the first.
+Let $e_{\mathrm{arith}}=2B_2\eta_p$ or $B_1\eta_p$ as appropriate, and
+put $\beta_{\mathrm{aux}}=\beta_Z+\beta_S$ for the integral method and zero
+for either direct method.  The deterministic undiscounted price error is at most
+\begin{equation}
+ e_{\mathrm{det}}\leq
+ e_c+\beta_Y+F_+(\beta_{\mathrm{aux}}+e_{\mathrm{arith}})+e_FB.
+ \label{eq:iv-total-budget}
+\end{equation}
+To prove this, insert the exact continuous coefficient, exact finite correction,
+ideal finite auxiliary average and implemented average one at a time, and
+apply the triangle inequality.  The factor approximation can be charged
+against the implemented bounded score, whose absolute value is at most $B$;
+this avoids an unjustified bound on an unclamped approximate residual.
+If a statistical estimator contributes $e_{\mathrm{stat}}$ before the factor,
+add $F_+e_{\mathrm{stat}}$.  The final financial price is
+$\Pi=e^{-r_f\tau}V$, so the same positive discount factor multiplies the
+entire undiscounted bound.  The deterministic and statistical allocations must
+sum to the requested monetary tolerance at the stated joint confidence.
+A failed allocation is a failed configuration, even if every finite circuit
+identity is exact.
+
+The integral factorisation also identifies a local precision consequence.
+On a fixed retained support, assume a centred weak-dispersion family with
+$U=O(\delta^2)$ and $U_*=\Theta(\delta^2)$, with $H,\lambda$ and support
+fixed.  Then $B_2=\Theta(\delta^4)$.  An $h$-table error $\eta_h$ enters
+the unnormalised price with coefficient at most
+$HU^2D_2/2=O(\delta^4)$; an absolute $U$ error $\eta_U$ enters the smooth
+factorised correction through a term of order $O(\delta^2\eta_U)$ plus
+higher-order terms on its guarded domain.  These orders follow from
+\eqref{eq:iv-product-identity}, the bounded kernel derivatives and
+$\partial_U(U^2Q)=2UQ+U^2\partial_UQ$.
+A construction which evaluates the three raw capped-price terms separately
+has individual absolute table errors which are not suppressed by $\delta^4$
+before their final subtraction.  This explains a possible difference between
+the precision requirements of the specific retained constructions.  It is
+not a theorem against an optimally stable direct implementation: a shared
+Taylor kernel, divided difference or suitable conditional integral can retain
+the same cancellation.  Neither this local argument nor the finite arithmetic
+certificate establishes a novel algorithm or physical quantum advantage.

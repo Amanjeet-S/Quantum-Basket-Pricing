@@ -1,0 +1,215 @@
+{
+  "schema": "qbp-matched-block-certificate-protocol-v1",
+  "status": "executed_and_independently_audited",
+  "record_date": "2026-10-08",
+  "registration_scope": "Retrospective reproducibility record of the fixed executed comparison. Not a formal preregistration.",
+  "target": "Same second conditional Taylor residual R2 under each of 36 frozen synthetic GBM/payoff cases. This compares transport orders, not R1 versus R2 pricing corrections.",
+  "contracts": {
+    "assets": [
+      2,
+      4,
+      8
+    ],
+    "outer_dimensions": [
+      1,
+      3,
+      7
+    ],
+    "common_scales": [
+      "1/20",
+      "1/5",
+      "2/5"
+    ],
+    "caps": [
+      "1",
+      "10",
+      "25",
+      null
+    ],
+    "cases": 36
+  },
+  "common_inputs": {
+    "L": 6,
+    "b_y": 10,
+    "q": 28,
+    "nodes_per_coordinate": 1024,
+    "outward_Arb_precision_bits": 512,
+    "factorial_series_order": 120,
+    "allocation_undiscounted_transfer": "1/200",
+    "nodes": "Actual original dyadic rounded nodes, certified inside retained equal-CDF cells. Same raw Gaussian retained mass.",
+    "norms_and_geometry": "Same global payoff boundary norms, E1/E2 residual geometry, dispersion moment information and full Gaussian tail for both orders.",
+    "model_and_nested_norm_sha256": {
+      "results/generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "results/boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+      "results/gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797"
+    }
+  },
+  "competitors": {
+    "FTC": "Positive absolute weighted fundamental-theorem-of-calculus measure rho0, residual derivative E1, exact Gaussian transforms and shared finite hybrid moment closure. Transparent actual-grid adaptation; not verbatim implementation of Herman et al. (2026) uniform physical-coordinate left-endpoint theorem.",
+    "second_order": "Published centred Peano cell identity specialised from Cerone (2002), rho1 plus rho2, residual E1/E2 and same finite hybrid moment closure.",
+    "partitions": [
+      1,
+      8,
+      32,
+      128,
+      1024
+    ],
+    "partition_scope": "Nested contiguous blocks in the transported coordinate only. B1 aggregate; B1024 transported-coordinate cellwise with all other coordinates independently factorised. No Cartesian price enumeration or unknown-price input.",
+    "finite_arithmetic": "Hierarchy uses valid minimum of parent and summed-child upper bounds; raw outward upper increases retained in audit (zero here)."
+  },
+  "timing": {
+    "shared_prefix_setup_seconds_diagnostic": 1.2764539170000262,
+    "full_generation_seconds_diagnostic": 355.50523450000014,
+    "per_level_scope": "Geometry record, grouped polynomial moments and both FTC/Peano allowances for twelve payoffs (three common scales times four payoffs) in that asset family.",
+    "cache_scope": "B1 forms fresh GroupedGeometry coefficients; later levels reuse them and existing caches.",
+    "excluded": "Common BlockTransport prefix setup is separate. Per-level timings exclude serialisation, full audit, archive compaction/reconstruction and earlier quantum precision search.",
+    "unsupported_inference": "Joint timings are not order-specific construction times, cold-run speed ratios, single-price execution times or quantum-device runtimes.",
+    "records": [
+      {
+        "assets": 2,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.01937270799999169
+      },
+      {
+        "assets": 2,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.14112249999993765
+      },
+      {
+        "assets": 2,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.5650315830000636
+      },
+      {
+        "assets": 2,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 2.097286166999993
+      },
+      {
+        "assets": 2,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 16.951822125000035
+      },
+      {
+        "assets": 4,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.09477783400006956
+      },
+      {
+        "assets": 4,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.6247609160000138
+      },
+      {
+        "assets": 4,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 2.468992999999955
+      },
+      {
+        "assets": 4,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 9.916216749999876
+      },
+      {
+        "assets": 4,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 80.12626399999999
+      },
+      {
+        "assets": 8,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.4698009159999401
+      },
+      {
+        "assets": 8,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 1.6628200840000318
+      },
+      {
+        "assets": 8,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 6.342733959000043
+      },
+      {
+        "assets": 8,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 25.955922916999953
+      },
+      {
+        "assets": 8,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 206.66578225000012
+      }
+    ]
+  },
+  "outcomes": {
+    "by_partition": [
+      {
+        "blocks": 1,
+        "FTC_passes": 32,
+        "second_order_passes": 33,
+        "cases": 36
+      },
+      {
+        "blocks": 8,
+        "FTC_passes": 32,
+        "second_order_passes": 33,
+        "cases": 36
+      },
+      {
+        "blocks": 32,
+        "FTC_passes": 32,
+        "second_order_passes": 33,
+        "cases": 36
+      },
+      {
+        "blocks": 128,
+        "FTC_passes": 32,
+        "second_order_passes": 33,
+        "cases": 36
+      },
+      {
+        "blocks": 1024,
+        "FTC_passes": 32,
+        "second_order_passes": 33,
+        "cases": 36
+      }
+    ],
+    "finest_second_order_reduction_against_FTC_per_cent_diagnostic": [
+      25.725869323648823,
+      72.3079522075239
+    ],
+    "second_order_B1_to_finest_gain_per_cent_diagnostic": [
+      0.0701788255253413,
+      0.34801709058083835
+    ],
+    "second_order_failures_rescued_by_refinement": 0,
+    "finest_second_order_global_failures": [
+      {
+        "model": "n2_lambda0.05",
+        "cap": "10",
+        "upper_diagnostic": 0.010360915194258972
+      },
+      {
+        "model": "n2_lambda0.05",
+        "cap": "25",
+        "upper_diagnostic": 0.011501342758455928
+      },
+      {
+        "model": "n2_lambda0.05",
+        "cap": null,
+        "upper_diagnostic": 0.005954089537962427
+      }
+    ],
+    "failure_interpretation": "Earlier sharper local two-asset certificates remain available. No original complete pricing case becomes unsupported."
+  },
+  "claim_boundary": "Second-order allowances are smaller in this cohort. No general uniform ordering, refinement-theory priority, complete-price/confidence guarantee from this allocation alone, newly reduced quantum cap, empirical validation or practical quantum advantage is established.",
+  "proofs_and_sources": [
+    "block_transport_review.tex",
+    "certificate_source_comparison.md",
+    "certificate_source_access.json"
+  ],
+  "result_summary": "results/block_certificate_summary.json",
+  "fundamental_representation": "results/block_certificate_fundamental.json.gz",
+  "manifest": "results/block_certificate_reconstruction_manifest.json"
+}

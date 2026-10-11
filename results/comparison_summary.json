@@ -1,0 +1,47 @@
+{
+  "exact7t": {
+    "own_T_range": [
+      9850358952,
+      49390060834310
+    ],
+    "published_IQAE_envelope_T_range": [
+      14704480140,
+      50027871552148
+    ],
+    "old_custom_to_new_budget_ratio_range": [
+      0.6008650251189823,
+      4.277120242482282
+    ],
+    "own_lower_than_published_envelope_cases": 27
+  },
+  "measured4t": {
+    "own_T_range": [
+      8623258272,
+      18655950049210
+    ],
+    "published_IQAE_envelope_T_range": [
+      13203902980,
+      18896866054948
+    ],
+    "old_custom_to_new_budget_ratio_range": [
+      0.6008642295246516,
+      4.277121298692052
+    ],
+    "own_lower_than_published_envelope_cases": 27
+  },
+  "unitary8t": {
+    "own_T_range": [
+      9114098544,
+      30949594363250
+    ],
+    "published_IQAE_envelope_T_range": [
+      13804133844,
+      31349268253828
+    ],
+    "old_custom_to_new_budget_ratio_range": [
+      0.6008645725831089,
+      4.277120735688473
+    ],
+    "own_lower_than_published_envelope_cases": 27
+  }
+}

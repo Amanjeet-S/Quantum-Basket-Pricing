@@ -1,0 +1,129 @@
+{
+  "schema": "qbp-dispersion-independent-review-provenance-v1",
+  "status": "complete; all three independent audits pass",
+  "review_date": "2026-10-08",
+  "retained_files": [
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/audit_dispersion_certificates.py",
+      "sha256": "6cb5ab2d411067ba6fa3d57d279c10c51f2e9364d1d676d5287807e18ceab22a",
+      "bytes": 16746
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/audit_dispersion_figure_history.py",
+      "sha256": "d7b21c4601776aef12e25b0d90f20a3775e38e53eced1da45e2b04175daaf45d",
+      "bytes": 10637
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/audit_dispersion_models.py",
+      "sha256": "98f4a7cda8de5495801dc407572fd07fcfd7dfd95ceffb141a132915a7300af9",
+      "bytes": 5792
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/dispersion_certificate_audit.json",
+      "sha256": "a9f96f200064719b76bc01c8abf2a852de1979afb3d6a35f7820ae2dc797da15",
+      "bytes": 2921
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/dispersion_figure_history_audit.json",
+      "sha256": "9d42bae85a880fcda8194e66b9e544b4b426fe6ebefea817d5a828a0dfcd9dc3",
+      "bytes": 1988
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/dispersion_independent_review.md",
+      "sha256": "5afe35eb6490a073376ffe8167b56a22daae57b8054e1f932665f57e9f84d82f",
+      "bytes": 8606
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/dispersion_model_audit.json",
+      "sha256": "70b622997199c08c0fd8bf44ce2d3557e8f4761bb1d5fed13d54f2951a44f8f7",
+      "bytes": 37195
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/dispersion_scaling_proof.tex",
+      "sha256": "04808478ffc4473fa1dc258f227bbd5b5d7411415f083e1eb5abdb4a19955650",
+      "bytes": 10026
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/math_audit/independent_dispersion_math.py",
+      "sha256": "130da86cd8b62ffb1a88e895e519ec0aadd598645be2009a5fe4bd40e7c1ee0d",
+      "bytes": 11480
+    }
+  ],
+  "read_inputs": [
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/dispersion_separation_study.py",
+      "sha256": "2156c0cfbe5198841b151ec48a1e998445db3b9825ebab11e1af8873e76cdac7",
+      "bytes": 19144
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/dispersion_separation_protocol.json",
+      "sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+      "bytes": 442158
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/dispersion_separation_results.json",
+      "sha256": "201140dc6f5d765b0042cbd358e9cf5ab90dfe999c16c19cd1ff5c620f47e2df",
+      "bytes": 17487218
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/dispersion_separation_summary.json",
+      "sha256": "05474fb9ec9953653ed4d1cc907c6024cb7bdc4a47ce24050df0a1257338fc26",
+      "bytes": 406690
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/generalisation_protocol.json",
+      "sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+      "bytes": 67135
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/tensor_transfer.json",
+      "sha256": "6ee514de9110c3d9426c99e9d8a358f7247995bfa96f810423df4a606c4971ee",
+      "bytes": 1732899
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/original_degree3_price_intervals.json",
+      "sha256": "549da9fc2d2f04e50b7c9c682e1e0cbcb5ca3edd8cdfa4eb0aa7be914c009f65",
+      "bytes": 704729
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/boundary_derivative_norms.json",
+      "sha256": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+      "bytes": 286933
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/results/gaussian_derivative_norms.json",
+      "sha256": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+      "bytes": 280975
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/figure1_protocol.json",
+      "sha256": "d45cc7e4d0b13ab45cb14a531fbd3d4dd37a8f4deaf22a6ab4367ec3db00d4bd",
+      "bytes": 1087
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/figures/plot_dispersion_separation.py",
+      "sha256": "be93a6fbddce699aa9bf7a91bd0bb05fafb717bd82cae807386f18551a444fd4",
+      "bytes": 11222
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/figures/dispersion_separation_plot_data.json",
+      "sha256": "aab3b9e5d7846d38c45be45407644c42b542f04e067a8cb5e90bf320aa70b2d8",
+      "bytes": 8528
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/figures/dispersion_separation_coordinates.json",
+      "sha256": "567912b2c0e70d3fb96be88cc0b3b95ede539d519e12e1c95e0060640fefb48a",
+      "bytes": 9244
+    },
+    {
+      "path": "/private/tmp/qbp-dispersion-separation-step/figures/dispersion_separation_figure.tex",
+      "sha256": "92e90c0f39005c06c444c8496e9d76693d3de20e1c02f9c246c2284a1b8f5c9e",
+      "bytes": 7441
+    }
+  ],
+  "source_version_scope": "Final source/protocol/result version. Two earlier execution versions are independently verified by snapshot manifests and retained in history; original pre-outcome metadata correction is recorded.",
+  "external_retrieval": "None. Existing mathematics and previously certified norm inputs are reused transparently.",
+  "repository_edits": false,
+  "commits": false,
+  "claim_boundary": "Ten provisional transfer-versus-price-screen admission differences; six disappear after targeted degree five, four cap1 cases remain. No complete stressed quantum algorithm or general classical pricing impossibility is established."
+}

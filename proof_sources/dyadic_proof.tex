@@ -1,0 +1,248 @@
+% Insertion into the existing proof document, without preamble or bibliography.
+
+\section{A finite-value dyadic quantum mean construction}
+\label{sec:dyadic-construction}
+
+\emph{Keywords}: finite-value quantum mean estimation; second-moment certificate; numerical value oracle; dyadic partition; financial error guarantee.
+
+I now give a quantum comparator that uses the second moment of the numerical output, rather than assigning that moment to the variance of a single comparison flag. The dyadic reduction belongs to the established bounded-variance quantum mean framework of \citet{montanaro}, Sections 2(c)--2(d). The original mean and variance bounds in this project supply a checkable finite-oracle input to that framework. The allocation construction below is a finite implementation choice. General cost-dependent quantum error allocation is already developed by \citet{an}; I make no theoretical novelty claim for allocating error among summands.
+
+Let the actual finite numerical value be
+\[
+ X= a2^{-q},\qquad a\in\{0,1,\ldots,2^q\},\qquad q\geq1,
+ \qquad \mu=\mathbb E X.
+\]
+The expectation refers to the exact finite input law used by the emitted value circuit. I require proved rational bounds
+\[
+ \mathbb E X\leq u,\qquad \mathbb E X^2\leq v,
+ \qquad 0\leq u,v\leq1.
+\]
+The square-root inequality \(\mu\leq\sqrt v\) follows from
+\(\mathbb E[(X-\mu)^2]\geq0\). I therefore replace \(u\) by
+\(u_* = \min(u,\overline{\sqrt v})\), where the bar denotes the exact upward rational square-root enclosure used by the scalar certificate. The same strengthened mean prior must be supplied to the single-flag competitors. This is not a statement that their Bernoulli variance equals the variance of \(X\).
+
+For \(b=0,\ldots,q-1\), define the disjoint events and weights
+\[
+ B_b=\{2^b\leq a<2^{b+1}\},\qquad r_b=2^{b+1-q},
+ \qquad Z_b={X\over r_b}\mathbf 1_{B_b},\qquad p_b=\mathbb E Z_b.
+\]
+The top atom is \(B_q=\{a=2^q\}\), with \(r_q=1\), \(Z_q=\mathbf1_{B_q}\) and \(p_q=\Pr(B_q)\). The event \(a=0\) contributes zero. Every positive integer \(a<2^q\) belongs to exactly one ordinary bucket. Consequently the pointwise identity and its expectation are exact:
+\[
+ X=\sum_{b=0}^q r_bZ_b,
+ \qquad \mu=\sum_{b=0}^q r_bp_b.
+ \tag{D1}\label{eq:dyadic-identity}
+\]
+In particular the ordinary bucket with \(b=q-1\) and the separate top atom both have weight one. The top atom cannot be omitted merely because the ordinary dyadic weights end at one.
+
+On an ordinary bucket, \(r_b/2\leq X<r_b\). Thus
+\[
+ {X\over r_b}\mathbf1_{B_b}\leq {2X^2\over r_b^2}\mathbf1_{B_b},
+ \qquad
+ {X\over r_b}\mathbf1_{B_b}\leq {X\over r_b},
+ \qquad
+ Z_b\leq1-2^{-(b+1)}.
+\]
+Taking expectations proves the bucket prior
+\[
+ 0\leq p_b\leq U_b=
+ \min\left(1-2^{-(b+1)},\,{2v\over r_b^2},\,{u_*\over r_b}\right).
+ \tag{D2}\label{eq:dyadic-prior}
+\]
+For the top atom \(X=X^2=1\) on \(B_q\), so
+\[
+ 0\leq p_q\leq U_q=\min(v,u_*).
+ \tag{D3}\label{eq:dyadic-top-prior}
+\]
+These are deterministic moment implications. An observed bucket frequency or observed sample mean is not substituted for a proved prior.
+
+To construct its Born flag, I prepare the finite input state, compute \(a\) reversibly, and introduce a uniform \((b+1)\)-bit comparison register \(J_b\). I compute
+\[
+ F_b=\mathbf1_{B_b}\mathbf1_{\{J_b<a\}}.
+\]
+Conditional on the value \(a\), exactly \(a\) of the \(2^{b+1}\) comparison integers satisfy the inequality when \(B_b\) holds. The success probability is therefore \(a/2^{b+1}\), and its unconditional probability is precisely \(p_b\). The top atom uses the exact equality flag \(\mathbf1_{\{a=2^q\}}\) without a comparison register. Bucket detection, arithmetic comparisons and their uncomputation are charged to the emitted preparation \(A_b\). The value computation is also charged to every invocation of \(A_b\); its cost is not a free shared resource across independent Grover experiments.
+
+The logical circuit must implement \(A_b\) and its logical adjoint on the stipulated clean-work subspace, including arbitrary entanglement with an external reference. A lookup instrument is admissible only when every corrected branch is a scalar multiple of the same logical map and the branch record is independent of the logical state. The previously proved phase-correct instrument satisfies that premise. Reversing a measurement tape is not an adjoint. The Grover circuit is
+\[
+ Q_b=-A_bS_{0,b}A_b^\dagger S_{F_b}.
+\]
+Its good probability after \(k\) applications is
+\(\sin^2((2k+1)\arcsin\sqrt{p_b})\), by the separately derived two-dimensional rotation. All zero-state reflection inputs, comparison bits, flag bits and reflection scratch are charged in \(Q_b\). The confidence statement assumes ideal fresh Born measurements and includes no physical noise assertion.
+
+\section{Omitted prefixes and a deterministic aggregate error budget}
+\label{sec:dyadic-tail}
+
+For \(s\in\{0,\ldots,q\}\), I omit the ordinary buckets below \(s\). Their total contribution is
+\[
+ T_s=\mathbb E[X\mathbf1_{\{a<2^s\}}],\qquad
+ 0\leq T_s\leq V_s=
+ \min\left({2^s-1\over2^q},u_*,\overline{\sqrt v}\right).
+ \tag{D4}\label{eq:dyadic-tail-bound}
+\]
+The first upper bound is the largest possible finite value in the prefix. The mean upper bound follows from nonnegativity, and the second-moment upper bound follows by Cauchy--Schwarz. The omitted prefix is represented by the interval \([0,V_s]\) and its midpoint \(V_s/2\). Its error is therefore at most \(V_s/2\), rather than an uncharged omission bias. For the default choice I take the largest \(s\) for which \(V_s/2\leq t/4\), where \(t\) is the aggregate finite-mean tolerance. This leaves a positive budget
+\(E=t-V_s/2\geq3t/4\).
+
+For each retained bucket choose a rational monetary allowance \(e_b\) with
+\[
+ 0\leq e_b\leq{r_bU_b\over2},\qquad
+ {V_s\over2}+\sum_{b=s}^q e_b\leq t.
+ \tag{D5}\label{eq:dyadic-error-budget}
+\]
+If \(e_b=r_bU_b/2\), the interval \([0,U_b]\) has midpoint \(U_b/2\) with scaled error at most \(e_b\); that bucket requires no shots. Otherwise the scalar amplitude-estimation tolerance is \(\epsilon_b=e_b/r_b<U_b/2\leq1/2\). Every active bucket must satisfy the declared scalar range \(\epsilon_b\geq10^{-6}\). The implementation rejects an unsupported allocation rather than invoking an unproved extension of the scalar controller. If the whole strengthened prior already satisfies \(u_*\leq2t\), I use its midpoint directly and invoke no buckets.
+
+I retain equal and cost-dependent allocation candidates. For positive rational weights \(w_b\), define caps \(c_b=r_bU_b/2\) and supported floors
+\(f_b=\min(c_b,10^{-6}r_b)\). Provided \(\sum f_b\leq E\), I start at the floors and distribute the remaining budget proportionally to \(w_b\) among unsaturated buckets. Whenever a proposed increment reaches \(c_b-f_b\), I fix that bucket at its cap, subtract exactly the required increment, and redistribute among the remainder. A nonterminal pass fixes at least one bucket, so this exact rational procedure terminates after at most the number of retained buckets. Every resulting allowance belongs to \([f_b,c_b]\); its sum is at most \(E\), and every active probability tolerance is within the declared range. If all caps sum to at most \(E\), all buckets are zero-shot. Equal allocation uses zero floors and is checked afterward against the same scalar range. Its active allowances are at least \(E/L\), where \(L\) is the number of retained buckets, because only capped buckets can leave the free set.
+
+The cost-dependent weights have an explicit but limited justification. In the continuous surrogate
+\[
+ \min_{e_b>0,\,\sum e_b=E}\ \sum_b{d_b\over e_b},\qquad d_b>0,
+\]
+Cauchy--Schwarz gives
+\[
+ \left(\sum_b\sqrt{d_b}\right)^2
+ \leq\left(\sum_b{d_b\over e_b}\right)\sum_b e_b.
+\]
+Equality holds exactly when \(e_b=E\sqrt{d_b}/\sum_j\sqrt{d_j}\). I take
+\(d_b=(c_{A,b}+c_{Q,b})r_b\overline{\sqrt{U_b}}\) and use rational upward square roots as candidate weights. The actual scalar shot ceilings, reflection costs, floors and zero-shot caps do not coincide with that continuous objective. I therefore evaluate complete discrete resource caps for every retained candidate and claim only a minimum over that explicit finite set. I do not claim that these weights solve the global quantum resource optimisation problem.
+
+\section{Joint confidence and financial error transfer}
+\label{sec:dyadic-confidence}
+
+Let \(\mathcal A\) be the active buckets. If it is nonempty, I assign
+\(\alpha_b=\alpha/|\mathcal A|\). For each bucket I invoke either the separately proved three/five controller or the full-batch three/five/seven controller with \((\epsilon_b,\alpha_b,U_b)\). Their own proofs give an interval \([\ell_b,h_b]\) containing \(p_b\) with failure probability at most \(\alpha_b\), and width at most \(2\epsilon_b\) on a certified return. Zero-shot buckets use \([0,U_b]\). The allocation and prior are fixed before the measurements of that price are observed. Conditional coverage of the scalar adaptive batches also permits previous bucket histories, provided the backend supplies fresh independent measurements of each requested experiment.
+
+By the union bound,
+\[
+ \Pr\left(\exists b\in\mathcal A:p_b\notin[\ell_b,h_b]\right)
+ \leq\sum_{b\in\mathcal A}\alpha_b\leq\alpha.
+\]
+On the complementary event the exact identity \eqref{eq:dyadic-identity} gives
+\[
+ \mu\in I=\left[\sum_{b=s}^q r_b\ell_b,
+                   V_s+\sum_{b=s}^q r_bh_b\right].
+\]
+Its width satisfies
+\[
+ |I|\leq V_s+2\sum_{b=s}^q e_b\leq2t.
+\]
+Intersecting \(I\) with the deterministic whole-mean prior \([0,u_*]\) cannot remove the true mean on this event, and cannot increase the interval width. Its midpoint consequently has absolute finite-mean error at most \(t\). An empty scalar or aggregate intersection is returned with an explicit confidence-failure status. No empty interval is repaired by moving an endpoint or inventing an estimate.
+
+For the financial implementation, let \(C\) be the retained analytic control correction and let the target undiscounted residual be \(R\). The existing deterministic certificate supplies
+\[
+ |C+H\mu-V|\leq\beta_{\mathrm{det}},
+ \qquad \beta_{\mathrm{det}}\leq0.005,
+\]
+for the stipulated continuous-model target \(V\), including its numerical correction error. With \(t=0.005/H\), the dyadic midpoint estimate obeys
+\[
+ |C+H\widehat\mu-V|
+ \leq\beta_{\mathrm{det}}+H|\widehat\mu-\mu|
+ \leq0.01
+\]
+with probability at least \(1-\alpha\). A discount factor \(D>0\) gives discounted error at most \(D(\beta_{\mathrm{det}}+Ht)\). The present positive-rate examples have \(D\leq1\); a general application with \(D>1\) must reduce the undiscounted tolerance accordingly. I use \(\alpha=0.01\) for each preselected price, or \(\alpha=0.01/27\) for one preselected implementation per contract in a simultaneous 27-contract guarantee. Selection of precision, architecture or allocation is based on deterministic cost certificates, so it introduces no data-dependent confidence selection.
+
+\section{Complete costs and the scope of the second-moment improvement}
+\label{sec:dyadic-cost}
+
+For bucket \(b\), let its emitted preparation and Grover operation have nonnegative additive metric costs \(c_{A,b}^{(m)}\) and \(c_{Q,b}^{(m)}\). If the scalar realised history uses \(N_b\) shots and \(K_b\) Grover calls, its exact metric cost is
+\[
+ N_bc_{A,b}^{(m)}+K_bc_{Q,b}^{(m)}.
+\]
+The three/five planner provides deterministic separate caps \(\overline N_b\) and \(\overline K_b\), so their linear combination is an upper bound. The full-batch planner instead maximises the same linear expression over its proved finite superset of admissible odd-multiplier chains. Writing \(\mathcal H_b\) for that set, I charge
+\[
+ \overline C_b^{(m)}=
+ \max_{h\in\mathcal H_b}
+ \left(N_b(h)c_{A,b}^{(m)}+K_b(h)c_{Q,b}^{(m)}\right),
+ \qquad \overline C^{(m)}=\sum_{b\in\mathcal A}\overline C_b^{(m)}.
+ \tag{D6}\label{eq:dyadic-metric-cost}
+\]
+Every realised bucket history lies in its corresponding set, so the sum is a rigorous aggregate cap. Different metrics can have different maximising histories; the metric table does not assert that one execution simultaneously attains every cap. T count, T depth, measurement count, feedback count, reset count and flag observations are all charged through the supplied A/Q profiles. Sequential bucket experiments permit reuse of scratch, so peak qubits are bounded by the largest active compiled bucket profile, provided the backend resets the completed experiment and reuses the same workspace. Simultaneous parallel execution would require a separate qubit charge. Classical coefficient storage and controller arithmetic are recorded separately from logical quantum gates.
+
+The finite second moment changes the probability priors of the separate buckets through \eqref{eq:dyadic-prior}. It does not change the canonical identity
+\(\operatorname{Var}(\mathbf1_{\{J<X\}})=\mu(1-\mu)\). For the true bucket probabilities, a useful additional relation is
+\[
+ \sum_{b=0}^q r_b^2p_b
+ =\sum_{b=0}^{q-1}\mathbb E[r_bX\mathbf1_{B_b}]
+   +\mathbb E[X^2\mathbf1_{B_q}]
+ \leq2\mathbb E X^2\leq2v.
+ \tag{D7}\label{eq:dyadic-joint-moment}
+\]
+The inequality follows from \(r_b\leq2X\) on every ordinary bucket. Individual global-moment priors need not saturate this joint relation simultaneously. I do not replace unknown bucket probabilities by observed values to obtain a worst-case resource reduction.
+
+A coarse complexity corollary explains the role of this reduction without substituting an asymptotic count for emitted resources. Consider the full-batch controller, equal monetary allocation, the default prefix, and a supported active tolerance. Its guarded derivative constant satisfies \(\gamma_b\leq3\sqrt{U_b}\): the prior guard is \(10^{-18}\), the upward square-root error is below \(2^{-100}\), and an active prior exceeds \(2\times10^{-6}\). Its scalar endpoint allowance is \(10^{-60}\), so the multiplier envelope satisfies
+\[
+ M_b={\pi_+\gamma_b\over4(\epsilon_b-10^{-60})}
+ <{2\gamma_b\over\epsilon_b}
+ \leq {6Lr_b\sqrt{U_b}\over E}
+ \leq {6L\sqrt{2v}\over E}.
+\]
+The final inequality also holds for the top atom. Each admissible history grows by at least three, hence has at most
+\(1+\lfloor\log_3 M_b\rfloor\) batches and
+\(\sum_i k_i\leq3M_b/4\). The largest prescribed batch is at most
+\[
+ N_{\max,b}=
+ \left\lceil{\overline{\log(3M_b/\alpha_b)}\over2r_0^2}\right\rceil,
+ \qquad r_0=69/1000,
+\]
+because every positive odd multiplier is at least one and the prescribed failure allowance is \(2\alpha_bm/(3M_b)\). It follows that
+\[
+ K_b\leq N_{\max,b}\lfloor3M_b/4\rfloor,
+ \qquad N_b\leq N_{\max,b}(1+\lfloor\log_3M_b\rfloor).
+\]
+Thus the quantum-query part of this conservative implementation has order
+\(L^2\sqrt v\,t^{-1}\log(L^2\sqrt v/(\alpha t))\), in the supported non-zero-shot regime. This uses an uncentred second moment of a nonnegative residual, not merely its centred variance. It is an upper bound for this implementation and is not a quantum lower bound or an improvement over the best published bounded-variance query theorem.
+
+For completeness, the default prefix makes \(L\) logarithmic in the requested mean tolerance rather than the output precision. If \(s<q\), maximality and the range-only prefix bound imply
+\(2^{s+1}-1>t2^{q-1}\), unless a still tighter moment prior allows a larger omitted prefix. Hence \(q-s<\log_2(4/t)\) and
+\(L=q-s+1\leq\lceil\log_2(4/t)\rceil+1\); also \(L\leq q+1\). The exactly finite top atom adds one bucket.
+
+Equation \eqref{eq:dyadic-joint-moment} shows why sharper published variance-aware query methods remain relevant. If valid separate bucket-second-moment certificates \(v_b\) sum to at most \(v\), their priors can use \(2v_b/r_b^2\), and the continuous surrogate coefficient satisfies
+\[
+ \left(\sum_b(r_b\sqrt{p_b})^{1/2}\right)^2
+ \leq L^{3/2}\left(\sum_b r_b^2p_b\right)^{1/2}
+ \leq L^{3/2}\sqrt{2v},
+\]
+by H\"older's inequality with exponents four and four-thirds. The present global-certificate planner does not claim this sharper coefficient. Its recorded finite costs, including bucket comparison and reflection work, determine whether it is favourable, null or adverse in each financial case. A favourable logical resource comparison is not a physical runtime advantage, and a numerical gain in this setting does not establish theoretical originality.
+
+\section{A sharp precision-dependent moment prior}
+\label{sec:dyadic-sharp-prior}
+
+I also derive a sharp finite-grid refinement, retained as an optional prior rather than an unverified theoretical novelty claim. It applies to any nonnegative numerical value with support contained in
+\(\{0,l,l+\Delta,\ldots,h\}\), where \(\Delta=2^{-q}\), \(l=L\Delta>0\), \(h=J\Delta\) and \(L\leq J\). Define
+\[
+ m_{l,h}(v)=
+ \begin{cases}
+  v/l,&0\leq v<l^2,\\
+  h,&v\geq h^2,\\
+  (v+xy)/(x+y),&l^2\leq v<h^2,
+ \end{cases}
+ \tag{D8}\label{eq:sharp-grid-prior}
+\]
+where the third case uses adjacent grid points \(x=j\Delta\), \(y=(j+1)\Delta\) with \(x^2\leq v<y^2\). The integer \(j\) is the exact floor square root of \(v/\Delta^2\), computed by integer arithmetic on its rational numerator and denominator.
+
+For every such random variable \(W\) with \(\mathbb EW^2\leq v\), I claim
+\(\mathbb EW\leq m_{l,h}(v)\). In the first case, each allowed nonzero value is at least \(l\), so \(W^2\geq lW\) pointwise and \(\mathbb EW\leq v/l\). In the second case \(W\leq h\) pointwise. In the third case, every allowed support point \(z\) satisfies
+\[
+ z^2-(x+y)z+xy=(z-x)(z-y)\geq0.
+\]
+There is no allowed point strictly between the adjacent \(x,y\); zero also satisfies the inequality. Taking expectations gives
+\(v\geq(x+y)\mathbb EW-xy\), which proves the stated bound.
+
+Each case is attainable within this support class. Below \(l^2\), put mass \(v/l^2\) at \(l\) and the remaining mass at zero. At or above \(h^2\), take the constant \(h\). In the third case, put probability
+\(\lambda=(m_{l,h}(v)-x)/(y-x)\) at \(y\) and the rest at \(x\). Since \(x^2\leq v<y^2\), the formula gives \(x\leq m_{l,h}(v)<y\), so \(\lambda\in[0,1)\). Its second moment is
+\((x+y)m_{l,h}(v)-xy=v\), and its mean is the bound. Thus it is the exact largest possible mean compatible with this finite support and the second-moment upper bound.
+
+An additional upper constraint \(\mathbb EW\leq u\) gives the sharp joint upper bound \(\min(u,m_{l,h}(v))\). To verify attainability when \(u<m_{l,h}(v)\), mix the above attaining distribution with a point mass at zero, with mixture weight \(u/m_{l,h}(v)\) when the denominator is positive. Its mean is \(u\) and its second moment remains at most \(v\). The zero case is immediate.
+
+For an ordinary bucket I apply this result to \(W=X\mathbf1_{B_b}\), with
+\(l=2^{b-q}\) and \(h=(2^{b+1}-1)2^{-q}\). Its second moment is at most \(v\). Hence
+\[
+ p_b\leq{\min(u_*,m_{l,h}(v))\over r_b}.
+\]
+For the whole numerical value I use \(l=\Delta,h=1\), which yields a sharp refinement of \(\mu\leq\sqrt v\). The same strengthened whole-value prior must be used by every single-flag and classical comparator. Sharpness is relative to the allowed support class and supplied moment constraints; it does not establish that the financial circuit attains every register integer or the extremising distribution.
+
+The gain can be negligible at a fine production precision. In the adjacent-grid case write \(z=\sqrt v\). Direct subtraction gives
+\[
+ 0\leq z-m_{l,h}(v)
+ ={(z-x)(y-z)\over x+y}
+ \leq{\Delta^2\over4(x+y)}.
+\]
+Thus a high-precision finite-grid prior can be mathematically sharper without producing a different integer shot or gate budget. I retain favourable, null and adverse resource consequences separately and do not infer a numerical contribution merely from the sharp bound's derivation.

@@ -1,0 +1,30 @@
+{
+  "schema": "qbp-common-shift-source-access-v1",
+  "access_utc": "2026-10-11T10:27:11.141816+00:00",
+  "source": {
+    "authors": "Stamatopoulos et al.",
+    "year": 2020,
+    "title": "Option Pricing using Quantum Computers",
+    "journal": "Quantum",
+    "volume": 4,
+    "article": 291,
+    "DOI": "10.22331/q-2020-07-06-291",
+    "url": "https://quantum-journal.org/papers/q-2020-07-06-291/pdf/",
+    "version_consulted": "Final publisher-hosted PDF, acceptance stamp24June2020, arXivv5 stamp2July2020. Publisher metadata verifies publication6July2020.",
+    "sections_consulted": [
+      "3.1 equations1-6 and reflection/power sampling",
+      "3.3 equations9-13 and controlled-rotation approximation",
+      "4.1.1 comparator/rotation circuits equations15-22",
+      "4.1.2 call-spread/portfolio encoding equations23-24 Figure9",
+      "4.2.1 basket construction equations25-29 Figure10",
+      "AppendixB circuit simplification around A-adjoint S_good A"
+    ],
+    "access": "Primary publisher PDF retrieval and Safari accessibility text; no institutional upgrade needed.",
+    "claims_supported": "Reflections, odd-power sampling, coherent comparators, call-spread/basket quantum pricing and cross-template gate cancellations are established. The checked all-degree cost result is conditional on the retained concatenation template; it is not a novelty claim for reflection sampling or a lower bound for optimised circuits.",
+    "limits": "This source does not establish absence of all earlier shared-threshold/cancellation-aware financial error arguments. No globally strongest comparison or specialised priority follows."
+  },
+  "failed_discovery": "Paper-index discovery failed with a DNS lookup error (ENOTFOUND); primary retrieval and Safari used as fallback.",
+  "Safari_state": "Created exactly one academic source tab and closed it after consultation, restoring the initial5tabs and StartPage.",
+  "private_or_licensed_data": false,
+  "publisher_full_text_stored_in_repository": false
+}

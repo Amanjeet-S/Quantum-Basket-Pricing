@@ -1,0 +1,374 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[british]{babel}
+\usepackage[round,authoryear]{natbib}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\title{Supporting derivation for a shared-threshold positive pricing correction}
+\author{Amanjeet Singh}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\noindent Keywords: quantum derivative pricing; positive threshold measures;
+Gaussian smoothing; reversible interval predicates; financial error certificates.
+
+\section{Target and scope}
+
+I retain the established classical risk-neutral model of the main paper.
+The independent common Gaussian factor has standard deviation $\lambda>0$;
+$Y$ denotes the remaining factors. At a given $y$, the geometric log-level
+is $m=m_G(y)$ and the arithmetic log-level is
+$m_A(y)=m+\Delta(y)$, where $\Delta=\log T\geq0$ by the model's positive
+weights and exact weighted-centred drift and loading conditions.
+Geometric conditioning and conditional payoff smoothing have published
+financial antecedents \citep{curran,bayer}; the retained source ledger
+records the versions previously consulted.
+The target correction is $R_1(y)=P_\lambda(m+\Delta)-P_\lambda(m)$.
+All financial coefficients, the outer factor law and the no-arbitrage
+interpretation are unchanged. I alter only the coherent representation of
+that correction. Positive layer-cake representations, common random
+numbers, Gaussian smoothing and reversible comparisons are established
+mechanisms. The new calculation below is a finite implementation and
+complete financial certificate for their composition, not a claim of
+generic theoretical priority.
+
+\section{A positive finite-threshold identity}
+
+\begin{theorem}[Shared-threshold correction]
+Let $\nu$ be a positive finite measure on $\mathbb R$ of mass
+$0<H<\infty$, and define
+\[
+ P_{\lambda,\nu}(m)=\int_{\mathbb R}
+      \Phi((m-x)/\lambda)\,\nu(dx).
+\]
+Let $X$ have law $\nu/H$ and let $N$ be an independent standard normal
+variable. For every finite $m\in\mathbb R$ and $\Delta\geq0$,
+\[
+ P_{\lambda,\nu}(m+\Delta)-P_{\lambda,\nu}(m)
+   =H\Prb\{m<X-\lambda N\leq m+\Delta\}.
+ \tag{S1}\label{eq:shared-identity}
+\]
+The represented score is in $[0,H]$ for every draw. This includes positive
+finite mixtures of cash digitals and bounded increasing payoffs admitting
+the stated positive threshold measure. Negative measures and an
+infinite-mass representation of an uncapped vanilla payoff are excluded.
+\end{theorem}
+\begin{proof}
+Conditional on $X=x$, Gaussian symmetry gives
+\[
+ \Prb\{x-\lambda N\leq m\}
+ =\Prb\{N\geq(x-m)/\lambda\}
+ =\Phi((m-x)/\lambda).
+\]
+Integration against the probability law $\nu/H$ gives the distribution
+function of $X-\lambda N$. Subtract its values at $m+\Delta$ and $m$.
+Because $\Delta\geq0$, the two events are nested. Their difference is
+precisely the interval indicator in \eqref{eq:shared-identity}, multiplied
+by $H$. The independent Gaussian makes its distribution continuous even
+when $\nu$ has atoms, so continuous endpoint conventions are equivalent.
+No independence between the two endpoint events is introduced.
+\end{proof}
+
+The measure theorem is an expectation identity, not a free state-access
+assumption. A finite implementation for a different $\nu$ must construct
+and charge a certified approximation to $\nu/H$, including any label
+weights, reversible value map, preparation inverse and probability bias.
+Only the stated uniform-strike construction is implemented in this study.
+
+For the cap $F(s)=\min\{(s-K)^+,H\}$, the elementary threshold identity
+$F(s)=\int_0^H\mathbf 1\{s>K+u\}\,du$ holds separately on
+$s\leq K$, $K<s<K+H$ and $s\geq K+H$.
+Substituting the conditional lognormal stock level $Ke^{m+\lambda N}$
+and integrating the nonnegative bounded indicator gives
+\[
+ P_\lambda(m)=H\int_0^1
+  \Phi\!\left(\frac{m-a(s)}{\lambda}\right)ds,
+ \qquad a(s)=\log(1+Hs/K).
+\]
+Thus $X=a(S)$ for an independent uniform $S\in[0,1]$ implements the
+cap case of \eqref{eq:shared-identity}. One shared threshold draw gives
+a nonnegative correction with normaliser $H$, without evaluating two
+conditional-price tables or subtracting two approximated prices.
+
+The alternative elementary identity
+$R_1=\Delta\int_0^1P_\lambda'(m+t\Delta)dt$ is valid, but a sampled
+integrand is bounded only by $\Delta_*\|P_\lambda'\|_\infty$ under
+that generic bound. Clipping it at $H$ can change its expectation. The
+interval representation obtains $H$ directly from a Boolean event.
+
+\section{Inner discretisation and exact confidence-independent errors}
+
+Write $\phi$ for the standard normal density and choose certified
+$\nu_0\geq\|\phi\|_\infty$ and
+$\nu_1\geq\|\phi'\|_\infty$. These constants are separate from the
+threshold measure $\nu$.
+
+\begin{lemma}[Midpoint strike law]
+Let $M_S$ uniform strike cells have midpoints $s_j=(j+1/2)/M_S$.
+For all $m\in\mathbb R$ and $\Delta\geq0$, replacing the uniform
+$S$ in the ideal correction by their equal-weight midpoint law has
+absolute monetary error at most
+\[
+ \beta_S=\frac{H(H/K)^2}{12M_S^2}
+       \left(\frac{\nu_1}{\lambda^2}
+                         +\frac{\nu_0}{\lambda}\right).
+ \tag{S2}\label{eq:strike-bound}
+\]
+\end{lemma}
+\begin{proof}
+Put $c=H/K$ and
+$h(s)=\Phi((m+\Delta-a(s))/\lambda)-\Phi((m-a(s))/\lambda)$.
+For either endpoint $v\in\{m,m+\Delta\}$, differentiating twice gives
+\[
+ \frac{d^2}{ds^2}\Phi((v-a(s))/\lambda)
+ =\frac{a'(s)^2}{\lambda^2}\phi'((v-a(s))/\lambda)
+   -\frac{a''(s)}{\lambda}\phi((v-a(s))/\lambda).
+\]
+Here $a'=c/(1+cs)$ and $a''=-c^2/(1+cs)^2$. The triangle inequality
+therefore gives
+$\|h''\|_\infty\leq2c^2(\nu_1/\lambda^2+\nu_0/\lambda)$.
+On a cell of width $w=1/M_S$ with midpoint $s_j$, Taylor's theorem
+and $|h''|\leq C$ imply
+$|h(s)-h(s_j)-h'(s_j)(s-s_j)|\leq C(s-s_j)^2/2$.
+The linear term integrates to zero and
+$\int_{-w/2}^{w/2}t^2dt=w^3/12$. Summing all $M_S$ cells gives
+$C/(24M_S^2)$ for the probability error. Multiplication by $H$ proves
+\eqref{eq:strike-bound}.
+\end{proof}
+
+\begin{lemma}[Rounded truncated-normal midpoint law]
+Let $L>0$, $a_N=\Phi(L)-\Phi(-L)$, and let $n_j$ be the $M_N$
+equal-CDF-cell midpoints of the standard normal law conditional on
+$[-L,L]$. Suppose actual dyadic nodes $\widehat n_j$ satisfy
+$|\widehat n_j-n_j|\leq\delta_N$. Their equal-label empirical
+distribution function $\widehat F_N$, with label multiplicities retained,
+satisfies
+\[
+ \sup_x|\widehat F_N(x)-\Phi(x)|
+ \leq D_N:=\frac{1-a_N}{2}+\frac{a_N}{2M_N}+\nu_0\delta_N.
+ \tag{S3}\label{eq:normal-cdf}
+\]
+The same bound holds for $\widehat F_N(x-)$.
+\end{lemma}
+\begin{proof}
+For the ideal midpoint law, let $F_T$ be the conditional normal CDF and
+$F_M$ the midpoint empirical CDF. Equal-CDF midpoint placement gives
+$|F_M(x)-F_T(x)|\leq1/(2M_N)$ on $[-L,L]$; at nodes the two
+one-sided values attain the endpoint deviations. On this interval,
+$\Phi(x)=(1-a_N)/2+a_NF_T(x)$. Consequently
+\[
+ F_M(x)-\Phi(x)
+  =a_N(F_M(x)-F_T(x))+(1-a_N)(F_M(x)-1/2).
+\]
+Since $F_M\in[0,1]$, the claimed bound without the rounding term follows.
+Outside $[-L,L]$, the deviation is at most $(1-a_N)/2$, so the same
+bound holds globally. Coupling each rounded node with its labelled
+ideal node gives
+$F_M(x-\delta_N)\leq\widehat F_N(x)\leq F_M(x+\delta_N)$.
+The mean value theorem and $\|\phi\|_\infty\leq\nu_0$ then add
+at most $\nu_0\delta_N$ to the discrepancy from $\Phi(x)$.
+Taking increasing sequences converging to $x$, continuity of $\Phi$
+gives the identical bound for $\widehat F_N(x-)$. Duplicate rounded
+nodes do not invalidate the coupling or empirical-CDF argument.
+\end{proof}
+
+\begin{proposition}[Arithmetic event sandwich]
+At every exact actual outer financial node and ideal strike midpoint,
+write $\ell=m+J$, $u=m+\Delta+J$ and
+$z=a(s)+J-\lambda\widehat N$, where $\widehat N$ has the preceding
+rounded midpoint law. Suppose the reversible body produces represented
+values satisfying
+\[
+ |\widehat\ell-\ell|\leq e_\ell,\qquad
+ |\widehat u-u|\leq e_u,\qquad
+ |\widehat z-z|\leq e_z,
+\]
+and integer range guards exclude modular overflow. The implemented
+Boolean event $\widehat\ell<\widehat z\leq\widehat u$ differs in
+conditional probability from the ideal continuous-normal event by at most
+\[
+ 2D_N+\frac{\nu_0}{\lambda}(e_\ell+e_u+2e_z).
+ \tag{S4}\label{eq:sandwich}
+\]
+The quantile rounding already charged in $D_N$ is excluded from $e_z$;
+the error of scaling the actual rounded node is included in $e_z$.
+\end{proposition}
+\begin{proof}
+The implemented event is contained in
+$\ell-e_\ell-e_z<z\leq u+e_u+e_z$ and contains
+$\ell+e_\ell+e_z<z\leq u-e_u-e_z$ when the latter is nonempty.
+An interval under $z=a(s)+J-\lambda\widehat N$ differs from its
+continuous Gaussian counterpart by at most $2D_N$, because its probability
+is a difference of two CDF or left-limit values and
+\eqref{eq:normal-cdf} applies to each. Continuous $z$ has density bounded
+by $\nu_0/\lambda$, so expanding or shrinking the endpoints adds or
+removes probability at most
+$\nu_0(e_\ell+e_u+2e_z)/\lambda$.
+If the shrunken interval is empty, the ideal interval has width at most
+$e_\ell+e_u+2e_z$; its entire continuous probability is then at most
+the same density bound. The trivial lower bound zero gives the required
+lower inequality in that case as well. Combining the two inequalities
+proves \eqref{eq:sandwich}. No independence of endpoint arithmetic errors
+is assumed. Finite atoms at strict endpoints are handled by the left-limit
+CDF bound, rather than disregarded as if the discrete law were continuous.
+\end{proof}
+
+Thus a pointwise conditional probability allowance is
+\[
+ \eta=\min\left\{1,
+   \beta_S/H+2D_N+
+   \frac{\nu_0}{\lambda}(e_\ell+e_u+2e_z)\right\}.
+ \tag{S5}\label{eq:eta}
+\]
+This bounds conditional expected flags against the conditional correction.
+It does not equate a single Boolean outcome with a numerical payoff.
+For the finite study $H=1$, $L=6$, $M_N=1024$ and $M_S=16$.
+All outer scalar addresses remain at twelve bits; the small-range strike
+logarithm uses six address bits. Endpoint and scaling errors are propagated
+through actual scalar-table and unsigned arithmetic contracts, with the
+existing outward certificates and overflow guards. The body certificate
+treats normal coordinates as their actual rounded values; its zero
+quantile error has this explicit meaning. The separate term
+$\nu_0\delta_N$ in \eqref{eq:normal-cdf} restores the approximation to
+the continuous inner normal. Multiplying again by an inner normal-box
+mass would change the algorithm and invalidate this decoder.
+
+\section{Coherent predicate and complete financial reconstruction}
+
+The numeric body computes the common endpoint offset, nonnegative
+represented log-ratio and shared threshold. I form the represented upper
+endpoint by adding that same nonnegative log-ratio to the represented
+lower endpoint. The range guards exclude overflow, so represented upper
+is at least represented lower on every basis input. Two clean unsigned
+comparisons produce
+$b_\ell=\mathbf1\{\widehat\ell<\widehat z\}$ and
+$b_u=\mathbf1\{\widehat u<\widehat z\}$.
+The exact identity
+\[
+ b_\ell(1-b_u)
+  =\mathbf1\{\widehat\ell<\widehat z\leq\widehat u\}
+\]
+holds also at ties and when the endpoints coincide. A negative control on
+$b_u$ and a Toffoli XOR this predicate into an independently allocated
+objective flag. I reverse the comparison work and then the numeric body.
+The retained flag is excluded from those reversals. The result is the
+exact permutation
+$|j\rangle|f\rangle|0\rangle\mapsto
+ |j\rangle|f\mathbin\oplus b(j)\rangle|0\rangle$ for either initial
+flag value. Linearity gives the same coherent action on arbitrary
+superpositions, including entanglement with an untouched reference.
+The emitted exact Toffoli expansion supplies the required phases.
+
+Hadamards prepare all outer financial, inner normal and strike labels.
+Only those labels and the objective flag belong to the zero reflection;
+all numeric and predicate workspace is clean in the invariant subspace.
+There is no additional $q$-bit uniform probability-comparison register.
+Every preparation and full adjoint, good/zero reflection, Fourier circuit,
+readout and reset is charged in the retained complete QPE plans.
+No free Gaussian state preparation, stochastic draw or conditional-price
+oracle is assumed.
+The canonical amplification and estimation mechanism is the established
+one of \citet{brassard}; quantum Monte Carlo pricing has the published
+financial antecedent of \citet{rebentrost}. I reuse their mechanism rather
+than claim that a new financial flag creates a new generic estimator.
+
+Let $c_0$ be the classical continuous coefficient, let $e_c$ bound its
+chosen midpoint error, and let $\beta_Y$ bound the difference between the
+original continuous correction and its mass-weighted actual outer-grid
+correction. Let $[F_-,F_+]$ enclose the original outer Gaussian box mass,
+with midpoint $F_0$ and radius $e_F$. If $p$ is the implemented mean
+flag and the estimator returns $\widehat p\in[0,1]$, with probability
+at least $1-\alpha$ its certified probability error is at most
+$\varepsilon_p$. The price decoder is
+$\widehat V=\widehat c_0+F_0H\widehat p$, and
+\[
+ |\widehat V-V|
+ \leq e_c+\beta_Y+F_+H(\eta+\varepsilon_p)+e_FH.
+ \tag{S6}\label{eq:complete-price}
+\]
+To prove this, insert the exact continuous coefficient, the mass-weighted
+ideal outer-grid correction and its implemented conditional flag mean in
+succession. Their discrepancies are bounded by $e_c$, $\beta_Y$ and
+$F_+H\eta$. Replace $p$ by the certified estimator value and charge
+$F_+H\varepsilon_p$. Finally, $H|\widehat p|\leq H$ bounds the error
+from replacing the outer mass by its midpoint, giving $e_FH$.
+Discounting multiplies the entire bound by $e^{-r_f\tau}$.
+The existing complete outer-transfer certificate is retained because
+the exact target $R_1$ has not changed.
+
+An existing price-independent finite mean interval $[r_-,r_+]$ for
+$\E_NR_1$ yields the implemented-flag interval
+$[\max(0,r_-/H-\eta),\min(1,r_+/H+\eta)]$.
+This follows by averaging the uniform conditional probability allowance.
+The prior's construction uses the same analytic coefficient, continuous
+second ratio moment and curvature certificate as the direct opponent;
+no classical price answer or auxiliary outcome supplies it.
+
+\section{Interpretation and falsification criteria}
+
+The auxiliary score has conditional mean $R_1(Y)$, so the established
+conditional variance identity gives
+$\operatorname{Var}(H b)=\operatorname{Var}(R_1(Y))+
+\E\operatorname{Var}(H b\mid Y)$ for the continuous ideal construction.
+Classical integration of the auxiliaries recovers the old conditional
+kernel and cannot increase its variance. I therefore claim no classical
+variance advantage from this representation. A constructive quantum
+improvement requires a lower completely charged preparation cost that
+survives its larger certified deterministic allowance, its statistical
+phase width and every confidence and reflection charge.
+The retained finite study has this scope; it does not establish an
+optimal oracle, general theoretical priority, physical runtime advantage
+or failure of stronger classical pricing algorithms. Any arithmetic-domain
+failure, omitted workspace inverse, extra uncharged mass factor,
+uncontrolled endpoint atom or cost increase is a rejection under the
+registered policy, rather than a reason to change the policy after outcomes.
+The old numeric-payoff preparation also produces a Bernoulli good flag
+through its independent uniform probability-comparison register. In the
+continuous ideal limit, both preparations therefore have the same global
+good probability $\E R_1/H$ and the same amplitude-amplification angle.
+The conditional classical variance penalty does not imply an additional
+quantum query penalty merely from the new auxiliary labels. Conversely,
+the new representation does not reduce the ideal good-flag measurement
+variance. Any query difference arises from its separately charged finite
+errors and priors. The observed benefit here is cheaper emitted
+preparation, with unchanged certified QPE phase sizes in the four cases.
+An additional frozen numerical-rival pool varies its two conditional-price
+table address widths independently over $\{6,8,10,12\}$ while granting
+both coherent architectures and retaining every other financial input and
+precision rule. All 64 outcomes, including twelve deterministic rejects,
+are retained. Ten bits for each table gives the lowest complete numerical
+T cap in all four cases. The fixed threshold preparation still improves
+these stronger caps by approximately 12.33, 5.26, 6.26 and 2.95 per cent.
+This is a finite-pool logical comparison, not a proof of global precision
+optimality or a physical speed-up. The historical twelve-bit price tables
+give larger percentages and are not used as the strongest tested rival.
+
+\begin{thebibliography}{99}
+\bibitem[Bayer et al.(2018)]{bayer}
+Bayer, C., Siebenmorgen, M. and Tempone, R. (2018).
+Smoothing the payoff for efficient computation of basket option prices.
+\emph{Quantitative Finance}, 18(3), 491--505.
+\url{https://doi.org/10.1080/14697688.2017.1308003}.
+\bibitem[Brassard et al.(2002)]{brassard}
+Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002).
+Quantum amplitude amplification and estimation.
+\emph{Contemporary Mathematics}, 305, 53--74.
+\url{https://doi.org/10.1090/conm/305/05215}.
+\bibitem[Curran(1994)]{curran}
+Curran, M. (1994). Valuing Asian and portfolio options by conditioning
+on the geometric mean price.
+\emph{Management Science}, 40(12), 1705--1711.
+\url{https://doi.org/10.1287/mnsc.40.12.1705}.
+\bibitem[Rebentrost et al.(2018)]{rebentrost}
+Rebentrost, P., Gupt, B. and Bromley, T. R. (2018).
+Quantum computational finance: Monte Carlo pricing of financial derivatives.
+\emph{Physical Review A}, 98, 022321.
+\url{https://doi.org/10.1103/PhysRevA.98.022321}.
+\end{thebibliography}
+\end{document}

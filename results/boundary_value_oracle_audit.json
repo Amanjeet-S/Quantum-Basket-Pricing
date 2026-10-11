@@ -1,0 +1,1007 @@
+{
+  "status": "whole boundary financial circuit audit passed",
+  "graph_mode_configurations": 56,
+  "dirty_numerical_target_basis_lanes": 13312,
+  "dirty_flag_comparison_basis_lanes": 13312,
+  "zero_support_encoding_checks": 14,
+  "records": [
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "T_count": 205156,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "T_count": 204424,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 209356,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 208624,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 209356,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 208624,
+      "logical_wires": 1427,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        16,
+        16
+      ],
+      "T_count": 325388,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        16,
+        16
+      ],
+      "T_count": 324224,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 329588,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 328424,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 329588,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 328424,
+      "logical_wires": 1616,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        16,
+        16
+      ],
+      "T_count": 187278,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        16,
+        16
+      ],
+      "T_count": 186402,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 192528,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 191652,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 192528,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 191652,
+      "logical_wires": 1943,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 113008,
+      "logical_wires": 686,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 112276,
+      "logical_wires": 686,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 203140,
+      "logical_wires": 1403,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 202408,
+      "logical_wires": 1403,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 321356,
+      "logical_wires": 1556,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 320192,
+      "logical_wires": 1556,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 216062,
+      "logical_wires": 2405,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 215186,
+      "logical_wires": 2405,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 131320,
+      "logical_wires": 824,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "quantile",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 130588,
+      "logical_wires": 824,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "T_count": 280336,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "T_count": 279328,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 284536,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 283528,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "T_count": 284536,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "boundary_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "T_count": 283528,
+      "logical_wires": 1583,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        15,
+        15
+      ],
+      "T_count": 400568,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        15,
+        15
+      ],
+      "T_count": 399128,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 404768,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 403328,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        2,
+        2
+      ],
+      "T_count": 404768,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "stable_gauss_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        2,
+        2
+      ],
+      "T_count": 403328,
+      "logical_wires": 1808,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        15,
+        15
+      ],
+      "T_count": 288162,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        15,
+        15
+      ],
+      "T_count": 287010,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "positive_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 293412,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "positive_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 292260,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "negative_part",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        2,
+        2
+      ],
+      "T_count": 293412,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "raw_direct_r2",
+      "encoding": "negative_part",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        2,
+        2
+      ],
+      "T_count": 292260,
+      "logical_wires": 2228,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 202580,
+      "logical_wires": 1884,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "capped",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 201572,
+      "logical_wires": 1884,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 276304,
+      "logical_wires": 1523,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "boundary_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 8,
+      "value_outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "T_count": 275296,
+      "logical_wires": 1523,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 394520,
+      "logical_wires": 1712,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "stable_gauss_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 393080,
+      "logical_wires": 1712,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 333186,
+      "logical_wires": 2660,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "raw_direct_r2",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 332034,
+      "logical_wires": 2660,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "exact7t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 248444,
+      "logical_wires": 2592,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    },
+    {
+      "payoff": "vanilla",
+      "kind": "positive_r1",
+      "encoding": "centred",
+      "mode": "unitary8t",
+      "distribution": "uniform_box",
+      "finite_input_states": 2,
+      "value_outputs": [
+        0,
+        0
+      ],
+      "T_count": 247436,
+      "logical_wires": 2592,
+      "complete_counts_verified": true,
+      "qualification": "Coarse complete-circuit composition fixture, not an attained monetary accuracy claim"
+    }
+  ],
+  "source_sha256": "46eca98514ede256390a3f0244ea2293a9d09ed64d800c84068a7b0378a95b31",
+  "scalar_source_sha256": "2647275ac121c1c56ed362c0500c88c8822c72762163687755be69fc05c4d405",
+  "norm_file_sha256": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+  "retained_emitter_sha256": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+  "scope": "Whole financial value/flag/clean-inverse and literal primitive-count checks. Existing phase-correct primitive proof is reused; no physical quantum price execution or monetary-accuracy assertion from coarse fixtures.",
+  "audit_source_sha256": "c40e3f538a6bc21f4afe2368cc7e81a1dfa3d566cc0764d473037c6316f6d2ae"
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "qbp-four-case-final-data-provenance-review-v1",
+  "status": "completed checked scope",
+  "review_date": "2026-10-09",
+  "institutional_guidance_basis": "University guidance I received directly; no external legal opinion, contract reinterpretation or blanket empirical-output licence.",
+  "persistent_stage": "<private-stage>/quantum_four_case_pricing",
+  "final_classical_result_sha256": "ec3517b2e13f0e2fb99a94c7cafa240e6ec8420a841b76e5d74cc3d0b61d1da3",
+  "final_quantum_result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "final_classical_protocol_sha256": "a7b9b82311ba5f0d9fcd21d3e72f334a25203676e5c6b718ceb11bf2f8f9ba75",
+  "final_quantum_protocol_sha256": "4dea1f09df9e8960a02949fad0bf1e4dd3304903585ed680c83fe8330cd9f405",
+  "case_ids": [
+    "n2_lambda0.4_scale3",
+    "n4_lambda0.05_scale3over2",
+    "n4_lambda0.2_scale3",
+    "n8_lambda0.2_scale3"
+  ],
+  "synthetic_provenance": "All four case identifiers equal the retained H1 degree-five separating set from the installed 144 synthetic contracts. The quantum model dictionaries are exact copies of the same installed stressed inputs. Original base models and exact stress mappings were independently checked in the earlier provenance audits. No financial observations, market-calibrated parameters or LSEG-derived numerical inputs enter either fresh producer.",
+  "artifact_classification": {
+    "captured_uint16_words": "Fresh operating-system random words; synthetic sampling labels, not provider market data. The independence/uniformity assumption is explicit and not proved by retaining the realised words.",
+    "q40_lower_and_upper_score_arrays": "Analytic Gaussian capped-payoff values under stipulated synthetic GBM; computational evidence, not exported market observations.",
+    "finite_grid_exactsum_arrays": "All1024 synthetic one-dimensional grid-payoff enclosures.",
+    "scalar_quantum_ordinate_archive": "Generated Gaussian and arithmetic lookup-function values under exact synthetic parameter/support inputs.",
+    "width_specific_table_reconstruction": "Deterministically packed mathematical table values, generated from synthetic scalar function certificates.",
+    "gate_and_confidence_resource_records": "Mathematical compiler counts, exact finite-confidence calculations and synthetic financial error certificates.",
+    "figures_and_tables": "The existing three plot families and the new proposed four-case comparison use synthetic computational results. No LSEG observations are exposed by these source chains."
+  },
+  "independent_audits": {
+    "classical_full_score_replay": {
+      "file": "classical/results/four_case_classical_independent_audit.json",
+      "sha256": "96db8f96f2059f142ea4b03c3ed89fc6f881e1a3098e6c98874bdd246c502119",
+      "scores": 400000,
+      "exactsum_scores": 1024,
+      "status": "passed"
+    },
+    "classical_bounded_arithmetic_and_provenance": {
+      "file": "licence_review/final_classical_arithmetic_audit.json",
+      "sha256": "b0d3e96ff74c37c94308e6987114795412fd0969f0a3a3b307c31d3fc7c2ae0c"
+    },
+    "quantum_full_own_formula_audit": {
+      "file": "quantum/results/four_survivor_quantum_independent_audit.json",
+      "sha256": "460cb611592411b55eaae779f674bb5534e8a5f5de348f705c1278e984271918",
+      "status": "passed",
+      "profiles": 80,
+      "confidence_plans": 104,
+      "scalar_nodes": 160795
+    },
+    "quantum_bounded_independent_algebra": {
+      "file": "licence_review/final_quantum_algebra_audit.json",
+      "sha256": "7f1601f527b6c39915c1de9220a18bd66ccc82539d77511688f61f412d7a3246"
+    }
+  },
+  "LSEG_inputs_found": false,
+  "publication_classification": "Current synthetic numerical and plotting evidence is not restricted by the supplied LSEG-data prohibition. Public mathematical files retain their own source licence conditions. This classification must be repeated for any later empirical scenario rather than transferred automatically to new datasets.",
+  "future_LSEG_controls": "Publish extraction and analysis code without credentials or embedded data. Keep raw exports, reconstructible provider observations and systematic derived datasets outside third-party access, including private GitHub. Include only permitted insubstantial, non-systematic, non-commercial academic summaries with source attribution and a recorded output review. Avoid systematic bulk downloads. Delete project underlying licensed data on completion, not while ongoing authorised research still requires it.",
+  "limits": [
+    "No independent audit of institutional contract, all historical or remote Git objects, other projects, unrelated data directories or third-party attachments.",
+    "This report is a source-chain and arithmetic review of the present synthetic experiment, not a contractual guarantee or a claim of empirical financial validity.",
+    "No physically executed quantum prices or quantum runtime advantage are certified by generated resource plans."
+  ],
+  "actions": {
+    "repo_edits": false,
+    "commits": false,
+    "publication": false,
+    "new_licensed_access": false,
+    "LSEG_acquisition": false,
+    "underlying_data_deletion": false
+  }
+}

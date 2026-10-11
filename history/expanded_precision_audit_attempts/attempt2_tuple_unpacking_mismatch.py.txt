@@ -1,0 +1,249 @@
+"""Read-only own-formula audit of widened common-normal payoff grids.
+
+Neither the extension producer nor smoothing mapping is imported. The
+exponential nodes are additionally checked against independent exact
+rational positive-series enclosures, without reusing the Arb exponential.
+"""
+from pathlib import Path
+from fractions import Fraction as F
+from functools import lru_cache
+from math import comb, isqrt
+import argparse, gzip, hashlib, json, sys, time
+
+sys.dont_write_bytecode = True
+def read(path):
+    path = Path(path)
+    return json.load(gzip.open(path, 'rt')) if path.suffix == '.gz' else json.loads(path.read_text())
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'), default=str).encode()).hexdigest()
+def floor(value):
+    return value.numerator//value.denominator
+
+@lru_cache(None)
+def own_exp_interval(x):
+    x = F(x)
+    assert 0 <= x <= F(1,64)
+    total = term = F(1)
+    # The next-term ratios are bounded by x/50 after the degree48 sum.
+    for k in range(1,49):
+        term = term*x/k
+        total += term
+    tail = term*x/49/(1-x/50)
+    return total, total+tail
+
+def own_sqrt_upper(x):
+    z = F(x)*(1<<200)
+    n = -((-z.numerator)//z.denominator)
+    k = isqrt(n)
+    return F(k+int(k*k<n),1<<100)
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--repo', required=True)
+    parser.add_argument('--producer', required=True)
+    parser.add_argument('--results-name', default='results_corrected')
+    parser.add_argument('--producer-source-name', default='expanded_raw_payoff_corrected.py')
+    parser.add_argument('--output', required=True)
+    args = parser.parse_args()
+    repo, stage, out = map(Path,(args.repo,args.producer,args.output))
+    assert not out.exists()
+    paths = {
+        'protocol': stage/args.results_name/'expanded_raw_payoff_protocol.json',
+        'new_resources': stage/args.results_name/'expanded_raw_payoff_resources.json.gz',
+        'new_scalar_archive': stage/args.results_name/'expanded_raw_payoff_scalar_ordinates.json.gz',
+        'producer_source': stage/args.producer_source_name,
+        'old_raw_resources': repo/'results/raw_payoff_tight/raw_payoff_resources.json.gz',
+        'old_scalar_archive': repo/'results/raw_payoff_tight/raw_payoff_scalar_ordinates.json.gz',
+        'old_smoothing_resources': repo/'results/raw_payoff_smoothing/raw_payoff_smoothing_resources.json',
+        'proof': repo/'proof_sources/raw_payoff_smoothing_first_certificate_fragment.tex',
+        'assembled_standalone_proof': repo/'raw_payoff_proof.tex',
+        'norms': repo/'results/gaussian_derivative_norms.json',
+        'numerical_resources': repo/'results/strengthened_r1_resources.json',
+        'threshold_resources': repo/'results/shared_threshold_resources.json',
+        'lookup_emitter': repo/'architecture.py',
+        'arithmetic_emitter': repo/'integral_value_oracle.py',
+        'QPE_frontend': repo/'qpe_estimator.py',
+        'confidence_frontend': repo/'correction_information_priors.py',
+    }
+    hashes = {key:sha(path) for key,path in paths.items()}
+    start=time.monotonic()
+    data, protocol = read(paths['new_resources']),read(paths['protocol'])
+    old, old_smooth = read(paths['old_raw_resources']),read(paths['old_smoothing_resources'])
+    archives, old_archive = read(paths['new_scalar_archive']),read(paths['old_scalar_archive'])
+    assert protocol['source_sha256']==data['source_sha256']==hashes['producer_source']
+    assert data['protocol_sha256']==hashes['protocol']
+    assert data['scalar_archive_sha256']==hashes['new_scalar_archive']
+    assert data['old_raw_resource_sha256']==hashes['old_raw_resources']
+    assert data['old_smoothing_resource_sha256']==hashes['old_smoothing_resources']
+    assert data['checked_smoothing_proof_sha256']==hashes['proof']
+    assert protocol['inner_normal_bits']==[8,10,12]
+    assert protocol['new_narrow_exp_address_bits']==[11,12,13,14]
+    assert len(data['records'])==len(data['amended_records'])==48
+    nu0=F(next(r['norm_upper'] for r in read(paths['norms'])['unit_norms'] if r['unit_derivative_order']==0 and r['passed']))
+    narrow, normal = {}, {}
+    scalar_checks=packed_checks=0
+    for a in archives:
+        c=a['certificate'];width=a['graph_word_width']
+        assert digest(c)==a['certificate_sha256']
+        if c['schema']=='qbp-integral-quantile-v1':
+            values=[n['offset_integer'] for n in c['nodes']]
+            key=(c['b_y'],c['q'],F(c['L']))
+            if key in normal: assert normal[key]==c
+            normal[key]=c
+            match=next(z['certificate'] for z in old_archive if z['certificate'].get('schema')=='qbp-integral-quantile-v1' and (z['certificate']['b_y'],z['certificate']['q'],F(z['certificate']['L']))==key)
+            assert match==c
+        else:
+            ordinates=[n['integer'] for n in c['nodes']]
+            values=[]
+            for j,value in enumerate(ordinates):
+                delta=ordinates[j+1]-value if j+1<len(ordinates) else 0
+                assert 0<=value<(1<<width) and abs(delta)<(1<<width)
+                values.append(value|(abs(delta)<<width)|(int(delta<0)<<(2*width)))
+            if c.get('name')=='exp' and F(c['lo'])==0 and F(c['span'])==F(1,64):
+                key=(c['table_bits'],c['q'])
+                if key in narrow: assert narrow[key]==c
+                else:
+                    q,b=key;assert q==28 and b in (11,12,13,14)
+                    assert c['fractional_remainder_bits']==q-6-b>=0
+                    N=1<<b;unit=F(1,1<<q)
+                    assert len(c['nodes'])==N+1
+                    assert all(x<=y for x,y in zip(ordinates,ordinates[1:]))
+                    for j,n in enumerate(c['nodes']):
+                        x=F(j,64*N);assert F(n['input'])==x
+                        lo,hi=own_exp_interval(x)
+                        assert F(n['lower'])<=lo<=hi<=F(n['upper'])
+                        assert floor(lo*(1<<q)+F(1,2))==floor(hi*(1<<q)+F(1,2))==n['integer']
+                        expected=max(abs(F(n['integer'],1<<q)-F(n['lower'])),abs(F(n['integer'],1<<q)-F(n['upper'])))
+                        assert expected==F(n['error_upper'])
+                        scalar_checks+=1
+                    assert own_exp_interval(F(1,64))[1]<=F(c['second_derivative_upper'])
+                    assert F(c['first_derivative_upper'])==F(c['second_derivative_upper'])
+                    nodal=max(F(n['error_upper']) for n in c['nodes'])
+                    interp=F(c['second_derivative_upper'])*(F(1,64*N))**2/8
+                    assert F(c['nodal_error_upper'])==nodal
+                    assert F(c['linear_interpolation_error_upper'])==interp
+                    assert F(c['interpolation_floor_error_upper'])==unit
+                    assert F(c['output_error_upper'])==nodal+interp+unit
+                    assert ordinates[0]==1<<q and F(ordinates[-1],1<<q)<F(64,63)
+                    narrow[key]=c
+        assert values==a['packed_table'] and digest(values)==a['packed_table_sha256']
+        packed_checks+=len(values)
+    assert set(narrow)=={(b,28) for b in (11,12,13,14)}
+    row_checks=[];domain_checks=0
+    for base,amended in zip(data['records'],data['amended_records']):
+        mid,bn,be=base['original_model_id'],base['normal_bits'],base['payoff_exp_bits']
+        assert (amended['model_id'],amended['normal_bits'],amended['exp_bits'])==(mid,bn,be)
+        assert amended['pointwise_row_sha256']==digest(base)
+        assert amended['graph_sha256']==digest(base['graph_nodes'])
+        assert amended['configuration_sha256']==digest(base['graph_configuration'])
+        assert amended['profile_sha256']==digest(base['profiles'])
+        assert not base.get('rejection') and not amended.get('rejection')
+        graph={n['name']:n for n in base['graph_nodes']};sem=base['graph_semantic_nodes']
+        body_cert=base['probability_certificate']['body_arithmetic_certificate']
+        assert body_cert['status']=='passed' and not body_cert['failures']
+        body={n['node']:n for n in body_cert['nodes']}
+        old_row=next(r for r in old['records'] if (r['original_model_id'],r['normal_bits'],r['payoff_exp_bits'])==(mid,bn,10))
+        old_graph={n['name']:n for n in old_row['graph_nodes']}
+        assert set(graph)==set(old_graph)
+        exp_nodes={sem['PG_exp'],sem['PA_exp']}
+        for name,node in graph.items():
+            if name in exp_nodes:
+                expected=dict(old_graph[name]);expected['bits']=be
+                assert node==expected
+            else: assert node==old_graph[name]
+            assert name in body
+            lower,upper=map(F,body[name]['actual_bounds'])
+            assert 0<=lower<=upper<F(1<<node['output_bits'],1<<28)
+            domain_checks+=1
+        assert graph[sem['upper_endpoint']]['kind']=='add'
+        assert graph[sem['upper_endpoint']]['args']==[sem['lower_endpoint'],sem['logT']]
+        assert F(body[sem['logT']]['actual_bounds'][0])>=0
+        lower=graph[sem['lower_endpoint']]
+        assert lower['kind']=='add'
+        scale_node=graph[lower['args'][1]]
+        assert scale_node['kind']=='scale' and scale_node['args']==[sem['normal_plus_L']]
+        lam=F(base['model']['lambda']);L=F(base['graph_configuration']['inner_normal_L']);q=28
+        assert lam>0 and F(scale_node['meta'])==lam and L==6
+        constant=graph[graph[lower['args'][0]]['args'][1]]
+        offset=graph[sem['common_offset']]
+        assert constant['kind']==offset['kind']=='constant'
+        def error(name):return F(body[name]['absolute_output_error_upper'])
+        for n in (constant,offset):
+            exact=F(n['meta']);rounded=F(floor(exact*(1<<q)+F(1,2)),1<<q)
+            assert error(n['name'])==abs(rounded-exact)
+        Em=error(sem['mG_offset'])+error(constant['name'])+error(offset['name'])
+        edelta=error(sem['logT'])
+        if lam.denominator&(lam.denominator-1)==0:
+            coefficient,drop=lam.numerator,lam.denominator.bit_length()-1
+        else: coefficient,drop=floor(lam*(1<<q)+F(1,2)),q
+        Es=2*L*abs(F(coefficient,1<<drop)-lam)+(F(1,1<<q) if drop else F(0))
+        exp_total=F(0)
+        for side in ('PG','PA'):
+            node=graph[sem[side+'_exp']];meta=node['meta']
+            assert node['kind']=='function' and meta['name']=='exp'
+            assert F(meta['lo'])==0 and F(meta['span'])==F(1,64)
+            assert tuple(map(F,meta['output_bounds']))==(F(1),F(64,63))
+            input_bounds=tuple(map(F,body[node['args'][0]]['actual_bounds']))
+            assert 0<=input_bounds[0]<=input_bounds[1]<=F(1,64)
+            exp_total+=F(narrow[(be,q)]['output_error_upper'])
+        quantile=normal[(bn,q,L)];a=F(quantile['mass_interval']['lower_exact_fraction'])
+        DN=(1-a)/2+a/F(2*(1<<bn))+nu0*F(quantile['maximum_node_error_upper'])
+        assert DN==F(base['probability_certificate']['inner_normal_CDF_error_upper'])
+        point=min(F(1),F(body_cert['probability_error_upper'])+2*DN)
+        assert point==F(base['probability_certificate']['probability_error_upper'])
+        arithmetic=100*exp_total+202*Es+nu0/lam*(2*Em+edelta)
+        smooth=min(F(1),arithmetic+2*DN);eta=min(point,smooth)
+        terms=amended['probability_certificate']['smoothing_derivation']
+        assert eta==F(amended['probability_certificate']['probability_error_upper'])
+        assert arithmetic==F(terms['smoothing_arithmetic_error_upper'])
+        assert smooth==F(terms['smoothing_probability_error_upper'])
+        assert Es==F(terms['inner_scale_error_upper'])
+        budget=amended['complete_deterministic_budget'];oldbudget=old_row['complete_deterministic_budget']
+        for field in ('coefficient_radius_upper','financial_transfer_upper','external_factor_upper','external_factor_radius','coefficient_interval','mass_interval','external_factor_midpoint'):
+            assert budget[field]==oldbudget[field]
+        det=F(budget['coefficient_radius_upper'])+F(budget['financial_transfer_upper'])+F(budget['external_factor_upper'])*eta+F(budget['external_factor_radius'])
+        assert det==F(budget['total_deterministic_undiscounted_price_error_upper'])<F(1,100)
+        prior=amended['coefficient_informed_prior'];op=old_row['coefficient_informed_prior']
+        assert F(prior['finite_ideal_mean_lower'])==F(op['finite_ideal_mean_lower'])
+        assert F(prior['finite_ideal_mean_upper'])==F(op['finite_ideal_mean_upper'])
+        assert F(prior['probability_lower'])==max(F(0),F(op['finite_ideal_mean_lower'])-eta)
+        assert F(prior['probability_upper'])==min(F(1),F(op['finite_ideal_mean_upper'])+eta)
+        row_checks.append({'model_id':mid,'normal_bits':bn,'exp_bits':be,'eta_exact':str(eta),'pointwise_eta_exact':str(point),'smooth_eta_exact':str(smooth),'deterministic_error_exact':str(det)})
+    # The selector-tree count and optimistic complete-cap bounds also apply
+    # to ungenerated widths15 through22, within these fixed compiler choices.
+    PI=F(355,113);success=8/PI**2;repeats=1
+    def failure(n):return sum((F(comb(n,j))*(1-success)**j*success**(n-j) for j in range((n+1)//2,n+1)),F(0))
+    while failure(repeats)>F(1,3600):repeats+=2
+    assert repeats==25
+    exclusion=[]
+    for mid in dict.fromkeys(r['original_model_id'] for r in old['records']):
+        cohort=[r for r in old['records'] if r['original_model_id']==mid and r['payoff_exp_bits']==10]
+        sample=cohort[0];budget=sample['complete_deterministic_budget'];prior=sample['coefficient_informed_prior'];A=F(budget['external_factor_upper'])
+        det0=F(budget['coefficient_radius_upper'])+F(budget['financial_transfer_upper'])+F(budget['external_factor_radius'])
+        eps=(F(1,100)-det0)/A;lower,upper=map(F,(prior['finite_ideal_mean_lower'],prior['finite_ideal_mean_upper']))
+        assert A*(upper-lower)/2>F(1,100)-det0 and upper>2*eps
+        variance=upper*(1-upper) if upper<=F(1,2) else F(1,4)
+        root=own_sqrt_upper(variance);M=2
+        while 2*PI*root/M+PI**2/M**2+F(1,10**60)>eps:M*=2
+        incumbent=next(r['raw_T'] for r in old_smooth['selected_comparisons'] if r['model_id']==mid)
+        modes=[]
+        for mode,factor in (('exact7t',112),('unitary8t',64)):
+            fixed=[]
+            for row in cohort:
+                semantics=row['graph_semantic_nodes'];excluded={semantics['PG_exp'],semantics['PA_exp']};profile=row['profiles'][mode]['centred']
+                fixed_T=2*sum(b['logical_T_count'] for b in profile['blocks'] if b['node'] not in excluded)+sum(profile['comparator_primitive_counts'].get(k,0) for k in ('T','Tdg'))
+                fixed.append((fixed_T,row['normal_bits']))
+            fixed_T,bn=min(fixed)
+            caps=[{'exp_bits':b,'selector_nodes_per_lookup':(1<<b)+b,'A_T_lower':fixed_T+factor*((1<<b)+b),'complete_T_lower':repeats*(2*M-1)*(fixed_T+factor*((1<<b)+b))} for b in range(15,23)]
+            assert all(row['complete_T_lower']>incumbent for row in caps)
+            modes.append({'architecture':mode,'minimum_fixed_nonexp_A_T':fixed_T,'normal_width_at_fixed_minimum':bn,'lookup_T_multiplier_in_A':factor,'excluded_widths':caps})
+        exclusion.append({'model_id':mid,'optimistic_QPE_M_lower':M,'optimistic_repetitions_lower':repeats,'old_admitted_raw_cap':incumbent,'zero_error_deterministic_budget_exact':str(det0),'zero_error_probability_tolerance_exact':str(eps),'architectures':modes})
+    assert hashes=={key:sha(path) for key,path in paths.items()}
+    record={'schema':'qbp-expanded-independent-mathematics-v1','status':'passed','research_record_date':'2026-10-10','checker_source_sha256':sha(__file__),'input_sha256':hashes,'new_configurations_checked':len(row_checks),'independent_positive_series_exp_node_checks':scalar_checks,'unique_positive_series_inputs':own_exp_interval.cache_info().currsize,'packed_words_reconstructed':packed_checks,'node_unsigned_domain_checks':domain_checks,'smoothing_conditional_bounds_recomputed':48,'wider_addresses_feasible':'11,12,13,14 leave11,10,9,8 fractional bits; maximum representable address22','rows':row_checks,'fixed_compiler_wider_width_exclusion':exclusion,'independence':'No extension producer, smoothing mapping, Arb exponential or confidence frontend imported. Rational positive Taylor series, integer packing and exact retained-field formulae are calculated directly. The prior normal certificate remains identical to the independently checked old table.','limits':['Only retained models, normal widths8/10/12, q28, graph, architectures and canonical-QPE controller are covered.','The width15..22 exclusion uses emitted unchanged non-exp blocks and a derived lookup selector count; it is a lower bound on this resource policy, not a quantum algorithm complexity lower bound.','Omitted address widths1,2,3,5,7,9 remain outside the registered empirical pool.','No novelty, physical quantum advantage or global precision optimum claim.','Independent resource and circuit replay are performed by another reviewer.'],'elapsed_seconds_diagnostic':time.monotonic()-start,'repository_writes':False,'licensed_data_used':False,'commits_or_index_changes':False}
+    out.parent.mkdir(parents=True,exist_ok=True)
+    out.write_text(json.dumps(record,indent=2)+'\n')
+    print('Passed:',len(row_checks),'conditional bounds,',scalar_checks,'rational exp nodes,',domain_checks,'domain checks and widths15..22 excluded within fixed compiler.',flush=True)
+
+if __name__=='__main__':main()

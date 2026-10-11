@@ -1,0 +1,441 @@
+{
+  "script_sha256": "0690505ca1adb871cd01349fe13d3a69c06f7010b6de05579126714139077b06",
+  "protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+  "function_blocks_checked": 44,
+  "function_blocks": [
+    {
+      "w": 7,
+      "f": 1,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 108,
+      "formula": 108
+    },
+    {
+      "w": 7,
+      "f": 1,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 110,
+      "formula": 110
+    },
+    {
+      "w": 7,
+      "f": 1,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 120,
+      "formula": 120
+    },
+    {
+      "w": 7,
+      "f": 1,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 134,
+      "formula": 134
+    },
+    {
+      "w": 7,
+      "f": 3,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 268,
+      "formula": 268
+    },
+    {
+      "w": 7,
+      "f": 3,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 270,
+      "formula": 270
+    },
+    {
+      "w": 7,
+      "f": 3,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 280,
+      "formula": 280
+    },
+    {
+      "w": 7,
+      "f": 3,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 294,
+      "formula": 294
+    },
+    {
+      "w": 12,
+      "f": 1,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 178,
+      "formula": 178
+    },
+    {
+      "w": 12,
+      "f": 1,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 180,
+      "formula": 180
+    },
+    {
+      "w": 12,
+      "f": 1,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 190,
+      "formula": 190
+    },
+    {
+      "w": 12,
+      "f": 1,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 204,
+      "formula": 204
+    },
+    {
+      "w": 12,
+      "f": 3,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 418,
+      "formula": 418
+    },
+    {
+      "w": 12,
+      "f": 3,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 420,
+      "formula": 420
+    },
+    {
+      "w": 12,
+      "f": 3,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 430,
+      "formula": 430
+    },
+    {
+      "w": 12,
+      "f": 3,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 444,
+      "formula": 444
+    },
+    {
+      "w": 12,
+      "f": 7,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 1042,
+      "formula": 1042
+    },
+    {
+      "w": 12,
+      "f": 7,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 1044,
+      "formula": 1044
+    },
+    {
+      "w": 12,
+      "f": 7,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 1054,
+      "formula": 1054
+    },
+    {
+      "w": 12,
+      "f": 7,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 1068,
+      "formula": 1068
+    },
+    {
+      "w": 25,
+      "f": 1,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 360,
+      "formula": 360
+    },
+    {
+      "w": 25,
+      "f": 1,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 362,
+      "formula": 362
+    },
+    {
+      "w": 25,
+      "f": 1,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 372,
+      "formula": 372
+    },
+    {
+      "w": 25,
+      "f": 1,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 386,
+      "formula": 386
+    },
+    {
+      "w": 25,
+      "f": 3,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 808,
+      "formula": 808
+    },
+    {
+      "w": 25,
+      "f": 3,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 810,
+      "formula": 810
+    },
+    {
+      "w": 25,
+      "f": 3,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 820,
+      "formula": 820
+    },
+    {
+      "w": 25,
+      "f": 3,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 834,
+      "formula": 834
+    },
+    {
+      "w": 25,
+      "f": 7,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 1848,
+      "formula": 1848
+    },
+    {
+      "w": 25,
+      "f": 7,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 1850,
+      "formula": 1850
+    },
+    {
+      "w": 25,
+      "f": 7,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 1860,
+      "formula": 1860
+    },
+    {
+      "w": 25,
+      "f": 7,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 1874,
+      "formula": 1874
+    },
+    {
+      "w": 36,
+      "f": 1,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 514,
+      "formula": 514
+    },
+    {
+      "w": 36,
+      "f": 1,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 516,
+      "formula": 516
+    },
+    {
+      "w": 36,
+      "f": 1,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 526,
+      "formula": 526
+    },
+    {
+      "w": 36,
+      "f": 1,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 540,
+      "formula": 540
+    },
+    {
+      "w": 36,
+      "f": 3,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 1138,
+      "formula": 1138
+    },
+    {
+      "w": 36,
+      "f": 3,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 1140,
+      "formula": 1140
+    },
+    {
+      "w": 36,
+      "f": 3,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 1150,
+      "formula": 1150
+    },
+    {
+      "w": 36,
+      "f": 3,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 1164,
+      "formula": 1164
+    },
+    {
+      "w": 36,
+      "f": 7,
+      "bits": 2,
+      "dense": false,
+      "internal_nodes": 2,
+      "actual": 2530,
+      "formula": 2530
+    },
+    {
+      "w": 36,
+      "f": 7,
+      "bits": 2,
+      "dense": true,
+      "internal_nodes": 3,
+      "actual": 2532,
+      "formula": 2532
+    },
+    {
+      "w": 36,
+      "f": 7,
+      "bits": 4,
+      "dense": false,
+      "internal_nodes": 8,
+      "actual": 2542,
+      "formula": 2542
+    },
+    {
+      "w": 36,
+      "f": 7,
+      "bits": 4,
+      "dense": true,
+      "internal_nodes": 15,
+      "actual": 2556,
+      "formula": 2556
+    }
+  ],
+  "constant_alias_audit": {
+    "graphs_checked": 1404,
+    "nonidentical_ideal_constant_collisions": 0,
+    "maximum_ideal_difference": "0",
+    "examples": []
+  },
+  "complete_graph_cost_checks": [
+    {
+      "model": "n2_lambda0.05",
+      "q": 18,
+      "probability_bits": 6,
+      "width": 25,
+      "interval_minus_full_actual": 8252,
+      "interval_minus_full_formula": 8252,
+      "coarsening_actual": -1352,
+      "coarsening_formula": -1352
+    },
+    {
+      "model": "n2_lambda0.2",
+      "q": 18,
+      "probability_bits": 6,
+      "width": 25,
+      "interval_minus_full_actual": 8252,
+      "interval_minus_full_formula": 8252,
+      "coarsening_actual": -1304,
+      "coarsening_formula": -1304
+    },
+    {
+      "model": "n2_lambda0.4",
+      "q": 18,
+      "probability_bits": 6,
+      "width": 25,
+      "interval_minus_full_actual": 8252,
+      "interval_minus_full_formula": 8252,
+      "coarsening_actual": -1248,
+      "coarsening_formula": -1248
+    }
+  ]
+}

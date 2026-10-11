@@ -1,0 +1,157 @@
+{
+  "schema": "qbp-common-information-project-validation-v1",
+  "status": "passed",
+  "old_source_sha256": {
+    "generalisation_proofs.tex": "ef1850aa6472e9795c3a9577e6c0953171af258dbffb7d46ea06bd44ef0681c9",
+    "raw_payoff_proof.tex": "0baaf26726ea54f6a2fbd3cdeaee8a463a755b681ef2b5105b4474340d947901",
+    "README.md": "b900bb0c31213cca66259148e1e9ab30d054d675f449528724e19c817700d12b",
+    "novelty_scope_review.md": "8b8fd87137dc9e33c4bb4f6ecc9144fafe06bcfdfc7f39ad1dc80201dc27312a",
+    "quantum_method_redesign.md": "43d57f64803653c18a4a4dd72790a32cb90b84fb39ada881d736d1227249d38b",
+    "supporting_proofs_index.md": "e16a74f121e36f9ca8046bea9aef83c70f23534686e5fdd2894e364bd284528e",
+    "SOURCES.md": "2fbc77ee8f12a527cd768d5bc940522bd16df95cab68947a2fa3fdcd77454ab5"
+  },
+  "installed_sha256": {
+    "results/common_shift/common_shift_poolwise_fallback.json.gz": "ccc7ea98c40162558edaa28e0f1230e05ab087017f3383a04f88e8d401c7f636",
+    "results/common_shift/common_shift_independent_plans.json": "f26719d08a85265f6b557dfaf237c68257e54389b590c0e68efbef2af4f00b82",
+    "results/common_shift/common_shift_poolwise_fallback_protocol.json": "64aa05184624837a6d7aa9d80e599c8597760f6fb105840d952fb9bf3332d09c",
+    "results/common_shift/common_shift_resources.json.gz": "62edc1c97db3607c82d1a6d68a30301d612c2bc107577c7e6f5e184dd778b034",
+    "results/common_shift/common_shift_summary.json": "0abc2c1ad94f5aa5bee7f69ec3aefd573982a82bdc12048810e75c64bcc25b67",
+    "common_shift_poolwise_fallback.py": "7035eb743ca4f069d7720ac359bc139c5e6aa1a02300d6ccf104d3d414fc4f75",
+    "common_shift_amendment.py": "1797d7112fd52b11838a4f63179af5c3a778ef908ac12fbb4de7a7c23c078c53",
+    "results/common_shift/common_shift_protocol.json": "6b47d063c2dc08a806d08cb7d059416ca23d92483469f0ae11e8784f91d37c09",
+    "check_common_shift_plans.py": "fd55472b6ceb2ca209e5bff664187c71c6f495ef91711038adc0f9e36e3170a0",
+    "proof_sources/check_common_information_mathematics.py": "7c56d75e47b1927742bc132c77b630acdb06ba9d13ddba164c67106115025bfe",
+    "proof_sources/common_information_stability_presentation_fragment.tex": "35d6fcaef72818d8854ea081991e1d7d502c9e4094a451cf6529a27d1178c9b3",
+    "proof_sources/common_information_stability_fragment.tex": "993eb78401a7283cf445d39b9728583c6f4d1a964c2149f3dc9da7c222fe0bba",
+    "proof_sources/reflection_sampler_dominance_fragment.tex": "88e7c2785efb4a977ebfd5a6051d159d0d2f72478b5184b676dbf5c01f3bae4e",
+    "results/common_shift/common_information_independent_mathematics.json": "011f37955fb4d9d965cf86816bff85181ed587ed28b783b5dfe5ca6b03890c1b",
+    "results/common_shift/common_information_presentation_correction.json": "114200e8c832763bd9a1d549f5ca86b5f595c06bf2c82b8514ee9321724df791",
+    "check_matched_chebyshev.py": "b9d32542762717c42bc27ed473e96b31157c8ace6b2a64fd2d21314672c6bff4",
+    "check_poolwise_fallback.py": "39ad8d7389d509b563b884670e90f4a088a5828d4021eace353bebe6c24df67e",
+    "matched_chebyshev.py": "b2e0fffe13644708358518ab84fc421e0cc4eaed2a74a006467fd7c933d53ab9",
+    "proof_sources/matched_estimator_transfer_fragment.tex": "b9338be49645092e7a0e06e3f6064d33a59ff9b783ef71f7cadbf50e0c2bb61a",
+    "results/common_shift/amended_inputs.json": "bfe2412317444a2f86c140b4f34c70006bdbf892cfabb33c46c018f4c3fe3df0",
+    "results/common_shift/common_information_independent_proof_review.json": "3353d4be3f380361282ff52769a41049424c9aa5aa1cd42987b2bf05091bb3f0",
+    "results/common_shift/matched_amendment_comparison.json": "6bb3ba23515e2d5b588e6256f9fe22c2da64b1d6afa1345d1bb6a1005dc0ea84",
+    "results/matched_chebyshev/current/matched_chebyshev_summary.json": "066adfd01a1e8e43da0582dd51c4cea632e8e0e1448dd2009751a641fdbfdc61",
+    "results/matched_chebyshev/current/matched_chebyshev_protocol.json": "d169a88e11f815aadd12498866f751328137550d8567c9262a0d61fff8a297b9",
+    "results/matched_chebyshev/current/matched_chebyshev_resources.json.gz": "f6f64568b45e8eaba705360c5df53df321d71cde51de0623d48620c2836498cc",
+    "results/matched_chebyshev/current/per_shot_coefficients.json": "a3767c815b94d569526932d117ee812caa855206c3b5cbd4ca9085c7215234df",
+    "results/matched_chebyshev/amended/matched_chebyshev_summary.json": "8a09573172a123785553ed580e65a6d21cc6f06f5fc2449d1f81bb58d5d38833",
+    "results/matched_chebyshev/amended/matched_chebyshev_protocol.json": "3300027c0f57eaec5812481a345970889cef3026f74724aa19c5188a7415b73f",
+    "results/matched_chebyshev/amended/matched_chebyshev_resources.json.gz": "c11df5170921cdaa01b86fb69f7bb08a520e2ae0f17e738def24d82e271480c3",
+    "results/common_shift/source_access.json": "7f0ca9566c5586889db5f99fb4581c9e7d8b2ae238e23dbb50ad1e911e1e608a",
+    "results/common_shift/current_matched_independent_audit.json": "0c4ef2291024a1fc5d6c04fee1464de113724461c26ade0d6694e928b96eb2e4",
+    "results/common_shift/amended_matched_independent_audit.json": "42a391ffa1cf92bf3c75ad553816d6a4e3d64b8f91a49548dc1425f1bc92e840",
+    "results/common_shift/poolwise_root_audit.json": "99858d040760c42ebe0dc7463d72efa3b976c1245c2e37d2174930623b527cea",
+    "results/common_shift/common_shift_table_facts.json": "fa91a605946736c5f5004f4daa54aaad0016b0b8b3b9791d732c2d1c0b297ba5",
+    "generalisation_proofs.tex": "36d79eabcf6f41255eacb5ffe42875206df1d19dd558d6ed484d0201f1a68537",
+    "raw_payoff_proof.tex": "aa0e98ff90ff7652a34bd02cb97b9b14bbdd52edb3f6822620a81ae4b158b0f9",
+    "README.md": "ac5b56a1840b954416c2d81653e6e7a571903aced0be1f4f496b268e10cd8535",
+    "novelty_scope_review.md": "cdbdcdce7fdd769899884d94a858ec1beb9d44469bb0765eee304b3f9da06799",
+    "quantum_method_redesign.md": "4b22e721f810f21386ae4f48c3b2f341835b7b44b1a9ce69d78b1b7280c20285",
+    "supporting_proofs_index.md": "d5ea538e0aa6114be685ffdfdad86713fe2c00c0437a7053c0366e9c3d7ab951",
+    "SOURCES.md": "f03f68e96b32a2f77d7e48b85c8a713327455036860acc9d97fecd8930a66a0f",
+    "results/common_shift/installed_matched_replay_protocol.json": "deb1fe463e483509aaa2ca043e189aab4951bf25d688045fccdf71f981482a82",
+    "results/common_shift/installed_mathematics_replay.json": "011f37955fb4d9d965cf86816bff85181ed587ed28b783b5dfe5ca6b03890c1b",
+    "results/common_shift/installed_poolwise_replay.json": "8b5b36d7986f48b3797c5b7d5566a0a6694911c76f470da8685584c425136900"
+  },
+  "abstract_word_counts": {
+    "generalisation_proofs.tex": 171,
+    "raw_payoff_proof.tex": 144
+  },
+  "keywords_before_JEL": true,
+  "full_main_proofs_in_appendix": true,
+  "common_information_configurations": 416,
+  "admitted_architecture_plans": 808,
+  "retained_rejected_configurations": 12,
+  "matched_alternative_histories": 1200,
+  "paired_mesh_seed_histories": 400,
+  "confidence_looks": 1968,
+  "table_facts": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "uniform_shot_saving_lower_exact": "186539/1818882",
+      "protected_cap_saving_exact": "2833591137/27609832829",
+      "threshold_over_numerical_mesh_mean_exact": "1881260668468/1734833921555"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "uniform_shot_saving_lower_exact": "60473/1149466",
+      "protected_cap_saving_exact": "5515046252/104785500857",
+      "threshold_over_numerical_mesh_mean_exact": "1827554206637/1786195601445"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "uniform_shot_saving_lower_exact": "183071/3672398",
+      "protected_cap_saving_exact": "5566938923/111593015047",
+      "threshold_over_numerical_mesh_mean_exact": "7363448143501/6778153694440"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "uniform_shot_saving_lower_exact": "195359/8144826",
+      "protected_cap_saving_exact": "2970355702/123744083057",
+      "threshold_over_numerical_mesh_mean_exact": "1869399224903/1775312154844"
+    }
+  ],
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_staging_pushes": false,
+  "data_origin": "Synthetic only; no licensed observations or new paid data.",
+  "native_PDF_pixel_review": false,
+  "exact_PDF_page_count_verified": false,
+  "scope": "All bounds tighten without new canonical gate saving; exact all-degree template dominance and preserved full-pool protected-cap ordering. Numerical rival has lower stipulated-mesh means; no adaptive-mean superiority, global optimum, priority or practical advantage.",
+  "before_editorial_clarification_sha256": {
+    "generalisation_proofs.tex": "73d2ffc6c67811f33ee6775df41765941fa79f4f10efecbf44c7acb049a35259",
+    "README.md": "56e0ca9c37bac8d060565a830db73011f77c8f7d351f308fd05e3994a3da64a7",
+    "novelty_scope_review.md": "ab5424202d23121ca46efac1ba101fb53c78c777f98d17717a5cf3b3d7774ea5",
+    "quantum_method_redesign.md": "5a708988f4b14ad75c3f88ee1aab6583d51af0fd3107c18c5020d2118eaa7af8",
+    "supporting_proofs_index.md": "908c9309dfce686edb9fe48babf8bf2cc0f16780ccc4b69f18daeb202f5754f1",
+    "raw_payoff_proof.tex": "4b043829d564a898387898ed85d90a5c393523c6962e69a652cb78b883a29c25"
+  },
+  "editorial_clarifications": "Defines both retained minimum-bound inputs and the nonnegative domain of C_lambda; corrects prose spacing. Mathematical rules, evidence and registered outcomes unchanged.",
+  "supporting_notation_clarification": "In the embedded common-information presentation only, c_0,c_1 become kappa_0,kappa_1 to distinguish them from the earlier financial coefficient. Frozen proof fragments, auditor hashes, rules and outcomes unchanged.",
+  "final_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "source_and_native_compilation_checks": {
+    "generalisation_proofs.tex": {
+      "source_sha256": "36d79eabcf6f41255eacb5ffe42875206df1d19dd558d6ed484d0201f1a68537",
+      "native_compiler_kind": "success",
+      "labels_unique": true,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "abstract_words": 171,
+      "keywords_before_JEL": true,
+      "unnumbered_display_environments": 0,
+      "em_dashes": 0
+    },
+    "raw_payoff_proof.tex": {
+      "source_sha256": "aa0e98ff90ff7652a34bd02cb97b9b14bbdd52edb3f6822620a81ae4b158b0f9",
+      "native_compiler_kind": "success",
+      "labels_unique": true,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "abstract_words": 144,
+      "keywords_before_JEL": true,
+      "unnumbered_display_environments": 0,
+      "em_dashes": 0
+    }
+  },
+  "installed_replay": {
+    "matched_case_records_exactly_equal": true,
+    "matched_replay_differences": [
+      "protocol_sha256"
+    ],
+    "matched_retained_cases_sha256": "150ae772ef479ee44a7fcb4ca05dfef258497f70485006af81f4b05e610bbf21",
+    "matched_replayed_cases_sha256": "150ae772ef479ee44a7fcb4ca05dfef258497f70485006af81f4b05e610bbf21",
+    "portable_input_file": "results/common_shift/amended_inputs.json",
+    "replayed_protocol_sha256": "deb1fe463e483509aaa2ca043e189aab4951bf25d688045fccdf71f981482a82",
+    "replayed_resource_archive_sha256": "e8f0fc4a89a4186c555b072008f978957ead0b93400f94a769acdb9a4691e755",
+    "mathematical_replay_exactly_equal": true,
+    "mathematical_replay_sha256": "011f37955fb4d9d965cf86816bff85181ed587ed28b783b5dfe5ca6b03890c1b",
+    "poolwise_replay_scientifically_equal": true,
+    "poolwise_difference": "Exact compressed archive file hash instead of retained uncompressed stage file hash."
+  },
+  "independent_proof_review": "No substantive mathematical or baseline contradiction. Defined both retained error bounds and separated convolution constants from the financial coefficient.",
+  "no_new_gate_saving_from_certificate_amendment": true,
+  "numerical_lower_descriptive_mesh_means_in_all_four_cases": true,
+  "originality_boundary": "The checked project-specific financial certificate and universal retained-template resource comparison strengthen the contribution candidate. Generic Gaussian convolution, common-random-number coupling, reflection sampling, affine counting and binomial confidence are established. No theoretical priority is inferred."
+}

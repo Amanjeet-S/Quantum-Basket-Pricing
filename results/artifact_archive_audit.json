@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "tests": [
+    "canonical and streaming Unicode, negative integer and decimal decoding",
+    "canonical-absent JSON and byte decoding from ordered compressed shards",
+    "byteexact compressed reconstruction and refusal to overwrite different bytes",
+    "single-byte shard corruption is detected",
+    "shard reordering is rejected",
+    "canonical-absent JSON Lines streaming",
+    "production archive loaded from verified hard-linked shards with canonical file absent"
+  ],
+  "loader_sha256": "c3464e7d2c6fb15709bd9d91c2070bf0b424b3606a898cfc840d63fcea687b98",
+  "audit_sha256": "817bf7c6223eecf52c24f431b8739820dfc2934dcadc3cf3419d062b6a65db74",
+  "production_original_bytes": 109017350,
+  "production_original_sha256": "c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370",
+  "production_streamed_records": 329,
+  "no_expanded_file_created": true
+}

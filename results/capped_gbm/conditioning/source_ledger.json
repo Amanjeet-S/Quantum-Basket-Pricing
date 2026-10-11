@@ -1,0 +1,89 @@
+{
+  "review_date": "2026-10-11",
+  "scope": "Classical conditional Monte Carlo, L2 projection and independent pilot control coefficients for the capped-GBM companion",
+  "retrieval": {
+    "search_attempt": "The literature search failed with a DNS lookup error (ENOTFOUND); no account changes or paid upgrades",
+    "fallback": "Primary publisher web records and free publisher/author-hosted journal PDFs",
+    "safari": "No fresh Safari reading. Required load-bearing Asmussen/Nelson final published PDFs were available through standard source retrieval; unavailable historical material remains explicitly partial."
+  },
+  "sources": [
+    {
+      "id": "asmussen2018",
+      "authors": "Asmussen, S.",
+      "title": "Conditional Monte Carlo for sums, with applications to insurance and finance",
+      "publication": "Annals of Actuarial Science 12(2), 455-478 (2018)",
+      "status": "Published peer-reviewed journal article",
+      "doi": "10.1017/S1748499517000252",
+      "publisher_url": "https://www.cambridge.org/core/journals/annals-of-actuarial-science/article/conditional-monte-carlo-for-sums-with-applications-to-insurance-and-finance/3FC4A576C75607F46F9B7FF0238C5A94",
+      "consulted_version": "Final publisher PDF",
+      "retrieved_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/3FC4A576C75607F46F9B7FF0238C5A94/S1748499517000252a.pdf/conditional_monte_carlo_for_sums_with_applications_to_insurance_and_finance.pdf",
+      "sha256": "45ceecdd37277727c42725f6ee0a08fbb571142a01c2a38ed17cec9c4eeb07e6",
+      "material_consulted": "Section 1, printed pages 455-456, including the total-variance identity and the conditional-expectation computation/cost caveat; these two pages visually inspected as well as text read",
+      "supports": "Conditional Monte Carlo is established; projection preserves expectation and lowers observation variance. Computability and per-replication work matter for efficiency.",
+      "limitations": "Does not establish this project's pilot-coefficient ranking, exact wall-clock advantage or quantum advantage. Other sections not consulted for this extension.",
+      "metadata_correction": "Aarhus repository displays a truncated DOI ending 025 and mismatched abstract text. The publisher PDF supplies the verified DOI ending 0252 and the actual abstract.",
+      "redistributed_pdf": false
+    },
+    {
+      "id": "nelson1990",
+      "authors": "Nelson, B. L.",
+      "title": "Control Variate Remedies",
+      "publication": "Operations Research 38(6), 974-992 (1990)",
+      "status": "Published peer-reviewed journal article",
+      "doi": "10.1287/opre.38.6.974",
+      "publisher_url": "https://pubsonline.informs.org/doi/10.1287/opre.38.6.974",
+      "consulted_version": "Final journal scan hosted on the author's Northwestern University page",
+      "retrieved_url": "https://users.iems.northwestern.edu/~nelsonb/Publications/ControlVariateRemedies.pdf",
+      "sha256": "8c5ddadf641cb593c789bf6f8caea506f13efd9d3ea044e44077f913383b6e24",
+      "material_consulted": "Sections 1-2, printed pages 975-977, and Section 6, pages 979-980. Printed pages 975, 976 and 979 visually inspected; selected surrounding text read.",
+      "supports": "Known-mean linear controls, population coefficients and distinctions between finite-sample and asymptotic inference. Section 6 explains the independent preliminary-sample remedy for coefficient-induced bias.",
+      "limitations": "Published exact small-sample variance formula in Section 6 imposes joint normality. The capped-lognormal payoff/control pair is not jointly normal; no transfer of that formula or exact Student coverage is justified.",
+      "redistributed_pdf": false
+    },
+    {
+      "id": "blackwell1947",
+      "authors": "Blackwell, D.",
+      "title": "Conditional Expectation and Unbiased Sequential Estimation",
+      "publication": "The Annals of Mathematical Statistics 18(1), 105-110 (1947)",
+      "status": "Published peer-reviewed journal article",
+      "doi": "10.1214/aoms/1177730497",
+      "publisher_url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-18/issue-1/Conditional-Expectation-and-Unbiased-Sequential-Estimation/10.1214/aoms/1177730497.full",
+      "consulted_version": "Historical bibliographic metadata and abstract only; a Harvard memorial slide contains a reproduction of the first page, not the complete article",
+      "metadata_url": "https://celebratio.org/Blackwell_DH/article/255/",
+      "first_page_reproduction_url": "https://ds.dfci.harvard.edu/~gp/talks/Blackwell12.pdf",
+      "material_consulted": "Metadata and abstract; reproduced printed page 105 text in the memorial slide",
+      "supports": "Historical attribution only, not a claimed full-text proof comparison",
+      "limitations": "Publisher full/PDF requests failed. A 1162-byte HTML response was rejected as non-PDF. Complete original proof was not consulted.",
+      "redistributed_pdf": false
+    },
+    {
+      "id": "dingec_hormann2013",
+      "authors": "Dingec, K. D. and Hormann, W.",
+      "title": "Control variates and conditional Monte Carlo for basket and Asian options",
+      "publication": "Insurance: Mathematics and Economics 52(3), 421-434 (2013)",
+      "status": "Published peer-reviewed journal article",
+      "doi": "10.1016/j.insmatheco.2013.03.002",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0167668713000309",
+      "consulted_version": "Final publisher abstract, introduction and section summaries only; prior limited consultation also retained in classical_antecedent_sources.json",
+      "material_consulted": "Abstract/introduction describing combined conditional Monte Carlo, geometric-region controls and quadratic controls",
+      "supports": "Combining conditioning and control variates for GBM options already appears in published finance literature",
+      "limitations": "Final formula/proof body unread. Do not claim the project's combination is novel or infer exact implementation equivalence.",
+      "redistributed_pdf": false
+    },
+    {
+      "id": "curran1994",
+      "authors": "Curran, M.",
+      "title": "Valuing Asian and Portfolio Options by Conditioning on the Geometric Mean Price",
+      "publication": "Management Science 40(12), 1705-1711 (1994)",
+      "status": "Published peer-reviewed journal article",
+      "doi": "10.1287/mnsc.40.12.1705",
+      "consulted_version": "Existing project record of the parent's prior visual reading of the complete author-uploaded final journal scan",
+      "material_consulted": "No fresh reading in this extension; record retained from classical_antecedent_sources.json dated 8 October 2026",
+      "supports": "Previously established Gaussian/geometric conditioning context; not needed to justify the new one-asset tower-property calculation",
+      "limitations": "Do not describe the retained consultation as a fresh full-text read, or claim the one-asset demonstration establishes improved basket-option pricing.",
+      "redistributed_pdf": false
+    }
+  ],
+  "interpretation": "These are established classical methods. The project-specific contribution is a proved, reproducible capped-GBM comparison and a demonstration of when failing to project the control adds variance. No theoretical priority, practical quantum advantage or finite-pilot dominance is claimed.",
+  "copyright_handling": "Only bounded paraphrases and bibliographic metadata are intended for the repository. Retrieved PDFs and page images remain temporary, outside the repository."
+}

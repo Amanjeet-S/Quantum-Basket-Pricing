@@ -1,0 +1,16 @@
+{
+  "schema": "qbp-exact-factor-basis-independent-audit-v1",
+  "status": "passed",
+  "protocol_sha256": "9d8e79f349827b9f5df58728072096488f38492dc7affa5dfd96ca12119c8076",
+  "certificates_sha256": "530ee63edb414bdb9e4789adf80787069e7366a43feae5ff2a435aa313c46c06",
+  "summary_sha256": "b2de5cd2be8406dbd08296efeb9cef42af2b74f6f09b1aa78fdf18e3170ef8ee",
+  "audit_source_sha256": "5b7a5db31008ef27df40e9399ae08d45705e7d619843b052ba57c7fd76d7b10e",
+  "candidate_count": 58,
+  "exact_orthogonality_scalar_identities": 4468,
+  "exact_asset_and_centred_covariance_scalar_identities": 8940,
+  "explicit_gaussian_monomial_rate_and_cross_checks_orders_0_through_3": 15190,
+  "full_direct_transfer_replays": 58,
+  "identity_baseline_transfer_matches": 4,
+  "financial_price_answers_used": 0,
+  "scope": "Independent exact matrix, covariance and finite-pool selection replay. Fresh established Gaussian cell/direct-transfer implementation agrees. These checks supplement the all-order structural proof and do not claim invariance of the finite grid."
+}

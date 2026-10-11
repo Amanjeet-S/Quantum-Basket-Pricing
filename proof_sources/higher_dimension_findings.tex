@@ -1,0 +1,116 @@
+\section{Higher-dimensional findings and the resulting research claim}
+\label{sec:higherdim-findings}
+
+The finite-order certificate resolves all eighteen four- and eight-asset
+contracts at the retained undiscounted radius $0.01$. The table records both
+the first certifying order and the radius of the narrowest retained interval.
+These are different quantities: the full run computes all orders zero through
+eight, and its timing is not the timing of an unexecuted early-order algorithm.
+
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+Assets & $\lambda$ & $H$ & First order & Radius upper bound\\
+\midrule
+4 & 0.05 & 1 & 2 & $7.064\times10^{-5}$\\
+4 & 0.05 & 10 & 4 & $7.064\times10^{-4}$\\
+4 & 0.05 & 25 & 5 & $1.766\times10^{-3}$\\
+4 & 0.2 & 1 & 1 & $1.481\times10^{-9}$\\
+4 & 0.2 & 10 & 2 & $1.481\times10^{-8}$\\
+4 & 0.2 & 25 & 2 & $3.703\times10^{-8}$\\
+4 & 0.4 & 1 & 1 & $1.935\times10^{-11}$\\
+4 & 0.4 & 10 & 1 & $1.935\times10^{-10}$\\
+4 & 0.4 & 25 & 1 & $4.837\times10^{-10}$\\
+8 & 0.05 & 1 & 2 & $2.282\times10^{-6}$\\
+8 & 0.05 & 10 & 3 & $2.282\times10^{-5}$\\
+8 & 0.05 & 25 & 4 & $5.704\times10^{-5}$\\
+8 & 0.2 & 1 & 1 & $4.784\times10^{-11}$\\
+8 & 0.2 & 10 & 1 & $4.784\times10^{-10}$\\
+8 & 0.2 & 25 & 2 & $1.196\times10^{-9}$\\
+8 & 0.4 & 1 & 1 & $6.250\times10^{-13}$\\
+8 & 0.4 & 10 & 1 & $6.250\times10^{-12}$\\
+8 & 0.4 & 25 & 1 & $1.563\times10^{-11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Taylor calculation certifies 25 of 27 contracts overall. At the
+predeclared order limit, the two unresolved controls have two assets,
+$\lambda=0.05$ and caps 10 and 25. Their retained enclosures remain valid
+but too wide. Existing validated one-dimensional quadrature supplies narrow
+enclosures for both. Thus a deterministic continuous-model pricing answer
+is available for all 27 contracts. The new run takes approximately
+$15.36$ seconds on the retained host, comprising about $6.67$ seconds of
+geometric setup and $8.68$ seconds of kernel work. It evaluates 25,080
+geometric exponential terms and 120,690 scalar kernels. Those figures include
+the full order search and shared setup, exclude process startup, and are
+separate from quantum logical resource units.
+
+The independent Taylor audit checks 540 formal derivative comparisons,
+60 strike-integral derivatives, 81 directly integrated coefficient
+comparisons, 81 reference-price/order containment checks, all 25,080
+multinomial weights and 83 covariance-exposure identities. Outward scalar
+arithmetic, analytic formulae and the explicit remainder determine the
+certificate; neither agreement with a reference point nor apparent order
+stability is used as its error bound.
+
+The randomised experiment executes 27 prices using 50,331,648 exact
+financial outputs and 786,432 independent-shift sampling units in its ideal
+randomisation model. Twenty-four runs meet the reserved statistical
+allowance. All three $\lambda=0.05$, cap-25 cases reach the prespecified
+maximum of 65,536 shifts. Two nevertheless have a full monetary radius
+within $0.01$ because their deterministic allowances have slack; the
+four-asset case has undiscounted radius approximately $0.0111767$ and
+remains unresolved by this randomised procedure. The full undiscounted
+monetary criterion is met by 26 of 27 outputs. The stored randomised price
+intervals are discounted; the separate combined comparison reconstructs
+undiscounted endpoints explicitly and reports both bases.
+All 27 narrower deterministic discounted price intervals are contained in
+their corresponding randomised intervals.
+
+Independent replay verifies every randomised financial output, batch sum,
+checkpoint moment and stream hash, together with 3,544 Python-integer scalar
+financial checks. A separate confidence auditor checks all 227 checkpoints
+using independent 300-digit calculations and exact finite probability
+sums for 66 Bernoulli laws, covering 89,298 pair-type terms. The audit
+supports the implementation of the proved coverage statement; the independence
+of ideal shifts remains a mathematical sampling premise. The reproducible
+pseudorandom seed does not prove that premise.
+
+The matched fixed-IID opponent receives the same actual finite range and
+moments. I retain all 137 conditioned-prefix plans and select before samples.
+The realised randomised-net evaluator work exceeds the selected fixed-IID
+planning work in all 27 cases, with ratios approximately $2.544$ to
+$133.203$. Extra net generation, pair statistics and confidence construction
+are reported separately. These fixed-IID counts are certified plans, not
+newly executed IID streams. The adverse comparison prevents calling this
+conservative randomised construction a classical speed improvement.
+Other published randomised-quadrature confidence policies remain different
+algorithms \citep{jainrqmc,waudbysmithramdas}.
+
+\subsection{What the comparison establishes}
+
+The useful mathematical object is now the explicit continuous-model
+certificate in Theorem~\ref{thm:finite-gaussian-price-certificate}. It
+provides a sufficient test for pricing to a stated tolerance without
+quantum mean-estimation calls. Failure of that test at a chosen order does
+not prove that quantum computation is necessary, that higher orders succeed,
+or that a different classical method fails. The all-contract combination
+with quadrature is a constructive benchmark result for this frozen Gaussian
+family, rather than a universal statement about the difficulty of financial
+pricing.
+
+The previous 82.1 per cent T-cap saving remains a checked comparison between
+encodings. It cannot carry an advantage claim for these contracts when a
+classical price enclosure already meets the required accuracy. Nor does the
+presence of fixed-point and logical-gate costs constitute a physical quantum
+runtime comparison. The exact mathematical contribution candidate concerns
+the evaluable coefficient, remainder and method-selection argument; published
+Taylor expansions, geometric controls and basket bounds remain essential
+predecessors \citep{ju,kornzeytun,caldana,jiprezedate}.
+The consulted sources distinguish their constructions, but do not establish
+absence of an equivalent certificate from all earlier literature.
+The full Ju article and compatible modern quantum algorithms remain material
+comparison gaps. A positive literature claim requires completing those
+specific comparisons, rather than adding model names or repeating the
+resource saving as if it were an algorithmic breakthrough.

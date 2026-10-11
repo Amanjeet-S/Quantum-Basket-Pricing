@@ -1,0 +1,2 @@
+# Optional validated continuous-pricing stage; existing authorised runtime used.
+python-flint==0.9.0

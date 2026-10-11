@@ -1,0 +1,896 @@
+{
+  "schema": "qbp-integer-constant-table-targeted-audit-v1",
+  "status": "passed",
+  "fixtures": 6,
+  "fixture_architecture_configurations": 12,
+  "records": [
+    {
+      "kind": "function_increasing",
+      "architecture": "exact7t",
+      "outputs": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7448,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "d3ae936c60416be6195b13e1f7e208d9261f44d0146904c1e4bcf607843f1aea"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "665e004c6ac97137e18887c84d5f6017ecf4d0d1e10a3aabae9b6023c5627b75"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "36f34bed4c2f984488ca6a07c4a18032ed15b344e6f5817dad9b387a23e5c08d",
+        "source_tables_sha256": "60683eef88c7ca0a2586c4bd2c5ce744168b8d5b4ea52c011c2ec9d7e430c6ab",
+        "rewritten_graph_sha256": "354a5e37c11eed9d58e5f3e7bff187208fbf9a89805b5df48db335999503eb14",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 5,
+            "exact_dyadic_constant": "5/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 5,
+            "exact_dyadic_constant": "5/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "function_increasing",
+      "architecture": "unitary8t",
+      "outputs": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7376,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "744a5e273a73e0a607ab590df0178d43e78af633b67c65770fbef0da0babcf46"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "665e004c6ac97137e18887c84d5f6017ecf4d0d1e10a3aabae9b6023c5627b75"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "36f34bed4c2f984488ca6a07c4a18032ed15b344e6f5817dad9b387a23e5c08d",
+        "source_tables_sha256": "60683eef88c7ca0a2586c4bd2c5ce744168b8d5b4ea52c011c2ec9d7e430c6ab",
+        "rewritten_graph_sha256": "354a5e37c11eed9d58e5f3e7bff187208fbf9a89805b5df48db335999503eb14",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 5,
+            "exact_dyadic_constant": "5/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 5,
+            "exact_dyadic_constant": "5/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "function_decreasing",
+      "architecture": "exact7t",
+      "outputs": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7448,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "b3b60de74d3fa3cfcc5c836914f486d41e2ff51072e4a3e5484be5a901b747bc"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "f67c509be4e2b14f65afb2c824aec80d93199e8e5079c989a33aeaae8809a9c7"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "136672eff044023ba6940dcc9efcfd0c41b0cf2d58a83339cdee1f61305803c2",
+        "source_tables_sha256": "73e168eee3ada1e86a67de451f7e2187f8ccbbd2237355583b707a7c8a568c5a",
+        "rewritten_graph_sha256": "a341cb155cb88e7bac5efa454c7f48b334f92e3f0f34463a564104c6f6b7bfa7",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 14,
+            "exact_dyadic_constant": "7/4",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "function_decreasing",
+      "architecture": "unitary8t",
+      "outputs": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7376,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "73e8aab05e7f8d316fec13a145026975fc02cc045cc1dc112750e1e5c6b32618"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "f67c509be4e2b14f65afb2c824aec80d93199e8e5079c989a33aeaae8809a9c7"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "136672eff044023ba6940dcc9efcfd0c41b0cf2d58a83339cdee1f61305803c2",
+        "source_tables_sha256": "73e168eee3ada1e86a67de451f7e2187f8ccbbd2237355583b707a7c8a568c5a",
+        "rewritten_graph_sha256": "a341cb155cb88e7bac5efa454c7f48b334f92e3f0f34463a564104c6f6b7bfa7",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 14,
+            "exact_dyadic_constant": "7/4",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "function_decreasing_endpoint",
+      "architecture": "exact7t",
+      "outputs": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7448,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "fc0c834ea5c2a72189bdb04053db16b4eafead22f69132792cafb7a007630ade"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "f67c509be4e2b14f65afb2c824aec80d93199e8e5079c989a33aeaae8809a9c7"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "199a365947e9ceeb58274526be79b6990ab72f9207f12ff9c1bbac304e5cdd16",
+        "source_tables_sha256": "73e168eee3ada1e86a67de451f7e2187f8ccbbd2237355583b707a7c8a568c5a",
+        "rewritten_graph_sha256": "281435fd3172252c3e923db25d0d076b55576a94065dc2f1fd8045b45f91f8ce",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "function_decreasing_endpoint",
+      "architecture": "unitary8t",
+      "outputs": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 7376,
+        "emitted_logical_wires": 121,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "95428f145cd73bf6ac33598399324277bd70f6550746254dca0981943ad4a98e"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "f67c509be4e2b14f65afb2c824aec80d93199e8e5079c989a33aeaae8809a9c7"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "199a365947e9ceeb58274526be79b6990ab72f9207f12ff9c1bbac304e5cdd16",
+        "source_tables_sha256": "73e168eee3ada1e86a67de451f7e2187f8ccbbd2237355583b707a7c8a568c5a",
+        "rewritten_graph_sha256": "281435fd3172252c3e923db25d0d076b55576a94065dc2f1fd8045b45f91f8ce",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_function",
+            "original_kind": "function",
+            "original_args": [
+              "known_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_function"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 8,
+            "exact_dyadic_constant": "1",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_argument",
+          "known_function"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "constant_quantile",
+      "architecture": "exact7t",
+      "outputs": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 1904,
+        "emitted_logical_wires": 66,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "1fcd85b46503438cb536fa71e2500d37bc4cb8d728228ae04beab692722d1539"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "c522d7843e4ed41234a47314a17e5383725b25492e8d9574ae7be562c9b08975"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "ed338d5c8d94807db5dfd1716f4c1a615a0f581491840cabde355a5398882fe1",
+        "source_tables_sha256": "49eacb117f0c2506945ab267dc3ebbbc7992b4531fdd147f65ed8d1118a51ed7",
+        "rewritten_graph_sha256": "528d583c29c634d62ffcfe7e3697795d65656c6486166451497b2ccc4f214aee",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_quantile",
+            "original_kind": "quantile",
+            "original_args": [
+              "known_label"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 7,
+            "exact_dyadic_constant": "7/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_quantile"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 7,
+            "exact_dyadic_constant": "7/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_label",
+          "known_quantile"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "constant_quantile",
+      "architecture": "unitary8t",
+      "outputs": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 1808,
+        "emitted_logical_wires": 66,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "874b4d7147bb249bb001f6cbceab005dff7cb6b389c5f4595b020091d65111af"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "c522d7843e4ed41234a47314a17e5383725b25492e8d9574ae7be562c9b08975"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "ed338d5c8d94807db5dfd1716f4c1a615a0f581491840cabde355a5398882fe1",
+        "source_tables_sha256": "49eacb117f0c2506945ab267dc3ebbbc7992b4531fdd147f65ed8d1118a51ed7",
+        "rewritten_graph_sha256": "528d583c29c634d62ffcfe7e3697795d65656c6486166451497b2ccc4f214aee",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_quantile",
+            "original_kind": "quantile",
+            "original_args": [
+              "known_label"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 7,
+            "exact_dyadic_constant": "7/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          },
+          {
+            "node": "bounded_output",
+            "original_kind": "clamp",
+            "original_args": [
+              "known_quantile"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 7,
+            "exact_dyadic_constant": "7/8",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_label",
+          "known_quantile"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 1,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "constant_uniform",
+      "architecture": "exact7t",
+      "outputs": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 1540,
+        "emitted_logical_wires": 43,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "673fe89ff9a9fffc19dd903284cb8ccc1dec4050ae80d43cf2dd7a31c8c4cadd"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "8da523ed9bb9701315c3fcac94d489a2b618fb1af61502c1c8b0f9d74dbd9169"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "311c746f099bf124deacaffcc54425d77bcfaa768fca4c7a157c5edac3d18b34",
+        "source_tables_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "rewritten_graph_sha256": "b049918c8d06805a6b2d1537916364cc51154b7b59fdf100b642dfac53092bbb",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_uniform",
+            "original_kind": "uniform",
+            "original_args": [
+              "narrow_known_label"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 6,
+            "exact_dyadic_constant": "3/4",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_label",
+          "narrow_known_label"
+        ],
+        "known_narrow_nodes_left_unchanged": [
+          "narrow_known_label"
+        ],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 0,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "constant_uniform",
+      "architecture": "unitary8t",
+      "outputs": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 1540,
+        "emitted_logical_wires": 43,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "673fe89ff9a9fffc19dd903284cb8ccc1dec4050ae80d43cf2dd7a31c8c4cadd"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "8da523ed9bb9701315c3fcac94d489a2b618fb1af61502c1c8b0f9d74dbd9169"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "311c746f099bf124deacaffcc54425d77bcfaa768fca4c7a157c5edac3d18b34",
+        "source_tables_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "rewritten_graph_sha256": "b049918c8d06805a6b2d1537916364cc51154b7b59fdf100b642dfac53092bbb",
+        "source_node_count": 3,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_uniform",
+            "original_kind": "uniform",
+            "original_args": [
+              "narrow_known_label"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 6,
+            "exact_dyadic_constant": "3/4",
+            "reason": "all_arguments_are_exact_masked_constants"
+          }
+        ],
+        "dead_nodes_removed": [
+          "known_label",
+          "narrow_known_label"
+        ],
+        "known_narrow_nodes_left_unchanged": [
+          "narrow_known_label"
+        ],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 0,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "identical_positive_subtraction",
+      "architecture": "exact7t",
+      "outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 2968,
+        "emitted_logical_wires": 58,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "127438c1bf1ff20436d4b4e4744af3ee2b51ccb6869f6c1872e0f74bd575d869"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "e923c66306d73a2941a668d5de37560a9e0d5e522aecb5b450120207650486d4"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "c44e8e2f0a0bb4e1055a205a6d1e7114918e2302e388ddbe577c68d6aa14e205",
+        "source_tables_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "rewritten_graph_sha256": "91ea2834313c9b66de93329c8495b6c887fc24cb5653e74cec153d79c0d1a5c0",
+        "source_node_count": 2,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_zero",
+            "original_kind": "positive_sub",
+            "original_args": [
+              "full_word_argument",
+              "full_word_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 0,
+            "exact_dyadic_constant": "0",
+            "reason": "identical_integer_arguments_subtract_to_zero"
+          }
+        ],
+        "dead_nodes_removed": [
+          "full_word_argument"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 0,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    },
+    {
+      "kind": "identical_positive_subtraction",
+      "architecture": "unitary8t",
+      "outputs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "baseline": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 2968,
+        "emitted_logical_wires": 58,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "127438c1bf1ff20436d4b4e4744af3ee2b51ccb6869f6c1872e0f74bd575d869"
+      },
+      "optimised": {
+        "dirty_value_basis_lanes": 128,
+        "dirty_flag_basis_lanes": 128,
+        "T_count": 168,
+        "emitted_logical_wires": 29,
+        "reflection_core_qubits": 7,
+        "literal_tape_sha256": "e923c66306d73a2941a668d5de37560a9e0d5e522aecb5b450120207650486d4"
+      },
+      "rewrite_record": {
+        "schema": "qbp-exact-financial-integer-optimisation-v1",
+        "status": "exact integer equivalence by induction",
+        "source_graph_sha256": "c44e8e2f0a0bb4e1055a205a6d1e7114918e2302e388ddbe577c68d6aa14e205",
+        "source_tables_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "rewritten_graph_sha256": "91ea2834313c9b66de93329c8495b6c887fc24cb5653e74cec153d79c0d1a5c0",
+        "source_node_count": 2,
+        "retained_node_count": 1,
+        "constant_rewrites": [
+          {
+            "node": "known_zero",
+            "original_kind": "positive_sub",
+            "original_args": [
+              "full_word_argument",
+              "full_word_argument"
+            ],
+            "original_output_bits": 8,
+            "integer_value": 0,
+            "exact_dyadic_constant": "0",
+            "reason": "identical_integer_arguments_subtract_to_zero"
+          }
+        ],
+        "dead_nodes_removed": [
+          "full_word_argument"
+        ],
+        "known_narrow_nodes_left_unchanged": [],
+        "original_input_registers_preserved": true,
+        "word_width_preserved": true,
+        "fractional_width_preserved": true,
+        "output_node_preserved": true,
+        "reflection_core_qubits": 7,
+        "source_table_count": 0,
+        "retained_table_count": 0,
+        "source_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+        "scope": "Exact implementation optimisation of the identical certified integer output. Original source graph/certificate and unchanged implementation baseline remain retained. No improved financial approximation or changed payoff/model is claimed."
+      }
+    }
+  ],
+  "audit_source_sha256": "35e3bbf9dcf0aa40f052c1fd10d6ce870e59c99a5b6d0cb4a4dda0dbf04deec0",
+  "optimiser_sha256": "682dca30089d546514c2944439fa4c1dc3a2baa7fcca8d7c7c47fc1673cbfff7",
+  "reused_audit_sha256": "ecf83d405c62ece9c1387c1b645064224737183ab6fc81201e62a6316c3acf08",
+  "scope": "Constant interpolation in both directions and at the final endpoint, quantile and uniform lookup, and exact alias subtraction. Both original and optimised clean dirty-target circuits and literal inverse/accounting are checked. No financial model or monetary accuracy claim."
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "qbp-strategic-taylor-figure-audit-v1",
+  "date": "2026-10-07",
+  "source_unchanged": true,
+  "source_sha256": "720880acb1e0c9b447ebc4ec818ba30799adbb2dcfe14bd1d5d7d59e03c9a037",
+  "nine_curves_81_exact_integer_degree_radii": true,
+  "eight_first_certificate_rings": true,
+  "exact_status_checks": [
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "first_certifying_degree": null,
+      "minimum_radius_exact_fraction": "10671011590128117663012836883348257745108184248030444699579305774351/53919893334301279589334030174039261347274288845081144962207220498432"
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "first_certifying_degree": 2,
+      "minimum_radius_exact_fraction": "14574241536044540136087000943731200054439006818226756345937393935467/1766847064778384329583297500742918515827483896875618958121606201292619776"
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "first_certifying_degree": 2,
+      "minimum_radius_exact_fraction": "24372239028549953672098672057896233759403463626630455992335772592667/226156424291633194186662080095093570025917938800079226639565593765455331328"
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "first_certifying_degree": 5,
+      "minimum_radius_exact_fraction": "24374072371439605495103302943521400868597277886947018491543708249797/13803492693581127574869511724554050904902217944340773110325048447598592"
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "first_certifying_degree": 2,
+      "minimum_radius_exact_fraction": "16744754075488634904274492966204170728912684476082234291832173327353/452312848583266388373324160190187140051835877600158453279131187530910662656"
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "first_certifying_degree": 1,
+      "minimum_radius_exact_fraction": "14000973834308210075514174826986326356853572614162174265265702096171/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "first_certifying_degree": 4,
+      "minimum_radius_exact_fraction": "25194198702349177955976335185866835433695029660999317725624264453973/441711766194596082395824375185729628956870974218904739530401550323154944"
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "first_certifying_degree": 2,
+      "minimum_radius_exact_fraction": "17308173003300019887348866015670931440723855725002403251742614526157/14474011154664524427946373126085988481658748083205070504932198000989141204992"
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "first_certifying_degree": 1,
+      "minimum_radius_exact_fraction": "14472071446759170642329652230196103719607372396861905887868845020827/926336713898529563388567880069503262826159877325124512315660672063305037119488"
+    }
+  ],
+  "common_log10_range": [
+    -12,
+    1
+  ],
+  "self_contained_native_picture": true,
+  "native_additional_packages": [
+    "xcolor",
+    "graphicx"
+  ],
+  "external_graphics_inputs": false,
+  "rendered_png_visual_inspection": "Inspected at full rendered resolution: axes, exponent labels, panel titles, all curves, threshold, first-degree rings and legend are legible; no overlaps or clipping observed. Native TeX uses the same numerical mapping and data but must still be checked separately in the native editor.",
+  "matplotlib_version": "3.10.6",
+  "font": "DejaVu Sans; native document font retained",
+  "claim_limits": [
+    "Radii are rigorous interval bounds, not measured pricing errors.",
+    "Only integer degrees zero to eight were evaluated.",
+    "No infinite-series convergence or practical quantum advantage is claimed."
+  ],
+  "artifact_hashes": {
+    "plot_taylor_certificate.py": "5be4cbc66078619b2e643cd7253fb71c857711148653b1b438e03e1c9d5a2e84",
+    "taylor_certificate_plot_data.json": "daa535a826acf385a9ce2584756017424781d7b7e839ff3835e71ab27ecd030f",
+    "taylor_certificate_coordinates.json": "a9eff8b0efe8b04d3d2b9da7ed1d4395c79547d9fb1ae5310b67a295613cba23",
+    "taylor_certificate_radii.svg": "33a5cff83599459f0eddd1bea9b0c42657d13126aa4c5540ee3b21852d772d1b",
+    "taylor_certificate_radii.png": "b48c876ac3a593071af3710577aa856f19a6fd0f94181ccdf8deb04e6f18fae9",
+    "taylor_certificate_figure.tex": "39c00b3497cf3e02dbfe5c99f78fb3d146597878ef5788dc7da5b868a86f74bd",
+    "taylor_certificate_caption.txt": "32929921189c042b30e4d3980aa1ea90bb697d156569917ee2e082a8f4e70bc6"
+  },
+  "portable_reproduction": "Generators installed in figures/ resolve defaults to the repository results/ directory. Refreshed after this path-only edit; exact source data and coordinates checked unchanged."
+}

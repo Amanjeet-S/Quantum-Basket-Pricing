@@ -1,0 +1,327 @@
+\section{Exact numerical values and coherent dyadic buckets}
+
+I distinguish a numerical-value oracle from an oracle that prepares only a
+Bernoulli flag. This distinction is necessary because a variance-sensitive
+mean-estimation result formulated in terms of numerical values does not
+automatically apply to an already Bernoulli-encoded payoff. Throughout this
+section, the previously certified finite graph determines an integer function
+\(a:\mathcal L\longrightarrow\{0,\ldots,2^q\}\), where
+\(\mathcal L\) is the finite uniform latent grid and \(q\geq1\).
+The arithmetic, function tables and distributional approximation are fixed.
+I set \(X(x)=2^{-q}a(x)\). The dyadic decomposition below is an exact
+identity for this finite random variable. I do not identify that elementary
+identity, the compute--copy--uncompute construction, or the established
+amplitude-amplification geometry \citep{brassard} as a new theoretical
+contribution.
+
+\subsection{Clean numerical-value oracle}
+
+Let \(B\) be the emitted financial-body computation. Its computational-basis
+action, on initially clean private work, has the form
+\[
+ B\lvert x\rangle\lvert0\rangle_W
+ =\lvert x\rangle\lvert h_x\rangle_W,
+\]
+where a declared \((q+1)\)-bit subregister of \(h_x\) contains \(a(x)\).
+The remaining body history is retained until it is uncomputed. Every
+arithmetic atom is an exact Boolean permutation. Every lookup macro has the
+phase-correct logical XOR action proved in the instrument section, whose
+published lookup and temporary-AND antecedents are
+\citet{babbush} and \citet{gidney}, including
+arbitrary coherent dirty output registers. Its private selector work is
+reset by the corrected erasure. Each measurement-record Kraus operator is a
+scalar, independent of its logical input, times that XOR action. These facts
+also hold when the logical input is entangled with an external reference.
+Consequently, composing the body implements the corresponding coherent
+logical map without revealing \(x\) or any numerical intermediate.
+
+Allocate a distinct \((q+1)\)-bit target \(Z\) before allocating the body
+work. Copy the value subregister to \(Z\) using one CNOT per value bit, then
+apply the logical inverse of \(B\). In the measured architecture, a lookup
+inverse is a fresh corrected XOR instrument. It is not a reversal of a
+measurement record. On basis states the resulting value oracle is
+\[
+ V\lvert x\rangle\lvert z\rangle_Z\lvert0\rangle_W
+ =\lvert x\rangle\lvert z\mathbin{\mathrm{XOR}}a(x)\rangle_Z
+   \lvert0\rangle_W.                                      \tag{V1}
+\]
+The body is independent of \(z\), and the copy leaves the body value
+unchanged. The inverse therefore clears exactly the same history that the
+forward body produced. This proves (V1) for every dirty target \(z\), not
+merely \(z=0\). By linearity and the input-independent Kraus factors,
+(V1) holds on arbitrary coherent superpositions with an external reference.
+The logical action is an XOR involution on the clean-work subspace. A fresh
+instance implements \(V^\dagger\) there. These claims do not assert that
+the operational measurement tape is unitary on arbitrary dirty private work.
+
+\subsection{A fully specified bucket predicate}
+
+For \(b\in\{0,\ldots,q-1\}\), define
+\[
+ D_b(a)=\boldsymbol1\{2^b\leq a<2^{b+1}\},\qquad
+ g_b(a,u)=D_b(a)\boldsymbol1\{u<a\},
+ \quad 0\leq u<2^{b+1}.
+\]
+I use a distinct \((b+1)\)-bit comparison register for \(u\). Write
+\(a=\sum_{j=0}^q2^j a_j\). Membership is equivalent to
+\(a_b=1\) and \(a_{b+1}=\cdots=a_q=0\). I temporarily negate the
+\(q-b\) higher bits and compute the conjunction of
+\(a_b,\ldots,a_q\) into a clean ladder of \(q-b\) targets.
+This requires \(q-b\) exact Toffoli gates. The lowest \((b+1)\)
+bits of \(a\) are unaffected by those negations. I compute the borrow bit
+of the unsigned subtraction
+\(u-(a\bmod2^{b+1})\) using the existing explicitly emitted ripple
+construction. A Toffoli controlled by membership and borrow XORs
+\(g_b\) into the good flag. I then reverse the complete predicate history,
+excluding that final flag operation.
+
+The unsigned borrow is one precisely when
+\(u<a\bmod2^{b+1}\). On the membership branch, \(a<2^{b+1}\),
+so this is \(u<a\). On every other branch, the membership control is
+zero. Thus the flag is correct even when the truncated comparison alone
+has no financial meaning. The inverse clears every predicate carry,
+conjunction target and temporary negation, while preserving \(a\), \(u\)
+and the marked flag. The predicate therefore has the exact logical action
+\[
+ P_b\lvert a,u,f\rangle\lvert0\rangle_J
+ =\lvert a,u,f\mathbin{\mathrm{XOR}}g_b(a,u)\rangle
+   \lvert0\rangle_J.                                      \tag{V2}
+\]
+For the top bucket, set \(D_q(a)=\boldsymbol1\{a=2^q\}\).
+The certified range \(0\leq a\leq2^q\) implies \(D_q(a)=a_q\).
+I therefore use a single CNOT from \(a_q\) to the flag, with no comparison
+register and no conjunction ladder. On basis states outside the certified
+range, this circuit remains a Boolean permutation, but its financial
+top-bucket interpretation is not asserted.
+
+In the lower buckets, the ripple construction uses three Toffoli gates,
+four CNOT gates and one X gate per bit in its forward history. That history
+and the membership ladder are reversed after marking the flag. Hence the
+exact predicate counts are
+\[
+ N_{\mathrm{CCX}}(P_b)=2(q-b)+6(b+1)+1=2q+4b+7,
+ \quad N_{\mathrm{CX}}(P_b)=8(b+1),
+ \quad N_{\mathrm X}(P_b)=2(q+1).                          \tag{V3}
+\]
+The predicate uses \(q+2b+4\) clean temporary wires beyond its value,
+comparison and flag registers under the declared ripple construction.
+At the top bucket, the counts are one CNOT and no Toffoli or X gates.
+These are construction-specific counts, not lower bounds or optimality claims.
+
+\subsection{Exact Born probabilities and price transfer}
+
+Apply Hadamards to all latent input bits and, for \(b<q\), to all
+\((b+1)\) comparison bits. Compute the financial body, apply (V2),
+and uncompute the financial body. All body and predicate work returns to
+zero. Denote the resulting preparation by \(A_b\). For a fixed latent
+state \(x\) in bucket \(b\), exactly \(a(x)\) of the
+\(2^{b+1}\) equally weighted comparison integers satisfy \(u<a(x)\).
+The Born probability of the good flag is therefore exactly
+\[
+ p_b=\mathbb E\!\left[
+    \frac{a}{2^{b+1}}D_b(a)\right],\quad 0\leq b<q,
+ \qquad p_q=\mathbb P(a=2^q).                             \tag{V4}
+\]
+No arbitrary rotation, continuous probability oracle or free QRAM is used.
+Each nonzero integer below \(2^q\) has a unique highest set bit.
+Zero belongs to none of the buckets and contributes zero. Consequently,
+with \(r_b=2^{b+1-q}\) for \(b<q\) and \(r_q=1\),
+\[
+ \mathbb E X=\sum_{b=0}^{q}r_b p_b.                       \tag{V5}
+\]
+This is a finite exact decomposition, including the mass at one. Any
+statistical intervals for the \(p_b\) can be propagated through this
+nonnegative linear identity. The already proved deterministic currency
+error between the continuous financial expectation and \(\mathbb E X\)
+is unchanged by (V5); partitioning the same finite values adds no bias.
+
+\subsection{Coherent amplification and the two oracle cost models}
+
+After \(A_b\), the financial and predicate work is clean. The invariant
+subspace consists of the latent, comparison and flag registers with that
+work fixed to zero. Let \(S_0=I-2\lvert0\rangle\langle0\rvert\)
+on those active logical registers and let \(S_g\) negate the good flag.
+Then \(Q_b=-A_b S_0 A_b^\dagger S_g\) has the usual two-dimensional
+amplification action. To make the probability identity explicit, for
+\(0<p_b<1\) define the normalised bad and good projections
+\(\lvert B\rangle\) and \(\lvert G\rangle\) of
+\(A_b\lvert0\rangle\), and set
+\(\theta=\arcsin\sqrt{p_b}\). In the ordered basis
+\((\lvert B\rangle,\lvert G\rangle)\),
+\[
+ A_b\lvert0\rangle=
+ \begin{pmatrix}\cos\theta\\\sin\theta\end{pmatrix},
+ \qquad
+ Q_b=\begin{pmatrix}\cos2\theta&-\sin2\theta\\
+                    \sin2\theta& \cos2\theta\end{pmatrix}.
+\]
+Multiplying this rotation \(k\) times proves that the flag probability
+after \(Q_b^kA_b\) is \(\sin^2((2k+1)\theta)\).
+The endpoint cases follow directly or by continuity. A controlled iterate
+uses the chronological gates
+\(\mathrm{CZ}_{c,f}\), \(A_b^\dagger\), controlled \(S_0\),
+\(A_b\), and \(Z_c\). At control zero the two preparations cancel.
+At control one, \(Z_c\) supplies the conditional global minus. Only the
+reflections need added controls; the financial arithmetic is not promoted
+to multiply controlled gates. Corrected lookup instruments are valid in
+these coherent compositions because every measurement-record branch is
+proportional to the same logical map, including on entangled inputs.
+
+Let \(T_B\) be the fully charged T count of one financial body, including
+its instantiated lookup architecture. The separately available value oracle
+has \(T_V=2T_B\) and \((q+1)\) additional value-copy CNOT gates.
+The fused known-body preparation computes the body once, marks the bucket,
+then uncomputes that body. Under the declared seven-T exact Toffoli
+decomposition, (V3) gives
+\[
+ T_{A_b}=2T_B+7(2q+4b+7)\quad(b<q),\qquad T_{A_q}=2T_B.     \tag{V6}
+\]
+In contrast, treating \(V\) as a numerical-value black box and emitting
+\(V;P_b;V^\dagger\) gives
+\[
+ T_{A_b}^{\mathrm{blackbox}}=4T_B+7(2q+4b+7)\quad(b<q),
+ \qquad T_{A_q}^{\mathrm{blackbox}}=4T_B,                    \tag{V7}
+\]
+with two value-copy sets of CNOT gates and a held value register.
+I retain both cost models. A numerical-value query theorem cannot silently
+receive the lower fused cost without assuming access to the financial body.
+
+If \(L\) is the number of latent input bits, the lower-bucket reflection
+acts on \(L+b+2\) logical qubits. Its clean conjunction ladder uses
+\(2(L+b)\) exact Toffoli gates. Thus
+\[
+ T_{Q_b}=2T_{A_b}+14(L+b)\quad(b<q),\qquad
+ T_{Q_q}=2T_{A_q}+14(L-1).                                 \tag{V8}
+\]
+The uniform Hadamard counts per preparation are \(L+b+1\) and \(L\),
+respectively. These formulas retain all body, predicate and reflection
+inverse gates. In the measured lookup mode, each selector erasure also
+contributes a measurement, conditional CZ and conditional reset X; all
+are multiplied by the actual number of forward and inverse body uses.
+The final flag measurement and whole-shot reinitialisation remain separate
+from the oracle-internal counts. Physical measurement latency, error
+correction overhead and hardware execution time are not inferred from
+logical T counts.
+
+The retained resource audit expands each exact CCX into its actual seven-T
+gate sequence. It reports the literal dependency schedule, a conservative
+five-layer-per-CCX serial bound, and the historical assigned three-layer
+profile separately. It independently emits both directions of each cached
+financial block, so equality of forward and inverse depth is not assumed.
+For production graphs, the counts compose fully emitted blocks and the
+fully emitted predicate; they do not require retaining a full production
+gate tape. Complete small-graph tapes are compared against those block
+counts, and their Boolean and state-vector semantics are retained.
+
+\subsection{Fair single-flag range and clipping opponents}
+
+The dyadic construction must be compared with a competent single-flag
+construction supplied with the same certified information. Suppose first
+that a separate deterministic certificate proves \(a\leq2^c\) on every
+latent grid state, with \(0\leq c\leq q\). For \(c>0\), I prepare
+\(c\) uniform comparison bits and append a clean zero high bit. I compare
+this \((c+1)\)-bit integer with the lowest \((c+1)\) value bits.
+The zero extension is essential at the possible endpoint \(a=2^c\).
+The resulting Born probability is \(p_c=\mathbb E[a]/2^c\), and
+\(\mathbb E X=2^{c-q}p_c\). At \(c=0\), the range promise is
+\(a\in\{0,1\}\); a single CNOT from the value bit gives this
+probability without comparison work. Under the declared ripple construction,
+the predicate uses \(6(c+1)\) exact Toffoli gates for \(c>0\),
+and none for \(c=0\). It has no approximation or clipping bias when its
+range certificate is valid. That certificate is a support bound, not a
+mean or variance estimate, and is retained separately from the circuit counter.
+
+A second opponent does not require a smaller support promise. Prepare
+\(c\) uniform comparison bits and pad them with \(q+1-c\) clean zero
+bits. Compare this full \((q+1)\)-bit integer with all the value bits.
+For every \(a\in\{0,\ldots,2^q\}\), including \(c=0\),
+the number of comparison integers below \(a\) is
+\(\min(a,2^c)\). Setting \(\rho=2^{c-q}\) therefore gives
+\[
+ p_c^{\mathrm{clip}}=\frac{\mathbb E[\min(X,\rho)]}{\rho}.
+                                                               \tag{V9}
+\]
+The numerical payoff register is not explicitly clamped. The finite
+comparison creates the clipping exactly. Its predicate uses
+\(6(q+1)\) Toffoli gates, \(8(q+1)+1\) CNOT gates and
+\(2(q+1)\) X gates for every \(c\). The clean padding is private
+work and is excluded from the logical all-zero reflection. The uniform
+Hadamard and reflection costs decrease with \(c\), while the financial
+body and full comparison counts remain charged. This opponent is valid
+on the entire certified original value range. Its omitted excess-tail mean
+must be included in the error allowance; it cannot be declared an unbiased
+estimator of the unclipped payoff.
+
+For completeness, an elementary sharp pointwise second-moment bound supplies
+one such allowance. Let \(0\leq X\leq R\), \(R>0\), and assume
+that a proved bound \(s_2\geq\mathbb E[X^2]\) is available. For
+\(0<\rho<R\), the largest ratio
+\((x-\rho)_+/x^2\) on \(0\leq x\leq R\) is
+\[
+ \gamma_R(\rho)=
+ \begin{cases}
+   (4\rho)^{-1},&2\rho\leq R,\\
+   (R-\rho)/R^2,&\rho<R<2\rho.
+ \end{cases}                                                \tag{V10}
+\]
+Indeed, the ratio is zero up to \(\rho\), and its derivative above
+\(\rho\) is \((2\rho-x)/x^3\). It increases up to \(2\rho\)
+and then decreases, proving both cases by maximisation. Equivalently, the
+first case follows from \((x-2\rho)^2\geq0\). If
+\(\rho\geq R\), the excess tail is identically zero. Thus
+\(\tau=\mathbb E[(X-\rho)_+]\leq\gamma_R(\rho)s_2\)
+when \(\rho<R\). For a certified mean bound
+\(m\geq\mathbb E X\), the pointwise inequality
+\((x-\rho)_+\leq(1-\rho/R)x\) also gives
+\(\tau\leq(1-\rho/R)m\). The minimum of these valid bounds may be
+used. Here \(s_2\) is a second-moment bound, not a variance bound;
+substituting \(\operatorname{Var}(X)\) for \(\mathbb E[X^2]\)
+would be incorrect. I do not claim these pointwise bounds as original.
+
+If \(0\leq\tau\leq U_\tau\) is certified and a statistical event gives
+\(\lvert\widehat p-p_c^{\mathrm{clip}}\rvert\leq\varepsilon_c\),
+then
+\[
+ \left\lvert\rho\widehat p+\frac{U_\tau}{2}-\mathbb E X\right\rvert
+ \leq\rho\varepsilon_c+\frac{U_\tau}{2}.                  \tag{V11}
+\]
+To prove this, write \(\mathbb E X=\rho p_c^{\mathrm{clip}}+\tau\),
+subtract, and use
+\(\lvert U_\tau/2-\tau\rvert\leq U_\tau/2\) with the triangle
+inequality. Multiplying by the residual currency scale and adding the
+previous deterministic numerical allowance gives a complete price-error
+bound on the same statistical event. The midpoint tail correction is
+therefore explicit; it neither estimates the tail nor silently drops its
+uncertainty. Any claimed dyadic advantage must survive comparison with
+these range and clipping opponents using the same proved moments.
+
+\subsection{Reusing previously emitted financial bodies}
+
+For the production study, I recover the primitive multiset of a forward
+financial body by summing the retained node-block multisets of the earlier
+resource profiles. Before reusing it, I independently emit the original
+\((q+1)\)-bit comparison. Doubling the recovered body multiset and adding
+that comparison must reproduce the complete retained original flag profile,
+gate by gate and in its T count. The source profile hash is retained.
+Only after this equality passes do I attach a freshly emitted dyadic,
+range or clipped-range predicate and its reflection. Every arithmetic gate
+is self-inverse, and a fresh phase-correct logical XOR lookup has exactly
+the same primitive multiset as its forward lookup. Hence doubling the
+body multiset is an exact count for its forward and logical inverse,
+without assuming any symmetry of optimised dependency depths.
+
+I use a deliberately conservative depth bound for this reuse path. Each
+body T or T-dagger contributes one serial T layer, and each CCX contributes
+the four layers of its verified literal seven-T sequence, or five layers
+in the separately retained conservative schedule. Summing these quantities
+is valid for either direction and for every ordering of the body atoms.
+For all-gate depth, placing all expanded primitive operations in serial
+order is a valid upper bound. Measured lookup erasures, feedback and resets
+remain in those primitive multisets. The reusable body-space bound removes
+only the original comparison and flag wires, which were reserved throughout
+the original body, then adds the new predicate's reserved and private work.
+It is a conservative workspace bound. Fresh complete coarse financial
+circuits and small value circuits are checked against this adapter for
+primitive counts, phases, clean work and quantum amplification. This
+reuse method changes the resource-accounting workflow, not the quantum
+oracle or the retained financial values.

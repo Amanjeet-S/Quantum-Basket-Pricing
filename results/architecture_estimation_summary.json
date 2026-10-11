@@ -1,0 +1,143 @@
+{
+  "configuration_count": 819,
+  "financial_cases": 27,
+  "architectures": 3,
+  "feasible_financial_prefixes": 273,
+  "rejected_transfers": 60,
+  "tables": [
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "assets": 2,
+      "exact7t": {
+        "selected_flag_generic_T": 1718948,
+        "selected_flag_cap_T": 1493632,
+        "selected_flag_saving_per_cent": 13.107784528676842,
+        "complete_generic_T_upper": 11621589782936,
+        "complete_cap_T_upper": 10098492151972,
+        "complete_saving_per_cent": 13.105759705960082
+      },
+      "unitary8t": {
+        "selected_flag_generic_T": 1215236,
+        "selected_flag_cap_T": 1094296,
+        "selected_flag_saving_per_cent": 9.951976406228914,
+        "complete_generic_T_upper": 8216582797688,
+        "complete_cap_T_upper": 7399049078428,
+        "complete_saving_per_cent": 9.949801996640737
+      },
+      "measured4t": {
+        "selected_flag_generic_T": 879428,
+        "selected_flag_cap_T": 828072,
+        "selected_flag_saving_per_cent": 5.839704899093502,
+        "complete_generic_T_upper": 5946578140856,
+        "complete_cap_T_upper": 5599420362732,
+        "complete_saving_per_cent": 5.8379419205618515
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "assets": 4,
+      "exact7t": {
+        "selected_flag_generic_T": 5797148,
+        "selected_flag_cap_T": 5572812,
+        "selected_flag_saving_per_cent": 3.869764925787646,
+        "complete_generic_T_upper": 39191083437590,
+        "complete_cap_T_upper": 37674704925522,
+        "complete_saving_per_cent": 3.8691926302133575
+      },
+      "unitary8t": {
+        "selected_flag_generic_T": 4014836,
+        "selected_flag_cap_T": 4014836,
+        "selected_flag_saving_per_cent": 0.0,
+        "complete_generic_T_upper": 27142959092942,
+        "complete_cap_T_upper": 27142959092942,
+        "complete_saving_per_cent": 0.0
+      },
+      "measured4t": {
+        "selected_flag_generic_T": 2826628,
+        "selected_flag_cap_T": 2826628,
+        "selected_flag_saving_per_cent": 0.0,
+        "complete_generic_T_upper": 19110876196510,
+        "complete_cap_T_upper": 19110876196510,
+        "complete_saving_per_cent": 0.0
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "assets": 8,
+      "exact7t": {
+        "selected_flag_generic_T": 32747736,
+        "selected_flag_cap_T": 32409468,
+        "selected_flag_saving_per_cent": 1.0329507969650176,
+        "complete_generic_T_upper": 220951812751320,
+        "complete_cap_T_upper": 218669560838820,
+        "complete_saving_per_cent": 1.0329183925133312
+      },
+      "unitary8t": {
+        "selected_flag_generic_T": 20643000,
+        "selected_flag_cap_T": 20458884,
+        "selected_flag_saving_per_cent": 0.8919052463304752,
+        "complete_generic_T_upper": 139282672051320,
+        "complete_cap_T_upper": 138040464413820,
+        "complete_saving_per_cent": 0.8918608605112752
+      },
+      "measured4t": {
+        "selected_flag_generic_T": 12573176,
+        "selected_flag_cap_T": 12491828,
+        "selected_flag_saving_per_cent": 0.6469964311324362,
+        "complete_generic_T_upper": 84836578251320,
+        "complete_cap_T_upper": 84287733463820,
+        "complete_saving_per_cent": 0.6469435694048167
+      }
+    }
+  ],
+  "architecture_statistics": {
+    "exact7t": {
+      "complete_winner_method_sets": {
+        "full_cap|full_global": 22,
+        "full_cap": 2,
+        "direct": 3
+      },
+      "strict_cap_generic_complete_cases": 3,
+      "best_complete_T_upper_range": [
+        7232944320,
+        210904246361606
+      ]
+    },
+    "unitary8t": {
+      "complete_winner_method_sets": {
+        "full_cap|full_global": 23,
+        "full_cap": 1,
+        "direct": 3
+      },
+      "strict_cap_generic_complete_cases": 2,
+      "best_complete_T_upper_range": [
+        6790076928,
+        132160215109826
+      ]
+    },
+    "measured4t": {
+      "complete_winner_method_sets": {
+        "full_cap|full_global": 23,
+        "full_cap": 1,
+        "direct": 3
+      },
+      "strict_cap_generic_complete_cases": 2,
+      "best_complete_T_upper_range": [
+        6494832000,
+        79664194275306
+      ]
+    }
+  },
+  "prior_complete_T_budget_reduction_factor_range": [
+    1.8237371005129424,
+    36.151296147913506
+  ],
+  "classical_sample_range": [
+    6744,
+    11495538
+  ],
+  "resource_sha256": "1308373986a19961463dfb40441324373daf737b659e3c21ffdc33eba8b4b2a3",
+  "oracle_sha256": "c85b8d39465033c31ea56512c5b200882343d03589fee297d5546f453b78cea9",
+  "reporting_script_sha256": "7b45ee9bcb8be9d1523f77dc9eb80ec0f6c1bbab2abc2ed13b18c40106f7e8b7",
+  "scope": "single-price99per cent, ideal logical channels and independent shots; all null and adverse cases retained; no physical runtime or novelty inference"
+}

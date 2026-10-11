@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-08",
+  "source_access": [
+    {
+      "id": "caldana2016",
+      "doi": "10.1080/14697688.2015.1073854",
+      "published_record": {
+        "journal": "Quantitative Finance",
+        "volume": "16",
+        "issue": "4",
+        "pages": "535\u2013554",
+        "year": 2016
+      },
+      "publisher_url": "https://www.tandfonline.com/doi/full/10.1080/14697688.2015.1073854",
+      "Safari_publisher_outcome": "Get Access; no full final publisher body available from current session. No purchase or new entitlement requested.",
+      "consulted_body_url": "https://openaccess.city.ac.uk/id/eprint/15729/7/basket_option_qf.pdf",
+      "repository_metadata_url": "https://openaccess.city.ac.uk/id/eprint/15729/",
+      "version": "Repository-labelled accepted manuscript, internal header20November2014; distinct from final publisher version.",
+      "locations_read": [
+        "Sections1\u20133",
+        "Proposition1.1",
+        "Proposition2.1",
+        "Corollary2.2",
+        "equation27",
+        "AppendicesB,D"
+      ],
+      "body_access": "Primary web PDF plus Safari PDF accessibility text, including formula bodies and proof pages.",
+      "published_successor_verified": true,
+      "PDF_in_repository": false
+    },
+    {
+      "id": "curran1994",
+      "doi": "10.1287/mnsc.40.12.1705",
+      "published_record": {
+        "journal": "Management Science",
+        "volume": "40",
+        "issue": "12",
+        "pages": "1705\u20131711",
+        "year": 1994
+      },
+      "body_landing_url": "https://www.researchgate.net/publication/333906878_Valuing_Asian_and_portfolio_options_by_conditioning_on_the_g",
+      "body_download_url": "https://www.researchgate.net/profile/Mike-Curran-2/publication/333906878_Valuing_Asian_and_portfolio_options_by_conditioning_on_the_g/links/5d0bbdec92851cf4403e35c5/Valuing-Asian-and-portfolio-options-by-conditioning-on-the-g.pdf",
+      "version": "Author-uploaded scan of the final December1994journal pages, publisher/journal title and pagination visually verified.",
+      "body_access": "Public author PDF downloaded through authorised Safari; rendered locally toinspectscan, whose mathematical pages do not have extracted text.",
+      "local_read_path": "/Users/amanjeetsingh/Downloads/AsianBasket.pdf",
+      "bytes": 370637,
+      "sha256": "21eb13d7c5c335d97a9096cc1c3b5a1a1275ffeee1e0da30218652fc43e6c4c9",
+      "pages_read": 7,
+      "printed_pages_read": "1705\u20131711",
+      "load_bearing_locations": [
+        "Section2.1 (partition at geometric strike)",
+        "Section2.2 (Gaussian conditional law/exact tail)",
+        "Section2.3 (conditionalgap moment-matching approximation)",
+        "equations1\u20134",
+        "Sections3\u20134 numerical scope and interpretation"
+      ],
+      "source_PDF_not_copied_to_repository": true,
+      "publisher_writing_not_reproduced": true
+    }
+  ],
+  "paid_sources_acquired": false,
+  "new_subscription_or_entitlement": false,
+  "messages_to_people": 0
+}

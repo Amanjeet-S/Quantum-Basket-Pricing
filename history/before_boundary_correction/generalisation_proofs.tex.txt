@@ -1,0 +1,1277 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[british]{babel}
+\usepackage{url}
+\usepackage{xcolor,graphicx}
+\usepackage[round,authoryear]{natbib}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\renewcommand{\bibfont}{\small}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ph}{\varphi}
+\newcommand{\ind}{\mathbf 1}
+\DeclareMathOperator{\Var}{Var}
+\title{Certified finite corrections for quantum basket pricing\\[3mm]
+\large Finite Gaussian certificates, coherent value oracles and matched resource tests}
+\author{Amanjeet Singh}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I construct and certify finite-order quantum basket-pricing methods under
+an established classical no-arbitrage model. Gaussian tilts evaluate
+analytic control coefficients while preserving covariance, and a sharp
+combined derivative norm bounds the remaining correction. I implement both
+an integral density oracle and direct correction evaluation, with exact
+finite-grid moment priors, signed flags and a complete monetary-error
+certificate. An independently checked precision search retains 97 programs
+and 11,872 decisions. Direct second-correction pricing lowers complete
+logical T caps against the competent positive first-correction comparator
+in three active cases, by approximately 5.5, 20.8 and 59.9 per cent.
+The integral oracle loses to direct evaluation in every active matched case.
+A quadratic auxiliary certificate substantially tightens its error budget
+without changing its circuit. Detailed proofs, coherent gate checks and
+rejected configurations are retained. The stronger classical certificates
+already resolve all 27 synthetic contracts; these quantum comparisons
+therefore establish conditional resource improvements, rather than
+practical quantum advantage or theoretical priority.
+\end{abstract}
+
+\smallskip
+\noindent\textit{Keywords:} financial mathematics; capped basket option;
+Gaussian conditioning; finite Taylor certificate; joint derivative norm;
+reversible arithmetic; signed amplitude estimation; quantum finance.
+
+\section{Research question and relation to the literature}
+\label{sec:question}
+
+The research question is whether analytic second-correction preconditioning
+and signed moment priors reduce complete quantum pricing cost relative to
+a positive first-correction evaluator, and whether an integral or direct
+second-correction oracle supplies the better implementation at the same
+financial accuracy and confidence.  I keep the underlying financial law classical.  Quantum
+mechanics enters through coherent state preparation, reversible arithmetic,
+interference, amplitude amplification and measurement.  The priced object
+remains a risk-neutral expectation with an explicit no-arbitrage argument.
+This distinction fixes the target before selecting an estimator and permits
+a fair comparison with numerical finance methods which already exploit
+conditioning, smoothing and analytical controls.
+
+The paper has three connected mathematical components.  First, I retain a
+finite-order Gaussian basket expansion and evaluate its coefficients by
+exact exponential tilts, including their covariance shifts.  Secondly, I
+bound the combined price derivative before taking absolute values of its
+separate terms.  The resulting norm is sharp over positive threshold
+measures of fixed mass and is computably enclosed by rational root isolation
+and outward Gaussian evaluation.  Thirdly, I represent the exact second
+Taylor correction as a bounded signed density-polynomial observable with
+two auxiliary variables.  I turn that observable into complete finite value
+and success-flag circuits, then derive the monetary consequences of every
+financial, auxiliary, arithmetic and statistical approximation.
+
+The integral construction has a specific reason to exist: it can evaluate a
+small correction through products of small, nonnegative factors, whereas a
+literal direct implementation subtracts separately evaluated conditional
+prices.  This may change the precision required by particular arithmetic
+constructions.  It does not by itself imply an estimator improvement.
+Auxiliary randomisation adds conditional variance, and a stable direct
+implementation can preserve the same cancellation.  The empirical question
+therefore concerns complete matched preparations and estimators, with
+adverse cases retained.  I include a direct second-correction evaluator
+with the same normaliser, and a positive first-correction evaluator with
+its own competent finite mean prior.
+
+Geometric conditioning is established in financial computation.
+\citet{curran} conditions Asian and portfolio prices on their geometric
+mean, and \citet{dingechormann} develops conditional Monte Carlo and control
+variates for baskets and Asian options.  Polynomial approximations and
+Taylor expansions have substantial antecedents
+\citep{ju,olivaresalvarez2016}.  The final published text of
+\citet{olivaresalvarez2016} supplies a directly relevant conditional
+polynomial-pricing comparison.  The full article of \citet{ju} remains
+unavailable in the retained access record; its bibliographic identification
+is not treated as a completed source-level exclusion.  General basket-price
+bounds provide another substantial classical comparator
+\citep{caldana}.  The signed-Stirling relationship between price and
+log-price derivatives is already explicit in \citet{carr2001}.
+I use these mechanisms as foundations, rather than relabelling them as
+new discoveries.
+
+Quantum amplitude estimation and amplification supply the established
+mean-estimation framework \citep{brassard,montanaro}.  Complete derivative
+pricing costs require far more than a favourable query exponent:
+state preparation, financial arithmetic and error correction assumptions
+can determine whether a proposed gain survives
+\citep{rebentrost,chakrabarti}.  Derivative pricing by quantum signal
+processing is a published alternative \citep{stamatopoulos}, and
+\citet{rallfuller2023} connects amplitude estimation directly with quantum
+signal processing.  The retained source audit separates their compatible
+oracle assumptions from this implementation's realised contract.  It does
+not convert an unevaluated quantum alternative into a defeated baseline.
+
+My project-specific contribution is the checked joint-norm pricing
+certificate and its use in fully specified second-correction oracles, finite
+arithmetic contract and matched comparison.  Operator sharpness, finite
+circuit correctness and monetary accuracy are proved separately.  The
+numerical findings concern frozen synthetic contracts and emitted logical
+circuits.  They do not establish world priority for the underlying calculus,
+a realised device advantage, or calibration to observed exotic prices.
+Source versions and consulted sections are recorded in the supporting
+source ledgers.  Full earlier derivations and rejected constructions are
+preserved in the supporting archive; the main text follows the present
+method and its decisive comparisons.
+
+\section{Financial model and the frozen contracts}
+\label{sec:model}
+
+Let $\tau>0$, $r_f\in\R$ and dividend yields $q_i\in\R$ be constant.
+Under a physical probability, suppose the ex-dividend stock system is
+\[
+ dS_i/S_i=b_i\,dt+\Sigma_i\,dW,
+\]
+where the filtration is generated by a $d_B$-dimensional Brownian motion
+and the constant matrix $\Sigma\in\R^{n\times d_B}$ has full row rank.
+Choose $\theta$ satisfying
+$\Sigma\theta=b-r_f\mathbf1+q$.  The strictly positive process
+$L_t=\exp(-\theta\cdot W_t-\|\theta\|^2t/2)$ is a martingale of mean one:
+the assertion follows by conditioning on independent Gaussian increments
+and evaluating their exponential moment.  It defines an equivalent
+probability $Q$ on the finite horizon.  Multiplying an increment's normal
+density by its exponential factor shifts its mean by
+$-\theta\Delta t$, preserving covariance and independence.  Therefore
+$W_t^Q=W_t+\theta t$ is Brownian under $Q$, and the stock drift becomes
+$r_f-q_i$.
+
+The discounted cumulative gain
+\[
+ e^{-r_ft}S_i(t)+\int_0^t e^{-r_fu}q_iS_i(u)\,du
+\]
+has zero drift under $Q$.  The explicit GBM solution has finite second
+moments on $[0,\tau]$, so its stochastic integral is a true martingale.
+For a self-financing admissible zero-cost strategy whose discounted wealth
+is bounded below, localisation followed by conditional Fatou's lemma makes
+the discounted wealth a supermartingale.  Nonnegative terminal wealth which
+is positive with positive probability would contradict its nonpositive
+expectation.  This establishes absence of arbitrage in the stated
+admissibility class.  Full row rank is sufficient, rather than necessary.
+If Brownian risk is unspanned, I use this stipulated $Q$; the quantum
+estimator does not select a new pricing measure.
+
+At maturity, independent standard normals $Y\in\R^p$ and $Z\in\R$ give
+\begin{equation}
+ S_i=K\exp(\mu_i+R_i\cdot Y+\lambda Z),\qquad
+ \mu_i=(r_f-q_i)\tau-\tfrac12(\|R_i\|^2+\lambda^2),
+ \label{eq:stocks}
+\end{equation}
+with $K>0$ and $\lambda>0$.  The loadings include the horizon scale.
+It\^o's formula for $\log S_i$ proves this expression and gives
+$\E_QS_i=Ke^{(r_f-q_i)\tau}$.  For positive weights summing to one, define
+\begin{equation}
+ A=\sum_iw_iS_i,\quad G=\prod_iS_i^{w_i},\quad
+ F_H(x)=\min\{(x-K)_+,H\},\quad
+ V=\E_QF_H(A),\quad \Pi=e^{-r_f\tau}V.
+ \label{eq:financial-target}
+\end{equation}
+The time-$t$ conditional price is
+$e^{-r_f(\tau-t)}\E_Q[F_H(A)\mid\mathcal F_t]$.
+Its discounted value is a bounded martingale, so adding it as a traded
+claim preserves the same no-arbitrage argument.  The numerical certificate
+below concerns this single model price; separately rounded quotes across
+strikes need not form an arbitrage-free quoted surface.
+
+Write
+\begin{equation}
+ \mu_G=\sum_iw_i\mu_i,\quad R_G=\sum_iw_iR_i,\quad
+ d_i=\mu_i-\mu_G,\quad s_i=R_i-R_G,
+ \quad m(y)=\mu_G+R_G\cdot y.
+ \label{eq:geometry}
+\end{equation}
+Then $\sum_iw_id_i=0$ and $\sum_iw_is_i=0$ exactly.  With
+\begin{equation}
+ T(y)=\sum_iw_ie^{d_i+s_i\cdot y},\qquad U(y)=T(y)-1,
+ \label{eq:ratio}
+\end{equation}
+the identity $A=GT(Y)$ holds.  Jensen's inequality gives $T\geq1$;
+hence the arithmetic basket exceeds its geometric control pointwise.
+This deterministic ordering justifies the positive first correction.
+It does not imply that the ratio and the geometric level are independent.
+
+The numerical family has $K=100$, $\tau=1$, $r_f=0.03$, $q_i=0.02$,
+$n\in\{2,4,8\}$, $\lambda\in\{0.05,0.2,0.4\}$ and
+$H\in\{1,10,25\}$, giving 27 contracts from nine covariance models.
+The two-asset anchor uses $w=(1/2,1/2)$ and $R=(-0.1,0.2)^{\mathsf T}$.
+For four and eight assets, the residual loading matrix is a scaled Helmert
+contrast matrix, with weights
+$(0.4,0.3,0.2,0.1)$ and
+$(0.3,0.2,0.15,0.1,0.08,0.07,0.06,0.04)$ respectively.
+Its scale gives weighted contrast dispersion $0.0225$ in the ideal matrix,
+matching the two-asset anchor.  The actual 70-digit decimal loadings are
+frozen as exact rationals, their drifts are computed from those rationals,
+and exact rational $LDL^{\mathsf T}$ factorisation checks positive
+covariance pivots and full volatility row rank.  The ideal-to-frozen
+dispersion discrepancy is below $1.8\times10^{-71}$.
+Matching this one dispersion does not match the full payoff distribution
+or isolate a causal effect of dimension.
+
+These are reproducible synthetic experiments.  No newly purchased dataset
+or inaccessible option sample is used.  LSEG Workspace may support a later
+publicly reproducible calibration exercise within the existing entitlement,
+but historical returns alone would not validate an observed exotic price.
+The present claims depend on exact model inputs and retained arithmetic
+certificates, rather than an unreported private empirical sample.
+
+\section{Conditional smoothing and the joint derivative certificate}
+\label{sec:norm}
+
+The capped payoff has the positive layer-cake representation
+$F_H(x)=\int_K^{K+H}\ind\{x>k\}\,dk$.
+Tonelli's theorem therefore gives the conditional kernel
+\begin{equation}
+ P_{\lambda,H}(m)=\E_ZF_H(Ke^{m+\lambda Z})
+ =\int_0^{\log(1+H/K)}Ke^x\Phi((m-x)/\lambda)\,dx.
+ \label{eq:kernel}
+\end{equation}
+The undiscounted price is
+$V=\E_Y P_{\lambda,H}(m(Y)+\log T(Y))$.
+Conditioning has removed the nonsmooth payoff threshold from the financial
+integrand.  It also supplies the exact geometric control
+$c_0=\E P_{\lambda,H}(m(Y))$.
+The positive first correction
+$R_1=P_{\lambda,H}(m+\log T)-P_{\lambda,H}(m)$ is in $[0,H]$.
+Gaussian smoothing and control identities are useful classical reductions
+before any quantum encoding is considered \citep{curran,bayer}.
+
+The derivative result extends beyond a single capped call.  Let $\nu$ be a
+finite nonnegative Borel measure on real log thresholds, of mass $H$,
+and define
+\begin{equation}
+ P_\nu(m)=\int\Phi((m-x)/\lambda)\nu(dx),\qquad
+ g_m(t)=P_\nu(m+\log t),\quad t>0.
+ \label{eq:measure-kernel}
+\end{equation}
+For the capped call,
+$\nu(dx)=Ke^x\ind_{[0,\log(1+H/K)]}(x)dx$.
+A cash digital is a point mass; finite positive mixtures of thresholds are
+also covered.  Negative threshold weights, unbounded payoff mass and
+negative basket weights are not hypotheses of this theorem.
+
+Let $s(r,\ell)$ be signed Stirling numbers of the first kind, with
+$s(0,0)=1$ and
+$s(r+1,\ell)=s(r,\ell-1)-rs(r,\ell)$.
+The Hermite polynomials satisfy
+$\operatorname{He}_0=1$, $\operatorname{He}_1=z$ and
+$\operatorname{He}_{j+1}=z\operatorname{He}_j-j\operatorname{He}_{j-1}$.
+Define
+\begin{equation}
+ A_{r,\lambda}(z)=\sum_{\ell=1}^r s(r,\ell)\lambda^{-\ell}
+ (-1)^{\ell-1}\operatorname{He}_{\ell-1}(z),\qquad
+ D_r(\lambda)=\sup_z|A_{r,\lambda}(z)\phi(z)|.
+ \label{eq:joint-norm}
+\end{equation}
+Every polynomial times the Gaussian density is bounded and tends to zero
+at both infinities.  In particular $D_r$ is finite and strictly positive.
+The separate Hermite norms
+$\mathcal H_j=\sup_z|\operatorname{He}_j(z)\phi(z)|$ give the valid
+triangle bound
+$D_r\leq\sum_{\ell=1}^r|s(r,\ell)|\lambda^{-\ell}\mathcal H_{\ell-1}$.
+Computing the combined norm preserves cancellation between derivative
+terms which this triangle inequality loses.
+
+\begin{theorem}[Sharp positive-threshold bound]
+\label{thm:norm}
+For $r\geq1$, $\lambda>0$ and the finite positive measure in
+\eqref{eq:measure-kernel},
+\begin{equation}
+ g_m^{(r)}(t)=t^{-r}\int
+ A_{r,\lambda}((m+\log t-x)/\lambda)
+ \phi((m+\log t-x)/\lambda)\nu(dx),\qquad
+ |g_m^{(r)}(t)|\leq HD_r(\lambda)t^{-r}.
+ \label{eq:norm-derivative}
+\end{equation}
+The constant $HD_r$ is the smallest uniform constant over measures of mass
+$H$, real $m$ and positive $t$.
+\end{theorem}
+\begin{proof}
+The identity $\phi^{(j)}=(-1)^j\operatorname{He}_j\phi$ follows by
+induction from $\phi'=-z\phi$ and the recurrence.  Its boundedness and
+finite measure mass justify dominated differentiation under $\nu$.
+If $D=\partial_m$, differentiating $t^{-r}Q(D)P(m+\log t)$ gives
+$t^{-r-1}(D-r)Q(D)P(m+\log t)$.  Induction therefore yields
+$g_m^{(r)}=t^{-r}\sum_\ell s(r,\ell)P_\nu^{(\ell)}$ and then the
+integral in \eqref{eq:norm-derivative}.  Positivity of $\nu$ gives the
+bound.  Since the leading term of $A_{r,\lambda}$ is
+$(-1)^{r-1}\lambda^{-r}z^{r-1}$, the polynomial is nonzero.
+Continuity and Gaussian decay give a maximiser $z_*$.  Take
+$t=1$, $m=x_*+\lambda z_*$ and $\nu=H\delta_{x_*}$.
+The absolute derivative is exactly $HD_r$, proving uniform sharpness.
+\end{proof}
+
+This sharpness concerns the stated measure class; a particular capped-call
+measure or basket remainder need not attain the norm.  The proof also
+identifies exactly which object must be computed.  For rational $\lambda$,
+$Q_{r,\lambda}=A_{r,\lambda}'-zA_{r,\lambda}$ is a rational polynomial of
+degree $r$.  Every positive absolute maximum of $A_{r,\lambda}\phi$ lies
+at a real root of $Q_{r,\lambda}$.  Exact square-free reduction, a rational
+root-counting sequence and finite rational isolation find every distinct
+root; Gaussian evaluations over the isolating intervals give an outward
+upper certificate $\overline D_r\geq D_r$.
+Appendix~\ref{app:roots} supplies the termination and enclosure argument.
+All finite calculations below use $\overline D_r$, rather than an
+uncertified maximisation on a numerical mesh.  Their arithmetic is
+implemented with Arb midpoint-radius enclosures \citep{johansson2017}.
+
+For comparison with the earlier separated bounds, Gaussian Fourier
+inversion gives
+$\mathcal B_j=(2\pi)^{-1}\int_\R |u|^je^{-u^2/2}du$ and
+$\mathcal H_j\leq\mathcal B_j$.
+Direct integration gives $\mathcal B_0=(2\pi)^{-1/2}$,
+$\mathcal B_1=\pi^{-1}$ and
+integration by parts gives $\mathcal B_j=(j-1)\mathcal B_{j-2}$.
+Thus the individual-norm triangle and Fourier triangle are distinct
+competent comparators.  Retaining both separates a gain from cancellation
+from a gain obtained by tightening each derivative separately.
+
+\section{Exact Gaussian coefficients and finite classical screening}
+\label{sec:coefficients}
+
+Put $\sigma^2=\lambda^2+\|R_G\|^2$.
+For a multi-index $\gamma\in\mathbb N_0^n$, define
+$|\gamma|=\sum_i\gamma_i$, $\gamma!=\prod_i\gamma_i!$,
+$w^\gamma=\prod_iw_i^{\gamma_i}$,
+$d_\gamma=\sum_i\gamma_id_i$ and
+$v_\gamma=\sum_i\gamma_is_i$.
+The multinomial theorem and completion of the Gaussian square imply
+\begin{align}
+ T(y)^j&=\sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+                   e^{d_\gamma+v_\gamma\cdot y},\label{eq:T-multinomial}\\
+ \E[e^{v\cdot Y}P_{\lambda,H}^{(\ell)}(\mu_G+R_G\cdot Y)]
+ &=e^{\|v\|^2/2}P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v).
+ \label{eq:gaussian-tilt}
+\end{align}
+For the second identity, use
+$e^{v\cdot y-\|y\|^2/2}=e^{\|v\|^2/2}e^{-\|y-v\|^2/2}$ and shift the
+integration variable.  Independent Gaussian convolution changes the common
+scale to $\sigma$.  Bounded differentiated kernels justify passing each
+finite derivative through the expectation.  This remains valid at $R_G=0$.
+The shift $R_G\cdot v$ retains the covariance between the geometric level
+and the ratio.  Removing it generally changes the coefficient.
+
+Let
+\begin{align}
+ J_{j,\ell}&=\sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+ e^{d_\gamma+\|v_\gamma\|^2/2}
+ P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v_\gamma),\label{eq:J}\\
+ M_r&=\sum_{j=0}^r(-1)^{r-j}\binom rj
+ \sum_{|\gamma|=j}\frac{j!}{\gamma!}w^\gamma
+ e^{d_\gamma+\|v_\gamma\|^2/2}.
+ \label{eq:continuous-moments}
+\end{align}
+Then $M_r=\E U^r$ and all terms are finite.
+Taylor's theorem about $t=1$ defines
+\begin{equation}
+ c_0=P_{\sigma,H}(\mu_G),\qquad
+ c_a=\frac1{a!}\sum_{\ell=1}^as(a,\ell)
+        \sum_{j=0}^a(-1)^{a-j}\binom ajJ_{j,\ell},\quad a\geq1.
+ \label{eq:coefficients}
+\end{equation}
+The inner alternating sum is the exact expectation of
+$U^aP_{\lambda,H}^{(\ell)}(m(Y))$.
+Its cancellation is kept inside outward arithmetic, not estimated from
+printed decimal precision.
+
+\begin{theorem}[Finite Gaussian price certificate]
+\label{thm:finite-price}
+Under \eqref{eq:stocks}--\eqref{eq:ratio}, for every finite integer $k\geq0$,
+\begin{equation}
+ \left|V-\sum_{a=0}^kc_a\right|
+ \leq\frac{H\overline D_{k+1}(\lambda)M_{k+1}}{(k+1)!}.
+ \label{eq:finite-certificate}
+\end{equation}
+Each coefficient and moment is evaluated by the finite sums above.
+For rational inputs and positive common scale, validated enclosures of all
+endpoints exist at any prescribed positive arithmetic accuracy.
+\end{theorem}
+\begin{proof}
+The integral Taylor remainder is
+$k!^{-1}\int_1^T(T-t)^kg_m^{(k+1)}(t)dt$.
+Since $T\geq1$, Theorem~\ref{thm:norm} bounds its absolute value by
+$H\overline D_{k+1}U^{k+1}/(k+1)!$.
+Every Gaussian exponential has all finite moments; finite sums preserve
+this property, so the remainder is integrable.  Taking expectations gives
+\eqref{eq:finite-certificate}.  The signed-Stirling derivative formula,
+\eqref{eq:T-multinomial} and \eqref{eq:gaussian-tilt} evaluate all its
+coefficients.  The finite collection of exponential and scalar normal
+functions is computable at a positive scale, and outward arithmetic
+preserves their enclosures.
+\end{proof}
+
+If $[L_k,U_k]$ encloses the coefficient sum and $\overline R_k$ bounds the
+right side, I use
+$[L_k-\overline R_k,U_k+\overline R_k]\cap[0,H]$.
+Intersections across finitely many retained degrees can only improve this
+interval.  I stop when its midpoint radius meets the monetary target,
+and otherwise use a separately certified method or declare failure.
+The argument is finite-order: finite lognormal moments do not establish
+convergence of the infinite Taylor expansion.  The earlier Fourier
+triangle remainder eventually grows for any nonzero centred loading,
+so taking ever more terms is not a valid convergence policy.
+
+The kernel evaluations are explicit.  With $L_H=\log(1+H/K)$,
+$x_0=m/\sigma$, $x_1=(m-L_H)/\sigma$ and $z_i=x_i+\sigma$,
+\begin{equation}
+ P_{\sigma,H}(m)=K\{e^{m+\sigma^2/2}[\Phi(z_0)-\Phi(z_1)]
+                   -\Phi(x_0)+(1+H/K)\Phi(x_1)\}.
+ \label{eq:closed-kernel}
+\end{equation}
+The density identities
+$e^{m+\sigma^2/2}\phi(z_0)=\phi(x_0)$ and
+$e^{m+\sigma^2/2}\phi(z_1)=(1+H/K)\phi(x_1)$ cancel the boundary terms
+in differentiation.  They give
+$P'_{\sigma,H}=Ke^{m+\sigma^2/2}[\Phi(z_0)-\Phi(z_1)]$;
+higher derivatives follow by the product rule and Hermite recurrence.
+The retained audit compares these evaluations with differentiated series
+and the strike-integral representation.  A formal closed formula is not
+used as its own verification.
+
+The certificate extends to unequal positive spots by replacing $d_i$ with
+$\log(S_{i,0}/G_0)+\mu_i-\mu_G$, where
+$G_0=\prod_iS_{i,0}^{w_i}$, and shifting every scalar-kernel argument by
+$\log(G_0/K)$.  Weighted centring and the covariance shift survive.
+Positive asset-monitor observations can likewise be treated as basket
+components when their joint Gaussian log prices admit an equal independent
+common loading $\lambda>0$.  The component count then includes monitoring
+times; the multinomial cost can grow substantially.  These are analytical
+extensions, not additional empirical tests.
+
+\section{Integral and direct coherent correction evaluators}
+\label{sec:oracles}
+
+I write $m(y)=m_G(y)$ and use $m=m(y)$ and $U=U(y)$ in pointwise formulas.
+For $r\geq1$, define the pointwise remainder after order $r-1$ by
+\[
+ R_r(y)=g_{m_G(y)}(T(y))-
+          \sum_{j=0}^{r-1}g_{m_G(y)}^{(j)}(1)U(y)^j/j!.
+\]
+Taylor's integral formula and $t=1+zU$ give
+\begin{equation}
+ R_r(y)=\frac{U(y)^r}{r!}\E_{Z_r}[g_{m(y)}^{(r)}(1+Z_rU(y))],
+ \qquad Z_r\sim\operatorname{Beta}(1,r).
+ \label{eq:beta-identity}
+\end{equation}
+At $U=0$ this is the continuous zero extension.  For the capped-call
+threshold measure, an independent uniform $S$ represents its strike
+integral by $x(S)=\log(1+HS/K)$.  The resulting correction is
+\begin{equation}
+ \E R_r=\frac H{r!}\E_{Y,Z_r,S}
+ [U^r t^{-r}A_{r,\lambda}(\xi)\phi(\xi)],\qquad
+ t=1+Z_rU,\quad \xi=(m+\log t-x(S))/\lambda.
+ \label{eq:integral-observable}
+\end{equation}
+This formula represents the small correction through a density polynomial,
+without evaluating and subtracting its raw conditional-price terms.
+
+I implement $r=2$, so
+$A_{2,\lambda}(\xi)=-\lambda^{-1}-\xi\lambda^{-2}$ and $Z_2$ is the
+minimum of two independent uniforms.  Let $U_*>0$ dominate $U$ on all
+realised financial nodes and set
+\begin{equation}
+ B_2=H\overline D_2U_*^2/2,\quad
+ a=(U/U_*)^2t^{-2},\quad
+ h(\xi)=\{1+A_{2,\lambda}(\xi)\phi(\xi)/\overline D_2\}/2.
+ \label{eq:factorised-kernel}
+\end{equation}
+Since $t\geq1$, $0\leq a,h\leq1$.
+The exact integral evaluator probability is
+\begin{equation}
+ p^{\mathrm{int}}=(1-a)/2+ah(\xi),\qquad
+ X^{\mathrm{int}}=2p^{\mathrm{int}}-1,
+ \qquad |X^{\mathrm{int}}|\leq U^2/U_*^2.
+ \label{eq:integral-probability}
+\end{equation}
+The monetary correction is $B_2\E X^{\mathrm{int}}$ before a financial
+truncation factor.  If $U_*=0$, the correction is zero and its estimator is
+omitted.  The ratio is never evaluated as an indeterminate $0/0$.
+
+The direct second-correction competitor uses the same control
+$c_0+c_1$, finite financial law and $B_2$:
+\begin{equation}
+ p^{\mathrm{dir}}=\tfrac12+
+ \frac{P_{\lambda,H}(m+\log T)-P_{\lambda,H}(m)-UP'_{\lambda,H}(m)}{2B_2}.
+ \label{eq:direct-probability}
+\end{equation}
+The pointwise Taylor bound gives $p^{\mathrm{dir}}\in[0,1]$ and the same
+score bound as \eqref{eq:integral-probability}.
+The positive first-correction competitor uses the control $c_0$ and
+\begin{equation}
+ B_1=\min\{H,H\overline D_1U_*\},\qquad
+ p^{(1)}=\frac{P_{\lambda,H}(m+\log T)-P_{\lambda,H}(m)}{B_1}.
+ \label{eq:first-probability}
+\end{equation}
+It belongs to $[0,1]$ because $P$ is increasing and
+$g_m'(t)\leq H\overline D_1$ for $t\geq1$.
+All three constructions have explicit, method-specific controls,
+normalisers and finite arithmetic certificates.
+
+\begin{proposition}[Auxiliary variance penalty]
+\label{prop:variance}
+With continuous auxiliaries and the same retained financial law,
+$\E[B_2X^{\mathrm{int}}\mid Y]=R_2(Y)$ and
+\[
+ \Var(B_2X^{\mathrm{int}})=\Var(R_2(Y))+
+ \E\Var(B_2X^{\mathrm{int}}\mid Y)\geq\Var(R_2(Y)).
+\]
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:integral-observable} gives the conditional mean.
+All integrands are bounded on the retained support, so their second
+moments are finite. The algebraic identity also extends to the full
+Gaussian law as a numerical-integrand statement, because its ratio moments
+are finite; the bounded probability interpretation uses the retained support.
+Expanding the squared centred variable into its conditional centred part
+and conditional mean makes the cross term zero.  This is the displayed
+variance decomposition.
+\end{proof}
+
+The integral method must therefore earn any advantage through its complete
+evaluator or precision requirements, rather than through an invented
+variance reduction.  It also faces a stable direct implementation as an
+important limitation of the present comparison.  A shared divided difference
+or conditional Taylor kernel could avoid subtraction as effectively as the
+integral representation.  The retained direct circuit is a fully charged
+competitor, but is not a lower bound on every possible direct algorithm.
+
+A local weak-dispersion argument explains the intended precision mechanism.
+On a fixed retained support, scale the centred loading contrasts as
+$s_i=\delta\bar s_i$ and the centred drift contrasts as
+$d_i=\delta^2\bar d_i$, with exact weighted centring.  Taylor expansion of
+the exponential, uniform on that support, cancels the term linear in
+$\delta$.  Thus $U=O(\delta^2)$.
+If its quadratic coefficient is nonzero somewhere on the fixed support,
+its nonnegative maximum is positive, giving
+$U_*=\Theta(\delta^2)$ and $B_2=\Theta(\delta^4)$.
+An $h$-kernel error is then multiplied by $O(\delta^4)$; an absolute $U$
+error enters through $\partial_U(U^2Q)=2UQ+U^2\partial_UQ$, with leading
+order $O(\delta^2\eta_U)$ on its guarded domain.
+The individual raw-price errors in \eqref{eq:direct-probability} do not
+have that suppression before subtraction.  These orders concern the
+specified constructions with fixed scale and support; they do not replace
+the actual finite arithmetic propagation or establish superiority over a
+stable cancellation-preserving opponent.
+
+\section{Finite preparation and complete monetary error}
+\label{sec:finite}
+
+I use independent uniform financial labels and compute midpoint
+truncated-normal coordinates by a reversible integer table.  Let $L>0$,
+$N=2^{b_y}$, $\alpha_1=\Phi(L)-\Phi(-L)$ and
+\begin{equation}
+ y_j=\Phi^{-1}\!\left(\Phi(-L)+\alpha_1\frac{j+1/2}{N}\right),
+ \quad 0\leq j<N,\qquad \alpha=\alpha_1^p.
+ \label{eq:quantile-grid}
+\end{equation}
+Each actual coordinate $\widehat y_j$ is the retained rounded dyadic
+integer divided by $2^q$, with its specified offset removed.
+Its outward quantile enclosure, monotonicity and membership of $[-L,L]$
+are checked.  Duplicate coordinates keep their label multiplicities.
+Hadamards prepare the independent label registers exactly; reversible
+lookup computes the coordinates and its inverse clears the workspace.
+This is a realised finite law, not a free Gaussian amplitude oracle.
+
+The finite normaliser uses the actual retained support.  If $[\ell,h]$
+covers every ideal node enclosure and actual dyadic coordinate, then
+\begin{equation}
+ U_*\geq\max_{v\in\{\ell,h\}^p}\sum_iw_ie^{d_i+s_i\cdot v}-1
+ \label{eq:finite-vertex}
+\end{equation}
+is sufficient.  Fixing all other coordinates leaves a convex function of
+one coordinate; its maximum on the interval is at an endpoint.
+Applying this observation successively proves \eqref{eq:finite-vertex}.
+Outward evaluation of every vertex, including 128 for $p=7$, certifies the
+bound.  The larger continuous truncation box is still used by the separate
+financial transfer.  Confusing these two roles would either invalidate the
+normaliser or inflate it unnecessarily.
+
+The alternative uniform-box preparation uses exact dyadic coordinate
+midpoints on $[-L,L]^p$ and multiplies the score by
+$\omega(y)=e^{-\|y\|^2/2}\in[0,1]$.
+Its external factor is $C_L=(2L/\sqrt{2\pi})^p$ rather than $\alpha$.
+This avoids an inverse-normal lookup, but its normalisation and density
+arithmetic are charged, and the volume factor can be severe at larger
+$p$.  I retain it as a transfer alternative instead of assuming that
+removing one table makes it competitive.
+
+The auxiliary law is also actual and finite.  Two independent $b_Z$-bit
+uniform midpoint labels are compared coherently; their integer minimum is
+returned cleanly.  With $h_Z=2^{-b_Z}$ and $z_j=(j+1/2)h_Z$, its probability
+mass is exactly
+$\{(N_Z-j)^2-(N_Z-j-1)^2\}/N_Z^2=2h_Z(1-z_j)$.
+This equals the continuous $\operatorname{Beta}(1,2)$ mass of that cell.
+The strike register is an independent uniform midpoint law with
+$h_S=2^{-b_S}$.  Preserving the exact Beta cell masses supports a quadratic
+auxiliary certificate stronger than a generic Lipschitz coupling.
+
+Let $M_{r,N}=\E_N[\omega U^r]$ under the
+actual financial label law, with $\omega=1$ for quantiles.  I use its outward
+upper endpoint whenever it enters an error or probability bound.
+Let $\overline E_2$ and $\overline F_2$ bound the first and second
+argument derivatives of $A_{2,\lambda}\phi$.
+The rigorous auxiliary bounds before the external factor are
+\begin{align}
+ \beta_Z&\leq Hh_Z^2
+ \left(\overline D_3M_{3,N}/12+\overline D_4M_{4,N}/48\right),
+ \label{eq:beta-error}\\
+ \beta_S&\leq\frac{H^3M_{2,N}h_S^2}{48K^2}
+   (\overline F_2/\lambda^2+\overline E_2/\lambda).
+ \label{eq:strike-error}
+\end{align}
+The finite support implies $M_{4,N}\leq U_*M_{3,N}$ when a fourth
+moment has not been retained.
+Certified Hermite norms give
+$\overline E_2=\overline{\mathcal H}_1/\lambda+
+\overline{\mathcal H}_2/\lambda^2$ and
+$\overline F_2=\overline{\mathcal H}_2/\lambda+
+\overline{\mathcal H}_3/\lambda^2$ as valid choices of upper bounds.
+Appendix~\ref{app:aux} derives the constants and the permitted transfer order.
+Continuous Gaussian moments cannot silently replace these finite-law moments.
+
+All elementary functions use one-dimensional endpoint tables with certified
+interpolation errors.  The integer graph computes exponentials, the positive
+ratio $U$, logarithms of $1+U$ or $1+ZU$, inverse-square factors and either
+the density polynomial or the capped-price kernels.
+The arithmetic certificate propagates absolute errors with the actual
+operand ranges; it never assumes a favourable relative error for a nearly
+cancelled price difference.  Every function argument and integer operation
+is checked within its domain.  The direct second correction uses a signed
+final subtraction followed immediately by an explicit two's-complement
+projection onto $[0,1]$.  Signed words are not subsequently multiplied as
+unsigned financial values.
+Appendix~\ref{app:arithmetic} gives the scalar and product error contracts.
+
+If the final represented threshold is $k\in\{0,\ldots,2^q\}$, a uniform
+$q$-bit comparator, extended by one high zero bit, has success probability
+exactly $k/2^q$.  Both endpoints zero and one are represented correctly.
+Copying the numerical output and uncomputing the financial workspace yields
+a clean value oracle; computing the comparator flag before uncomputation
+yields a clean flag oracle.  The actual logical constructions and their
+controlled uses are emitted and checked, rather than assigned a free
+oracle cost.  Piecewise interpolation stores an unsigned slope magnitude
+and a decreasing bit, so no modular negative slope is multiplied.
+
+\begin{theorem}[Complete price-error allocation]
+\label{thm:error}
+Let $\beta_Y$ bound the exact continuous correction against the exact
+mass-weighted finite financial correction.  Let $e_c$ bound the midpoint
+error of its continuous coefficient sum, and let $[F_-,F_+]$ enclose the
+external factor, whose midpoint is used, with radius $e_F$.
+Suppose the centred value oracle has probability error at most $\eta_p$,
+its output lies in $[0,1]$, and the signed correction estimator contributes
+monetary error $e_{\rm stat}$ before the factor at its stated confidence.
+For either second correction,
+\begin{equation}
+ |\widehat V-V|\leq
+ e_c+\beta_Y+F_+(\beta_{\rm aux}+2B_2\eta_p+e_{\rm stat})+e_FB_2,
+ \label{eq:total-error}
+\end{equation}
+where $\beta_{\rm aux}=\beta_Z+\beta_S$ for the integral method and zero
+for direct evaluation.  For the first correction replace the coefficient
+sum by $c_0$, $2B_2\eta_p$ by $B_1\eta_p$ and $B_2$ by $B_1$ in the
+factor term.  Discounting multiplies the complete bound by $e^{-r_f\tau}$.
+\end{theorem}
+\begin{proof}
+Insert successively the exact coefficient, exact finite financial correction,
+finite auxiliary average and implemented average.  Their differences have
+the bounds in the hypothesis and \eqref{eq:beta-error}--\eqref{eq:strike-error}.
+The signed score changes by at most $2\eta_p$, giving $2B_2\eta_p$;
+the positive first-correction score changes by at most $\eta_p$.
+The external-factor approximation is charged against the implemented
+bounded monetary score, whose absolute value is at most its normaliser.
+The triangle inequality gives \eqref{eq:total-error}; statistical confidence
+is inherited from the separately justified estimator event.
+\end{proof}
+
+I use the same requested monetary accuracy, confidence and maximum
+deterministic allowance across matched methods.  A graph can pass every
+integer-domain check and still fail this financial allowance.
+The root-to-price error budget is the criterion for admission to the
+resource comparison, rather than the number of fractional bits in isolation.
+Figure~\ref{fig:error-flow} identifies where each allowance enters; its
+purpose is to prevent a correct finite circuit from being mistaken for a
+complete continuous pricing certificate.
+
+\begin{figure}[ht]
+\centering
+\fbox{\begin{minipage}{0.94\linewidth}\centering\small
+Original continuous price $V$\\[1mm]
+$\downarrow$\quad exact control $c_0+c_1$, coefficient radius $e_c$\\[1mm]
+Continuous second correction $\E R_2$\\[1mm]
+$\downarrow$\quad financial tail, grid and node transfer $\beta_Y$\\[1mm]
+Actual dyadic financial law and certified $U_*$\\[1mm]
+$\downarrow$\quad integral auxiliaries $\beta_Z+\beta_S$; direct method: zero\\[1mm]
+Finite ideal score $X$\\[1mm]
+$\downarrow$\quad complete arithmetic $2B_2\eta_p$ and factor radius $e_FB_2$\\[1mm]
+Exact integer signed flags\\[1mm]
+$\downarrow$\quad jointly certified estimation $F_+e_{\rm stat}$\\[1mm]
+Certified undiscounted interval, then discount by $e^{-r_f\tau}$
+\end{minipage}}
+\caption{The monetary contract for the two matched second corrections.
+Each arrow corresponds to a proved or separately validated allowance;
+logical circuit correctness addresses only part of this chain.}
+\label{fig:error-flow}
+\end{figure}
+
+\section{Signed flags and competent finite moment priors}
+\label{sec:priors}
+
+The centred encoding can have probability near one half even when its
+monetary correction is small.  I therefore also implement two exact signed
+parts of the represented probability:
+\begin{equation}
+ \widehat p_+=\max(0,2\widehat p-1),\qquad
+ \widehat p_-=\max(0,1-2\widehat p),\qquad
+ \widehat p_+-\widehat p_-=2\widehat p-1.
+ \label{eq:signed-parts}
+\end{equation}
+The transformations use exact dyadic scaling and positive subtraction.
+They preserve the difference on every represented basis input, including
+$\widehat p\in\{0,1/2,1\}$.
+They are separate success flags with separately charged preparation and
+confidence costs; I do not estimate a fictitious flag with the variance of
+a signed classical output.  Their deterministic recombination uses the
+centred base certificate in Theorem~\ref{thm:error}, avoiding a double
+charge for an exact integer identity.
+
+For either ideal second-correction construction,
+$p_\pm\leq|X|\leq\omega U^2/U_*^2$.
+The positive-part map is one-Lipschitz, so the implemented flags satisfy
+\begin{equation}
+ \E_N\widehat p_\pm\leq
+ u_2:=\min\{1,M_{2,N}/U_*^2+2\eta_p\}.
+ \label{eq:rare-prior}
+\end{equation}
+The expectation is under the prepared label law.  Neither its Gaussian
+box mass $\alpha$ nor its uniform-box monetary factor $C_L$ belongs in
+this probability prior.  They enter monetary reconstruction after
+estimation.  A prior reduction improves a canonical estimator's amplitude
+error bound only if the increased flag-preparation costs and two confidence
+allocations are also included.
+
+The finite moments are exactly computable without a financial price.
+Define the one-dimensional exponential sum
+\begin{equation}
+ \mathcal L_N(v)=N^{-1}\sum_{j=0}^{N-1}e^{v\widehat y_j},
+ \label{eq:finite-mgf}
+\end{equation}
+and, for uniform-box weighting, replace each summand by
+$e^{vy_j-y_j^2/2}$.  Independence and the multinomial expansion give
+\begin{equation}
+ \E_N[\omega T^r]=
+ \sum_{|\gamma|=r}\frac{r!}{\gamma!}w^\gamma e^{d_\gamma}
+ \prod_{k=1}^p\mathcal L_N\!\left(\sum_i\gamma_is_{ik}\right),\qquad
+ M_{r,N}=\sum_{j=0}^r(-1)^{r-j}\binom rj\E_N[\omega T^j].
+ \label{eq:finite-moment}
+\end{equation}
+These are finite sums over actual dyadic nodes.
+For the weighted law the zeroth raw moment is $\E_N\omega$, not one.
+All cancellations remain enclosed outwards.
+Thus a moment calculation can use products of one-dimensional sums instead
+of $N^p$ financial price evaluations.  Its scalar preprocessing cost is
+still retained; separability does not make it free.
+
+The positive first-correction comparator also receives a competent prior.
+The capped payoff is increasing and one-Lipschitz in the underlying price.
+For fixed $Y=y$, $A=GT$ and the independent common factor therefore imply
+\begin{equation}
+ 0\leq R_1(y)\leq Ke^{m(y)+\lambda^2/2}U(y).
+ \label{eq:underlying-gap}
+\end{equation}
+The corresponding finite expectation retains the level-ratio correlation:
+\begin{equation}
+ \Gamma_N=Ke^{\mu_G+\lambda^2/2}
+ \left\{\sum_iw_ie^{d_i}\prod_{k=1}^p\mathcal L_N(R_{G,k}+s_{ik})
+       -\prod_{k=1}^p\mathcal L_N(R_{G,k})\right\}.
+ \label{eq:correlated-gap}
+\end{equation}
+Expanding $e^{R_G\cdot Y}(T-1)$ proves this identity.
+Combining it with $R_1\leq H$ and $R_1\leq H\overline D_1U$ gives
+\begin{equation}
+ u_1=\min\left\{1,
+ \frac{\min\{H\E_N\omega,H\overline D_1M_{1,N},\overline\Gamma_N\}}{B_1}
+ +\eta_{p,1}\right\},
+ \label{eq:first-prior}
+\end{equation}
+where $\overline\Gamma_N$ is an outward upper endpoint.
+Replacing $\E(e^{R_G\cdot Y}U)$ by a product of separate expectations
+would generally invalidate this bound.  The prior is derived from moments
+and the Lipschitz property, not a secretly supplied option price.
+
+\section{Estimation and complete logical resource accounting}
+\label{sec:estimation}
+
+Let $\mathcal A$ be a clean preparation with success probability $p$,
+including every financial and comparator register.  The Grover iterate is
+formed from $\mathcal A$, its inverse and the good-state and zero-state
+reflections.  Canonical phase estimation uses controlled powers of this
+iterate \citep{brassard}; I retain the controlled global signs of the
+reflections, since a global sign becomes a relative phase under control.
+For $M=2^m$, the standard amplitude estimate obeys, on its success event,
+\begin{equation}
+ |\widetilde p-p|\leq
+ \frac{2\pi\sqrt{p(1-p)}}M+\frac{\pi^2}{M^2}.
+ \label{eq:canonical-error}
+\end{equation}
+This follows from the two Grover eigenphases and the nearest phase-grid
+outcomes: writing $p=\sin^2\theta$, the relevant phase error is at most
+$\pi/M$, and Taylor expansion of $\sin^2$ bounds the first-order term by
+$2\sqrt{p(1-p)}\pi/M$ and the second-order term by $\pi^2/M^2$.
+The probability of the nearest-grid event is bounded below by the retained
+canonical phase-estimation theorem.  The exact finite confidence calculation
+and phase-tape verification remain in the supporting derivations.
+
+If $p\leq u$, the variance term is bounded by $u(1-u)$ for $u\leq1/2$
+and by $1/4$ otherwise.  I apply \eqref{eq:rare-prior} or
+\eqref{eq:first-prior}, rather than assuming an arbitrary favourable
+amplitude.  Exact finite postprocessing error and the compiled inverse
+Fourier transform's implementation error are charged separately.
+Fresh median repetitions amplify confidence by the exact binomial tail
+for their certified single-shot success probability.  The allocation is
+fixed before observing results.  Two signed-part estimates share a union
+budget; all 27 prespecified prices share an overall failure allowance of
+one per cent.  The retained protocol assigns $1/2700$ per selected price.
+Deterministic selection among certified implementations requires no
+statistical selection penalty because no measurement outcomes are used to
+choose their resource plans.
+
+The inverse Fourier transform has explicit Clifford and T sequences,
+based on certified single-qubit rotation approximations
+\citep{rossselinger2016}.  Scalar phases are retained until they are
+physically irrelevant to the final measurement.  For phase widths through
+64, distant unsupported controlled phases are replaced by identity with a
+charged operator-norm error; retained approximations and omitted phases
+are summed by a telescoping product bound.
+The complete largest-width bound is about $0.0022013$, below the stipulated
+$1/64$ implementation limit.  The 64-bit tape has 167,223 T gates; the earlier 32-bit
+profile is preserved at 68,823 T gates.  The extension charges omitted
+distant phases rather than silently assigning them exact rotations.
+This is an implementation-error statement, not an execution on a quantum
+device.
+
+A complete count includes the initial preparation, every controlled
+financial preparation and inverse, good and zero reflections, inverse
+Fourier transform, confidence repetitions, observed qubits and reset of
+reused shot registers.  Each method receives both coherent lookup architectures and can select
+its lowest complete cap before any estimator shots.  The study retains both exact seven-T and
+coherent eight-T construction profiles and their emitted chronological
+tapes.  QROM mechanisms have established predecessors \citep{babbush};
+using them correctly is an implementation obligation, not a novelty claim.
+An exact lookup compute/erase pair costs 14 T gates, while the coherent
+AND pair costs eight; ordinary arithmetic uses literal seven-T Toffolis
+in both modes. Financial table generation, norm generation, finite moment sums and
+continuous-reference validation are reported as classical setup.
+A logical T count is not directly equated to CPU time or fault-tolerant
+wall-clock time.
+
+For a centred second-correction flag with probability tolerance $e_p$,
+the monetary statistical allowance is $2B_2e_p$ before the factor.
+For two signed flags with tolerances $e_+,e_-$ it is
+$B_2(e_++e_-)$, at their joint confidence.
+The positive first correction uses $B_1e_p$.
+I select only configurations satisfying the complete monetary constraint,
+with at most half the requested radius assigned to deterministic error.
+The final study fixes $q=28$, $b_y=10$ and the two auxiliary widths
+at eight, then tunes each scalar table independently within six to twelve
+address bits. The unchanged all-twelve program remains in every method
+pool, alongside three greedy searches with deterministic allowances
+$0.001$, $0.0025$ and $0.005$. The search ranks certified cell savings
+per marginal monetary error, with a fixed node-name tie rule; the final
+choice minimises the actual complete T cap. Every proposed map, guard
+result, chosen step and cost is retained. This is a reproducible finite
+search, rather than a global precision optimum.  Equal financial accuracy, information, confidence,
+architecture and admissibility are the matched requirements.
+
+\section{Retained findings and comparison boundary}
+\label{sec:results}
+
+The classical screening result is decisive for the practical pricing
+policy.  The joint-norm finite certificate resolves 25 of the 27 contracts
+to undiscounted radius $0.01$ within the retained degree range.
+Three first certifying degrees decrease relative to the earlier separated
+bound.  Its executed stopping hierarchy uses 793 Gaussian kernels and
+760 geometric exponentials, compared with 1,169 and 1,552 previously.
+Shared norm-generation cost is additional and is reported separately;
+these evaluator counts are not a cold-run time comparison.
+Validated continuous quadrature resolves the two remaining controls.
+An equally informed policy therefore prices all 27 without calling a
+quantum estimator.  The complete quantum budgets below are forced
+correction-evaluator comparisons conditional on the supplied controls and
+validation premises.
+
+The arithmetic and financial validations have different scopes.
+All 81 common-precision graphs, three methods for every model-cap pair,
+pass their scalar-domain and integer-range guards.
+Independent scalar checks cover 60 archived certificates and 242,747
+nodes, including CDF bracketing of inverse-normal nodes and alternative
+capped-price formulas.  The full small-width circuit fixtures include
+28 complete configurations, with 14,336 value-oracle basis checks and
+14,336 flag-oracle basis checks; separate signed endpoint checks cover
+44,184 cases.  They test clean workspace, integer output, phase and
+endpoint conventions.  Production profiles count the same checked
+primitives at their specified widths; exhaustive prototype replay is not
+an assertion that every large production state was simulated.
+
+The nine two-asset finite financial transfers use an independently
+validated continuous reference and exact finite mean enclosures.  This is
+paid classical validation: the reference already resolves the price.
+Table~\ref{tab:n2} preserves those transfers and reports the complete resource
+caps of the independently checked final selection.  The 18 higher-dimensional
+contracts retain valid finite arithmetic and exact finite moments, but
+the current grid-transfer envelopes fail their monetary allocation at
+feasible retained widths.  They are not admitted as complete quantum
+pricing results by substituting finite-grid fidelity for continuous-price
+accuracy.
+
+The improved auxiliary rule is numerically consequential. At
+$\lambda=0.05,H=25$, the earlier linear coupling allowance is about
+$0.00936219$ before the external factor, whereas the quadratic certificate
+is at most $0.0000222520$ on the same circuit and finite law.
+An admissibility verdict based solely on the weaker rule would be an
+artefact of its bound. No new financial law or additional quantum gates
+are introduced by this refinement.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+$\lambda$ & $H$ & $\beta_Y$ for $R_2$ & Integral T & Direct T & Positive $R_1$ T\\
+\midrule
+0.05&1 & $1.327\times10^{-5}$ & $8.42\times10^{10}$&$6.62\times10^{10}$&$1.83\times10^{10}$\\
+0.05&10& $1.274\times10^{-4}$ & $7.17\times10^{11}$&$5.06\times10^{11}$&$1.53\times10^{11}$\\
+0.05&25& $6.218\times10^{-4}$ & $2.64\times10^{12}$&$1.73\times10^{12}$&$3.09\times10^{11}$\\
+0.20&1 & $1.622\times10^{-6}$ & $0$&$0$&$5.32\times10^{9}$\\
+0.20&10& $2.283\times10^{-5}$ & $4.61\times10^{10}$&$3.76\times10^{10}$&$3.98\times10^{10}$\\
+0.20&25& $6.646\times10^{-5}$ & $1.55\times10^{11}$&$1.25\times10^{11}$&$1.57\times10^{11}$\\
+0.40&1 & $1.552\times10^{-6}$ & $0$&$0$&$0$\\
+0.40&10& $1.226\times10^{-5}$ & $0$&$0$&$2.36\times10^{10}$\\
+0.40&25& $1.814\times10^{-5}$ & $4.10\times10^{10}$&$3.24\times10^{10}$&$8.07\times10^{10}$\\
+\bottomrule
+\end{tabular}
+\caption{Matched two-asset contracts.  Financial transfers use $L=6$,
+$b_y=10$ and $q=28$, with displayed bounds rounded upwards.  T caps are rounded upwards to three significant figures and include
+the selected precision, estimator, confidence amplification, full financial
+preparation, reflections, observations and reset. A zero is a deterministic
+correction-prior decision, rather than a quantum speedup. The paid
+continuous validation premise is separate.}
+\label{tab:n2}
+\end{table}
+
+At that finite financial law, $M_{2,N}$ is approximately
+$0.0003840943$, $0.0002269503$ and $0.0001770812$ for two, four and eight
+assets.  Its product sums require only 7, 44 and 120 distinct
+one-dimensional exponential sums respectively when moments through degree
+three are retained.  The positive first-correction priors are approximately
+0.045--0.090 rather than one.  These moments and priors are independently
+useful because they quantify the actual prepared law without computing a
+basket price.  They also prevent a favourable second-correction comparison
+from relying on an unnecessarily weak first-correction opponent.
+
+The complete independent search retains 97 distinct programs, 11,871
+precision proposals and one skipped starting allocation. All 2,239 chosen
+greedy steps are replayed, together with 454 oracle profiles and 573 freshly
+emitted unique blocks. The 254 retained scalar certificates contain
+308,861 ordinates, each an exact subset of the independently verified
+all-twelve tables. The monetary auditor verifies 324 strategies, including
+256 nonzero estimator plans and 68 correction-prior decisions. These
+figures refer to recorded computational checks, rather than physical
+quantum execution.
+
+Direct second-correction evaluation beats the positive first correction
+in three of the six cases where both retain nonzero quantum plans.
+For $(\lambda,H)=(0.2,10),(0.2,25),(0.4,25)$, the exact T caps are
+37,573,620,552; 124,075,815,985; and 32,358,646,152, respectively, compared
+with 39,762,713,030; 156,672,791,684; and 80,678,150,939 for the first
+correction. Their reductions are approximately 5.5, 20.8 and 59.9 per cent.
+The selected second-correction encoding is split in the first and third
+cases and centred in the second. Thus neither sign splitting nor analytic
+preconditioning is declared uniformly superior. All nonzero winners use
+the coherent eight-T lookup pairs after both architectures receive the
+same selection opportunity.
+
+The integral oracle loses to direct second-correction evaluation in all
+six active cases. I therefore retain direct evaluation as the preferable
+second-correction implementation in this pool. Its mathematical identity,
+finite monetary guarantee and complete coherent construction develop an
+established pricing approach; the integral formula remains a proved and
+fully tested alternative with an adverse comparison. The low-order
+correction prior resolves three second-correction cases without quantum
+shots. Those are analytical decisions, as is the first-correction zero
+at $\lambda=0.4,H=1$; I do not count them as quantum resource savings.
+
+The positive result is consequently a measured improvement within complete
+quantum correction implementations under the stated financial error and
+information conditions. It is not superiority over the strongest classical
+pricer: the retained higher-order Taylor and quadrature policy resolves
+all 27 targets with zero quantum estimation calls, and the nine
+continuous-to-finite validations already use price-resolving classical
+work. Stable divided-difference arithmetic, additional precision searches
+and compatible QSP constructions remain stronger-comparator questions.
+The checked source comparison does not establish world-first theoretical
+priority. Full derivations, exact tapes, source versions and earlier rejected
+studies are mapped in \texttt{supporting\_proofs\_index.md}; they are
+preserved without repeating their history in the main argument.
+
+\appendix
+\section{Complete root isolation for the joint norm}
+\label{app:roots}
+
+This appendix gives the finite certificate behind
+Theorem~\ref{thm:norm}.  Write $A=A_{r,\lambda}$ and $Q=A'-zA$.
+Since $(A\phi)'=Q\phi$, every nonzero absolute maximum is at a real root
+of $Q$.  Zeros of $A$ and limits at infinity contribute zero.
+For rational $\lambda$, all coefficients are rational and $\deg Q=r$.
+Replace $Q$ by its monic square-free part $q=Q/\gcd(Q,Q')$; this keeps
+every distinct root.
+
+Start a remainder sequence with $q_0=q$, $q_1=q'$ and define
+$q_{j+1}$ as minus the polynomial remainder of $q_{j-1}$ by $q_j$.
+Positive rescalings do not change signs.  The sequence ends in a nonzero
+constant.  Consecutive terms cannot vanish together, since the recurrence
+would propagate that zero to the last constant.  At an internal zero the
+neighbouring terms have opposite signs, so their adjacent comparisons
+contribute one sign variation on both sides.  At a root of $q_0$, its
+nonzero derivative makes the variation count decrease by one.
+Thus, omitting zero values, $V(a)-V(b)$ counts roots in $(a,b)$ when
+$a,b$ are nonroots.
+
+Every root lies within
+$1+\max_{j<r}|a_j/a_r|$ for the coefficients of $q$.
+Outside that radius the absolute sum of its lower terms is strictly less
+than the leading term, so cancellation is impossible.
+Choose a larger integer radius and subdivide rationally, preserving the
+exact root-count sum.  If a proposed midpoint is a root, choose a nonroot
+among the $r+1$ interior fractions $j/(r+2)$ of the interval; a degree-$r$
+polynomial cannot vanish at all of them.  Every such split contracts each
+child by at most $(r+1)/(r+2)$.  Distinct roots have positive separation,
+so repeated contraction first isolates each and then attains the required
+interval width.  This proves finite termination, including rational roots.
+
+Evaluate $|A\phi|$ with an outward Arb ball covering both exact endpoints
+of each isolating interval.  The largest upper endpoint is a global upper
+certificate, because all maximising roots are covered.  Evaluation at
+midpoints gives lower bounds on the global supremum even when those points
+are not roots.  The independent implementation reconstructs the rational
+polynomials, verifies total root counts and interval endpoint signs, and
+uses higher-precision Gaussian evaluations to check the retained envelopes.
+No claim that interval midpoint evaluation is the exact maximum is needed.
+
+\section{Signed interpolation and arithmetic contracts}
+\label{app:arithmetic}
+
+Let $f\in C^2([a,a+s])$ and grid spacing $h=s/2^b$, with a power-of-two
+span $s$ and $b\leq q+\log_2s$.  At every endpoint $x_j$, retain an
+unsigned dyadic value $n_j2^{-q}$ and an outward error $e_j$.
+On a cell $[u,v]$, the exact linear interpolation error equals
+$f''(\zeta)(x-u)(x-v)/2$ for some interior $\zeta$.
+Subtract the linear interpolant and a multiple of $(t-u)(t-v)$ chosen to
+give a third zero at $x$, then apply Rolle's theorem twice to prove this
+identity.  Since $(x-u)(v-x)\leq h^2/4$, endpoint rounding and one integer
+truncation give
+\begin{equation}
+ e_f\leq\max_je_j+\|f''\|_\infty h^2/8+2^{-q}.
+ \label{eq:appendix-interpolation}
+\end{equation}
+An argument error $\eta_x$ adds $\|f'\|_\infty\eta_x$ if both arguments
+remain in the declared interval.  Projection onto that interval does not
+enlarge the distance from an admissible exact argument.
+
+The actual table stores the base integer, the absolute difference to the
+next endpoint, and its decreasing bit.  It multiplies the unsigned magnitude
+by the within-cell remainder and chooses unsigned addition or subtraction.
+The adjustment cannot underflow a decreasing base: it is at most the
+endpoint difference, and both endpoints are nonnegative.
+The final endpoint has its own address, so saturation at the right endpoint
+does not wrap to the left.  The packed magnitudes, intermediate additions
+and input slices are checked against their actual widths.
+Outward endpoints are coarsened downwards and upwards to
+$2^{-384}\mathbb Z$ before serialization; the enlarged intervals determine
+all nodal errors.  Extreme Gaussian tails are not treated as exact zeros.
+
+For $x\geq a>0$, usable first and second derivative bounds are
+$a^{-1},a^{-2}$ for $\log x$, and $2a^{-3},6a^{-4}$ for $x^{-2}$.
+For $e^x$ both are $e^{a+s}$.
+For $h$ in \eqref{eq:factorised-kernel}, the bounds are
+$(\overline{\mathcal H}_1/\lambda+
+\overline{\mathcal H}_2/\lambda^2)/(2\overline D_2)$ and
+$(\overline{\mathcal H}_2/\lambda+
+\overline{\mathcal H}_3/\lambda^2)/(2\overline D_2)$.
+They follow by differentiating
+$A_2\phi=-\phi/\lambda+\phi'/\lambda^2$.
+Differentiating the finite strike integral gives
+$\|P^{(j)}\|_\infty\leq H\lambda^{-j}\overline{\mathcal H}_{j-1}$.
+Moreover $P'\geq0$ and $P'\leq K+H$:
+the pathwise log-scale derivative is the underlying price when it lies
+between $K$ and $K+H$, and is zero otherwise.  The pathwise capped payoff
+is $(K+H)$-Lipschitz in log-scale, justifying dominated differentiation.
+These whole-domain inequalities give the required $P$ and $P'$ tables.
+
+For products, either identity
+$\widehat x\widehat y-xy=x(\widehat y-y)+\widehat y(\widehat x-x)
+=y(\widehat x-x)+\widehat x(\widehat y-y)$ yields a valid absolute error.
+Taking the smaller range-based upper bound and adding one truncation unit
+preserves small-factor suppression.  Addition and subtraction add operand
+errors.  Scaling charges its rounded coefficient and any dropped bits.
+Each node independently propagates implemented ranges; intersecting them
+with an ideal range expanded by its certified error retains correlations
+without removing rounding.  Empty intersections or domain violations reject
+the graph.  Signed final differences must fit strictly within the
+unambiguous two's-complement range before projection.  Positive-subtraction
+temporaries are predicate-masked before any downstream multiplication.
+These checks are essential hypotheses of the monetary certificate.
+
+\section{Quadratic auxiliary discretisation}
+\label{app:aux}
+
+For $N_Z$ cells of width $h_Z$, the minimum-register law has the exact
+$\operatorname{Beta}(1,2)$ cell masses stated in Section~\ref{sec:finite}.
+For $f\in C^2[0,1]$, expand in a cell centred at $z_j$ with
+$u=z-z_j$.  Its density is $2(1-z_j)-2u$.
+The first centred cell moment is $-h_Z^3/6$, and the second is
+$2(1-z_j)h_Z^3/12$.
+Taylor's formula therefore gives
+\begin{equation}
+ |\E f(Z)-\E f(Z_N)|\leq
+ h_Z^2\{\|f'\|_\infty/6+\|f''\|_\infty/24\}.
+ \label{eq:beta-midpoint-proof}
+\end{equation}
+For the linear terms sum $N_Zh_Z^3=h_Z^2$; for the quadratic remainder
+use $\sum_j2(1-z_j)h_Z=1$ and the nonnegative cell density.
+Set $f_y(z)=g_{m(y)}''(1+zU)$.
+Theorem~\ref{thm:norm} gives
+$|f_y'|\leq H\overline D_3U$ and
+$|f_y''|\leq H\overline D_4U^2$.
+Multiplication by $U^2/2$ and finite financial expectation prove
+\eqref{eq:beta-error}.
+
+For a uniform strike midpoint rule, each cell's linear Taylor term
+integrates to zero and its quadratic remainder integrates to at most
+$\|f''\|_\infty h_S^3/24$.
+At fixed $y,z$, let $\xi(s)=(m+\log t-\log(1+Hs/K))/\lambda$.
+Then $|\xi'|\leq H/(K\lambda)$ and
+$|\xi''|\leq H^2/(K^2\lambda)$.
+The second derivative of $t^{-2}A_2(\xi(s))\phi(\xi(s))$ is at most
+$(H^2/K^2)(\overline F_2/\lambda^2+\overline E_2/\lambda)$.
+Multiplying by $HU^2/2$ proves \eqref{eq:strike-error}.
+Replace Beta while the strike remains continuous, then replace strike
+under the already finite Beta law; its uniform-in-$z$ bound permits this
+order.  Both steps use the same actual financial law and therefore the
+same moments.  A relative Gaussian weight is carried inside their finite
+expectation, not inserted afterwards as a different moment law.
+
+\section{Financial tails and continuous-to-finite transfer}
+\label{app:financial-transfer}
+
+Let $E_L=\{Y\notin[-L,L]^p\}$.
+The positive first remainder has tail at most $H\mathbb P(E_L)$.
+Since $R_2=R_1-UP'(m)$ and
+$P'_*=\min\{K+H,H\overline{\mathcal H}_0/\lambda\}$,
+$|R_2|\leq H+P'_*T$ is a valid global tail envelope.
+Gaussian tilting evaluates its exponential tail terms:
+\begin{equation}
+ \E[e^{v\cdot Y}\ind_{E_L}]=e^{\|v\|^2/2}Q_v(L),\qquad
+ Q_v(L)\leq\sum_{j=1}^p\{\Phi(-L-v_j)+\Phi(v_j-L)\}.
+ \label{eq:tilted-tail}
+\end{equation}
+The equality follows by shifting the Gaussian square; the inequality is
+the union bound for the coordinates of $Y+v$.
+Combining it with the finite exponential sum for $T$ gives an explicit
+outward continuous-tail bound without private data.
+
+For financial grids on the retained box, a coordinate Lipschitz bound
+$L_j$ on a correction gives ideal conditional-normal midpoint error
+$L\sum_jL_j/N$.  Split each probability cell at its midpoint and use
+monotonicity of its quantile function.  The two half-cell differences are
+bounded by $1/(2N)$ times their endpoint increments; summing telescopes
+to $(L-(-L))/(2N)=L/N$.  Successive coordinate coupling proves the product
+bound.  Actual quantile-node rounding adds
+$\sum_jL_j\max_k|\widehat y_k-y_k|$ separately.
+The derivative bounds follow by differentiating the integral remainder,
+using the certified $\overline D_r$ and its argument derivatives on the
+full box.  Their complete expressions are retained in the supplementary
+certificate derivation.  Large sufficient widths are recorded as failures.
+
+Uniform-box quadrature has a stronger smooth grid rate but a larger
+monetary factor.  For $f=\omega R$, the product rule gives
+$\|\partial_{jj}f\|_\infty\leq
+\|\partial_{jj}R\|_\infty+2L\|\partial_jR\|_\infty+(L^2+1)\|R\|_\infty$.
+Integrating the second-order Taylor remainder on each cell gives
+one-coordinate expectation error $(2L)^2\|f''\|_\infty/(24N^2)$.
+A telescoping tensor product uses the sup-norm contraction of both positive
+averaging operators, and yields
+$C_L(2L)^2\sum_j\|\partial_{jj}f\|_\infty/(24N^2)$.
+This remains a grid-only bound until the continuous tail is added.
+
+The retained one-dimensional transfer instead compares two validated
+intervals.  If $[V_-,V_+]$ encloses the continuous price,
+$[c_-,c_+]$ its coefficient sum and $[J_-,J_+]$ the exact mass-weighted
+finite correction, then
+\begin{equation}
+ \beta_Y=\max\{|J_--(V_+-c_-)|,|J_+-(V_--c_+)|\}
+ \label{eq:reference-transfer}
+\end{equation}
+bounds $|J-(V-c)|$.  Interval subtraction proves this directly.
+It includes tail, financial grid and actual node rounding, but no auxiliary,
+value or statistical error.  Its classical reference and finite evaluations
+are charged and hashed.  A reference which already determines $V$ cannot
+serve as free preprocessing evidence of practical quantum advantage.
+
+\begin{thebibliography}{99}
+\bibitem[Babbush et al.(2018)]{babbush} Babbush, R., Gidney, C., Berry, D. W., Wiebe, N., McClean, J., Paler, A., Fowler, A. and Neven, H. (2018). Encoding electronic spectra in quantum circuits with linear T complexity. \emph{Physical Review X}, 8(4), 041015. \url{https://doi.org/10.1103/PhysRevX.8.041015}.
+
+\bibitem[Bayer et al.(2018)]{bayer} Bayer, C., Siebenmorgen, M. and Tempone, R. (2018). Smoothing the payoff for efficient computation of basket option prices. \emph{Quantitative Finance}, 18(3), 491--505. \url{https://doi.org/10.1080/14697688.2017.1308003}.
+
+\bibitem[Brassard et al.(2002)]{brassard} Brassard, G., H\o yer, P., Mosca, M. and Tapp, A. (2002). Quantum amplitude amplification and estimation. \emph{Contemporary Mathematics}, 305, 53--74. \url{https://doi.org/10.1090/conm/305/05215}.
+
+\bibitem[Caldana et al.(2016)]{caldana}
+Caldana, R., Fusai, G., Gnoatto, A. and Grasselli, M. (2016).
+General closed-form basket option pricing bounds.
+\emph{Quantitative Finance}, 16(4), 535--554.
+\url{https://doi.org/10.1080/14697688.2015.1073854}.
+
+\bibitem[Carr(2001)]{carr2001} Carr, P. (2001). Deriving derivatives of derivative securities. \emph{Journal of Computational Finance}, 4(2), Winter 2000/2001. \url{https://doi.org/10.21314/JCF.2001.075}.
+
+\bibitem[Chakrabarti et al.(2021)]{chakrabarti} Chakrabarti, S., Krishnakumar, R., Mazzola, G., Stamatopoulos, N., Woerner, S. and Zeng, W. J. (2021). A threshold for quantum advantage in derivative pricing. \emph{Quantum}, 5, 463. \url{https://doi.org/10.22331/q-2021-06-01-463}.
+
+\bibitem[Curran(1994)]{curran} Curran, M. (1994). Valuing Asian and portfolio options by conditioning on the geometric mean price. \emph{Management Science}, 40(12), 1705--1711. \url{https://doi.org/10.1287/mnsc.40.12.1705}.
+
+\bibitem[Dinge\c{c} and H\"ormann(2013)]{dingechormann} Dinge\c{c}, K. D. and H\"ormann, W. (2013). Control variates and conditional Monte Carlo for basket and Asian options. \emph{Insurance: Mathematics and Economics}, 52(3), 421--434. \url{https://doi.org/10.1016/j.insmatheco.2013.03.002}.
+
+\bibitem[Johansson(2017)]{johansson2017} Johansson, F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. \emph{IEEE Transactions on Computers}, 66(8), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}.
+
+\bibitem[Ju(2002)]{ju}
+Ju, N. (2002).
+Pricing Asian and basket options via Taylor expansion.
+\emph{Journal of Computational Finance}, 5(3), 79--103.
+\url{https://doi.org/10.21314/JCF.2002.088}.
+
+\bibitem[Montanaro(2015)]{montanaro} Montanaro, A. (2015). Quantum speedup of Monte Carlo methods. \emph{Proceedings of the Royal Society A}, 471(2181), 20150301. \url{https://doi.org/10.1098/rspa.2015.0301}.
+
+\bibitem[Olivares and Alvarez(2016)]{olivaresalvarez2016} Olivares, P. and Alvarez, A. (2016). Pricing basket options by polynomial approximations. \emph{Journal of Applied Mathematics}, 2016, 9747394. \url{https://doi.org/10.1155/2016/9747394}.
+
+\bibitem[Rall and Fuller(2023)]{rallfuller2023} Rall, P. and Fuller, B. (2023). Amplitude estimation from quantum signal processing. \emph{Quantum}, 7, 937. \url{https://doi.org/10.22331/q-2023-03-02-937}.
+
+\bibitem[Rebentrost et al.(2018)]{rebentrost} Rebentrost, P., Gupt, B. and Bromley, T. R. (2018). Quantum computational finance: Monte Carlo pricing of financial derivatives. \emph{Physical Review A}, 98, 022321. \url{https://doi.org/10.1103/PhysRevA.98.022321}.
+
+\bibitem[Ross and Selinger(2016)]{rossselinger2016}
+Ross, N.J. and Selinger, P. (2016).
+Optimal ancilla-free Clifford+T approximation of z-rotations.
+\emph{Quantum Information and Computation}, 16(11--12), 901--953.
+\url{https://doi.org/10.26421/QIC16.11-12-1}.
+
+\bibitem[Stamatopoulos and Zeng(2024)]{stamatopoulos} Stamatopoulos, N. and Zeng, W. J. (2024). Derivative pricing using quantum signal processing. \emph{Quantum}, 8, 1322. \url{https://doi.org/10.22331/q-2024-04-30-1322}.
+\end{thebibliography}
+\end{document}

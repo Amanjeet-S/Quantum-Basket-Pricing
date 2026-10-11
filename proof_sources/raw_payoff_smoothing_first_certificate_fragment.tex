@@ -1,0 +1,240 @@
+% Supporting TeX fragment, intended for the existing raw-payoff proof.
+% This contains a checked derivation, not a claim of theoretical priority.
+\section{A smoothing-first arithmetic certificate}
+\label{sec:raw-smoothing-first}
+
+The complete pointwise graph certificate remains necessary for unsigned
+domains, scalar input domains and the absence of modular overflow. Its
+pointwise output error need not be the sharpest certificate of the prepared
+mean. I now derive a second bound for the same emitted arithmetic and take
+the smaller of the two bounds. This changes the financial certification,
+prior enlargement and estimator allowance; it does not change the circuit.
+The following argument separates rounding which depends on the inner
+normal label from rounding which depends only on the outer coordinate.
+Consequently, it does not differentiate a finite atomic law or a payoff
+across its kinks.
+
+Write $s=2^q$ and $u_q=s^{-1}$. The nearest dyadic rounding convention is
+\[
+ \mathcal R_q(v)=s^{-1}\lfloor sv+1/2\rfloor.
+\]
+All quantities in this section are real values decoded from the guarded
+integer graph, rather than integers interpreted modulo a register width.
+Let $y$ be any realised outer-grid coordinate. The exact targets are
+$m=m_G(y)$ and $\Delta=\log T(y)\geq0$. The shifted affine node has ideal
+value $M=m+B_G$, where $B_G$ is the exact offset inherited from the retained
+graph. Its implemented value is $\widehat M$. The implemented nonnegative
+logarithm node is $\widehat\Delta$. Let the retained node certificate give
+the uniform bounds
+\[
+ |\widehat M-M|\leq e_m,
+ \qquad |\widehat\Delta-\Delta|\leq e_\Delta,
+ \qquad \widehat\Delta\geq0.
+\]
+The words ``realised outer-grid coordinate'' are essential: Gaussian
+outer-node rounding is already included in the inherited financial
+transfer. The arithmetic certificate treats those realised coordinates
+as its exact inputs and does not charge their rounding a second time.
+
+Put
+\[
+ C=J-B_G,\quad O=J+\lambda L,\quad
+ \widehat C=\mathcal R_q(C),\quad
+ \widehat O=\mathcal R_q(O),
+\]
+and define $\epsilon_C=\widehat C-C$ and
+$\epsilon_O=\widehat O-O$. Their certified absolute bounds are
+$e_C$ and $e_O$. These constants are independent of the inner normal
+label. In this graph the lower-endpoint additions and the upper-endpoint
+addition are exact integer additions. Their real decoded values therefore
+agree with ordinary real addition, once the retained whole-graph overflow
+and domain guards pass. No additional addition-rounding term is present.
+
+Let $(I_\lambda,d_\lambda)$ be exactly the coefficient pair returned by
+the retained fixed-point scaling emitter and set
+\[
+ \widehat\lambda=I_\lambda 2^{-d_\lambda},
+ \qquad \delta_\lambda=\widehat\lambda-\lambda,
+ \qquad
+ e_{\rm floor}=\begin{cases}u_q,&d_\lambda>0,\\0,&d_\lambda=0.\end{cases}
+\]
+For the realised quantile word $v=\widetilde N+L\in[0,2L]$, the scale
+node decodes to
+\[
+ \mathsf S_\lambda(v)
+ =s^{-1}\left\lfloor (sv)I_\lambda 2^{-d_\lambda}\right\rfloor
+ =\widehat\lambda v+\rho(v),
+ \qquad |\rho(v)|\leq e_{\rm floor}.
+\]
+When $d_\lambda=0$, the product is an integer and $\rho(v)=0$ exactly.
+The inequality with $u_q$ is outward and remains valid at dyadic endpoints.
+Thus, with
+\[
+ E_s=2L|\delta_\lambda|+e_{\rm floor},\qquad
+ \widehat m=\widehat M-B_G+\epsilon_C-\epsilon_O,
+\]
+the two conceptual signed log arguments before positive subtraction are
+exactly
+\begin{align*}
+ \widehat X_G
+ &=\widehat M+\widehat C+
+     \mathsf S_\lambda(\widetilde N+L)-\widehat O
+   =\widehat m+\lambda\widetilde N+\zeta(\widetilde N),\\
+ \widehat X_A
+ &=\widehat X_G+\widehat\Delta,
+ \qquad
+ \zeta(n)=\delta_\lambda(n+L)+\rho(n+L),
+ \qquad |\zeta(n)|\leq E_s.
+\end{align*}
+The signed expressions are mathematical identities used to identify the
+target. The circuit itself computes their positive parts by guarded
+positive subtraction; it does not store an unguarded signed logarithm.
+In particular,
+\[
+ |\widehat m-m|\leq E_m:=e_m+e_C+e_O.
+\]
+
+\begin{lemma}[Scalar implementation error after exact payoff clamps]
+\label{lem:raw-payoff-scalar-error}
+Let $b=1/64$ and let the implemented exponential map $\widehat E$ satisfy
+\[
+ \sup_{t\in[0,b]\cap s^{-1}\mathbb Z}
+ |\widehat E(t)-e^t|\leq e_{\exp}.
+\]
+With $K=100$ and $H=1$, the graph payoff map obeys
+\[
+ |\widehat f(x)-f(x)|\leq100e_{\exp}
+\]
+for every guarded decoded log argument $x$.
+\end{lemma}
+\begin{proof}
+The positive-part map and the clamps at $b$ and one are exact and
+$1$-Lipschitz. Both constants $b$ and one are exactly representable at
+$q=28$. The scalar graph's second input clamp at $b$ is idempotent and
+exact. The operation which subtracts one positively is exact because
+the constant one is exact and the positive-subtraction guards pass.
+Scaling by the integer $100$ has $d=0$, so it is an exact integer product
+without a fixed-point floor. The difference between implemented and exact
+exponentials is therefore multiplied by at most $100$ and is not enlarged
+by either following clamp. The clamp decomposition established earlier
+identifies the exact composed payoff with $f(x)$, completing the proof.
+\end{proof}
+
+The scalar certificate used in this lemma is its
+\texttt{output\_error\_upper}, comprising nodal rounding, smooth
+interpolation and the interpolation floor. It excludes the propagated
+argument-error charge. Argument perturbations are treated separately
+below. This distinction is required to avoid both omitting a perturbation
+and charging it twice. Allow distinct bounds $e_{\exp,G}$ and
+$e_{\exp,A}$, although the actual graph uses the same table and hence the
+same bound on both sides.
+
+\begin{theorem}[Smoothing-first conditional mean error]
+\label{thm:raw-smoothing-first}
+Assume the whole-graph domain and overflow certificate passes, the
+quantile CDF bound is $D_N$, the shifted-node and coefficient bounds above
+hold, and $\nu_0\geq\sup_x\phi(x)$. Let $p(y)$ be the exact probability
+of the prepared good flag conditional on the realised outer coordinate.
+Then
+\begin{align*}
+ |p(y)-R_1(y)|
+ &\leq\eta_{\rm smooth},\\
+ \eta_{\rm smooth}
+ &=\min\left\{1,
+     100(e_{\exp,G}+e_{\exp,A})+202E_s+2D_N
+     +\frac{\nu_0}{\lambda}(2E_m+e_\Delta)\right\}.
+\end{align*}
+If $\eta_{\rm point}$ is the independently valid pointwise graph/CDF
+bound, the smaller bound
+$\eta=\min\{\eta_{\rm point},\eta_{\rm smooth}\}$ is valid uniformly
+over the same realised outer grid.
+\end{theorem}
+\begin{proof}
+The payoff is absolutely continuous, with its almost-everywhere derivative
+\[
+ f'(x)=100e^x\mathbf1_{(0,\ell)}(x),
+ \qquad \ell=\log(101/100).
+\]
+Thus $f$ is globally $101$-Lipschitz. Replacing
+$\widehat X_G$ and $\widehat X_A$ by
+$\widehat m+\lambda\widetilde N$ and
+$\widehat m+\widehat\Delta+\lambda\widetilde N$ changes the difference
+of exact payoffs by at most $2\cdot101E_s=202E_s$ for each normal label.
+The scalar lemma changes the difference by at most
+$100(e_{\exp,G}+e_{\exp,A})$. The final positive subtraction and clamp
+are the metric projection onto $[0,1]$; that projection is $1$-Lipschitz
+and fixes the exact payoff difference because
+$\widehat\Delta\geq0$. They cannot enlarge this bound.
+
+For completeness, the represented output is in fact the unprojected
+difference of represented payoffs. The upper represented endpoint is
+the lower endpoint plus the nonnegative word $\widehat\Delta$, without
+overflow. Each preceding clamp and positive subtraction is monotone.
+The rounded exponential node integers are nondecreasing. Within a cell,
+the interpolator returns its base plus the floor of a nonnegative
+increment. It is nondecreasing and cannot exceed the next node; at the
+next cell it begins at that node. Hence the interpolator is monotone on
+the complete dyadic input domain. Positive scaling and the final payoff
+clamp preserve order, giving $0\leq\widehat f(\widehat X_G)
+\leq\widehat f(\widehat X_A)\leq1$. Exact final subtraction therefore
+produces their difference. The uniform comparator implements that
+dyadic difference as a flag probability exactly.
+
+After these pointwise replacements, the finite-inner-law target is
+$\mathbb E h_{\widehat m,\widehat\Delta}(\widetilde N)$.
+Both $\widehat m$ and $\widehat\Delta$ depend only on outer labels,
+constants and outer arithmetic. They are independent of the inner normal
+label, as is required here. The existing bounded-variation CDF lemma
+applies at these represented endpoints, including atomic or duplicate
+quantiles, and bounds its difference from
+$\mathbb E h_{\widehat m,\widehat\Delta}(N)$ by $2D_N$.
+Normal-node rounding is entirely charged by $D_N$ and does not enter
+$E_s$ or $E_m$.
+
+It remains to compare two continuous conditional means. Define
+\[
+ P_\lambda(t)=\mathbb E f(t+\lambda N).
+\]
+The nonnegative derivative $f'$ has mass
+$\int f'(x)\,dx=100(e^\ell-1)=1$. Convolution with the Gaussian density
+therefore gives
+\[
+ P_\lambda'(t)
+ =\int_{\mathbb R} f'(x)\frac1\lambda
+             \phi\left(\frac{x-t}{\lambda}\right)\,dx,
+ \qquad 0\leq P_\lambda'(t)\leq\frac{\nu_0}{\lambda}.
+\]
+One justification of the derivative identity is to write the difference
+quotient of $f(t+\lambda N)$ as an integral of its bounded almost-everywhere
+derivative and use dominated convergence. Changing variables yields the
+displayed convolution. Alternatively, the finite positive derivative
+measure $df$ can be convolved with the smooth Gaussian. Either argument
+integrates the continuous normal before applying the slope bound and
+never differentiates the finite atomic normal approximation.
+
+The Lipschitz bound for $P_\lambda$ now yields
+\begin{align*}
+ &\left|P_\lambda(\widehat m+\widehat\Delta)
+          -P_\lambda(\widehat m)
+          -P_\lambda(m+\Delta)+P_\lambda(m)\right|\\
+ &\qquad\leq\frac{\nu_0}{\lambda}
+        \left(|\widehat m-m+\widehat\Delta-\Delta|
+              +|\widehat m-m|\right)
+ \leq\frac{\nu_0}{\lambda}(2E_m+e_\Delta).
+\end{align*}
+Adding the three independently justified errors proves the untruncated
+bound. Both the prepared probability and $R_1(y)$ lie in $[0,1]$, so
+truncating the error at one is valid. Taking the smaller of two valid
+uniform upper bounds is valid as well.
+\end{proof}
+
+The analytic financial coefficient, outer finite law, its external mass
+and continuous financial transfer remain unchanged. The complete monetary
+certificate is rebuilt with this new $\eta$, and the same ideal finite-mean
+prior is enlarged by this new $\eta$. The phase-estimation allowance,
+coverage plan and full logical resource charge must be rebuilt afterwards.
+Neither a new estimator cost nor a strengthened comparative conclusion
+follows merely from deriving a smaller arithmetic bound. This is a
+project-specific derivation from established smoothing, monotonicity,
+fixed-point rounding and CDF transfer principles; theoretical priority is
+not asserted.

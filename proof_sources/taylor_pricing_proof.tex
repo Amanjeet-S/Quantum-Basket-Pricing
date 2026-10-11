@@ -1,0 +1,223 @@
+\section{A finite-order deterministic certificate for Gaussian baskets}
+\label{sec:taylor-continuous-certificate}
+
+I next construct a continuous-model deterministic comparator that applies to the higher-dimensional frozen family. The construction uses a finite Taylor identity with a checked remainder; convergence of an infinite Taylor series is unnecessary. I retain orders zero through eight in advance and report every contract, including contracts for which these bounds fail to attain the target radius. This comparator removes the finite Gaussian grid and sampling error from its own price certificate. Its mathematical and arithmetic costs must therefore be reported separately from quantum logical gate counts.
+
+\subsection{Exact geometry and the smoothed capped price}
+\label{sec:taylor-geometry}
+
+Let $Y\sim N(0,I_p)$ and $Z\sim N(0,1)$ be independent. For positive weights $w_i$ satisfying $\sum_{i=1}^n w_i=1$, positive strike and spot $K$, exact drifts $\mu_i$, exact loading vectors $R_i\in\mathbb R^p$ and a common scale $\lambda>0$, I write
+\[
+ S_i=K\exp(\mu_i+R_i\cdot Y+\lambda Z),\qquad
+ \mu_G=\sum_i w_i\mu_i,\qquad R_G=\sum_iw_iR_i.
+\]
+The arithmetic and geometric baskets are $A=\sum_iw_iS_i$ and $G=\prod_i S_i^{w_i}$. Define $d_i=\mu_i-\mu_G$, $s_i=R_i-R_G$ and
+\[
+ m_G(y)=\mu_G+R_G\cdot y,\qquad
+ T(y)=\sum_iw_i\exp(d_i+s_i\cdot y).
+\]
+Then $A=GT(Y)$, $\sum_iw_id_i=0$ and $\sum_iw_is_i=0$. Jensen's inequality gives $T(y)\geq\exp(\sum_iw_i(d_i+s_i\cdot y))=1$ for every real $y$. This centring is exact; it is not a numerical approximation to the frozen loadings. For cap $H>0$, put
+\[
+ P_{\lambda,H}(m)=\mathbb E_Z\bigl[\min\{(K\exp(m+\lambda Z)-K)_+,H\}\bigr].
+\]
+Writing $L_H=\log(1+H/K)$, the identity $\min\{(x-K)_+,H\}=\int_K^{K+H}{\bf1}_{\{x>u\}}\,du$ and Tonelli's theorem yield
+\begin{equation}
+ P_{\lambda,H}(m)=\int_0^{L_H}K e^x\Phi((m-x)/\lambda)\,dx.
+ \label{eq:taylor-strike-integral}
+\end{equation}
+Consequently $0\leq P_{\lambda,H}\leq H$, and the undiscounted arithmetic price is
+\begin{equation}
+ \Pi=\mathbb E_Y\bigl[P_{\lambda,H}(m_G(Y)+\log T(Y))\bigr].
+ \label{eq:taylor-price-target}
+\end{equation}
+The common Gaussian scale is essential to the stated derivative certificate: I do not apply the bounds below at $\lambda=0$.
+
+\subsection{Derivative bounds and the finite Taylor identity}
+\label{sec:taylor-derivative-bound}
+
+For each non-negative integer $j$, the Fourier representation of the standard normal density implies
+\[
+ \phi^{(j)}(x)=\frac1{2\pi}\int_{\mathbb R}(iu)^j e^{-u^2/2}e^{iux}\,du,
+ \qquad
+ \sup_{x\in\mathbb R}|\phi^{(j)}(x)|\leq B_j,
+ \qquad
+ B_j=\frac1{2\pi}\int_{\mathbb R}|u|^je^{-u^2/2}\,du.
+\]
+The integral is absolutely convergent, so differentiation under the integral follows by domination by $|u|^je^{-u^2/2}$. Direct integration gives $B_0=(2\pi)^{-1/2}$ and $B_1=\pi^{-1}$. Integration by parts on $(0,\infty)$ gives $B_j=(j-1)B_{j-2}$ for $j\geq2$; the boundary terms vanish because a Gaussian dominates each polynomial. Differentiation of \eqref{eq:taylor-strike-integral} is justified by its finite integration domain and the preceding uniform bounds. For each $\ell\geq1$,
+\begin{equation}
+ P_{\lambda,H}^{(\ell)}(m)
+ =\lambda^{-\ell}\int_0^{L_H}K e^x\phi^{(\ell-1)}((m-x)/\lambda)\,dx,
+ \qquad
+ \sup_m|P_{\lambda,H}^{(\ell)}(m)|\leq H\lambda^{-\ell}B_{\ell-1}.
+ \label{eq:taylor-price-derivatives}
+\end{equation}
+Thus every required derivative is continuous and bounded.
+
+Let $s(r,\ell)$ denote signed Stirling numbers of the first kind, defined by $s(0,0)=1$ and $s(r+1,\ell)=s(r,\ell-1)-r s(r,\ell)$, with values outside $0\leq\ell\leq r$ equal to zero. With $D=\partial/\partial m$, equivalently, $\prod_{a=0}^{r-1}(D-a)=\sum_{\ell=0}^r s(r,\ell)D^\ell$. For fixed real $m$, set $g_m(t)=P_{\lambda,H}(m+\log t)$ for $t>0$. The chain rule and induction give
+\begin{equation}
+ g_m^{(r)}(t)
+ =t^{-r}\sum_{\ell=1}^r s(r,\ell)P_{\lambda,H}^{(\ell)}(m+\log t),\qquad r\geq1.
+ \label{eq:taylor-falling-derivatives}
+\end{equation}
+Indeed, differentiating $t^{-r}Q(D)P(m+\log t)$ produces $t^{-r-1}(D-r)Q(D)P(m+\log t)$; the induction begins with $g_m'(t)=t^{-1}P'(m+\log t)$. Since $t\geq1$ in the interval between $1$ and $T(y)$, \eqref{eq:taylor-price-derivatives} yields
+\begin{equation}
+ |g_m^{(r)}(t)|\leq H C_r(\lambda),\qquad
+ C_r(\lambda)=\sum_{\ell=1}^r|s(r,\ell)|\lambda^{-\ell}B_{\ell-1}.
+ \label{eq:taylor-uniform-constant}
+\end{equation}
+
+For a fixed non-negative order $k$, Taylor's theorem with integral remainder gives, for every $y$,
+\[
+ g_{m_G(y)}(T(y))
+ =\sum_{a=0}^k\frac{(T(y)-1)^a}{a!}g_{m_G(y)}^{(a)}(1)
+ +\frac1{k!}\int_1^{T(y)}(T(y)-t)^k g_{m_G(y)}^{(k+1)}(t)\,dt.
+\]
+The integral's absolute value is at most $H C_{k+1}(\lambda)(T(y)-1)^{k+1}/(k+1)!$. All moments of $T$ are finite, since each term is an exponential of a finite-dimensional Gaussian and there are finitely many terms. The displayed bound and the bounded derivatives justify taking expectations. With
+\begin{equation}
+ c_0=\mathbb E P_{\lambda,H}(m_G(Y)),\qquad
+ c_a=\frac1{a!}\sum_{\ell=1}^a s(a,\ell)
+       \mathbb E\bigl[(T(Y)-1)^aP_{\lambda,H}^{(\ell)}(m_G(Y))\bigr],\quad a\geq1,
+ \label{eq:taylor-coefficients}
+\end{equation}
+I obtain the finite-order certificate
+\begin{equation}
+ \left|\Pi-\sum_{a=0}^k c_a\right|
+ \leq R_k,\qquad
+ R_k=\frac{H C_{k+1}(\lambda)}{(k+1)!}\mathbb E[(T(Y)-1)^{k+1}].
+ \label{eq:taylor-price-remainder}
+\end{equation}
+The direction of the remainder is not inferred from the non-negativity of $T-1$. The enclosure is two-sided. Each finite $k$ is admissible, even when increasing $k$ enlarges this bound. In particular, the finiteness of every lognormal moment does not imply that $R_k\to0$ as $k\to\infty$.
+
+\subsection{Finite Gaussian evaluation of every coefficient and remainder moment}
+\label{sec:taylor-gaussian-tilt}
+
+For a multi-index $\alpha=(\alpha_1,\ldots,\alpha_n)\in\mathbb N_0^n$, write $|\alpha|=\sum_i\alpha_i$, $\alpha!=\prod_i\alpha_i!$, $w^\alpha=\prod_iw_i^{\alpha_i}$, $d_\alpha=\sum_i\alpha_id_i$ and $v_\alpha=\sum_i\alpha_is_i$. The multinomial theorem gives
+\[
+ T(y)^j=\sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+             \exp(d_\alpha+v_\alpha\cdot y).
+\]
+There are $\binom{n+j-1}{j}$ terms. For $j=0$, the unique zero multi-index has weight one, exponent zero and exposure zero. Completing the square in the Gaussian density gives, for every integrable $f$ for which the left side exists,
+\[
+ \mathbb E[e^{v\cdot Y}f(\mu_G+R_G\cdot Y)]
+ =e^{\|v\|^2/2}\mathbb E[f(\mu_G+R_G\cdot v+R_G\cdot Y)].
+\]
+The identity follows from $e^{v\cdot y-\|y\|^2/2}=e^{\|v\|^2/2}e^{-\|y-v\|^2/2}$ and the change of variable $y-v$. Put $\sigma^2=\lambda^2+\|R_G\|^2$. Gaussian convolution and bounded differentiation show, for each $\ell\geq0$,
+\begin{equation}
+ \mathbb E[e^{v\cdot Y}P_{\lambda,H}^{(\ell)}(\mu_G+R_G\cdot Y)]
+ =e^{\|v\|^2/2}P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v).
+ \label{eq:taylor-tilt-identity}
+\end{equation}
+For $\ell=0$, this follows by combining the independent Gaussian variables $R_G\cdot Y$ and $\lambda Z$. For $\ell\geq1$, differentiation with respect to $\mu_G$ passes under the expectation by the uniform bound in \eqref{eq:taylor-price-derivatives}. This reasoning remains valid when $R_G=0$.
+
+I therefore define the explicitly finite sums
+\begin{align}
+ U_{j,\ell}&=\sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+ \exp(d_\alpha+\|v_\alpha\|^2/2)
+ P_{\sigma,H}^{(\ell)}(\mu_G+R_G\cdot v_\alpha),
+ \label{eq:taylor-tilted-finite-sum}\\
+ M_r&=\sum_{j=0}^r(-1)^{r-j}\binom rj
+ \sum_{|\alpha|=j}\frac{j!}{\alpha!}w^\alpha
+          \exp(d_\alpha+\|v_\alpha\|^2/2).
+ \label{eq:taylor-moment-finite-sum}
+\end{align}
+Then $c_0=P_{\sigma,H}(\mu_G)$, $M_r=\mathbb E[(T-1)^r]$ and, for $a\geq1$,
+\begin{equation}
+ c_a=\frac1{a!}\sum_{\ell=1}^a s(a,\ell)
+               \sum_{j=0}^a(-1)^{a-j}\binom aj U_{j,\ell}.
+ \label{eq:taylor-evaluable-coefficient}
+\end{equation}
+These expressions retain the dependence between $T$ and $m_G$. Replacing $m_G$ by its mean before applying the Gaussian tilt would remove the shift $R_G\cdot v_\alpha$ and would generally change the coefficient.
+
+For implementation, set $z_0=m/\sigma+\sigma$, $z_1=(m-L_H)/\sigma+\sigma$ and $Q(m)=\Phi(z_0)-\Phi(z_1)$. The original capped-price formula is
+\[
+ P_{\sigma,H}(m)=K[e^{m+\sigma^2/2}Q(m)-\Phi(m/\sigma)+(1+H/K)\Phi((m-L_H)/\sigma)].
+\]
+For $x_0=m/\sigma$, $x_1=(m-L_H)/\sigma$ and $z_i=x_i+\sigma$, direct substitution into the normal density gives $e^{m+\sigma^2/2}\phi(z_0)=\phi(x_0)$ and $e^{m+\sigma^2/2}\phi(z_1)=e^{L_H}\phi(x_1)=(1+H/K)\phi(x_1)$. Since $Q'(m)=[\phi(z_0)-\phi(z_1)]/\sigma$, these two identities cancel the boundary density terms in the derivative and give $P_{\sigma,H}'(m)=K e^{m+\sigma^2/2}Q(m)$. For $j\geq1$,
+\[
+ Q^{(j)}(m)=\sigma^{-j}(-1)^{j-1}
+       [\operatorname{He}_{j-1}(z_0)\phi(z_0)
+        -\operatorname{He}_{j-1}(z_1)\phi(z_1)],
+ \qquad
+ \operatorname{He}_{j+1}(z)=z\operatorname{He}_j(z)-j\operatorname{He}_{j-1}(z),
+\]
+with $\operatorname{He}_0=1$ and $\operatorname{He}_1=z$. The product rule therefore gives
+\[
+ P_{\sigma,H}^{(\ell)}(m)=K e^{m+\sigma^2/2}
+                    \sum_{j=0}^{\ell-1}\binom{\ell-1}{j}Q^{(j)}(m),\qquad\ell\geq1.
+\]
+I check this closed-form derivative calculation against formal power-series differentiation and the strike-integral representation rather than treating its appearance as validation.
+
+\begin{theorem}[A finite Gaussian price certificate]
+\label{thm:finite-gaussian-price-certificate}
+Under the positive-weight, independent-Gaussian and positive-scale hypotheses
+of Section~\ref{sec:taylor-geometry}, let $k\geq0$ be an integer and define
+$c_a$, $M_{k+1}$ and $C_{k+1}(\lambda)$ by
+\eqref{eq:taylor-evaluable-coefficient},
+\eqref{eq:taylor-moment-finite-sum} and
+\eqref{eq:taylor-uniform-constant}, with $c_0=P_{\sigma,H}(\mu_G)$.
+Then all these quantities are finite and
+\[
+ \Pi\in\left[\sum_{a=0}^k c_a-
+ \frac{H C_{k+1}(\lambda)M_{k+1}}{(k+1)!},
+ \sum_{a=0}^k c_a+
+ \frac{H C_{k+1}(\lambda)M_{k+1}}{(k+1)!}\right]\cap[0,H].
+\]
+For rational model coefficients, or other supplied computable coefficients
+with validated enclosures and $\lambda$ bounded away from zero, the endpoints
+have finite expressions in exponential and scalar Gaussian functions that
+can be enclosed to any prescribed positive arithmetic accuracy. This
+statement does not require increasing $k$ until a Taylor series converges.
+\end{theorem}
+\begin{proof}
+Exact weighted centring gives $T\geq1$. The falling-factorial derivative
+identity and Fourier bound give the uniform majorant
+$|g_m^{(k+1)}(t)|\leq H C_{k+1}(\lambda)$ for $t\geq1$.
+The integral Taylor remainder is therefore bounded pointwise by
+$H C_{k+1}(\lambda)(T-1)^{k+1}/(k+1)!$.
+Every moment of $T$ is finite, so this bound can be integrated.
+The Gaussian tilt and multinomial identities evaluate each coefficient
+and the non-negative remainder moment by the stated finite sums, retaining
+the dependence between $T$ and the geometric log price. The exact payoff
+range permits intersection with $[0,H]$.
+All elementary functions in these finite sums are computable at positive
+scales, and finite sums and products preserve computability. Validated
+outward arithmetic, with input refinement where needed, encloses those
+operations. Finiteness of the expression does not imply that its remainder
+bound decreases without limit as $k$ increases.
+\end{proof}
+
+\subsection{Different initial prices and monitored averages}
+\label{sec:taylor-financial-extension}
+
+The algebra also covers unequal positive initial prices. Put
+$G_0=\prod_i S_{i,0}^{w_i}$ and replace
+$d_i$ by $\log(S_{i,0}/G_0)+\mu_i-\mu_G$.
+Its weighted mean is still zero. The smoothed scalar kernel is then
+$P_{\lambda,H}(m+\log(G_0/K))$, so every tilted evaluation uses
+$\mu_G+\log(G_0/K)+R_G\cdot v_\alpha$.
+The derivative constants are unchanged because their majorants are uniform
+in the base log price. This proves the extension without assuming equal
+initial prices or independence of the arithmetic--geometric ratio and its
+geometric control.
+
+A discretely monitored arithmetic Asian payoff can be treated by taking
+its positive asset-monitor observations as basket components. If their joint
+Gaussian log-price covariance admits a common equal loading $\lambda>0$
+with an independent residual Gaussian factor, the same argument applies;
+the earlier monitored-factor criterion specifies that hypothesis.
+The number of components in the multinomial count then includes monitoring
+times. The proof supplies a model-price certificate, and does not calibrate
+that Gaussian model from historical returns or establish an observed exotic
+price fit. The retained executable study uses the unchanged equal-initial-price
+family rather than presenting these extensions as additional market tests.
+
+\subsection{Outward arithmetic and the retained experimental scope}
+\label{sec:taylor-outward-scope}
+
+Every frozen decimal input is parsed as an exact rational number. I compute exact multinomial weights, exposures, dot products and shifts before enclosing the exponential, logarithm, square root, error function and all subsequent arithmetic by outward Arb balls at the predeclared precision of 224 bits. Cancellation in \eqref{eq:taylor-moment-finite-sum} and \eqref{eq:taylor-evaluable-coefficient} remains inside this arithmetic; it is not estimated by decimal display precision. If $[L_k,U_k]$ encloses $\sum_{a=0}^k c_a$ and $\overline R_k$ is an exact upper endpoint of an Arb enclosure of the non-negative expression in \eqref{eq:taylor-price-remainder}, the price enclosure is
+\[
+ [L_k-\overline R_k,U_k+\overline R_k]\cap[0,H].
+\]
+I retain its endpoints as exact dyadic rationals. Multiplication by an outward enclosure of the positive factor $e^{-rT_{\rm mat}}$ gives a separate discounted-price interval. The reported success test is that the undiscounted interval has midpoint radius at most $0.01$ in the model's unspecified price currency unit. No stochastic confidence level is needed for this deterministic bound.
+
+The calculation retains orders zero through eight for all 27 frozen contracts. Evaluation through order eight requires $\binom{n+8}{8}$ tilted-kernel calls per cap; the ninth-order remainder requires $\binom{n+9}{9}$ geometric terms including all lower degrees. These counts are 45 and 55 for two assets, 495 and 715 for four assets, and 12,870 and 24,310 for eight assets. The reported run evaluates all retained orders before selecting the narrowest certified interval; I also retain the first order attaining the requested radius, rather than presenting its lower term count as the measured cost of the full run. The finite Taylor certificate succeeds in all eighteen four- and eight-asset contracts and in seven of the nine two-asset controls. The two failures have $\lambda=0.05$ and caps 10 and 25. They are failures of the retained uniform remainder bound, not evidence of a pricing discrepancy. The older independent continuous quadrature resolves those two controls. These results materially strengthen the classical comparator but do not, without literature comparison, establish originality of the expansion or a wall-clock relation between CPU work and quantum logical T counts.

@@ -1,0 +1,394 @@
+\section{Sharp Gaussian component moduli}
+\label{sec:sharp-common-information}
+
+The constants below refine the existing path certificate without using a
+financial price as input. They are exact extrema for the stated class of
+positive mass-one threshold measures. Their mathematical sharpness does
+not establish priority in the literature. In particular, the two
+component extrema need not be attained by the same perturbation; the
+sum in the path certificate is not asserted to be jointly sharp.
+
+Write $\phi(x)=(2\pi)^{-1/2}\exp(-x^2/2)$ and let $\Phi$ be its
+distribution function. For $t\geq0$, define
+\begin{equation}
+ k(t)=\sup_{x\in\mathbb R}|\phi(x+t)-\phi(x)|,
+ \qquad A(t)=2\Phi(t/2)-1.
+ \label{eq:sharp-k-A}
+\end{equation}
+For $t,e\geq0$, put $r_t(x)=\Phi(x+t/2)-\Phi(x-t/2)$ and
+\begin{equation}
+ \Omega(t,e)=\sup_{x\in\mathbb R,\,|h|\leq e}
+                    |r_t(x+h)-r_t(x)|.
+ \label{eq:sharp-Omega-definition}
+\end{equation}
+Both $k(0)$ and $\Omega(t,0)=\Omega(0,e)$ are zero.
+
+\begin{theorem}[Exact derivative coefficient]
+\label{thm:sharp-common-derivative}
+For $t>0$, there is exactly one $u_t>\max\{1,t/2\}$ satisfying
+\begin{equation}
+ u_t\tanh(tu_t/2)=t/2,
+ \qquad
+ k(t)=\phi(u_t-t/2)-\phi(u_t+t/2).
+ \label{eq:sharp-k-root}
+\end{equation}
+It lies below $1+t/2$. The function $k$ is strictly increasing on
+$(0,\infty)$ and
+\begin{equation}
+ 0<k(t)<\min\{\phi(0),t\phi(1)\},\qquad
+ \lim_{t\downarrow0}\frac{k(t)}{t}=\phi(1),\qquad
+ \lim_{t\to\infty}k(t)=\phi(0).
+ \label{eq:sharp-k-properties}
+\end{equation}
+For every positive Borel measure $\mu$ of mass one and every $\lambda>0$,
+the smallest uniform coefficient, simultaneously over $m$ and $\mu$, in
+$|\partial_m R_{\lambda,\mu}(m,d)|\leq\kappa(d,\lambda)$ is
+\begin{equation}
+ \kappa(d,\lambda)=\lambda^{-1}k(d/\lambda).
+ \label{eq:sharp-common-coefficient}
+\end{equation}
+An atomic measure attains this coefficient.
+\end{theorem}
+\begin{proof}
+For $a=t/2$ and $u>0$, Gaussian symmetry gives the positive function
+$q_t(u)=\phi(u-a)-\phi(u+a)$; the absolute density difference reduces
+to this function by translation and reflection. Its logarithmic
+derivative is
+\begin{equation}
+ \frac{q_t'(u)}{q_t(u)}=-u+a\coth(au).
+ \label{eq:sharp-k-log-derivative}
+\end{equation}
+The function $u\mapsto u\tanh(au)$ is continuous, strictly increasing
+from zero to infinity. At $u=a$ its value is strictly below $a$, and at
+$u=1$ its value is strictly below $a$, since $\tanh a<a$. Thus its
+unique level-$a$ point exceeds both. The inequality
+$\tanh x\geq x/(1+x)$ for $x\geq0$ follows from
+$\exp(2x)\geq1+2x$. At $u=a+1$ it implies
+\begin{equation}
+ u\tanh(au)\geq
+ \frac{a(a+1)^2}{1+a(a+1)}>a.
+ \label{eq:sharp-k-upper-bracket}
+\end{equation}
+Hence $q_t$ increases up to $u_t$ and decreases thereafter, proving
+the formula and bracket. At the maximiser $u_t>a$, differentiation
+with respect to $t$ gives
+\begin{equation}
+ \partial_t q_t(u_t)=\tfrac12\{(u_t-a)\phi(u_t-a)
+                              +(u_t+a)\phi(u_t+a)\}>0.
+ \label{eq:sharp-k-monotonicity}
+\end{equation}
+The implicit function theorem applies because
+$\partial_u[u\tanh(au)]>0$, so this is the derivative of $k$.
+Both Gaussian densities are positive, giving $k(t)<\phi(0)$.
+The fundamental theorem of calculus gives
+$q_t(u)\leq t\sup|\phi'|=t\phi(1)$, strictly for a positive interval,
+since the continuous function $|\phi'|$ attains its maximum only at
+two isolated points. The bracket and root equation imply $u_t\to1$
+as $t\downarrow0$, establishing the small-$t$ limit. Evaluating the
+density difference at $x=0$ gives the lower bound
+$\phi(0)-\phi(t)$, which proves the large-$t$ limit. Finally,
+\begin{equation}
+ \partial_m R_{\lambda,\mu}(m,d)=\lambda^{-1}
+   \int\{\phi((m+d-a)/\lambda)-\phi((m-a)/\lambda)\}\,\mu(da).
+ \label{eq:sharp-common-derivative-integral}
+\end{equation}
+Positivity and total mass one prove the coefficient bound. Choosing
+$\mu=\delta_a$ and $m-a=\lambda(u_t-t/2)$ attains its absolute value.
+\end{proof}
+
+\begin{theorem}[Exact finite common-shift modulus]
+\label{thm:sharp-finite-common-shift}
+For $t,e>0$, put $b=(t+e)/2$ and $c=|t-e|/2$. There is exactly one
+$u_{t,e}>\max\{t,e\}/2$ satisfying
+\begin{equation}
+ \log\cosh(bu_{t,e})-\log\cosh(cu_{t,e})=te/2.
+ \label{eq:sharp-Omega-root}
+\end{equation}
+It is smaller than $\max\{t,e\}/2+1/\min\{t,e\}$, and
+\begin{equation}
+ \Omega(t,e)=r_t(u_{t,e}-e/2)-r_t(u_{t,e}+e/2).
+ \label{eq:sharp-Omega-evaluation}
+\end{equation}
+The function $\Omega$ is symmetric in its arguments and strictly
+increasing in each positive argument. Moreover,
+\begin{equation}
+ 0<\Omega(t,e)<\min\{k(t)e,k(e)t,A(t),A(e)\}.
+ \label{eq:sharp-Omega-comparison}
+\end{equation}
+For every positive mass-one $\mu$,
+\begin{equation}
+ |R_{\lambda,\mu}(m+h,d)-R_{\lambda,\mu}(m,d)|
+ \leq\Omega(d/\lambda,E/\lambda),\qquad |h|\leq E, d\geq0.
+ \label{eq:sharp-Omega-mixture}
+\end{equation}
+The right-hand side is the smallest uniform bound over this class,
+and is attained by a point mass and a shift of magnitude $E$.
+\end{theorem}
+\begin{proof}
+The function $r_t$ is even, strictly decreasing on $(0,\infty)$ and
+positive everywhere for $t>0$. For a shift of magnitude $e$, reflection
+reduces the absolute difference to
+$D_{t,e}(u)=r_t(u-e/2)-r_t(u+e/2)$ for $u\geq0$. This quantity is
+positive for $u>0$. Expanding the four distribution functions shows
+$D_{t,e}=D_{e,t}$. Differentiation gives
+\begin{equation}
+ D_{t,e}'(u)=2\phi(u)\{
+ e^{-c^2/2}\cosh(cu)-e^{-b^2/2}\cosh(bu)\}.
+ \label{eq:sharp-Omega-derivative}
+\end{equation}
+Since $b>c\geq0$, the function
+$H(u)=\log\cosh(bu)-\log\cosh(cu)$ is strictly increasing on
+$(0,\infty)$: its derivative is
+$b\tanh(bu)-c\tanh(cu)>0$, because $v\mapsto v\tanh(vu)$ is
+strictly increasing for $v>0$. Also $H(0)=0$ and $H(u)\to\infty$.
+Since $(b^2-c^2)/2=te/2$, the unique root in
+\eqref{eq:sharp-Omega-root} gives the unique maximum of $D_{t,e}$.
+At $u=e/2$, the derivative is $r_t'(0)-r_t'(e)>0$; symmetry also
+gives positivity at $u=t/2$. This proves the lower bracket.
+The inequalities $\cosh(bu)\geq e^{bu}/2$ and
+$\cosh(cu)\leq e^{cu}$ imply
+$H(u)\geq(b-c)u-\log2$. At the stated upper bracket this exceeds
+$te/2$, since $b-c=\min\{t,e\}$ and $1>\log2$.
+
+The maximum depends smoothly on $e>0$ by the implicit function
+theorem. At its maximiser, $D_{t,e}'(u)=0$, so
+$r_t'(u-e/2)=r_t'(u+e/2)$. Consequently
+\begin{equation}
+ \partial_e\Omega(t,e)
+   =-r_t'(u_{t,e}-e/2)>0.
+ \label{eq:sharp-Omega-monotonicity}
+\end{equation}
+The strict inequality uses $u_{t,e}>e/2$. It follows that the largest
+modulus over all shifts of magnitude at most $e$ is attained at $e$.
+Symmetry gives monotonicity in $t$ as well. Integrating $r_t'$ over
+the interval of length $e$ gives $\Omega(t,e)<k(t)e$, strictly because
+the continuous derivative cannot be constant at its extremal value on
+a positive interval. Interchanging $t,e$ gives $\Omega(t,e)<k(e)t$.
+The largest value of $r_t$ is $r_t(0)=A(t)$, whereas the smaller
+of the two values in the attained difference remains positive; hence
+$\Omega(t,e)<A(t)$ and symmetry gives $\Omega(t,e)<A(e)$.
+For a fixed threshold $a$, the correction is
+$r_{d/\lambda}((m-a+d/2)/\lambda)$. Integrating its common-shift
+bound against $\mu$ proves \eqref{eq:sharp-Omega-mixture}.
+An atomic measure with the lower centred argument
+$u_{t,e}-e/2$ and shift $E$ attains the absolute difference.
+\end{proof}
+
+\begin{corollary}[Finite path certificate]
+\label{cor:sharp-finite-path}
+Under the premises of Theorem~\ref{thm:common-information-stability},
+\begin{equation}
+ |R_{\lambda,\mu}(\widehat m,\widehat\Delta)
+                        -R_{\lambda,\mu}(m,\Delta)|
+ \leq\Omega(\Delta/\lambda,E_m/\lambda)
+                       +A(e_\Delta/\lambda).
+ \label{eq:sharp-finite-path}
+\end{equation}
+The bound remains valid when the represented gap is negative and after
+projection that fixes the true correction. A known upper true gap may
+replace $\Delta$. If both gaps are nonnegative, the first argument of
+$\Omega$ may instead use $\min\{\Delta,\widehat\Delta\}$.
+\end{corollary}
+\begin{proof}
+Use the same two-segment path as the earlier theorem. The common-shift
+segment receives \eqref{eq:sharp-Omega-mixture}. For the gap segment,
+the integrand is the Gaussian probability of an interval of length
+$|\widehat\Delta-\Delta|/\lambda$. The probability of an interval
+of length $v$ is maximised by the centred interval, as follows by
+differentiating $\Phi(x+v)-\Phi(x)$ and using Gaussian symmetry.
+Its maximum is $A(v)$. This argument also covers a negative represented
+gap. Positivity and mass one preserve the bound under integration.
+The monotonicity of $A$ and $\Omega$ gives the stated replacements;
+reversing the path gives the smaller represented-gap alternative.
+Projection is $1$-Lipschitz and fixes the target.
+\end{proof}
+
+\subsection{Certified evaluation without a financial price input}
+
+All inputs to $k$, $A$ and $\Omega$ are the smoothing scale and
+independently certified error/gap bounds. The root equations have unique
+roots, explicit brackets admitting rational outward enclosures and
+strictly monotone left-hand sides. Directed interval evaluation and rational bisection
+therefore enclose the roots and the constants to arbitrary precision.
+When an interval evaluation cannot decide the sign, increasing arithmetic
+precision decides it unless the rational trial point is the exact root;
+that case is covered as follows. For a retained root bracket $[l,r]$,
+a trial point $c\in[l,r]$, a certified residual $|F(c)|\leq\varepsilon$
+and a certified derivative lower bound
+$\inf_{[l,r]}F'\geq a>0$, the mean value theorem gives the new enclosure
+\begin{equation}
+ u_*\in[l,r]\cap[c-\varepsilon/a,c+\varepsilon/a].
+ \label{eq:sharp-root-residual-enclosure}
+\end{equation}
+The analytic derivative is strictly positive on the stated lower brackets;
+a sufficiently fine interval subdivision certifies a positive lower
+bound on the compact retained bracket. Evaluating the expressions on the entire retained root interval
+gives an upper bound, rather than treating a rounded root as exact.
+Outward rational rounding may subsequently preserve the upper bound.
+Neither a realised derivative price nor a simulated price enters this
+procedure. The constants are applicable to every encoding satisfying the
+same conditioning premise. They do not justify treating normal-label
+dependent arithmetic perturbations as independent common shifts.
+
+\subsection{The actual capped-payoff threshold measure}
+
+For $f(x)=H^{-1}\min\{K(e^x-1)_+,H\}$, write
+$\alpha=K/H$ and $\ell=\log(1+H/K)$. Its threshold measure is
+\begin{equation}
+ \mu_{\rm cap}(da)=\alpha e^a\mathbf1_{(0,\ell)}(a)\,da,
+ \qquad\int\mu_{\rm cap}(da)=\alpha(e^\ell-1)=1.
+ \label{eq:sharp-cap-measure}
+\end{equation}
+Its smoothed derivative, which is a density rather than a basket price,
+has the explicit expression
+\begin{equation}
+ j_\lambda(m)=P_{\lambda,\mu_{\rm cap}}'(m)
+ =\alpha e^{m+\lambda^2/2}
+ \left\{\Phi\left(\frac{\ell-m-\lambda^2}{\lambda}\right)
+              -\Phi\left(\frac{-m-\lambda^2}{\lambda}\right)\right\}.
+ \label{eq:sharp-cap-density}
+\end{equation}
+Define the model-specific coefficient
+\begin{equation}
+ \kappa_{\rm cap}(d,\lambda)
+  =\sup_{m\in\mathbb R}|j_\lambda(m+d)-j_\lambda(m)|.
+ \label{eq:sharp-cap-kappa}
+\end{equation}
+For every $d>0$ and $\lambda>0$,
+\begin{equation}
+ 0<\kappa_{\rm cap}(d,\lambda)
+   <\kappa(d,\lambda),\qquad
+ \kappa_{\rm cap}(d,\lambda)\leq(K+H)/H.
+ \label{eq:sharp-cap-strict-improvement}
+\end{equation}
+To derive \eqref{eq:sharp-cap-density}, integrate
+$\alpha e^a\lambda^{-1}\phi((m-a)/\lambda)$ over $(0,\ell)$
+and complete the square in $a$. The result is
+\eqref{eq:sharp-cap-density}. The function $j_\lambda$ is continuous,
+strictly positive and tends to zero at both tails. Its translated
+difference is not identically zero for $d>0$: otherwise
+$j_\lambda(m+d)=j_\lambda(m)$ for every $m$, making this positive
+function periodic, contrary to its zero tail limit. Thus its translated
+difference attains its nonzero absolute maximum at a finite point.
+For each fixed $m$, the Gaussian translated-density difference attains
+its extremal absolute value at only two isolated threshold positions.
+The positive absolutely continuous measure \eqref{eq:sharp-cap-measure}
+gives those positions zero mass. Strictness of the integral triangle
+bound at the attained maximiser proves the strict inequality in
+\eqref{eq:sharp-cap-strict-improvement}. Finally,
+$j_\lambda=\mathbb E f'(m+\lambda N)$ and
+$0\leq f'\leq(K+H)/H$, so the difference of two such values has
+absolute value at most $(K+H)/H$.
+
+This coefficient is certifiably computable. For any rational $L>0$, all
+$m\notin[-d-L\lambda,\ell+L\lambda]$ obey the tail bound
+\begin{equation}
+ |j_\lambda(m+d)-j_\lambda(m)|\leq\phi(L)/\lambda.
+ \label{eq:sharp-cap-tail}
+\end{equation}
+Indeed, both Gaussian arguments then remain on the same side of zero
+with magnitude at least $L$ for every threshold in $[0,\ell]$.
+Their nonnegative densities each lie below $\phi(L)$, and their
+absolute difference lies below the same bound. On the compact interval,
+the integrand derivative gives
+\begin{equation}
+ |\partial_m\{j_\lambda(m+d)-j_\lambda(m)\}|
+                         \leq2\phi(1)/\lambda^2.
+ \label{eq:sharp-cap-mesh-Lipschitz}
+\end{equation}
+A mesh of maximum spacing $\delta$, with directed upper bounds $U_i$
+for the absolute differences at its nodes and both endpoints included,
+therefore yields the global certificate
+\begin{equation}
+ \kappa_{\rm cap}(d,\lambda)
+ \leq\max\left\{\phi(L)/\lambda,
+                       \max_i U_i+\phi(1)\delta/\lambda^2\right\}.
+ \label{eq:sharp-cap-mesh-certificate}
+\end{equation}
+Letting $L$ increase, $\delta$ decrease and evaluation precision increase
+converges to the exact supremum. A single coefficient at $d_*$ cannot be
+used for every $0\leq d\leq d_*$ without a separate monotonicity argument.
+A directly certified alternative is
+\begin{equation}
+ \overline\kappa_{\rm cap}(d_*,\lambda)
+ =\sup_{0\leq v\leq d_*}\sup_m
+                  |j_\lambda(m+v)-j_\lambda(m)|
+ <\kappa(d_*,\lambda)\qquad(d_*>0).
+ \label{eq:sharp-cap-uniform-gap-envelope}
+\end{equation}
+For its strict inequality, the joint function is continuous and tends
+uniformly to zero in the two tails for $v\in[0,d_*]$. Its positive
+maximum is attained on a compact set. At an attained pair with $v>0$,
+the preceding strict cap inequality gives a value smaller than
+$\kappa(v,\lambda)\leq\kappa(d_*,\lambda)$; at $v=0$ the value is zero.
+To compute this envelope, retain the compact $m$ interval
+$[-d_*-L\lambda,\ell+L\lambda]$ and a rectangular mesh with maximum
+spacings $\delta_m,\delta_v$. Since the derivatives in the two
+coordinates have absolute bounds $2\phi(1)/\lambda^2$ and
+$\phi(1)/\lambda^2$, respectively, the maximum node upper bound plus
+$\phi(1)(\delta_m+\delta_v/2)/\lambda^2$, combined with the tail
+bound \eqref{eq:sharp-cap-tail}, is a global upper certificate.
+Any use of this model-specific refinement
+must preserve the represented conditioning information. In particular,
+the shared-threshold implementation may have strike-label dependent
+threshold errors. It cannot apply the integrated cap coefficient to
+those errors. The strike-independent common endpoint shift may use the
+cap coefficient; the remaining strike-dependent shift must retain a
+uniform fixed-threshold allowance. Raw-payoff and numerical encodings
+may use the cap coefficient only after their common endpoint errors have
+been separated from scalar-map errors and inner-label dependent
+remainders as in the existing guarded certificates.
+
+\subsection{Finite remainders that depend on the inner label}
+
+These allowances remain separate from common-information smoothing.
+For any Borel set $B$ of Lebesgue measure at most $w\geq0$,
+\begin{equation}
+ \int_B\phi(x)\,dx\leq A(w).
+ \label{eq:sharp-normal-set-concentration}
+\end{equation}
+Indeed, let $I=[-w/2,w/2]$. The density is at most $\phi(w/2)$ on
+$B\setminus I$ and at least that value on $I\setminus B$. Thus
+\begin{equation}
+ \int_B\phi-\int_I\phi
+ \leq\phi(w/2)\{|B\setminus I|-|I\setminus B|\}\leq0.
+ \label{eq:sharp-normal-set-proof}
+\end{equation}
+The two boundary strips in a Gaussian interval expansion or shrinkage
+by $E_s/\lambda$ have total length at most $2E_s/\lambda$.
+If shrinkage empties the interval, its original length is at most this
+same bound. The existing interval sandwich therefore sharpens the
+label-dependent shared-threshold allowance to
+\begin{equation}
+ 2D_N+A(2E_s/\lambda)
+       \leq2D_N+2\phi(0)E_s/\lambda.
+ \label{eq:sharp-threshold-inner-remainder}
+\end{equation}
+Only the continuous strip probability is bounded by concentration;
+the finite law still uses its retained interval CDF discrepancy and
+strict/left endpoint conventions. This argument imposes no independence
+between the perturbation and the inner normal label.
+
+The normalised cap has the exact finite payoff modulus
+\begin{equation}
+ \omega_f(h)=\sup_x|f(x+h)-f(x)|
+       =\min\{1,(\alpha+1)(1-e^{-|h|})\}.
+ \label{eq:sharp-cap-payoff-modulus}
+\end{equation}
+For $h\geq0$, the increment integrates $\alpha e^x$ over the intersection
+of an interval of length $h$ with $(0,\ell)$. Since that density is
+increasing inside its support, its largest integral uses the rightmost
+subinterval of length $\min\{h,\ell\}$. This proves the formula;
+negative shifts give the same modulus by translation. For $d\geq0$,
+the difference $g_d(x)=f(x+d)-f(x)$ lies in $[0,v(d)]$, where
+$v(d)=\min\{1,(\alpha+1)(1-e^{-d})\}$. If $h\geq0$, both increments
+$f(x+d+h)-f(x+d)$ and $f(x+h)-f(x)$ lie in $[0,\omega_f(h)]$.
+Their difference consequently has magnitude at most $\omega_f(h)$.
+The same argument follows for $h<0$ by translation. Hence
+\begin{equation}
+ |g_d(x+\zeta)-g_d(x)|
+ \leq\min\{v(d),\omega_f(E_s)\}\qquad(|\zeta|\leq E_s).
+ \label{eq:sharp-raw-inner-remainder}
+\end{equation}
+This replaces the former $(\alpha+1)E_s$ allowance and is valid
+pointwise, including arbitrary dependence on the inner label.

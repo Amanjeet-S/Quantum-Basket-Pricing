@@ -1,0 +1,47 @@
+{
+  "schema": "qbp-independent-factor-basis-resources-audit-v1",
+  "status": "passed",
+  "resource_file_sha256": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+  "producer_sha256": "3f7536295eec83371c3ed2e4e80f02c7f1512a56abdcec11352c170a6566e35e",
+  "audit_source_sha256": "fcba4350aa4efaaba10f4b36f4613e802b0510bfd78d0db2ef080ab250954227",
+  "protocol_sha256": "18fb241542da4a544e46600eb56190275d010e198ebf12205a3019c9a0b3dde4",
+  "checked_profiles": 134,
+  "checked_confidence_plans": 176,
+  "checked_complete_strategies": 136,
+  "checked_deterministic_budgets": 37,
+  "checked_direct_R1_coordinate_bounds": 27,
+  "checked_scalar_certificates": 28,
+  "checked_scalar_and_quantile_nodes": 160795,
+  "width_specific_table_reconstruction_file": "factor_basis_quantum_table_width_reconstruction.json.gz",
+  "width_specific_table_reconstruction_sha256": "277987de47744a278c2f0bbadd2813f7c07fbb03190401ae85694eb3e4259ac6",
+  "reconstructed_width_specific_packed_tables": 3,
+  "retained_rejections": [
+    {
+      "model_id": "n4_lambda0.2_scale3__plane_1_2_minus",
+      "kind": "stable_gauss_r2",
+      "label": "all12_baseline"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "kind": "boundary_r2",
+      "label": "all12_baseline"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3__plane_2_3_minus",
+      "kind": "boundary_r2",
+      "label": "all12_baseline"
+    }
+  ],
+  "identity_and_pair_replay": {
+    "old_result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+    "checked_identity_candidate_records": 17,
+    "checked_identity_preparations": 4,
+    "identity_certificates_profiles_all_priors_and_full_T_exact_replay": true,
+    "checked_paired_bases": 7,
+    "checked_exact_asset_Gram_entries": 196,
+    "checked_analytic_pool": 58,
+    "scope": "Exact predecessor replay, registered analytic choice and complete-cost selection within the seven rebuilt bases; no cheapest-T search over all58, no classical-price reuse and no physical quantum advantage."
+  },
+  "independence": "Producer, compiler resource and estimator/confidence APIs are not imported. Exact rational formulas, literal retained rotation strings, separate CCX reflection expansion and table-word reconstruction are used.",
+  "scope": "Complete ideal-logical counts and finite confidence, synthetic financial inputs and retained arithmetic certificates. No physical hardware execution, wall-clock speedup, novelty or global optimality claim."
+}

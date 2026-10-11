@@ -1,0 +1,162 @@
+% Complete comparator insertion; no preamble or bibliography.
+
+\section{Keywords and scope}
+\label{sec:miqae-scope}
+
+\emph{Keywords}: quantum amplitude estimation; conditional basket valuation; geometric control; finite precision; confidence allocation; bounded variance.
+
+I retain published theorem envelopes separately from the executable controller. \citet{grinko}, Theorem 1 and Algorithms 1–2, supply the journal IQAE comparator. I consulted the final publisher HTML in Safari and the final publisher proof supplement through PDF retrieval. \citet{fukuzawa} is an ALENEX proceedings chapter, not a journal article. Its publisher metadata is verified, but its final chapter text was inaccessible in Safari; the text actually consulted is arXiv version 4, dated 23 February 2023. Sections 2–3 explicitly allow an entire prescribed batch at the beginning of each round.
+
+My controller uses that confidence-allocation and greedy-power mechanism, a rational radius, outward inverses and a proved prior bootstrap. Its resource cap is derived below. I do not assign either the published coefficient fifty or sixty-two to the modified implementation. The exact coherent finite oracle and the same logical adjoint are inherited from the separately checked financial compiler. Instrument architectures must satisfy its entangled-input logical-channel premise. No physical execution, noise budget or hardware runtime advantage is inferred.
+
+\section{The scalar target and prior}
+\label{sec:miqae-prior}
+
+Write the finite Born probability as \(p=\sin^2\theta\), with \(0\leq\theta\leq\pi/2\), and use normalised angle \(t=2\theta/\pi\). The statistical currency tolerance is \(0.005\), hence the probability tolerance is \(e=1/(200H)\). A proved upper bound gives \(p\in[0,u]\). If \(u\leq2e\), I return the midpoint of that interval without shots.
+
+Otherwise I enclose the inverse of \(u\) using the existing scalar machinery with coordinate tolerance \(\eta=2^{-70}\). It returns an outward upper endpoint \(t_u\), whose exact amplitude exceeds \(u\) by at most \(4\eta\). I set \(u_+=\min(1,u+10^{-18})\) and
+
+\[
+ v_+=\begin{cases}u_+(1-u_+),&u_+\leq1/2,\\1/4,&u_+>1/2,\end{cases}
+ \qquad \gamma=2\overline{\sqrt{v_+}}.
+\]
+
+The square root is rounded upward with exact integer arithmetic. Since \(dp/d\theta=2\sqrt{p(1-p)}\), \(\gamma\) bounds the angle derivative throughout the initial interval and every later intersection. This is a bound on the derivative of the Born probability. It does not assert that the Bernoulli flag has the variance of the underlying fractional conditional payoff.
+
+Let \(a_0=10^{-60}\), define
+
+\[
+ e_\theta=(e-a_0)/\gamma,\qquad
+ w_*=4e_\theta/\pi_+,
+ \qquad M=1/w_*=
+ \frac{\pi_+\gamma}{4(e-a_0)},
+\]
+
+where \(\pi_+\) is the exact rational Machin-series upper bound. A retained normalised angle interval of width at most \(w_*\) has physical angle width at most \(2e_\theta\). The outward scalar evaluations each contribute less than \(10^{-70}\), so its amplitude enclosure has width at most
+
+\[
+ 2\gamma e_\theta+2\times10^{-70}
+ =2e-2\times10^{-60}+2\times10^{-70}<2e.
+\]
+
+I may therefore stop when the amplitude enclosure has width at most \(2e\). If that has not occurred, its normalised angle width must exceed \(w_*\). I initialise \(m_0\) as the largest positive odd integer satisfying \(m_0t_u\leq1\). A nonterminal initial interval has \(t_u>w_*\), so \(m_0<M\). This proves the bootstrap is admissible and within the resource envelope.
+
+\section{A finite three/five/seven cover}
+\label{sec:miqae-cover}
+
+I use the exact rational radius \(r=69/1000\). An odd multiplier \(m=2k+1\) is admissible if \([ml,mh]\) lies in one closed cell \([j,j+1]\). Inside it, the measured probability is \(f(v)\) for even \(j\) and \(1-f(v)\) for odd \(j\), with \(v=mt-j\) and \(f(v)=\sin^2(\pi v/2)\). I invert the single cell and intersect its preimage with the existing interval.
+
+One batch produces a measured probability interval of width at most \(2r\). Each inverse endpoint is padded by at most \(2\eta\). Since \(f'\leq\pi/2<2\), the realised probability span is at most \(2r+8\eta\).
+
+For an odd factor \(s\), its internal stationary values in the current probability coordinate are \(f(a/s)\), \(a=1,\ldots,s-1\). My exact interval evaluator encloses all such values for \(s=3,5,7\). I check all \(2\times4\times6=48\) choices of one value from each set. If their enclosures are \([x_i^-,x_i^+]\), their true span is bounded below by
+
+\[
+ \max_i x_i^- - \min_i x_i^+.
+\]
+
+The retained rational certificate gives the minimum lower bound greater than \(0.1387395330218427\). Thus its margin above \(2r+8\eta\) exceeds \(0.0007\). The exact rational inequalities and scalar enclosures are retained in \texttt{results/full\_batch\_checks.json}; displayed decimals are diagnostic renderings of those inequalities.
+
+If all three factors strictly crossed internal stationary boundaries, the current interval would contain one critical value from each set. Its span would then be at least the certified minimum, contradicting its upper span bound. At least one factor is therefore admissible. Endpoints that coincide with boundaries are allowed and do not count as strict crossings. Reflection of probability coordinates in a decreasing cell preserves spans. A factor \(s\) supplies an odd candidate \(sm\geq3m\). I search all odd candidates downward from \(\lfloor1/(h-l)\rfloor\), and the certificate guarantees that this greedy search returns one. This is a constructive verification of an established coprime-multiplier mechanism, not a novelty claim.
+
+\section{One batch per power and adaptive coverage}
+\label{sec:miqae-coverage}
+
+For current multiplier \(m\), I choose
+
+\[
+ \alpha_m=\frac{2\alpha}{3}\frac mM,
+ \qquad N_m=
+ \left\lceil\frac{\overline{\log(2/\alpha_m)}}{2r^2}\right\rceil.
+\]
+
+The logarithm is enclosed upward using eighty-digit Decimal arithmetic and an explicit \(10^{-60}\) allowance, under the checked domain \(0<\log(2/\alpha_m)<100\). The number of shots is fixed before this batch is observed. For \(C\) positive flags I use \([\max(0,C/N_m-r),\min(1,C/N_m+r)]\). Fresh independent Born measurements and the Bernoulli Hoeffding bound give conditional failure probability at most \(\alpha_m\), regardless of the preceding history.
+
+The successive powers satisfy \(m_{i+1}\geq3m_i\). A nonterminal interval has width greater than \(w_*\), while an admissible next multiplier is at most its inverse width. Consequently every requested multiplier is at most \(M\). For every realised nonempty path, including paths outside the confidence event,
+
+\[
+ \sum_i m_i\leq\frac32m_{\rm last}\leq\frac32M,
+ \qquad \sum_i\alpha_{m_i}\leq\alpha.
+\]
+
+A conditional union argument now proves coverage. If \(E_i\) is the failure of batch \(i\), then \(\Pr(E_i\mid\text{previous history})\leq\alpha_{m_i}\). Summing the indicator bounds and taking expectations gives \(\Pr(\bigcup_iE_i)\leq\mathbb E\sum_i\alpha_{m_i}\leq\alpha\). No confidence interval is repeatedly inspected within a batch and no adaptively stopped pool is treated as a fixed sample.
+
+On the joint event, every intersection contains the true angle. Empty intersections are returned with an explicit confidence-failure status and are included in the permitted failure probability. At termination the amplitude interval has width at most \(2e\); its midpoint is within \(e\) of the finite probability. Together with the retained deterministic currency bound at most \(0.005\), this gives absolute monetary error at most \(0.01\) after the stipulated positive-rate discount. I use \(\alpha=0.01\) per price or \(0.01/27\) for a simultaneous guarantee on one preselected implementation for each of 27 contracts.
+
+The maximum number of rounds is
+
+\[
+ R=1+\left\lfloor\log_3(M/m_0)\right\rfloor.
+\]
+
+I compute it with an exact integer loop. If a nonterminal round were the last allowed round, the cover would require a next multiplier at least \(3m\), exceeding \(M\), a contradiction. Thus the implementation must stop or return its flagged failure within that bound.
+
+\section{Complete integer resource caps}
+\label{sec:miqae-resources}
+
+I compute resource caps over a conservative finite superset of possible histories: all odd multiplier chains beginning at \(m_0\), lying at most \(\lfloor M\rfloor\), and growing by at least three. Every actual history belongs to this set. A history in the set need not arise from the greedy statistical controller; I do not interpret a maximising chain as an observed execution.
+
+For nonnegative per-preparation cost \(c_A\) and per-Grover cost \(c_Q\), define the local integer cost
+
+\[
+ c(m)=N_m\{c_A+c_Q(m-1)/2\}.
+\]
+
+Let \(D(m)\) be the maximum accumulated cost of a permitted chain ending at \(m\). Its exact recurrence is
+
+\[
+ D(m_0)=c(m_0),\qquad
+ D(m)=c(m)+\max_{v\leq m/3}D(v),
+\]
+
+with unreachable states excluded. A running prefix maximum evaluates it in increasing odd \(m\). Induction proves the recurrence: every predecessor satisfies the ratio condition; conversely appending \(m\) to any permitted predecessor chain gives a permitted chain. Therefore \(\max_mD(m)\) bounds the complete cost of the actual controller. Integer arithmetic is used for all costs, and independently recursive enumeration agrees in the retained small-grid tests.
+
+Taking \((c_A,c_Q)=(1,0)\) gives the shot cap \(S\); taking \((0,1)\) gives the Grover cap \(Q_c\). These maxima may come from different chains, so \(S C_A+Q_c C_Q\) is a conservative common gate budget. A direct weighted run yields a potentially sharper cap for those particular gate weights. I retain both and do not confuse them.
+
+Every shot uses A once; each Grover iteration uses one A and one logical adjoint. Total such invocations are at most \(S+2Q_c\), including all shots at \(k=0\). The resource charger includes uniform Hadamards, flag measurements, reflection gates, lookup measurements, feed-forward and resets. It retains the same finite oracle and its peak logical qubits for sequential reuse. The existing explicit Toffoli expansion and measurement-channel proofs are unchanged; this estimator requires no controlled arithmetic or arbitrary-angle quantum gates.
+
+\section{Published envelopes and the financial postprocessing consequence}
+\label{sec:miqae-published}
+
+For this section only, I use a separate ideal-source parameter. Let \(\gamma_{\rm src}\) be the upward derivative bound computed from the exact proved prior \(u\), and set \(\varepsilon_{\rm src}=e/\gamma_{\rm src}\). This has no numerical endpoint guard because these source envelopes assume exact real postprocessing. It is distinct from the guarded executable parameter in Section~\ref{sec:miqae-prior}. In the MIQAE source formulae below, \(M_{\rm src}=\pi/(4\varepsilon_{\rm src})\); its numerical resource enclosure uses the rational upper bound on pi.
+
+I retain the unchanged journal IQAE envelope at its source parameter \(\varepsilon_{\rm src}\), separately from the implementation above. Its theorem bounds Q applications by
+
+\[
+ Q_{\rm IQAE}<\frac{50}{\varepsilon_{\rm src}}
+ \log\left\{\frac2\alpha\log_2\frac\pi{4\varepsilon_{\rm src}}\right\}.
+\]
+
+The source theorem states at most \(T=\lceil\log_2(\pi/(8\varepsilon_{\rm src}))\rceil\) rounds. I retain that reported value separately. For preparation costs I use a conservative structural count \(R_I=1+\lfloor\log_2(\pi/(4\varepsilon_{\rm src}))\rfloor\), including the initial unamplified power. It follows directly from the source greedy rule's factor-at-least-two growth and the nonterminal angle-width condition, which bounds its odd multiplier by \(\pi/(4\varepsilon_{\rm src})\).
+
+The source sufficient cumulative sample threshold is
+
+\[
+ N_{\max}=\frac{32}{(1-2\sin(\pi/14))^2}
+ \log\left\{\frac2\alpha\log_2\frac\pi{4\varepsilon_{\rm src}}\right\}.
+\]
+
+I choose the source base batch of one hundred shots, first checking its admissibility. Its no-overshooting branch returns an integer batch at most one hundred: when its scaled multiplier exceeds \(\lceil L_{\max}/\varepsilon_{\rm src}\rceil\), the expression inside the ceiling is less than one tenth of that base batch. Once a cumulative pool reaches the sufficient threshold, the source circle-growth lemma gives either progress or termination. It can cross the threshold by less than one additional base batch. Thus I charge the independent preparation bound
+
+\[
+ S_I\leq R_I\{\lceil\overline N_{\max}\rceil+100\}.
+\]
+
+This charge includes every initial unamplified sample and integer pooling allowance. I do not infer shots by dividing a Q-query count by a typical power. An independent structural Q cap is also retained: each round uses at most \(N_{\max}+100\) samples, while reverse doubling gives \(\sum_i k_i\leq\pi/(4\varepsilon_{\rm src})\). Therefore \((N_{\max}+100)\pi/(4\varepsilon_{\rm src})\) bounds Q calls under the source circle-growth assumptions. The sharper coefficient-fifty expression is retained as the source's stated, unqualified query theorem, not described as my independently re-proved integer implementation bound.
+
+The angle convention matters. The final publisher Algorithm 1 maintains physical \(\theta\in[0,\pi/2]\) and tests \(\theta_u-\theta_l>2\varepsilon_{\rm src}\). Its amplitude-width conclusion alone would not establish an angle-width guarantee. I use its explicit angle stopping condition when taking the financial consequence below.
+
+The MIQAE source states a Q-query term \(62\varepsilon_{\rm src}^{-1}\log(6/\alpha)\). Its full-batch schedule has \(N_i=2\delta^{-2}\log(2/\alpha_i)\), with \(\delta=\sin(\pi/21)\sin(8\pi/21)\) and \(\alpha_i=(2\alpha/3)m_i/M_{\rm src}\). With the initial power included, at most \(1+\lfloor\log_3 M_{\rm src}\rfloor\) rounds are required; real full-batch samples are at most that count times the initial N. I retain the real-valued theorem term explicitly. For a separate integer-rounding corollary, upward integer shots plus one guard sample use at most three additional samples per round in the declared domain. Here \(N_{\max}\leq10^6\): that additional sample reduces the probability span by more than \(\delta/[2(N_{\max}+1)]>6\times10^{-8}\), exceeding the outward inverse padding and rational square-root allowance. These extra samples add at most \(3\sum_i k_i\leq9M_{\rm src}/4\) Q calls and three times the round count to the shot envelope. A finite implementation must check its inverse-padding margin; the published coefficient itself is not described as including it.
+
+For either unchanged source algorithm, I may run its original full-range initialisation at \(\varepsilon_{\rm src}=e/\gamma_{\rm src}\), retain its internal angle interval at return, or recover it by monotone inversion of the returned amplitude endpoints, then intersect that angle interval with the exact proved prior interval. It still contains the truth on the source coverage event, and its amplitude image has width at most \(2\gamma \varepsilon_{\rm src}=2e\). This is a mathematical postprocessing consequence, not a transfer of the source coefficient to a changed power schedule. If the prior is already narrower than \(2e\), its midpoint suffices without quantum samples. The theorem envelopes assume their source real postprocessing; I keep that premise visible alongside the separately certified executable.
+
+\section{Limits relevant to a wider contribution}
+\label{sec:miqae-interpretation}
+
+Geometric conditioning is established by \citet{curran}. \citet{kornzeytun} analyse an arithmetic/geometric limiting relation and use a modified geometric control, with an additive shift \(C\) tending to infinity. Their parameterisation differs from a centred-loading dispersion parameter tending to zero. The partly rendered publisher equations do not justify claiming that a complete prior theorem excludes the latter. Combining conditioning, geometric control and Monte Carlo is also established in \citet{dingechormann}. \citet{dingecsakhormann} extend control methods to a general model framework with computable multivariate log-return characteristic functions; their published abstract explicitly covers Lévy, Heston and regime-switching examples. A generic transform-based control framework is therefore an antecedent, not an original claim of this project.
+
+\citet{montanaro}, Sections 2(c)–2(d), Algorithms 3–4 and Theorems 2.5–2.6, already estimates a real-valued output with a supplied variance or relative-variance certificate. In a weak-dispersion regime with mean residual of order \(d^2\) and fractional-output variance of order \(d^4\), the corresponding Bernoulli flag has variance of order \(d^2\). Its amplitude-estimation mechanism should not be credited with preserving the fractional-output variance reduction. A bounded-variance quantum mean algorithm is a valid further opponent, but needs its own output-register encoding and complete circuit charge. Its relative-variance theorem requires a supplied relative-variance bound, which is not obtained from a mean upper bound alone.
+
+These asymptotic comparisons concern draws or oracle queries at fixed dimension and confidence. Maintaining them under finite representation requires deterministic bias smaller than the order-\(d^2\) residual. Growing representation precision does not imply constant arithmetic runtime or constant logical-gate cost. Replacing the outer latent law also requires its risk-neutral drift normalisation; Gaussian drifts cannot generally be carried over unchanged.
+
+The wider project argument must therefore identify an explicit class of financial models, a checked transferable moment/dispersion certificate, a specified residual-error target and the encoding-dependent statistical cost. It must compare this argument with the antecedents above. The implementation, the three/five/seven mechanism and elementary geometric-control variance reduction are not asserted to be new theoretical contributions.
+

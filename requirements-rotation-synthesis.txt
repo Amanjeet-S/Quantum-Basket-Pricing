@@ -1,0 +1,3 @@
+# Optional offline tape regeneration only. Production resource profiles use the standard library.
+pygridsynth==1.2.0
+mpmath==1.4.1

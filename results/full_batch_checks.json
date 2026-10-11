@@ -1,0 +1,723 @@
+{
+  "test_groups": 7,
+  "failures": 0,
+  "errors": 0,
+  "cover_certificate": {
+    "triple_span_lower": {
+      "numerator": "1387395330218427978555487177516026202668222156177275223440064920512893839857257",
+      "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "float": 0.1387395330218428
+    },
+    "expanded_probability_span_upper": {
+      "numerator": "2545650682171918123133",
+      "denominator": "18446744073709551616000",
+      "float": 0.138
+    },
+    "strict_margin_lower": {
+      "numerator": "7395330218427978487724541735682175542756356122903866475953592387893839857257",
+      "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "float": 0.0007395330218427979
+    },
+    "critical_enclosures": {
+      "3": [
+        [
+          {
+            "numerator": "24999999999999999999999999999999999999999999999999999999999999999999999999999983",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.25
+          },
+          {
+            "numerator": "12500000000000000000000000000000000000000000000000000000000000000000000000000007",
+            "denominator": "50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.25
+          }
+        ],
+        [
+          {
+            "numerator": "1874999999999999999999999999999999999999999999999999999999999999999999999999999",
+            "denominator": "2500000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.75
+          },
+          {
+            "numerator": "15000000000000000000000000000000000000000000000000000000000000000000000000000007",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.75
+          }
+        ]
+      ],
+      "5": [
+        [
+          {
+            "numerator": "9549150281252628794885329140859047056992270504855928446613784432368488429527427",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.09549150281252629
+          },
+          {
+            "numerator": "19098300562505257589770658281718094113984541009711856893227568864736976859054901",
+            "denominator": "200000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.09549150281252629
+          }
+        ],
+        [
+          {
+            "numerator": "34549150281252628794885329140859047056992270504855928446613784432368488429527419",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.3454915028125263
+          },
+          {
+            "numerator": "1079660946289144649840166535651845220531008453276747763956680763511515263422733",
+            "denominator": "3125000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.3454915028125263
+          }
+        ],
+        [
+          {
+            "numerator": "13090169943749474241022934171828190588601545899028814310677243113526302314094507",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.6545084971874737
+          },
+          {
+            "numerator": "13090169943749474241022934171828190588601545899028814310677243113526302314094517",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.6545084971874737
+          }
+        ],
+        [
+          {
+            "numerator": "2261271242968684280127866771478523823575193237378601788834655389190787789261813",
+            "denominator": "2500000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.9045084971874737
+          },
+          {
+            "numerator": "18090169943749474241022934171828190588601545899028814310677243113526302314094519",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.9045084971874737
+          }
+        ]
+      ],
+      "7": [
+        [
+          {
+            "numerator": "495155660487904368819488402462774744170404189340714249732187884002837897860299",
+            "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.049515566048790434
+          },
+          {
+            "numerator": "2475778302439521844097442012313873720852020946703571248660939420014189489301507",
+            "denominator": "50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.049515566048790434
+          }
+        ],
+        [
+          {
+            "numerator": "18825509907063323473749755799788009468386263455179894731722528045157317377175621",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.18825509907063323
+          },
+          {
+            "numerator": "18825509907063323473749755799788009468386263455179894731722528045157317377175649",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.18825509907063323
+          }
+        ],
+        [
+          {
+            "numerator": "3887395330218427978555487177516026202668222156177275223440064920512893839857261",
+            "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.3887395330218428
+          },
+          {
+            "numerator": "38873953302184279785554871775160262026682221561772752234400649205128938398572653",
+            "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.3887395330218428
+          }
+        ],
+        [
+          {
+            "numerator": "3056302334890786010722256411241986898665888921911362388279967539743553080071367",
+            "denominator": "5000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.6112604669781572
+          },
+          {
+            "numerator": "6112604669781572021444512822483973797331777843822724776559935079487106160142739",
+            "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.6112604669781572
+          }
+        ],
+        [
+          {
+            "numerator": "16234898018587335305250048840042398106322747308964021053655494390968536524564863",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.8117449009293668
+          },
+          {
+            "numerator": "16234898018587335305250048840042398106322747308964021053655494390968536524564883",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.8117449009293668
+          }
+        ],
+        [
+          {
+            "numerator": "9504844339512095631180511597537225255829595810659285750267812115997162102139693",
+            "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.9504844339512095
+          },
+          {
+            "numerator": "19009688679024191262361023195074450511659191621318571500535624231994324204279413",
+            "denominator": "20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "float": 0.9504844339512095
+          }
+        ]
+      ]
+    },
+    "checked_triples": 48
+  },
+  "ideal_simulation": {
+    "scope": "540 ideal-binomial software diagnostics on synthetic amplitudes; no device or market observations; coverage proof is independent of observed simulation coverage",
+    "seed": 20261006,
+    "records": [
+      {
+        "cap": 1,
+        "synthetic_probability": 0.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2093,
+          2093
+        ],
+        "Q_calls_range": [
+          1924,
+          1924
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 1.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2093,
+          2093
+        ],
+        "Q_calls_range": [
+          1924,
+          1924
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.0001,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1000",
+          "float": 0.001
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          0,
+          0
+        ],
+        "Q_calls_range": [
+          0,
+          0
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.01,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "50",
+          "float": 0.02
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          745,
+          745
+        ],
+        "Q_calls_range": [
+          3725,
+          3725
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.025,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "20",
+          "float": 0.05
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          874,
+          874
+        ],
+        "Q_calls_range": [
+          1748,
+          1748
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.25,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2746,
+          2863
+        ],
+        "Q_calls_range": [
+          13474,
+          25515
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.5,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2635,
+          2749
+        ],
+        "Q_calls_range": [
+          24922,
+          42520
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.75,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2746,
+          2863
+        ],
+        "Q_calls_range": [
+          13474,
+          25515
+        ]
+      },
+      {
+        "cap": 1,
+        "synthetic_probability": 0.9999,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2093,
+          2093
+        ],
+        "Q_calls_range": [
+          1924,
+          1924
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3594,
+          3594
+        ],
+        "Q_calls_range": [
+          16672,
+          16672
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 1.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3594,
+          3594
+        ],
+        "Q_calls_range": [
+          16672,
+          16672
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.0001,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1000",
+          "float": 0.001
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          0,
+          0
+        ],
+        "Q_calls_range": [
+          0,
+          0
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.01,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "50",
+          "float": 0.02
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          1757,
+          1762
+        ],
+        "Q_calls_range": [
+          36710,
+          38045
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.025,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "20",
+          "float": 0.05
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          1980,
+          2660
+        ],
+        "Q_calls_range": [
+          21702,
+          154787
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.25,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          4235,
+          4401
+        ],
+        "Q_calls_range": [
+          99800,
+          180774
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.5,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3993,
+          4163
+        ],
+        "Q_calls_range": [
+          250165,
+          425485
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.75,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          4210,
+          4398
+        ],
+        "Q_calls_range": [
+          101930,
+          190160
+        ]
+      },
+      {
+        "cap": 10,
+        "synthetic_probability": 0.9999,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3594,
+          3601
+        ],
+        "Q_calls_range": [
+          15744,
+          16672
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3884,
+          3884
+        ],
+        "Q_calls_range": [
+          18210,
+          18210
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 1.0,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3884,
+          3884
+        ],
+        "Q_calls_range": [
+          18210,
+          18210
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.0001,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1000",
+          "float": 0.001
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          770,
+          770
+        ],
+        "Q_calls_range": [
+          18480,
+          18480
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.01,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "50",
+          "float": 0.02
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          1947,
+          2599
+        ],
+        "Q_calls_range": [
+          41871,
+          271391
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.025,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "20",
+          "float": 0.05
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          2925,
+          2967
+        ],
+        "Q_calls_range": [
+          153860,
+          203123
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.25,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          4606,
+          5457
+        ],
+        "Q_calls_range": [
+          175282,
+          1041820
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.5,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          4369,
+          4510
+        ],
+        "Q_calls_range": [
+          302010,
+          529124
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.75,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          4647,
+          5479
+        ],
+        "Q_calls_range": [
+          181264,
+          1158680
+        ]
+      },
+      {
+        "cap": 25,
+        "synthetic_probability": 0.9999,
+        "proved_prior_upper": {
+          "numerator": "1",
+          "denominator": "1",
+          "float": 1.0
+        },
+        "repetitions": 20,
+        "covered": 20,
+        "flagged_failures": 0,
+        "shots_range": [
+          3884,
+          3891
+        ],
+        "Q_calls_range": [
+          17186,
+          18210
+        ]
+      }
+    ],
+    "covered": 540,
+    "flagged": 0
+  }
+}

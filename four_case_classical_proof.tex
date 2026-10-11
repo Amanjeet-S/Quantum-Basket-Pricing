@@ -1,0 +1,164 @@
+\section{Complete classical prices for the four retained cases}
+\label{sec:four-complete-classical-proof}
+
+I use the exact stipulated synthetic risk-neutral models, rather than any
+observed or licensed market data.  The models satisfy
+\(\mu_i+\tfrac12(\lambda^2+\sum_j R_{ij}^2)=r-q\), with
+\(r=0.03\), \(q=0.02\), unit maturity and spot and strike equal to
+\(100\).  Under the stipulated pricing measure, the discounted total-return
+asset prices are martingales.  The capped arithmetic-basket payoff has cap
+\(H=1\), positive weights summing to one and values in \([0,1]\).
+Integrating the independent common Gaussian factor gives
+\[
+ f(y)=P_\lambda(m_A(y)),\qquad
+ m_A(y)=\log\!\left(\sum_i w_i e^{\mu_i+R_i\cdot y}\right).
+\]
+Consequently \(0\leq f\leq1\), and the undiscounted continuous price is
+\(V=\mathbb E f(Y)\) for independent standard Gaussian coordinates \(Y_j\).
+The conditional formula used for production is
+\[
+ P_\lambda(m)=100e^{m+\lambda^2/2}
+   \left[\Phi(m/\lambda+\lambda)
+   -\Phi((m-\ell)/\lambda+\lambda)\right]
+ -100\left[\Phi(m/\lambda)-\Phi((m-\ell)/\lambda)\right]
+ +\Phi((m-\ell)/\lambda),\quad \ell=\log(101/100).
+\]
+The replay evaluates the two conditional vanilla calls separately and takes
+their difference.  Both formulae describe the same bounded payoff.
+
+\subsection{A global derivative envelope for the full conditional price}
+
+Let \(\pi_i(y)=w_i e^{\mu_i+R_i\cdot y}/\sum_k w_k
+e^{\mu_k+R_k\cdot y}\).  Then \(\pi_i>0\), \(\sum_i\pi_i=1\), and direct
+differentiation gives
+\[
+ (m_A)_j=\sum_i\pi_iR_{ij},\qquad
+ (m_A)_{jj}=\sum_i\pi_iR_{ij}^2-\left(\sum_i\pi_iR_{ij}\right)^2.
+\]
+Write \(C_2=P_\lambda''-P_\lambda'\), and use the previously certified
+global bounds \(M_1\geq\|P_\lambda'\|_\infty\) and
+\(M_2\geq\|C_2\|_\infty\).  The chain rule has the useful exact form
+\[
+ f_{jj}=P_\lambda'(m_A)\sum_i\pi_i R_{ij}^2
+              +C_2(m_A)\left(\sum_i\pi_iR_{ij}\right)^2.
+\]
+For \(A_j=\max_i|R_{ij}|\), this proves, on the entire real coordinate
+space,
+\[
+ |f_j|\leq D_{1j}:=M_1A_j,\qquad
+ |f_{jj}|\leq D_{2j}:=(M_1+M_2)A_j^2.
+\]
+These use the full asset loadings \(R_{ij}\), including the geometric
+loading.  Replacing them by centred residual loadings would be invalid.
+
+\subsection{Gaussian transfer and full tails}
+
+Let \(L=6\), \(N=1024\), \(a=\Phi(L)-\Phi(-L)\).  Each Gaussian CDF cell
+has mass \(a/N\), and its implemented node \(c_k\) is the midpoint
+quantile rounded to \(2^{-28}\).  I certify that every rounded node lies
+inside its cell.  For cell \(I_k\), define
+\[
+ \mu_{1k}=\int_{I_k}(y-c_k)\phi(y)\,dy,\qquad
+ \mu_{2k}=\int_{I_k}(y-c_k)^2\phi(y)\,dy.
+\]
+Taylor's identity with integral remainder gives, for any twice continuously
+differentiable coordinate section,
+\[
+ \left|\int_{I_k}g(y)\phi(y)\,dy-\frac aN g(c_k)\right|
+ \leq |\mu_{1k}|\,\|g'\|_\infty+
+                       \frac{\mu_{2k}}2\,\|g''\|_\infty.
+\]
+The first term follows by integrating the exact linear Taylor term.  The
+second follows because the integral remainder along the segment from
+\(c_k\) to \(y\) has absolute value at most
+\(\|g''\|_\infty(y-c_k)^2/2\).  No normalisation or sign decision for a
+tiny first moment is needed.  I use certified rational upper bounds on
+\(|\mu_{1k}|\).
+
+For \(p\) coordinates, telescope the product retained Gaussian measure
+\(\nu^{\otimes p}\) against the product unnormalised grid measure
+\(\tau^{\otimes p}\), where \(\tau=(a/N)\sum_k\delta_{c_k}\).
+Every other-coordinate factor has mass \(a\).  The preceding identity and
+the global derivative bounds therefore give
+\[
+ \left|\int f\,d\nu^{\otimes p}-a^p\mu\right|\leq\beta,
+ \qquad
+ \beta=a^{p-1}\sum_{j=1}^p\left(D_{1j}b_1+D_{2j}b_2\right),
+\]
+where \(\mu=N^{-p}\sum_{k_1,\ldots,k_p}f(c_{k_1},\ldots,c_{k_p})\),
+\(b_1=\sum_k|\mu_{1k}|\), and \(b_2=\frac12\sum_k\mu_{2k}\).
+The construction retains the original subprobability masses.
+Since \(0\leq f\leq1\), the omitted contribution satisfies
+\[
+ 0\leq V-\int f\,d\nu^{\otimes p}\leq1-a^p.
+\]
+All cell boundaries, rounded nodes, moment intervals and mass factors are
+retained.  Production uses 512-bit interval arithmetic; the audit
+reconstructs all cells and the transfer at 1024 bits.
+
+\subsection{Fixed sampling, numerical score error and confidence}
+
+I freeze \(n=100000\) samples per case and \(\varepsilon=1/150\) before
+requesting fresh random words.  Each coordinate label is the low ten bits
+of a captured little-endian unsigned 16-bit word.  The confidence statement
+assumes those words are independent and uniform.  Retaining a realised
+trace enables arithmetic replay; it does not prove this stochastic premise.
+Under the premise, each label is independent and uniform on
+\(\{0,\ldots,1023\}\).
+
+For completeness, the bounded-score exponential inequality can be derived
+without a distributional approximation.  If \(X\in[0,1]\), let
+\(\psi(t)=\log\mathbb E e^{t(X-\mathbb E X)}\).  Under the exponentially
+tilted distribution, \(\psi''(t)=\operatorname{Var}_t(X)\leq1/4\), because
+\(\operatorname{Var}_t(X)\leq\mathbb E_t(X-1/2)^2\leq1/4\).
+Together with \(\psi(0)=\psi'(0)=0\), twice integrating gives
+\(\psi(t)\leq t^2/8\) for either sign of \(t\).  Independence and Markov's
+inequality now give
+\[
+ \Pr\!\left\{\frac1n\sum_{h=1}^nX_h-\mathbb E X\geq\varepsilon\right\}
+ \leq\inf_{t>0}\exp\!\left(-tn\varepsilon+nt^2/8\right)
+ =e^{-2n\varepsilon^2}.
+\]
+Applying the same reasoning to \(-X_h\), and adding the two tail
+probabilities, yields the established bounded-sample inequality
+\(\Pr(|\overline X-\mu|>\varepsilon)\leq2e^{-2n\varepsilon^2}\).
+At the frozen values, interval arithmetic verifies
+\(2e^{-2n\varepsilon^2}\leq1/3600\).
+
+Every score is evaluated at 128 bits, intersected with the proved range
+\([0,1]\), then rounded outwards to endpoints
+\(l_h,u_h\in2^{-40}\mathbb Z\).  Their integer arrays and every raw random
+word are retained.  With exact rational means
+\(\overline l=n^{-1}\sum l_h\) and
+\(\overline u=n^{-1}\sum u_h\), set
+\[
+ L_\mu=\max(0,\overline l-\varepsilon),\qquad
+ U_\mu=\min(1,\overline u+\varepsilon).
+\]
+The realised exact score mean lies between \(\overline l\) and
+\(\overline u\), so the same two-sided bound proves that
+\(\mu\in[L_\mu,U_\mu]\) with failure probability at most \(1/3600\).
+The audit replays all scores at 256 bits using the separately evaluated
+conditional call spread.  No normal approximation, adaptive stopping or
+estimated variance enters this certificate.
+
+If \(F_-\leq a^p\leq F_+\), the complete undiscounted interval is
+\[
+ \left[\max(0,F_-L_\mu-\beta),\
+       \min(1,F_+U_\mu+\beta+1-F_-)\right].
+\]
+The endpoint multiplications are valid because the mean bounds are
+nonnegative.  The upper endpoint includes the full bounded tail.
+Multiplication by a separately certified positive interval enclosing
+\(e^{-0.03}\) gives the discounted price interval.  A union bound over the
+four retained sampling experiments gives family failure probability at
+most \(4/3600=1/900\).
+
+For the one-dimensional case, I additionally sum all 1024 score intervals
+before drawing any samples.  This gives a deterministic finite-grid mean
+interval and therefore a deterministic complete continuous-price interval
+using the same transfer and tail formula.  It is the primary reported
+method for that case; the fresh sampling trace remains as an independently
+replayable comparison.  These complete prices test classical sufficiency
+for the four cases.  They establish neither theoretical novelty nor a
+physical quantum advantage.

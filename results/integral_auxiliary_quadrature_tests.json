@@ -1,0 +1,246 @@
+{
+  "status": "passed",
+  "exact_checks": 31,
+  "checks": [
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 0,
+      "bits": 1,
+      "exact_error": "0",
+      "upper": "0",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 0,
+      "bits": 2,
+      "exact_error": "0",
+      "upper": "0",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 1,
+      "bits": 1,
+      "exact_error": "1/24",
+      "upper": "1/24",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 1,
+      "bits": 2,
+      "exact_error": "1/96",
+      "upper": "1/96",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 2,
+      "bits": 1,
+      "exact_error": "1/48",
+      "upper": "5/48",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 2,
+      "bits": 2,
+      "exact_error": "1/192",
+      "upper": "5/192",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 3,
+      "bits": 1,
+      "exact_error": "11/640",
+      "upper": "3/16",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 3,
+      "bits": 2,
+      "exact_error": "51/10240",
+      "upper": "3/64",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 4,
+      "bits": 1,
+      "exact_error": "59/3840",
+      "upper": "7/24",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 4,
+      "bits": 2,
+      "exact_error": "299/61440",
+      "upper": "7/96",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 5,
+      "bits": 1,
+      "exact_error": "535/43008",
+      "upper": "5/12",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 5,
+      "bits": 2,
+      "exact_error": "12799/2752512",
+      "upper": "5/48",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 6,
+      "bits": 1,
+      "exact_error": "257/28672",
+      "upper": "9/16",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 6,
+      "bits": 2,
+      "exact_error": "8041/1835008",
+      "upper": "9/64",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 7,
+      "bits": 1,
+      "exact_error": "1663/294912",
+      "upper": "35/48",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 7,
+      "bits": 2,
+      "exact_error": "307783/75497472",
+      "upper": "35/192",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 8,
+      "bits": 1,
+      "exact_error": "8309/2949120",
+      "upper": "11/12",
+      "passed": true
+    },
+    {
+      "kind": "Beta2 polynomial",
+      "degree": 8,
+      "bits": 2,
+      "exact_error": "2824469/754974720",
+      "upper": "11/48",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 0,
+      "bits": 3,
+      "exact_error": "0",
+      "upper": "0",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 1,
+      "bits": 3,
+      "exact_error": "0",
+      "upper": "0",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 2,
+      "bits": 3,
+      "exact_error": "1/768",
+      "upper": "1/768",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 3,
+      "bits": 3,
+      "exact_error": "1/512",
+      "upper": "1/256",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 4,
+      "bits": 3,
+      "exact_error": "851/327680",
+      "upper": "1/128",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 5,
+      "bits": 3,
+      "exact_error": "1273/393216",
+      "upper": "5/384",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 6,
+      "bits": 3,
+      "exact_error": "454581/117440512",
+      "upper": "5/256",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 7,
+      "bits": 3,
+      "exact_error": "150837/33554432",
+      "upper": "7/256",
+      "passed": true
+    },
+    {
+      "kind": "Uniform strike polynomial",
+      "degree": 8,
+      "bits": 3,
+      "exact_error": "197504743/38654705664",
+      "upper": "7/192",
+      "passed": true
+    },
+    {
+      "kind": "Exact norm recurrence",
+      "lambda": "1/20",
+      "passed": true
+    },
+    {
+      "kind": "Exact norm recurrence",
+      "lambda": "1/5",
+      "passed": true
+    },
+    {
+      "kind": "Exact norm recurrence",
+      "lambda": "2/5",
+      "passed": true
+    },
+    {
+      "kind": "Finite-support fourth moment",
+      "moment3": "5/128",
+      "moment4": "9/512",
+      "passed": true
+    }
+  ],
+  "helper_sha256": "aa294ea1007631675d3956340d646645aaddab191b5fdcf11270990eb9fdc438",
+  "test_source_sha256": "45a7705766622bbff8a431b9f7313e366c3ee3aab41c98750d6e14c1753bfc7c",
+  "norm_input_sha256": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797"
+}

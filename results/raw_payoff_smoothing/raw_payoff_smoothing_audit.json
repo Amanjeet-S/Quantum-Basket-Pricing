@@ -1,0 +1,14 @@
+{
+  "schema": "qbp-raw-payoff-smoothing-audit-v1",
+  "status": "passed",
+  "source_sha256": "83169e25a71b32a9a6bf0b24dc18f0d33b9bfc3f796dcdf53f8c4c83a3857642",
+  "resources_sha256": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+  "protocol_sha256": "7621f2c5ca573f0316318bef825b06aaf82b8676ddbf76e78b161baa043cc345",
+  "prior_independent_resource_review_sha256": "ea071b016a497b02b51dafbdaac50fe6c95fbc7285d73c0438a85156167620ec",
+  "existing_own_formula_confidence_auditor_sha256": "5f4638d5255596ea69ab5110f0ab45a422dcef99dd87e425e0722a4fbd4d1a62",
+  "fixed_circuit_bindings": 48,
+  "amended_QPE_and_full_charge_plans": 96,
+  "deterministic_prior_plans": 0,
+  "rejected_configurations": 0,
+  "scope": "Direct retained-field smoothing certificate recomputation, exact scalar error decomposition, unchanged graph/profile bindings, same independent own-formula QPE and complete charge replay. Mathematical justification is the separately checked supporting proof. Original pointwise plans and whole circuit replay remain retained."
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "qbp-deferred-preparation-independent-proof-review-v1",
+  "status": "passed",
+  "proof_sha256": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+  "producer_source_sha256": "1e78f51c6ffc9f49a56ddf785a72424531b8261a69ce996b984f5561d254b477",
+  "checked_identities": [
+    "B=U A for full finite operators",
+    "uncontrolled actual-S0tilde global Q conjugacy",
+    "same actualcontrolled R0c global K conjugacy",
+    "rank-one reflection restricted to work-zero M",
+    "work-zero scratch restoration after B-adjoint in all reached branches",
+    "odd/even observation and p endpoints",
+    "conditional global minus",
+    "controlled powers and approximate inverseQFT phase distribution",
+    "clean network=B network plus terminal U-adjoint",
+    "naive-clean difference R(2M\u22121)F",
+    "optimised-clean difference RF"
+  ],
+  "physical_domain_corrections": [
+    "Actual uncontrolled scratch tape only matches idealcoreS0 on M",
+    "Actual controlledscratch tape need not equal controlled(uncontrolled actualtape) off M"
+  ],
+  "independent_literal_checks_sha256": "aee65fc5b6897b4ddf092dc864d36cdbf6bc27c51138fc26feddc4341bb288b2",
+  "resource_audit_sha256": "7136f30a5eb5272ee3ab2eb1767955ec644db8e5a88db2325d8f4fe6981f88d1",
+  "scope": "Exact proof plus independently derived cost transformation. Generic conjugacy/amplification/cancellation established; specialised finite financial application and comparisons. No physical experiment or generic originality claim.",
+  "canonical_repository_modified": false,
+  "commits_or_staging": false
+}

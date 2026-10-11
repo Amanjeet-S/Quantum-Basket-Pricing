@@ -1,0 +1,34 @@
+{
+  "schema": "qbp-ordered-compressed-byte-shards-v1",
+  "representation": "ordered slices of the original compressed gzip bytes",
+  "original_filename": "higherdim_precision_comparison.json.gz",
+  "original_bytes": 109017350,
+  "original_sha256": "c68ab56b21b9fdc2a883ce80c570fcba07b8561c8989fe65e0cfa53185e36370",
+  "maximum_part_bytes": 33554432,
+  "parts": [
+    {
+      "index": 0,
+      "path": "higherdim_precision_comparison.json.gz.parts/part-0000.bin",
+      "bytes": 33554432,
+      "sha256": "b654f2a860b82212345765853ae9930d40302bd18eef98fdfdaa7dff16417ea3"
+    },
+    {
+      "index": 1,
+      "path": "higherdim_precision_comparison.json.gz.parts/part-0001.bin",
+      "bytes": 33554432,
+      "sha256": "6ba3271687bb257aeebe4bd24543f1a6eb9d609538bc409bd55821696d5994e8"
+    },
+    {
+      "index": 2,
+      "path": "higherdim_precision_comparison.json.gz.parts/part-0002.bin",
+      "bytes": 33554432,
+      "sha256": "5fb6aa5a6f5641c94c76fe5ce0e2e32d9c94c849f1a42c8243e7d9f966247d2b"
+    },
+    {
+      "index": 3,
+      "path": "higherdim_precision_comparison.json.gz.parts/part-0003.bin",
+      "bytes": 8354054,
+      "sha256": "7e481e552b10b06507a4e5c00b4bb292bb50016e8fe9416289f815c5a01d05f5"
+    }
+  ]
+}

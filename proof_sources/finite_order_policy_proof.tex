@@ -1,0 +1,268 @@
+\section{Finite certificate selection before estimation}
+\label{sec:finite-order-policy}
+
+I now execute the certificate as a stopping procedure, rather than computing
+all retained coefficients before selecting a price. This section distinguishes
+three decisions: a certified stopping test, a sufficient screen which avoids
+unnecessary scalar work, and a prescribed degree limit. None requires
+convergence of the infinite Taylor series. The finite coefficient and
+remainder identities remain those in
+Theorem~\ref{thm:finite-gaussian-price-certificate}.
+
+\subsection{Outward finite-order intervals and stopping}
+
+For a candidate degree $k$, let $[a_k,b_k]$ be the outward arithmetic
+enclosure of $\sum_{j=0}^k c_j$, and let $\overline R_k\geq R_k$ be a
+nonnegative rational upper bound on its proved expected remainder. I form
+\begin{equation}
+ I_k=[\max\{0,a_k-\overline R_k\},
+          \min\{H,b_k+\overline R_k\}].
+ \label{eq:finite-policy-interval}
+\end{equation}
+The target belongs to both the Taylor enclosure and $[0,H]$, so their
+intersection is nonempty and contains it. If the exact rational half-width
+of $I_k$ is at most a requested undiscounted tolerance $\tau$, the midpoint
+prices with deterministic error at most $\tau$. Testing this condition is
+valid at every finite degree, independently of the success of other degrees.
+There is no optional-stopping probability argument: each candidate is a
+deterministic price certificate for the same target.
+
+The full-search policy evaluates coefficients through degree eight once,
+forms all nine partial intervals and selects the narrowest. The screened
+policy computes $\overline R_k$ first. For $k<8$, it evaluates the
+coefficient sum only when $\overline R_k\leq\tau$. It then applies the
+actual half-width test, including coefficient arithmetic. At degree eight
+it evaluates the coefficient sum even if the screen fails, so a valid
+unresolved price interval is retained. A qualifying remainder does not
+guarantee acceptance when arithmetic width consumes the remaining slack.
+Conversely, clipping to $[0,H]$ may allow an interval to certify even with
+$\overline R_k>\tau$. The screen is therefore sufficient for spending
+coefficient work, not a proof of the globally first certifying degree.
+
+\begin{proposition}[Certificate-preserving finite selection]
+\label{prop:finite-certificate-selection}
+Under the hypotheses of Theorem~\ref{thm:finite-gaussian-price-certificate},
+each accepted finite-order midpoint has deterministic error at most $\tau$.
+If no order is accepted, the order-limit interval remains a valid price
+enclosure. Replacing full search by the specified remainder screen changes
+the executed work and possibly the selected enclosure, but does not change
+the validity of any returned certificate.
+\end{proposition}
+\begin{proof}
+The coefficient enclosure and remainder theorem imply membership of the
+target in $[a_k-\overline R_k,b_k+\overline R_k]$. Payoff boundedness gives
+membership in $[0,H]$. Equation~\eqref{eq:finite-policy-interval} is exactly
+their intersection. For any real number in an interval, its distance from
+that interval's midpoint is no larger than its half-width. The acceptance
+condition proves the asserted error. Skipping a coefficient calculation
+at another degree asserts no interval for that degree and cannot alter
+this implication. The explicitly evaluated terminal degree supplies the
+unresolved enclosure when acceptance does not occur.
+\end{proof}
+
+Each moment degree $j$ has $\binom{n+j-1}{j}$ multinomial terms. Summing
+these counts through degree $d$ gives $\binom{n+d}{d}$, by induction using
+Pascal's identity. I retain a geometry bank containing each term's exact
+multinomial weight, exposure and validated exponential. Extending the bank
+for a failed screen incurs its full new term count. Later degrees reuse
+the existing terms without charging them twice. A coefficient evaluation
+through degree $k$ calls the Gaussian derivative kernel at all terms
+through that degree, hence $\binom{n+k}{k}$ calls in the implemented
+routine. If several degrees require coefficient evaluation, every such
+call is charged; the screening algorithm does not silently borrow
+unexecuted full-search derivatives. Geometry sharing across caps and
+common loadings is allowed only when the exact centred geometry matches.
+Cold-contract experiments own separate banks.
+
+\subsection{Why the raw remainder must remain finite-order}
+
+\begin{proposition}[Eventual growth of this Gaussian remainder bound]
+\label{prop:raw-remainder-growth}
+Suppose at least one centred loading $s_i$ is nonzero. For every fixed
+$H>0$ and $\lambda>0$, the raw bound $R_k$ in
+equation~\eqref{eq:taylor-price-remainder} tends to infinity as
+$k\to\infty$.
+\end{proposition}
+\begin{proof}
+Put $r=k+1$. The signed-Stirling recurrence gives
+$s(r,1)=(-1)^{r-1}(r-1)!$ by induction from $s(1,1)=1$.
+The $\ell=1$ term of the nonnegative sum defining $C_r$ therefore implies
+$C_r(\lambda)\geq(r-1)!\phi(0)/\lambda$. Choose any $a>1$ and an index
+with $s_i\ne0$. Since $s_i\cdot Y$ is a normal variable of positive
+variance, its upper tail has positive probability at every finite threshold.
+In particular, the event
+\[
+ s_i\cdot Y\geq \log((a+1)/w_i)-d_i
+\]
+has probability $p_a>0$ and implies
+$T\geq w_i e^{d_i+s_i\cdot Y}\geq a+1$. Since $T-1\geq0$,
+$\mathbb E[(T-1)^r]\geq p_a a^r$. Combining these bounds gives
+\[
+ R_{r-1}\geq {H\phi(0)p_a\over\lambda r}a^r
+       \longrightarrow\infty.
+\]
+The last limit follows because $a>1$: the ratio of consecutive terms
+$a^r/r$ tends to $a$, which exceeds one.
+\end{proof}
+
+This is a derived limitation of the particular uniform absolute-derivative
+remainder used here. It is not a proof that the actual finite approximation
+errors diverge, that another signed remainder cannot improve, or that no
+other classical certificate works. The price intervals clipped to $[0,H]$
+remain bounded. The proposition strengthens the reason for retaining a
+finite degree search: ever higher degree cannot be justified by assuming
+that this raw bound eventually vanishes. The visualised early improvements
+and later failures are compatible with this statement. I do not claim
+priority for the elementary tail argument or for generic lognormal moment
+growth; its role is to characterise this explicitly defined certificate.
+
+\subsection{A monotone geometric-control certificate before Taylor screening}
+\label{sec:monotone-before-taylor}
+
+I place the existing monotonicity and first-moment bound before the finite
+Taylor remainder screen. This changes the order in which I pay for certified
+computations. It does not assert a new Jensen inequality, a new geometric
+control or convergence of an infinite Taylor series.
+
+Let $w_i>0$, $\sum_{i=1}^n w_i=1$, and let $Y\sim N(0,I_p)$ and
+$Z\sim N(0,1)$ be independent. For fixed real $\mu_i$ and $R_i\in\mathbb R^p$,
+positive $\lambda$, spot $S_*=100$ and strike $K=100$, write
+\[
+ S_i=S_*\exp(\mu_i+R_i\cdot Y+\lambda Z),\quad
+ A=\sum_iw_iS_i,\quad G=\prod_iS_i^{w_i}.
+\]
+Put $\mu_G=\sum_iw_i\mu_i$, $R_G=\sum_iw_iR_i$,
+$d_i=\mu_i-\mu_G$ and $s_i=R_i-R_G$. Then
+\[
+ T(Y)={A\over G}=\sum_iw_i\exp(d_i+s_i\cdot Y),
+ \qquad \sum_iw_i(d_i+s_i\cdot Y)=0.
+\]
+Weighted arithmetic-geometric mean therefore gives $T(Y)\geq1$ for every
+$Y$. Its Gaussian first moment is finite and is given exactly by
+\begin{equation}
+ M_1=\mathbb E[T]=\sum_iw_i\exp\{d_i+\|s_i\|^2/2\}\geq1.
+ \label{eq:hierarchy-ratio-first-moment}
+\end{equation}
+The inequality also follows by taking expectations of the pointwise bound.
+
+For cap $H>0$, define $h_H(x)=\min\{(x-K)^+,H\}$ and the conditional scalar
+kernel
+\[
+ g_{H,\lambda}(m)=\mathbb E_Z[h_H(S_*e^{m+\lambda Z})].
+\]
+For every nonnegative $x$,
+$h_H(x)=\int_K^{K+H}\mathbf1_{\{x>k\}}\,dk$; the choice of strict endpoint
+does not affect this integral. Tonelli's theorem gives
+\[
+ g_{H,\lambda}(m)=\int_K^{K+H}
+ \Phi\left({m-\log(k/S_*)\over\lambda}\right)\,dk.
+\]
+The integration interval is finite and the derivative integrand is bounded
+by $\phi(0)/\lambda$. Differentiation under this integral is therefore
+justified by domination, and
+\[
+ 0\leq g'_{H,\lambda}(m)
+ ={1\over\lambda}\int_K^{K+H}
+ \phi\left({m-\log(k/S_*)\over\lambda}\right)\,dk
+ \leq {H\phi(0)\over\lambda}.
+\]
+A second bound follows directly from the payoff. It is Lipschitz in its
+price argument, and its derivative with respect to the log-price exists
+away from the two strikes and equals
+$x\mathbf1_{\{K<x<K+H\}}$. This quantity is at most $K+H$. For a bounded
+interval of $m$, the difference quotients are dominated by a finite
+constant times $e^{\lambda Z}$, whose Gaussian expectation is finite.
+The strike points have probability zero under the continuous normal law.
+Dominated convergence consequently gives
+$g'_{H,\lambda}(m)=\mathbb E[S_*e^{m+\lambda Z}
+\mathbf1_{\{K<S_*e^{m+\lambda Z}<K+H\}}]\leq K+H$.
+Thus $g_{H,\lambda}$ is increasing and globally $H L$-Lipschitz, where
+\begin{equation}
+ L=\min\left\{{\phi(0)\over\lambda},{K+H\over H}\right\}.
+ \label{eq:hierarchy-log-lipschitz}
+\end{equation}
+
+Let $P_A=\mathbb E[h_H(A)]$ and $P_G=\mathbb E[h_H(G)]$ denote undiscounted
+prices. Conditional on $Y$, their scalar log-price arguments differ by
+$\log T(Y)\geq0$. The fundamental theorem of calculus and
+\eqref{eq:hierarchy-log-lipschitz} imply
+\[
+ 0\leq g_{H,\lambda}(\mu_G+R_G\cdot Y+\log T)
+       -g_{H,\lambda}(\mu_G+R_G\cdot Y)
+ \leq H L\log T.
+\]
+Since $0\leq\log T\leq T-1$ and $M_1<\infty$, this logarithm is integrable.
+The conditional prices are themselves bounded by $H$. Taking expectations
+and applying concavity of the logarithm gives the deterministic enclosure
+\begin{equation}
+ 0\leq P_A-P_G\leq H L\,\mathbb E[\log T]
+                    \leq H L\log M_1=:D_0.
+ \label{eq:hierarchy-one-sided-gap}
+\end{equation}
+This proof requires positivity, positive weights and an increasing
+log-Lipschitz conditional payoff kernel. If another outer law has a finite
+first ratio moment, the inequality through $\log\mathbb E[T]$ remains
+valid; its moment formula and its geometric-control computation must then
+be certified for that law. The current implementation uses the stipulated
+Gaussian law and does not transfer its Gaussian moment formula to another
+model without that work.
+
+I compute an outward upper enclosure $\overline L\geq L$, using the minimum
+of the certified upper endpoint for $\phi(0)/\lambda$ and the exact rational
+$(K+H)/H$. The validated degree-one moment ball contains $M_1$ and has a
+strictly positive lower endpoint. Its logarithm therefore contains
+$\log M_1$. The upper endpoint of
+$H\overline L\log(M_1\text{ ball})$, clamped below by zero, supplies a
+rational $\overline D_0\geq D_0$. Neither a negative midpoint nor a
+floating-point logarithm is substituted for this upper certificate.
+
+Let $\tau=0.01$ be the undiscounted price-radius target. If
+$\overline D_0>2\tau$, I do not evaluate the scalar geometric control at
+this preliminary stage. The one-sided moment certificate alone has not
+passed its sufficient width screen, so I continue to the prescribed finite
+Taylor screening policy and charge the moment work already performed.
+When $\overline D_0\leq2\tau$, I evaluate $P_G$ once. Here
+$\mu_G+R_G\cdot Y+\lambda Z$ is normal with mean $\mu_G$ and variance
+$\sigma_G^2=\|R_G\|^2+\lambda^2$. The validated scalar kernel at that
+combined scale gives an interval $[g_-,g_+]$ containing $P_G$. I form
+\begin{equation}
+ I_0=\left[\max\{0,g_-\},
+          \min\{H,g_++\overline D_0\}\right].
+ \label{eq:hierarchy-one-sided-price-interval}
+\end{equation}
+Its lower endpoint is no larger than $P_A$, because $P_A\geq P_G$ and
+$P_A\geq0$. Its upper endpoint is no smaller than $P_A$, because
+$P_A\leq P_G+\overline D_0$ and $P_A\leq H$. Hence the interval is
+nonempty and contains the target price.
+
+I stop only when the exact rational half-width of $I_0$ is at most $\tau$.
+The preliminary inequality $\overline D_0\leq2\tau$ does not alone imply
+this final condition: the scalar-control interval has its own positive
+width, and at the boundary that width can prevent certification. If the
+actual half-width is too large, I retain the failed preliminary interval,
+charge its one scalar call and proceed to the remainder screen. This
+distinction is tested using an intentionally widened but valid control
+enclosure. The midpoint of an accepted $I_0$ has deterministic price error
+at most $\tau$. Discounting is applied afterwards under the existing
+pricing convention; no statistical confidence allowance is consumed by
+this deterministic certificate.
+
+Each policy owns a fresh geometry bank. Moment degree $j$ has
+$\binom{n+j-1}{j}$ multinomial terms, and extending a bank through degree
+$d$ requires exactly $\binom{n+d}{d}$ exponential evaluations, including
+the constant degree-zero term. The hierarchy first extends its bank through
+degree one. A rejected preliminary screen does not discard that bank: the
+Taylor fallback extends the same bank as needed, so previously computed
+geometry is charged once. Coefficients are evaluated only when their
+remainder permits the prescribed screen, or at the fixed degree limit to
+retain an unresolved interval. A successful preliminary certificate costs
+one scalar kernel call; an unsuccessful numerical control enclosure costs
+that call in addition to every subsequent Taylor coefficient evaluation.
+
+The retained comparison supplies the same 27 contracts, degree limit eight,
+224-bit ball arithmetic, coefficient identities and price target to all
+three policies. It compares finite executed choices. It establishes neither
+a globally cheapest screening order nor a complexity lower bound for the
+pricing problem. The one-sided step is an application of the existing
+control certificate; any priority claim for that inequality would require
+the separate literature comparison already stipulated in this paper.

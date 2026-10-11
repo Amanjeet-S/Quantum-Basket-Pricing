@@ -1,0 +1,26 @@
+{
+  "schema": "qbp-chebyshev-resource-independent-audit-v1",
+  "status": "passed",
+  "source_sha256": "56d4183a35596e95504cf80c46a0178a259dc8a637eb565626f54f9a661e37bb",
+  "protocol_sha256": "78f0d294d8e5154d36e7cdd28eaf19062aedb45bff7b1267f4ba30a323b64130",
+  "result_sha256": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232",
+  "retained_four_survivor_result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "registered_input_hashes": {
+    "results/four_survivor_quantum_resources.json": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+    "results/qft_rotation_tapes.json": "531a2350c4d803ff94d06488fda99d098c356fa1ab4575dc534e8a57a5af5cbb",
+    "results/qft_rotation_certificates.json": "2fcf586525f3250793bc4f2cb42e7e1c80c801ef59a73082018158f3b244ef8a"
+  },
+  "two_dimensional_parity_checks": 198,
+  "uncontrolled_reflection_basis_checks": 508,
+  "seven_T_CCX_phase_basis_checks": 8,
+  "financial_preparation_block_and_comparator_profiles": 4,
+  "fresh_half_alpha_QPE_plans": 4,
+  "sampler_profiles_reconstructed": 52,
+  "diagnostic_histories": 400,
+  "complete_fresh_batches": 673,
+  "pseudorandom_u64_words_replayed": 67300,
+  "signal_q64_floors_reconstructed_at_512_bits": 673,
+  "financial_mean_or_price_outputs_used": false,
+  "full_wire_observation_and_reset_charged": true,
+  "scope": "Independent parity, reflection, complete opcode counts, full QPE fallback, monetary decoding and every seeded history. Fixed-binomial inversion and controller scheduling are independently checked in the controller audit. Financial ordinate/financial-law proofs rely on their separately retained audits; no physical quantum execution or advantage is certified."
+}

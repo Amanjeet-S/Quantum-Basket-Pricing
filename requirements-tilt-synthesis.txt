@@ -1,0 +1,4 @@
+# Optional generation dependencies. Retained-tape replay uses NumPy, while
+# independent rotation certificates use python-flint, without these packages.
+mpmath==1.4.1
+pygridsynth==1.2.0

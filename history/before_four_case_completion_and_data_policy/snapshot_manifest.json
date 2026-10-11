@@ -1,0 +1,44 @@
+{
+  "schema": "qbp-before-four-case-document-snapshot-v1",
+  "date": "2026-10-09",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "documents": {
+    "generalisation_proofs.tex.txt": {
+      "original_path": "generalisation_proofs.tex",
+      "sha256": "51867e94f7b80c5b0711262c091687a5bb7d53de0a2556d63bd2aa78910f8d2c"
+    },
+    "README.md": {
+      "original_path": "README.md",
+      "sha256": "e41c3c46afd0e27f58d585c84a040b9ce3080440741a1adde4c7c85890fab21e"
+    },
+    "DATA_POLICY.md": {
+      "original_path": "DATA_POLICY.md",
+      "sha256": "f87c803a05f7c926e6e380701ab56f1a8f084f742a77a7036297a4f47bfa66d8"
+    },
+    ".gitignore.txt": {
+      "original_path": ".gitignore",
+      "sha256": "b1f9e1bc6e3ee5d1278e377631b09a562d686e80753e90b032e86785f7c4f882"
+    },
+    "research_design.md": {
+      "original_path": "research_design.md",
+      "sha256": "edea09f4420f0f45db4ab4bd20255da707877d903573eba17f0defd880f7cd39"
+    },
+    "SOURCES.md": {
+      "original_path": "SOURCES.md",
+      "sha256": "29b0d5d8c5ff1281b8fc0c957e6adc867229019768bc4b427ae10933936cb953"
+    },
+    "supporting_proofs_index.md": {
+      "original_path": "supporting_proofs_index.md",
+      "sha256": "78af97e2e6564c159db8291fb753de79da28f99698c3ef7e7f5fc2458741080b"
+    },
+    "novelty_scope_review.md": {
+      "original_path": "novelty_scope_review.md",
+      "sha256": "3c038ae6b2f07f79938238657b21c94920941d104e344e28b1df96574a253dbd"
+    },
+    "quantum_method_redesign.md": {
+      "original_path": "quantum_method_redesign.md",
+      "sha256": "179e69c15e055e7f75c1535d2adf95fdca74f4993075b55c3e9a1fe376c44f12"
+    }
+  }
+}

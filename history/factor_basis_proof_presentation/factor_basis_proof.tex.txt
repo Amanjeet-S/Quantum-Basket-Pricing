@@ -1,0 +1,316 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ind}{\mathbf 1}
+\title{Exact factor-basis changes and certified finite-grid pricing}
+\author{Amanjeet Singh}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I derive the exact financial invariants and the basis-dependent continuous-to-finite-grid allowance used in the registered rational factor-basis comparison. The rotation is compiled into loading coefficients before the pricing circuit is built. It is not a quantum state rotation, and Gaussian invariance does not establish invariance of a truncated or rounded product grid. The proof supplies a common continuous derivative-price target and a separately valid monetary certificate for each representation. The mathematics uses established Gaussian invariance, differentiation and a cell Taylor identity; I do not claim a new general rotation or transport theorem.
+\end{abstract}
+\noindent\textit{Keywords:} derivative pricing; Gaussian factorisation; exact orthogonal rotation; continuous-to-finite-grid certification; logical quantum resources.
+
+\section{Financial model and the exact basis change}
+Orthogonal changes of Gaussian representation have an established role in
+classical derivative-pricing dimension reduction \cite{imai2006}.
+The finite monetary certificate below is my project-specific application;
+it does not establish priority for that general mechanism.
+Let $w_i>0$, $\sum_{i=1}^n w_i=1$, $K>0$, $\lambda>0$, and
+$R\in\R^{n\times p}$. The application has rational weights and loading
+coefficients, $K=100$, maturity one year, cap $H=1$ and $p=n-1$.
+Let $Z\sim N(0,1)$ and $Y\sim N(0,I_p)$ be independent under the specified
+risk-neutral measure. The terminal asset levels are
+\[
+ S_i=K\exp\{\mu_i+\lambda Z+R_iY\},
+ \qquad
+ \mu_i=(r-q)-\tfrac12(\lambda^2+\|R_i\|_2^2).
+\]
+Here $R_i$ is a row vector. These are the terminal laws of the established
+constant-coefficient geometric Brownian model with rate $r$ and common
+dividend yield $q$. The stated drift gives
+$\E S_i=K e^{r-q}$; the corresponding discounted gain processes are
+martingales. Pricing below uses this specified no-arbitrage measure and
+does not infer a new asset-dynamics law from a quantum circuit.
+
+For $O\in\R^{p\times p}$ with $OO^\mathsf T=O^\mathsf TO=I_p$, set
+$R^O=RO$. Write
+\[
+ \bar\mu=\sum_iw_i\mu_i,\quad
+ r_G=\sum_iw_iR_i,\quad d_i=\mu_i-\bar\mu,\quad
+ s_i=R_i-r_G.
+\]
+The geometric log level, arithmetic conditional level and relative gap are
+\begin{align*}
+ m(y)&=\bar\mu+r_Gy, &
+ X(y)&=\sum_iw_i e^{\mu_i+R_i y},\\
+ T(y)&=\frac{X(y)}{e^{m(y)}}=\sum_iw_i e^{d_i+s_i y},&
+ U(y)&=T(y)-1.
+\end{align*}
+The identities $\sum_iw_i d_i=0$ and $\sum_iw_i s_i=0$ and convexity of
+the exponential imply $T(y)\geq1$ for every $y$, hence $U(y)\geq0$.
+The superscript $O$ denotes the same definitions with $R$ replaced by
+$R^O$, with the same weights and drifts.
+
+\begin{theorem}[Continuous financial invariants]\label{thm:invariants}
+An exact orthogonal right rotation preserves the full log-asset covariance,
+each risk-neutral drift and the joint continuous law of all terminal asset
+levels. It also preserves the joint law of $(m,U)$, the geometric log
+variance $\lambda^2+\|r_G\|_2^2$, weighted residual dispersion
+$\sum_i w_i\|s_i\|_2^2$, every finite nonnegative integer moment of $U$,
+and every integrable function of the terminal assets. In particular, the
+arithmetic capped-call price and the exact geometric coefficients
+$c_0=\E P_\lambda(m(Y))$ and
+$c_1=\E[U(Y)P_\lambda'(m(Y))]$ are unchanged whenever the latter
+expectation is integrable.
+\end{theorem}
+\begin{proof}
+For each $i,k$,
+\[
+ (R_iO)(R_kO)^\mathsf T=R_iOO^\mathsf T R_k^\mathsf T
+ =R_iR_k^\mathsf T.
+\]
+Thus the covariance entries
+$\lambda^2+R_iR_k^\mathsf T$, including their diagonal entries, are
+unchanged. The drift formula depends only on those diagonal entries, so
+each $\mu_i$ is unchanged. Linear weighting gives
+$r_G^O=r_GO$ and $s_i^O=s_iO$.
+Orthogonality preserves their norms and inner products, proving the
+assertions about geometric variance and residual dispersion.
+
+If $Y^O\sim N(0,I_p)$, then $OY^O\sim N(0,I_p)$: its characteristic
+function at $v$ is
+$\exp\{-\|O^\mathsf T v\|_2^2/2\}=\exp\{-\|v\|_2^2/2\}$.
+The pair $(Z,OY^O)$ has the same law as $(Z,Y)$ because $Y^O$ and $Z$
+are independent. Pointwise,
+$R^O_iY^O=R_i(OY^O)$,
+$m^O(Y^O)=m(OY^O)$ and $U^O(Y^O)=U(OY^O)$.
+Consequently the asserted joint laws agree, and expectations of
+integrable functions agree. The capped payoff is bounded, so its
+expectation is integrable without an additional tail assumption.
+
+For completeness, every stated integer moment exists. For $k\geq0$,
+multinomial expansion gives
+\[
+ \E T(Y)^k=
+ \sum_{\substack{\alpha\in\mathbb N_0^n\\|\alpha|=k}}
+ \frac{k!}{\prod_i\alpha_i!}\prod_iw_i^{\alpha_i}
+ \exp\left\{\sum_i\alpha_i d_i+
+       \tfrac12\left\|\sum_i\alpha_i s_i\right\|_2^2\right\}.
+\]
+This is a finite sum of finite quantities. Each exponent is unchanged
+because the vector inside the norm right-multiplies by $O$. Binomial
+expansion of $(T-1)^k$ proves the same conclusion for $U^k$.
+More generally, all Gaussian exponential monomials are determined by the
+exact centred Gram matrix $[s_i s_k^\mathsf T]$ and, for geometric
+exponential tilting, the cross products $r_Gs_i^\mathsf T$ and
+$\|r_G\|_2^2$. These are checked by exact rational arithmetic in the
+retained certificates. Since the global bound on $P_\lambda'$ below is
+finite and $\E U<\infty$, the application also has an integrable $c_1$.
+\end{proof}
+
+\section{A basis-dependent direct residual certificate}
+For $H>0$ define the smoothed conditional capped-call kernel
+\[
+ P_\lambda(x)=\E_Z\min\{(Ke^{x+\lambda Z}-K)_+,H\}.
+\]
+The positivity of $\lambda$ supplies Gaussian smoothing. The application
+uses independently checked global constants
+\[
+ \|P_\lambda'\|_\infty\leq M_1,
+ \qquad \|P_\lambda''-P_\lambda'\|_\infty\leq M_2.
+\]
+These kernel constants depend on $K,H,\lambda$, which the basis change
+preserves. Define
+\[
+ F_O(y)=P_\lambda(\log X^O(y))-P_\lambda(m^O(y)).
+\]
+Monotonicity of $P_\lambda$ and weighted arithmetic--geometric mean
+give $0\leq F_O(y)\leq H$ pointwise. The full undiscounted arithmetic
+price is $c_0+\E F_O(Y)$, and Theorem~\ref{thm:invariants} proves that this
+target is identical for every admitted basis.
+
+Let
+\[
+ A_j(O)=\max_i|R^O_{ij}|,\qquad r_j(O)=(r_GO)_j,
+\]
+and set
+\begin{align*}
+ B_1(O)&=\sum_{j=1}^p\{A_j(O)+|r_j(O)|\},\\
+ B_2(O)&=\sum_{j=1}^p A_j(O)^2+\|r_G\|_2^2.
+\end{align*}
+The second term of $B_2$ is invariant. The coordinatewise loading maxima
+and the $\ell^1$ norm in $B_1$ need not be invariant.
+
+\begin{lemma}[Global coordinate derivatives]\label{lem:derivatives}
+The residual satisfies, for every $y\in\R^p$,
+\[
+ |\partial_j F_O(y)|\leq M_1\{A_j(O)+|r_j(O)|\},
+ \qquad
+ |\partial_{jj}F_O(y)|\leq (M_1+M_2)
+                  \{A_j(O)^2+r_j(O)^2\}.
+\]
+\end{lemma}
+\begin{proof}
+Suppress the superscript $O$ and write $\ell=\log X$ and
+$\pi_i=w_i e^{\mu_i+R_i y}/X$. The numbers $\pi_i$ are nonnegative and
+sum to one. Differentiation of the finite exponential sum gives
+\[
+ \ell_j=\sum_i\pi_iR_{ij},\qquad
+ \ell_{jj}=\sum_i\pi_iR_{ij}^2-\ell_j^2.
+\]
+Hence $|\ell_j|\leq A_j$ and
+$\sum_i\pi_iR_{ij}^2\leq A_j^2$. Since $m_j=r_j$ and $m_{jj}=0$,
+$F_j=P_\lambda'(\ell)\ell_j-P_\lambda'(m)r_j$, proving the first bound.
+For the second derivative, retain the log-Hessian cancellation:
+\[
+ (P_\lambda\circ\ell)_{jj}
+ =(P_\lambda''-P_\lambda')(\ell)\ell_j^2
+   +P_\lambda'(\ell)\sum_i\pi_i R_{ij}^2.
+\]
+Its absolute value is at most $(M_1+M_2)A_j^2$.
+Also $|P_\lambda''|\leq M_1+M_2$, so
+$|(P_\lambda\circ m)_{jj}|\leq(M_1+M_2)r_j^2$.
+Their difference obeys the stated bound. No sign assumption on loadings
+has been used, and replacing the full $A_j$ by a centred-loading maximum
+would not follow from this argument.
+\end{proof}
+
+Let $\nu(dy)=\ind_{[-L,L]}(y)\varphi(y)\,dy$, of mass
+$a=\Phi(L)-\Phi(-L)$. Partition $[-L,L]$ into $N$ intervals of equal
+$\nu$-mass $a/N$. For each cell $C$ choose its actually implemented
+rounded midpoint-quantile node $c_C\in C$, and put
+\[
+ \tau=\frac aN\sum_C\delta_{c_C},\quad
+ \mu_{1,C}=\int_C(y-c_C)\nu(dy),\quad
+ \mu_{2,C}=\int_C(y-c_C)^2\nu(dy),
+\]
+\[
+ b_1=\sum_C|\mu_{1,C}|,\qquad
+ b_2=\frac12\sum_C\mu_{2,C}.
+\]
+The same one-dimensional rule is used in each coordinate of each basis,
+with its cell masses and rounded nodes certified outward. In particular,
+$\tau$ is unnormalised; the uniformly sampled finite label distribution
+is $\tau/a$.
+
+\begin{proposition}[Common target, separate finite-grid allowances]
+\label{prop:transfer}
+For every admitted orthogonal matrix,
+\begin{align*}
+ \left|\E F_O(Y)-\int F_O\,d\tau^{\otimes p}\right|
+ &\leq \beta(O),\\
+ \beta(O)&=a^{p-1}\{b_1M_1B_1(O)
+                 +b_2(M_1+M_2)B_2(O)\}+H(1-a^p).
+\end{align*}
+Consequently each finite-grid representation targets the same continuous
+derivative price, with its own deterministic monetary error allowance.
+For $r\geq0$, multiplication by $e^{-r}$ preserves the undiscounted
+upper error bound. For general $r$, multiplication by $e^{-r}$ must be
+retained explicitly.
+\end{proposition}
+\begin{proof}
+For a twice continuously differentiable one-dimensional function $f$,
+the integral Taylor identity at $c_C$ is
+\[
+ f(y)-f(c_C)=f'(c_C)(y-c_C)
+ +(y-c_C)^2\int_0^1(1-t)f''(c_C+t(y-c_C))\,dt.
+\]
+Integration over $C$ and the triangle inequality give
+\[
+ \left|\int_C f\,d\nu-\frac aN f(c_C)\right|
+ \leq |\mu_{1,C}|\sup|f'|+
+           \frac{\mu_{2,C}}2\sup|f''|.
+\]
+The first moment is generally nonzero for a rounded quantile midpoint;
+omitting its contribution would be invalid. The remainder is positive
+in its weight, so the second moment already accounts for the exact
+rounded node displacement.
+
+Expand the tensor difference as the telescoping sum
+\[
+ \nu^{\otimes p}-\tau^{\otimes p}
+ =\sum_{j=1}^p
+ \nu^{\otimes(j-1)}\otimes(\nu-\tau)
+                  \otimes\tau^{\otimes(p-j)}.
+\]
+For the $j$th summand, hold the other coordinates fixed and apply the
+preceding cell bound to $F_O$. Lemma~\ref{lem:derivatives} is global,
+so its constants remain valid at every hybrid point. Integration in
+the remaining $p-1$ coordinates multiplies the bound by $a^{p-1}$,
+because every remaining factor has mass $a$. Summing over $j$ yields
+the first two terms of $\beta(O)$. The continuous Gaussian mass outside
+$[-L,L]^p$ is $1-a^p$, and $0\leq F_O\leq H$ bounds its contribution
+by $H(1-a^p)$. This proves the full continuous-to-finite-grid bound.
+The continuous target agrees across bases by
+Theorem~\ref{thm:invariants}. Discounting is multiplication by the stated
+positive deterministic factor, giving the final assertion.
+\end{proof}
+
+\section{Exact registration and the limits of the comparison}
+The retained pool contains the identity and every single coordinate plane
+$(a,b)$, $0\leq a<b<p$, with the exact rational block
+\[
+ \begin{pmatrix}3/5&-s\\s&3/5\end{pmatrix},
+ \qquad s\in\{-4/5,4/5\}.
+\]
+Since $(3/5)^2+(4/5)^2=1$, each matrix is exactly orthogonal and all
+rotated loadings remain rational. The pool has $1+2\binom p2$ elements,
+giving counts $1,7,7,43$ for the four declared stress cases. The
+screen chooses the smallest outward certified direct allowance, breaking
+ties by candidate identifier. Every candidate is retained, and no
+financial-price answer or quantum-resource outcome enters this choice.
+Earlier loading-only proxy diagnostics motivated the direction, so this
+is registration before the fresh full certificates rather than a claim
+of blind discovery.
+
+I retain identity and the screen-selected rotation for subsequent complete
+resource costing, omitting a duplicate identity. Complete logical costs
+then determine deployment within that declared pair. A lower
+$\beta(O)$ alone does not prove a lower circuit charge: rotation may
+increase finite support extrema, normalisers, fixed-point loading error,
+lookup ranges or qubits. Coefficients, actual finite moments, finite
+support and arithmetic profiles must be reconstructed in the new basis.
+If another independent allowance is valid for the same representation,
+the deterministic minimum remains valid. This selection has no statistical
+selection penalty, but it does not give global basis or precision
+optimality.
+
+The equality in continuous law is not an assertion that
+$O(\tau/a)^{\otimes p}=(\tau/a)^{\otimes p}$, nor that the truncation
+box is rotation invariant. In general the rotation maps a box to a
+different region and does not permute the rounded product support.
+Accordingly, finite $U$ moments and the finite probability prior can
+change even though their continuous counterparts do not. No previously
+computed finite prior or oracle normaliser may be transferred on the
+basis of Gaussian invariance alone. Since every representation is
+separately tied to the same continuous target by
+Proposition~\ref{prop:transfer}, there is no need to claim equality of
+the finite targets or to treat one as an exact rotation of the other.
+
+The rotation is classical parameter preparation. No quantum rotation gate
+is performed by the pricing method. Its preparation cost belongs to the
+shared classical setup record, and the complete rebuilt quantum oracle
+must charge the new coefficients and the actual finite input law.
+Every classical competitor receives the same rotated representation and
+certificates. Any previously valid classical certificate for the common
+continuous price remains valid under Theorem~\ref{thm:invariants}; it is
+not weakened by changing the quantum implementation basis. The finite
+pool can establish a project-specific reduction relative to the retained
+identity quantum implementation, but neither a new Gaussian theorem nor
+practical quantum advantage follows from that result.
+\begin{thebibliography}{9}
+\bibitem{imai2006}
+J. Imai and K. S. Tan (2006), A general dimension reduction technique for
+derivative pricing, \textit{Journal of Computational Finance}, 10(2),
+129--155. \url{https://doi.org/10.21314/JCF.2006.143}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,26 @@
+{
+  "schema": "qbp-geometric-conditioning-independent-audit-v1",
+  "status": "passed",
+  "precision_bits": 1024,
+  "family_count": 9,
+  "strike_count": 36,
+  "contract_count": 36,
+  "certified_cent_count": 0,
+  "audit_counts": {
+    "family_parameter_intervals": 111,
+    "minimum_brackets": 2,
+    "critical_root_brackets": 36,
+    "bisection_history_entries": 3040,
+    "Lprime_identity_checks": 180,
+    "candidate_enclosures": 180,
+    "geometric_AG_intervals": 108,
+    "call_intervals": 36,
+    "contract_propagations": 36,
+    "discounted_intervals": 36
+  },
+  "method": "Independent exact covariances and martingale forwards, Gaussian tilting, all root-history signs, endpoint/critical candidates, AG upper and exact rational spread propagation; no production helper",
+  "proof_scope": "Mixed-sign S is strictly convex and coercive; its upper crossing is the only finite maximum of L. Endpoint values complete the supremum comparison. Cap is an independently bounded call spread, not a native optimal cap bound.",
+  "source_sha256": "c996abaf6f5b39f45ee7f583b3ae221ffa16b2fd1c1d05cbbc764481c00e6bc6",
+  "result_sha256": "273dfcbc470002864894088ec81a0b426b0cdb07e76d999fd6f652ba5b8cf284",
+  "producer_sha256": "208f5ce446d054848464cac1ed5fe5e465725e9f4ca85fa6fa508bdceb4d0ff3"
+}

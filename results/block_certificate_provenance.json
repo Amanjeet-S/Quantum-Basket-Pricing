@@ -1,0 +1,47 @@
+{
+  "schema": "qbp-block-certificate-provenance-v1",
+  "date": "2026-10-08",
+  "status": "passed",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "executed_producer_inputs_recorded_in_result": {
+    "block_certificate_comparison.py": "f4920bb1aa8bc1ca1fb411d4e0b0fec375abb8d31606db3b014772afbaa7af2a",
+    "tensor_transfer.py": "08ae8e3f748f38417e994db92de40b2a00924f579e2aaeaade124f0eae1af2a5",
+    "higherdim_preparation.py": "8164e42a36f4656eef605ba51955976de9c84d7d890c22167c22a693ed1558a8",
+    "boundary_grid_certificate.py": "fe7ada516a74a0806b46ad7d08cdae208c75f110adc43951ae67702c82fe1087",
+    "boundary_derivative_certificate.py": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe"
+  },
+  "additional_nested_input_sha256": {
+    "results/generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af",
+    "results/boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+    "results/gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797"
+  },
+  "original_full_archive": {
+    "path": "results/block_certificate_comparison.json.gz",
+    "sha256": "0f4fb697e8fb25b959c65eec67731d68677570e1f5a7a1be553c9d0457be0c9d",
+    "retained_outside_repository": "/private/tmp/qbp-certificate-comparison-step/results/block_certificate_comparison.json.gz",
+    "reason": "Only duplicated derivable lists removed from the repository representation; all raw evidence and literal semantic reconstruction hashes retained.",
+    "original_compressed_bytes_recoverable_from_fundamental": false
+  },
+  "fundamental_sha256": "e74376713977a260315032c2776b60f4dfc1afe0753967b07e9133d069898a51",
+  "representation_scope": "Every original field retained literally except duplicated payoff coordinate-block lists. Frozen formulas recover exact original JSON values, verified by 840 canonical semantic hashes. Does not recover original gzip byte stream.",
+  "frozen_new_artifact_sha256": {
+    "block_certificate_comparison.py": "f4920bb1aa8bc1ca1fb411d4e0b0fec375abb8d31606db3b014772afbaa7af2a",
+    "block_certificate_archive.py": "7ec7af2f23689bd50ff1355f13fb4a89929a7d06ce063dffcdcc9d68bbef32f6",
+    "block_transport_review.tex": "414fcaba0a9f9f91423d9bd443da32a103c3ee554badfb6d754c6cf7fb0192a3",
+    "certificate_source_comparison.md": "0f5cb9dce3a088f4b0293266570be57b34ef30b8a641d9f4be5241909c05b834",
+    "certificate_source_access.json": "fcf4e18f64f9a456283784b2b9a8cd2ec00c1873ea64f0fca5f0bb9ca31d835b",
+    "checks/audit_block_transport.py": "3e0dd190fb4a516f3eff0fd880c24347b8d156bfa880668cd839ae735f2bf056",
+    "checks/audit_block_fundamental_archive.py": "793c4c1c410fff6166006c8a95379226eebacee2610f8627d8d565753b618635",
+    "results/block_certificate_summary.json": "249789acbf79a3bf9a3cb448d308775dee450579822cf3173fe661887c3cd7af",
+    "results/block_certificate_fundamental.json.gz": "e74376713977a260315032c2776b60f4dfc1afe0753967b07e9133d069898a51",
+    "results/block_certificate_reconstruction_manifest.json": "b51f30ced7e1822f0cec45e6c9a62a9099a62e43f58e327772df48e6fb975791",
+    "results/block_archive_portable_reconstruction.json": "79063037ac349b4994b043491d26f0e5168e77768399bbb05bbda5e071cb3ce6",
+    "results/block_transport_math_audit.json": "9b851ab7fccedcd665a8efb11043c21770fc0532156e32b0996cb39a6e20e2c9",
+    "results/block_fundamental_independent_audit.json": "b4cdac7787c81c90cd1f9e842a8ac17a0c048a2874448f41ee60974a9db833b0",
+    "results/block_certificate_protocol.json": "8d65fe94a17240439bacb2dccd5e2dd98f24de3af8f0cfb25c87bb70305ba87d"
+  },
+  "baseline_protected_files": 590,
+  "norm_input_scope": "Separate ledger supplements executed result without mutating it; verified against unchanged baseline and repository inputs.",
+  "paid_data_acquired": false,
+  "commits_created": 0
+}

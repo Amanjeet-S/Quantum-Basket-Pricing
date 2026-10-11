@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "audit_date": "2026-10-11",
+  "programme_routes": 11,
+  "module_menu_semester_occurrences": 1159,
+  "original737occurrences_accounted": 737,
+  "all_unique_record_ids": true,
+  "actual_source_cohorts_and_reading_depth_retained": true,
+  "private_complete_teaching_materials_not_claimed": true,
+  "hsg_current_lecture_occurrences": 422,
+  "hsg_accessible_factsheets_reviewed": 380,
+  "hsg_unavailable_factsheets_explicit": 42,
+  "no_em_dashes_in_current_audit_documents": true,
+  "current_relative_markdown_links_checked": 34,
+  "earlier_documents_preserved_byte_exact": [
+    "PREPARATION.md",
+    "README.md",
+    "quantum_method_redesign.md",
+    "results/preparation_review/independent_project_evidence.md",
+    "results/preparation_review/programme_curricula.json",
+    "results/preparation_review/module_alignment.csv"
+  ],
+  "scientific_code_result_files_unchanged": 979,
+  "scientific_source_sha256": {
+    "generalisation_proofs.tex": "0761733b57af35cceb3a6e2cc707670844e46df78ec94436d1844d3c31a1572b",
+    "raw_payoff_proof.tex": "b4f0b50bb5f5e71014dbaa9d2df7dccb4d67bd6f4bd23b1592804d8b8e6ec5b9"
+  },
+  "HEAD_unchanged": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256_unchanged": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "experiments_rerun": false,
+  "paper_changed": false,
+  "commits_staging_pushes_performed": false,
+  "licensed_data_acquired_or_distributed": false,
+  "review_boundary": "Published menus and available public descriptors, not restricted lecture materials, full private syllabuses, personal mastery, course equivalence or admission eligibility.",
+  "programme_occurrence_counts": {
+    "oxford_mcf": 22,
+    "imperial_math_finance": 20,
+    "imperial_rmfe": 42,
+    "lse_financial_mathematics": 25,
+    "epfl_mfe": 50,
+    "uzh_eth_qf": 119,
+    "st_gallen_miqef": 437,
+    "bocconi_mafinrisk": 27,
+    "bocconi_msc_finance": 203,
+    "princeton_mfin": 102,
+    "columbia_msfe": 112
+  },
+  "ETH_complete_catalogue_set_checks": [
+    {
+      "semester": "2026W",
+      "catalogue_occurrences": 23,
+      "registered_occurrences": 23,
+      "missing_or_extra": false
+    },
+    {
+      "semester": "2026S",
+      "catalogue_occurrences": 18,
+      "registered_occurrences": 18,
+      "missing_or_extra": false
+    },
+    {
+      "semester": "2027S",
+      "catalogue_occurrences": 22,
+      "registered_occurrences": 22,
+      "missing_or_extra": false
+    }
+  ],
+  "original_mapping_statuses_recorded": true
+}

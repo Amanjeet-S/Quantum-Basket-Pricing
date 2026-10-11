@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "checker_sha256": "3b7fd0b6565290c6a64ee3e8e2c2c696772607779c50b308f95808202bbd24df",
+  "canonical_checker_sha256": "759623b628382d61caf853b0272589676bdb7c41e0b7e58233eb86ae5a18d4c1",
+  "frozen_protocol_sha256": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+  "scientific_output_fields_unchanged": true,
+  "records": [
+    {
+      "case": "portable",
+      "status": "passed",
+      "histories": 1200,
+      "fresh_batches": 1968,
+      "all_degree_comparisons": 8,
+      "source_manifest_entries_checked": 9,
+      "evidence_bindings": [
+        {
+          "original_protocol_key": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+          "verified_path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/deferred_cleanup/matched_B_inputs.json",
+          "expected_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+          "verified_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+          "explicit_relocation_requested": true,
+          "relocated": true
+        }
+      ],
+      "audit_output": "<private-stage>/documentation_step/reproduction/matched_portable_review.json"
+    },
+    {
+      "case": "default",
+      "status": "passed",
+      "histories": 1200,
+      "fresh_batches": 1968,
+      "all_degree_comparisons": 8,
+      "source_manifest_entries_checked": 9,
+      "evidence_bindings": [
+        {
+          "original_protocol_key": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+          "verified_path": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+          "expected_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+          "verified_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+          "explicit_relocation_requested": false,
+          "relocated": false
+        }
+      ],
+      "audit_output": "<private-stage>/documentation_step/reproduction/matched_default_review.json"
+    },
+    {
+      "case": "invalid",
+      "status": "rejected_as_required",
+      "exit_code": 1,
+      "failure_before_history_computation": true,
+      "audit_output_created": false,
+      "byte_changes": 1
+    }
+  ]
+}

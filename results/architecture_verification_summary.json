@@ -1,0 +1,38 @@
+{
+  "status": "frozen source, phase, finite-budget, emitted-count and matched-cost checks retained",
+  "source_hashes": {
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "precision_candidates.py": "26375ce3396e78878b74196441be1c693a20697c7cf1eebc31822e404b1c3c43",
+    "architecture_study.py": "a2607a433c43e63ae329a7b417d6aafe910dcd44bbf4bb8e4f3eae1520aad874",
+    "checks/audit_architecture.py": "82edc596e2eb45486b777fc561b8319d91d668a8f22f74ac13e9bfe0044cad5e",
+    "checks/audit_primitive_formula.py": "2d0f30eb8a950e5d8f9ebc335f9b28a2c595484aeb5793994e614d05ee286924",
+    "checks/audit_matched_architecture.py": "c4d91ad73661cbc6cf5b0986f49d1399e0b31dae0a5e04959f088e75940f394c"
+  },
+  "result_hashes": {
+    "results/inherited_precision_candidates.json": "7332c743c00f88ac79cfa38646edf4b410bbca8b7eb7a35c293bb8524cc95a16",
+    "results/architecture_resource_candidates.json": "5ed0512cdefb5bb28db3ddf60d2cd8595ff287184def58b6009e83bad64c50cf",
+    "results/architecture_selected_resources.json": "c85b8d39465033c31ea56512c5b200882343d03589fee297d5546f453b78cea9",
+    "results/architecture_audit.json": "d399528500f7549c7c459a9c74ef33cfe5881be6353b5bf855d290430a0f30cf",
+    "results/primitive_formula_audit.json": "75030d047be89b060f4d456daaca46a8f6690d387422febd4c0aa42a25182353",
+    "results/matched_architecture_audit.json": "41d4f1f58cfd968adbb633a2d9673e6833d644bddf51bf08e52393cf9ab7c2dc"
+  },
+  "resource_rows": 819,
+  "financially_feasible_prefixes": 273,
+  "rejected_transfers": 60,
+  "same_prefix_historical_regressions": 108,
+  "phase_audit": {
+    "lookup_phase_configurations": 18,
+    "instrument_branches_checked": 42,
+    "dirty_boolean_lookup_checks": 2976,
+    "complete_financial_circuits": 27,
+    "financial_comparator_checks": 828
+  },
+  "fixed_q_primitive_formula_checks": 27,
+  "matched_architecture_checks": 81,
+  "scope": "finite opponent-inherited pool only; intermediate oracle selection must be followed by end-to-end confidence-budget selection",
+  "physical_count_qualification": "resource expanded_gate_counts and depth fields refer to the clean flag circuit; finite uniform state preparation is separately retained by its H-gate count and contributes one initial H layer when included in A",
+  "architecture_source_scope": "published Babbush/Gidney clean-AND and measurement-erasure principle; the displayed wire-level compute list is independently phase-checked rather than claimed to have been transcribed from a figure",
+  "hardware_limitations": "ideal logical gates, no hardware feedback latency, physical error correction or runtime advantage claim",
+  "historical_outputs_unchanged": true,
+  "no_git_operations": true
+}

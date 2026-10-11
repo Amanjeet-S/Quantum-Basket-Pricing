@@ -1,0 +1,254 @@
+{
+  "status": "interface-hardening rerun exactly reproduced retained financial experiment",
+  "prior_confidence_source_sha256": "e4b161c9d2d9f0cfc8237190e67da187192964f37c0c4f01229a893becaeda5d",
+  "current_confidence_source_sha256": "dd2f66de1a24c653c8cb4400dcc130f66c49b884656bc449dd273facbbac1e17",
+  "prior_results_sha256": "3dbcaf3644c22a9937e537e733eff979f166814c1d0e3fa857bb609958c22595",
+  "current_results_sha256": "239a8a4b2b3615dd0d6ff4a940a151a3a7f81a2fc9b8596414c9db65491cd733",
+  "current_protocol_sha256": "14f6b7a84c73d3f83de2c6e3ae3c62f16622ae56af23944ea8ee7896e83bbe7c",
+  "configurations": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "replicates": 4096,
+      "financial_outputs": 262144,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "5fac5d6c22d00a7c8de03471733e38c636d4d47d13419e51420e7329cf911d20",
+      "output_stream_sha256": "74ac6a88090beafde73963fc82289adde2430445a35cd2d58d4ce6cc0ae0cc73"
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "5e92d40b66166ebefcd246c657d440b36f13247f8e93a2b900716d09fd5b5307",
+      "output_stream_sha256": "585bbced298ee66b7d34770f4322126243b880a232e712ba84e8ae5a5e5db997"
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "0282716737c3bc41ec404d0e42a6a12825ec7596df898f1775fbeef5fe1edb0f",
+      "output_stream_sha256": "9a84bb9799e4a39baaef92fe1461c48ea45726c5ea7250a5cecd454574fb275d"
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "replicates": 1024,
+      "financial_outputs": 65536,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "39565b16689eb00fd2754c1becf75163f6f8ef66b048eefa6e3f519cd9972dea",
+      "output_stream_sha256": "2f685fc9c9f470dc5d252ddc5ffd208e9940382d7991de233ffb538f4414021f"
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "replicates": 16384,
+      "financial_outputs": 1048576,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "08016c5bb4c5c2a9c9e0f89e07a3b901aa678223921eb4084f61eb629c4d2797",
+      "output_stream_sha256": "31df1ffdb6773908ce38e3e356af7f85dcc0c074e406fc086874c83b28ad9a3d"
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "2c05aec694e7cb36fdf9844f5ab879d1f45169f9440edd3ddf42d9f4c0997d5d",
+      "output_stream_sha256": "606430b10fca969a4e8bfdfbd14fea1839d9cdd6541fb15eb8092a1fc6e3c9c1"
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "replicates": 512,
+      "financial_outputs": 32768,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "4dfa5e6a116c756b8996fdf525ee79968c3dbee475870fe559ac014081368394",
+      "output_stream_sha256": "7e0a8cf46b1e16f86fd123872eaddd43ef8fbae282a4f43fd70a628f95128111"
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "replicates": 8192,
+      "financial_outputs": 524288,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "8fdc20e662d2fe7c848db351c9a3e1d9ffaaf1b1c9cf9853e70aa7a360541991",
+      "output_stream_sha256": "d274199d5eed78ac70ee5d01267d0c887e87a72f9624999fcde56ecd05af3d35"
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "replicates": 16384,
+      "financial_outputs": 1048576,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "77b1626f63e62a6c1215310f5d61925200b4139134b47c39e64144d29943e806",
+      "output_stream_sha256": "89e66469a0a8617e3151a354d1d6ff1520a916ebf762fff47e113c7b986f8a52"
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "replicates": 4096,
+      "financial_outputs": 262144,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "ec73b0bddb538f31a7c69af6911b63462fa021f6c3c9fcdd577d686fb0b01f12",
+      "output_stream_sha256": "924dfc75bb26d9e9b44e1d41602a08b08fd72f7e446435c43b613d8fdb4cd8d7"
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "371ec3f9077b577b41573fbe6c485a35930aa9cc1b7a238481c4b894ea6d4542",
+      "output_stream_sha256": "86126bcea2260bef910a176afcdb003007a8644a730abfc1e912ed753f8ae9a8"
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "e6586301d40990412cf05a82400766052459f48a6ff6f2376f0913fbd97e4952",
+      "output_stream_sha256": "1a3602d06ad0bde3e08b96a821f570f568bc716a2ea80eef65af5892ed9aeb9f"
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "replicates": 1024,
+      "financial_outputs": 65536,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "269dd1bc3f9d133ea1fd5718a8bcdebc30748a2c79f41e7bf804ec66300a8668",
+      "output_stream_sha256": "0f907395933185c727dccabc4c1ddc32909818639aa9a26724f53ef8d016efb9"
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "replicates": 16384,
+      "financial_outputs": 1048576,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "6177f788a103328e51ceebb1c6c6cbf4c43f00264110bebfe8957f2bacec104f",
+      "output_stream_sha256": "fdd42cd07613011aeab28587cfc99ec497ac0459eec345235091a5477cb039db"
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "fefc6f2716e2c8fcfe0c438897a4d91da183d8e0d6f9049f43d92f3c81e3d97b",
+      "output_stream_sha256": "8dc5a41d290f9b554cea9fc6337738bcce2c30bcc712340d9a03dc554ddccf7d"
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "replicates": 256,
+      "financial_outputs": 16384,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "e140f632c258ed82976086c92d5a13f5a0c0d5652a386442defcba8dc3ba85a4",
+      "output_stream_sha256": "06bf509952e3a7e9c73d9d80a1de0a7016e1a37210595ec3aacef044279b9cc7"
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "replicates": 8192,
+      "financial_outputs": 524288,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "874128ebc2a545918ea70f0c409f01baaa1d4ecf668e7ea7d9fa992a9cd0d436",
+      "output_stream_sha256": "75b3924d8a9558d79bb0fdd057d3231825d76643db798a448579ba6ddb45dc11"
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "replicates": 32768,
+      "financial_outputs": 2097152,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "3b2c4a31612f35757d5e321ed57e320bb10d9df73c6af3e87fcf1dd46de36fe2",
+      "output_stream_sha256": "759d8e40bfcfba72dd1141a5c86dad7d812be36af81fb35fcf7035d7a54fc5c4"
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "replicates": 4096,
+      "financial_outputs": 262144,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "82fe7c9333971cfdd3ed9d56a1aef422d8928531193d355d6296824bca7583c0",
+      "output_stream_sha256": "d93587ca4d19a95142a98e1495db8ef041e14175e9ffd581a9e194634dfd01e9"
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "0b1620c31e85e70496d35994cfadca4900821a302bec4aed6de2cb87be99581d",
+      "output_stream_sha256": "943330e348f0729924ae527dbf5e80a5d8bbaf6797f9aca0fd782a2126524603"
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "f3cbda8d2bba242c4e5a67e9c5a59bb001fa44c074acad300a8d73583c210d4f",
+      "output_stream_sha256": "1f9145634e4b9a34d4071f5adb6fdf99bec1298f31c4d81193519c4cab274be5"
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "replicates": 1024,
+      "financial_outputs": 65536,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "5ffda2c51846f82ace5c7c9c57d02221cefcda80755912f47162b09cd52e929a",
+      "output_stream_sha256": "e6be584e0ea9b4fd94edde69a27b191281c17e159fb8490f4effc28163ba5d48"
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "replicates": 32768,
+      "financial_outputs": 2097152,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "82ce6572ae80a1f880adef62c40a93e0ae2ece278a2d4fb825909a00c4a12145",
+      "output_stream_sha256": "939f1559401fd929e3d13ac166dc1ca1d6563af5eacaa16a035f7409d6c5cfde"
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "replicates": 65536,
+      "financial_outputs": 4194304,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "1b31bd1bc0d40bd998a60792ace1ba5374e81e2bb50d9352eebedef6e66274e9",
+      "output_stream_sha256": "9cce20b1905e5306af52f169a89a0aa0b4c4865e8770f36f2e8e3cb14e45758e"
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "replicates": 256,
+      "financial_outputs": 16384,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "ffe151905bbcf537832217e9c1d3f24c86de0e2dc6294effa76a7fc00e58b73d",
+      "output_stream_sha256": "5fc41ad49477e6a46bdd8496f0a0aa0a0b3151647c256fccb5d7a925d7caf25c"
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "replicates": 16384,
+      "financial_outputs": 1048576,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "a60b78ba974f1ca54b2562c0ab08df83b00be67f7cc219df3bb831c211246217",
+      "output_stream_sha256": "b33d6cdfcfe994e51aef65aceabeb04bc0c23e5824a0a6670ac30632b1e5fd03"
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "replicates": 32768,
+      "financial_outputs": 2097152,
+      "integer_batch_sums_and_stream_hashes_identical": true,
+      "all_confidence_checkpoints_and_monetary_intervals_identical": true,
+      "shift_stream_sha256": "160dfb7cbd5332b32b6ff77370bd63164e7b92d7d130241f45193fd7f0f0b92b",
+      "output_stream_sha256": "d737cc304d42868ada9a26dc74900280b380dc3e72cc0eef916571eb9596a9f7"
+    }
+  ],
+  "scope": "Same27 financial graphs, points, seed, eleven-checkpoint family, selection, costs and numericalconfidenceformula; updatedinterface rejects invalidstatistics. No newseed, extension or changedselection. Earlierthis-phase records retained inlocalstaginghistory, separatefromoriginalprotectedreporesults."
+}

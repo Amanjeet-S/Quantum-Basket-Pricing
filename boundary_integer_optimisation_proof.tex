@@ -1,0 +1,105 @@
+% Supporting proof fragment; no independent document compilation is required.
+\section{Exact optimisation of the retained integer preparation}
+\label{sec:integer-optimisation-proof}
+
+I compare both the unchanged coherent implementation and a common exact
+optimisation of that implementation. The optimisation applies to all four
+financial methods, every capped or ordinary-call encoding and both coherent
+lookup architectures. It does not change a financial parameter, scalar
+ordinate, precision allocation, certificate or decoded integer output.
+
+Let $q$ be the fractional width, $W$ the retained word width, and let a node
+$v$ have output width $b_v$. The source graph is a finite directed acyclic
+graph in topological order. Every input register is retained, including one
+that becomes unused after optimisation. Each node first evaluates its
+specified integer operation and then retains its residue modulo $2^{b_v}$.
+Subtraction is therefore distinguished from positive subtraction; a signed
+clamp first interprets a word $a\geq2^{W-1}$ as $a-2^W$, whereas an unsigned
+clamp does not. Fixed-point multiplication shifts the full nonnegative
+integer product right by $q$ bits. Scalar interpolation uses the existing
+packed base, unsigned difference magnitude and decreasing flag, with the
+same integer remainder multiplication and shift. These operations retain
+the original compiler semantics.
+
+\begin{proposition}[Output equivalence of masked constant propagation]
+The optimisation pass preserves the output integer for every possible
+assignment to all original input registers. It also preserves $q$, $W$,
+the output node name, the input register widths and the reflection core.
+\end{proposition}
+
+\begin{proof}
+The pass makes no initial assertion that an input register is constant.
+Proceed through the source graph in topological order. Maintain a table of
+nodes whose exact masked output is known to be independent of every input.
+A literal constant enters this table after applying the original rounding
+and output mask. When every argument of a node belongs to the table, evaluate
+the original operation on those exact integer arguments, including all
+signed interpretations, shifts, interpolation rules and its final mask.
+The result is independent of the input assignment and is therefore known.
+
+Four additional rules also give input-independent results. If the exact
+implemented scale integer is zero, multiplication by it and subsequent shift
+give zero for every source word. A multiplication with an exactly zero
+masked argument has zero full product before its fixed-point shift.
+Subtracting an integer argument from itself gives zero for ordinary, signed
+or positive subtraction. Finally a clamp with zero implemented cap gives
+zero, including when its source word is interpreted as negative. Each rule
+applies to implemented integers; no small real coefficient is presumed zero.
+
+Whenever a known node has full output width $W$, replace it, without changing
+its name, by the nonnegative dyadic constant $c/2^q$, where $c$ is its exact
+masked integer output. Then $2^q(c/2^q)=c$ is already an integer, so the
+constant emitter writes exactly $c$, with no rounding change. The retained
+constant emitter allocates $W$ wires. A known node of narrower output width
+is left unchanged because replacing it with that emitter would alter its
+register width. Its value may nevertheless establish that a later full-word
+node is constant. This restriction preserves all source register interfaces.
+
+Inductively, every unreplaced node receives precisely the same masked integer
+arguments as in the source graph and thus produces the same masked output.
+Every replaced node produces the constant just proved equal to its source
+output. This establishes equality at every surviving dependency and in
+particular at the output node, for every input assignment.
+
+Starting at the output, mark all nodes reachable by following its arguments
+backwards. Remove every unmarked operation. No surviving node refers to a
+removed operation; evaluating a removed node cannot influence the output.
+This deletion therefore preserves the output established by the induction.
+The optimisation does not remove or resize any original input register and
+does not call the graph's width-selection procedure again. The original
+input, comparator and success-flag registers therefore have the identical
+reflection core, of size $\sum_i b_i+q+1$.
+\end{proof}
+
+The original arithmetic certificate bounds the same integer output after
+the pass, so its monetary error certificate remains valid without being
+rewritten. In particular, I do not claim that an exact circuit optimisation
+improves the approximation to the continuous financial price.
+
+The existing compiler emits a clean reversible computation of every retained
+operation. Computing the output, copying it by XOR into a target register
+and applying the literal inverse therefore realises
+\[
+ |x\rangle|z\rangle|0\rangle
+ \longmapsto |x\rangle|z\mathbin{\oplus} f(x)\rangle|0\rangle.
+\]
+The induction proves that $f$ is identical for the unchanged and optimised
+implementations. Replacing the copied value by the existing clean comparator
+similarly preserves the exact threshold flag for every comparator word.
+The portable fixtures check every input assignment of the chosen small
+financial graphs, all dirty target values, both initial flag values, clean
+work registers and literal inverses. Independently expanded gate accounting
+is compared with the counted complete preparations. Phase correctness of
+the unchanged coherent primitive decompositions is inherited from their
+previously retained proof and audits; the basis fixtures do not establish a
+new phase-synthesis result.
+
+The frozen four- and eight-asset models have nonzero geometric outer loadings
+$r_G$. Their absolute $q=28$ scale integers are all nonzero. Consequently no
+assumption that the geometric conditional price or its first derivative is
+constant enters the production comparison. Actual gains, losses and zero
+effects of this exact pass are retained, and the unchanged implementation
+remains admitted whenever it is cheaper. Constant propagation and dead
+operation elimination are established compiler techniques; this argument
+checks their project-specific fixed-point and coherent interfaces rather
+than asserting a new generic optimisation theorem.

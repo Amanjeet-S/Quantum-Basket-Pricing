@@ -1,0 +1,80 @@
+% Insertion into the existing proof document, without preamble or bibliography.
+
+\section{A sharp range-aware classical variance certificate}
+\label{sec:range-classical-variance}
+
+\emph{Keywords}: bounded residual; variance certificate; classical confidence; financial error budget.
+
+The same finite support supplied to the quantum opponents also improves the classical confidence calculation. I use an elementary mean-dependent range variance bound. \citet{bhatiadavis} is a published predecessor identified in the source ledger; its final full text was not consulted. The direct proof below does not rely on an unread theorem statement, and I do not claim a new generic variance inequality. Let \(X\) satisfy
+\[
+ 0\leq X\leq\rho,\qquad \mathbb EX\leq u,\qquad
+ \mathbb EX^2\leq v,
+\]
+where \(\rho,u,v\geq0\). If \(\rho=0\), then \(X=0\) almost surely and its variance is zero. Otherwise define
+\[
+ m=\min\left(u,{\rho\over2},{v\over\rho}\right),\qquad
+ \sigma_*^2=m(\rho-m).
+ \tag{RV1}\label{eq:sharp-range-variance}
+\]
+I claim \(\operatorname{Var}(X)\leq\sigma_*^2\), and that this is the sharp upper bound over the stated inequality class.
+
+Write \(\mu=\mathbb EX\). The pointwise inequality \(X(\rho-X)\geq0\) gives \(\mathbb EX^2\leq\rho\mu\). Therefore
+\[
+ \operatorname{Var}(X)
+ =\mathbb EX^2-\mu^2
+ \leq f(\mu):=\min(v,\rho\mu)-\mu^2,
+ \qquad0\leq\mu\leq\min(u,\rho).
+\]
+On \(0\leq\mu\leq v/\rho\), the function is \(\rho\mu-\mu^2\), increasing up to \(\rho/2\) and decreasing thereafter. On \(\mu\geq v/\rho\), it is \(v-\mu^2\), which is nonincreasing. Its maximum on the permitted interval is consequently attained at \(m\). Since \(m\leq v/\rho\), its value is \(m(\rho-m)\), proving the upper bound.
+
+To prove sharpness, put probability \(m/\rho\) at \(\rho\) and the remaining probability at zero. This is a probability law because \(0\leq m\leq\rho/2\). Its mean is \(m\leq u\), its second moment is \(\rho m\leq v\), and its variance is exactly \(m(\rho-m)\). Thus no uniformly smaller bound follows solely from the supplied range and upper first and second moments. Sharpness concerns the support class \([0,\rho]\); a particular financial circuit may not attain the extremising law. For a numerical grid containing its endpoints, the attaining support itself is available, although the particular input law can still prevent attainment.
+
+Any independently proved smaller variance certificate can also be used, by taking the minimum with \(\sigma_*^2\). The bound above is never assigned to a quantum Bernoulli flag. It concerns independent observations of the fractional finite output \(X\).
+
+\section{A complete range-aware Bernstein sample guarantee}
+\label{sec:range-classical-bernstein}
+
+For independent identically distributed observations \(X_1,\ldots,X_N\) of the same finite law, write \(Y_i=X_i-\mu\). Then \(\mathbb EY_i=0\), \(|Y_i|\leq\rho\), and for every integer \(k\geq2\),
+\[
+ \mathbb E|Y_i|^k\leq\rho^{k-2}\mathbb EY_i^2
+ \leq\rho^{k-2}\sigma_*^2.
+\]
+For \(0<s<3/\rho\), the exponential series is absolutely integrable because \(Y_i\) is bounded. Using \(k!\geq2\,3^{k-2}\) gives
+\[
+ \mathbb E e^{sY_i}
+ \leq1+{\sigma_*^2s^2\over2}
+               \sum_{j=0}^{\infty}(s\rho/3)^j
+ \leq\exp\left({\sigma_*^2s^2\over2(1-s\rho/3)}\right).
+\]
+The factorial inequality holds at \(k=2\), and its induction step follows by multiplying by \(k+1\geq3\). The identical estimate holds with \(-sY_i\).
+
+For tolerance \(t>0\), independence and exponential Markov give
+\[
+ \Pr\left({1\over N}\sum_iY_i\geq t\right)
+ \leq\exp\left(-Nst+
+      {N\sigma_*^2s^2\over2(1-s\rho/3)}\right).
+\]
+When \(\sigma_*^2>0\), choose
+\(s=t/(\sigma_*^2+\rho t/3)\), which lies in \((0,3/\rho)\). Direct substitution gives
+\[
+ \Pr\left(\left|{1\over N}\sum_iX_i-\mu\right|\geq t\right)
+ \leq2\exp\left(-{Nt^2\over2\sigma_*^2+2\rho t/3}\right).
+ \tag{RV2}\label{eq:range-bernstein-confidence}
+\]
+If the variance certificate is zero, the observations equal their mean almost surely, and the deviation probability is zero; the formula remains a conservative positive upper bound. A fixed sample count
+\[
+ N_{\rm B}=\left\lceil
+ {2\sigma_*^2+2\rho t/3\over t^2}
+ \overline{\log(2/\alpha)}\right\rceil
+ \tag{RV3}\label{eq:range-bernstein-sample}
+\]
+therefore guarantees coverage at least \(1-\alpha\). The logarithm is enclosed upward before the exact integer ceiling. The implementation uses one hundred Decimal digits and a \(10^{-80}\) allowance at \(\alpha=0.01\), where the exact argument is 200; the correctly rounded logarithm error is far below that allowance.
+
+The independently derived Hoeffding alternative for an interval of width \(\rho\) is
+\[
+ N_{\rm H}=\left\lceil{\rho^2\over2t^2}
+       \overline{\log(2/\alpha)}\right\rceil.
+\]
+It follows by scaling \(X_i/\rho\) into \([0,1]\) and applying the previously proved unit-interval inequality. Selecting the smaller of \(N_{\rm B}\) and \(N_{\rm H}\) before any samples are observed preserves its corresponding fixed-sample guarantee. An independent whole-mean prior of width at most \(2t\) can instead provide a deterministic midpoint without samples; that case must be labelled explicitly.
+
+With \(t=0.005/H\), the same deterministic currency error certificate at most \(0.005\) gives undiscounted price error at most \(0.01\) on the classical confidence event. Discounting and a simultaneous price-confidence allocation are handled as in the quantum statement. The new sample budgets are prospective certificates unless the specified new independent sample stream is actually executed. They are not empirical confidence estimates or directly commensurate with logical quantum T counts.

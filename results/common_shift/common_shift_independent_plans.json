@@ -1,0 +1,13 @@
+{
+  "schema": "qbp-common-shift-independent-plans-v1",
+  "status": "passed",
+  "source_sha256": "fd55472b6ceb2ca209e5bff664187c71c6f495ef91711038adc0f9e36e3170a0",
+  "resources_sha256": "62edc1c97db3607c82d1a6d68a30301d612c2bc107577c7e6f5e184dd778b034",
+  "protocol_sha256": "6b47d063c2dc08a806d08cb7d059416ca23d92483469f0ae11e8784f91d37c09",
+  "independent_library_sha256": "e86de2f5631165574e06f08d2415c3ff373ba03b1ecc3dd8d8afda3c9dac6d51",
+  "fixed_record_bindings": 416,
+  "amended_QPE_and_complete_charge_plans": 808,
+  "deterministic_prior_plans": 0,
+  "rejected_configurations": 12,
+  "scope": "Own-formula QFT/QPE/full-charge replay and prior/budget/source/profile bindings. No producer or confidence/charging frontend imported. Mathematical certificate validity is separately reviewed."
+}

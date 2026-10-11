@@ -1,0 +1,201 @@
+\section{Second moments of the actual finite financial output}
+\label{sec:finite-second-moment}
+
+I strengthen the classical comparator by sampling its fractional financial
+output directly. The variance of that output differs from the variance of
+the Bernoulli flag in Section~\ref{sec:estimator-coverage}. I do not substitute
+the former into the present quantum confidence controller. A quantum mean
+estimator that exploits a second-moment promise would need its own complete
+construction, confidence proof and cost.
+
+For any real $y\in\R^p$, put
+\begin{equation}
+ d_i(y)=\mu_i-\overline\mu+(R_i-\overline R)\cdot y,
+ \qquad T(y)=\sum_iw_i e^{d_i(y)},\qquad J(y)=\log T(y).
+\end{equation}
+The weights are positive and sum to one. Hence
+$\sum_iw_i d_i(y)=0$ for every $y$, not merely almost surely under a
+Gaussian law. Convexity of the exponential gives $T(y)\geq1$. Therefore
+$0\leq J(y)\leq T(y)-1$: integrating $1/t\leq1$ from $1$ to $T(y)$
+proves the last inequality.
+
+Let $\widetilde Y$ and, for direct evaluation, $\widetilde Z$, have the
+independent uniform laws of the actual rounded quantile registers. All
+moments in this section first concern these finite laws. They need not
+be Gaussian. Let $x$ denote the exact mathematical normalised output of
+the chosen financial formula at those register values, before the body
+of the financial graph is rounded. For full conditioning,
+\begin{equation}\label{eq:second-full}
+ 0\leq x=P(m_A)-P(m_G)\leq
+ \min\{1,L_{h,\lambda}[T(\widetilde Y)-1]\}.
+\end{equation}
+This follows from $m_A-m_G=J$, the global kernel slope theorem and
+$J\leq T-1$. For the random-strike integrand the same proof uses
+$L_{\rm CDF}=\varphi(0)/\lambda$, since translation of the CDF argument
+does not change its global slope. It holds for every strike-register
+value, so averaging over that register preserves the second-moment bound.
+Thus
+\begin{equation}\label{eq:second-gap}
+ \E x^2\leq L^2\{\E T^2-2\E T+1\},
+\end{equation}
+with $L=L_{h,\lambda}$ for full conditioning and $L=L_{\rm CDF}$ for
+random-strike conditioning. It is essential to retain the negative
+$-2\E T$ term with a lower, rather than an upper, enclosure of $\E T$.
+
+I evaluate these moments without a joint payoff table. Define the scalar
+moment-generating function $M_{b,q}(t)=\E e^{t\widetilde Y_j}$ for the
+common marginal with latent width $b$ and fractional width $q$. Independence
+and multiplication of finite sums give, for any real $c$ and vector $v$,
+\begin{equation}\label{eq:finite-exponential}
+ \E e^{c+v\cdot\widetilde Y}
+ =e^c\prod_{j=1}^pM_{b,q}(v_j).
+\end{equation}
+Writing $s_i=R_i-\overline R$ and $a_i=\mu_i-\overline\mu$ therefore yields
+\begin{align}\label{eq:finite-t-moments}
+ \E T&=\sum_iw_i e^{a_i}\prod_jM_{b,q}(s_{ij}),\\
+ \E T^2&=\sum_{i,k}w_iw_k e^{a_i+a_k}
+                  \prod_jM_{b,q}(s_{ij}+s_{kj}).
+\end{align}
+These identities are exact for the stipulated finite law. Replacing
+$M_{b,q}(t)$ by $e^{t^2/2}$ gives the separate continuous Gaussian
+comparison. That substitution is not made in the finite certificate.
+
+An additional bound follows from the positive arithmetic--geometric gap.
+Set $B=\sum_iw_i e^{\mu_i+R_i\cdot\widetilde Y}$ and
+$C=e^{\overline\mu+\overline R\cdot\widetilde Y}$, so $B\geq C$.
+The unit Lipschitz payoff gives $F_H(A)-F_H(G)\leq A-G$.
+For direct evaluation this proves
+\begin{equation}\label{eq:second-direct}
+ \E x^2\leq \frac{K^2}{H^2}M_{b_Z,q}(2\lambda)
+                       \E(B-C)^2.
+\end{equation}
+For full conditioning, taking the continuous inner Gaussian expectation
+first gives $Hx\leq K e^{\lambda^2/2}(B-C)$, and hence
+\begin{equation}\label{eq:second-condition-AG}
+ \E x^2\leq\frac{K^2e^{\lambda^2}}{H^2}\E(B-C)^2.
+\end{equation}
+The two inner factors are different: the square of
+$\E e^{\lambda Z}$ equals $e^{\lambda^2}$, whereas
+$\E e^{2\lambda Z}=e^{2\lambda^2}$. For a finite direct register the
+last factor is its actual $M_{b_Z,q}(2\lambda)$.
+Expanding the square gives
+\begin{align}
+ \E(B-C)^2={}&
+ \sum_{i,k}w_iw_k e^{\mu_i+\mu_k}
+      \prod_jM_{b,q}(R_{ij}+R_{kj})\\
+ &-2\sum_iw_i e^{\mu_i+\overline\mu}
+      \prod_jM_{b,q}(R_{ij}+\overline R_j)
+ +e^{2\overline\mu}\prod_jM_{b,q}(2\overline R_j).
+\end{align}
+The cross term again requires a lower enclosure. I use the minimum of the
+applicable proved bounds and $\E x^2\leq1$.
+
+\subsection{A scalar certificate for the dyadic marginal}
+
+The installed quantile constructor rounds the same floating seed
+$s_k=\operatorname{NormalDist.inv\_cdf}((k+1/2)/2^b)+5$ to each chosen
+fractional width and imposes exact mirror symmetry. This description
+defines its actual integer law; it does not assert that the floating seed
+is the exact Gaussian quantile. I retain a reference table at width
+$q_*=48$. The largest scaled seed is below $2^{53}$, and scaling a finite
+binary floating number by the powers of two used here is exact. Nearest
+integer rounding consequently gives the pointwise displacement
+\begin{equation}\label{eq:rounding-marginal}
+ |\widetilde y_{k,q}-\widetilde y_{k,q_*}|
+ \leq \delta_q:=\tfrac12(2^{-q}+2^{-q_*}).
+\end{equation}
+The reference and production mirror operations preserve this bound on the
+negative half. Reproduction compares their integer maps with the installed
+constructor, rather than relying only on a floating-distribution name.
+
+Symmetry gives $M_{b,q_*}(t)=\E\cosh(t\widetilde Y_*)$. Exact integer
+power sums supply every even moment of this dyadic table. For $m=64$,
+\begin{equation}
+ P_m(t)=\sum_{k=0}^{m}\frac{t^{2k}\E\widetilde Y_*^{2k}}{(2k)!}
+ \leq M_{b,q_*}(t).
+\end{equation}
+If $a=|t|\max_k|\widetilde y_{k,q_*}|$, the first omitted term is at
+most $a^{2m+2}/(2m+2)!$. Every subsequent term ratio is at most
+$\rho=a^2/[(2m+3)(2m+4)]<1$. Summing a geometric majorant proves
+\begin{equation}
+ 0\leq M_{b,q_*}(t)-P_m(t)
+ \leq\frac{a^{2m+2}}{(2m+2)!(1-\rho)}.
+\end{equation}
+The retained coefficient and support checks make this last bound smaller
+than $10^{-120}$. Since
+$e^{-|t|\delta_q}e^{t\widetilde Y_*}\leq
+ e^{t\widetilde Y_q}\leq
+ e^{|t|\delta_q}e^{t\widetilde Y_*}$ pointwise, taking expectations
+encloses the production MGF by multiplying the reference lower and upper
+bounds by the respective exponential factors. All power sums and
+coefficient inputs are exact integers or rational numbers. The Taylor sum
+uses correctly rounded decimal operations at 220 significant digits and an
+aggregate $10^{-100}$ outward envelope. Its at most 65 moment terms have
+magnitudes below $5^{128}<10^{90}$; the coefficient magnitude is at most one,
+and the remaining moment, density, exponential and budget intermediates
+have magnitude below $10^{100}$. Fewer than $10^6$ correctly rounded
+operations contribute to any retained scalar bound, so their conservative
+accumulated absolute roundoff is below $10^{-113}$, before the larger
+$10^{-100}$ envelope. I also apply that envelope at subsequent product and
+moment boundaries. The finite set of operations, their magnitudes and the
+Taylor remainder premises are checked independently. No mean-error certificate is treated
+as a second-moment or pointwise distribution certificate.
+
+\subsection{Transfer to the implemented output and confidence budget}
+
+Let $X$ be the actual implemented fractional output. The graph recurrence
+has a pointwise currency error bound $a_{\rm body}$ that includes a
+conservative allowance for quantile-register error. I can set the ideal
+quantile node equal to its actual rounded value. Its initial error then
+equals zero, which is no larger than the retained allowance, and its value
+lies in the certified quantile range. Every subsequent propagation rule is
+monotone in the incoming nonnegative error allowances. The original domain
+and overflow enclosures continue to contain the resulting subsets.
+Consequently the same retained bound proves
+\begin{equation}
+ |X-x|\leq a_{\rm body}/H
+\end{equation}
+at every finite address. Generator enclosures, interpolation, constant
+rounding, clamps and product truncation remain included in that bound.
+
+If $M_2$ is a proved bound for $\E x^2$, Cauchy--Schwarz gives
+$\E[x|X-x|]\leq\sqrt{M_2}\,a_{\rm body}/H$. Expanding
+$X^2\leq(x+|X-x|)^2$ therefore proves
+\begin{equation}\label{eq:finite-second-transfer}
+ \E X^2\leq\min\{1,(\sqrt{M_2}+a_{\rm body}/H)^2\}=:M_{2,+}.
+\end{equation}
+This is the $L^2$ triangle inequality written out for the present finite
+law. The moment transfer does not use the distribution bias budget. That
+budget still enters the final target-price guarantee through the unchanged
+deterministic mean-bias certificate.
+
+Since $0\leq X\leq1$, its variance is at most $1/4$. Also
+$\operatorname{Var}(X)=\E X^2-(\E X)^2\leq M_{2,+}$.
+Combining this with the already proved mean-prior variance bound
+$v_{\rm mean}$ gives
+\begin{equation}
+ v_+=\min\{1/4,M_{2,+},v_{\rm mean}\}.
+\end{equation}
+For independent exact draws of $X$, the previously derived Bernstein
+inequality consequently gives the sufficient fixed sample count
+\begin{equation}\label{eq:finite-variance-samples}
+ N_B=\left\lceil
+ \frac{(2v_++2t/3)\log(2/\alpha)}{t^2}\right\rceil,
+ \qquad t=0.005/H.
+\end{equation}
+I also retain the smaller applicable Hoeffding count. The count is fixed
+before sampling; choosing the certified variance or prefix through
+deterministic model calculations does not invalidate coverage. At
+$\alpha=0.01$, the finite mean has error at most $0.005$ in undiscounted
+currency with probability at least $0.99$. The retained deterministic bias
+of at most $0.005$ and $e^{-r}\leq1$ give absolute price error at most
+$0.01$. For one preselected price per case, allocating
+$\alpha=0.01/27$ and applying the union bound gives simultaneous
+$99$ per cent coverage over the 27 prices. This does not certify every
+retained candidate output simultaneously.
+
+The financial inequalities, exponential moment factorisation, exact dyadic
+sums, Taylor majorant, $L^2$ transfer and concentration inequality are
+established mathematics. Their combined parameter certificate is a
+project-specific argument. I have not established theoretical originality
+or a new quantum primitive from this calculation.

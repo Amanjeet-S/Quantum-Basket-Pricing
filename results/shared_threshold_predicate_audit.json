@@ -1,0 +1,31 @@
+{
+  "schema": "qbp-independent-shared-threshold-clean-predicate-v1",
+  "status": "passed",
+  "exhaustive_boolean_cases": 144,
+  "exact_cyclotomic_phase_basis_cases": 16,
+  "exact_coherent_superposition_cases": 1,
+  "abstract_left_right_CDF_checks": 8376,
+  "tested_profiles": [
+    {
+      "width": 1,
+      "wire_count": 10,
+      "logical_gates": 71,
+      "explicit_primitive_gates": 421,
+      "explicit_T_count": 175,
+      "chronological_primitive_sha256": "95e7169b7821d742c02efdbd1d77f646037c5022b628f3ed1d2d319587c74311"
+    },
+    {
+      "width": 2,
+      "wire_count": 16,
+      "logical_gates": 135,
+      "explicit_primitive_gates": 821,
+      "explicit_T_count": 343,
+      "chronological_primitive_sha256": "0b229f8a0698af38635c1d775be137c2a7bbbb66cf0d78c7e50ed0cacc9ed882"
+    }
+  ],
+  "prototype_source_sha256": "45b294fdb8cda0a9bdfb246a58bdb521ebdbe16b1abb0aa0cadf5755bb06b691",
+  "audit_source_sha256": "8364b91f7d6c9fd263ac61ec6808fa57c088f7b7fb5099d5a21e70511377442d",
+  "reversible_source_sha256": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+  "quantum_gates_source_sha256": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+  "scope": "Exact predicate semantics, equality endpoints, work cleanup and literal seven-T primitive phases at small register widths. The finite-CDF algebra is checked abstractly. No financial endpoint certificate, full financial compiler, resource outcome or practical advantage is asserted."
+}

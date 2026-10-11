@@ -1,0 +1,22 @@
+{
+  "schema": "qbp-degree3-independent-polynomial-audit-v1",
+  "status": "passed",
+  "precision_bits": 1024,
+  "record_count": 36,
+  "successes": 33,
+  "audit_counts": {
+    "model_premises": 9,
+    "continuous_moment_enclosures": 180,
+    "coefficient_enclosures": 180,
+    "exact_remainder_arithmetic": 108,
+    "price_interval_containment": 108,
+    "discounted_interval_containment": 108,
+    "exact_constructed_halfwidth": 108,
+    "cent_status_and_first_success": 36
+  },
+  "method": "Direct exact rational polynomial multiplication of (T-1)^k, full Gaussian transforms and independently coded convolved call boundaries; no production helpers",
+  "mathematical_scope": "The finite Taylor remainder requires U>=0, positive conditional smoothing and the recorded certified C_(k+1) bound. The audit verifies coefficients and propagated intervals, not literature priority.",
+  "result_sha256": "549da9fc2d2f04e50b7c9c682e1e0cbcb5ca3edd8cdfa4eb0aa7be914c009f65",
+  "producer_sha256": "d590e6956a6927a1d23ce77b54a850d352fa00520f102f5cb1d1ab36a68aafeb",
+  "source_sha256": "69b89cd139fdd7fa8b57e2039705e52783f8408a0d41810b090698c3423bc14d"
+}

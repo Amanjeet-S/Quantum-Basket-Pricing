@@ -1,0 +1,18 @@
+{
+  "schema": "qbp-asymmetric-order-counterexample-v1",
+  "fresh_arithmetic_precision_bits": 320,
+  "found": [
+    {
+      "q": 28,
+      "input_integer": 43691,
+      "input_exact": "43691/268435456",
+      "PG_bits": 8,
+      "PA_bits": 12,
+      "PG_exp_integer": 268479151,
+      "PA_exp_integer": 268479150,
+      "unprojected_payoff_difference_integer": -100,
+      "projected_payoff_difference_integer": 0
+    }
+  ],
+  "scope": "Equal mathematical arguments are ordered, but independently interpolated q28 exponentials can reverse represented PG/PA ordering. This is a scalar-domain witness, not an assertion that this particular equal argument occurs in one of the financial grid cases."
+}

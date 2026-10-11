@@ -1,0 +1,144 @@
+\subsection{A finite-checkpoint confidence certificate for independent shift batches}
+\label{sec:rqmc-confidence-certificate}
+
+I treat an entire independently shifted digital net as one observation. I assume
+that $B_1,\ldots,B_R$ are independent copies of a variable $B\in[0,\rho]$, where
+$0\leq\rho\leq1$. I write $\mu=\mathbb E B$, $\sigma^2=\operatorname{Var}(B)$,
+$m=\lfloor R/2\rfloor$, and
+\[
+ Z_i=\tfrac12(B_{2i-1}-B_{2i})^2,\quad
+ M=\rho^2/2,\quad
+ \overline Z=m^{-1}\sum_{i=1}^m Z_i,\quad
+ \overline B=R^{-1}\sum_{j=1}^R B_j.
+\]
+The $Z_i$ are independent, $0\leq Z_i\leq M$, and
+$\mathbb E Z_i=\sigma^2$. The last identity follows by expanding the square
+and using independence of the two batch means in each pair. It does not require
+independence among financial evaluations within a batch.
+
+\begin{lemma}[A pair-based upper confidence bound on the batch variance]
+\label{lem:rqmc-pair-variance}
+Let $0<\delta<1$, put $t=\log(1/\delta)/m$, and define
+\[
+ U_{\rm pair}=\overline Z+Mt+
+       \sqrt{M^2t^2+2Mt\overline Z}.
+\]
+Then $\mathbb P\{\sigma^2>U_{\rm pair}\}\leq\delta$.
+If a deterministic certificate gives $\sigma^2\leq V_*$, the same statement
+holds for $U=\min\{V_*,U_{\rm pair}\}$.
+\end{lemma}
+
+\begin{proof}
+For $x\geq0$, $e^{-x}\leq1-x+x^2/2$. One proof observes that
+$g(x)=1-x+x^2/2-e^{-x}$ has $g(0)=g'(0)=0$ and
+$g''(x)=1-e^{-x}\geq0$. Since $Z_i^2\leq MZ_i$, for every $\theta\geq0$,
+\[
+ \mathbb E e^{-\theta Z_i}
+ \leq1-\theta\sigma^2+\theta^2M\sigma^2/2
+ \leq\exp(-\theta\sigma^2+\theta^2M\sigma^2/2).
+\]
+Multiplication over the independent pairs and Markov's inequality give, for
+$s\geq0$ and $\sigma^2>0$,
+\[
+ \mathbb P\{\overline Z\leq\sigma^2-s\}
+ \leq\inf_{\theta\geq0}
+       \exp(-m\theta s+m\theta^2M\sigma^2/2)
+ =\exp\!\left(-\frac{ms^2}{2M\sigma^2}\right).
+\]
+When $M=0$ or $\sigma^2=0$, all $Z_i$ vanish almost surely and the conclusion
+is immediate. In the other cases $U_{\rm pair}$ is the larger root, as a
+function of $v$, of $(v-\overline Z)^2=2Mtv$. Therefore
+$\sigma^2>U_{\rm pair}$ implies
+$\overline Z<\sigma^2-\sqrt{2Mt\sigma^2}$. If this threshold is negative,
+the event is empty. Otherwise the preceding inequality, with
+$s=\sqrt{2Mt\sigma^2}$, bounds its probability by $e^{-mt}=\delta$.
+The deterministic prior can be imposed by intersection without introducing
+another random event.
+\end{proof}
+
+\begin{proposition}[A mean interval with a variance estimate from the same observations]
+\label{prop:rqmc-mean-confidence}
+Let $0<\alpha_v,\alpha_m<1$, use the preceding lemma with
+$\delta=\alpha_v$, and set
+\[
+ L=\log(2/\alpha_m),\qquad b=\frac{\rho L}{3R},\qquad
+ w(U)=b+\sqrt{b^2+\frac{2UL}{R}}.
+\]
+Suppose that a deterministic mean certificate gives $0\leq\mu\leq u\leq\rho$.
+The possibly empty interval
+\[
+ I=[\max\{0,\overline B-w(U)\},\ \min\{u,\overline B+w(U)\}]
+\]
+contains $\mu$ with probability at least $1-\alpha_v-\alpha_m$. An empty
+intersection is an explicit confidence-failure outcome and cannot supply a
+price estimate. The variance and mean observations need not be independent.
+\end{proposition}
+
+\begin{proof}
+For completeness, put $Y=B-\mu$. Then $\mathbb E Y=0$, $|Y|\leq\rho$ and
+$\mathbb E Y^2=\sigma^2$. For $k\geq2$,
+$\mathbb E|Y|^k\leq\rho^{k-2}\sigma^2$ and
+$k!\geq2\,3^{k-2}$. Expanding the exponential and bounding the absolute
+values of its terms show that, for $|\theta|\rho<3$,
+\[
+ \mathbb E e^{\theta Y}
+ \leq 1+\frac{\sigma^2\theta^2}{2(1-|\theta|\rho/3)}
+ \leq\exp\!\left(\frac{\sigma^2\theta^2}{2(1-|\theta|\rho/3)}\right).
+\]
+This derivation applies to $Y$ and $-Y$. Independence, Markov's inequality
+and the choice $\theta=e/(\sigma^2+\rho e/3)$ give, for $e>0$ and
+$\sigma^2>0$,
+\[
+ \mathbb P\{|\overline B-\mu|\geq e\}
+ \leq2\exp\!\left(-\frac{Re^2}{2\sigma^2+2\rho e/3}\right).
+\]
+If $\sigma^2=0$, $\overline B=\mu$ almost surely and the required conclusion
+is immediate. Solving $Re^2=L(2\sigma^2+2\rho e/3)$ gives $e=w(\sigma^2)$.
+Thus the event
+$E_m=\{|\overline B-\mu|\leq w(\sigma^2)\}$ has probability at least
+$1-\alpha_m$. The pair lemma gives
+$E_v=\{\sigma^2\leq U\}$ with probability at least $1-\alpha_v$.
+On their intersection, monotonicity of $w$ gives
+$|\overline B-\mu|\leq w(U)$, and the deterministic prior contains $\mu$.
+A union bound therefore proves the stated coverage. In particular, replacing
+$\sigma^2$ by the random $U$ is justified on a joint event, rather than by
+conditioning a Bernstein inequality on an estimated variance.
+\end{proof}
+
+I prescribe eleven checkpoints $R_j=2^{6+j}$, $j=0,\ldots,10$, before
+observing any shifts. At every checkpoint I assign
+$\alpha_v=\alpha_m=1/2200$. Applying the proposition at each checkpoint
+and then a union bound gives simultaneous coverage at least
+$1-22/2200=0.99$ for one selected price. This permits stopping at the first
+of these checkpoints whose nonempty interval meets the retained tolerance.
+It does not establish coverage for an unprescribed stopping time, or
+99 per cent simultaneous coverage for all 27 prices. The batches at different
+checkpoints share observations; independence between checkpoints is unnecessary
+for this finite union bound.
+
+The numerical implementation replaces both logarithms by upward enclosures.
+For rational arguments $1<x\leq10^{40}$, I evaluate their quotient and logarithm
+with correctly rounded \texttt{Decimal} arithmetic at 160 significant digits,
+and add $10^{-120}$. The quotient has relative rounding error at most
+$5\times10^{-160}$; $\log x<93$, and the elementary logarithm and final addition
+have absolute rounding errors below $10^{-157}$. The increment therefore
+strictly exceeds the accumulated rounding error. A rational square-root
+argument $a\geq0$ is enclosed by
+\[
+ \operatorname{sqrt}_{+}(a)=
+  2^{-160}\left\lceil\sqrt{\lceil 2^{320}a\rceil}\right\rceil.
+\]
+Both integer roundings are evaluated with arbitrary-precision integers and
+$\operatorname{sqrt}_{+}(a)^2\geq a$ exactly. These upward substitutions
+can only enlarge $U_{\rm pair}$ and $w(U)$, apart from the justified cap by
+$V_*$. Interval endpoints and recorded statistics are rational. The software
+premise of correctly rounded elementary functions remains explicit.
+
+The probability inequalities above are established statistical mechanisms,
+with published empirical-Bernstein randomised quasi-Monte Carlo antecedents.
+I use the derivation to justify the particular finite-checkpoint certificate,
+not to claim a new generic confidence theorem. The separate retained audit
+checks every stored integer statistic and endpoint, and exactly sums
+Bernoulli pair-type probabilities at $R=64$ and $R=128$. These finite
+checks provide implementation evidence; the proof supplies the distribution-free
+claim under its stated independence and range hypotheses.

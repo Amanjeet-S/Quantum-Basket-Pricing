@@ -1,0 +1,58 @@
+{
+  "schema": "qbp-four-quantum-bounded-independent-mathematical-review-v1",
+  "status": "passed",
+  "reviewer_source_sha256": "6a6d76337b1666d57f4be229572a0709ea7fdd5efdb8c6fb8b25599a0e93919e",
+  "producer_result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "protocol_sha256": "4dea1f09df9e8960a02949fad0bf1e4dd3304903585ed680c83fe8330cd9f405",
+  "own_formula_precision_bits": 1024,
+  "producer_and_resource_APIs_imported": false,
+  "actual_node_checks": 1024,
+  "full_loading_derivative_rows": 14,
+  "fresh_coefficient_and_continuous_moment_interval_checks": 16,
+  "prior_formula_checks": 24,
+  "complete_deterministic_budget_checks": 21,
+  "selected_method_checks": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "logical_T_counts": {
+        "boundary_r2": 346439701134,
+        "stable_gauss_r2": 562176721782,
+        "raw_direct_r2": 301416695478,
+        "positive_r1": 25306395925
+      },
+      "winner": "positive_r1"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "logical_T_counts": {
+        "boundary_r2": 1043420023944,
+        "stable_gauss_r2": 1456870329072,
+        "raw_direct_r2": 923988601512,
+        "positive_r1": 90433832750
+      },
+      "winner": "positive_r1"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "logical_T_counts": {
+        "boundary_r2": 4528992131316,
+        "stable_gauss_r2": 12722293133514,
+        "raw_direct_r2": 2045136624570,
+        "positive_r1": 97976923250
+      },
+      "winner": "positive_r1"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "logical_T_counts": {
+        "boundary_r2": 6087835254978,
+        "stable_gauss_r2": 41957222285196,
+        "raw_direct_r2": 2022083901072,
+        "positive_r1": 216055259050
+      },
+      "winner": "positive_r1"
+    }
+  ],
+  "scope": "All full-loading R1 derivatives, raw mass factors, bounded full tails, continuous coefficients and U2 moments, prior intersections and deterministic budgets checked. Literal primitive emission, scalar-table packing coverage and QFT/confidence counts belong to the separate full resource audit; no hardware execution, classical lower bound or theoretical novelty established.",
+  "review_seconds_diagnostic": 0.27298112499920535
+}

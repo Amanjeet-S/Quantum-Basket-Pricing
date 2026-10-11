@@ -1,0 +1,67 @@
+% Optional sharpened transfer fragment. It is distinct from frozen costs.
+\section{Exact variation of the common-normal payoff difference}
+\label{sec:raw-exact-variation}
+
+\begin{proposition}[Exact variation]
+\label{prop:raw-exact-variation}
+For $\Delta\geq0$, $m\in\mathbb R$ and $\lambda>0$, let
+$\ell=\log(101/100)$ and
+$h(n)=f(m+\Delta+\lambda n)-f(m+\lambda n)$. Then
+\[
+ \operatorname{TV}(h)
+ =2\min\{1,101(1-e^{-\Delta})\}.
+\]
+Consequently, the normal CDF transfer obeys the sufficient conditional
+bound
+\[
+ |\mathbb E h(\widetilde N)-\mathbb E h(N)|
+ \leq2D_N\min\{1,101(1-e^{-\Delta})\}.
+\]
+\end{proposition}
+\begin{proof}
+An increasing affine change of the independent variable preserves total
+variation, so it suffices to study
+$g(x)=f(x+\Delta)-f(x)$. If $\Delta=0$, the function is identically
+zero. Suppose first that $0<\Delta<\ell$. Its explicit pieces are
+\[
+ g(x)=\begin{cases}
+ 0,&x\leq-\Delta,\\
+ 100(e^{x+\Delta}-1),&-\Delta<x\leq0,\\
+ 100e^x(e^\Delta-1),&0<x<\ell-\Delta,\\
+ 101-100e^x,&\ell-\Delta\leq x<\ell,\\
+ 0,&x\geq\ell.
+ \end{cases}
+\]
+The pieces agree at every boundary. The first nonzero piece is increasing;
+the middle piece is increasing; the last nonzero piece is decreasing.
+The maximum at $x=\ell-\Delta$ is
+$101-100e^{\ell-\Delta}=101(1-e^{-\Delta})<1$.
+Because the continuous function increases from zero to this maximum and
+then decreases to zero, its variation is twice its maximum.
+
+If $\Delta\geq\ell$, the nonzero pieces instead are
+\[
+ g(x)=\begin{cases}
+ 100(e^{x+\Delta}-1),&-\Delta<x<\ell-\Delta,\\
+ 1,&\ell-\Delta\leq x\leq0,\\
+ 101-100e^x,&0<x<\ell.
+ \end{cases}
+\]
+Outside their union the function is zero. The plateau has height one;
+for $\Delta=\ell$ it reduces to a single point. The variation is two.
+At $\Delta=\ell$, $101(1-e^{-\ell})=1$, so the two formulae agree.
+The CDF estimate follows from the same signed Stieltjes integration by
+parts used for the original variation upper bound, replacing its bound
+two by the exact variation just derived.
+\end{proof}
+
+This sharpening is conditional on the endpoint gap. A uniform certificate
+may replace $\Delta$ by a valid upper bound because
+$\min\{1,101(1-e^{-\Delta})\}$ is nondecreasing. If that upper bound
+exceeds $\ell$, the uniform estimate is still $2D_N$. For the
+smoothing-first certificate, the gap in the CDF step is the represented
+nonnegative $\widehat\Delta$, so a bound for the true gap alone does not
+justify a tighter represented-gap transfer without its arithmetic
+enlargement. This optional sharpening has not been used in the frozen
+pointwise resource results. Any resource claim which uses it requires a
+separately recorded financial certificate, prior and estimator rebuild.

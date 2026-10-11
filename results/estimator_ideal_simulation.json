@@ -1,0 +1,548 @@
+{
+  "scope": "ideal-binomial software diagnostic using declared synthetic amplitudes; no quantum device, market data or empirical coverage proof",
+  "seed": 20261005,
+  "failure_probability_each_run": 0.01,
+  "total_runs": 540,
+  "records": [
+    {
+      "cap": 1,
+      "synthetic_probability": 0.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        4318,
+        4318
+      ],
+      "Q_calls_range": [
+        2159,
+        2159
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 1.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        4318,
+        4318
+      ],
+      "Q_calls_range": [
+        2159,
+        2159
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.0001,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1000,
+        "float": 0.001
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        0,
+        0
+      ],
+      "Q_calls_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.01,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 50,
+        "float": 0.02
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        1873,
+        1873
+      ],
+      "Q_calls_range": [
+        9365,
+        9365
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.025,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 20,
+        "float": 0.05
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        2000,
+        2000
+      ],
+      "Q_calls_range": [
+        4000,
+        4000
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.25,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6477,
+        6477
+      ],
+      "Q_calls_range": [
+        30226,
+        30226
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.5,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6477,
+        6477
+      ],
+      "Q_calls_range": [
+        10795,
+        10795
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.75,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6477,
+        6477
+      ],
+      "Q_calls_range": [
+        30226,
+        30226
+      ]
+    },
+    {
+      "cap": 1,
+      "synthetic_probability": 0.9999,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        4318,
+        4318
+      ],
+      "Q_calls_range": [
+        2159,
+        2159
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6792,
+        6792
+      ],
+      "Q_calls_range": [
+        11320,
+        11320
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 1.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6792,
+        6792
+      ],
+      "Q_calls_range": [
+        11320,
+        11320
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.0001,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1000,
+        "float": 0.001
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        0,
+        0
+      ],
+      "Q_calls_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.01,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 50,
+        "float": 0.02
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        4178,
+        6267
+      ],
+      "Q_calls_range": [
+        43869,
+        146230
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.025,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 20,
+        "float": 0.05
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6477,
+        6477
+      ],
+      "Q_calls_range": [
+        66929,
+        66929
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.25,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        9056,
+        9056
+      ],
+      "Q_calls_range": [
+        172064,
+        172064
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.5,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        11320,
+        11320
+      ],
+      "Q_calls_range": [
+        131312,
+        131312
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.75,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        9056,
+        9056
+      ],
+      "Q_calls_range": [
+        172064,
+        172064
+      ]
+    },
+    {
+      "cap": 10,
+      "synthetic_probability": 0.9999,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        6792,
+        6792
+      ],
+      "Q_calls_range": [
+        11320,
+        11320
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        9224,
+        9224
+      ],
+      "Q_calls_range": [
+        41508,
+        41508
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 1.0,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        9224,
+        9224
+      ],
+      "Q_calls_range": [
+        41508,
+        41508
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.0001,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1000,
+        "float": 0.001
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        1873,
+        1873
+      ],
+      "Q_calls_range": [
+        44952,
+        44952
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.01,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 50,
+        "float": 0.02
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        4178,
+        6267
+      ],
+      "Q_calls_range": [
+        66848,
+        146230
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.025,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 20,
+        "float": 0.05
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        8864,
+        8864
+      ],
+      "Q_calls_range": [
+        217168,
+        217168
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.25,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        11530,
+        11530
+      ],
+      "Q_calls_range": [
+        894728,
+        894728
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.5,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        13836,
+        13836
+      ],
+      "Q_calls_range": [
+        412774,
+        412774
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.75,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        11530,
+        11530
+      ],
+      "Q_calls_range": [
+        894728,
+        894728
+      ]
+    },
+    {
+      "cap": 25,
+      "synthetic_probability": 0.9999,
+      "proved_prior_upper": {
+        "numerator": 1,
+        "denominator": 1,
+        "float": 1.0
+      },
+      "repetitions": 20,
+      "covered": 20,
+      "flagged_failures": 0,
+      "shots_range": [
+        9224,
+        9224
+      ],
+      "Q_calls_range": [
+        41508,
+        41508
+      ]
+    }
+  ]
+}

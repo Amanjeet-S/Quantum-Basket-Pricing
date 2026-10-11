@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "records": 180,
+  "coordinates": 660,
+  "blocks": 157476,
+  "semantic_hash_matches": 840,
+  "original_archive_sha256": "0f4fb697e8fb25b959c65eec67731d68677570e1f5a7a1be553c9d0457be0c9d",
+  "compressed_byte_recovery_claim": false,
+  "verification_seconds_diagnostic": 175.66704604100005,
+  "fundamental_archive_sha256": "e74376713977a260315032c2776b60f4dfc1afe0753967b07e9133d069898a51"
+}

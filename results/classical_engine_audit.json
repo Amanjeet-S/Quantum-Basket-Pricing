@@ -1,0 +1,3653 @@
+{
+  "status": "passed",
+  "data": "frozen synthetic models only",
+  "finite_configurations": 111,
+  "production_and_systematic_states": 39305,
+  "products": {
+    "fixed_q_limb_products": 27456,
+    "generic_128_bit_window_products": 92928,
+    "q_range": [
+      18,
+      30
+    ],
+    "window_drop_range": [
+      0,
+      127
+    ],
+    "maximum_input_width": 64,
+    "unshifted_products_exceeding_uint64_included": true
+  },
+  "exact_moments": {
+    "ordinary_outputs": 1551,
+    "all_one_chunk_boundary_outputs": 1048579,
+    "merge_identity_and_overflowing_squared_sum": true
+  },
+  "interpolation": {
+    "all_table_cell_boundaries_and_adjacent_states": 1083648,
+    "tables": [
+      {
+        "kernel": "general_exp",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_log",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.05:1",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 23,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 23,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cap:0.05:10",
+        "bits": 12,
+        "q": 23,
+        "states": 12288
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 24,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 24,
+        "states": 12288
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 12,
+        "q": 24,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 12,
+        "q": 24,
+        "states": 12288
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 25,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 25,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cap:0.05:25",
+        "bits": 12,
+        "q": 25,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 13,
+        "q": 25,
+        "states": 24576
+      },
+      {
+        "kernel": "general_cap:0.05:25",
+        "bits": 13,
+        "q": 25,
+        "states": 24576
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 27,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 27,
+        "states": 12288
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 12,
+        "q": 27,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 13,
+        "q": 27,
+        "states": 24576
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 13,
+        "q": 25,
+        "states": 24576
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 13,
+        "q": 25,
+        "states": 24576
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 9,
+        "q": 18,
+        "states": 1536
+      },
+      {
+        "kernel": "general_log",
+        "bits": 9,
+        "q": 18,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cap:0.2:1",
+        "bits": 9,
+        "q": 18,
+        "states": 1536
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 9,
+        "q": 19,
+        "states": 1536
+      },
+      {
+        "kernel": "general_log",
+        "bits": 9,
+        "q": 19,
+        "states": 1536
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 9,
+        "q": 19,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 9,
+        "q": 19,
+        "states": 1536
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 11,
+        "q": 22,
+        "states": 6144
+      },
+      {
+        "kernel": "general_log",
+        "bits": 11,
+        "q": 22,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.2:10",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 11,
+        "q": 22,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_log",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.2:25",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 13,
+        "q": 26,
+        "states": 24576
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 8,
+        "q": 18,
+        "states": 768
+      },
+      {
+        "kernel": "general_cap:0.4:1",
+        "bits": 8,
+        "q": 18,
+        "states": 768
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 9,
+        "q": 18,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 8,
+        "q": 18,
+        "states": 768
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 10,
+        "q": 23,
+        "states": 3072
+      },
+      {
+        "kernel": "general_log",
+        "bits": 10,
+        "q": 23,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.4:10",
+        "bits": 9,
+        "q": 23,
+        "states": 1536
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 10,
+        "q": 23,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 9,
+        "q": 23,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cap:0.4:25",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 11,
+        "q": 22,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 10,
+        "q": 22,
+        "states": 3072
+      },
+      {
+        "kernel": "general_log",
+        "bits": 11,
+        "q": 23,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.05:1",
+        "bits": 11,
+        "q": 23,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 11,
+        "q": 23,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 11,
+        "q": 23,
+        "states": 6144
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 28,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 28,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cap:0.05:10",
+        "bits": 12,
+        "q": 28,
+        "states": 12288
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 12,
+        "q": 28,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 12,
+        "q": 28,
+        "states": 12288
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 29,
+        "states": 12288
+      },
+      {
+        "kernel": "general_log",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_cap:0.05:25",
+        "bits": 12,
+        "q": 29,
+        "states": 12288
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 13,
+        "q": 27,
+        "states": 24576
+      },
+      {
+        "kernel": "general_log",
+        "bits": 13,
+        "q": 27,
+        "states": 24576
+      },
+      {
+        "kernel": "general_cap:0.05:25",
+        "bits": 13,
+        "q": 27,
+        "states": 24576
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 13,
+        "q": 27,
+        "states": 24576
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 12,
+        "q": 26,
+        "states": 12288
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 9,
+        "q": 21,
+        "states": 1536
+      },
+      {
+        "kernel": "general_log",
+        "bits": 10,
+        "q": 21,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.2:1",
+        "bits": 9,
+        "q": 21,
+        "states": 1536
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 10,
+        "q": 21,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 9,
+        "q": 21,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cap:0.2:10",
+        "bits": 10,
+        "q": 26,
+        "states": 3072
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 11,
+        "q": 26,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 10,
+        "q": 26,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.2:25",
+        "bits": 11,
+        "q": 25,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 12,
+        "q": 25,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 11,
+        "q": 25,
+        "states": 6144
+      },
+      {
+        "kernel": "general_log",
+        "bits": 10,
+        "q": 19,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.4:1",
+        "bits": 8,
+        "q": 19,
+        "states": 768
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 10,
+        "q": 19,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 8,
+        "q": 19,
+        "states": 768
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 10,
+        "q": 26,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.4:10",
+        "bits": 10,
+        "q": 26,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 10,
+        "q": 26,
+        "states": 3072
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 11,
+        "q": 25,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.4:25",
+        "bits": 10,
+        "q": 25,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 10,
+        "q": 25,
+        "states": 3072
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 11,
+        "q": 24,
+        "states": 6144
+      },
+      {
+        "kernel": "general_log",
+        "bits": 11,
+        "q": 24,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.05:1",
+        "bits": 11,
+        "q": 24,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:1",
+        "bits": 11,
+        "q": 24,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 11,
+        "q": 24,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.05:10",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_cdf:0.05",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_log",
+        "bits": 14,
+        "q": 29,
+        "states": 49152
+      },
+      {
+        "kernel": "general_cap:0.05:25",
+        "bits": 13,
+        "q": 29,
+        "states": 24576
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 14,
+        "q": 29,
+        "states": 49152
+      },
+      {
+        "kernel": "general_cap:0.2:1",
+        "bits": 9,
+        "q": 22,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 9,
+        "q": 22,
+        "states": 1536
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 11,
+        "q": 27,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cap:0.2:10",
+        "bits": 11,
+        "q": 27,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:10",
+        "bits": 12,
+        "q": 27,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 11,
+        "q": 27,
+        "states": 6144
+      },
+      {
+        "kernel": "general_log",
+        "bits": 12,
+        "q": 29,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cap:0.2:25",
+        "bits": 11,
+        "q": 29,
+        "states": 6144
+      },
+      {
+        "kernel": "general_strike:25",
+        "bits": 12,
+        "q": 29,
+        "states": 12288
+      },
+      {
+        "kernel": "general_cdf:0.2",
+        "bits": 11,
+        "q": 29,
+        "states": 6144
+      },
+      {
+        "kernel": "general_exp",
+        "bits": 9,
+        "q": 22,
+        "states": 1536
+      },
+      {
+        "kernel": "general_cap:0.4:1",
+        "bits": 8,
+        "q": 22,
+        "states": 768
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 8,
+        "q": 22,
+        "states": 768
+      },
+      {
+        "kernel": "general_cap:0.4:10",
+        "bits": 10,
+        "q": 24,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 10,
+        "q": 24,
+        "states": 3072
+      },
+      {
+        "kernel": "general_cap:0.4:25",
+        "bits": 11,
+        "q": 25,
+        "states": 6144
+      },
+      {
+        "kernel": "general_cdf:0.4",
+        "bits": 11,
+        "q": 25,
+        "states": 6144
+      }
+    ]
+  },
+  "configuration_checks": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        9,
+        10,
+        0,
+        11,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "696240264",
+        "integer_sum_of_squares": "27440917449070496",
+        "sample_variance_integer_numerator": "7088942710728667200",
+        "normalised_mean_exact_fraction": "29010011/771751936",
+        "normalised_sample_variance_exact_fraction": "1476863064735139/71213169107795968",
+        "normalised_mean_float_diagnostic": 0.03758981305619945,
+        "normalised_sample_variance_float_diagnostic": 0.020738622971540544
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "method": "full_cap",
+      "q": 22,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        10,
+        10,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "39913039",
+        "integer_sum_of_squares": "9966643209611",
+        "sample_variance_integer_numerator": "1068043054750616",
+        "normalised_mean_exact_fraction": "39913039/1119879168",
+        "normalised_sample_variance_exact_fraction": "19072197406261/22311289950830592",
+        "normalised_mean_float_diagnostic": 0.03564048706369007,
+        "normalised_sample_variance_float_diagnostic": 0.0008548227129983128
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "method": "full_global",
+      "q": 22,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        10,
+        10,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "40335153",
+        "integer_sum_of_squares": "10082690648087",
+        "sample_variance_integer_numerator": "1065153835505820",
+        "normalised_mean_exact_fraction": "13445051/373293056",
+        "normalised_sample_variance_exact_fraction": "88762819625485/104119353103876096",
+        "normalised_mean_float_diagnostic": 0.036017415228854405,
+        "normalised_sample_variance_float_diagnostic": 0.0008525102872751194
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "method": "interval",
+      "q": 22,
+      "configuration_identity": [
+        9,
+        0,
+        21,
+        10,
+        10,
+        10
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 276,
+        "integer_sum": "35197958",
+        "integer_sum_of_squares": "8516900687890",
+        "sample_variance_integer_numerator": "1111768342487876",
+        "normalised_mean_exact_fraction": "765173/25165824",
+        "normalised_sample_variance_exact_fraction": "12084438505303/14513553486643200",
+        "normalised_mean_float_diagnostic": 0.030405243237813313,
+        "normalised_sample_variance_float_diagnostic": 0.0008326312723086245
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "method": "direct",
+      "q": 23,
+      "configuration_identity": [
+        13,
+        13,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 276,
+        "integer_sum": "79386666",
+        "integer_sum_of_squares": "211617593642028",
+        "sample_variance_integer_numerator": "52104213106604172",
+        "normalised_mean_exact_fraction": "13231111/385875968",
+        "normalised_sample_variance_exact_fraction": "4342017758883681/445082306923724800",
+        "normalised_mean_float_diagnostic": 0.0342885074408158,
+        "normalised_sample_variance_float_diagnostic": 0.009755538899972015
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "method": "full_cap",
+      "q": 23,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        12,
+        12,
+        12
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 267,
+        "integer_sum": "69139171",
+        "integer_sum_of_squares": "45796395519635",
+        "sample_variance_integer_numerator": "7447412637175304",
+        "normalised_mean_exact_fraction": "69139171/2239758336",
+        "normalised_sample_variance_exact_fraction": "930926579646913/624716118623256576",
+        "normalised_mean_float_diagnostic": 0.030869031666816395,
+        "normalised_sample_variance_float_diagnostic": 0.0014901593730260716
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "method": "full_global",
+      "q": 23,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        12,
+        12,
+        12
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 267,
+        "integer_sum": "60808140",
+        "integer_sum_of_squares": "37189439317172",
+        "sample_variance_integer_numerator": "6231950407425324",
+        "normalised_mean_exact_fraction": "5067345/186646528",
+        "normalised_sample_variance_exact_fraction": "519329200618777/416477412415504384",
+        "normalised_mean_float_diagnostic": 0.02714942010600915,
+        "normalised_sample_variance_float_diagnostic": 0.0012469564618324634
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "method": "interval",
+      "q": 24,
+      "configuration_identity": [
+        12,
+        0,
+        23,
+        12,
+        12,
+        12
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 276,
+        "integer_sum": "146520403",
+        "integer_sum_of_squares": "239869232114949",
+        "sample_variance_integer_numerator": "44735679568443515",
+        "normalised_mean_exact_fraction": "146520403/4630511616",
+        "normalised_sample_variance_exact_fraction": "8947135913688703/4272790146467758080",
+        "normalised_mean_float_diagnostic": 0.0316423788882684,
+        "normalised_sample_variance_float_diagnostic": 0.002093979719805604
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        14,
+        0,
+        11,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "631660784",
+        "integer_sum_of_squares": "10904585538971584",
+        "sample_variance_integer_numerator": "2610670262712662528",
+        "normalised_mean_exact_fraction": "39478799/1157627904",
+        "normalised_sample_variance_exact_fraction": "5098965356860669/667623460385587200",
+        "normalised_mean_float_diagnostic": 0.0341031853703485,
+        "normalised_sample_variance_float_diagnostic": 0.007637486786212923
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 276,
+        "integer_sum": "278615884",
+        "integer_sum_of_squares": "2346979331278288",
+        "sample_variance_integer_numerator": "570139484615706032",
+        "normalised_mean_exact_fraction": "69653971/2315255808",
+        "normalised_sample_variance_exact_fraction": "35633717788481627/5340987683084697600",
+        "normalised_mean_float_diagnostic": 0.030084784048191017,
+        "normalised_sample_variance_float_diagnostic": 0.0066717468571096394
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "full_cap",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        12,
+        12,
+        12
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 267,
+        "integer_sum": "261880756",
+        "integer_sum_of_squares": "1096644753440580",
+        "sample_variance_integer_numerator": "224222618805503324",
+        "normalised_mean_exact_fraction": "65470189/2239758336",
+        "normalised_sample_variance_exact_fraction": "56055654701375831/19990915795944210432",
+        "normalised_mean_float_diagnostic": 0.029230916544739225,
+        "normalised_sample_variance_float_diagnostic": 0.0028040563660794615
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "full_global",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        12,
+        13,
+        13
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 267,
+        "integer_sum": "206881880",
+        "integer_sum_of_squares": "873234414059392",
+        "sample_variance_integer_numerator": "190353476281523264",
+        "normalised_mean_exact_fraction": "25860235/1119879168",
+        "normalised_sample_variance_exact_fraction": "2974273066898801/1249432237246513152",
+        "normalised_mean_float_diagnostic": 0.023091986831207847,
+        "normalised_sample_variance_float_diagnostic": 0.0023804997007708683
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "interval",
+      "q": 27,
+      "configuration_identity": [
+        14,
+        0,
+        26,
+        12,
+        12,
+        13
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 276,
+        "integer_sum": "1174310380",
+        "integer_sum_of_squares": "47106826252977310",
+        "sample_variance_integer_numerator": "11622479177245993160",
+        "normalised_mean_exact_fraction": "293577595/9261023232",
+        "normalised_sample_variance_exact_fraction": "290561979431149829/34182321171742064640",
+        "normalised_mean_float_diagnostic": 0.03170034105795017,
+        "normalised_sample_variance_float_diagnostic": 0.008500358356920255
+      }
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "method": "interval",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        24,
+        12,
+        13,
+        13
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 276,
+        "integer_sum": "231706914",
+        "integer_sum_of_squares": "1577563795716400",
+        "sample_variance_integer_numerator": "381719513622323004",
+        "normalised_mean_exact_fraction": "38617819/1543503872",
+        "normalised_sample_variance_exact_fraction": "31809959468526917/7121316910779596800",
+        "normalised_mean_float_diagnostic": 0.02501958025538403,
+        "normalised_sample_variance_float_diagnostic": 0.0044668647480602805
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        9,
+        10,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 276,
+        "integer_sum": "209943700",
+        "integer_sum_of_squares": "6085733636910000",
+        "sample_variance_integer_numerator": "1635586126617470000",
+        "normalised_mean_exact_fraction": "52485925/2315255808",
+        "normalised_sample_variance_exact_fraction": "4088965316543675/213639507323387904",
+        "normalised_mean_float_diagnostic": 0.022669600835744885,
+        "normalised_sample_variance_float_diagnostic": 0.01913955601083733
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "method": "full_cap",
+      "q": 18,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        9,
+        9,
+        9
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 18,
+        "count": 267,
+        "integer_sum": "1621159",
+        "integer_sum_of_squares": "29972302327",
+        "sample_variance_integer_numerator": "5374448218028",
+        "normalised_mean_exact_fraction": "1621159/69992448",
+        "normalised_sample_variance_exact_fraction": "1343612054507/1220148669186048",
+        "normalised_mean_float_diagnostic": 0.023161913125256027,
+        "normalised_sample_variance_float_diagnostic": 0.0011011871654978843
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "method": "full_global",
+      "q": 18,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        9,
+        9,
+        9
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 18,
+        "count": 267,
+        "integer_sum": "1707894",
+        "integer_sum_of_squares": "30006909728",
+        "sample_variance_integer_numerator": "5094942982140",
+        "normalised_mean_exact_fraction": "284649/11665408",
+        "normalised_sample_variance_exact_fraction": "424578581845/406716223062016",
+        "normalised_mean_float_diagnostic": 0.024401118246357094,
+        "normalised_sample_variance_float_diagnostic": 0.0010439184811672987
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "method": "interval",
+      "q": 19,
+      "configuration_identity": [
+        9,
+        0,
+        18,
+        9,
+        9,
+        9
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 19,
+        "count": 276,
+        "integer_sum": "3602339",
+        "integer_sum_of_squares": "134919125333",
+        "sample_variance_integer_numerator": "24260832320987",
+        "normalised_mean_exact_fraction": "3602339/144703488",
+        "normalised_sample_variance_exact_fraction": "24260832320987/20863233137049600",
+        "normalised_mean_float_diagnostic": 0.02489462451658387,
+        "normalised_sample_variance_float_diagnostic": 0.0011628510385527848
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        13,
+        13,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 276,
+        "integer_sum": "162112120",
+        "integer_sum_of_squares": "2273818364103800",
+        "sample_variance_integer_numerator": "601293529041754400",
+        "normalised_mean_exact_fraction": "20264015/1157627904",
+        "normalised_sample_variance_exact_fraction": "751616911302193/106819753661693952",
+        "normalised_mean_float_diagnostic": 0.017504774142002712,
+        "normalised_sample_variance_float_diagnostic": 0.007036310097499563
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "method": "full_cap",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "24790327",
+        "integer_sum_of_squares": "8180447457061",
+        "sample_variance_integer_numerator": "1569619158268358",
+        "normalised_mean_exact_fraction": "278543/12582912",
+        "normalised_sample_variance_exact_fraction": "8818085158811/7019282231721984",
+        "normalised_mean_float_diagnostic": 0.022136608759562176,
+        "normalised_sample_variance_float_diagnostic": 0.001256265935419971
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "method": "full_global",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "28043290",
+        "integer_sum_of_squares": "9488123625454",
+        "sample_variance_integer_numerator": "1746902893972118",
+        "normalised_mean_exact_fraction": "14021645/559939584",
+        "normalised_sample_variance_exact_fraction": "873451446986059/624716118623256576",
+        "normalised_mean_float_diagnostic": 0.02504135339001145,
+        "normalised_sample_variance_float_diagnostic": 0.0013981573725213988
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "method": "interval",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        21,
+        11,
+        11,
+        10
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 276,
+        "integer_sum": "27446352",
+        "integer_sum_of_squares": "9345350795410",
+        "sample_variance_integer_numerator": "1826014581425256",
+        "normalised_mean_exact_fraction": "571799/24117248",
+        "normalised_sample_variance_exact_fraction": "76083940892719/55635288365465600",
+        "normalised_mean_float_diagnostic": 0.023709131323772926,
+        "normalised_sample_variance_float_diagnostic": 0.0013675482437140822
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 276,
+        "integer_sum": "136283208",
+        "integer_sum_of_squares": "588103663343680",
+        "sample_variance_integer_numerator": "143743498300084416",
+        "normalised_mean_exact_fraction": "5678467/385875968",
+        "normalised_sample_variance_exact_fraction": "748664053646273/445082306923724800",
+        "normalised_mean_float_diagnostic": 0.014715782974077307,
+        "normalised_sample_variance_float_diagnostic": 0.0016820800153140528
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "method": "full_cap",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        11,
+        11
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 267,
+        "integer_sum": "352215084",
+        "integer_sum_of_squares": "1984326089253274",
+        "sample_variance_integer_numerator": "405759600433497102",
+        "normalised_mean_exact_fraction": "29351257/1493172224",
+        "normalised_sample_variance_exact_fraction": "67626600072249517/53309108789184561152",
+        "normalised_mean_float_diagnostic": 0.019656980305575254,
+        "normalised_sample_variance_float_diagnostic": 0.0012685749510404443
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "method": "full_global",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        11,
+        11
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 267,
+        "integer_sum": "357499629",
+        "integer_sum_of_squares": "1976549329020695",
+        "sample_variance_integer_numerator": "399932686113387924",
+        "normalised_mean_exact_fraction": "119166543/5972688896",
+        "normalised_sample_variance_exact_fraction": "4761103406111761/3807793484941754368",
+        "normalised_mean_float_diagnostic": 0.019951908608500876,
+        "normalised_sample_variance_float_diagnostic": 0.0012503575692694344
+      }
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "method": "interval",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        25,
+        11,
+        11,
+        11
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "375656672",
+        "integer_sum_of_squares": "2456985103437582",
+        "sample_variance_integer_numerator": "537009953330657048",
+        "normalised_mean_exact_fraction": "11739271/578813952",
+        "normalised_sample_variance_exact_fraction": "6102385833302921/3884354678607052800",
+        "normalised_mean_float_diagnostic": 0.020281596460204193,
+        "normalised_sample_variance_float_diagnostic": 0.0015710166393691073
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        9,
+        10,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "422792556",
+        "integer_sum_of_squares": "24081529535111984",
+        "sample_variance_integer_numerator": "6467748606281894448",
+        "normalised_mean_exact_fraction": "35232713/1543503872",
+        "normalised_sample_variance_exact_fraction": "12249523875533891/647392446434508800",
+        "normalised_mean_float_diagnostic": 0.022826449378677036,
+        "normalised_sample_variance_float_diagnostic": 0.018921326535392427
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "method": "full_cap",
+      "q": 18,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        8,
+        9,
+        8
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 18,
+        "count": 267,
+        "integer_sum": "787536",
+        "integer_sum_of_squares": "7775092616",
+        "sample_variance_integer_numerator": "1455736777176",
+        "normalised_mean_exact_fraction": "16407/1458176",
+        "normalised_sample_variance_exact_fraction": "60655699049/203358111531008",
+        "normalised_mean_float_diagnostic": 0.01125172818644663,
+        "normalised_sample_variance_float_diagnostic": 0.0002982703694106209
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "method": "full_global",
+      "q": 18,
+      "configuration_identity": [
+        9,
+        0,
+        0,
+        8,
+        9,
+        8
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 18,
+        "count": 267,
+        "integer_sum": "810953",
+        "integer_sum_of_squares": "7705964439",
+        "sample_variance_integer_numerator": "1399847737004",
+        "normalised_mean_exact_fraction": "810953/69992448",
+        "normalised_sample_variance_exact_fraction": "349961934251/1220148669186048",
+        "normalised_mean_float_diagnostic": 0.011586292852623185,
+        "normalised_sample_variance_float_diagnostic": 0.00028681909269667684
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "method": "interval",
+      "q": 18,
+      "configuration_identity": [
+        9,
+        0,
+        17,
+        8,
+        9,
+        8
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 18,
+        "count": 276,
+        "integer_sum": "957316",
+        "integer_sum_of_squares": "11054887306",
+        "sample_variance_integer_numerator": "2134694972600",
+        "normalised_mean_exact_fraction": "239329/18087936",
+        "normalised_sample_variance_exact_fraction": "10673474863/26079041421312",
+        "normalised_mean_float_diagnostic": 0.013231415679489357,
+        "normalised_sample_variance_float_diagnostic": 0.0004092740484808445
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        13,
+        12,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "297148280",
+        "integer_sum_of_squares": "6501993798046800",
+        "sample_variance_integer_numerator": "1706253187953958400",
+        "normalised_mean_exact_fraction": "37143535/2315255808",
+        "normalised_sample_variance_exact_fraction": "133301030308903/26704938415423488",
+        "normalised_mean_float_diagnostic": 0.01604295079258905,
+        "normalised_sample_variance_float_diagnostic": 0.004991624703838102
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "method": "full_cap",
+      "q": 23,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        10,
+        10,
+        9
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 267,
+        "integer_sum": "28520169",
+        "integer_sum_of_squares": "11549973914611",
+        "sample_variance_integer_numerator": "2270442995412576",
+        "normalised_mean_exact_fraction": "9506723/746586112",
+        "normalised_sample_variance_exact_fraction": "23650447868881/52059676551938048",
+        "normalised_mean_float_diagnostic": 0.012733592076247998,
+        "normalised_sample_variance_float_diagnostic": 0.00045429494448137435
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "method": "full_global",
+      "q": 23,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        10,
+        10,
+        9
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 267,
+        "integer_sum": "27316915",
+        "integer_sum_of_squares": "10652069633293",
+        "sample_variance_integer_numerator": "2097888746972006",
+        "normalised_mean_exact_fraction": "27316915/2239758336",
+        "normalised_sample_variance_exact_fraction": "1048944373486003/2498864474493026304",
+        "normalised_mean_float_diagnostic": 0.012196367153067714,
+        "normalised_sample_variance_float_diagnostic": 0.00041976841249016295
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "method": "interval",
+      "q": 23,
+      "configuration_identity": [
+        12,
+        0,
+        22,
+        10,
+        10,
+        9
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 276,
+        "integer_sum": "30679361",
+        "integer_sum_of_squares": "13430558961275",
+        "sample_variance_integer_numerator": "2765611081943579",
+        "normalised_mean_exact_fraction": "30679361/2315255808",
+        "normalised_sample_variance_exact_fraction": "2765611081943579/5340987683084697600",
+        "normalised_mean_float_diagnostic": 0.01325095952420995,
+        "normalised_sample_variance_float_diagnostic": 0.0005178089233761901
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        14,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 276,
+        "integer_sum": "272130048",
+        "integer_sum_of_squares": "4334428208910144",
+        "sample_variance_integer_numerator": "1122247422634717440",
+        "normalised_mean_exact_fraction": "11073/753664",
+        "normalised_sample_variance_exact_fraction": "292251932977791/89016461384744960",
+        "normalised_mean_float_diagnostic": 0.01469222359035326,
+        "normalised_sample_variance_float_diagnostic": 0.003283122339750467
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "method": "full_cap",
+      "q": 22,
+      "configuration_identity": [
+        13,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "12404721",
+        "integer_sum_of_squares": "2811046829415",
+        "sample_variance_integer_numerator": "596672400365964",
+        "normalised_mean_exact_fraction": "4134907/373293056",
+        "normalised_sample_variance_exact_fraction": "49722700030497/104119353103876096",
+        "normalised_mean_float_diagnostic": 0.011076838782664095,
+        "normalised_sample_variance_float_diagnostic": 0.00047755483056920715
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "method": "full_global",
+      "q": 22,
+      "configuration_identity": [
+        13,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 267,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 267,
+        "integer_sum": "14912425",
+        "integer_sum_of_squares": "3126910309527",
+        "sample_variance_integer_numerator": "612504633263084",
+        "normalised_mean_exact_fraction": "14912425/1119879168",
+        "normalised_sample_variance_exact_fraction": "153126158315771/312358059311628288",
+        "normalised_mean_float_diagnostic": 0.013316101795725161,
+        "normalised_sample_variance_float_diagnostic": 0.0004902263724305017
+      }
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "method": "interval",
+      "q": 22,
+      "configuration_identity": [
+        13,
+        0,
+        21,
+        11,
+        11,
+        10
+      ],
+      "states": 276,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 276,
+        "integer_sum": "15454959",
+        "integer_sum_of_squares": "3752515533953",
+        "sample_variance_integer_numerator": "796838529679347",
+        "normalised_mean_exact_fraction": "5151653/385875968",
+        "normalised_sample_variance_exact_fraction": "265612843226449/445082306923724800",
+        "normalised_mean_float_diagnostic": 0.01335054117700328,
+        "normalised_sample_variance_float_diagnostic": 0.0005967724151119041
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        11,
+        10,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 302,
+        "integer_sum": "634209800",
+        "integer_sum_of_squares": "16287136740020000",
+        "sample_variance_integer_numerator": "4516493225070000000",
+        "normalised_mean_exact_fraction": "79276225/1266679808",
+        "normalised_sample_variance_exact_fraction": "35285103320859375/799582447904751616",
+        "normalised_mean_float_diagnostic": 0.06258584410938996,
+        "normalised_sample_variance_float_diagnostic": 0.044129412061659753
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "method": "full_cap",
+      "q": 23,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        10,
+        11,
+        11
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 287,
+        "integer_sum": "163622788",
+        "integer_sum_of_squares": "245209740552886",
+        "sample_variance_integer_numerator": "43602778785785338",
+        "normalised_mean_exact_fraction": "5843671/85983232",
+        "normalised_sample_variance_exact_fraction": "3114484198984667/412571947113644032",
+        "normalised_mean_float_diagnostic": 0.06796291397839058,
+        "normalised_sample_variance_float_diagnostic": 0.007548948058086882
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "method": "full_global",
+      "q": 23,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        10,
+        11,
+        11
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 287,
+        "integer_sum": "164687800",
+        "integer_sum_of_squares": "236572082355646",
+        "sample_variance_integer_numerator": "40774116167230402",
+        "normalised_mean_exact_fraction": "20585975/300941312",
+        "normalised_sample_variance_exact_fraction": "1853368916692291/262545784526864384",
+        "normalised_mean_float_diagnostic": 0.0684052809605615,
+        "normalised_sample_variance_float_diagnostic": 0.007059221765956975
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "method": "interval",
+      "q": 23,
+      "configuration_identity": [
+        11,
+        0,
+        22,
+        10,
+        11,
+        11
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 23,
+        "count": 302,
+        "integer_sum": "197753474",
+        "integer_sum_of_squares": "371828257076162",
+        "sample_variance_integer_numerator": "73185697157932248",
+        "normalised_mean_exact_fraction": "98876737/1266679808",
+        "normalised_sample_variance_exact_fraction": "9148212144741531/799582447904751616",
+        "normalised_mean_float_diagnostic": 0.07805977199251289,
+        "normalised_sample_variance_float_diagnostic": 0.011441236821435692
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        13,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 302,
+        "integer_sum": "609998110",
+        "integer_sum_of_squares": "6756950016884500",
+        "sample_variance_integer_numerator": "1668501210895546900",
+        "normalised_mean_exact_fraction": "304999055/5066719232",
+        "normalised_sample_variance_exact_fraction": "417125302723886725/25586638332952051712",
+        "normalised_mean_float_diagnostic": 0.06019655738445307,
+        "normalised_sample_variance_float_diagnostic": 0.016302466048722274
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "method": "full_cap",
+      "q": 28,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        12,
+        12,
+        12
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 287,
+        "integer_sum": "4572853887",
+        "integer_sum_of_squares": "267707454155083461",
+        "sample_variance_integer_numerator": "55921046670657944538",
+        "normalised_mean_exact_fraction": "653264841/11005853696",
+        "normalised_sample_variance_exact_fraction": "3994360476475567467/422473673844371488768",
+        "normalised_mean_float_diagnostic": 0.05935612620740402,
+        "normalised_sample_variance_float_diagnostic": 0.009454696762825955
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "method": "full_global",
+      "q": 28,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        12,
+        12,
+        12
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 287,
+        "integer_sum": "4993905356",
+        "integer_sum_of_squares": "285630891049716396",
+        "sample_variance_integer_numerator": "57036975026583118916",
+        "normalised_mean_exact_fraction": "1248476339/19260243968",
+        "normalised_sample_variance_exact_fraction": "14259243756645779729/1478657858455300210688",
+        "normalised_mean_float_diagnostic": 0.0648214187252397,
+        "normalised_sample_variance_float_diagnostic": 0.009643369272417008
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "method": "interval",
+      "q": 28,
+      "configuration_identity": [
+        14,
+        0,
+        27,
+        12,
+        12,
+        12
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 302,
+        "integer_sum": "5549423016",
+        "integer_sum_of_squares": "427997829004172416",
+        "sample_variance_integer_numerator": "98459248548749533376",
+        "normalised_mean_exact_fraction": "693677877/10133438464",
+        "normalised_sample_variance_exact_fraction": "1538425758574211459/102346553331808206848",
+        "normalised_mean_float_diagnostic": 0.06845434345551674,
+        "normalised_sample_variance_float_diagnostic": 0.01503153460954005
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "method": "direct",
+      "q": 25,
+      "configuration_identity": [
+        15,
+        16,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 302,
+        "integer_sum": "379715160",
+        "integer_sum_of_squares": "3550216980002176",
+        "sample_variance_integer_numerator": "927981925226831552",
+        "normalised_mean_exact_fraction": "47464395/1266679808",
+        "normalised_sample_variance_exact_fraction": "2071388225952749/228452127972786176",
+        "normalised_mean_float_diagnostic": 0.03747150203250102,
+        "normalised_sample_variance_float_diagnostic": 0.009067055948804723
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "method": "full_cap",
+      "q": 29,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        12,
+        13,
+        12
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 287,
+        "integer_sum": "5717828644",
+        "integer_sum_of_squares": "683324069835441076",
+        "sample_variance_integer_numerator": "163420443640624710076",
+        "normalised_mean_exact_fraction": "1429457161/38520487936",
+        "normalised_sample_variance_exact_fraction": "40855110910156177519/5914631433821200842752",
+        "normalised_mean_float_diagnostic": 0.03710900971386906,
+        "normalised_sample_variance_float_diagnostic": 0.006907465218633474
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "method": "full_cap",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        13,
+        13,
+        13
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 287,
+        "integer_sum": "1542456441",
+        "integer_sum_of_squares": "42644475863692195",
+        "sample_variance_integer_numerator": "9859792700497273484",
+        "normalised_mean_exact_fraction": "1542456441/38520487936",
+        "normalised_sample_variance_exact_fraction": "2464948175124318371/369664464613825052672",
+        "normalised_mean_float_diagnostic": 0.04004249488123618,
+        "normalised_sample_variance_float_diagnostic": 0.0066680690493184395
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "method": "full_global",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        13,
+        13,
+        13
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 287,
+        "integer_sum": "1558738872",
+        "integer_sum_of_squares": "44505913816298126",
+        "sample_variance_integer_numerator": "10343530394193729778",
+        "normalised_mean_exact_fraction": "194842359/4815060992",
+        "normalised_sample_variance_exact_fraction": "5171765197096864889/739328929227650105344",
+        "normalised_mean_float_diagnostic": 0.04046519022785413,
+        "normalised_sample_variance_float_diagnostic": 0.006995215515913355
+      }
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "method": "interval",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        26,
+        13,
+        13,
+        13
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 302,
+        "integer_sum": "1767708433",
+        "integer_sum_of_squares": "82022180817630765",
+        "sample_variance_integer_numerator": "21645905502825175541",
+        "normalised_mean_exact_fraction": "1767708433/40533753856",
+        "normalised_sample_variance_exact_fraction": "21645905502825175541/1637544853308931309568",
+        "normalised_mean_float_diagnostic": 0.04361077533751134,
+        "normalised_sample_variance_float_diagnostic": 0.013218511516851602
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        11,
+        10,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 302,
+        "integer_sum": "335519128",
+        "integer_sum_of_squares": "16554567074180992",
+        "sample_variance_integer_numerator": "4886906171148779200",
+        "normalised_mean_exact_fraction": "41939891/2533359616",
+        "normalised_sample_variance_exact_fraction": "76357908924199675/6396659583238012928",
+        "normalised_mean_float_diagnostic": 0.016555048377308625,
+        "normalised_sample_variance_float_diagnostic": 0.01193715374885512
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "method": "full_cap",
+      "q": 21,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        9,
+        10,
+        9
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 21,
+        "count": 287,
+        "integer_sum": "15815903",
+        "integer_sum_of_squares": "2671569423239",
+        "sample_variance_integer_numerator": "516597636764184",
+        "normalised_mean_exact_fraction": "15815903/601882624",
+        "normalised_sample_variance_exact_fraction": "64574704595523/45125056715554816",
+        "normalised_mean_float_diagnostic": 0.026277387599081114,
+        "normalised_sample_variance_float_diagnostic": 0.0014310165858088285
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "method": "full_global",
+      "q": 21,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        9,
+        10,
+        9
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 21,
+        "count": 287,
+        "integer_sum": "17621682",
+        "integer_sum_of_squares": "2940522582838",
+        "sample_variance_integer_numerator": "533406304765382",
+        "normalised_mean_exact_fraction": "8810841/300941312",
+        "normalised_sample_variance_exact_fraction": "266703152382691/180500226862219264",
+        "normalised_mean_float_diagnostic": 0.029277605462157352,
+        "normalised_sample_variance_float_diagnostic": 0.0014775779344935271
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "method": "interval",
+      "q": 21,
+      "configuration_identity": [
+        11,
+        0,
+        20,
+        9,
+        10,
+        9
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 21,
+        "count": 302,
+        "integer_sum": "20363285",
+        "integer_sum_of_squares": "4417965511555",
+        "sample_variance_integer_numerator": "919562208498385",
+        "normalised_mean_exact_fraction": "20363285/633339904",
+        "normalised_sample_variance_exact_fraction": "919562208498385/399791223952375808",
+        "normalised_mean_float_diagnostic": 0.03215222169231895,
+        "normalised_sample_variance_float_diagnostic": 0.0023001060388657397
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        13,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 302,
+        "integer_sum": "465188810",
+        "integer_sum_of_squares": "9159036128075900",
+        "sample_variance_integer_numerator": "2549628281729705700",
+        "normalised_mean_exact_fraction": "232594405/10133438464",
+        "normalised_sample_variance_exact_fraction": "637407070432426425/102346553331808206848",
+        "normalised_mean_float_diagnostic": 0.022953157097298577,
+        "normalised_sample_variance_float_diagnostic": 0.006227929028210149
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "method": "full_cap",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 287,
+        "integer_sum": "580580178",
+        "integer_sum_of_squares": "3968213587005306",
+        "sample_variance_integer_numerator": "801803956384011138",
+        "normalised_mean_exact_fraction": "290290089/9630121984",
+        "normalised_sample_variance_exact_fraction": "400901978192005569/184832232306912526336",
+        "normalised_mean_float_diagnostic": 0.030143968008121132,
+        "normalised_sample_variance_float_diagnostic": 0.0021690046870521526
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "method": "full_global",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        11,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 287,
+        "integer_sum": "575348632",
+        "integer_sum_of_squares": "3966043255355416",
+        "sample_variance_integer_numerator": "807228365942732968",
+        "normalised_mean_exact_fraction": "71918579/2407530496",
+        "normalised_sample_variance_exact_fraction": "7761811210987817/3554466005902163968",
+        "normalised_mean_float_diagnostic": 0.029872343930633226,
+        "normalised_sample_variance_float_diagnostic": 0.0021836785604643252
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "method": "interval",
+      "q": 26,
+      "configuration_identity": [
+        14,
+        0,
+        25,
+        11,
+        11,
+        10
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 302,
+        "integer_sum": "707581443",
+        "integer_sum_of_squares": "6351150205437293",
+        "sample_variance_integer_numerator": "1417375863564100237",
+        "normalised_mean_exact_fraction": "707581443/20266876928",
+        "normalised_sample_variance_exact_fraction": "202482266223442891/58483744761033261056",
+        "normalised_mean_float_diagnostic": 0.03491319582754413,
+        "normalised_sample_variance_float_diagnostic": 0.003462197351602448
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        15,
+        16,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 302,
+        "integer_sum": "494911420",
+        "integer_sum_of_squares": "4673369807704048",
+        "sample_variance_integer_numerator": "1166420368280206096",
+        "normalised_mean_exact_fraction": "123727855/5066719232",
+        "normalised_sample_variance_exact_fraction": "72901273017512881/25586638332952051712",
+        "normalised_mean_float_diagnostic": 0.02441971803343059,
+        "normalised_sample_variance_float_diagnostic": 0.00284919308542483
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "method": "full_cap",
+      "q": 25,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 287,
+        "integer_sum": "260340047",
+        "integer_sum_of_squares": "942449898498747",
+        "sample_variance_integer_numerator": "202706180797178180",
+        "normalised_mean_exact_fraction": "260340047/9630121984",
+        "normalised_sample_variance_exact_fraction": "50676545199294545/23104029038364065792",
+        "normalised_mean_float_diagnostic": 0.027033930352340592,
+        "normalised_sample_variance_float_diagnostic": 0.0021934072674141174
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "method": "full_global",
+      "q": 25,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 287,
+        "integer_sum": "244781271",
+        "integer_sum_of_squares": "919123104732587",
+        "sample_variance_integer_numerator": "203870460425877028",
+        "normalised_mean_exact_fraction": "34968753/1375731712",
+        "normalised_sample_variance_exact_fraction": "7281087872352751/3300575576909152256",
+        "normalised_mean_float_diagnostic": 0.025418293912236285,
+        "normalised_sample_variance_float_diagnostic": 0.002206005498947301
+      }
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "method": "interval",
+      "q": 25,
+      "configuration_identity": [
+        15,
+        0,
+        24,
+        12,
+        12,
+        11
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 302,
+        "integer_sum": "326494565",
+        "integer_sum_of_squares": "1580563563333747",
+        "sample_variance_integer_numerator": "370731495152252369",
+        "normalised_mean_exact_fraction": "326494565/10133438464",
+        "normalised_sample_variance_exact_fraction": "370731495152252369/102346553331808206848",
+        "normalised_mean_float_diagnostic": 0.03221952411907398,
+        "normalised_sample_variance_float_diagnostic": 0.0036223153890716613
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "method": "direct",
+      "q": 27,
+      "configuration_identity": [
+        10,
+        10,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 302,
+        "integer_sum": "862207400",
+        "integer_sum_of_squares": "109746780916780000",
+        "sample_variance_integer_numerator": "32400126236252800000",
+        "normalised_mean_exact_fraction": "107775925/5066719232",
+        "normalised_sample_variance_exact_fraction": "31640748277590625/1599164895809503232",
+        "normalised_mean_float_diagnostic": 0.021271343460146166,
+        "normalised_sample_variance_float_diagnostic": 0.019785794673521744
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "method": "full_cap",
+      "q": 19,
+      "configuration_identity": [
+        10,
+        0,
+        0,
+        9,
+        10,
+        8
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 19,
+        "count": 287,
+        "integer_sum": "2259719",
+        "integer_sum_of_squares": "49901309543",
+        "sample_variance_integer_numerator": "9215345879880",
+        "normalised_mean_exact_fraction": "322817/21495808",
+        "normalised_sample_variance_exact_fraction": "164559747855/402902292103168",
+        "normalised_mean_float_diagnostic": 0.015017672282893484,
+        "normalised_sample_variance_float_diagnostic": 0.00040843586914333685
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "method": "full_global",
+      "q": 19,
+      "configuration_identity": [
+        10,
+        0,
+        0,
+        9,
+        10,
+        8
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 19,
+        "count": 287,
+        "integer_sum": "1956456",
+        "integer_sum_of_squares": "43737491402",
+        "sample_variance_integer_numerator": "8724939952438",
+        "normalised_mean_exact_fraction": "244557/18808832",
+        "normalised_sample_variance_exact_fraction": "4362469976219/11281264178888704",
+        "normalised_mean_float_diagnostic": 0.013002242776159625,
+        "normalised_sample_variance_float_diagnostic": 0.0003867004536940769
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "method": "interval",
+      "q": 19,
+      "configuration_identity": [
+        10,
+        0,
+        18,
+        9,
+        10,
+        8
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 19,
+        "count": 302,
+        "integer_sum": "2681655",
+        "integer_sum_of_squares": "73757520563",
+        "sample_variance_integer_numerator": "15083497671001",
+        "normalised_mean_exact_fraction": "2681655/158334976",
+        "normalised_sample_variance_exact_fraction": "15083497671001/24986951497023488",
+        "normalised_mean_float_diagnostic": 0.01693659270836028,
+        "normalised_sample_variance_float_diagnostic": 0.0006036549785914375
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "method": "direct",
+      "q": 27,
+      "configuration_identity": [
+        13,
+        14,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 302,
+        "integer_sum": "681522030",
+        "integer_sum_of_squares": "22741377897571300",
+        "sample_variance_integer_numerator": "6403423847691211700",
+        "normalised_mean_exact_fraction": "340761015/20266876928",
+        "normalised_sample_variance_exact_fraction": "1600855961922802925/409386213327232827392",
+        "normalised_mean_float_diagnostic": 0.016813691434086554,
+        "normalised_sample_variance_float_diagnostic": 0.003910380735374686
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "method": "full_cap",
+      "q": 26,
+      "configuration_identity": [
+        13,
+        0,
+        0,
+        10,
+        11,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 287,
+        "integer_sum": "303886686",
+        "integer_sum_of_squares": "1142966084166520",
+        "sample_variance_integer_numerator": "235684148227728644",
+        "normalised_mean_exact_fraction": "151943343/9630121984",
+        "normalised_sample_variance_exact_fraction": "58921037056932161/92416116153456263168",
+        "normalised_mean_float_diagnostic": 0.015777925061847276,
+        "normalised_sample_variance_float_diagnostic": 0.0006375623593518496
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "method": "full_global",
+      "q": 26,
+      "configuration_identity": [
+        13,
+        0,
+        0,
+        10,
+        11,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 287,
+        "integer_sum": "300503767",
+        "integer_sum_of_squares": "1126287759513351",
+        "sample_variance_integer_numerator": "232942072999141448",
+        "normalised_mean_exact_fraction": "300503767/19260243968",
+        "normalised_sample_variance_exact_fraction": "29117759124892681/46208058076728131584",
+        "normalised_mean_float_diagnostic": 0.015602282478834278,
+        "normalised_sample_variance_float_diagnostic": 0.0006301446184244069
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "method": "interval",
+      "q": 26,
+      "configuration_identity": [
+        13,
+        0,
+        25,
+        10,
+        11,
+        10
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 302,
+        "integer_sum": "375959010",
+        "integer_sum_of_squares": "1911697865662524",
+        "sample_variance_integer_numerator": "435987578229902148",
+        "normalised_mean_exact_fraction": "187979505/10133438464",
+        "normalised_sample_variance_exact_fraction": "108996894557475537/102346553331808206848",
+        "normalised_mean_float_diagnostic": 0.018550416590362197,
+        "normalised_sample_variance_float_diagnostic": 0.0010649786534980507
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "method": "direct",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        14,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 302,
+        "integer_sum": "428500884",
+        "integer_sum_of_squares": "6605411752179184",
+        "sample_variance_integer_numerator": "1811221341569332112",
+        "normalised_mean_exact_fraction": "107125221/10133438464",
+        "normalised_sample_variance_exact_fraction": "16171619121154751/14620936190258315264",
+        "normalised_mean_float_diagnostic": 0.01057145818574539,
+        "normalised_sample_variance_float_diagnostic": 0.0011060590724641579
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "method": "full_cap",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        12,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 287,
+        "integer_sum": "143575943",
+        "integer_sum_of_squares": "293771342244297",
+        "sample_variance_integer_numerator": "63698323815773990",
+        "normalised_mean_exact_fraction": "20510849/1375731712",
+        "normalised_sample_variance_exact_fraction": "4549880272555285/6601151153818304512",
+        "normalised_mean_float_diagnostic": 0.014909047179105805,
+        "normalised_sample_variance_float_diagnostic": 0.0006892555808123705
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "method": "full_global",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        12,
+        10
+      ],
+      "states": 287,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 287,
+        "integer_sum": "146718343",
+        "integer_sum_of_squares": "293119981500487",
+        "sample_variance_integer_numerator": "62599162517974120",
+        "normalised_mean_exact_fraction": "146718343/9630121984",
+        "normalised_sample_variance_exact_fraction": "7824895314746765/11552014519182032896",
+        "normalised_mean_float_diagnostic": 0.01523535664903993,
+        "normalised_sample_variance_float_diagnostic": 0.000677361970222041
+      }
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "method": "interval",
+      "q": 25,
+      "configuration_identity": [
+        14,
+        0,
+        24,
+        11,
+        12,
+        10
+      ],
+      "states": 302,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 302,
+        "integer_sum": "180321752",
+        "integer_sum_of_squares": "495853312758792",
+        "sample_variance_integer_numerator": "117231766208805680",
+        "normalised_mean_exact_fraction": "22540219/1266679808",
+        "normalised_sample_variance_exact_fraction": "7326985388050355/6396659583238012928",
+        "normalised_mean_float_diagnostic": 0.017794725121251794,
+        "normalised_sample_variance_float_diagnostic": 0.0011454393176166813
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        12,
+        10,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 570,
+        "integer_sum": "5319601712",
+        "integer_sum_of_squares": "321665360144888768",
+        "sample_variance_integer_numerator": "155051092908273266816",
+        "normalised_mean_exact_fraction": "332475107/2390753280",
+        "normalised_sample_variance_exact_fraction": "1211336663345884897/11411347399570882560",
+        "normalised_mean_float_diagnostic": 0.13906709227645606,
+        "normalised_sample_variance_float_diagnostic": 0.10615193990075497
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "method": "full_cap",
+      "q": 24,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        11,
+        11,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 435,
+        "integer_sum": "1029568534",
+        "integer_sum_of_squares": "7971605792624770",
+        "sample_variance_integer_numerator": "2407637153588865794",
+        "normalised_mean_exact_fraction": "514784267/3649044480",
+        "normalised_sample_variance_exact_fraction": "1203818576794432897/26569830426602373120",
+        "normalised_mean_float_diagnostic": 0.1410737166459533,
+        "normalised_sample_variance_float_diagnostic": 0.04530772524574112
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "method": "full_global",
+      "q": 24,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        11,
+        11,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 435,
+        "integer_sum": "1039734509",
+        "integer_sum_of_squares": "8042026547034981",
+        "sample_variance_integer_numerator": "2417233698754745654",
+        "normalised_mean_exact_fraction": "1039734509/7298088960",
+        "normalised_sample_variance_exact_fraction": "172659549911053261/3795690060943196160",
+        "normalised_mean_float_diagnostic": 0.14246668061990847,
+        "normalised_sample_variance_float_diagnostic": 0.04548831625840095
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "method": "interval",
+      "q": 24,
+      "configuration_identity": [
+        12,
+        0,
+        23,
+        11,
+        11,
+        11
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 570,
+        "integer_sum": "1746906327",
+        "integer_sum_of_squares": "15485039806574205",
+        "sample_variance_integer_numerator": "5774790974434665921",
+        "normalised_mean_exact_fraction": "582302109/3187671040",
+        "normalised_sample_variance_exact_fraction": "1924930324811555307/30430259732189020160",
+        "normalised_mean_float_diagnostic": 0.18267321241529363,
+        "normalised_sample_variance_float_diagnostic": 0.06325711123574049
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        15,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 570,
+        "integer_sum": "5058614270",
+        "integer_sum_of_squares": "232676790385004300",
+        "sample_variance_integer_numerator": "107036192186804818100",
+        "normalised_mean_exact_fraction": "505861427/3825205248",
+        "normalised_sample_variance_exact_fraction": "5351809609340240905/73032623357253648384",
+        "normalised_mean_float_diagnostic": 0.13224425728906664,
+        "normalised_sample_variance_float_diagnostic": 0.07327971204266888
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "method": "full_cap",
+      "q": 29,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        12,
+        13,
+        13
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "34708135337",
+        "integer_sum_of_squares": "9575318668057870689",
+        "sample_variance_integer_numerator": "2960608962033665646146",
+        "normalised_mean_exact_fraction": "1196832253/8053063680",
+        "normalised_sample_variance_exact_fraction": "51044982104028718037/938189874373821726720",
+        "normalised_mean_float_diagnostic": 0.14861825269957382,
+        "normalised_sample_variance_float_diagnostic": 0.054407943954946
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "method": "full_global",
+      "q": 29,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        12,
+        13,
+        13
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "34278436053",
+        "integer_sum_of_squares": "9528419135940574089",
+        "sample_variance_integer_numerator": "2969851145894539509906",
+        "normalised_mean_exact_fraction": "11426145351/77846282240",
+        "normalised_sample_variance_exact_fraction": "494975190982423251651/9069168785613610024960",
+        "normalised_mean_float_diagnostic": 0.1467783049134345,
+        "normalised_sample_variance_float_diagnostic": 0.05457779016833391
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "method": "interval",
+      "q": 29,
+      "configuration_identity": [
+        15,
+        0,
+        28,
+        12,
+        13,
+        13
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "60450967733",
+        "integer_sum_of_squares": "20050797036413814825",
+        "sample_variance_integer_numerator": "7774634810899667290961",
+        "normalised_mean_exact_fraction": "60450967733/306016419840",
+        "normalised_sample_variance_exact_fraction": "7774634810899667290961/93481757897284669931520",
+        "normalised_mean_float_diagnostic": 0.1975415821301571,
+        "normalised_sample_variance_float_diagnostic": 0.08316740063277622
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "method": "direct",
+      "q": 26,
+      "configuration_identity": [
+        17,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 26,
+        "count": 570,
+        "integer_sum": "5150967232",
+        "integer_sum_of_squares": "213750592461941408",
+        "sample_variance_integer_numerator": "95305374278168860736",
+        "normalised_mean_exact_fraction": "80483863/597688320",
+        "normalised_sample_variance_exact_fraction": "1489146473096388449/22822694799141765120",
+        "normalised_mean_float_diagnostic": 0.134658584260104,
+        "normalised_sample_variance_float_diagnostic": 0.06524849436940229
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "method": "full_cap",
+      "q": 29,
+      "configuration_identity": [
+        17,
+        0,
+        0,
+        13,
+        13,
+        12
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "31462364158",
+        "integer_sum_of_squares": "8541556047000101650",
+        "sample_variance_integer_numerator": "2725696522034441168786",
+        "normalised_mean_exact_fraction": "15731182079/116769423360",
+        "normalised_sample_variance_exact_fraction": "1362848261017220584393/27207506356840830074880",
+        "normalised_mean_float_diagnostic": 0.13472004593617615,
+        "normalised_sample_variance_float_diagnostic": 0.05009089194513989
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "method": "full_global",
+      "q": 29,
+      "configuration_identity": [
+        17,
+        0,
+        0,
+        13,
+        14,
+        13
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "31251955433",
+        "integer_sum_of_squares": "8537397201257520799",
+        "sample_variance_integer_numerator": "2737083064160803330076",
+        "normalised_mean_exact_fraction": "31251955433/233538846720",
+        "normalised_sample_variance_exact_fraction": "684270766040200832519/13603753178420415037440",
+        "normalised_mean_float_diagnostic": 0.13381908779599885,
+        "normalised_sample_variance_float_diagnostic": 0.05030014563375474
+      }
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "method": "interval",
+      "q": 29,
+      "configuration_identity": [
+        17,
+        0,
+        28,
+        13,
+        14,
+        13
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "53847653793",
+        "integer_sum_of_squares": "20227343063404354377",
+        "sample_variance_integer_numerator": "8630015727129694708041",
+        "normalised_mean_exact_fraction": "17949217931/102005473280",
+        "normalised_sample_variance_exact_fraction": "2876671909043231569347/31160585965761556643840",
+        "normalised_mean_float_diagnostic": 0.1759632826929814,
+        "normalised_sample_variance_float_diagnostic": 0.09231764486727059
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "method": "direct",
+      "q": 28,
+      "configuration_identity": [
+        12,
+        10,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 570,
+        "integer_sum": "1995895956",
+        "integer_sum_of_squares": "366817903573477936",
+        "sample_variance_integer_numerator": "205102604369705269584",
+        "normalised_mean_exact_fraction": "166324663/12750684160",
+        "normalised_sample_variance_exact_fraction": "4272970924368859783/486884155715024322560",
+        "normalised_mean_float_diagnostic": 0.013044371651975733,
+        "normalised_sample_variance_float_diagnostic": 0.008776155219291733
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "method": "full_cap",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        10,
+        10,
+        9
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 435,
+        "integer_sum": "148966154",
+        "integer_sum_of_squares": "122686650702214",
+        "sample_variance_integer_numerator": "31177778017911374",
+        "normalised_mean_exact_fraction": "74483077/912261120",
+        "normalised_sample_variance_exact_fraction": "15588889008955687/1660614401662648320",
+        "normalised_mean_float_diagnostic": 0.08164666384115986,
+        "normalised_sample_variance_float_diagnostic": 0.009387422506602197
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "method": "full_global",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        0,
+        10,
+        10,
+        9
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 435,
+        "integer_sum": "148870141",
+        "integer_sum_of_squares": "122735100823695",
+        "sample_variance_integer_numerator": "31227449976947444",
+        "normalised_mean_exact_fraction": "148870141/1824522240",
+        "normalised_sample_variance_exact_fraction": "7806862494236861/830307200831324160",
+        "normalised_mean_float_diagnostic": 0.0815940402019983,
+        "normalised_sample_variance_float_diagnostic": 0.009402378404547662
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "method": "interval",
+      "q": 22,
+      "configuration_identity": [
+        12,
+        0,
+        21,
+        10,
+        10,
+        9
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 570,
+        "integer_sum": "268404993",
+        "integer_sum_of_squares": "241061632368629",
+        "sample_variance_integer_numerator": "65363890182788481",
+        "normalised_mean_exact_fraction": "89468331/796917760",
+        "normalised_sample_variance_exact_fraction": "21787963394262827/1901891233261813760",
+        "normalised_mean_float_diagnostic": 0.11226795974530672,
+        "normalised_sample_variance_float_diagnostic": 0.011455946067376137
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "method": "direct",
+      "q": 28,
+      "configuration_identity": [
+        15,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 570,
+        "integer_sum": "1982612730",
+        "integer_sum_of_squares": "127706681616739700",
+        "sample_variance_integer_numerator": "68862055284383576100",
+        "normalised_mean_exact_fraction": "66087091/5100273664",
+        "normalised_sample_variance_exact_fraction": "1147700921406392935/389507324572019458048",
+        "normalised_mean_float_diagnostic": 0.012957557839782615,
+        "normalised_sample_variance_float_diagnostic": 0.0029465451584702726
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "method": "full_cap",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        11,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 435,
+        "integer_sum": "5613452687",
+        "integer_sum_of_squares": "186084066302093861",
+        "sample_variance_integer_numerator": "49435717772223309566",
+        "normalised_mean_exact_fraction": "5613452687/58384711680",
+        "normalised_sample_variance_exact_fraction": "24717858886111654783/1700469147302551879680",
+        "normalised_mean_float_diagnostic": 0.09614593487703937,
+        "normalised_sample_variance_float_diagnostic": 0.014535905532494668
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "method": "full_global",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        0,
+        11,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 435,
+        "integer_sum": "5570431070",
+        "integer_sum_of_squares": "185611374612840378",
+        "sample_variance_integer_numerator": "49711245650964219530",
+        "normalised_mean_exact_fraction": "19208383/201326592",
+        "normalised_sample_variance_exact_fraction": "171418088451600757/11727373429672771584",
+        "normalised_mean_float_diagnostic": 0.09540907045205434,
+        "normalised_sample_variance_float_diagnostic": 0.014616920786190384
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "method": "interval",
+      "q": 27,
+      "configuration_identity": [
+        15,
+        0,
+        26,
+        11,
+        12,
+        11
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 27,
+        "count": 570,
+        "integer_sum": "10108568824",
+        "integer_sum_of_squares": "363851588355534260",
+        "sample_variance_integer_numerator": "105212241693109785224",
+        "normalised_mean_exact_fraction": "1263571103/9563013120",
+        "normalised_sample_variance_exact_fraction": "13151530211638723153/730326233572536483840",
+        "normalised_mean_float_diagnostic": 0.13213106446098863,
+        "normalised_sample_variance_float_diagnostic": 0.01800774723277485
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "method": "direct",
+      "q": 28,
+      "configuration_identity": [
+        17,
+        14,
+        0,
+        12,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 28,
+        "count": 570,
+        "integer_sum": "1920418212",
+        "integer_sum_of_squares": "49402087366026960",
+        "sample_variance_integer_numerator": "24471183689654090256",
+        "normalised_mean_exact_fraction": "160034851/12750684160",
+        "normalised_sample_variance_exact_fraction": "509816326867793547/486884155715024322560",
+        "normalised_mean_float_diagnostic": 0.012551079533602062,
+        "normalised_sample_variance_float_diagnostic": 0.0010470998509267398
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "method": "full_cap",
+      "q": 29,
+      "configuration_identity": [
+        16,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "22195483661",
+        "integer_sum_of_squares": "3103594036692789247",
+        "sample_variance_integer_numerator": "857423911015645359524",
+        "normalised_mean_exact_fraction": "22195483661/233538846720",
+        "normalised_sample_variance_exact_fraction": "214355977753911339881/13603753178420415037440",
+        "normalised_mean_float_diagnostic": 0.09503979304826808,
+        "normalised_sample_variance_float_diagnostic": 0.015757120475689272
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "method": "full_global",
+      "q": 29,
+      "configuration_identity": [
+        16,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 435,
+        "integer_sum": "22145158686",
+        "integer_sum_of_squares": "3103210527778451474",
+        "sample_variance_integer_numerator": "859488526355505144594",
+        "normalised_mean_exact_fraction": "3690859781/38923141120",
+        "normalised_sample_variance_exact_fraction": "143248087725917524099/9069168785613610024960",
+        "normalised_mean_float_diagnostic": 0.09482430438029354,
+        "normalised_sample_variance_float_diagnostic": 0.015795062492733783
+      }
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "method": "interval",
+      "q": 29,
+      "configuration_identity": [
+        16,
+        0,
+        28,
+        12,
+        12,
+        11
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "39375116100",
+        "integer_sum_of_squares": "5966920837810043496",
+        "sample_variance_integer_numerator": "1850745109663245582720",
+        "normalised_mean_exact_fraction": "656251935/5100273664",
+        "normalised_sample_variance_exact_fraction": "963929744616273741/48688415571502432256",
+        "normalised_mean_float_diagnostic": 0.12866994562117676,
+        "normalised_sample_variance_float_diagnostic": 0.0197979279732501
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "method": "direct",
+      "q": 29,
+      "configuration_identity": [
+        11,
+        10,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "3071185000",
+        "integer_sum_of_squares": "1258941044956920000",
+        "sample_variance_integer_numerator": "708164218321219400000",
+        "normalised_mean_exact_fraction": "76779625/7650410496",
+        "normalised_sample_variance_exact_fraction": "2213013182253810625/292130493429014593536",
+        "normalised_mean_float_diagnostic": 0.010036013759019082,
+        "normalised_sample_variance_float_diagnostic": 0.007575426845303143
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "method": "full_cap",
+      "q": 22,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        9,
+        10,
+        8
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 435,
+        "integer_sum": "80402868",
+        "integer_sum_of_squares": "35428611819118",
+        "sample_variance_integer_numerator": "8946824958690906",
+        "normalised_mean_exact_fraction": "6700239/152043520",
+        "normalised_sample_variance_exact_fraction": "213019641873593/79076876269649920",
+        "normalised_mean_float_diagnostic": 0.044067902400575835,
+        "normalised_sample_variance_float_diagnostic": 0.0026938297505227954
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "method": "full_global",
+      "q": 22,
+      "configuration_identity": [
+        11,
+        0,
+        0,
+        9,
+        10,
+        8
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 435,
+        "integer_sum": "79830989",
+        "integer_sum_of_squares": "35417211110511",
+        "sample_variance_integer_numerator": "9033500028354164",
+        "normalised_mean_exact_fraction": "79830989/1824522240",
+        "normalised_sample_variance_exact_fraction": "2258375007088541/830307200831324160",
+        "normalised_mean_float_diagnostic": 0.04375446199000567,
+        "normalised_sample_variance_float_diagnostic": 0.0027199270400490323
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "method": "interval",
+      "q": 22,
+      "configuration_identity": [
+        11,
+        0,
+        21,
+        9,
+        10,
+        8
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 22,
+        "count": 570,
+        "integer_sum": "146109470",
+        "integer_sum_of_squares": "69833324950042",
+        "sample_variance_integer_numerator": "18457017997843040",
+        "normalised_mean_exact_fraction": "14610947/239075328",
+        "normalised_sample_variance_exact_fraction": "115356362486519/35660460623659008",
+        "normalised_mean_float_diagnostic": 0.06111440742224978,
+        "normalised_sample_variance_float_diagnostic": 0.003234853405398403
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "method": "direct",
+      "q": 29,
+      "configuration_identity": [
+        14,
+        14,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "1719200140",
+        "integer_sum_of_squares": "128999988053112200",
+        "sample_variance_integer_numerator": "70574344068897934400",
+        "normalised_mean_exact_fraction": "85960007/15300820992",
+        "normalised_sample_variance_exact_fraction": "220544825215306045/292130493429014593536",
+        "normalised_mean_float_diagnostic": 0.005617999651452951,
+        "normalised_sample_variance_float_diagnostic": 0.0007549531123114223
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "method": "full_cap",
+      "q": 24,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        12,
+        10
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 435,
+        "integer_sum": "391384825",
+        "integer_sum_of_squares": "911466760002445",
+        "sample_variance_integer_numerator": "243305959360782950",
+        "normalised_mean_exact_fraction": "78276965/1459617792",
+        "normalised_sample_variance_exact_fraction": "24330595936078295/5313966085320474624",
+        "normalised_mean_float_diagnostic": 0.05362839876920327,
+        "normalised_sample_variance_float_diagnostic": 0.004578613326737287
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "method": "full_global",
+      "q": 24,
+      "configuration_identity": [
+        14,
+        0,
+        0,
+        11,
+        12,
+        10
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 435,
+        "integer_sum": "399081637",
+        "integer_sum_of_squares": "916029116158177",
+        "sample_variance_integer_numerator": "239206512538207226",
+        "normalised_mean_exact_fraction": "399081637/7298088960",
+        "normalised_sample_variance_exact_fraction": "119603256269103613/26569830426602373120",
+        "normalised_mean_float_diagnostic": 0.05468303266612963,
+        "normalised_sample_variance_float_diagnostic": 0.004501468558465238
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "method": "interval",
+      "q": 24,
+      "configuration_identity": [
+        14,
+        0,
+        23,
+        11,
+        12,
+        10
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 24,
+        "count": 570,
+        "integer_sum": "731225893",
+        "integer_sum_of_squares": "1800479637093429",
+        "sample_variance_integer_numerator": "491582086549607081",
+        "normalised_mean_exact_fraction": "731225893/9563013120",
+        "normalised_sample_variance_exact_fraction": "491582086549607081/91290779196567060480",
+        "normalised_mean_float_diagnostic": 0.07646396421549613,
+        "normalised_sample_variance_float_diagnostic": 0.005384794509105173
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "method": "direct",
+      "q": 29,
+      "configuration_identity": [
+        16,
+        14,
+        0,
+        13,
+        0,
+        0
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 29,
+        "count": 570,
+        "integer_sum": "1784069192",
+        "integer_sum_of_squares": "57166688480913760",
+        "sample_variance_integer_numerator": "29402109552277310336",
+        "normalised_mean_exact_fraction": "223008649/38252052480",
+        "normalised_sample_variance_exact_fraction": "229703980877166487/730326233572536483840",
+        "normalised_mean_float_diagnostic": 0.005829978642756479,
+        "normalised_sample_variance_float_diagnostic": 0.0003145224289062213
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "method": "full_cap",
+      "q": 25,
+      "configuration_identity": [
+        16,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 435,
+        "integer_sum": "855391585",
+        "integer_sum_of_squares": "4520410916020209",
+        "sample_variance_integer_numerator": "1234683984779978690",
+        "normalised_mean_exact_fraction": "171078317/2919235584",
+        "normalised_sample_variance_exact_fraction": "123468398477997869/21255864341281898496",
+        "normalised_mean_float_diagnostic": 0.058603806399750984,
+        "normalised_sample_variance_float_diagnostic": 0.005808674561316463
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "method": "full_global",
+      "q": 25,
+      "configuration_identity": [
+        16,
+        0,
+        0,
+        12,
+        12,
+        11
+      ],
+      "states": 435,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 435,
+        "integer_sum": "861275236",
+        "integer_sum_of_squares": "4523720130577402",
+        "sample_variance_integer_numerator": "1226023224654314174",
+        "normalised_mean_exact_fraction": "215318809/3649044480",
+        "normalised_sample_variance_exact_fraction": "613011612327157087/106279321706409492480",
+        "normalised_mean_float_diagnostic": 0.059006901719104284,
+        "normalised_sample_variance_float_diagnostic": 0.005767929287510569
+      }
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "method": "interval",
+      "q": 25,
+      "configuration_identity": [
+        16,
+        0,
+        24,
+        12,
+        12,
+        11
+      ],
+      "states": 570,
+      "matches_scalar_python_integer_graph": true,
+      "exact_moments": {
+        "q": 25,
+        "count": 570,
+        "integer_sum": "1578563945",
+        "integer_sum_of_squares": "8760063669843341",
+        "sample_variance_integer_numerator": "2501372163356741345",
+        "normalised_mean_exact_fraction": "315712789/3825205248",
+        "normalised_sample_variance_exact_fraction": "500274432671348269/73032623357253648384",
+        "normalised_mean_float_diagnostic": 0.08253486245347742,
+        "normalised_sample_variance_float_diagnostic": 0.006850013181426553
+      }
+    }
+  ],
+  "resources_sha256": "c85b8d39465033c31ea56512c5b200882343d03589fee297d5546f453b78cea9",
+  "source_hashes": {
+    "classical_engine.py": "a6fe5b21c6294856d09a858c1bd20716b749f86de5e65109e95019f31fe2e884",
+    "generalisation.py": "a7a5b0e3c49a6e7a4a8137bd565ed6c5ac691c3732553c890c4c556ed2bc2655",
+    "general_kernels.py": "011a7ef494de71263be09972b5c1d51c020a325a6ad147758768ee3abbe0581e",
+    "encoding_resources.py": "480d4d7c719dc5deb47692a08866b5cad82c5e8bc6b24bc5b2b0769cbe2f6082",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686"
+  },
+  "table_generation_seconds_diagnostic": 26.900143624006887,
+  "vector_evaluation_seconds_diagnostic": 0.032494999999471474,
+  "scalar_reference_seconds_diagnostic": 0.8756514580127259,
+  "elapsed_seconds_diagnostic": 29.085876249999274,
+  "numpy_version": "2.3.5",
+  "python_version": "3.12.14",
+  "claim_limit": "exact finite interpreter audit; seeded pseudorandom samples do not prove independence or continuous-law accuracy"
+}

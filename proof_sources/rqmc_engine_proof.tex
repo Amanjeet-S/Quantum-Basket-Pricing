@@ -1,0 +1,162 @@
+\subsection{Exact finite targets under independent digital shifts}
+\label{sec:rqmc-finite-target}
+
+I fix a certified financial graph before generating any random shifts. Its input
+group is $\mathcal G=\prod_{j=1}^{d}\{0,\ldots,2^{b_j}-1\}$, with addition given
+by coordinatewise bitwise exclusive-or, denoted by $\oplus$. The retained graph
+returns an integer $a(u)$, and I write $x(u)=2^{-q}a(u)$. The finite range
+certificate gives $0\leq x(u)\leq\rho$ for every $u\in\mathcal G$. I denote
+its exact uniform mean by
+\[
+ \mu=|\mathcal G|^{-1}\sum_{u\in\mathcal G}x(u).
+\]
+For any deterministic points $t_1,\ldots,t_N\in\mathcal G$, a shift
+$\Delta$ that is exactly uniform on $\mathcal G$ defines
+\[
+ B(\Delta)=\frac1N\sum_{i=1}^{N}x(t_i\oplus\Delta).
+\]
+
+\begin{proposition}[Uniform finite marginals and independent shift batches]
+\label{prop:rqmc-finite-unbiased}
+For every deterministic point set, $0\leq B(\Delta)\leq\rho$ and
+$\mathbb E B(\Delta)=\mu$. If the shift vectors $\Delta_1,\ldots,\Delta_R$
+are independent and each exactly uniform on $\mathcal G$, their batch means
+$B(\Delta_1),\ldots,B(\Delta_R)$ are independent and identically distributed.
+These statements do not imply independence among the points within a batch
+or a variance reduction proportional to $N^{-1}$.
+\end{proposition}
+
+\begin{proof}
+For every fixed $t\in\mathcal G$, the map $\Delta\mapsto t\oplus\Delta$
+is its own inverse and therefore a bijection of the finite group. Consequently,
+for every $u\in\mathcal G$,
+$\mathbb P(t\oplus\Delta=u)=|\mathcal G|^{-1}$. Thus
+$\mathbb E x(t\oplus\Delta)=\mu$. Linearity of expectation gives
+$\mathbb E B(\Delta)=N^{-1}\sum_i\mu=\mu$, without using pointwise
+independence. The range follows by averaging values in $[0,\rho]$.
+Finally, each batch mean is the same deterministic function of its own shift
+vector. Applying deterministic functions separately to independent identically
+distributed vectors preserves independence and their common distribution.
+\end{proof}
+
+The engine forms its digital points as integers, truncating the retained
+32-bit Joe--Kuo words to the relevant $b_j$ leading bits. It then draws an
+independent $b_j$-bit shift for every coordinate of each replicate. It applies
+exclusive-or directly to these finite words. No conversion to a floating-point
+uniform variate enters the financial graph. The confidence argument above
+uses only the finite-group bijection; it does not infer accuracy from the
+quality or discrepancy of the chosen direction numbers. I retain the
+author-distributed direction file, algorithm and BSD licence described in
+the source ledger. My actual PCG64DXSM stream is a reproducible numerical
+implementation of the declared ideal-shift model, and is not a proof of
+that model's randomness assumptions.
+
+\begin{proposition}[A range and moment prior for a shifted batch]
+\label{prop:rqmc-prior-variance}
+Suppose that the finite target has proved bounds
+$\mathbb E x(U)\leq u$ and $\mathbb E x(U)^2\leq v$, where $U$ is uniform
+on $\mathcal G$, $0\leq u\leq\rho$ and $0\leq v\leq\rho^2$.
+For $\rho>0$, define
+\[
+ m_* = \min\{u,\rho/2,v/\rho\},\qquad
+ V_* = m_*(\rho-m_*).
+\]
+Then $\operatorname{Var}(B)\leq V_*$. For $\rho=0$, $B=0$ and its variance
+is zero. This bound requires no assumption on the within-batch covariance.
+\end{proposition}
+
+\begin{proof}
+Convexity of the square gives, for every shift,
+\[
+ B(\Delta)^2\leq\frac1N\sum_i x(t_i\oplus\Delta)^2.
+\]
+The preceding proposition therefore yields $\mathbb E B^2\leq v$.
+The pointwise inequality $B^2\leq\rho B$ gives a second bound
+$\mathbb E B^2\leq\rho\mu$. Also $0\leq\mu\leq u$. Consequently,
+\[
+ \operatorname{Var}(B)\leq\min\{v,\rho\mu\}-\mu^2.
+\]
+To maximise this upper bound on $\mu\in[0,u]$, split the interval at
+$v/\rho$. On $[0,v/\rho]$ the expression is
+$\rho\mu-\mu^2$, whose derivative is $\rho-2\mu$. It increases until
+$\rho/2$ and decreases afterwards. On $[v/\rho,u]$, when that interval is
+nonempty, the expression is $v-\mu^2$ and is nonincreasing. The maximum is
+therefore attained at $\mu=m_*$ and equals $V_*$. The degenerate case is
+immediate from $0\leq B\leq0$.
+\end{proof}
+
+I use this deterministic prior only to select the graph and to cap the
+confidence bound on its batch variance. My prospective selection count is
+\[
+ R_{\mathrm{plan}}=
+ \max\left\{1,
+ \left\lceil
+ \frac{(2V_*+2\rho\epsilon/3)\log(2/\alpha_{\mathrm{event}})}
+      {\epsilon^2}
+ \right\rceil\right\},
+ \qquad \epsilon=\frac{0.005}{H}.
+\]
+I minimise $64R_{\mathrm{plan}}$ times the retained conservative scalar-lane
+operation count over both fully conditioned methods and all their inherited
+prefixes. This count is a prospective graph-selection objective. It is not
+the production stopping rule, a measured runtime, a globally optimal
+classical cost, or a claimed $N^{-1}$ variance rate. I retain all candidates
+and the deterministic tie-breaking rule before generating the production
+shifts. The production confidence construction uses the prescribed
+checkpoint allocation in the separate confidence proposition.
+
+\subsection{Exact batch statistics and monetary reconstruction}
+\label{sec:rqmc-integer-reconstruction}
+
+In the retained experiment $N=64$ and $q\leq30$. For replicate $j$ I compute
+\[
+ T_j=\sum_{i=1}^{64}a(t_i\oplus\Delta_j),\qquad
+ D=64\,2^q,\qquad B_j=T_j/D.
+\]
+Each summand is at most $2^q$, so $T_j\leq2^{36}$ and the 64-word unsigned
+sum is exact. All cross-replicate totals and square totals are assembled
+as arbitrary-precision integers. For each finite checkpoint I retain
+$S=\sum_jT_j$, $S_2=\sum_jT_j^2$ and
+$Q=\sum_{k=1}^{\lfloor R/2\rfloor}(T_{2k-1}-T_{2k})^2$. They determine
+\[
+ \overline B=\frac{S}{RD},\qquad
+ \widehat\sigma_{\mathrm{pair}}^2=
+ \frac{Q}{2\lfloor R/2\rfloor D^2},\qquad
+ \widehat\sigma_{\mathrm{sample}}^2=
+ \frac{RS_2-S^2}{R(R-1)D^2}.
+\]
+The ordinary sample variance is retained as a diagnostic. It does not
+substitute for the proved pair-based confidence bound.
+
+The square reduction uses $T=\ell+2^{16}h$, where
+$0\leq\ell<2^{16}$ and $0\leq h\leq2^{20}$. In a reduction containing
+at most $2^{20}$ words, $\sum\ell^2<2^{52}$,
+$\sum\ell h<2^{56}$ and $\sum h^2\leq2^{60}$.
+Each unsigned 64-bit reduction is therefore safe. I reconstruct
+\[
+ \sum T^2=\sum\ell^2+2^{17}\sum\ell h+2^{32}\sum h^2
+\]
+using Python integers. The same argument applies to the unsigned absolute
+paired differences, which are at most $2^{36}$. I retain the integer batch
+sums, shift-stream hash, financial-output hash and predetermined scalar
+replay points. A separate interpreter replays every retained financial
+output, every batch sum and every checkpoint moment.
+
+If the confidence construction returns $\mu\in[\ell_\mu,h_\mu]$, and the
+retained geometric correction centre is $c$ with total correction,
+arithmetic and distribution allowance $\beta$, the undiscounted payoff
+is enclosed by
+\[
+ [c+H\ell_\mu-\beta,\ c+Hh_\mu+\beta]\cap[0,H].
+\]
+I apply the strictly positive discount factor to this interval and report
+an enclosed midpoint with its rounding allowance. For these frozen contracts,
+$\beta\leq0.005$ and $r=0.03$, $T=1$. If the finite-mean confidence
+half-width is at most $0.005/H$, the price interval has half-width at most
+$e^{-0.03}(0.005+0.005)<0.01$, apart from the explicitly retained numerical
+enclosure increments, which are smaller than the strict slack. If the
+confidence intersection is empty, I retain that outcome as an explicit
+confidence failure and produce no reconstructed price interval. If the
+prespecified maximum is reached with a wider nonempty interval, I retain
+the interval and record that the requested statistical certificate was
+not obtained.

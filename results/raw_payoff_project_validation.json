@@ -1,0 +1,134 @@
+{
+  "schema": "qbp-raw-payoff-project-validation-v1",
+  "status": "passed",
+  "date": "2026-10-10",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "git_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_staging_or_pushes": false,
+  "data_origin": "Synthetic models and scalar certificates only. No LSEG data acquired, redistributed or deleted.",
+  "installed_file_sha256": {
+    "figures/pricing_precision_figure.tex": "fa6688499f50b205d6a37d7fbb80396ef49a8d81f443dc49308681740f94be2c",
+    "figures/plot_pricing_precision.py": "3a4439556a39b3ff7c26386079bee14d9a27f505c22be50fa371fdae764aab30",
+    "figures/pricing_precision_render_record.json": "a5d4f27fc9cc8a017994b2269c82e0f90ed50ec01b02b95d4edf42498246ff8e",
+    "generalisation_proofs.tex": "be70624dc9a171205487db630100b639b13f9bd918c5c15b12a7dfc433b513c6",
+    "raw_payoff_proof.tex": "cced6f6f6fe4fe46b8490a7b623052337998fe9808d222dea0d317673e7691d5",
+    "raw_payoff_oracle.py": "b181d361b0bd2ffc85a5d0819c85c9e5f5e01927fb899d74fe75e2140ddbbcbe",
+    "raw_payoff_oracle_tight.py": "2c859624add5d79e85b2f7974a7d1592a4949951abd000f856eedc4c2b6d4857",
+    "check_raw_payoff_resources.py": "1869b3798f171fc5323b00126cbeda0a81333ad585eb5a1d8c1c1a81107e3762",
+    "check_raw_payoff_resources_tight.py": "639520f6540aff35650e282064f765de9e279887acbd08e5df84c0600a2470d6",
+    "results/raw_payoff_protocol.json": "f7fa537aa43af54f55bedfc147ef3dec1cb0bc0ac1c6b39b83829aff65747f97",
+    "results/raw_payoff_scalar_ordinates.json.gz": "129d561685e2848b4544d6edb40c77c5489487e696ab0f5644c520021ee0117b",
+    "results/raw_payoff_interface_resource_check.json": "0c9d9b1c98f89393fd809790b8c91b94c084a4d44eedda5a55a8d1015019a0f5",
+    "results/raw_payoff_resources.json": "80a9324dd1c7b7afb45673212c2af707de57d60c4e989439cc3bfe3aa2a15527",
+    "results/raw_payoff_tight/raw_payoff_resources.json.gz": "9b8386a17bc050578beed1d07793d16b233918ff10f48fe527e6fa3e70bce5f5",
+    "results/raw_payoff_tight/raw_payoff_protocol.json": "f591efb7bdd009f1d129192e97daa5230a0f0228203a3e2c04f4861af3922e9e",
+    "results/raw_payoff_tight/raw_payoff_scalar_ordinates.json.gz": "493d69a77692dea05e33ac0032fdd51599820fc5065a18b2cf8ac581bae57a78",
+    "results/raw_payoff_tight/raw_payoff_interface_resource_check.json": "127a07c136ac16b460ebf64344b705e89985ab04add97b333fe1ace130853329",
+    "raw_payoff_smoothing_amendment.py": "83169e25a71b32a9a6bf0b24dc18f0d33b9bfc3f796dcdf53f8c4c83a3857642",
+    "check_raw_payoff_smoothing_winner_preparations.py": "c49cbbe3a0073c0064eb3f3d5acc78552e4fb80e59232d1bda1ba38042bfc342",
+    "check_raw_payoff_resources_independent.py": "1e090225c21f8a12b85d80c69976118619d3f129a46b05cdf6667272011dc26f",
+    "results/raw_payoff_smoothing/changed_winner_preparation_audit.json": "18ace8f02f6044688fea21f09c621c544eceee31b6c43225da8ac04814559fc8",
+    "results/raw_payoff_smoothing/raw_payoff_smoothing_protocol.json": "7621f2c5ca573f0316318bef825b06aaf82b8676ddbf76e78b161baa043cc345",
+    "results/raw_payoff_smoothing/raw_payoff_smoothing_resources.json": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+    "results/raw_payoff_smoothing/raw_payoff_smoothing_audit.json": "95bbee87abbe2b57bdb0dca1814f5d248e1f77651aa08e017b7d84b71446c34b",
+    "proof_sources/raw_payoff_smoothing_first_certificate_fragment.tex": "72b49a0136fd63980472d4a1aef670c97bdd8ac314c678e88136b685340439f2",
+    "proof_sources/raw_payoff_exact_variation_fragment.tex": "e59bc3f8487f191f991f2ad8d50f168b7f1024bfb2204ab520e854039d03a0b3",
+    "results/raw_payoff_independent_mathematics_review.json": "cfeb324ab86bd4a98883773cf134a7fc3dbee496b7e7f2bacb32a7f0b7ffb74d",
+    "results/raw_payoff_independent_resource_review.json": "ea071b016a497b02b51dafbdaac50fe6c95fbc7285d73c0438a85156167620ec",
+    "reviews/raw_payoff_resource_review.md": "21c75eefb89d9ca8d2ae5ee2195c157fd5277ccf3b745a6bf86d4fb933d6664c",
+    "results/raw_payoff_phase_record.json": "f72a0b8842eefac8cd368f48bfddea419705fbc0e23c51535365eb7ef93435ea",
+    "history/raw_payoff_phase/raw_payoff_phase_record.invalid.json.txt": "4ed9c375f9cd504c014346936b6791c40666bb875ac5473463a06825b25bd60e",
+    "history/raw_payoff_phase/pointwise_raw_payoff_proof.tex.txt": "398cff41801a3abb4b16929b5cbe4e28ad654988e873161dec7b61895c981a0e",
+    "README.md": "ae7802b3c91c288cc0b3e7573c2b2040ce9113ba010e95cfad58833d3fd4b7dd",
+    "SOURCES.md": "d58420f2be5396c2b140fecd9e63f814429626687ba4d07520de94b89d80bd3d",
+    "supporting_proofs_index.md": "ac8b75b8b0b4cff2da3894d3cb32549c75f0c1200caf5ff47e45587a2995d511",
+    "novelty_scope_review.md": "a6eeeb51c4c62ed963a3c3195d3a47ba666a7ed879007b3dddba64219348b759",
+    "quantum_method_redesign.md": "32b3463d0bcb5389aeaf3507510d97feb35f081007576ba86dbdf6b62e4ad8aa",
+    "reviews/research_adversarial_review_2026_10_10.md": "c4b6a025fcf77c654dbf0c6b5a224784593b93eed72b13f963e5cc4bb6c63a45",
+    "reviews/figure_selection_review.md": "2deef47e390d54036ff95d5ce46e840c230a0feb06d2bb8ea8fed4c5c825a835",
+    "history/before_raw_payoff_comparison/figures/pricing_precision_figure.tex.txt": "cab9a6cdd1673ca16b0ef1986113a7bcc9339292065542f5018e78398ea0af5f",
+    "history/before_raw_payoff_comparison/figures/plot_pricing_precision.py": "5d9943850ca9af5e773d7856117f0a831bfc94ba4a9dfd516f32a3d9a47d19b2",
+    "history/before_raw_payoff_comparison/figures/pricing_precision_render_record.json": "28526649421bd72a901dee25656993af7477d7265aa3e3eee30f08a0b1bdf214",
+    "history/before_raw_payoff_comparison/generalisation_proofs.tex.txt": "8a42e59fa8d4d7ae427d5daaa5f848765d308cbbcac8450695d1b93a99419172",
+    "history/before_raw_payoff_comparison/README.md": "b86c131d8997a6e3035f50a3f37483d1a71e052b13f4dfbc62fb3f9c07bb4aa2",
+    "history/before_raw_payoff_comparison/SOURCES.md": "1ac34982296eb73d287a978156f3bdc1861f8e4f29fb18247cf4ffa3dbb56972",
+    "history/before_raw_payoff_comparison/supporting_proofs_index.md": "26fc511550c2946992b6413b505076fff73940c3aef10c33401542d5575a53cd",
+    "history/before_raw_payoff_comparison/novelty_scope_review.md": "5d8ec11583b198eb3474a8fc957bc2418438dac48d4ab8aa1cf9fada66c04e66",
+    "history/before_raw_payoff_comparison/quantum_method_redesign.md": "c91ab93b3fed243e407e0504d56c9d21151ca7759e23f8ee46bdf045a17846a0",
+    "history/before_raw_payoff_comparison/reviews/research_adversarial_review_2026_10_10.md": "fd18ca963812b5274d9702e3fb9712ba3bdb2ec130127251246472e04176cf43",
+    "history/before_raw_payoff_comparison/reviews/figure_selection_review.md": "bb05f50e9def0bbbf9a70e1395f17877e38f95c857606ac2db3bcde2df3f01c6"
+  },
+  "independent_mathematics_addendum": {
+    "source_sha256": "47ffbcaca172bbfb7404871973df754f1aae8450a4d5f989e2780813925782ef",
+    "record_sha256": "fc85f8ca4d08d2abebbe26a7b40ca8b651b209fe73216b36eaf114711e4d44c9"
+  },
+  "fresh_installed_replay": {
+    "same_48_amended_records": true,
+    "same_four_exact_minima": true,
+    "audits": {
+      "raw_payoff_smoothing_audit.json": "9e66da77580f6b1e21906e248aea84ec54540829c69114432c7718a100ac2af5",
+      "changed_winner_preparation_audit.json": "7d9b24a4154f95f598fc904943b4f82fb0d4bf57478a7d450685d8aa70bf9e6a",
+      "independent_mathematics_audit.json": "fb348be4b3f2084381820efc3501894800387c849749eb7565b4b6789c22b663"
+    }
+  },
+  "native_compilation": {
+    "main": {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+      "source_sha256": "be70624dc9a171205487db630100b639b13f9bd918c5c15b12a7dfc433b513c6",
+      "status": "success"
+    },
+    "supporting_proof": {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/raw_payoff_proof.tex",
+      "source_sha256": "cced6f6f6fe4fe46b8490a7b623052337998fe9808d222dea0d317673e7691d5",
+      "status": "success"
+    }
+  },
+  "figure2": {
+    "explicit_centring": true,
+    "side_margin_fraction": ".02",
+    "drawing_commands_coordinates_colours_and_data_unchanged": true,
+    "PNG_SVG_exports_unchanged": true,
+    "numeric_pool_caption_distinguished_from_combined_rivals": true,
+    "native_PDF_pixel_review": false,
+    "exact_PDF_page_count_verified": false
+  },
+  "scope": "Checked finite implementation, full proof and fresh isolated replay. Winning exp width is upper pool boundary; literature priority and physical advantage remain unestablished.",
+  "comparisons": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "raw_T": 23346683625,
+      "numerical_T": 23789339125,
+      "shared_threshold_T": 20855422300,
+      "strongest_registered_rival_T": 23346683625,
+      "strongest_registered_rival": "raw_payoff",
+      "event_saving_against_strongest_exact": "99650453/933867345"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "raw_T": 88548390850,
+      "numerical_T": 88203283550,
+      "shared_threshold_T": 83560988725,
+      "strongest_registered_rival_T": 88203283550,
+      "strongest_registered_rival": "numerical_conditional_price",
+      "event_saving_against_strongest_exact": "185691793/3528131342"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "raw_T": 94122973950,
+      "numerical_T": 95203161050,
+      "shared_threshold_T": 89247538825,
+      "strongest_registered_rival_T": 94122973950,
+      "strongest_registered_rival": "raw_payoff",
+      "event_saving_against_strongest_exact": "195017405/3764918958"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "raw_T": 208512831750,
+      "numerical_T": 209495066950,
+      "shared_threshold_T": 203322773325,
+      "strongest_registered_rival_T": 208512831750,
+      "strongest_registered_rival": "raw_payoff",
+      "event_saving_against_strongest_exact": "69200779/2780171090"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Independent final arithmetic and data review
+
+## 1 Fresh classical evidence
+
+I independently checked the four retained synthetic H=1 contracts, their exact stressed-model provenance and all registered source hashes. I checked 1,400,000 captured uint16 masks, 800,000 outward q40 score endpoints, 400,000 exact sample sums and the complete 1,024-score one-dimensional sum. Every sampled one-dimensional score agrees exactly with its masked-node entry in the deterministic table. The mask has exactly 64 uint16 preimages per ten-bit label. That is a mathematical fact about the mapping; it does not prove that the physical word source is independent or uniform.
+
+Independent 1,024-bit Gaussian-mass and Hoeffding calculations, exact retained derivative-budget arithmetic and all five continuous-price and discount compositions pass. All four complete primary prices meet the declared cent radius. The simultaneous sampling confidence is at least 899/900 under the explicit independent uniform-word premise; the one-dimensional primary result uses deterministic summation. The separate full-score audit checks all 400,000 sampled payoff enclosures and all 1,024 exact-sum enclosures using an alternative conditional-call formula. Its current source and result hashes agree with the reviewed files.
+
+## 2 Fresh quantum evidence
+
+I independently checked all four exact quantum model dictionaries against the installed synthetic stress protocol. I checked 14 full-loading first-residual derivative coordinates, 21 financial budget calculations, 24 prior calculations, 80 emitted profile aggregations and 104 full QPE flag-charge links. The phase widths, square-root amplitude allowances, Fourier norm rounding, exact binomial confidence, financial profile hashes, controlled reflections, complete preparation adjoints, observations, resets and selected minima agree. One failed all-12 eight-asset boundary baseline and its declared all-14 repair are retained. All four selected resource winners are positive first-residual preparations.
+
+The first-residual second derivative bound uses the cancellation in (P composed with log X)'' = (P''-P')(log X)(log X)' squared + P'(log X) times the asset-loading second moment. The maximum is over the full asset loadings. Replacing it with a centred-loading maximum would not be justified. A minimum of two separately valid deterministic transfer bounds remains valid. The direct full-tail allowance is checked against an independently evaluated Gaussian mass; its separately rounded upper endpoint need not equal one minus the serialised mass lower endpoint exactly.
+
+The financial body cleanup re-emits inverse logical operations which are individually self-inverse, so its expanded gate multiset matches the forward body. The full preparation adjoint inside controlled Grover evolution separately swaps the expanded phase opcodes T/Tdg and S/Sdg. I have preserved that distinction. These are validated ideal logical resource and confidence plans. They do not supply realised quantum measurement outcomes, a physical price or a wall-clock advantage.
+
+## 3 Data publication scope
+
+Both new producers read the same exact synthetic financial protocols. The captured words, q40 arrays, finite-grid enclosures, lookup ordinates and gate counts are generated computational evidence. They contain no LSEG observations or LSEG-derived fitted parameters in the reviewed source chains. The present numerical plots and their exact synthetic plotting data can remain together under the project's publication process, subject to any separately licensed public mathematical files. No inference about a future empirical figure follows automatically.
+
+I apply the university guidance I received: raw LSEG exports and systematic derived datasets must not be provided to third parties, including through private GitHub. Code can be retained separately. Only permitted limited, non-systematic and non-commercial academic summaries should appear in later empirical tables or figures, with source attribution and a retained output assessment. No licensed data were acquired or deleted in this review; the project remains active. I did not inspect the full institutional contract, remote or historical Git objects, or unrelated local data.

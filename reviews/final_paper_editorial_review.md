@@ -1,0 +1,7 @@
+# Final editorial addendum, 10 October 2026
+
+The corrected staged main source has SHA-256 223e6818b3888a0e7630e4f1cac7b15e2389ea01ea71d08678d73314557b0b12. I verified every issue from the preceding review in this new draft. The Blair footnote uses ordinary prose; the ordinary-call falling derivative and its norm bound are explicit before first use; the optional uniform-box law has a defined weighted score and corresponding probability; the boundary sketch limits positivity to convexity; and the moved Gaussian-tilt, kernel and phase derivations identify their main equations.
+
+The final source-integrity record is additive and preserves the previous review. The abstract remains 159 words. All seven relocated main proof bodies are exactly retained. Labels are unique, references and citation keys resolve, environments balance, all displayed equations are numbered, and the main paper contains sketches rather than complete proof environments. Keywords have no manual line breaks, with JEL above them. Critical financial assumptions, monetary event qualification, stronger classical conclusions, expanded raw pool and restricted high-width exclusion remain present. No outstanding editorial or cross-reference defect was found within this review scope.
+
+This review confirms source and narrative integrity. Native compilation and rendered-page inspection are separate checks; PDF pixels and exact page count were not verified by this reviewer. No repository files or numerical evidence were modified.

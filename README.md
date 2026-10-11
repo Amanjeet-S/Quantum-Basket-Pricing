@@ -1,51 +1,108 @@
-# Certified quantum encoding of bounded basket derivatives
+# Quantum Basket Pricing
 
-## 1 Research question and status
+## 1 Research purpose and status
 
-I investigate how certified scalar-function specialisation changes the complete coherent cost of direct sampling, analytical conditioning and randomised-strike conditioning of a geometrically controlled basket call spread. The proposed interval advantage has failed the stronger-comparator test. The probability identities, geometric control, Gaussian conditioning and interpolation are established ingredients. An original positive literature contribution and complete quantum resource savings remain unverified.
+My primary portfolio purpose is to demonstrate mathematical and computational preparation for quantitative finance graduate study. I study coherent pricing of basket derivatives under a stipulated classical, no-arbitrage lognormal model. Gaussian conditioning, geometric controls and payoff-boundary corrections connect the financial target to finite quantum preparations. I charge tails, rounding, interpolation, state preparation, confidence, reflections and terminal resets.
 
-I replaced the earlier direction and precision selector with one concrete evaluator. For positive normalised weights, arithmetic basket A and geometric basket G satisfy A >= G. I write the capped payoff as F(x) = min(max(x - K, 0), H), retain the analytical correction E[F(G)], and estimate the nonnegative residual E[F(A) - F(G)]. A uniformly sampled strike turns that residual into a conditional Gaussian interval probability. Under the established common-loading factor, both interval boundaries are logarithms and no iterative root solver is required.
+The [preparation audit](PREPARATION.md) maps retained proofs and code to current entry requirements and published curricula, with specific remaining gaps and a [complete public module/descriptor register](results/preparation_review/module_descriptors.json), including unavailable and prior-cohort source limits. A novel quantum theory or practical quantum advantage is not required for this preparation purpose; mathematical understanding and reproducible financial computation are the priority.
 
-The initial financial object is a terminal equity basket call spread under stipulated correlated GBM. REITs remain a possible later LSEG parameter scenario. Asian monitoring is an extension only after the core evaluator survives its benchmarks. Neither asset substitution nor increased nominal dimension is a contribution.
+The [main paper](generalisation_proofs.tex) is a **working paper**. Its main text contains intuition and structural steps; appendices and [supporting proofs](supporting_proofs_index.md) retain full derivations. The present work does not establish an original quantum theory.
 
-## 2 Completed feasibility work
+## 2 Current evidence
 
-The [stronger conditioning benchmark](conditioning_benchmark.md) reports five complete constructed evaluators for three caps at two monetary targets. Specialised full conditioning has the lowest assigned T count in all six cases. At cap £10 and target £0.01, it uses 597,478 T gates against 672,210 for the comparably specialised interval evaluator and 1,207,388 for direct evaluation. These are constructor-specific logical costs with half the tolerance reserved for unimplemented statistical estimation. The [current resource record](results/conditioning_resources.json) and [independent audit](results/conditioning_independent_audit.json) preserve the evidence. The [initial study](reversible_encoding_study.md) and its results remain as the superseded comparison.
+The current comparison gives shared-threshold, raw-payoff and numerical conditional-price preparations the same financial model, information, monetary radius 0.01 and per-price failure allowance 1/3600. Every applicable method receives the same cancellation-aware optimisation.
 
-The [research design](research_design.md) sets the comparison and decision rules. The [mathematical note](mathematical_note.md) checks the identities and monetary bias certificates. The [source record](SOURCES.md) distinguishes published versions from the versions actually consulted. The [pilot report](results/pilot_report.md) describes twelve fixed synthetic scenarios and an adverse variance example. The [machine-readable results](results/pilot.json) retain inputs, seeds, diagnostics and a script hash.
+| Result | Checked scope |
+| --- | --- |
+| Shared-threshold logical T-cap reduction | 2.34–10.00 per cent against the cheaper equally optimised implemented rival in each of four stressed contracts |
+| Terminal cleanup deferral | 0.097–0.195 per cent against cancellation-optimised clean QPE |
+| Resource comparison | 416 settings; 808 admitted architecture profiles; 1,616 phase plans; 3,232 complete variant charges; twelve retained rejected budgets |
+| Matched Chebyshev diagnostics | 1,200 alternative histories; the numerical rival has lower descriptive mesh means in all four cases |
+| Classical pricing | Strong classical methods certify all 36 original contracts and four stressed contracts |
 
-The small state-vector check verifies finite-output Born probabilities and Grover interference. Its host-evaluated probability truth table is explicitly recorded. It does not implement scalable reversible arithmetic, demonstrate a financial accuracy target or establish a speedup. The pilot standard deviations and batch standard errors are screening diagnostics, not certified variance bounds or pricing confidence intervals.
+These are synthetic, finite-policy logical resource comparisons. They establish neither practical quantum advantage nor adaptive expected-cost superiority. Original generic smoothing, reflection and cancellation mechanisms are excluded from the novelty claim. The [originality assessment](originality_assessment.md) identifies the guarded financial certificate and verified comparisons as the contribution candidate; literature priority remains unestablished.
 
-## 3 Reproduction
+Sharp Gaussian component moduli are proved and interval-checked, but have not yet been selected in the registered resource costs. The [capped-GBM companion](capped_gbm_companion.tex) now connects replication, PDE stability/convergence and analytic/PDE/Monte Carlo prices and five Greeks. Its seven synthetic cases include a stronger bounded mixed-gamma comparator and adverse control rankings. The companion additionally derives L² projection/singular-control geometry and compares conditional prices and independent pilots with explicit evaluator work. Synthetic Gaussian-return inference adds covariance-rank and exact parameter-interval proofs, including an interior-volatility price maximum where endpoint-only uncertainty propagation fails. Physical estimation remains separate from risk-neutral pricing. The [current plan](quantum_method_redesign.md) records remaining preparation work; a fair sharp-bound cost study remains a separate research extension.
 
-Use Python 3.11 or later with NumPy. In a virtual environment, install [requirements.txt](requirements.txt), then run:
+The separate [hedging companion](constrained_hedging_companion.tex) connects physical mean-square loss, funded trading, convexity/KKT proofs and budget shadow prices. It compares constrained holdings with cash-only, unrestricted and same-constraint variance baselines, retaining tiny unresolved risks and adverse heuristic rankings. The pricing/calibration companion remains 29 pages.
 
-```sh
-python pilot.py
-python audit_certificates.py
-python -m unittest discover -s checks -p "test_*.py" -v
-python resource_study.py --certify-quantiles --small-checks --output results/conditioning_resources.json
-python checks/reference.py
-python reflections.py
-python checks/audit_composition.py
-python checks/shadow_audit.py --config results/conditioning_resources.json --output results/conditioning_independent_audit.json --samples 262144 --certify-quantiles --new-variant-gates
-python checks/audit_kernel_dominance.py
-```
+## 3 Navigation
 
-The new resource study uses only the Python standard library. Its independent reference and replay audit require NumPy. It emits complete primitive-block gates, checks function domains and price-bias budgets, and independently encloses every retained quantile and function constant. The two-asset resource instance is distinct from the earlier four-asset pilot.
+| Purpose | Entry point |
+| --- | --- |
+| Financial model, results and main argument | [Working paper](generalisation_proofs.tex) |
+| Mathematical preparation, curricula and gaps | [Preparation audit](PREPARATION.md) |
+| Classical one-asset pricing/PDE/Greek benchmark | [Companion paper](capped_gbm_companion.pdf) and [synthetic study](results/capped_gbm/study_manifest.json) |
+| Gaussian-return estimation and price uncertainty | [Calibration runner](run_calibration_study.py) and [synthetic evidence](results/capped_gbm/calibration/study_manifest.json) |
+| Conditional expectation and jointly projected controls | [Source/runner](run_conditioning_study.py) and [conditioning evidence](results/capped_gbm/conditioning/study_manifest.json) |
+| Constrained financial hedging | [Nine-page companion](constrained_hedging_companion.pdf) and [registered study](results/capped_gbm/hedging/study_manifest.json) |
+| Complete proofs and retained evidence | [Supporting index](supporting_proofs_index.md) |
+| Published antecedents and versions actually consulted | [Source register](SOURCES.md) |
+| Exact current costs | [Cancellation-aware summary](results/deferred_cleanup/deferred_cleanup_summary.json) |
+| Current quantum-controller diagnostics | [Matched summary](results/matched_deferred_chebyshev/matched_chebyshev_summary.json) |
+| Latest research validation | [Validation record](results/originality_project_validation.json) |
+| Earlier investigations | [Historical documentation](history/before_documentation_consolidation/supporting_proofs_index.md) |
 
-The default pilot run uses eight independent batches of 4,096 paths for each of twelve scenarios. It writes results/pilot.json. Runtime is recorded separately from the numerical outputs and is not a quantum cost estimate. The exact script and NumPy version are retained in the output.
+The main paper embeds its current colour figures as self-contained vector source. The earlier pricing_precision.png/svg exports are historical. Earlier protocols, failures, source versions and derivations remain preserved; they are not current resource rankings.
 
-## 4 Next decision
+## 4 Reproduce the current independent checks
 
-I have constructed and checked stronger conditioned arithmetic. The measured interval/full gap reverses, so I withdraw the interval improvement claim. I will next assess whether a checked precision-allocation or scalar-kernel argument generalises across a prespecified financial family and supplies an original, informative contribution against equally specialised opponents. Selecting the cheapest established method is insufficient. A large mean-estimation implementation should follow a surviving contribution argument, with a valid confidence and monetary-error guarantee. Observed pilot variance cannot supply its stopping certificate.
+Use Python 3.13 and python-flint 0.9.0, specified in [requirements-quadrature.txt](requirements-quadrature.txt). NumPy in [requirements.txt](requirements.txt) supports earlier numerical stages. From the repository root, create a fresh output directory and run:
 
-I will stop the claimed improvement if its savings depend on tuning withheld from competitors, if the finite-output monetary certificate cannot be met at useful precision, or if stronger constructed comparators eliminate the measured benefit. This repository is an initial feasibility study, not a completed paper or an assured positive contribution.
+    qbp_audit_dir=$(mktemp -d /tmp/qbp-audit.XXXXXX)
+    python check_sharp_gaussian_moduli.py --output "$qbp_audit_dir/sharp.json"
+    python check_deferred_resources_independent.py --repo . --results results/deferred_cleanup --proof proof_sources/cancellation_aware_preparation_fragment.tex --output "$qbp_audit_dir/resources.json"
+    python check_matched_deferred_chebyshev.py --repo . --results results/matched_deferred_chebyshev --deferred-resources results/deferred_cleanup/deferred_cleanup_resources.json.gz --deferred-review "$qbp_audit_dir/resources.json" --input-evidence results/deferred_cleanup/matched_B_inputs.json --output "$qbp_audit_dir/matched.json"
 
-## 5 Data and access
+The relocation argument verifies the supplied-input file against the original frozen checksum. It does not rewrite the protocol or substitute new evidence. These checks reconstruct certified mathematics and logical charges; they execute no quantum hardware.
 
-All current experiments use explicitly stipulated synthetic parameters. No LSEG observations, credentials, purchased data or publisher PDFs are included. Existing LSEG access may later support market-informed scenarios after a field and adjustment audit. Raw and reconstructible provider observations remain local and excluded from Git, including when the remote repository is private.
+## 5 Reproduce the capped-GBM companion
 
-## 6 Keywords
+With Python 3.13 and NumPy 2.3.5, run from the repository root:
 
-Quantum computational finance; basket derivatives; geometric control variates; conditional expectation; reversible arithmetic; monetary error certification.
+    python3.13 -m unittest discover -s checks -p test_capped_gbm.py
+    qbp_gbm_audit_dir=$(mktemp -d /tmp/qbp-gbm.XXXXXX)
+    python3.13 run_capped_gbm_study.py --output "$qbp_gbm_audit_dir"
+
+The retained study contains 336 PDE comparisons, 147 Monte Carlo comparisons and explicit analytic bump bias. The analytic call spread is the strongest baseline for this one-asset model. Exact-arithmetic proofs and ideal-sampling confidence bounds are distinguished from floating-point numerical evidence. [The source ledger](results/capped_gbm/source_ledger.json) identifies the published versions actually consulted. [The colour figure](results/capped_gbm/figures/capped_gbm_convergence.svg) displays non-monotone errors and gamma bias rather than hiding them.
+
+## 6 Reproduce conditional valuation and controls
+
+Using the same Python/NumPy environment:
+
+    python3.13 -m unittest discover -s checks -p test_conditioning_controls.py
+    qbp_conditioning_audit_dir=$(mktemp -d /tmp/qbp-conditioning.XXXXXX)
+    python3.13 run_conditioning_study.py --output "$qbp_conditioning_audit_dir"
+
+The study retains 21 case/splits, 147 comparisons and 672 independent pilot-risk diagnostics. Conditional moments are floating-point quadrature diagnostics, not interval certificates. The population variance order applies to jointly projected controls; fitted coefficients and evaluator costs remain separate. [The source ledger](results/capped_gbm/conditioning/source_ledger.json) records the published material actually consulted. [Conditioning-stage validation](results/capped_gbm/conditioning/validation.json) covers this extension. Earlier capped-GBM comparison files remain unchanged; their original 14-page paper/source hashes resolve to [the stage snapshot](history/before_projection_controls/capped_gbm_companion.pdf).
+
+## 7 Reproduce Gaussian estimation and price uncertainty
+
+Use Python 3.13 with [NumPy 2.3.5 and SciPy 1.16.3](requirements-calibration.txt):
+
+    python3.13 -m unittest discover -s checks -p test_gbm_calibration.py
+    qbp_calibration_audit_dir=$(mktemp -d /tmp/qbp-calibration.XXXXXX)
+    python3.13 run_calibration_study.py --output "$qbp_calibration_audit_dir"
+
+Eight calibration cases and five frequency/horizon regimes retain 13,000 independent synthetic datasets, with aggregate results only. At the price's volatility maximum, the full volatility-interval image covers 948/1,000 datasets; endpoint-only propagation covers 0/1,000. The exact-model proof is distinct from the floating-point quantiles and prices. The combined statistical/numerical certificate is proved but unimplemented; no market-model validation is claimed. The [source ledger](results/capped_gbm/calibration/source_ledger.json) records the actual consulted versions. [Current companion validation](results/capped_gbm/calibration/validation.json) covers all three companion stages. The earlier 22-page paper/source hashes resolve to [the preserved conditioning-stage paper](history/before_synthetic_calibration/capped_gbm_companion.pdf).
+
+## 8 Reproduce constrained static hedging
+
+Use the Python/NumPy/SciPy environment above, from the repository root:
+
+    python3.13 -m unittest discover -s checks -p test_gbm_hedging.py
+    qbp_hedging_audit_dir=$(mktemp -d /tmp/qbp-hedging.XXXXXX)
+    python3.13 run_hedging_study.py --output "$qbp_hedging_audit_dir"
+
+The [protocol](hedging_protocol.json) registers seven contracts, three physical drifts and six budgets before outcomes. Initial costs use risk-neutral prices; loss is the physical expectation of squared discounted terminal liability error, including bias. The study retains 126 constrained mean-square hedges, strong population comparisons and 420 matched Monte Carlo diagnostics. Static holdings use reinvested-dividend stock and one lower-strike call. The unrestricted baseline is a formal relaxation; the exact call spread changes the instrument set. [Validation](results/capped_gbm/hedging/validation.json) and [source versions](results/capped_gbm/hedging/source_ledger.json) retain the mathematical/numerical distinction.
+
+The colour funding/risk figure has a separate supplemental grid. To reproduce its exports with Matplotlib 3.10.6:
+
+    python3.13 plot_hedging.py --output "$qbp_hedging_audit_dir/figures"
+
+## 9 Data and preservation
+
+Current numerical results use synthetic model inputs and permitted public reference material. No LSEG observations are included. [DATA_POLICY.md](DATA_POLICY.md) implements the university's restrictions: raw, reconstructible and systematic licensed data must not enter GitHub, including private repositories.
+
+Registered evidence and hashes remain immutable. Concision changes navigation and presentation, with earlier documents retained byte-for-byte in the [documentation snapshot](history/before_documentation_consolidation/README.md).
+

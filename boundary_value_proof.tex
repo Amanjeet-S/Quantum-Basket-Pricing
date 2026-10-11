@@ -1,0 +1,56 @@
+\section{Boundary evaluation of the second correction}
+Let $K>0$, $\lambda>0$, and let $P(m)$ denote the conditional undiscounted price of either the call $(K e^{m+\lambda Z}-K)_+$ or its cap at $H>0$, with $Z\sim N(0,1)$. Write $\phi$ and $\Phi$ for the standard normal density and distribution function. The conditional vanilla call and its derivative are
+\[
+ P(m)=K e^{m+\lambda^2/2}\Phi((m+\lambda^2)/\lambda)-K\Phi(m/\lambda),\qquad
+ P'(m)=K e^{m+\lambda^2/2}\Phi((m+\lambda^2)/\lambda).
+\]
+The equality follows by completing the square in the Gaussian integral, and differentiation cancels the two density terms because $e^{m+\lambda^2/2}\phi((m+\lambda^2)/\lambda)=\phi(m/\lambda)$. Hence the falling derivative $C_2=P''-P'$ equals $K\phi(m/\lambda)/\lambda$. A capped call is the difference between calls struck at $K$ and $K+H$. Setting $\ell=\log(1+H/K)$ therefore gives the exact boundary identity
+\[
+ C_2(m)=\frac K\lambda\left\{\phi(m/\lambda)-(1+H/K)\phi((m-\ell)/\lambda)\right\}.
+\]
+These Gaussian and call-spread identities are established conditional pricing identities. I use them to remove the strike random variable in the executable second-remainder graph.
+
+Let $T\geq1$, $U=T-1$, and $g_m(t)=P(m+\log t)$. The twice differentiable function $g_m$ satisfies $g_m''(t)=t^{-2}C_2(m+\log t)$. Integrating the fundamental theorem of calculus twice yields
+\[
+ g_m(1+U)-g_m(1)-Ug_m'(1)=U^2\int_0^1(1-z)g_m''(1+zU)\,dz
+ =\frac{U^2}{2}\mathbb E_{Z_B}[g_m''(1+Z_B U)],
+\]
+where $Z_B$ has density $2(1-z)$ on $[0,1]$. This includes $U=0$, for which both sides vanish. Differentiating inductively gives $g_m^{(r)}(t)=t^{-r}C_r(m+\log t)$ and $C_{r+1}=C_r'-rC_r$ for $r\geq2$.
+
+Suppose the finite financial support has $0\leq U\leq U_*$ and the retained certificate proves $\sup_m|C_2(m)|\leq\overline M_2$. For $U_*>0$, let $B_2=\overline M_2 U_*^2/2$ and $a=(U/U_*)^2(1+zU)^{-2}$. For the cap, $h(m)=(1+C_2(m)/\overline M_2)/2$ belongs to $[0,1]$, and
+\[
+ p=\tfrac12(1-a)+ah(m+\log(1+zU))\in[0,1],\qquad
+ B_2(2p-1)=\tfrac12U^2(1+zU)^{-2}C_2(m+\log(1+zU)).
+\]
+For the vanilla call, the nonnegative kernel $\gamma(m)=K\phi(m/\lambda)/(\lambda\overline M_2)$ belongs to $[0,1]$. The positive probability $p=a\gamma(m+\log(1+zU))$ instead satisfies $B_2p=U^2g_m''(1+zU)/2$. The same rational $\overline M_2$ is used for every second-remainder method. If $U_*=0$, no division is performed: the capped centred output is $1/2$ and all positive or signed-part outputs are zero.
+
+The implemented integer probability $a_q\in\{0,\ldots,2^q\}$ controls the flag by the reversible predicate $j<a_q$, for a $q$-bit uniform comparison register $j$. Therefore the Born success probability is exactly $a_q/2^q$, including the saturated endpoint $a_q=2^q$. The value graph is computed, the flag is toggled, and the literal inverse cleans all private value registers. Its one-dimensional scalar tables and unsigned signed-magnitude interpolation do not require a joint latent/payoff table. The resource record counts the actual emitted arithmetic and fresh inverse, not an abstract scalar query.
+
+\section{A stable deterministic second-remainder opponent}
+For the probability measure $d\mu(z)=2(1-z)\,dz$, the moments are $\mu_j=2/((j+1)(j+2))$. Its monic degree-two orthogonal polynomial is $\pi_2(z)=z^2-(4/5)z+1/10$, since direct substitution gives $\int\pi_2\,d\mu=\int z\pi_2\,d\mu=0$. The roots and weights are
+\[
+ z_\mp=(4\mp\sqrt6)/10,\qquad w_\mp=\tfrac12\pm\frac1{3\sqrt6}.
+\]
+Both roots belong to $(0,1)$, the weights are positive and sum to one. Substitution into the first four moments proves exactness for every polynomial of degree at most three. Direct integration gives $\int\pi_2^2\,d\mu=1/300$.
+
+For any $f\in C^4[0,1]$, let $H_f$ be its degree-three Hermite interpolant agreeing with $f$ and $f'$ at both nodes. Repeated Rolle's theorem applied to $f-H_f-c\pi_2^2$ gives, for each $z$ away from the nodes, $f(z)-H_f(z)=f^{(4)}(\xi_z)\pi_2(z)^2/4!$ for some $\xi_z\in(0,1)$. At a node the error is zero. Thus exactness and positivity imply
+\[
+ \left|\int f\,d\mu-\sum_\pm w_\pm f(z_\pm)\right|\leq\frac{\|f^{(4)}\|_\infty}{7200}.
+\]
+Taking $f(z)=g_m''(1+zU)$ and $|g_m^{(6)}(t)|\leq\overline M_6$ for $t\geq1$ bounds the second-correction price error by $\overline M_6\mathbb E U^6/14400$. The sixth-derivative certificate is already monetary, so no additional cap factor is inserted.
+
+The physical graph uses dyadic nodes $\widehat z_\pm$ and positive dyadic weights $\widehat w_\pm$ with exact sum one. If $|\widehat z_\pm-z_\pm|\leq\delta z_\pm$ and $|\widehat w_\pm-w_\pm|\leq\delta w_\pm$, the additional discrepancy is bounded by
+\[
+ \frac{\overline M_3\mathbb E U^3}{2}\sum_\pm w_\pm\delta z_\pm
+ +\frac{\overline M_2\mathbb E U^2}{2}\sum_\pm\delta w_\pm.
+\]
+This follows by first replacing the nodes under the true positive weights and then replacing the weights at the dyadic nodes. Both sets of nodes remain in $[0,1]$, and $|g_m'''|\leq\overline M_3$, $|g_m''|\leq\overline M_2$ there. The actual dyadic constants are exact graph constants; their algebraic discrepancy is paid here rather than charged twice as constant encoding error.
+
+\section{Finite Beta quadrature and scalar implementation}
+Let $h=2^{-b}$ and $z_j=(j+1/2)h$. The minimum of two independent uniform $b$-bit integers has mass $(2^{b+1}-2j-1)/2^{2b}$, which equals $\int_{jh}^{(j+1)h}2(1-z)\,dz$. On each cell the first centred moment is $-h^3/6$. The sum of its second centred moments over all cells is $h^2/12$. Taylor's theorem about each midpoint therefore proves a weighted midpoint bound $h^2(\|f'\|_\infty/6+\|f''\|_\infty/24)$. Taking the same $f=g_m''(1+zU)$ gives the monetary auxiliary bound
+\[
+ h^2\left(\frac{\overline M_3\mathbb E U^3}{12}+\frac{\overline M_4\mathbb E U^4}{48}\right).
+\]
+All moments refer to the ideal financial function on the actual finite outer dyadic law. They may be replaced by the valid finite-support bounds $\mathbb E U^4\leq U_*\mathbb E U^3$ and $\mathbb E U^6\leq U_*^3\mathbb E U^3$. Scalar and arithmetic errors are assessed separately.
+
+For scalar intervals, the capped derivative bounds are strengthened uniformly for all opponents by $|P'|\leq\overline M_1$, $|P''|\leq\overline M_1+\overline M_2$, and $|P'''|\leq\overline M_1+3\overline M_2+\overline M_3$, with the minimum taken against the independently valid strike-integral Gaussian derivative envelope. Differentiation of $C_2$ gives $C_2'=C_3+2C_2$ and $C_2''=C_4+5C_3+4C_2$. The boundary table slope and curvature bounds are divided by $2\overline M_2$ for the cap, and sharpened against the direct two-density derivative bounds. For the vanilla call $P'$ is globally unbounded; on a finite argument interval with upper endpoint $m_+$ its valid upper bound is $K e^{m_++\lambda^2/2}$. The same recurrence then provides finite-domain bounds for the vanilla call and its derivative. None of these implementation certificates changes the continuous risk-neutral price.

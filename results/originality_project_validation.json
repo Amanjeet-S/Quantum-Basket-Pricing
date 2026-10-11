@@ -1,0 +1,162 @@
+{
+  "schema": "qbp-originality-project-validation-v1",
+  "status": "passed",
+  "old_source_sha256": {
+    "generalisation_proofs.tex": "36d79eabcf6f41255eacb5ffe42875206df1d19dd558d6ed484d0201f1a68537",
+    "raw_payoff_proof.tex": "aa0e98ff90ff7652a34bd02cb97b9b14bbdd52edb3f6822620a81ae4b158b0f9",
+    "README.md": "ac5b56a1840b954416c2d81653e6e7a571903aced0be1f4f496b268e10cd8535",
+    "novelty_scope_review.md": "cdbdcdce7fdd769899884d94a858ec1beb9d44469bb0765eee304b3f9da06799",
+    "quantum_method_redesign.md": "4b22e721f810f21386ae4f48c3b2f341835b7b44b1a9ce69d78b1b7280c20285",
+    "supporting_proofs_index.md": "d5ea538e0aa6114be685ffdfdad86713fe2c00c0437a7053c0366e9c3d7ab951",
+    "SOURCES.md": "f03f68e96b32a2f77d7e48b85c8a713327455036860acc9d97fecd8930a66a0f",
+    "figures/pricing_precision_figure.tex": "fa6688499f50b205d6a37d7fbb80396ef49a8d81f443dc49308681740f94be2c",
+    "figures/pricing_precision_plot_data.json": "4360d66e7717c9a83a8584e22a5544d1d331f0c7d03bd70d8b0c37c3e00e6860",
+    "figures/pricing_precision_coordinates.json": "87411bc3da2db740fcc2b88bba04a1c94d29f2d4a354b7ef4e9207ec17c18bb9",
+    "figures/pricing_precision_render_record.json": "a5d4f27fc9cc8a017994b2269c82e0f90ed50ec01b02b95d4edf42498246ff8e"
+  },
+  "installed_sha256": {
+    "check_deferred_invariant_independent.py": "80cbb0ca879be638c3501a9065fd35d638c8f51ed497b44c24f6784537e61ac7",
+    "results/originality/common_information_source_access.json": "d0525d1d5856eb7544509bd30533a70a3b0032a4e8b356b29abf1a97fa9c0505",
+    "results/originality/deferred_invariant_independent_checks.json": "aee65fc5b6897b4ddf092dc864d36cdbf6bc27c51138fc26feddc4341bb288b2",
+    "results/originality/deferred_resources_independent_review.before_provenance_metadata.json": "a137ad0736edabb41522191710aff8de7c7b3b38a4d69db1a03f7a346f1aea77",
+    "results/originality/deferred_preparation_independent_proof_review.json": "86a4e778ba0448cdb8ecd7bbaffc0c4778b8959d703d9ef851dfdb29e5c5b05f",
+    "check_deferred_resources_independent.py": "590e8ddaccc842cc00bc7d52bc0e22318cedd9f312c44a7e2ebf2ef06c05d3db",
+    "results/originality/sharp_certificate_independent_review.json": "6cc34f15608a86b490e78bf305512cdc86908ca572805ee2c23a8c6f7589133f",
+    "results/originality/deferred_resources_independent_review.json": "7136f30a5eb5272ee3ab2eb1767955ec644db8e5a88db2325d8f4fe6981f88d1",
+    "proof_sources/cancellation_aware_preparation_fragment.tex": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+    "results/originality/reflection_source_access.json": "d4294df0c3008514e17ee1271d768ceaad008898852875ee64bb7905f29075bf",
+    "proof_sources/sharp_common_information_fragment.tex": "06c59f3c38a6db3d91e20307f1354472a5e5ffed6f7b810879610a93b9b158f2",
+    "results/originality/sharp_gaussian_moduli_checks.json": "bcca55039983e9dfe14cdb9d276d8b302a27edb7ee3b1ba2bc17a6e3abc3f30d",
+    "check_sharp_gaussian_moduli.py": "d159ffcbe1080123c488c2dbdc8e60fe1c4ea60a4434263e9d612d994e31de3c",
+    "deferred_cleanup_comparison.py": "1e78f51c6ffc9f49a56ddf785a72424531b8261a69ce996b984f5561d254b477",
+    "matched_deferred_chebyshev.py": "51c299f96c80a676d7a0eb007db9ed2c86a7bf3b60945697da31f3c0f7ff1f19",
+    "build_matched_B_inputs.py": "aa152468660a29292185c8d3667f77ab0ec90101c3c8e1071b85ed6cc4e1092b",
+    "compare_matched_B_histories.py": "66f32446c3bddc17dcd58a7e958ebc961ffe725b50c0296d974ffcb4895fd5e9",
+    "results/deferred_cleanup/matched_B_history_comparison.json": "78761198b0d538eb2e51547885f4f8d7f570b3ceeb7cbd8ed94c2cd5e7f1adc2",
+    "results/deferred_cleanup/deferred_cleanup_resources.json.gz": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+    "results/deferred_cleanup/matched_B_inputs.json": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+    "results/deferred_cleanup/deferred_cleanup_protocol.json": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+    "results/deferred_cleanup/deferred_cleanup_summary.json": "67577d6e8b24136b63513f2a545ffb59ccaf739e8be6930bb91be3a376cb4760",
+    "results/matched_deferred_chebyshev/matched_chebyshev_summary.json": "46d5eb77615bbcd6c43f7a1a30493cfe5529786b74a08da670cfa0e94347f245",
+    "results/matched_deferred_chebyshev/matched_chebyshev_protocol.json": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+    "results/matched_deferred_chebyshev/matched_chebyshev_resources.json.gz": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4",
+    "check_matched_deferred_chebyshev.py": "759623b628382d61caf853b0272589676bdb7c41e0b7e58233eb86ae5a18d4c1",
+    "results/originality/matched_deferred_independent_audit.json": "45edcfc868ef7ecedfa89fda9214f04141c3d47f365511a07306ce54fcd0a7d7",
+    "results/originality/pricing_precision_mapping_audit.json": "5769634d20a765538432fd5eac10de30f90c4c81ca3e4656373a1b82eea51afa",
+    "plot_deferred_pricing_precision.py": "3e55bc020a2c33b8bcfcbcf541ecc05b64bb9f0c38505ec5985daad3281ac5b7",
+    "audit_deferred_pricing_precision_figure.py": "1063f67e599a34a068e9327a542984c15fab1e25e76b3e891d154c2da53ca047",
+    "generalisation_proofs.tex": "28173af5ea32a9ea02c98d006f144af17926a693b343d871a5252e91ecd805eb",
+    "raw_payoff_proof.tex": "7b3ede45f7da8a880f7cbe30c88718f59b5463c9ba52e85b0716f4779bc03562",
+    "README.md": "d975230cf1eafffb9f92adc519fe1c37e2e6609d8d2d37499357cd3fc89ebc34",
+    "novelty_scope_review.md": "763e6d6ba38878e0049bba4c0e6c92f2f42a73999c102bba92881a7f44e8df88",
+    "quantum_method_redesign.md": "6472ead5fa4e8ee059e28fb93af097e12510e387e147b85f4acf35709fe00284",
+    "supporting_proofs_index.md": "1be2f588b554bb2e55e5d1850f7680536f65108848242d803e0d8f9f34eeab99",
+    "SOURCES.md": "0eeaadd9e6b5cef0be8a90a3b85b7960af8230c5ab971f9d1fa967d2b54fbf8d",
+    "originality_assessment.md": "955300c524b7d9ab417ba91a95d611680aa78cec2ffc21c1d648c1a8b5c9d2f7",
+    "figures/pricing_precision_figure.tex": "bc9ef6bdcc8261dbbd05b26f95dd9a86cbda91a4809a63e0fbe039ba6faad07e",
+    "figures/pricing_precision_plot_data.json": "7a69aa7b7ceb4c5935adfc53344b45e0b4143dae846488812d503ef9332548ec",
+    "figures/pricing_precision_coordinates.json": "300e5e2d8e91091dde88ce1608edb26942928e43c879bf280cb0eebc5f2c3588",
+    "figures/pricing_precision_render_record.json": "6b6b529e086117956e7017c5926859824ea0cc9735da098643e1106fcdfbce0c",
+    "results/originality/sharp_certificate_independent_review.before_final_completion.json": "e58bc67e58b4dbc8945f89cf83f7e5fa9636b7d6e69c10a405cc896920e94852",
+    "results/originality/installed_deferred_independent_replay.json": "983ad16e8e8898792fd423744c6f5afe7b155336dc190fad078d4ab7c6b75f21",
+    "results/originality/installed_sharp_scalar_replay.json": "72589e70c4d22e47bf70ce8382b019eb5c7649a40a6968aebf02dadb7d210807"
+  },
+  "abstract_words": {
+    "generalisation_proofs.tex": 173,
+    "raw_payoff_proof.tex": 144
+  },
+  "generic_quantum_theory_originality": false,
+  "sharp_component_priority": "unestablished",
+  "registered_settings": 416,
+  "admitted_architecture_profiles": 808,
+  "phase_plans": 1616,
+  "complete_variant_charges": 3232,
+  "rejections": 12,
+  "matched_histories": 1200,
+  "confidence_looks": 1968,
+  "table_facts": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "shot_floor_exact": "90851/910050",
+      "protected_saving_exact": "460454356/4605587405",
+      "mesh_mean_ratio_exact": "944218730332/868109635307"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "shot_floor_exact": "88291/1724808",
+      "protected_saving_exact": "86629965/1690886888",
+      "mesh_mean_ratio_exact": "305185639133/297839392540"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "shot_floor_exact": "88949/1836808",
+      "protected_saving_exact": "2707220785/55822100518",
+      "mesh_mean_ratio_exact": "3688792189913/3390552916040"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "shot_floor_exact": "95093/4073022",
+      "protected_saving_exact": "2894319499/123774138001",
+      "mesh_mean_ratio_exact": "935519864969/887861949010"
+    }
+  ],
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_staging_pushes": false,
+  "keywords_above_JEL": true,
+  "native_PDF_pixel_review": false,
+  "exact_PDF_page_count_verified": false,
+  "data_origin": "Synthetic only; no licensed observations, new purchase or access upgrade.",
+  "scope": "Generic results reclassified as established implementation specialisations; sharp component moduli are proved without priority claim or selecting them in frozen costs. All opponents receive published-style optimisation; no adaptive-mean or practical-advantage claim.",
+  "before_final_notation_clarification_sha256": {
+    "generalisation_proofs.tex": "59287c85fbc12f56d5206f87685f245f97c65c045e19447b1a7b008ada941c84",
+    "raw_payoff_proof.tex": "83e24d3a80e4a9fc80156f6f3358939b3bec0326656de9a19ef8c3d6557704da",
+    "README.md": "51703db381b7f5fc31d2383e684a4ec2b7383941d221a3d3abbd7711c52c64ec",
+    "novelty_scope_review.md": "4a2cba3954cc6be294944f702a412a4e6caa9251b7adb7b6ccad92a6f0cdb353",
+    "quantum_method_redesign.md": "6f95464d701360f2460cbb4beef93abe40e05b477a739ab1be00e124305b2c48",
+    "supporting_proofs_index.md": "48918d40327a643756efa0ddc2505ce79cbfc298a2eb01353751d0d4469c032c"
+  },
+  "final_notation_clarification": "Main body-cost F_U and supporting concentration mathfrak a distinguish them from payoff/preparation symbols; generic theorem prose now says lemma; old resource percentages are historical, and README opening reports current comparison.",
+  "before_portable_auditor_path_clarification_sha256": {
+    "check_deferred_resources_independent.py": "e7269abb500c48dab049ab9f428dd6325c7ebdbc44b549642783132a44335e85",
+    "check_sharp_gaussian_moduli.py": "0ba17fad9978a43fd1de716482be565b9332291bf9da0607d2bb286cfb419bb6"
+  },
+  "portable_auditor_clarification": "The independent resource checker reads the frozen producer from the explicit repository; sharp scalar checks require a fresh explicit output. No mathematical test, producer, protocol or registered outcome changed.",
+  "final_HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "source_and_native_compilation_checks": {
+    "generalisation_proofs.tex": {
+      "source_sha256": "28173af5ea32a9ea02c98d006f144af17926a693b343d871a5252e91ecd805eb",
+      "native_compiler_kind": "success",
+      "abstract_words": 173,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "duplicate_labels": 0,
+      "em_dashes": 0,
+      "unnumbered_display_environments": 0,
+      "keywords_above_JEL": true
+    },
+    "raw_payoff_proof.tex": {
+      "source_sha256": "7b3ede45f7da8a880f7cbe30c88718f59b5463c9ba52e85b0716f4779bc03562",
+      "native_compiler_kind": "success",
+      "abstract_words": 144,
+      "undefined_references": [],
+      "undefined_citations": [],
+      "duplicate_labels": 0,
+      "em_dashes": 0,
+      "unnumbered_display_environments": 0,
+      "keywords_above_JEL": true
+    }
+  },
+  "installed_replay": {
+    "all_3232_charge_records_rechecked": true,
+    "resource_replay_mathematical_fields_equal": true,
+    "resource_replay_difference": "Only checker-source SHA after explicit portable producer lookup.",
+    "scalar_rows_and_cap_example_exactly_equal": true,
+    "derivative_coefficients": 8,
+    "finite_moduli": 32
+  },
+  "final_independent_source_review": "All substantive proof and comparison claims pass; notation and historical resource labels clarified.",
+  "paper_status": "Working paper. It is not the final version and is not designated an original quantum theory.",
+  "final_paper_delivery_instruction": "The paper is to be finalised on project completion; it remains a working paper.",
+  "original_quantum_theory_established": false,
+  "mathematical_sharpness_does_not_establish_priority": true
+}

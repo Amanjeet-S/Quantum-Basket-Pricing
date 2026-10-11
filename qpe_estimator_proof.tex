@@ -1,0 +1,287 @@
+\section{A complete canonical phase-estimation comparator}
+\label{sec:canonical-qpe-comparator}
+
+I use the established estimator of \citet{brassard}, Section 4, Algorithm
+\texttt{Est\_Amp} and Theorem 12, as an additional quantum comparator. The
+source actually consulted is the AMS-copyright typeset 2002 chapter, hosted
+by the volume editor; its amplitude-dependent bound is an established
+result. The contribution of this section is its checked transfer to the
+finite financial flags, prescribed confidence, outward output arithmetic
+and complete emitted gate profiles. I do not claim a new phase-estimation
+algorithm or infer physical advantage from a query count.
+
+\subsection{Logical hypotheses and controlled Grover phase}
+
+Let $A$ denote the exact logical flag preparation on the finite input and
+flag register, with all private work initially zero. Let $P_1$ project onto
+flag one and set $p=\langle0|A^\dagger P_1 A|0\rangle$. The proved prior is
+$0\leq p\leq u\leq1$. Each selected financial flag must retain its own
+finite encoding and deterministic price certificate. Write
+$S_1=I-2P_1$, $S_0=I-2|0\rangle\langle0|$ on the active logical register,
+and
+\[
+ Q=-A S_0 A^\dagger S_1.
+\]
+These operators are logical unitaries. The measured clean-AND implementation
+is admissible only through the independently proved instrument statement:
+for every complete outcome string $z$, the corrected, reset implementation
+has Kraus operator $K_z=c_z A$ on the specified clean-work subspace,
+$\sum_z|c_z|^2=1$, with $c_z$ independent of the logical state and of any
+external reference. The same statement is required for the separately
+implemented logical adjoint. Summing branches gives
+\[
+ \sum_z(K_z\otimes I)\rho(K_z^\dagger\otimes I)
+ =(A\otimes I)\rho(A^\dagger\otimes I)
+\]
+for every joint logical-reference state $\rho$. Thus each instrument can be
+replaced by its exact logical channel in the proof. The physical tape
+contains measurements and is not described as a measurement-free unitary.
+This transfer requires the full scalar-Kraus statement; a basis-state truth
+table or flag probability alone would not suffice.
+
+For phase control $c$, the controlled iterate is emitted chronologically as
+\[
+ \mathrm{CZ}_{c,f},\quad A^\dagger,\quad
+ \mathrm{C}_c(S_0),\quad A,\quad Z_c.
+\]
+When $c=0$, the reflections are identities and the two unconditional
+logical channels cancel. When $c=1$, their product is
+$-A S_0 A^\dagger S_1=Q$. The last $Z_c$ is essential: a global minus on an
+uncontrolled iterate becomes a relative phase between the two control
+states. Removing it changes the estimated eigenphase by one half. The
+coherent replay with $p=1$ gives a direct counterexample: the correct phase
+outcome is $M/2$, whereas omitting the conditional sign gives zero.
+Unconditional financial arithmetic is therefore reused inside controlled
+$Q$; no arbitrary promotion of every arithmetic gate to an extra-controlled
+gate is assumed.
+
+For an active register of $n\geq2$ wires, the clean conjunction construction
+for $S_0$ uses $2(n-2)$ exact Toffolis and one final CZ. Its controlled
+version uses $2(n-1)$ exact Toffolis and one final CZ, with the phase-control
+wire not negated by the surrounding $X$ gates. The controlled good
+reflection replaces the original flag $Z$ by CZ, and $Z_c$ supplies the
+conditional minus. Consequently the additional exact-Toffoli charge is
+two Toffolis, or fourteen T gates under the specified seven-T expansion.
+The actual emitted controlled profile, including its Clifford gates,
+scratch and serial depth, is charged rather than treating this T increment
+as a complete resource description. The corrected measurement instruments
+inside $A$ and its adjoint retain their own observation, feed-forward and
+reset charges.
+
+\subsection{Phase law and amplitude error}
+
+For $0<p<1$, let $|g\rangle=P_1A|0\rangle/\sqrt p$ and
+$|b\rangle=(I-P_1)A|0\rangle/\sqrt{1-p}$. Define
+$\theta=\arcsin\sqrt p\in(0,\pi/2)$. On the ordered basis
+$(|g\rangle,|b\rangle)$,
+\[
+ Q=\begin{pmatrix}\cos(2\theta)&\sin(2\theta)\\
+                  -\sin(2\theta)&\cos(2\theta)\end{pmatrix}.
+\]
+Its eigenvectors $(|g\rangle\pm i|b\rangle)/\sqrt2$ have eigenvalues
+$e^{\pm2i\theta}$. Their squared coefficients in
+$A|0\rangle=\sin\theta|g\rangle+\cos\theta|b\rangle$ are both $1/2$.
+
+Set $M=2^m$ and prepare $m$ phase wires in their uniform superposition.
+The binary controlled powers have exponents $1,2,\ldots,2^{m-1}$. They
+implement $|j\rangle|v\rangle\mapsto|j\rangle Q^j|v\rangle$ using exactly
+$\sum_{k=0}^{m-1}2^k=M-1$ controlled iterates. On an eigenvector of phase
+$\omega\in[0,1)$, the phase state before the inverse Fourier transform is
+\[
+ |s_M(\omega)\rangle=M^{-1/2}\sum_{j=0}^{M-1}
+ e^{2\pi i j\omega}|j\rangle.
+\]
+The inverse discrete Fourier transform gives amplitude
+\[
+ {1\over M}\sum_{j=0}^{M-1}e^{2\pi i j(\omega-y/M)}.
+\]
+For $d=\min_{k\in\mathbb Z}|\omega-y/M-k|>0$, its squared modulus is
+\[
+ D_M(y;\omega)={\sin^2(\pi M d)\over M^2\sin^2(\pi d)}.
+\]
+At an exactly representable phase the law is a unit atom at its phase
+integer, interpreted by the continuous limit. Orthogonality of the two
+logical eigenvectors removes cross terms when the logical register is
+traced out. Thus the measured phase-register law is
+\begin{equation}
+ \Pr(Y=y)={D_M(y;\theta/\pi)+D_M(y;1-\theta/\pi)\over2}.
+ \label{eq:qpe-dirichlet-mixture}
+\end{equation}
+The two nearest phase integers and this Dirichlet law yield the success
+bound $8/\pi^2$ in \citet{brassard}, Theorem 11. With output
+$\widetilde p=\sin^2(\pi Y/M)$, Theorem 12 gives
+\begin{equation}
+ |\widetilde p-p|\leq {2\pi\sqrt{p(1-p)}\over M}
+                         +{\pi^2\over M^2}
+ \quad\hbox{with probability at least }{8\over\pi^2}.
+ \label{eq:qpe-published-amplitude-bound}
+\end{equation}
+Its error transfer can also be checked directly. For a phase-angle error
+$h$ with $|h|\leq\pi/M$, periodicity and symmetry select an equivalent
+angle representative, and
+\[
+ \sin^2(\theta+h)-\sin^2\theta
+ =\sqrt{p(1-p)}\sin(2h)+(1-2p)\sin^2h.
+\]
+Using $|\sin(2h)|\leq2|h|$, $|\sin h|\leq|h|$ and
+$|1-2p|\leq1$ gives the stated error. The boundary probabilities $p=0,1$
+are treated separately by their exact eigenphases; for even $M$ their ideal
+outputs are respectively zero and one. The numerical Dirichlet-law and
+coherent-state sweeps are diagnostics of the implementation and do not
+replace the published probability theorem.
+
+\subsection{Finite plans and approximate inverse Fourier transform}
+
+Let $\Pi=355/113$. The retained exact Machin-series enclosure independently
+verifies $\pi<\Pi$. From the common proved prior define
+\[
+ v(u)=\max_{0\leq p\leq u}p(1-p)
+ =\begin{cases}u(1-u),&u\leq1/2,\\1/4,&u>1/2.\end{cases}
+\]
+I compute a rational $s(u)\geq\sqrt{v(u)}$ by integer square-root and outward
+rounding on a $2^{-100}$ lattice. Let $\xi=10^{-60}$ denote the reserved
+classical output allowance. For an active scalar target $e\in[10^{-6},1/2)$,
+I select the least supported power of two $M\geq2$ satisfying
+\begin{equation}
+ E_M(u)+\xi\leq e,
+ \qquad E_M(u)={2\Pi s(u)\over M}+{\Pi^2\over M^2}.
+ \label{eq:qpe-rational-binary-plan}
+\end{equation}
+Every comparison here is an exact rational comparison. If $u\leq2e$, the
+whole-prior midpoint $u/2$ already has deterministic error at most $e$ and
+the plan has no quantum calls. An active plan is never forced when this
+zero-shot certificate applies. The declared code guard supports at most
+32 phase wires; a wider plan would require a further Fourier compilation
+certificate.
+
+Let $U=F_M^{-1}$, let $W$ be the actually emitted Clifford+T
+inverse Fourier tape and let $\varphi$ be its recorded aggregate scalar
+correction. Define $\widehat U=e^{i\varphi}W$. The certified operator-norm
+bound is $\|\widehat U-U\|\leq\delta\leq1/64$, with the specified register
+ordering. Multiplication of the final uncontrolled tape by this unit scalar
+has no effect on its measurement law and requires no physical phase gate. For any normalised joint input, the
+two output pure states differ in vector norm by at most $\delta$; the
+trace distance of their density operators is no larger. Partial trace and
+measurement do not increase trace distance, so the probability of each
+measurement event changes by at most $\delta$. Let $\eta_m$ be the actual retained norm upper bound for the chosen width.
+For the confidence arithmetic I form the exact outward binary enclosure
+$\delta_m=2^{-80}\lceil2^{80}\eta_m\rceil$. Since $1/64$ belongs to this
+lattice, $\eta_m\leq\delta_m\leq1/64$. The difference is less than
+$2^{-80}$; I retain $\eta_m$ separately in the Fourier profile. This
+coarsening prevents unnecessarily large denominator powers in the finite
+binomial record while keeping a rigorous success lower bound. Therefore
+each emitted repetition succeeds with probability at least
+\begin{equation}
+ s_0(m)={8\over\Pi^2}-\delta_m
+ \geq {8\over\Pi^2}-{1\over64}>{1\over2}.
+ \label{eq:qpe-emitted-good-probability}
+\end{equation}
+The binary choice $M$ is determined before this confidence constant and does
+not depend on $R$. Hence I may use the outward enclosure of its actual certificate in the
+primary amplification without a circular synthesis or stopping choice. I
+retain the $1/64$ substitution as a separate conservative envelope. In the
+following formulae $s_0$ denotes the selected $s_0(m)$.
+The norm allowance changes the failure probability; it is not charged
+again as an amplitude bias. This transfer assumes exact logical controlled
+iterates. Hardware noise, finite syndrome failure and gate faults require
+additional budgets before a physical-device claim is made.
+
+For phase outcome $y$, symmetry reduces its output to
+$\sin^2(\pi\min(y,M-y)/M)$. The existing directed rational cosine
+calculation returns an interval $[\ell_y,h_y]$ containing this value. Its
+width is checked to be at most $2\xi$. The midpoint consequently differs
+from the exact post-processing value by at most $\xi$. Projection of that
+midpoint onto $[0,u]$ cannot increase its distance from the true $p$.
+Combining this fact with \eqref{eq:qpe-rational-binary-plan} gives error at
+most $e$ on every good emitted repetition.
+
+\subsection{Fresh repetitions and exact confidence amplification}
+
+I use a prescribed odd number $R$ of fresh complete repetitions. The
+backend contract is that the repetitions are independent, each begins with
+clean financial and phase registers and each has good-event probability
+at least $s_0$. Reset and preparation are charged. A seeded ideal simulator
+provides reproducible diagnostics but does not establish this independence
+premise for a physical backend.
+
+If at least $(R+1)/2$ estimates lie in $[p-e,p+e]$, their median lies in
+the same interval. Independent bad-event indicators with probabilities at
+most $1-s_0$ are stochastically dominated by independent Bernoulli variables
+of parameter $1-s_0$: couple each indicator to its own independent uniform
+variable and increase its threshold to $1-s_0$. The median-failure
+probability is therefore at most the exact rational number
+\begin{equation}
+ B_R(s_0)=\sum_{j=(R+1)/2}^{R}{R\choose j}
+       (1-s_0)^j s_0^{R-j}.
+ \label{eq:qpe-exact-binomial-confidence}
+\end{equation}
+The primary finite plan chooses the smallest positive odd $R$ for which
+$B_R(s_0)\leq\alpha$. Checking every smaller odd integer proves this finite minimality.
+Termination follows from Hoeffding's inequality:
+\[
+ B_R(s_0)\leq\exp\{-2R(s_0-1/2)^2\}.
+\]
+The conservative comparison retains the least odd integer satisfying
+$2R(s_0-1/2)^2\geq\overline{\log(1/\alpha)}$. This logarithm is also
+enclosed with exact rational arithmetic. Write $x=2^k b$ with $1\leq b<2$;
+for $z=(b-1)/(b+1)\leq1/3$,
+\[
+ \log b=2\sum_{j=0}^{N-1}{z^{2j+1}\over2j+1}+T_N,
+ \qquad0\leq T_N\leq
+ {2z^{2N+1}\over(2N+1)(1-z^2)}.
+\]
+The same formula encloses $\log2$ and hence $k\log2+\log b$. The retained
+$N=80$ is a finite choice with the displayed positive remainder, not a
+floating-point logarithm assumption. I retain both confidence rules, so the
+stronger exact-binomial comparison does not inherit an unnecessary
+Hoeffding repetition constant.
+
+\subsection{Financial error allocation and complete resource charges}
+
+For a range flag estimating $p=\mathbb E[X]/r$, a scalar probability radius
+$e$ gives numerical mean radius $re$. For a clipped flag estimating
+$p=\mathbb E[\min(X,r)]/r$, the checked tail enclosure
+$0\leq\mathbb E[(X-r)^+]\leq D$ gives the reconstructed midpoint
+$r\widehat p+D/2$ and mean radius $re+D/2$. The prescribed admissible choice
+must satisfy
+\[
+ re+D/2\leq t,\qquad t=0.005/H.
+\]
+The original finite pricing certificate remains a separate deterministic
+allowance at most $0.005$ in price currency units. Multiplication by $H$
+therefore yields the retained undiscounted $0.01$ price radius on the
+coverage event. Discounting is then applied exactly as in the existing
+financial comparison. A clipping choice with $D/2\geq t$ is rejected unless
+the common whole-prior argument already removes all estimation. For
+dyadic buckets, the same scalar QPE guarantee can be used after the existing
+weighted error allocation and failure-probability union bound; support,
+moment and financial certificates remain common to competing methods.
+
+Let $C_A$ denote any additive gate or internal-instrument metric of the actual emitted flag preparation,
+$C_{\mathrm{CQ}}$ the corresponding metric of its emitted controlled
+iterate, and $C_F(m)$ that of the certified inverse Fourier tape. The total before terminal phase readout and final reinitialisation
+metric is
+\begin{equation}
+ R\{C_A+(M-1)C_{\mathrm{CQ}}+C_F(m)+mC_H\}.
+ \label{eq:qpe-complete-charge}
+\end{equation}
+The final term is the phase-register preparation. The inverse Fourier
+construction itself contains $m$ Hadamards, $m(m-1)/2$ controlled phases
+and $\lfloor m/2\rfloor$ swaps before their explicit Clifford+T expansion.
+Each swap is charged as three CNOT gates. Its controlled-phase tapes retain
+the certified synthesis error and aggregate phase convention; these
+rotations are not assigned zero T cost. There are $Rm$ final phase-register
+observations and $R$ complete reinitialisations, in addition to all measured
+AND observations, corrections and resets already in $C_A$ and
+$C_{\mathrm{CQ}}$. Sequential repetitions and controlled iterates permit
+scratch reuse. I add the $m$ simultaneously live phase wires and the
+certified synthesis ancillas to the largest financial/reflection workspace.
+Serial additive depth caps are conservative scheduling bounds; they do not
+assert depth-optimal parallel execution.
+
+The original unit-range, certified range, clipped and dyadic flags are
+eligible only with their own complete profiles, identical financial
+tolerance and common certified information. This canonical comparator
+closes a particular missing baseline. It does not by itself establish
+optimality against all amplitude estimators, priority of the finite
+certificate, or a conversion from logical T counts to physical runtime.

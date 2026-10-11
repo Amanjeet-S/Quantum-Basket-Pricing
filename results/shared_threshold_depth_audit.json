@@ -1,0 +1,93 @@
+{
+  "schema": "qbp-independent-shared-threshold-depth-register-supplement-v1",
+  "status": "passed",
+  "profiles_checked": 8,
+  "facts": [
+    {
+      "original_model_id": "n2_lambda0.4_scale3",
+      "architecture": "exact7t",
+      "predicate_width": 36,
+      "predicate_extra_qubits_upper": 111,
+      "financial_live_peak": 4066,
+      "reflected_core": 25,
+      "explicit_predicate_T_depth": 2336,
+      "conservative_predicate_T_depth": 2920
+    },
+    {
+      "original_model_id": "n2_lambda0.4_scale3",
+      "architecture": "unitary8t",
+      "predicate_width": 36,
+      "predicate_extra_qubits_upper": 111,
+      "financial_live_peak": 4066,
+      "reflected_core": 25,
+      "explicit_predicate_T_depth": 2336,
+      "conservative_predicate_T_depth": 2920
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "architecture": "exact7t",
+      "predicate_width": 36,
+      "predicate_extra_qubits_upper": 111,
+      "financial_live_peak": 5526,
+      "reflected_core": 45,
+      "explicit_predicate_T_depth": 2336,
+      "conservative_predicate_T_depth": 2920
+    },
+    {
+      "original_model_id": "n4_lambda0.05_scale3over2",
+      "architecture": "unitary8t",
+      "predicate_width": 36,
+      "predicate_extra_qubits_upper": 111,
+      "financial_live_peak": 5526,
+      "reflected_core": 45,
+      "explicit_predicate_T_depth": 2336,
+      "conservative_predicate_T_depth": 2920
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "architecture": "exact7t",
+      "predicate_width": 38,
+      "predicate_extra_qubits_upper": 117,
+      "financial_live_peak": 5880,
+      "reflected_core": 45,
+      "explicit_predicate_T_depth": 2464,
+      "conservative_predicate_T_depth": 3080
+    },
+    {
+      "original_model_id": "n4_lambda0.2_scale3",
+      "architecture": "unitary8t",
+      "predicate_width": 38,
+      "predicate_extra_qubits_upper": 117,
+      "financial_live_peak": 5880,
+      "reflected_core": 45,
+      "explicit_predicate_T_depth": 2464,
+      "conservative_predicate_T_depth": 3080
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "architecture": "exact7t",
+      "predicate_width": 38,
+      "predicate_extra_qubits_upper": 117,
+      "financial_live_peak": 10784,
+      "reflected_core": 85,
+      "explicit_predicate_T_depth": 2464,
+      "conservative_predicate_T_depth": 3080
+    },
+    {
+      "original_model_id": "n8_lambda0.2_scale3",
+      "architecture": "unitary8t",
+      "predicate_width": 38,
+      "predicate_extra_qubits_upper": 117,
+      "financial_live_peak": 10784,
+      "reflected_core": 85,
+      "explicit_predicate_T_depth": 2464,
+      "conservative_predicate_T_depth": 3080
+    }
+  ],
+  "source_sha256": "1bc6c46dbb42816f2256bd4be26721ef0c1569a75ce4b18ec0eea84794c5ab96",
+  "prototype_source_sha256": "45b294fdb8cda0a9bdfb246a58bdb521ebdbe16b1abb0aa0cadf5755bb06b691",
+  "resource_sha256": "40979b5224abeaa96cd313d7e4071ea3f98247d39213f8e6f48749d991e722f5",
+  "primary_financial_audit_sha256": "bcf48507a07a9db6258d9b8dc23b2cd3f4d780914145a941694b9d66237f2a75",
+  "exact_phase_audit_sha256": "5fda567779162722c0f8b5e0b8fdc83465eb480428391a05c8b8a79639251b60",
+  "scope": "Additive replay of the phase-checked literal full-width predicate and independent serial-depth/live-register/reset composition. It preserves original outcomes and primary audits. Depths and live allocations are conservative caps, not parallel scheduling or physical hardware measurements."
+}

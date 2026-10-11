@@ -1,0 +1,13 @@
+{
+  "schema": "qbp-four-quantum-own-formula-auxiliary-audit-v1",
+  "status": "passed",
+  "auditor_source_sha256": "84e29f166494f9e5bb5938cc8246de28712e9cceb7165ab23dc8d92abe22f217",
+  "producer_result_sha256": "0529c39b966df4782951c45d159f0a088b0e260aaeaddd5296f79ef1575c97b0",
+  "ideal_constant_precision_bits": 1024,
+  "producer_resource_and_certificate_APIs_imported": false,
+  "Beta_Gauss_monic_squared_norm": "1/300",
+  "auxiliary_allowance_formula_checks": 17,
+  "normaliser_and_decode_factor_checks": 17,
+  "independent_Gauss_constant_interval_checks": 16,
+  "scope": "Own-formula Beta midpoint and two-node Gauss allowances, exact signal normalisers, fixed parameter error and signed versus native positive decoding. Finite U moments remain retained producer evidence subject to the separate moment certificates."
+}

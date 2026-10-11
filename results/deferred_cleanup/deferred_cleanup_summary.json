@@ -1,0 +1,679 @@
+{
+  "schema": "qbp-deferred-cleanup-resources-v1",
+  "status": "completed retaining every registered outcome",
+  "protocol_sha256": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+  "producer_source_sha256": "1e78f51c6ffc9f49a56ddf785a72424531b8261a69ce996b984f5561d254b477",
+  "checked_proof_sha256": "06b5b72640089ec6c6c2227e5933bd4c9875e74999e413871546d76c6c2eaa14",
+  "checked_proof_filename": "cancellation_aware_preparation_fragment.tex",
+  "inputs_sha256": {
+    "results/common_shift/common_shift_protocol.json": "6b47d063c2dc08a806d08cb7d059416ca23d92483469f0ae11e8784f91d37c09",
+    "results/common_shift/common_shift_resources.json.gz": "62edc1c97db3607c82d1a6d68a30301d612c2bc107577c7e6f5e184dd778b034",
+    "results/common_shift/common_shift_poolwise_fallback.json.gz": "ccc7ea98c40162558edaa28e0f1230e05ab087017f3383a04f88e8d401c7f636",
+    "results/raw_payoff_tight/raw_payoff_resources.json.gz": "9b8386a17bc050578beed1d07793d16b233918ff10f48fe527e6fa3e70bce5f5",
+    "results/raw_payoff_smoothing/raw_payoff_smoothing_resources.json": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+    "results/expanded_raw_payoff/expanded_raw_payoff_resources.json.gz": "b502791ebd941d6f15a47a6f6b25047449b796eddce900c68045ac85cb1c08db",
+    "results/asymmetric_raw_payoff/asymmetric_raw_payoff_resources.json.gz": "9eb00158b1e12efda8deda05811fca022a3afc4ea9242ab3140fc2fc0bac266c",
+    "results/strengthened_r1_resources.json": "51763571fb159323e19148b7c8ca4f87f8863ef73234d728486c75a8da123af3",
+    "results/shared_threshold_resources.json": "40979b5224abeaa96cd313d7e4071ea3f98247d39213f8e6f48749d991e722f5",
+    "results/factor_basis_quantum_resources.json": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+    "integral_pricing_budget.py": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+    "qpe_estimator.py": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+    "qft_synthesis.py": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+    "correction_information_priors.py": "c3d213717276d8295a982c9bc8f9ddc8045e7b104d17ee0d5e3c4564756595cf",
+    "boundary_precision_selection.py": "00f828b0c50c318e72017be15b1ec907c2a1725255c756800d669b8b38ea1e7f",
+    "check_expanded_precision_resources.py": "e86de2f5631165574e06f08d2415c3ff373ba03b1ecc3dd8d8afda3c9dac6d51",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "results/qft_rotation_tapes.json": "531a2350c4d803ff94d06488fda99d098c356fa1ab4575dc534e8a57a5af5cbb",
+    "results/qft_rotation_certificates.json": "2fcf586525f3250793bc4f2cb42e7e1c80c801ef59a73082018158f3b244ef8a"
+  },
+  "selected_comparisons": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "variants": {
+        "deferred_B": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 412,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 10467507700,
+              "canonical_record_sha256": "07d3cc6e1fd33028f2703755a02155fd8ef9a0a9d114c958d22884362779401c",
+              "worst_history_record_index": 412,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 11304908316,
+              "T_worst_history_upper": 12435399147,
+              "previous_naive_clean_T_full_alpha": 20855422300,
+              "previous_naive_clean_T_worst_history_upper": 24776241692,
+              "saving_vs_naive_clean_canonical_exact": "103879146/208554223",
+              "saving_vs_naive_clean_worst_upper_exact": "12340842545/24776241692"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 122,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 11630271225,
+              "canonical_record_sha256": "023ee4e47be56bd0cf8b151a8a72de55afde135581d6a52a144500d2d97d3537",
+              "worst_history_record_index": 122,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 12560692923,
+              "T_worst_history_upper": 13816762215,
+              "previous_naive_clean_T_full_alpha": 23240600025,
+              "previous_naive_clean_T_worst_history_upper": 27609832829,
+              "saving_vs_naive_clean_canonical_exact": "154804384/309874667",
+              "saving_vs_naive_clean_worst_upper_exact": "13793070614/27609832829"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 358,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 11904194525,
+              "canonical_record_sha256": "a0734fa58fedd8d7fb1da5719caab88b612fa3fa6c56ea74dd42be34db412d1b",
+              "worst_history_record_index": 358,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 12856530087,
+              "T_worst_history_upper": 14142183095,
+              "previous_naive_clean_T_full_alpha": 23789339125,
+              "previous_naive_clean_T_worst_history_upper": 28261734880,
+              "saving_vs_naive_clean_canonical_exact": "475405784/951573565",
+              "saving_vs_naive_clean_worst_upper_exact": "2823910357/5652346976"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "46510541/465210849",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 9.997733522332364,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "460454356/4605587405",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 9.997733524720719
+        },
+        "cancellation_optimised_clean": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 412,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 10487836300,
+              "canonical_record_sha256": "07d3cc6e1fd33028f2703755a02155fd8ef9a0a9d114c958d22884362779401c",
+              "worst_history_record_index": 412,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 11326863204,
+              "T_worst_history_upper": 12459549524,
+              "previous_naive_clean_T_full_alpha": 20855422300,
+              "previous_naive_clean_T_worst_history_upper": 24776241692,
+              "saving_vs_naive_clean_canonical_exact": "103675860/208554223",
+              "saving_vs_naive_clean_worst_upper_exact": "3079173042/6194060423"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 122,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 11652992025,
+              "canonical_record_sha256": "023ee4e47be56bd0cf8b151a8a72de55afde135581d6a52a144500d2d97d3537",
+              "worst_history_record_index": 122,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 12585231387,
+              "T_worst_history_upper": 13843754525,
+              "previous_naive_clean_T_full_alpha": 23240600025,
+              "previous_naive_clean_T_worst_history_upper": 27609832829,
+              "saving_vs_naive_clean_canonical_exact": "154501440/309874667",
+              "saving_vs_naive_clean_worst_upper_exact": "13766078304/27609832829"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 358,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 11927453125,
+              "canonical_record_sha256": "a0734fa58fedd8d7fb1da5719caab88b612fa3fa6c56ea74dd42be34db412d1b",
+              "worst_history_record_index": 358,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 12881649375,
+              "T_worst_history_upper": 14169814312,
+              "previous_naive_clean_T_full_alpha": 23789339125,
+              "previous_naive_clean_T_worst_history_upper": 28261734880,
+              "saving_vs_naive_clean_canonical_exact": "94895088/190314713",
+              "saving_vs_naive_clean_worst_upper_exact": "1761490071/3532716860"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "46606229/466119681",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 9.998768749693708,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "1384205001/13843754525",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 9.998768748032246
+        },
+        "terminal_cleanup_difference": {
+          "shared_threshold": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "203286/104878363"
+          },
+          "raw_payoff": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "302944/155373227"
+          },
+          "numerical_conditional_price": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "930344/477098125"
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "variants": {
+        "deferred_B": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 413,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 41861923075,
+              "canonical_record_sha256": "e17b1a5005cb96cfcf546329e44c54da252bc90d172143c81829adfa7d03b35e",
+              "worst_history_record_index": 413,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 45210876921,
+              "T_worst_history_upper": 49731964613,
+              "previous_naive_clean_T_full_alpha": 83560988725,
+              "previous_naive_clean_T_worst_history_upper": 99270454605,
+              "saving_vs_naive_clean_canonical_exact": "1667962626/3342439549",
+              "saving_vs_naive_clean_worst_upper_exact": "49538489992/99270454605"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 185,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 44189729800,
+              "canonical_record_sha256": "31e135ce37daca4c3bb8d73ab62a5cbea5884bd75ccda26e558e568b60c9d403",
+              "worst_history_record_index": 185,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 47724908184,
+              "T_worst_history_upper": 52497399002,
+              "previous_naive_clean_T_full_alpha": 88336016050,
+              "previous_naive_clean_T_worst_history_upper": 104943187067,
+              "saving_vs_naive_clean_canonical_exact": "38388075/76813927",
+              "saving_vs_naive_clean_worst_upper_exact": "663870735/1328394773"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 374,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 44122469300,
+              "canonical_record_sha256": "ab733fdeadb3b64d874bc63b39b0ea7b9c6b0b426577d54ed76a8e55c84fd8c5",
+              "worst_history_record_index": 374,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 47652266844,
+              "T_worst_history_upper": 52417493528,
+              "previous_naive_clean_T_full_alpha": 88203283550,
+              "previous_naive_clean_T_worst_history_upper": 104785500857,
+              "saving_vs_naive_clean_canonical_exact": "881616285/1764065671",
+              "saving_vs_naive_clean_worst_upper_exact": "1689290559/3380177447"
+            }
+          },
+          "strongest_rival": "numerical_conditional_price",
+          "saving_against_strongest_canonical_exact": "12917407/252128396",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 5.123344773906387,
+          "strongest_worst_upper_rival": "numerical_conditional_price",
+          "saving_against_strongest_worst_upper_exact": "86629965/1690886888",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 5.123344773373155
+        },
+        "cancellation_optimised_clean": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 413,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 41902684625,
+              "canonical_record_sha256": "e17b1a5005cb96cfcf546329e44c54da252bc90d172143c81829adfa7d03b35e",
+              "worst_history_record_index": 413,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 45254899395,
+              "T_worst_history_upper": 49780389334,
+              "previous_naive_clean_T_full_alpha": 83560988725,
+              "previous_naive_clean_T_worst_history_upper": 99270454605,
+              "saving_vs_naive_clean_canonical_exact": "1666332164/3342439549",
+              "saving_vs_naive_clean_worst_upper_exact": "49490065271/99270454605"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 185,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 44232883550,
+              "canonical_record_sha256": "31e135ce37daca4c3bb8d73ab62a5cbea5884bd75ccda26e558e568b60c9d403",
+              "worst_history_record_index": 185,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 47771514234,
+              "T_worst_history_upper": 52548665657,
+              "previous_naive_clean_T_full_alpha": 88336016050,
+              "previous_naive_clean_T_worst_history_upper": 104943187067,
+              "saving_vs_naive_clean_canonical_exact": "38350550/76813927",
+              "saving_vs_naive_clean_worst_upper_exact": "663221790/1328394773"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 374,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 44165559050,
+              "canonical_record_sha256": "ab733fdeadb3b64d874bc63b39b0ea7b9c6b0b426577d54ed76a8e55c84fd8c5",
+              "worst_history_record_index": 374,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 47698803774,
+              "T_worst_history_upper": 52468684151,
+              "previous_naive_clean_T_full_alpha": 88203283550,
+              "previous_naive_clean_T_worst_history_upper": 104785500857,
+              "saving_vs_naive_clean_canonical_exact": "880754490/1764065671",
+              "saving_vs_naive_clean_worst_upper_exact": "52316816706/104785500857"
+            }
+          },
+          "strongest_rival": "numerical_conditional_price",
+          "saving_against_strongest_canonical_exact": "90514977/1766622362",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 5.1236177548170305,
+          "strongest_worst_upper_rival": "numerical_conditional_price",
+          "saving_against_strongest_worst_upper_exact": "206791909/4036052627",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 5.1236177550466815
+        },
+        "terminal_cleanup_difference": {
+          "shared_threshold": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "1630462/1676107385"
+          },
+          "raw_payoff": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "37525/38463377"
+          },
+          "numerical_conditional_price": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "861795/883311181"
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "variants": {
+        "deferred_B": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 414,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 44709494725,
+              "canonical_record_sha256": "56aeac2e322f1e4a5f620f9d3af689d2614fa7d3dce373dbd1906b88813b6c65",
+              "worst_history_record_index": 414,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 48286254303,
+              "T_worst_history_upper": 53114879733,
+              "previous_naive_clean_T_full_alpha": 89247538825,
+              "previous_naive_clean_T_worst_history_upper": 106026076124,
+              "saving_vs_naive_clean_canonical_exact": "77457468/155213111",
+              "saving_vs_naive_clean_worst_upper_exact": "52911196391/106026076124"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 227,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 8,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 46988300100,
+              "canonical_record_sha256": "ce1c5d7a7c6eceaaa13860c655944f210af3af18a24927295378b7b38a6c4733",
+              "worst_history_record_index": 227,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 8,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 50747364108,
+              "T_worst_history_upper": 55822100518,
+              "previous_naive_clean_T_full_alpha": 93933514350,
+              "previous_naive_clean_T_worst_history_upper": 111593015047,
+              "saving_vs_naive_clean_canonical_exact": "312968095/626223429",
+              "saving_vs_naive_clean_worst_upper_exact": "55770914529/111593015047"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 390,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 47622408050,
+              "canonical_record_sha256": "7f12fbbbf3cf78367ac70c58b60b8fa9ba1ce7c0bb9bdb63dcf09dd286bf0ba0",
+              "worst_history_record_index": 390,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 51432200694,
+              "T_worst_history_upper": 56575420763,
+              "previous_naive_clean_T_full_alpha": 95203161050,
+              "previous_naive_clean_T_worst_history_upper": 113101355327,
+              "saving_vs_naive_clean_canonical_exact": "951615060/1904063221",
+              "saving_vs_naive_clean_worst_upper_exact": "1823417244/3648430817"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "13021745/268504572",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 4.8497293371972825,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "2707220785/55822100518",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 4.849729336371082
+        },
+        "cancellation_optimised_clean": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 414,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 44753031425,
+              "canonical_record_sha256": "56aeac2e322f1e4a5f620f9d3af689d2614fa7d3dce373dbd1906b88813b6c65",
+              "worst_history_record_index": 414,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 48333273939,
+              "T_worst_history_upper": 53166601332,
+              "previous_naive_clean_T_full_alpha": 89247538825,
+              "previous_naive_clean_T_worst_history_upper": 106026076124,
+              "saving_vs_naive_clean_canonical_exact": "1060024/2126207",
+              "saving_vs_naive_clean_worst_upper_exact": "13214868698/26506519031"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 227,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 8,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 47034189850,
+              "canonical_record_sha256": "ce1c5d7a7c6eceaaa13860c655944f210af3af18a24927295378b7b38a6c4733",
+              "worst_history_record_index": 227,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 8,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 50796925038,
+              "T_worst_history_upper": 55876617541,
+              "previous_naive_clean_T_full_alpha": 93933514350,
+              "previous_naive_clean_T_worst_history_upper": 111593015047,
+              "saving_vs_naive_clean_canonical_exact": "937986490/1878670287",
+              "saving_vs_naive_clean_worst_upper_exact": "763238322/1528671439"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 390,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 47668919050,
+              "canonical_record_sha256": "7f12fbbbf3cf78367ac70c58b60b8fa9ba1ce7c0bb9bdb63dcf09dd286bf0ba0",
+              "worst_history_record_index": 390,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 51482432574,
+              "T_worst_history_upper": 56630675831,
+              "previous_naive_clean_T_full_alpha": 95203161050,
+              "previous_naive_clean_T_worst_history_upper": 113101355327,
+              "saving_vs_naive_clean_canonical_exact": "950684840/1904063221",
+              "saving_vs_naive_clean_worst_upper_exact": "56470679496/113101355327"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "91246337/1881367594",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 4.850000461951191,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "2710016209/55876617541",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 4.850000462199595
+        },
+        "terminal_cleanup_difference": {
+          "shared_threshold": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "75716/77831359"
+          },
+          "raw_payoff": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "917795/940683797"
+          },
+          "numerical_conditional_price": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "930220/953378381"
+          }
+        }
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "variants": {
+        "deferred_B": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 415,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 101750688975,
+              "canonical_record_sha256": "d450153c26ee8920126bba364ef7706180068d54c2c66933ea4c9f7e781d902c",
+              "worst_history_record_index": 415,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 109890744093,
+              "T_worst_history_upper": 120879818502,
+              "previous_naive_clean_T_full_alpha": 203322773325,
+              "previous_naive_clean_T_worst_history_upper": 241547454710,
+              "saving_vs_naive_clean_canonical_exact": "1354294458/2710970311",
+              "saving_vs_naive_clean_worst_upper_exact": "60333818104/120773727355"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 311,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 104186984850,
+              "canonical_record_sha256": "3dc4f1ef7eaf64d7a5e677c28a47700e739384212d9d029e2bd77c01e8cc6e4b",
+              "worst_history_record_index": 311,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 112521943638,
+              "T_worst_history_upper": 123774138001,
+              "previous_naive_clean_T_full_alpha": 208323372150,
+              "previous_naive_clean_T_worst_history_upper": 247488166114,
+              "saving_vs_naive_clean_canonical_exact": "231414194/462940827",
+              "saving_vs_naive_clean_worst_upper_exact": "123714028113/247488166114"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 406,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 104771938000,
+              "canonical_record_sha256": "00e7f629a198d009a93f90babbb2b07a45d6f602c68fff0d7437641be63a0249",
+              "worst_history_record_index": 406,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 113153693040,
+              "T_worst_history_upper": 124469062344,
+              "previous_naive_clean_T_full_alpha": 209495066950,
+              "previous_naive_clean_T_worst_history_upper": 248880139536,
+              "saving_vs_naive_clean_canonical_exact": "2094462579/4189901339",
+              "saving_vs_naive_clean_worst_upper_exact": "5183794883/10370005814"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "2498765/106858446",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 2.3383879267718344,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "2894319499/123774138001",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 2.3383879263829863
+        },
+        "cancellation_optimised_clean": {
+          "methods": {
+            "shared_threshold": {
+              "canonical_record_index": 415,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {},
+              "T_full_alpha": 101849977425,
+              "canonical_record_sha256": "d450153c26ee8920126bba364ef7706180068d54c2c66933ea4c9f7e781d902c",
+              "worst_history_record_index": 415,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {},
+              "T_half_alpha_fallback": 109997975619,
+              "T_worst_history_upper": 120997773180,
+              "previous_naive_clean_T_full_alpha": 203322773325,
+              "previous_naive_clean_T_worst_history_upper": 241547454710,
+              "saving_vs_naive_clean_canonical_exact": "193281516/387281473",
+              "saving_vs_naive_clean_worst_upper_exact": "12054968153/24154745471"
+            },
+            "raw_payoff": {
+              "canonical_record_index": 311,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_full_alpha": 104288779950,
+              "canonical_record_sha256": "3dc4f1ef7eaf64d7a5e677c28a47700e739384212d9d029e2bd77c01e8cc6e4b",
+              "worst_history_record_index": 311,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "normal_bits": 10,
+                "PG_exp_bits": 9,
+                "PA_exp_bits": 9
+              },
+              "T_half_alpha_fallback": 112631882346,
+              "T_worst_history_upper": 123895070580,
+              "previous_naive_clean_T_full_alpha": 208323372150,
+              "previous_naive_clean_T_worst_history_upper": 247488166114,
+              "saving_vs_naive_clean_canonical_exact": "693563948/1388822481",
+              "saving_vs_naive_clean_worst_upper_exact": "61796547767/123744083057"
+            },
+            "numerical_conditional_price": {
+              "canonical_record_index": 406,
+              "canonical_architecture": "unitary8t",
+              "canonical_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_full_alpha": 104874306650,
+              "canonical_record_sha256": "00e7f629a198d009a93f90babbb2b07a45d6f602c68fff0d7437641be63a0249",
+              "worst_history_record_index": 406,
+              "worst_history_architecture": "unitary8t",
+              "worst_history_configuration": {
+                "PG_bits": 10,
+                "PA_bits": 10
+              },
+              "T_half_alpha_fallback": 113264251182,
+              "T_worst_history_upper": 124590676300,
+              "previous_naive_clean_T_full_alpha": 209495066950,
+              "previous_naive_clean_T_worst_history_upper": 248880139536,
+              "saving_vs_naive_clean_canonical_exact": "2092415206/4189901339",
+              "saving_vs_naive_clean_worst_upper_exact": "31072365809/62220034884"
+            }
+          },
+          "strongest_rival": "raw_payoff",
+          "saving_against_strongest_canonical_exact": "32517367/1390517066",
+          "saving_against_strongest_canonical_per_cent_diagnostic": 2.3385090190615467,
+          "strongest_worst_upper_rival": "raw_payoff",
+          "saving_against_strongest_worst_upper_exact": "48288290/2064917843",
+          "saving_against_strongest_worst_upper_per_cent_diagnostic": 2.338509019315012
+        },
+        "terminal_cleanup_difference": {
+          "shared_threshold": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "1323846/1357999699"
+          },
+          "raw_payoff": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "678634/695258533"
+          },
+          "numerical_conditional_price": {
+            "canonical_deferred_saving_vs_optimised_clean_exact": "2047373/2097486133"
+          }
+        }
+      }
+    }
+  ],
+  "registered_configurations": 416,
+  "admitted_architecture_plans": 808,
+  "variant_canonical_plans": 1616,
+  "variant_half_alpha_fallback_plans": 1616,
+  "rejected_configurations": 12,
+  "frozen_mathematical_profiles_reused": true,
+  "data_origin": "Synthetic rational models and retained certified coherent primitives; no licensed or private observations.",
+  "scope": "Published cleanup deferral/circuit cancellation applied fairly to all implemented financial encodings. Exact retained primitive-resource transformations and complete confidence/reset charge caps; not a fresh emitted whole circuit, new primitive, globally optimal estimator, actual finite-price observation, hardware runtime or practical quantum advantage."
+}

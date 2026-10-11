@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-08",
+  "fixed_before_outcomes": true,
+  "model_family": "n8_lambda0.2",
+  "payoff": "vanilla",
+  "scales": [
+    "1",
+    "3/2",
+    "2",
+    "3"
+  ],
+  "transfer_series": "Aggregate R2 financial transfer allowance divided by 1/200.",
+  "classical_series": "Smallest valid complete undiscounted interval radius through Taylor degree3 divided by 1/100.",
+  "purpose": "Show whether the original cohort admission equality persists under fixed dispersion stress. Error targets differ; not a speed or pricing-advantage comparison.",
+  "outward_results_retained": true,
+  "original_boxed_text_figure": "Remove redundant text flow beside monetary theorem.",
+  "no_selection_from_observed_separators": true
+}

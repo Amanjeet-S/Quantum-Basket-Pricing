@@ -1,0 +1,435 @@
+{
+  "status": "passed",
+  "retightened_cases": 27,
+  "retightened_degree_intervals": 243,
+  "independent_geometry_exponential_terms": 25080,
+  "retightening_new_kernel_calls": 0,
+  "hierarchy_actual_kernel_calls": 793,
+  "hierarchy_geometry_exponential_terms": 760,
+  "precision_bits_independent": 512,
+  "retightened_profiles": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 3,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": null,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": null,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 4,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 5,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 3,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 3,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 2,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "degrees_checked": 9,
+      "coefficient_interval_sums_exact": true,
+      "moments_independently_recomputed": true,
+      "first_certifying_order": 1,
+      "passed": true
+    }
+  ],
+  "hierarchy_profiles": [
+    {
+      "case_id": "n2_lambda0.05_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 10,
+      "new_geometry_exponentials": 15,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 45,
+      "new_geometry_exponentials": 40,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.05_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 45,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 3,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 6,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.2_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 6,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 1,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 3,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n2_lambda0.4_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 6,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 15,
+      "new_geometry_exponentials": 35,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 70,
+      "new_geometry_exponentials": 91,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.05_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 126,
+      "new_geometry_exponentials": 84,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 5,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 5,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.2_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 15,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 1,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 5,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n4_lambda0.4_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 5,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 9,
+      "new_geometry_exponentials": 45,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 165,
+      "new_geometry_exponentials": 450,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.05_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 165,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 9,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 9,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.2_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 45,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap1",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 1,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap10",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 9,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    },
+    {
+      "case_id": "n8_lambda0.4_cap25",
+      "actual_coefficient_partial_sum_independently_enclosed": true,
+      "kernel_calls": 9,
+      "new_geometry_exponentials": 0,
+      "passed": true
+    }
+  ],
+  "input_sha256": "87a3d1696329fbea269fe9c33b2e5615e858eb4a3cb432d4e05aacb41fbef46e",
+  "source_hashes_verified": {
+    "gaussian_norm_pricing.py": "1095970c8926dfd3480a91ce4ee0c467ac64c736d6d7953c7c68ab057f7a3128",
+    "gaussian_derivative_norm.py": "8476eeb3ecefd560e95574b79d40d528113010dda2d3474236d5c016b97fe1ad",
+    "taylor_pricing.py": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+    "taylor_order_benchmark.py": "50660441e04dbf2535bf768322bea0d5811e3e1b9bf7ef45fec9742b9cc671ff",
+    "continuous_quadrature.py": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046"
+  },
+  "input_hashes_verified": {
+    "results/gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+    "results/taylor_pricing.json": "720880acb1e0c9b447ebc4ec818ba30799adbb2dcfe14bd1d5d7d59e03c9a037",
+    "results/taylor_order_benchmark.json": "0ab949c9639ff02ac1c37d8c26e8d4027d01ee96a912232386b1f2fe098e821f",
+    "results/generalisation_protocol.json": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af"
+  },
+  "auditor_sha256": "f6186b532d5e3d651fcae08d8ad28968a02956df7ad759faefc21a87d65d1a00",
+  "independence": "Exact model reconstruction, stars-and-bars compositions, independent high-precision moments, closed monomial Hermites, falling-factorial Stirling coefficients, and separate-call-price derivative formula. Instrumented producer replay checks actual stopping counts after the independent mathematical checks."
+}

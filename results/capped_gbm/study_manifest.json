@@ -1,0 +1,245 @@
+{
+  "data_status": "entirely synthetic designed contracts; no LSEG or other proprietary data",
+  "model": "risk-neutral GBM with continuous dividend yield and capped call payoff",
+  "greek_units": {
+    "delta": "per unit spot",
+    "gamma": "per unit spot squared",
+    "vega": "per unit volatility",
+    "rho": "per unit continuously compounded rate",
+    "theta": "per year of calendar time; minus derivative in time to maturity"
+  },
+  "analytic_baseline": "closed-form call spread; dominant baseline for this model",
+  "pde_method": "uniform central heat space difference/backward Euler; DST-I implements same tridiagonal recurrence",
+  "time_space_design": "coupled N=ceil(M squared/8), plus independent refinements",
+  "domain_status": "fixed per-case nine-sigma boxes; finite domain bounds separate from grid/bump error",
+  "convergence_scope": "exact arithmetic theorem with growing domains; fixed-domain numerical study with explicit tail bounds",
+  "bump_design": "spot S*(0.006*h**(1/8)+h) capped at0.1*S; first parameter bumps proportional h**(1/4); explicit per-row steps",
+  "initial_payoff": "actual kinked payoff; no numerical smoothing or Rannacher start-up",
+  "raw_mc_familywise_error_probability": 0.05,
+  "raw_mc_number_of_outputs": 49,
+  "raw_mc_individual_error_probability": 0.0010204081632653062,
+  "finite_confidence_scope": "Hoeffding for bounded raw price/pathwise Greeks/mixed PW-LR Gamma, Chebyshev payoff-LR Gamma; ideal independent exact normals/arithmetic",
+  "gamma_estimators": [
+    "payoff_likelihood_ratio",
+    "mixed_pathwise_likelihood_ratio"
+  ],
+  "floating_point_confidence_limitation": "bound constants and normal generation are not formally certified or outward rounded",
+  "normal_interval_scope": "pointwise asymptotic diagnostics only; no familywise finite coverage claim for antithetic/control output",
+  "controlled_mc_scope": "independent pilot fitted coefficients clipped to plus/minus10^6; production observations independent conditionally on pilot",
+  "cross_method_coupling": "antithetic and controlled production use a shared normal prefix; terminal evaluations charged separately; no confidence claim for paired method differences",
+  "mc_pairs": 131072,
+  "raw_production_normals_per_case": 262144,
+  "antithetic_production_pairs_per_case": 131072,
+  "controlled_production_pairs_per_case": 114688,
+  "control_pilot_pairs_per_case": 16384,
+  "seed": 732451,
+  "space_intervals": [
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384
+  ],
+  "cases": [
+    {
+      "case": "lower_kink",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "heat_lower": -1.8,
+      "heat_upper": 1.9823215567939547,
+      "analytic": {
+        "price": 6.3057373074164005,
+        "delta": 0.3375137966179677,
+        "gamma": 0.004026361868526247,
+        "vega": 8.052723737052492,
+        "rho": 27.445642354380364,
+        "theta": -1.291127847718692
+      }
+    },
+    {
+      "case": "upper_kink",
+      "parameters": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "heat_lower": -1.8,
+      "heat_upper": 1.9823215567939547,
+      "analytic": {
+        "price": 12.913081534441744,
+        "delta": 0.28472534117092674,
+        "gamma": -0.007259085914368774,
+        "vega": -20.906167433382063,
+        "rho": 21.253959406069455,
+        "theta": 1.7946683705612356
+      }
+    },
+    {
+      "case": "inside_spread",
+      "parameters": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "heat_lower": -1.8,
+      "heat_upper": 1.9823215567939547,
+      "analytic": {
+        "price": 9.754705352964642,
+        "delta": 0.34015363737211857,
+        "gamma": -0.0031833508760387118,
+        "vega": -7.703709120013684,
+        "rho": 27.662194757968393,
+        "theta": 0.3146740703716464
+      }
+    },
+    {
+      "case": "deep_cap",
+      "parameters": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      },
+      "heat_lower": -1.8,
+      "heat_upper": 2.2700036292457355,
+      "analytic": {
+        "price": 18.740349703176378,
+        "delta": 0.04483162851950795,
+        "gamma": -0.0027468843579794683,
+        "vega": -14.064047912854877,
+        "rho": -11.567289140055095,
+        "theta": 1.8251540711183534
+      }
+    },
+    {
+      "case": "low_vol_short_dated",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      },
+      "heat_lower": -0.3,
+      "heat_upper": 0.4823215567939546,
+      "analytic": {
+        "price": 0.5861329122587406,
+        "delta": 0.5321098461886424,
+        "gamma": 0.2962261359793822,
+        "vega": 8.886784079381465,
+        "rho": 2.6312425853302748,
+        "theta": -6.378706152638402
+      }
+    },
+    {
+      "case": "negative_rate_dividend",
+      "parameters": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      },
+      "heat_lower": -2.292459835830568,
+      "heat_upper": 2.4323215567939545,
+      "analytic": {
+        "price": 6.0244501056692314,
+        "delta": 0.2617680297682968,
+        "gamma": 0.0027134570116978188,
+        "vega": 7.478965888492112,
+        "rho": 21.46119302000193,
+        "theta": 0.6239010998937169
+      }
+    },
+    {
+      "case": "high_volatility",
+      "parameters": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      },
+      "heat_lower": -8.706942634270158,
+      "heat_upper": 8.535513604350099,
+      "analytic": {
+        "price": 7.572863461876825,
+        "delta": 0.10622191604981701,
+        "gamma": -0.000368027388784992,
+        "vega": -4.317881338919918,
+        "rho": 5.036437125711615,
+        "theta": 0.7270199809361388
+      }
+    }
+  ],
+  "finest_maximum_absolute_errors": {
+    "price": 9.950048971418823e-07,
+    "delta": 0.00011114478679541406,
+    "gamma": 0.00041370170148130603,
+    "vega": 0.0018293543079135333,
+    "rho": 0.0003171493084597188,
+    "theta": 0.0010264709655993798
+  },
+  "raw_outputs_outside_conservative_bounds": [],
+  "solver_maximum_absolute_crosscheck_difference": 3.801403636316536e-13,
+  "domain_maximum_absolute_matched_grid_difference": 3.1086244689504383e-15,
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.3.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "code_sha256": {
+    "run_capped_gbm_study.py": "5439dfbc29985c5f7038161162fa3cb35f7bf34b7e65dd46d3eed78ebed30005",
+    "capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+  },
+  "results": {
+    "backward_euler_solver_check.csv": {
+      "sha256": "ad6a2905462aa2661f27f6719911fe4b60c1de4c0539b741972d99f48a8cda18",
+      "bytes": 3203
+    },
+    "domain_enlargement_check.csv": {
+      "sha256": "79d90567588bc85083feabe6de0a0c892ba878134b25cb3fed8c172d690364dd",
+      "bytes": 1898
+    },
+    "independent_mesh_refinement.csv": {
+      "sha256": "f9f97f79caee3db33aa14002df03479f8cdbc8ad17157918fde02a8dc40e6fea",
+      "bytes": 18362
+    },
+    "monte_carlo_comparison.csv": {
+      "sha256": "9b0e9bb776fcbb630cf6c5070651e0b2c93cf6506587b73578012170c02feb0b",
+      "bytes": 62302
+    },
+    "pde_price_greek_comparison.csv": {
+      "sha256": "31a5adc34dadb5da798610dde4d2a59c705575490500b950ce1716de7b6e4123",
+      "bytes": 127896
+    }
+  },
+  "originality_status": "established classical methods and project-specific transparent verification; no novel quantum or pricing theory claimed"
+}

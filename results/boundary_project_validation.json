@@ -1,0 +1,64 @@
+{
+  "schema": "qbp-boundary-project-validation-v1",
+  "status": "passed",
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "commits_created": 0,
+  "native_main_compilation": "Success confirmed by desktop compile_latex_document on the final saved source",
+  "main_source_sha256": "f5f653f851ebbe9432d4126da52ca409d1292c300cba97775abd00c6b6479c95",
+  "main_source_words": 8324,
+  "main_reference_count": 17,
+  "main_label_count": 60,
+  "exact_pdf_page_count": "Not exposed by the native compiler; no separate PDF compiled or exported.",
+  "installed_phase_files": 65,
+  "earlier_sources_and_results_unchanged": 443,
+  "verbatim_document_snapshots": 6,
+  "audits": {
+    "boundary_derivative_audit.json": {
+      "status": "independent boundary derivative audit passed",
+      "sha256": "52306fe8a449668bd09878a64790f5c589892d2912e94807ce244fc33616fd47"
+    },
+    "boundary_value_oracle_audit.json": {
+      "status": "whole boundary financial circuit audit passed",
+      "sha256": "614b0cb12c5cd2344f3533cb09e54a0aea4cea8a871c68ea91b345540d9fe259"
+    },
+    "boundary_production_profiles_audit.json": {
+      "status": "independent boundary production block and complete composition audit passed",
+      "sha256": "b6432ab7196651bfbb56491be075666c6eb9b87c78049d1e2aa3e1f5811d05bb"
+    },
+    "boundary_grid_independent_audit.json": {
+      "status": "passed",
+      "sha256": "990772bd8993a1e5f5a2cd4de43571e1ea4a8d87c3d930156b23a9d86aa81535"
+    },
+    "boundary_auxiliary_independent_audit.json": {
+      "status": "passed",
+      "sha256": "a290a4a6f00de24e23394d6e912d7e23cc8a94f1b890ea846af09afb62ca2294"
+    },
+    "boundary_classical_pricing_audit.json": {
+      "status": "passed",
+      "sha256": "5abb8844bcbcfdf485133e26951c7e8a23bcb6eb0486bc804eb9ac6a7efd23ba"
+    },
+    "boundary_precision_independent_audit.json": {
+      "status": "passed",
+      "sha256": "cc4251388559de4315aa1ed595696883a10aa4a72e56100b46f76851555c79e7"
+    },
+    "boundary_convex_screening_audit.json": {
+      "status": "passed",
+      "sha256": "15c5b9892fe572c167ee1c95523fcf319ad8d04715e728fe92c5030dde4eb391"
+    }
+  },
+  "pricing_scope": {
+    "financial_cases": 36,
+    "base_arithmetic_graphs": 144,
+    "complete_two_asset_quantum_comparison_cases": 12,
+    "continuous_convex_screen_models": 9,
+    "continuous_convex_stops": 4
+  },
+  "comparison_counts": {
+    "candidate_programs": 173,
+    "allocation_decisions": 23772,
+    "complete_strategies": 538,
+    "scalar_certificates": 338
+  },
+  "scope": "Checked mathematics and logical-resource evidence, strong classical pricing and general convex screen. No device execution, practical quantum advantage, purchase or theoretical-priority assertion.",
+  "audit_version_linkage_sha256": "c678b050d74f4b9807989805a6752fb612d515c7b6a20f223e64bbf8a8710f06"
+}

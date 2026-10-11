@@ -1,0 +1,26 @@
+{
+  "status": "supporting research staged; quantum-finance model scope awaiting required user clarification",
+  "repo_modified_this_turn": false,
+  "commit_created": false,
+  "user_requirement": "Also produce a new or distinct quantum-finance model, not solely a classical certificate or established estimator. User explicitly asked a follow-up question to clarify its meaning. Two follow-ups submitted asynchronously; no answer yet.",
+  "norm_profiles": 36,
+  "stationary_roots_audited": 180,
+  "norm_generation_seconds": 4.522410708999814,
+  "pricing_summary": {
+    "certified_paths": 25,
+    "first_degree_reductions": 3,
+    "minimum_best_radius_ratio": 0.08895881848969414,
+    "maximum_best_radius_ratio": 0.7001811953573965,
+    "old_hierarchy_kernel_calls": 1169,
+    "new_hierarchy_kernel_calls": 793,
+    "old_hierarchy_geometry_terms": 1552,
+    "new_hierarchy_geometry_terms": 760,
+    "executed_hierarchy_kernel_ratio": "793/1169"
+  },
+  "quantum_scope_questions": [
+    "New financial quantum dynamics, new quantum pricing algorithm, or both?",
+    "Primary target: no-arbitrage derivative prices, asset dynamics with derived pricing, or portfolio risk?"
+  ],
+  "sources": "OlivaresAlvarez2016 final published conditional polynomial Gaussian-moment predecessor; Carr2001 signed-Stirling derivative antecedent; QSP and ChebAE source audit now read final text but nontrivial competitor not implemented.",
+  "next_independent_work": "Full proof write-up and independent audit of pricing hierarchy remain before importing these supporting files into paper. Do not claim new quantum model or theoretical priority from these results."
+}

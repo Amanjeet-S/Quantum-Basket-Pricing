@@ -1,0 +1,9 @@
+{
+  "status": "final_opponent_intersection_and_exact_endpoint_storage_registered_before_run3; initialoutcomesalreadyobserved",
+  "protocol_sha256": "d01002b6c211c84cd3c35d02c005f80c63411826d185e74d95431bbd87696b82",
+  "producer_sha256": "2156c0cfbe5198841b151ec48a1e998445db3b9825ebab11e1af8873e76cdac7",
+  "previous_runs_retained": [
+    "history/registered_run1_before_intersection",
+    "history/registered_run2_before_exact_interval_storage"
+  ]
+}

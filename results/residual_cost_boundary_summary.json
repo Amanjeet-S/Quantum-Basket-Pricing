@@ -1,0 +1,144 @@
+{
+  "schema": "qbp-residual-cost-boundary-scope-v1",
+  "status": "new bounded producers completed and independently audited",
+  "existing_low_order_continuous_stops": 18,
+  "contracts": 36,
+  "new_degree3_continuous_stops": 33,
+  "new_degree3_stops_by_degree": {
+    "1": 18,
+    "2": 9,
+    "3": 6,
+    "None": 3
+  },
+  "new_degree3_shared_geometry_exponentials": 580,
+  "new_degree3_additional_boundary23_kernel_calls": 2520,
+  "new_degree3_additional_density_calls": 4410,
+  "new_degree3_generation_seconds_diagnostic": 0.1847265000005791,
+  "new_Caldana_AG_specialisation_stops": 0,
+  "new_Caldana_AG_optimisation_complete_strike_bounds": 36,
+  "new_Caldana_AG_generation_seconds_diagnostic": 0.1944227910007612,
+  "new_Caldana_AG_radius_diagnostic_range": [
+    0.23518250486813486,
+    0.8327370248734951
+  ],
+  "retained_sharp_capped_classical_hierarchy": {
+    "execution_scope": "new hierarchy, own fresh banks, same frozen 27 contracts",
+    "kernel_calls": 793,
+    "geometry_exponentials": 760,
+    "certified_cases": 25,
+    "seconds_diagnostic": 0.1556027090009593
+  },
+  "retained_block_comparison_timing_scope": {
+    "shared_prefix_setup_seconds_diagnostic": 1.2764539170000262,
+    "full_generation_seconds_diagnostic": 355.50523450000014,
+    "per_level_scope": "Geometry record, grouped polynomial moments and both FTC/Peano allowances for twelve payoffs (three common scales times four payoffs) in that asset family.",
+    "cache_scope": "B1 forms fresh GroupedGeometry coefficients; later levels reuse them and existing caches.",
+    "excluded": "Common BlockTransport prefix setup is separate. Per-level timings exclude serialisation, full audit, archive compaction/reconstruction and earlier quantum precision search.",
+    "unsupported_inference": "Joint timings are not order-specific construction times, cold-run speed ratios, single-price execution times or quantum-device runtimes.",
+    "records": [
+      {
+        "assets": 2,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.01937270799999169
+      },
+      {
+        "assets": 2,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.14112249999993765
+      },
+      {
+        "assets": 2,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.5650315830000636
+      },
+      {
+        "assets": 2,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 2.097286166999993
+      },
+      {
+        "assets": 2,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 16.951822125000035
+      },
+      {
+        "assets": 4,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.09477783400006956
+      },
+      {
+        "assets": 4,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.6247609160000138
+      },
+      {
+        "assets": 4,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 2.468992999999955
+      },
+      {
+        "assets": 4,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 9.916216749999876
+      },
+      {
+        "assets": 4,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 80.12626399999999
+      },
+      {
+        "assets": 8,
+        "B": 1,
+        "geometry_and_12_payoffs_seconds_diagnostic": 0.4698009159999401
+      },
+      {
+        "assets": 8,
+        "B": 8,
+        "geometry_and_12_payoffs_seconds_diagnostic": 1.6628200840000318
+      },
+      {
+        "assets": 8,
+        "B": 32,
+        "geometry_and_12_payoffs_seconds_diagnostic": 6.342733959000043
+      },
+      {
+        "assets": 8,
+        "B": 128,
+        "geometry_and_12_payoffs_seconds_diagnostic": 25.955922916999953
+      },
+      {
+        "assets": 8,
+        "B": 1024,
+        "geometry_and_12_payoffs_seconds_diagnostic": 206.66578225000012
+      }
+    ]
+  },
+  "same_information_statement": "Model parameters, Gaussian analytic primitives and norm inputs are shared. Transport-weighted hybrid moments are not literally full continuous moments or price coefficients. Full Gaussian MGF queries through degree4 and finite covariance-shifted boundary kernels are the additional continuous Taylor work.",
+  "distinct_output_statement": "Continuous Taylor gives a price interval. Positive hybrid transport gives an actual rounded residual-integral transfer bound with preserved subprobability mass. Neither output automatically supplies the other at the same sharpness.",
+  "cost_statement": "No speed ratio is inferred between the new degree3 whole-panel diagnostic, earlier cached/full degree searches, and joint FTC/Peano incremental block timings. Imports, earlier norm production and full audit are outside these producer timings. Cost counters and each distinct timing scope are retained.",
+  "novelty_statement": "Established finite Taylor pricing and geometric exercise-set/AG bounds are strong opponents. The studied transport closure still has mathematical certificate value, but the executed cohort gives no pricing or practical quantum advantage over classical methods.",
+  "retained_input_hashes": {
+    "complete_information_summary.json": "eeb2b13671585edcc2608020f1a645a1b2d955a2442db7a0e1ad298e11368901",
+    "block_certificate_protocol.json": "8d65fe94a17240439bacb2dccd5e2dd98f24de3af8f0cfb25c87bb70305ba87d",
+    "higherdim_classical_taylor.json": "65e57af9124734208ab1930925544dfecafc3ff294b40651c00125429428b7c7",
+    "gaussian_norm_pricing.json": "87a3d1696329fbea269fe9c33b2e5615e858eb4a3cb432d4e05aacb41fbef46e"
+  },
+  "new_result_hashes": {
+    "residual_same_information_taylor.json": "549da9fc2d2f04e50b7c9c682e1e0cbcb5ca3edd8cdfa4eb0aa7be914c009f65",
+    "caldana_conditioning_benchmark.json": "273dfcbc470002864894088ec81a0b426b0cdb07e76d999fd6f652ba5b8cf284"
+  },
+  "new_producer_hashes": {
+    "residual_same_information_taylor.py": "d590e6956a6927a1d23ce77b54a850d352fa00520f102f5cb1d1ab36a68aafeb",
+    "caldana_conditioning_benchmark.py": "208f5ce446d054848464cac1ed5fe5e465725e9f4ca85fa6fa508bdceb4d0ff3"
+  },
+  "independent_audits": {
+    "continuous_degree3_independent_audit.json": {
+      "sha256": "446b7c80fc71b8aca8bf33f462b027ece3b7b80fc847af746c9910aaabadeac6",
+      "status": "passed"
+    },
+    "conditioning_bounds_independent_audit.json": {
+      "sha256": "999cfbc53d9f74f71d04f6cf0952396f504bb5b0216984ee1044d3087ae4bbac",
+      "status": "passed"
+    }
+  }
+}

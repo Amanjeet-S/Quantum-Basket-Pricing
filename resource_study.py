@@ -71,6 +71,7 @@ def propagate(graph,cap):
     unit=D(1)/D(1 << q)
     vals={}
     domains=[]
+    signed_limit=D(1 << (graph.width-graph.q-1))
     with localcontext() as ctx:
         ctx.prec=70
         for name,node in graph.nodes.items():
@@ -123,7 +124,11 @@ def propagate(graph,cap):
                 spacing=span/D(1 << node.bits)
                 if aa.lo-aa.error < 0 or aa.hi+aa.error >= span:
                     raise AssertionError(('function address out of domain',name,node.meta,aa))
-                if node.meta=='exp':
+                if node.meta.startswith('general_'):
+                    from general_kernels import bound_specification
+                    lo,hi,lip,curvature,generator_allowance=bound_specification(
+                        node.meta,aa,spacing,getattr(graph,'kernel_bound_mode','global'))
+                elif node.meta=='exp':
                     lo=(aa.lo-2).exp();hi=(aa.hi-2).exp()
                     maximum=(min(span,aa.hi+aa.error+spacing)-2).exp()+ALLOWANCE
                     curvature=maximum;lip=maximum
@@ -170,12 +175,12 @@ def propagate(graph,cap):
                 # cannot make the implemented product overflow.
                 ceiling=D(graph.nodes[node.args[0]].meta)/D(1 << q)
                 safe_magnitude=ceiling*D(node.meta[0])/D(1 << node.meta[1])
-            if safe_magnitude >= 32:
+            if safe_magnitude >= signed_limit:
                 raise AssertionError(('register overflow certificate',name,v))
             vals[name]=v
         bound=vals[graph.output].error*D(cap)
         return {'arithmetic_price_error_upper':math.nextafter(float(bound),math.inf),
-                'domain_checks':domains,'register_absolute_limit':32,
+                'domain_checks':domains,'register_absolute_limit':int(signed_limit),
                 'quantile_coordinate_error_upper':float(unit),
                 'endpoint_enclosure_allowance':float(ALLOWANCE),
                 'ordered_cdf_subtractions_structurally_verified':sum(

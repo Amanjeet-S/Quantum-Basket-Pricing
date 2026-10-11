@@ -1,0 +1,106 @@
+% Supporting fragment: established confidence tools at a matched financial interface.
+\subsection{Matched financial guarantees and paired diagnostic signals}
+\label{supp:matched-estimator-transfer}
+
+Let $V$ be the single stipulated derivative value. For alternative
+$i$, let its certified clean logical preparation $A_i$ have actual
+success probability $p_i$ and deterministic prior
+$[l_i,u_i]\subseteq[0,1]$. Suppose its certified monetary decoding
+$D_i(p)$ satisfies
+\begin{equation}
+ |V-D_i(p_i)|\leq E_i,
+ \qquad |D_i(p)-D_i(q)|\leq B_i|p-q|.
+ \label{eq:matched-financial-interface}
+\end{equation}
+The certificate includes every deterministic representation, arithmetic,
+geometric-control and external-factor contribution charged by that
+alternative. A common target radius $\varepsilon_V$ is met whenever
+\begin{equation}
+ E_i+B_i\varepsilon_i\leq\varepsilon_V.
+ \label{eq:matched-monetary-budget}
+\end{equation}
+Thus monetary matching does not require equal probability tolerances:
+different deterministic errors or normalisers can require different
+$\varepsilon_i$. Replacing them by a common larger tolerance would need
+a new monetary certificate.
+
+For each alternative the existing bounded controller uses at most
+$L=12$ fresh batches of $n=100$ shots. The pilot spends
+$\alpha/(2L)$ at every reached look, including repeated degrees; the
+fresh original-prior fallback receives $\alpha/2$. Conditional on that
+alternative's preceding history, the next selected degree is fixed and
+its new shots are independent Bernoulli measurements of the exact
+logical signal. The fixed-sample binomial interval therefore covers
+conditionally with probability at least $1-\alpha/(2L)$.
+The union bound over the at most $L$ reached looks gives pilot failure
+at most $\alpha/2$. Adding the fallback's failure allowance proves
+\begin{equation}
+ \Pr\{|\widehat V_i-V|>\varepsilon_V\}\leq\alpha,
+ \label{eq:matched-alternative-coverage}
+\end{equation}
+under the ideal logical-shot premises and the separately certified
+deterministic interface. An empty intersection is an unsuccessful pilot,
+which invokes the charged fallback using the original prior. The pilot
+does not supply an uncertified tightened prior to that fallback.
+
+Let $T_{F,i}$ be the complete fresh half-$\alpha$ canonical fallback
+cost and $C_i=\lfloor T_{F,i}/10\rfloor$ the pilot cap. The controller
+checks a full batch charge before requesting it. With $S_i$ denoting
+successful pilot termination and $T_{P,i}$ its complete pilot charge,
+every possible history satisfies
+\begin{equation}
+ T_i=T_{P,i}+T_{F,i}\mathbf1_{S_i^c},
+ \qquad 0\leq T_{P,i}\leq C_i,
+ \qquad T_i\leq C_i+T_{F,i}.
+ \label{eq:matched-history-cap}
+\end{equation}
+Every preparation, adjoint, reflection, observation and reset contributes
+to these charges. The half-$\alpha$ fallback can require more repetitions
+than the full-$\alpha$ canonical rival $T_{0,i}$. Consequently
+$C_i+T_{F,i}$ is not generally bounded by $1.1T_{0,i}$.
+Taking expectations in \eqref{eq:matched-history-cap} requires no
+independence between success and pilot cost and yields the exact criterion
+\begin{equation}
+ \mathbb E T_i<T_{0,i}
+ \quad\Longleftrightarrow\quad
+ \Pr(S_i)>1-\frac{T_{0,i}}{T_{F,i}}
+                 +\frac{\mathbb E T_{P,i}}{T_{F,i}}.
+ \label{eq:matched-break-even}
+\end{equation}
+A finite equal-weight mesh supplies a descriptive version of this
+identity. It does not identify either expectation or success probability
+at an unknown actual financial flag.
+
+For the paired diagnostic, choose a stipulated $p_*$ in a nonempty
+intersection of all alternative priors and their common finite ideal
+mean interval. Let $U_{j,s}$ be independent uniform variables for
+look $j$ and shot $s$, reused across alternatives. If alternative $i$
+selects degree $d_{i,j}$ from its own previous outcomes, define
+\begin{equation}
+ X_{i,j,s}=\mathbf1_{\{U_{j,s}<q_{d_{i,j}}(p_*)\}},
+ \qquad
+ q_d(p)=T_d(\sqrt p)^2.
+ \label{eq:matched-paired-uniforms}
+\end{equation}
+For a fixed alternative, $U_{j,s}$ is independent of that alternative's
+earlier looks. Its conditional fresh-shot law is therefore exactly the
+law required by the controller. The alternatives need not be independent
+for their marginal confidence bounds or the union bound to hold.
+This reasoning does not condition a method on another method's entire
+future history. At $\alpha=1/3600$, all twelve alternative-price
+events have union failure at most $1/300$; selecting one independently
+certified alternative for each of four cases gives $1/900$.
+
+The finite replay uses pseudorandom64-bit words and rounded signal
+thresholds solely to reproduce descriptive histories. Its word coupling
+removes method-relative mesh and seed confounding. It supplies no
+theorem about pseudorandom or physical coverage. In particular,
+\eqref{eq:matched-paired-uniforms} stipulates a common scalar signal;
+it does not assert $p_i=p_j$ for differently rounded financial
+preparations. Their actual flags remain governed by their own
+representation certificates. Shared ideal financial means and distinct
+implemented flag probabilities are compatible statements.
+
+These arguments specialise established fixed-binomial coverage,
+conditional confidence spending, union bounds and linear expectation to
+the project interface. I do not claim their generic theoretical novelty.

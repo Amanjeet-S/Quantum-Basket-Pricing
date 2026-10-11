@@ -1,0 +1,347 @@
+\section{A moment theorem beyond the stipulated Gaussian grid}
+\label{sec:general-moment}
+
+I state the argument separately from the retained GBM and circuit
+specialisation. Let $w_i>0$, $\sum_iw_i=1$, and let
+$\ell_i(y)=a_i+b_i\cdot y$ be arbitrary affine log-price functions.
+Set $\overline a=\sum_iw_i a_i$,
+$\overline b=\sum_iw_i b_i$, $m_G=\overline a+\overline b\cdot Y$ and
+$m_A=\log\sum_iw_i e^{\ell_i(Y)}$. The latent vector $Y$ can have any
+joint law for which the moments specified below exist. Define its joint
+moment-generating function by
+$\Lambda(v)=\E e^{v\cdot Y}$ at the required arguments. Independence
+is not assumed. Let $P:\R\to[0,1]$ be increasing and globally
+$L$-Lipschitz, with $L<\infty$, and put
+$X=P(m_A)-P(m_G)$.
+
+\begin{theorem}\label{thm:general-moment}
+Define $d_i=a_i-\overline a$ and $s_i=b_i-\overline b$. If
+$\Lambda(s_i)$ and $\Lambda(s_i+s_k)$ are finite for every $i,k$, then
+$0\leq X\leq1$ and
+\begin{align}
+ \E X^2&\leq\min\{1,L^2M\},\\
+ M&=\sum_{i,k}w_iw_k e^{d_i+d_k}\Lambda(s_i+s_k)
+       -2\sum_iw_i e^{d_i}\Lambda(s_i)+1.
+\end{align}
+In particular $M\geq0$. For an implemented output $\widehat X\in[0,1]$
+with a proved pointwise error $|\widehat X-X|\leq\eta$,
+\begin{equation}
+ \operatorname{Var}(\widehat X)
+ \leq\min\{1/4,(\sqrt{\min\{1,L^2M\}}+\eta)^2\}.
+\end{equation}
+Any separately proved mean-based variance bound can also enter this
+minimum. The finite-law factorisation in the preceding section is the
+special case $\Lambda(v)=\prod_jM_j(v_j)$.
+\end{theorem}
+
+\begin{proof}
+For each $y$, $\sum_iw_i(d_i+s_i\cdot y)=0$. Jensen's inequality therefore
+gives $T(y)=\sum_iw_i e^{d_i+s_i\cdot y}\geq1$.
+Moreover $m_A-m_G=\log T\leq T-1$, as proved above. Monotonicity,
+boundedness and the Lipschitz condition imply
+$0\leq X\leq\min\{1,L(T-1)\}$. Squaring and taking expectations proves
+the first assertion once $M=\E(T-1)^2$ is evaluated. The assumed
+finite moment-generating functions make all sums integrable. Expanding
+the finite sums for $T$ and $T^2$ gives the displayed expression for $M$,
+which is nonnegative because it is the expectation of a square.
+For the implemented output,
+$\E\widehat X^2\leq\E(X+\eta)^2
+\leq(\sqrt{\E X^2}+\eta)^2$, using
+$\E X\leq\sqrt{\E X^2}$. Subtracting its nonnegative squared mean
+bounds its variance by that second moment. Finally any variable in
+$[0,1]$ has variance at most $1/4$, because
+$\E \widehat X^2\leq\E\widehat X$ and
+$p-p^2\leq1/4$ for $p\in[0,1]$.
+\end{proof}
+
+This result can certify conditional basket-payoff sampling under Gaussian
+mixtures, finite scenario laws or other latent models with the stated joint
+moments. A suitable kernel and joint moment certificate must be supplied
+for each application. It does not justify treating an arbitrary financial
+model as Gaussian, and it does not cover models with infinite required
+exponential moments. The theorem is an original derivation in this
+project; its theoretical novelty remains subject to comparison with
+published moment and variance-reduction results.
+
+\section{Weak dispersion and the variance lost in a canonical flag}
+\label{sec:weak-dispersion}
+
+I first state a distribution-general limit. The argument concerns
+financial random variables before any fixed grid or arithmetic error.
+It supplies an independent limit experiment, rather than extrapolating
+the original 27 finite configurations.
+
+\begin{theorem}\label{thm:general-weak-dispersion}
+Let $V$ be an arbitrary $\R^p$-valued latent random vector, let
+$w_i>0$ sum to one, and fix $b_i\in\R^p$ with
+$\sum_iw_i b_i=0$. Write $B=\max_i\|b_i\|$ and
+$\Sigma_b=\sum_iw_i b_i b_i^{\mathsf T}$.
+For $0<|\varepsilon|\leq\varepsilon_0$, suppose deterministic coefficients
+$a_i(\varepsilon)$ satisfy
+\begin{equation}
+ \sum_iw_i a_i(\varepsilon)=0,\qquad
+ |a_i(\varepsilon)|\leq C\varepsilon^2
+\end{equation}
+for a finite common $C$. Define
+\begin{equation}
+ T_\varepsilon=\sum_iw_i
+        e^{\varepsilon b_i\cdot V+a_i(\varepsilon)},\qquad
+ J_\varepsilon=\log T_\varepsilon.
+\end{equation}
+Let the finite random base $m_\varepsilon$ converge almost surely to
+a finite $m_0$, and let $P:\R\to[0,1]$ be increasing and continuously
+differentiable, with $|P'|\leq L<\infty$. Assume
+\begin{equation}\label{eq:general-dispersion-integrability}
+ \E\{(1+\|V\|^4)
+                 e^{2\varepsilon_0B\|V\|}\}<\infty.
+\end{equation}
+Then
+\begin{equation}\label{eq:general-weak-L2}
+ \frac{P(m_\varepsilon+J_\varepsilon)-P(m_\varepsilon)}
+      {\varepsilon^2}
+ \longrightarrow
+ \tfrac12P'(m_0)V^{\mathsf T}\Sigma_b V=:H_0
+ \quad\hbox{in }L^2.
+\end{equation}
+The mean is $\varepsilon^2\E H_0+o(\varepsilon^2)$ and the variance is
+$\varepsilon^4\operatorname{Var}(H_0)+o(\varepsilon^4)$.
+The respective $\Theta$ orders require
+$\E H_0>0$ and $\operatorname{Var}(H_0)>0$.
+\end{theorem}
+
+\begin{proof}
+Let $d_{i,\varepsilon}=\varepsilon b_i\cdot V+a_i(\varepsilon)$.
+The assumptions imply $\sum_iw_i d_{i,\varepsilon}=0$ pointwise.
+Jensen's inequality gives $T_\varepsilon\geq1$.
+For fixed $V$, $d_{i,\varepsilon}/\varepsilon\to b_i\cdot V$, because
+$|a_i(\varepsilon)/\varepsilon|\leq C|\varepsilon|\to0$.
+Taylor's formula with integral remainder gives
+\begin{equation}
+ \frac{T_\varepsilon-1}{\varepsilon^2}
+ =\sum_iw_i\frac{d_{i,\varepsilon}^2}{\varepsilon^2}
+                 \int_0^1(1-t)e^{t d_{i,\varepsilon}}\,dt
+ \longrightarrow\tfrac12V^{\mathsf T}\Sigma_b V.
+\end{equation}
+The centring hypothesis cancels the complete linear term, including
+the order-$\varepsilon^2$ intercepts; no individual limit of
+$a_i(\varepsilon)/\varepsilon^2$ is required.
+Moreover
+\begin{equation}
+ 0\leq\frac{T_\varepsilon-1}{\varepsilon^2}
+ \leq\tfrac12(B\|V\|+C\varepsilon_0)^2
+           e^{\varepsilon_0B\|V\|+C\varepsilon_0^2}
+ =:D(V).
+\end{equation}
+The square of $D(V)$ is at most a finite constant times
+$(1+\|V\|^4)e^{2\varepsilon_0B\|V\|}$ and is therefore integrable
+by~\eqref{eq:general-dispersion-integrability}.
+Since $0\leq\log T_\varepsilon\leq T_\varepsilon-1$ and
+$\log(1+z)/z\to1$ at zero, $J_\varepsilon/\varepsilon^2$ has the
+same pointwise limit and $L^2$ dominator.
+The fundamental theorem of calculus writes the left-hand side
+of~\eqref{eq:general-weak-L2} as
+\begin{equation}
+ \frac{J_\varepsilon}{\varepsilon^2}
+       \int_0^1P'(m_\varepsilon+tJ_\varepsilon)\,dt.
+\end{equation}
+The integral converges almost surely to $P'(m_0)$ by continuity
+and the base convergence, and its magnitude is at most $L$.
+Dominated convergence with the integrable square $L^2D(V)^2$ proves
+the $L^2$ limit. Cauchy--Schwarz proves convergence of first moments.
+For the second moments I use
+$|\E U^2-\E W^2|\leq\|U-W\|_2(\|U\|_2+\|W\|_2)$.
+Subtracting the convergent squared means proves the variance expansion.
+\end{proof}
+
+Bounded latent scenario laws, centred Gaussian laws and suitable
+exponentially integrable mixture laws can satisfy these hypotheses.
+A moment-generating function finite at isolated arguments does not by
+itself prove~\eqref{eq:general-dispersion-integrability}; the requisite
+norm-exponential and polynomial moment must be checked. Degenerate
+boundaries also matter. A symmetric one-dimensional two-point latent law
+can make $V^{\mathsf T}\Sigma_bV$ constant. If its limiting base $m_0$
+also has constant $P'(m_0)$, then $H_0$ is constant and the leading
+fractional variance is zero. Constant quadratic form alone is
+insufficient when $P'(m_0)$ remains random. The theorem does not replace
+that boundary by a positive variance coefficient.
+
+I next vary cross-sectional dispersion while retaining Gaussian
+risk-neutral drifts. This is a financial specialisation of the general
+theorem, and I retain its exact drift algebra and explicit constants.
+Let $Y\sim N(0,I_p)$, fix positive weights, vectors
+$b_i\in\R^p$ with $\sum_iw_i b_i=0$, a common residual loading
+$R_0\in\R^p$, $\lambda>0$, and $c=r-d$. Set
+\begin{align}
+ R_i(\varepsilon)&=R_0+\varepsilon b_i,\qquad
+ D_b=\sum_iw_i\|b_i\|^2,\\
+ \mu_i(\varepsilon)&=c-\tfrac12\{
+           \|R_i(\varepsilon)\|^2+\lambda^2\},\\
+ \Sigma_b&=\sum_iw_i b_i b_i^{\mathsf T},\qquad
+ Q(v)=v^{\mathsf T}\Sigma_b v.
+\end{align}
+The normalised increasing conditional payoff kernel $P:\R\to[0,1]$ is
+continuously differentiable with globally bounded derivative.
+The capped-lognormal kernel satisfies these conditions at every
+$\lambda>0$. Define the arithmetic and geometric log-baskets
+$m_{A,\varepsilon}$ and $m_{G,\varepsilon}$ as above, and
+$X_\varepsilon=P(m_{A,\varepsilon})-P(m_{G,\varepsilon})$.
+
+\begin{theorem}\label{thm:weak-dispersion}
+As $\varepsilon\to0$ through nonzero real values,
+\begin{equation}\label{eq:weak-L2}
+ \frac{X_\varepsilon}{\varepsilon^2}
+ \longrightarrow
+ H_0(Y):=\tfrac12P'(m_0(Y))Q(Y-R_0)
+ \quad\hbox{in }L^2,
+\end{equation}
+where
+$m_0(Y)=c-\tfrac12(\|R_0\|^2+\lambda^2)+R_0\cdot Y$.
+Consequently, with $p_\varepsilon=\E X_\varepsilon$,
+\begin{align}
+ p_\varepsilon&=\varepsilon^2\E H_0+o(\varepsilon^2),\\
+ \operatorname{Var}(X_\varepsilon)
+   &=\varepsilon^4\operatorname{Var}(H_0)+o(\varepsilon^4).
+\end{align}
+If $\E H_0>0$ and $\operatorname{Var}(H_0)>0$, these orders are
+respectively $\Theta(\varepsilon^2)$ and $\Theta(\varepsilon^4)$.
+\end{theorem}
+
+\begin{proof}
+Weighted centring of the loading and the drift gives the exact identities
+\begin{align}
+ m_{G,\varepsilon}
+ &=m_0(Y)-\tfrac12\varepsilon^2D_b,\\
+ d_{i,\varepsilon}(Y)
+ &:=\mu_i(\varepsilon)-\sum_kw_k\mu_k(\varepsilon)
+              +(R_i(\varepsilon)-R_0)\cdot Y\\
+ &=\varepsilon u_i(Y)+\varepsilon^2v_i,\\
+ u_i(Y)&=b_i\cdot(Y-R_0),\qquad
+ v_i=-\tfrac12(\|b_i\|^2-D_b).
+\end{align}
+Both $\sum_iw_i u_i$ and $\sum_iw_i v_i$ are zero. Thus
+$T_\varepsilon=\sum_iw_i e^{d_{i,\varepsilon}}\geq1$ and
+$J_\varepsilon=m_{A,\varepsilon}-m_{G,\varepsilon}
+=\log T_\varepsilon\geq0$.
+At each fixed $Y$, Taylor's formula gives
+\begin{equation}
+ \frac{T_\varepsilon-1}{\varepsilon^2}
+ \longrightarrow \tfrac12\sum_iw_i u_i(Y)^2
+ =\tfrac12 Q(Y-R_0).
+\end{equation}
+For a detailed domination argument, the integral Taylor remainder
+$e^z-1-z=z^2\int_0^1(1-t)e^{tz}\,dt$ implies
+$0\leq e^z-1-z\leq z^2e^{|z|}/2$ for real $z$.
+Since the weighted linear terms vanish,
+\begin{equation}
+ 0\leq\frac{T_\varepsilon-1}{\varepsilon^2}
+ \leq \tfrac12\sum_iw_i
+       (|u_i|+|v_i|)^2e^{|u_i|+|v_i|}
+ =:D(Y),\qquad0<|\varepsilon|\leq1.
+\end{equation}
+Each $u_i$ is affine in $Y$. Hence
+$D(Y)\leq C(1+\|Y\|^2)e^{C(1+\|Y\|)}$ for a finite constant $C$
+depending only on the fixed coefficients. Its square is integrable under
+the Gaussian law: completing the square in the radial Gaussian exponent
+dominates any fixed linear exponential times a polynomial by an integrable
+Gaussian with a smaller negative quadratic coefficient.
+Since $0\leq\log T_\varepsilon\leq T_\varepsilon-1$ and
+$\log(1+z)/z\to1$ as $z\downarrow0$, the same pointwise limit and
+$L^2$ domination hold for $J_\varepsilon/\varepsilon^2$.
+
+The fundamental theorem of calculus gives
+\begin{equation}
+ \frac{X_\varepsilon}{\varepsilon^2}
+ =\frac{J_\varepsilon}{\varepsilon^2}
+   \int_0^1P'(m_{G,\varepsilon}+tJ_\varepsilon)\,dt.
+\end{equation}
+At each $Y$, the integral converges to $P'(m_0(Y))$ by continuity.
+Its absolute value is at most the global derivative bound $L$.
+The product is dominated in square by $L^2D(Y)^2$.
+Dominated convergence proves~\eqref{eq:weak-L2}.
+An $L^2$ limit gives convergence of first moments by
+Cauchy--Schwarz and convergence of second moments by
+$|\E U^2-\E V^2|\leq\|U-V\|_2(\|U\|_2+\|V\|_2)$.
+Subtracting the convergent squared means proves the variance expansion.
+The asserted $\Theta$ orders follow when their leading coefficients are
+strictly positive.
+\end{proof}
+
+\begin{corollary}\label{cor:weak-centred}
+If $R_0=0$, $\Sigma_b\ne0$ and
+$a=P'(c-\lambda^2/2)>0$, then
+\begin{equation}
+ \E H_0=\tfrac a2\operatorname{tr}\Sigma_b,\qquad
+ \operatorname{Var}(H_0)=\tfrac{a^2}{2}
+                         \operatorname{tr}(\Sigma_b^2)>0.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Here $m_0$ is constant and $H_0=aY^{\mathsf T}\Sigma_bY/2$.
+The real symmetric positive semidefinite matrix $\Sigma_b$ has an
+orthogonal diagonalisation with eigenvalues $\rho_j\geq0$.
+The Gaussian density is invariant under an orthogonal transformation,
+so $Y^{\mathsf T}\Sigma_bY$ has the law of
+$\sum_j\rho_j Z_j^2$ with independent standard normals $Z_j$.
+Integration by parts using $\varphi'(z)=-z\varphi(z)$ gives
+$\E Z_j^2=1$ and $\E Z_j^4=3$; all boundary terms vanish because
+a polynomial times the Gaussian density vanishes at infinity.
+Thus $\operatorname{Var}(Z_j^2)=2$. Independence now gives
+$\E Q=\sum_j\rho_j$ and
+$\operatorname{Var}(Q)=2\sum_j\rho_j^2$, which proves the formulas.
+At least one $\rho_j$ is positive when $\Sigma_b\ne0$.
+\end{proof}
+
+Let a canonical flag be
+$B_\varepsilon=\mathbf1\{U<X_\varepsilon\}$ with an independent
+uniform $U$ on $(0,1)$. The flag has exactly the Bernoulli law with
+parameter $p_\varepsilon$. Conditioning on $Y$ gives the exact identity
+\begin{equation}\label{eq:flag-variance-loss}
+ \operatorname{Var}(B_\varepsilon)
+ =\operatorname{Var}(X_\varepsilon)+
+                        \E[X_\varepsilon(1-X_\varepsilon)].
+\end{equation}
+It follows either by expanding $\E B_\varepsilon^2=p_\varepsilon$,
+or by the conditional-variance formula since
+$\E(B_\varepsilon\mid Y)=X_\varepsilon$ and
+$\operatorname{Var}(B_\varepsilon\mid Y)
+=X_\varepsilon(1-X_\varepsilon)$.
+Under the nondegeneracy conditions above,
+$\operatorname{Var}(B_\varepsilon)
+ =\varepsilon^2\E H_0+o(\varepsilon^2)$.
+The fractional output has variance of order $\varepsilon^4$, whereas
+the canonical single-shot flag has variance of order $\varepsilon^2$.
+
+The implication concerns a defined estimation experiment. For the
+arithmetic sample mean of $N$ independent draws,
+the relative mean-square errors are exactly
+$\operatorname{Var}(X_\varepsilon)/(Np_\varepsilon^2)$ and
+$p_\varepsilon(1-p_\varepsilon)/(Np_\varepsilon^2)$.
+At a fixed relative error target these scale respectively as a constant
+divided by $N$, and as a positive constant divided by
+$N\varepsilon^2$. Chebyshev's inequality turns a proved variance bound
+and a proved positive lower bound for $p_\varepsilon$ into a sufficient
+relative-error confidence count. The theorem is not a lower bound for
+all quantum estimators, and an amplitude-estimation algorithm exploits
+coherent powers rather than independent unamplified flag averages.
+Nor do I claim that the present bounded-range Bernstein formula yields
+a dispersion-independent relative-error count: its linear range term
+can dominate. At a fixed absolute monetary tolerance, the residual
+eventually becomes smaller than that tolerance, so omitting its
+estimation can become valid. I therefore retain the relative-residual
+experiment when interpreting these weak-dispersion orders.
+
+This identifies a financial loss of variance information in a particular
+canonical encoding, rather than a universal quantum disadvantage.
+At fixed numerical precision a grid or arithmetic error floor can dominate
+the limit. Transferring the continuous result to a sequence of implemented
+outputs requires a separately proved total $L^2$ implementation and
+latent-law error $o(\varepsilon^2)$. A pointwise arithmetic error
+$\eta_\varepsilon=o(\varepsilon^2)$ supplies its arithmetic component,
+but a mean-bias bound alone does not supply the required latent-law
+$L^2$ component. The original finite confidence certificates remain
+separate from this asymptotic statement.
+The mechanism is a project-specific derivation from established
+Rao--Blackwell conditioning and small-dispersion analysis. A defensible
+claim of a new contribution requires the literature comparison and
+finite-parameter error evidence retained elsewhere in this project.

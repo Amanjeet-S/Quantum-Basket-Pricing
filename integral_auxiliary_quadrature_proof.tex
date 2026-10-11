@@ -1,0 +1,111 @@
+\subsection{Second-order error for the actual auxiliary registers}
+
+The circuit's minimum register has more structure than a general
+Lipschitz coupling. Let $h=1/N$, let $z_j=(j+1/2)h$, and let
+$Z\sim\operatorname{Beta}(1,2)$. The integer minimum of two independent
+uniform $N$-point labels has probability
+\[
+ \frac{(N-j)^2-(N-j-1)^2}{N^2}
+ =2h(1-z_j)=\int_{jh}^{(j+1)h}2(1-z)\,dz.
+\]
+Thus the emitted law is the continuous Beta law with each cell replaced
+by its midpoint and its exact probability mass retained.
+
+\begin{proposition}[Beta midpoint certificate]
+Let $f\in C^2[0,1]$. Write $\|f'\|_\infty\leq L_1$ and
+$\|f''\|_\infty\leq L_2$. If $Z_N$ has the minimum-register law above,
+then
+\[
+ |\mathbb E f(Z)-\mathbb E f(Z_N)|
+ \leq h^2\left(\frac{L_1}{6}+\frac{L_2}{24}\right).
+\]
+\end{proposition}
+\begin{proof}
+On the cell centred at $z_j$, put $u=z-z_j$. Taylor's formula gives
+$f(z_j+u)-f(z_j)=f'(z_j)u+e_j(u)$ with
+$|e_j(u)|\leq L_2u^2/2$. The density is
+$2(1-z_j)-2u$. Its first centred cell moment is
+\[
+ \int_{-h/2}^{h/2}u\{2(1-z_j)-2u\}\,du=-h^3/6.
+\]
+The sum of the absolute contributions of the linear terms is at most
+$NL_1h^3/6=L_1h^2/6$. The density is nonnegative on each cell.
+Its second centred moment is
+$2(1-z_j)h^3/12$. Summing these moments uses
+$\sum_j2(1-z_j)h=1$, so the quadratic remainder contributes at most
+$L_2h^2/24$. The triangle inequality proves the bound.
+\end{proof}
+
+For the order-one Taylor price correction, set
+$f_y(z)=g_{m_G(y)}''(1+zU(y))$. The checked joint derivative
+certificates imply
+\[
+ |f_y'(z)|\leq H\overline D_3U(y),\qquad
+ |f_y''(z)|\leq H\overline D_4U(y)^2,
+\]
+because $U\geq0$ and $1+zU\geq1$. Multiplying the Beta error by
+$U^2/2$ and taking expectation yields the monetary bound
+\[
+ \beta_Z\leq H\,2^{-2m}
+ \left\{\frac{\overline D_3\mathbb E U^3}{12}
+       +\frac{\overline D_4\mathbb E U^4}{48}\right\}.
+\]
+The moment belongs to the financial factor law in the corresponding
+comparison. This formula changes the error certificate, not the circuit
+or its probability law.
+
+\begin{proposition}[Uniform strike midpoint certificate]
+For $f\in C^2[0,1]$, the uniform midpoint rule satisfies
+\[
+ \left|\int_0^1f(s)\,ds-h\sum_{j=0}^{N-1}f((j+1/2)h)\right|
+ \leq\frac{h^2}{24}\|f''\|_\infty.
+\]
+\end{proposition}
+\begin{proof}
+On every midpoint cell the integral of the linear Taylor term vanishes.
+The remaining absolute error is at most
+$(\|f''\|_\infty/2)\int_{-h/2}^{h/2}u^2du
+=\|f''\|_\infty h^3/24$. Summing the $N$ cells proves the result.
+\end{proof}
+
+Let $A=A_{2,\lambda}$ and define
+\[
+ E_2=\sup_\xi|(A'-\xi A)\phi(\xi)|,\qquad
+ F_2=\sup_\xi|
+ (A''-2\xi A'+(\xi^2-1)A)\phi(\xi)|.
+\]
+For fixed $y,z$, put $t=1+zU$ and
+$\xi(s)=(m_G+\log t-\log(1+Hs/K))/\lambda$.
+Its derivatives obey
+\[
+ |\xi'(s)|\leq H/(K\lambda),\qquad
+ |\xi''(s)|\leq H^2/(K^2\lambda).
+\]
+Twice differentiating $t^{-2}A(\xi(s))\phi(\xi(s))$, and using
+$t^{-2}\leq1$, gives a uniform second derivative bound
+\[
+ \frac{H^2}{K^2}
+ \left(\frac{F_2}{\lambda^2}+\frac{E_2}{\lambda}\right).
+\]
+The uniform strike theorem therefore yields
+\[
+ \beta_S\leq
+ \frac{H^3\mathbb E U^2}{48K^2}\,2^{-2b}
+ \left(\frac{\overline F_2}{\lambda^2}
+      +\frac{\overline E_2}{\lambda}\right).
+\]
+Independence of the strike register lets the same estimate hold with
+either continuous or already discretised Beta input. Consequently the
+two auxiliary errors can be combined by the triangle inequality without
+changing the financial law during either comparison.
+
+If $M_j$ is a certified norm of $\operatorname{He}_j\phi$, then
+\[
+ \overline E_2=M_1/\lambda+M_2/\lambda^2,\qquad
+ \overline F_2=M_2/\lambda+M_3/\lambda^2
+\]
+are independently valid bounds. They follow by differentiating
+$A_{2,\lambda}\phi=-(\lambda^{-1}+\xi\lambda^{-2})\phi$,
+using $(\operatorname{He}_j\phi)'=-\operatorname{He}_{j+1}\phi$,
+then applying the triangle inequality. Tighter joint stationary-point
+norms can replace these envelopes only after their own certificates.

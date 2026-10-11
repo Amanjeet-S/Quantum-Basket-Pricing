@@ -1,0 +1,70 @@
+\section{Selection, range compression and the complete comparison protocol}
+\label{sec:value-comparison-protocol}
+
+I supply every retained estimator with the same certified actual-output support,
+first-moment upper bound and second-moment upper bound. These are properties of
+one fixed financial function, independent of the choice of comparison flag.
+For the ordinary flag I use the certified-range construction with $c=q$.
+For the range family I evaluate every integer $0\leq c\leq q$ satisfying
+$a\leq2^c$. For the clipping family I evaluate every $c$ whose tail midpoint
+leaves a positive statistical budget and whose scalar probability tolerance
+belongs to the proved implementation domain. I retain the two dyadic
+allocations, equal and cost-dependent, with the default omitted prefix.
+Unsupported scalar tolerances and exhausted tail budgets remain recorded
+rejections. I do not extend a controller beyond its proved range merely to
+obtain a favourable resource count.
+
+For clarity, put $\rho=a_{\max}2^{-q}$, $u\geq\E X$, $v\geq\E X^2$
+and $r=2^{c-q}$. The clipping statistic $W=\min(X,r)$ has values on the
+same grid as $X$, satisfies $0\leq W\leq\min(\rho,r)$ and obeys
+$\E W\leq u$, $\E W^2\leq v$. I may therefore apply the finite-grid
+mean lemma in Section~\ref{sec:dyadic-sharp-prior} to $W$, with largest
+integer $\min(a_{\max},2^c)$, before dividing by $r$ to initialise its
+Born-probability interval. This use does not require the clipped statistic to
+attain every integer in that support class. A bound for the larger class is
+still a valid upper bound for its realised law. I apply the same lemma to the
+whole output before choosing any estimator.
+
+Each scalar controller has a proved finite superset of possible measurement
+histories. I use the same resource-bound convention for all estimator
+families: the full-batch controller maximises logical T cost over its coupled
+admissible-chain superset, while the three/five controller uses its separate
+shot and Grover-call caps. For other additive metrics I retain the conservative
+product cap. Consequently a dyadic primary T bound is never compared with a
+single-flag T bound inflated by using separate maxima unnecessarily. The
+strict numerical-value black-box alternative has a separately labelled
+conservative product T cap. That alternative is not used to select a winner
+against the fused known-body comparator.
+
+\begin{proposition}[Deterministic cost selection preserves a price guarantee]
+Let a finite set of implementations $\mathcal J$ share a deterministic
+financial bias certificate $\beta_j\leq0.005$ and an aggregate finite-mean
+estimation budget $t_j=0.005/H$. Suppose each implementation gives its stated
+price-error guarantee with failure probability at most $\alpha$. Choose one
+$j_*$ by a deterministic rule depending only on model parameters, proved
+numerical bounds and emitted circuit/resource counts, before its price
+measurements are observed. Then the selected price obeys its stated error
+bound with failure probability at most $\alpha$. No union over $\mathcal J$
+is required for that one selected price.
+\end{proposition}
+\begin{proof}
+The information entering the selection rule contains no random measurements
+from the ensuing price experiment. Conditional on that information, $j_*$ is
+fixed, and the assumed controller bound applies to $j_*$. Thus the conditional
+failure probability is at most $\alpha$; taking its expectation proves the
+unconditional bound. A claim that every unselected candidate also succeeds
+simultaneously would be different and would require a corresponding joint
+allocation. Likewise a simultaneous guarantee for 27 selected prices requires
+allocating $\alpha/27$ to each; the present cost table instead uses
+$\alpha=0.01$ for each individual selected price.
+\end{proof}
+
+All 819 architecture profiles inherit one of the existing 273 financial
+prefixes. I select by the logical T cap over the declared finite set. A minimum
+of upper bounds identifies a cheaper certified budget under this convention;
+it does not prove a minimum realised runtime, an information-theoretic lower
+bound, optimal precision allocation, or superiority over every published
+quantum algorithm. Logical T counts, classical scalar operations and host
+seconds remain distinct units. The historical financial arithmetic,
+distribution-transfer and geometric-correction certificates continue to be
+charged even when a narrower finite support makes a flag less expensive.

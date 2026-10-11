@@ -1,0 +1,197 @@
+{
+  "schema": "qbp-matched-deferred-B-history-comparison-v1",
+  "status": "passed trace/resource binding comparison",
+  "source_sha256": "66f32446c3bddc17dcd58a7e958ebc961ffe725b50c0296d974ffcb4895fd5e9",
+  "matched_B_resources_sha256": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4",
+  "matched_B_protocol_sha256": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+  "matched_B_inputs_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+  "previous_clean_amended_resources_sha256": "c11df5170921cdaa01b86fb69f7bb08a520e2ae0f17e738def24d82e271480c3",
+  "deferred_resources_sha256": "9a562070de16acb4f43fb8b1fe821560b905fd9ad5cf42a6f8b4388c79fcd5af",
+  "histories": 1200,
+  "paired_histories": 400,
+  "fresh_looks": 1968,
+  "histories_with_unchanged_degree_sequences": 1200,
+  "histories_with_unchanged_stopping_status": 1200,
+  "histories_with_unchanged_nonresource_controller_records": 1200,
+  "sampler_profiles_with_corrected_B_metadata": 157,
+  "cases": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 10467507700,
+          "half_alpha_fallback_T": 11304908316,
+          "whole_history_T_cap": 12435399147,
+          "pilot_certified": 23,
+          "previous_clean_pilot_certified": 23,
+          "common_mesh_mean_complete_T_exact": "236054682583/25",
+          "common_mesh_median_complete_T_exact": "12042316216",
+          "previous_clean_common_mesh_mean_T_exact": "470315167117/25",
+          "previous_clean_common_mesh_median_T_exact": "23993093584",
+          "coverage_diagnostic_failures": 0
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 11630271225,
+          "half_alpha_fallback_T": 12560692923,
+          "whole_history_T_cap": 13816762215,
+          "pilot_certified": 23,
+          "previous_clean_pilot_certified": 23,
+          "common_mesh_mean_complete_T_exact": "1049104175071/100",
+          "common_mesh_median_complete_T_exact": "13380001123",
+          "previous_clean_common_mesh_mean_T_exact": "2096413998079/100",
+          "previous_clean_common_mesh_median_T_exact": "26737105027",
+          "coverage_diagnostic_failures": 0
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 11904194525,
+          "half_alpha_fallback_T": 12856530087,
+          "whole_history_T_cap": 14142183095,
+          "pilot_certified": 39,
+          "previous_clean_pilot_certified": 39,
+          "common_mesh_mean_complete_T_exact": "868109635307/100",
+          "common_mesh_median_complete_T_exact": "13695143087",
+          "previous_clean_common_mesh_mean_T_exact": "346966784311/20",
+          "previous_clean_common_mesh_median_T_exact": "27368408855",
+          "coverage_diagnostic_failures": 0
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold",
+      "complete_worst_history_cap_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 41861923075,
+          "half_alpha_fallback_T": 45210876921,
+          "whole_history_T_cap": 49731964613,
+          "pilot_certified": 24,
+          "previous_clean_pilot_certified": 24,
+          "common_mesh_mean_complete_T_exact": "915556917399/25",
+          "common_mesh_median_complete_T_exact": "47011286421",
+          "previous_clean_common_mesh_mean_T_exact": "1827554206637/25",
+          "previous_clean_common_mesh_median_T_exact": "93839785523",
+          "coverage_diagnostic_failures": 0
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 44189729800,
+          "half_alpha_fallback_T": 47724908184,
+          "whole_history_T_cap": 52497399002,
+          "pilot_certified": 24,
+          "previous_clean_pilot_certified": 24,
+          "common_mesh_mean_complete_T_exact": "966467209846/25",
+          "common_mesh_median_complete_T_exact": "49625388184",
+          "previous_clean_common_mesh_mean_T_exact": "1931987486196/25",
+          "previous_clean_common_mesh_median_T_exact": "99202142334",
+          "coverage_diagnostic_failures": 0
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 44122469300,
+          "half_alpha_fallback_T": 47652266844,
+          "whole_history_T_cap": 52417493528,
+          "pilot_certified": 30,
+          "previous_clean_pilot_certified": 30,
+          "common_mesh_mean_complete_T_exact": "178703635524/5",
+          "common_mesh_median_complete_T_exact": "49549874844",
+          "previous_clean_common_mesh_mean_T_exact": "357239120289/5",
+          "previous_clean_common_mesh_median_T_exact": "99053103234",
+          "coverage_diagnostic_failures": 0
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold",
+      "complete_worst_history_cap_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 44709494725,
+          "half_alpha_fallback_T": 48286254303,
+          "whole_history_T_cap": 53114879733,
+          "pilot_certified": 29,
+          "previous_clean_pilot_certified": 29,
+          "common_mesh_mean_complete_T_exact": "3688792189913/100",
+          "common_mesh_median_complete_T_exact": "50034354103",
+          "previous_clean_common_mesh_mean_T_exact": "7363448143501/100",
+          "previous_clean_common_mesh_median_T_exact": "99876909731",
+          "coverage_diagnostic_failures": 0
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 46988300100,
+          "half_alpha_fallback_T": 50747364108,
+          "whole_history_T_cap": 55822100518,
+          "pilot_certified": 2,
+          "previous_clean_pilot_certified": 2,
+          "common_mesh_mean_complete_T_exact": "1308989660896/25",
+          "common_mesh_median_complete_T_exact": "52951988708",
+          "previous_clean_common_mesh_mean_T_exact": "2616782372451/25",
+          "previous_clean_common_mesh_median_T_exact": "105855528098",
+          "coverage_diagnostic_failures": 0
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 47622408050,
+          "half_alpha_fallback_T": 51432200694,
+          "whole_history_T_cap": 56575420763,
+          "pilot_certified": 40,
+          "previous_clean_pilot_certified": 40,
+          "common_mesh_mean_complete_T_exact": "169527645802/5",
+          "common_mesh_median_complete_T_exact": "52549355094",
+          "previous_clean_common_mesh_mean_T_exact": "338907684722/5",
+          "previous_clean_common_mesh_median_T_exact": "105052832334",
+          "coverage_diagnostic_failures": 0
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold",
+      "complete_worst_history_cap_winner": "shared_threshold"
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "full_alpha_canonical_T": 101750688975,
+          "half_alpha_fallback_T": 109890744093,
+          "whole_history_T_cap": 120879818502,
+          "pilot_certified": 4,
+          "previous_clean_pilot_certified": 4,
+          "common_mesh_mean_complete_T_exact": "2806559594907/25",
+          "common_mesh_median_complete_T_exact": "118245440793",
+          "previous_clean_common_mesh_mean_T_exact": "5608197674709/25",
+          "previous_clean_common_mesh_median_T_exact": "236283521691",
+          "coverage_diagnostic_failures": 0
+        },
+        "raw_payoff": {
+          "full_alpha_canonical_T": 104186984850,
+          "half_alpha_fallback_T": 112521943638,
+          "whole_history_T_cap": 123774138001,
+          "pilot_certified": 4,
+          "previous_clean_pilot_certified": 4,
+          "common_mesh_mean_complete_T_exact": "2873758085412/25",
+          "common_mesh_median_complete_T_exact": "121076638038",
+          "previous_clean_common_mesh_mean_T_exact": "5746126709328/25",
+          "previous_clean_common_mesh_median_T_exact": "242094724722",
+          "coverage_diagnostic_failures": 0
+        },
+        "numerical_conditional": {
+          "full_alpha_canonical_T": 104771938000,
+          "half_alpha_fallback_T": 113153693040,
+          "whole_history_T_cap": 124469062344,
+          "pilot_certified": 12,
+          "previous_clean_pilot_certified": 12,
+          "common_mesh_mean_complete_T_exact": "532717169406/5",
+          "common_mesh_median_complete_T_exact": "121551573540",
+          "previous_clean_common_mesh_mean_T_exact": "5325936464532/25",
+          "previous_clean_common_mesh_median_T_exact": "243046782106",
+          "coverage_diagnostic_failures": 0
+        }
+      },
+      "common_mesh_mean_winner": "numerical_conditional",
+      "common_mesh_median_winner": "shared_threshold",
+      "complete_worst_history_cap_winner": "shared_threshold"
+    }
+  ],
+  "interpretation": "The clean/B paired histories were executed and compared rather than inferred to be unchanged. All financial information and deterministic word batches agree. The numerical conditional rival retains the lowest descriptive common-mesh mean in all four cases; shared-threshold retains the lowest median and guaranteed complete worst-history cap. Mesh means and medians are not expected resources at an actual financial flag, and no adaptive estimator dominance or new query law is established.",
+  "scope": "Trace, metadata and registered cost binding comparison. Independent confidence/circuit formula verification is a separate audit."
+}

@@ -1,0 +1,78 @@
+{
+  "schema": "qbp-strengthened-r1-protocol-v1",
+  "registered_before_new_pool_execution": true,
+  "registration_utc": "2026-10-10T13:11:19.478126+00:00",
+  "research_record_date": "2026-10-10",
+  "source_sha256": "8f89e9dd5f9794e0c034f35be6546b47ebabfa0b0e4aafbc48373941e3540e1b",
+  "factor_resources_sha256": "da57a64267a5b721abadfaf5d12daa26b91bff56244b548415b200663893503a",
+  "threshold_resources_sha256": "40979b5224abeaa96cd313d7e4071ea3f98247d39213f8e6f48749d991e722f5",
+  "dependencies_sha256": {
+    "boundary_value_oracle.py": "46eca98514ede256390a3f0244ea2293a9d09ed64d800c84068a7b0378a95b31",
+    "boundary_value_certificate.py": "2647275ac121c1c56ed362c0500c88c8822c72762163687755be69fc05c4d405",
+    "integral_value_oracle.py": "f2e7e01b37c1d1985f2d6ddfb38a1165bc69b0ac06f58aec7338022b82fa7675",
+    "integral_value_certificate.py": "06e4533321c489669acbbc6e3796e1b09d80f45bf35d8d7dc3b7db9ce96a89a4",
+    "boundary_derivative_certificate.py": "6e8146aff9628685a71827f44277dda4575cb269211cf77ac22fd28adb4359fe",
+    "value_oracle.py": "92308b3a9887f3e0884308e4177270358afc262ebb1d6970fd2623a22f0c730f",
+    "reversible.py": "7fa520be46139a68bd5ea8bf41691d26aac300d02998adc1281799d7e596c686",
+    "architecture.py": "c9fbf6169b72d335b588a626300ce2caea14055e2587eb0870e8074412ec751a",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "boundary_precision_selection.py": "00f828b0c50c318e72017be15b1ec907c2a1725255c756800d669b8b38ea1e7f",
+    "correction_information_priors.py": "c3d213717276d8295a982c9bc8f9ddc8045e7b104d17ee0d5e3c4564756595cf",
+    "integral_pricing_budget.py": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+    "qpe_estimator.py": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+    "qft_synthesis.py": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+    "certified_scalar.py": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+    "taylor_pricing.py": "de40fc6cc014bfd062932a884b39f21c9f998ba78b1f9a931235decd597ad10e",
+    "continuous_quadrature.py": "d72709ebc22c2b7f3947b0c6cd2539a7a337fc50bd4d8f3f9535ccf15d99f046"
+  },
+  "inputs_sha256": {
+    "gaussian_derivative_norms.json": "abf8bce8107b44d0691a8761a4a8a61c337a42cef8ab4f6e8b5504d15a7a0797",
+    "boundary_derivative_norms.json": "4c48156969b14501f650cdc3849629b622c55df7ca12286dc09a02f1ec14d453",
+    "qft_rotation_tapes.json": "531a2350c4d803ff94d06488fda99d098c356fa1ab4575dc534e8a57a5af5cbb",
+    "qft_rotation_certificates.json": "2fcf586525f3250793bc4f2cb42e7e1c80c801ef59a73082018158f3b244ef8a"
+  },
+  "pairs": [
+    [
+      "n2_lambda0.4_scale3",
+      "identity"
+    ],
+    [
+      "n4_lambda0.05_scale3over2",
+      "plane_1_2_minus"
+    ],
+    [
+      "n4_lambda0.2_scale3",
+      "plane_1_2_minus"
+    ],
+    [
+      "n8_lambda0.2_scale3",
+      "plane_2_3_minus"
+    ]
+  ],
+  "independent_PA_address_bits": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "independent_PG_address_bits": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "configurations_per_pair": 16,
+  "configurations_total": 64,
+  "unchanged_outer_policy": "Quantile labels10, q28, L6, outer exp and log addresses12, exact same graph headroom and data-independent finite normaliser.",
+  "architectures": [
+    "exact7t",
+    "unitary8t"
+  ],
+  "no_repairs": true,
+  "confidence": "Same canonical QPE, alpha=1/3600 per price, monetary radius1/100.",
+  "probability_information": "Identical price-independent finite R1 mean interval, enlarged using each fresh numerical graph probability-error certificate.",
+  "selection": "Minimum complete T cap over every admitted configuration and both architectures; all budget/range rejects retained.",
+  "known_predecessors": "All12 numerical and fixed threshold outcomes are already known. This is a new stronger-rival pool registered before its new lower-precision outcomes; the threshold source and policy are not tuned.",
+  "financial_price_answers_excluded": true,
+  "data_origin": "Synthetic exact rational models and scalar tables only."
+}

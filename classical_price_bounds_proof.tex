@@ -1,0 +1,196 @@
+% Supporting proof fragment; definitions and author--date bibliography are in the main paper.
+\section{Certified published conditioning bounds and the classical information test}
+\label{supp:classical-price-bounds}
+
+I distinguish a continuous basket-price certificate from a continuous-to-grid
+transfer certificate. The former encloses the unknown price directly. The
+latter only bounds one error term after choosing a finite numerical law.
+The published geometric exercise-set lower bound and arithmetic--geometric
+upper bound are due to \citet{caldana}; I consulted the repository-labelled
+accepted manuscript, Sections 1--3, Proposition 1.1, Proposition 2.1,
+Corollary 2.2, equation (27) and Appendices B and D, rather than the
+inaccessible final publisher body. The following complete derivation fixes
+my Gaussian implementation, its mixed-sign optimiser and its capped-call
+extension. It does not claim a new generic pricing theorem.
+
+\subsection{The unchanged financial law and exact one-dimensional quantities}
+
+Write $L_i=\log(S_i/K)$, $g=\sum_iw_iL_i$, $A=\sum_iw_iS_i$ and
+$G=K e^g$, with $w_i>0$ and $\sum_iw_i=1$. Under the stipulated
+risk-neutral Gaussian law, set
+\[
+ m_G=\mathbb E g,\quad v_G=\operatorname{Var}(g)>0,\quad
+ \sigma_G=\sqrt{v_G},\quad
+ a_i=\frac{\operatorname{Cov}(L_i,g)}{\sigma_G},\quad
+ A_i=w_i\mathbb E S_i>0.
+\]
+All covariances are computed from the original rational exposures, including
+both their common Gaussian loading and geometric outer loading. Positive
+basket weights do not imply $a_i\geq0$. In particular, some $a_i$ are
+negative in the retained two- and four-asset small-common-scale models.
+
+The standardised variable $W=(g-m_G)/\sigma_G$ is standard normal.
+The Gaussian variable $L_i-\mathbb E L_i-a_iW$ has covariance zero with
+$W$. Their joint Gaussian characteristic function factorises, proving
+independence, including a possibly degenerate residual variance.
+It follows that
+\[
+ \mathbb E[S_i\mid W=z]
+ =\mathbb E S_i\exp(a_i z-a_i^2/2).
+\]
+Indeed, the conditional residual variance is
+$\operatorname{Var}(L_i)-a_i^2\geq0$ by Cauchy--Schwarz; evaluating its
+Gaussian exponential moment gives exactly the displayed factor. Multiplying
+by the standard normal density and completing the square yields
+\[
+ \mathbb E[S_i\mathbf1_{W>z}]=\mathbb E S_i\Phi(a_i-z),
+ \qquad \mathbb P(W>z)=\Phi(-z).
+\]
+These quantities require no arithmetic-basket price as input.
+
+For a strike $k>0$, define
+\[
+ L_k(z)=\sum_iA_i\Phi(a_i-z)-k\Phi(-z),\qquad
+ \ell_k=\max\{0,\sup_{z\in\mathbb R}L_k(z)\}.
+\]
+Pointwise, $(A-k)\mathbf1_E\leq(A-k)_+$ for every event $E$.
+Taking $E=\{W>z\}$ and expectations proves
+$\ell_k\leq\mathbb E(A-k)_+$. The supremum includes the limiting
+values $L_k(-\infty)=\mathbb E A-k$ and $L_k(+\infty)=0$.
+Both limits follow by dominated convergence since $\mathbb E A<\infty$.
+
+Jensen gives $A\geq G$. The call function is nondecreasing and
+one-Lipschitz, so
+\[
+ (G-k)_+\leq(A-k)_+\leq(G-k)_++A-G.
+\]
+Consequently a valid upper bound is
+$u_k=C_G(k)+\mathbb E A-\mathbb E G$, where direct Gaussian integration
+gives
+\[
+ C_G(k)=K e^{m_G+v_G/2}
+ \Phi\!\left(\frac{m_G-\log(k/K)+v_G}{\sigma_G}\right)
+ -k\Phi\!\left(\frac{m_G-\log(k/K)}{\sigma_G}\right),
+ \qquad \mathbb E G=K e^{m_G+v_G/2}.
+\]
+The same derivation gives the geometric lower bound $C_G(k)$.
+Thus $[\ell_k,u_k]$ encloses the continuous undiscounted call.
+The geometric lower bound is also valid, but no additional intersection
+with it is credited to the frozen implemented comparator. A lower interval endpoint must be rounded downwards;
+an upper endpoint must be rounded upwards. An interval containing the
+lower bound is not itself a price interval until this direction is imposed.
+
+\subsection{A complete optimiser, including mixed covariance signs}
+
+Since $\phi(a_i-z)=\phi(z)e^{a_i z-a_i^2/2}$,
+\[
+ L_k'(z)=\phi(z)\{k-S(z)\},\quad
+ S(z)=\sum_i A_i e^{a_i z-a_i^2/2},\quad
+ S''(z)=\sum_i A_i a_i^2 e^{a_i z-a_i^2/2}.
+\]
+If all $a_i>0$, $S$ is strictly increasing from zero to infinity.
+It crosses $k$ exactly once. The sign of $L_k'$ changes from positive to
+negative there, so its critical value is the global maximum. The analogous
+all-negative case gives a minimum; its supremum is attained at an endpoint.
+If zero rates accompany rates of one sign, the constant part changes the
+finite asymptotic endpoint of $S$ and must be included in the crossing test.
+All-zero rates give a constant $S$ and a monotone or constant $L_k$.
+
+If rates of both signs occur, $S''>0$ on $\mathbb R$,
+$S(z)\to\infty$ at both ends, and $S'$ increases from minus infinity to
+plus infinity. Thus $S$ has one global minimum, at the unique zero $z_0$
+of $S'$. If $S(z_0)>k$, $L_k'<0$ everywhere and the endpoint values
+suffice. Equality gives a stationary horizontal tangent without a local
+maximum. If $S(z_0)<k$, strict convexity and the two infinite limits give
+exactly two roots $z_-<z_0<z_+$ of $S(z)=k$. The derivative signs of
+$L_k$ are negative, positive and negative on the successive intervals.
+The lower root is therefore a local minimum, and the only possible
+finite global maximum is $L_k(z_+)$. Taking the maximum of that value
+and the two limiting endpoint values completes the optimisation. This
+argument uses the positive coefficients $A_i$, not nonnegative original
+asset covariances.
+
+The implementation must retain certified sign brackets for $S'$ and the
+relevant roots of $S-k$. Positive endpoint and negative endpoint enclosures
+prove the brackets; continuity and strict monotonicity on the relevant
+branch prove existence and uniqueness. A sign-ambiguous midpoint is not
+a sign decision. Evaluating $L_k$ on the final outward root interval
+encloses its critical value. The maximum of candidate lower endpoints
+and the maximum of candidate upper endpoints enclose their maximum.
+If the minimum or tangent comparison cannot be decided at the declared
+precision, a value at any fixed threshold still supplies a valid lower
+bound, but it must not be reported as a certified optimum. The finite
+producer explicitly records its supported cases and any such fallback.
+
+\subsection{Capped calls and rigorous monetary decoding}
+
+The elementary identity
+$\min\{(A-K)_+,H\}=(A-K)_+-(A-K-H)_+$ holds pointwise.
+For valid undiscounted call enclosures
+$[\ell_K,u_K]$ and $[\ell_{K+H},u_{K+H}]$, subtraction and
+$0\leq F_H\leq H$ give
+\[
+ \max\{0,\ell_K-u_{K+H}\}\leq\mathbb E F_H(A)
+ \leq\min\{H,u_K-\ell_{K+H}\}.
+\]
+This is a derived call-spread bound. Separate-strike bounds need not retain
+all cancellation, and the result is not claimed to be the sharpest capped
+bound obtainable from the published approach. The intersection cannot be
+empty for valid inputs; an empty numerical intersection signals an error.
+Discounting multiplies the final nonnegative interval by the positive
+outward enclosure of $e^{-r_f\tau}$. The midpoint of its exact rational
+endpoints has worst-case absolute error equal to half their difference.
+A cent certificate requires that complete discounted radius to be at most
+$1/100$. The producer records an undiscounted rational radius before
+serialising an Arb interval, whose radius representation can widen its
+endpoints slightly. The independent final check also uses the exact saved
+outward endpoints; all admission classifications agree in this cohort. It is deterministic and has no sampling failure probability.
+If the undiscounted radius also passes, that stricter condition is reported
+separately rather than silently substituted for the discounted target.
+
+\subsection{What the same polynomial information permits classically}
+
+For the exact conditioned scalar function $g_m(t)=P_\lambda(m+\log t)$,
+Taylor's integral identity at $t=1$ gives the degree-three price centre
+$c_0+c_1+c_2+c_3$ and radius $M_4\mathbb E U^4/24$.
+It is a finite identity, not an assumption of convergence of an infinite
+lognormal Taylor series. The degree-one and degree-two alternatives have
+radii $M_2\mathbb E U^2/2$ and $M_3\mathbb E U^3/6$ respectively;
+vanilla convexity makes the degree-one interval one-sided. Lower-order
+valid intervals can be retained when a higher-order radius grows.
+
+For $C_0=P_\lambda$, $C_1=P_\lambda'$ and the falling boundary
+operators of the main paper, the coefficients are
+$ c_k=\mathbb E[U^kC_{k,\lambda}(m)]/k!$.
+Write $X_i=e^{d_i+s_i\cdot Y}$ and
+$q_\alpha=j!\prod_iw_i^{\alpha_i}/\prod_i\alpha_i!$ for
+$|\alpha|=j$. Expanding $U^k=(\sum_iw_iX_i-1)^k$ and completing
+squares in the Gaussian density gives, with
+$v_\alpha=\sum_i\alpha_i s_i$ and
+$\sigma^2=\lambda^2+\|R_G\|^2$,
+\[
+ c_k=\frac1{k!}\sum_{j=0}^k(-1)^{k-j}{k\choose j}
+ \sum_{|\alpha|=j}q_\alpha
+ e^{\sum_i\alpha_id_i+\|v_\alpha\|^2/2}
+ C_{k,\sigma}(m_G+R_G\cdot v_\alpha).
+\]
+The Gaussian convolution commutes with these constant-coefficient
+operators; bounded falling derivatives justify differentiation under the
+integral for $k\geq2$, while the integrable exponential growth of the
+call kernel supplies domination for $k=0,1$. The same expansion without
+the boundary kernel gives the continuous $U^k$ moments. Signed terms
+are retained through the finite sum. The complete Gaussian-tilt proof
+and independent polynomial expansion remain in the indexed supporting
+classical derivations.
+
+The transport-weighted moments in the grid certificate do not literally
+equal the full Gaussian moments needed here. Nevertheless, the same model,
+positive basket geometry and shared $M_2,M_3,M_4$ permit the latter to be
+constructed from finite exponential sums of degrees at most four.
+Gaussian tilting also supplies the price coefficients, including the
+nonzero shift $R_G\cdot\sum_i\alpha_i s_i$. Those additional kernel
+evaluations and Gaussian moments are paid work. Granting the common model
+information does not grant a numerical basket price. The bounded
+comparison retains these costs and both failures and successes.
+Neither a smaller grid-transfer allowance nor a finite-moment formula
+alone establishes superiority over these continuous price certificates.

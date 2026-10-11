@@ -1,0 +1,224 @@
+\section{A deterministic comparator for the same finite pricing target}
+
+I compare the retained sampling procedures with exhaustive summation before
+interpreting a sampling-query improvement as a financial pricing contribution.
+This comparison uses the existing financial precision pool. It does not introduce
+a newly optimised precision family or an additional statistical premise.
+The result below is an elementary finite-sum identity, not a claim of theoretical
+novelty. Its purpose is to identify a constructive competitor that the preceding
+confidence budgets do not exclude.
+
+\begin{proposition}[Exact finite summation and transfer to a continuous price]
+Let the implemented financial output be
+\(x:\mathcal D\longrightarrow\{0,1,\ldots,2^q\}\), where
+\[
+ \mathcal D=\prod_{j=1}^{d}\{0,1,\ldots,2^{b_j}-1\},
+ \qquad N=2^{\sum_j b_j}.
+\]
+Suppose a deterministic certificate establishes
+\[
+ \left|P-\left(g_0+H\,\mathbb E[X]\right)\right|\leq\beta,
+ \qquad X=2^{-q}x(U),
+\]
+for uniform \(U\) on \(\mathcal D\), a retained geometric correction centre
+\(g_0\), and the continuous undiscounted price \(P\). The certificate includes
+the error of \(g_0\). Then exhaustive evaluation gives the exact rational number
+\[
+ \overline x=\frac{\sum_{u\in\mathcal D}x(u)}{N2^q}
+\]
+and the deterministic price enclosure
+\[
+ P\in[g_0+H\overline x-\beta,\ g_0+H\overline x+\beta].
+\]
+There is no statistical error or random-bit independence assumption. If every
+input state is evaluated exactly, the enclosure has confidence one under the
+stated numerical and modelling premises.
+\end{proposition}
+
+\begin{proof}
+The definition of a uniform random variable on a finite product gives
+\(\mathbb E[X]=(N2^q)^{-1}\sum_{u\in\mathcal D}x(u)\). Every summand is an
+integer. Arbitrary-precision integer summation therefore computes the numerator
+without rounding. Substitution into the assumed deterministic certificate proves
+both endpoints. No concentration inequality is used. In the retained one-input
+enumeration, \(N\leq2^{17}\) and \(q\leq30\), so
+\(\sum x(u)\leq N2^q\leq2^{47}<2^{64}\). An unsigned 64-bit sum is consequently
+exact as well. This overflow argument concerns the output reduction; the
+intermediate fixed-point products continue to use the separately proved limb
+arithmetic of the financial interpreter.
+\end{proof}
+
+For direct, interval and full-conditioning graphs, respectively, the exhaustive
+input sizes are
+\[
+ N_{\mathrm{direct}}=2^{d b_y+b_z},\qquad
+ N_{\mathrm{interval}}=2^{d b_y+b_u},\qquad
+ N_{\mathrm{full}}=2^{d b_y}.
+\]
+Thus storage for the scalar oracle tables, which is a sum of marginal table
+sizes, does not determine the number of financial input combinations. These are
+different quantities. A large tensor count is also not a lower bound on every
+classical quadrature algorithm. I record every input size in the 273-prefix pool
+and restrict actual exhaustive evaluation to the prespecified two-asset,
+fully conditioned scope with at most \(2^{17}\) states.
+
+If the prepared financial interpreter charges \(E\) scalar-lane operations per
+input and uses \(P_v\) vector domain predicates, I retain the following
+conservative online count for a one-dimensional enumeration:
+\[
+ C_{\mathrm{enum}}=NE+N+(N-1)+P_v(2N-1)+(N-1)+1
+                =N(E+3+2P_v)-P_v-1.
+\]
+The terms charge financial arithmetic, input assignments, input increments,
+domain comparisons and Boolean reductions, exact output addition, and final
+rational construction. For the selected two-asset full graphs,
+\(E=73\) and \(P_v=7\), giving \(90N-8\). These are algorithm-level scalar
+operations, not processor instructions. The full table manifests, packed-word
+reads, unpacked-word writes, graph-node counts and separate preparation times
+are retained. Special-function setup is not converted into an invented processor
+instruction count, and a shared cache is not interpreted as free preparation.
+
+\section{A certified continuous two-asset comparator}
+
+The following calculation also avoids the finite normal grid entirely. I retain
+the frozen rational parameters and the same undiscounted price target. Write
+\[
+ S_i=K\exp(\mu_i+r_iY+\lambda Z),\qquad
+ Y,Z\stackrel{\mathrm{ind}}{\sim}N(0,1),\qquad
+ A=\sum_{i=1}^{2}w_iS_i,\qquad G=\prod_{i=1}^{2}S_i^{w_i},
+\]
+where \(w_i>0\), \(w_1+w_2=1\), \(K=100\), and \(\lambda>0\).
+The retained exact rational check verifies
+\(\mu_i+(r_i^2+\lambda^2)/2=(r-\delta)T\), so this is the stipulated
+risk-neutral model. Define
+\[
+ m_A(y)=\log\sum_iw_i e^{\mu_i+r_iy},\qquad
+ m_G(y)=\sum_iw_i(\mu_i+r_iy),\qquad
+ F(s)=\min\{(s-K)^+,H\}.
+\]
+The common-factor conditional scalar price is
+\(C_\lambda(m)=\mathbb E[F(K e^{m+\lambda Z})]\).
+
+\begin{lemma}[Positive strike representation and analytic scalar kernel]
+For real \(m\), let \(h=H/K\), \(a=\log(1+h)\),
+\(t_0=m/\lambda\) and \(t_1=(m-a)/\lambda\). Then
+\begin{align*}
+ C_\lambda(m)
+ &=K\int_1^{1+h}\Phi\!\left(\frac{m-\log k}{\lambda}\right)\,dk\\
+ &=K\left\{e^{m+\lambda^2/2}
+     [\Phi(t_0+\lambda)-\Phi(t_1+\lambda)]
+       -[\Phi(t_0)-\Phi(t_1)]+h\Phi(t_1)\right\}.
+\end{align*}
+For positive real \(\lambda\), the displayed closed expression is an entire
+function of the complex variable \(m\).
+\end{lemma}
+
+\begin{proof}
+For every \(s\geq0\),
+\(F(s)=\int_K^{K+H}\mathbf1_{\{s>x\}}\,dx\); the value at an endpoint is
+irrelevant to this integral. Tonelli's theorem applies because the integrand is
+nonnegative. Substitution \(x=Kk\) gives the first equality and the normal
+probability \(\Phi((m-\log k)/\lambda)\).
+For the second equality, integration by parts gives
+\[
+ \int_1^{1+h}\Phi\!\left(\frac{m-\log k}{\lambda}\right)\,dk
+ =(1+h)\Phi(t_1)-\Phi(t_0)
+ +\int_1^{1+h}\frac1\lambda
+       \phi\!\left(\frac{m-\log k}{\lambda}\right)\,dk.
+\]
+In the last integral set \(k=e^{m-\lambda t}\). Completing the square yields
+\[
+ \int_{t_1}^{t_0}e^{m-\lambda t}\phi(t)\,dt
+ =e^{m+\lambda^2/2}
+       [\Phi(t_0+\lambda)-\Phi(t_1+\lambda)].
+\]
+Combining the boundary terms proves the formula. The normal CDF extension
+\(\Phi(z)=(1+\operatorname{erf}(z/\sqrt2))/2\) is entire, as are the
+exponential and their finite products and sums. The logarithm \(a\) is a
+positive-real-parameter constant, not a logarithm of the variable \(m\).
+\end{proof}
+
+\begin{proposition}[Residual quadrature and a one-sided Gaussian tail enclosure]
+Put \(\mu_G=\sum_iw_i\mu_i\), \(r_G=\sum_iw_ir_i\), and
+\(\sigma_G=\sqrt{\lambda^2+r_G^2}\). For every \(L>0\),
+\[
+ P=\mathbb E[F(A)]
+   =C_{\sigma_G}(\mu_G)
+     +\int_{-L}^{L}
+       [C_\lambda(m_A(y))-C_\lambda(m_G(y))]\phi(y)\,dy+\tau_L,
+ \qquad 0\leq\tau_L\leq2H\Phi(-L).
+\]
+Suppose validated integration returns a real interval \([I_-,I_+]\) for the
+finite integral, validated scalar evaluation returns \([g_-,g_+]\) for the
+geometric correction, and \(T_+\geq2H\Phi(-L)\). Then
+\[
+ P\in[I_-+g_-,\ I_++g_++T_+].
+\]
+For the direct conditional arithmetic price, the analogous interval is obtained
+by omitting the geometric correction and integrating
+\(C_\lambda(m_A(y))\phi(y)\). Its omitted tail obeys the same bound.
+\end{proposition}
+
+\begin{proof}
+Weighted arithmetic--geometric inequality gives \(A\geq G\) pointwise. Since
+\(F\) is increasing and takes values in \([0,H]\),
+\(0\leq F(A)-F(G)\leq H\). Conditioning on \(Y=y\) preserves both
+inequalities and gives the residual kernel in the displayed integral.
+Also \(\log(G/K)=\mu_G+r_GY+\lambda Z\), whose Gaussian variance is
+\(r_G^2+\lambda^2\), proving the exact geometric correction.
+The omitted normal probability is
+\(\mathbb P(|Y|>L)=2\Phi(-L)\). Multiplication by the pointwise bound \(H\)
+proves the one-sided tail enclosure. Addition of outward endpoints proves the
+price interval. The direct case uses \(0\leq F(A)\leq H\) in precisely the
+same tail argument.
+\end{proof}
+
+I use the existing authorised \texttt{python-flint} 0.9.0 implementation of
+Arb/Acb validated ball arithmetic. The ball-enclosure foundation is established by \citet{johansson2017}; I consulted the author-hosted typeset version, Sections 2.2 and 5.1, and the current installed API contracts separately. The primary integral uses 128-bit precision,
+\(L=8\), and a requested absolute integration tolerance \(10^{-16}\).
+The requested tolerance is not used as an achieved error bound. The actual
+returned finite ball, the separately returned correction ball and the outward
+Gaussian-tail bound determine every endpoint. Each endpoint is exported as an
+exact dyadic rational from its mantissa and exponent; decimal displays are
+rounded outwards. The direct representation is separately computed with
+176-bit precision, \(L=10\), and requested tolerance \(10^{-24}\).
+
+The Acb quadrature routine evaluates complex neighbourhoods as well as real
+points. Although the scalar cap kernel is entire, the log basket
+\(m_A(y)=\log\sum_iw_i e^{\mu_i+r_iy}\) need not be analytic on an arbitrary
+complex neighbourhood because its argument may vanish or meet the principal
+logarithm's branch cut. I therefore forward the quadrature routine's analytic
+verification flag to the complex logarithm. A non-finite analytic evaluation is
+returned to the integrator, which must subdivide or fail to return a finite
+enclosure. I do not replace this check with the fact that the integration path
+is real. No clipping, midpoint substitution or heuristic quadrature error is
+used to construct the price certificate. The assurance is conditional on the
+validated-library enclosure contract and the checked mathematical integrand;
+it is not a claim that this project proves the software implementation itself.
+
+\section{Retained deterministic findings and their contribution boundary}
+
+All 47 retained two-asset full-conditioning prefixes are exhaustively summed,
+covering 330,752 outputs. A separately executed arbitrary-precision
+Python-integer interpreter reproduces every output and every exact sum.
+All deterministic radii are below \(0.005\), while the originally requested
+undiscounted price error is \(0.01\). Every finite-grid certificate contains
+the corresponding continuous Arb enclosure. The continuous calculation retains
+all nine two-asset prices, with actual interval widths between approximately
+\(1.2\times10^{-15}\) and \(3.14\times10^{-14}\). Every residual representation
+overlaps its separately computed direct representation, and 126 scalar states
+also pass independent positive strike-integral checks.
+
+For these low-dimensional cases, a smaller quantum sampling-query count than a
+Monte Carlo procedure is insufficient evidence of quantum pricing advantage.
+Exact summation already requires fewer financial-output evaluations than the
+retained certified Monte Carlo budget at every one of the 47 matched prefixes.
+Validated continuous integration provides a still stronger constructive
+competitor without marginal normal grids or a statistical failure allocation.
+This is an adverse result for a low-dimensional quantum-advantage claim, not an
+original quadrature theorem. Conditional smoothing and efficient deterministic
+basket pricing already occur in the published literature, including
+\citet{bayer}. I retain this finding to delimit where a wider contribution must
+be sought. It does not prove a classical complexity lower bound, exclude
+high-dimensional applications, establish superiority under a different financial
+model, or convert host execution time into a physical quantum runtime.

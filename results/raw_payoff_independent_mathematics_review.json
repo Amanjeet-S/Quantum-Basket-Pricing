@@ -1,0 +1,66 @@
+{
+  "schema": "qbp-raw-payoff-independent-mathematics-review-v1",
+  "research_record_date": "2026-10-10",
+  "scope": "Read-only review of frozen tight producer, proof, protocols and resource evidence; separate derived certificate fragments are written only in staging.",
+  "reviewed_tight_producer_sha256": "2c859624add5d79e85b2f7974a7d1592a4949951abd000f856eedc4c2b6d4857",
+  "reviewed_supporting_proof_sha256": "398cff41801a3abb4b16929b5cbe4e28ad654988e873161dec7b61895c981a0e",
+  "reviewed_tight_resource_sha256": "9b8386a17bc050578beed1d07793d16b233918ff10f48fe527e6fa3e70bce5f5",
+  "original_pointwise_mathematics": {
+    "status": "valid under the inherited checked graph and financial premises",
+    "clamp_decomposition": "Exact for every real x because log(101/100)<1/100<1/64.",
+    "exponential_headroom": "Exact rational upper bound exp(1/64)<=64/63 by comparison of nonnegative power series.",
+    "normal_Kolmogorov_bound": "Valid for ordinary CDFs and left limits; quantile perturbation sandwich permits duplicate rounded quantiles; lower mass enclosure preserves the upper bound.",
+    "variation_transfer": "Valid because the continuous payoff difference has finite signed derivative measure of variation at most two and vanishes at infinities; no atom in the derivative measure occurs at a payoff kink.",
+    "graph_target": "Unsigned shifted endpoints decode to m+lambda*N and m+Delta+lambda*N before positive subtraction, with all implemented arithmetic errors separately guarded and propagated.",
+    "normaliser_check": "All four inherited R1 normalisers are exactly one. Hence the retained unnormalised finite mean prior can be enlarged directly by eta in this registered study.",
+    "external_mass_and_decoding": "Only the original outer mass is external; normalised inner law approximation is charged through D_N. The monetary coverage-event bound adds estimator error once.",
+    "registered_selection": "All 48 exact rational models satisfy positive weights summing to one and weighted-centred drift and loading identities. All 48 architecture minima and four full-pool winners agree with the retained selections. Source, protocol, dependency and scalar-input hashes agree."
+  },
+  "line_level_findings": [
+    {
+      "file": "producer/raw_payoff_phase_record.json",
+      "line": 85,
+      "priority": "packaging blocker",
+      "finding": "The file ends with literal backslash-n characters after its closing brace, rather than a real newline. json.loads raises Extra data. Correct the final terminator before packaging; resource JSON and gzip evidence are unaffected."
+    },
+    {
+      "file": "producer/raw_payoff_oracle_tight.py",
+      "line": 111,
+      "priority": "material benchmarking limitation",
+      "finding": "The pointwise graph probability error charges outer log-endpoint errors with the unsmoothed payoff slope. This is sound but unnecessarily pessimistic for a mean certificate. A smoothing-first certificate for the identical circuit can charge the outer errors using the conditional-price slope nu0/lambda. The final strongest-rival comparison should rebuild budgets, priors and QPE plans with the smaller valid bound."
+    },
+    {
+      "file": "producer/raw_payoff_proof.tex",
+      "line": 249,
+      "priority": "scope limitation",
+      "finding": "Every winning exp width equals the largest registered value ten. The finite result must not be described as a global raw-pricing or precision optimum. The existing text already discloses this limitation."
+    }
+  ],
+  "smoothing_first_derivation": {
+    "status": "independently derived and mathematically checked; full revised estimator costs remain a separate rebuild",
+    "fragment": "smoothing_first_certificate_fragment.tex",
+    "E_m": "e_m+e_C+e_O",
+    "E_s": "2L*abs(implemented_lambda-lambda)+2^-q when scale drop>0; the floor term is zero when drop=0",
+    "eta_smooth": "min(1,100*(e_exp_G+e_exp_A)+202*E_s+2*D_N+(nu0/lambda)*(2*E_m+e_Delta))",
+    "selection_rule": "min(existing valid eta_pointwise, valid eta_smooth)",
+    "mG_error_mapping": "body node absolute_output_error_upper at graph.semantic_nodes['mG_offset']",
+    "logT_error_mapping": "body node absolute_output_error_upper at graph.semantic_nodes['logT']",
+    "constant_C_error_mapping": "body error for constant second argument of the first add feeding lower_endpoint; exact constant J-BG",
+    "constant_O_error_mapping": "body error for graph.semantic_nodes['common_offset']; exact constant J+lambda*L",
+    "inner_scale_mapping": "second argument of lower_endpoint add is the scale node with coefficient lambda and argument normal_plus_L; exact implemented coefficient comes from retained scale_integer(lambda,q)",
+    "exp_error_mapping": "scalar ordinate output_error_upper for PG_exp and PA_exp, excluding first_derivative_upper times propagated input error",
+    "no_double_charging": "Rounded normal-node errors enter D_N only. Outer-node rounding enters the inherited financial transfer only. Scalar argument perturbations enter the separate inner-scale and smooth outer-shift charges."
+  },
+  "optional_exact_variation": {
+    "status": "independently checked; not automatically applied to frozen resource costs",
+    "fragment": "exact_variation_fragment.tex",
+    "formula": "TV(h)=2*min(1,101*(1-exp(-Delta)))",
+    "represented_endpoint_requirement": "The smoothing-first CDF step uses represented nonnegative Delta_hat; a uniform sharpening needs a certified upper bound on that represented gap.",
+    "scope": "A uniform gap bound at least log(101/100) leaves the old 2D_N term unchanged."
+  },
+  "originality_and_advantage": "All clamp, smoothing, CDF, variation and rounding mechanisms are established mathematical principles. This review proves project-specific finite implementation identities and bounds; it does not establish theoretical priority, physical quantum advantage or superiority over unregistered competitors.",
+  "repository_or_index_writes": false,
+  "commits": false,
+  "licensed_data_used": false,
+  "standalone_pdf_created": false
+}

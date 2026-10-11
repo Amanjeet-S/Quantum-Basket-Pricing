@@ -1,0 +1,138 @@
+% Supporting proof fragment. The main manuscript remains the editor document.
+\section{Independent product-law preparation}
+\label{sec:higherdim-preparation-proof}
+
+I retain the frozen rational financial parameters and the exact rounded
+quantile law. Let $N=2^{b_y}$, let $\alpha_L=\Phi(L)-\Phi(-L)$, and let
+\[
+ y_k^*=\Phi^{-1}\!\left(\Phi(-L)+\alpha_L\frac{k+1/2}{N}\right),
+ \qquad
+ y_k=2^{-q}\operatorname{round}(2^q y_k^*),\quad 0\leq k<N.
+\]
+Every label has probability $1/N$, including labels with repeated rounded
+coordinates. Rounding is nearest with half-integer ties directed upwards.
+The numerical construction certifies that the enclosure of every positive
+$y_k^*$ lies strictly within one rounding bin. Consequently no tie occurs,
+and the identities $y_{N-1-k}^*=-y_k^*$ and $y_{N-1-k}=-y_k$ follow from the
+symmetry and strict monotonicity of $\Phi$. No amplitude-loading approximation
+is introduced by the moment calculation.
+
+\begin{proposition}[Finite empirical exponential moments]
+Let $\eta=\sum_{k=0}^{N-1}a_k\delta_{y_k}$ be a finite signed measure,
+$M=\max_k|y_k|$ and $A=\sum_k|a_k|$. For a nonnegative integer $J$, set
+$p_j=\sum_k a_k y_k^j/j!$. Then for every real $v$,
+\[
+ \left|\int e^{vy}\,\eta(\mathrm dy)-\sum_{j=0}^{J}p_jv^j\right|
+ \leq A e^{|v|M}\frac{(|v|M)^{J+1}}{(J+1)!}.
+\]
+If $a_k=1/N$, the measure is symmetric and $J$ is even, the odd coefficients
+vanish exactly and the omitted even-power tail is nonnegative.
+\end{proposition}
+
+\begin{proof}
+For any real $x$, Taylor's formula with integral remainder gives
+\[
+ e^x-\sum_{j=0}^{J}\frac{x^j}{j!}
+ =\frac{x^{J+1}}{J!}\int_0^1(1-t)^J e^{tx}\,\mathrm dt.
+\]
+The integrand is bounded in absolute value by $e^{|x|}(1-t)^J$;
+integration gives $e^{|x|}|x|^{J+1}/(J+1)!$. Multiply this bound by
+$|a_k|$, use $|vy_k|\leq |v|M$, and sum the finite collection of terms.
+For the uniform symmetric measure, cancellation of each pair $y,-y$ proves
+that all odd empirical powers vanish. Its MGF is the average of
+$\cosh(vy_k)$, whose convergent even-power series has nonnegative terms.
+This also proves the one-sided omitted-tail statement. Certified interval
+evaluation encloses each coefficient, polynomial and remainder bound.
+The construction does not replace the finite law by a Gaussian law.
+\end{proof}
+
+Let $Y_1,\ldots,Y_p$ be independent with this identical rounded-node law,
+and write
+\[
+ T(Y)=\sum_{i=1}^{n}w_i e^{d_i+s_i\cdot Y},\qquad U(Y)=T(Y)-1.
+\]
+The frozen centring identities are $\sum_iw_i=1$,
+$\sum_iw_id_i=0$ and $\sum_iw_is_i=0$, with all $w_i>0$.
+Jensen's inequality therefore gives $T(Y)\geq1$ and $U(Y)\geq0$ pointwise.
+Denote the scalar finite-law MGF by $M_N(v)=N^{-1}\sum_ke^{vy_k}$.
+
+\begin{proposition}[Exact finite product-law factorisation]
+For every nonnegative integer $r$,
+\[
+ \mathbb E_N T^r
+ =\sum_{\substack{a\in\mathbb N_0^n\\|a|=r}}
+ \frac{r!}{\prod_i a_i!}\prod_iw_i^{a_i}
+ e^{\sum_i a_i d_i}
+ \prod_{j=1}^{p}M_N\!\left(\sum_i a_i s_{ij}\right),
+\]
+and
+\[
+ \mathbb E_N U^r
+ =\sum_{j=0}^{r}(-1)^{r-j}\binom rj\mathbb E_N T^j.
+\]
+These equalities are finite algebraic identities. They hold independently
+of the quality of the quantile discretisation as an approximation to the
+continuous Gaussian expectation.
+\end{proposition}
+
+\begin{proof}
+Apply the multinomial theorem pointwise to the finite sum defining $T$.
+Each resulting monomial has coefficient
+$r!\prod_iw_i^{a_i}/\prod_i a_i!$ and exponential
+$\exp(\sum_i a_id_i+\sum_j\sum_i a_is_{ij}Y_j)$.
+Independence factors its expectation into the stated scalar MGFs. Every sum
+is finite, so interchange of expectations and sums needs no limiting
+argument. The second identity is the binomial theorem for $(T-1)^r$.
+Although the latter identity has alternating coefficients, certified interval
+arithmetic retains its cancellation uncertainty. A negative upper endpoint
+would reject the calculation. A negative lower endpoint may be replaced by
+zero because $U^r\geq0$ was proved independently.
+\end{proof}
+
+The same information supplies a strong first-correction comparator. With
+$m_G=\mu_G+r_G\cdot Y$ and independent common Gaussian factor of volatility
+$\lambda$, the finite-law expected underlying-price difference is
+\[
+ \Gamma_N=K e^{\mu_G+\lambda^2/2}
+ \left\{
+ \sum_i w_i e^{d_i}\prod_{j=1}^{p}M_N(r_{Gj}+s_{ij})
+ -\prod_{j=1}^{p}M_N(r_{Gj})\right\}.
+\]
+I derive this identity by first integrating the common factor, then
+expanding $e^{m_G}U$ and applying independence to each term. For the capped
+and ordinary call, monotonicity and the one-Lipschitz property of the payoff
+give $0\leq\mathbb E_N R_1\leq\Gamma_N$. Thus the comparator receives
+the full covariance-preserving information rather than a product of marginal
+upper bounds. The ordinary call is unbounded, but all quantities above are
+finite on this finite law. Continuous integrability and no-arbitrage remain
+properties of the original Gaussian financial model, separately established
+in the main paper.
+
+To normalise the finite quantum oracle, I compute $T$ at every vertex of
+the coordinate box containing the actual nodes. I enlarge each coordinate
+extremum outwards by the certified maximum displacement between an actual
+node and its ideal-quantile enclosure. The enlarged box therefore contains
+both the actual dyadics and every ideal-quantile enclosure used by the
+existing arithmetic propagation. For fixed other coordinates,
+the function $T$ is convex in each remaining coordinate, as its second
+derivative is a finite sum of nonnegative exponential terms. A convex
+function on an interval has its maximum at an endpoint. Applying this
+argument successively to all $p$ coordinates proves that the maximum of
+$T$ on the box is bounded by its largest vertex value. Outward evaluation
+of the $2^p$ vertices gives $U_*$. This is a finite-law normaliser and is
+not a continuous-tail or financial-grid transfer certificate.
+
+The number of multinomial terms at order $r$ is
+$\binom{n+r-1}{r}$. Evaluation through order $R$ uses
+$\binom{n+R}{R}$ such terms. Caching equal rational scalar rates avoids
+repeated empirical MGF evaluations. The preparation cost includes generation
+of the $N$ rounded nodes, empirical-power accumulation, polynomial evaluations,
+geometric coefficient evaluations, and all $2^p$ vertex evaluations.
+It avoids enumeration of the $N^p$ Cartesian labels without assuming that
+state preparation or classical preprocessing is free. The cached geometry is
+shared only when the exact tuples $(w,d,s,r_G,\mu_G+\lambda^2/2)$ agree.
+The existing derivative-norm certificates and closed Gaussian coefficient
+formulas are supplied identically to all classical and quantum competitors.
+This derivation records the project-specific finite-law certificate and its
+cost. I do not claim originality for multinomial factorisation, exponential
+Taylor bounds, Gaussian tilting, or coordinatewise convexity.

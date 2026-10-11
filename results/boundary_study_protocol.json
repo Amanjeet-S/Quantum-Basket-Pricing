@@ -1,0 +1,63 @@
+{
+  "schema": "qbp-boundary-correction-protocol-v1",
+  "status": "specified before final circuit-resource selection",
+  "models": [
+    "n2_lambda0.05",
+    "n2_lambda0.2",
+    "n2_lambda0.4",
+    "n4_lambda0.05",
+    "n4_lambda0.2",
+    "n4_lambda0.4",
+    "n8_lambda0.05",
+    "n8_lambda0.2",
+    "n8_lambda0.4"
+  ],
+  "payoffs": [
+    {
+      "type": "capped",
+      "caps": [
+        1,
+        10,
+        25
+      ]
+    },
+    {
+      "type": "vanilla",
+      "strike": 100
+    }
+  ],
+  "all_financial_cases": 36,
+  "unchanged_model": "Original risk-neutral GBM, spot/strike100,T1,rf.03,dividend.02,allpositivefrozenweights/loadings",
+  "primary_continuous_transfer": "New GaussianCDF-cell curvature transport plus analytic tails, constructed without continuous price file or option-price answer",
+  "primary_complete_pricing_cases": "Nine capped andthreevanillacall n2cases; eighteen capped andsixvanillahigher-dimensioncasesretainedwithout claiming completefinancialtransfer",
+  "methods": [
+    "boundary_r2",
+    "stable_gauss_r2",
+    "raw_direct_r2",
+    "positive_r1"
+  ],
+  "common_parameters": {
+    "fractional_bits": 28,
+    "financial_label_bits": 10,
+    "tail_L": 6,
+    "Beta_label_bits": 8,
+    "initial_scalar_address_bits": 12,
+    "local_scalar_address_bits_min": 6,
+    "local_scalar_address_bits_max": 12,
+    "Gauss_Jacobi_nodes": 2
+  },
+  "normalisation": "Sharp capped M1/M2, or certified vanilla M2, supplied equally to every compatiblemethod; finite Ustar certified onactualgridboxvertices",
+  "vanilla_second_correction": "NonnegativeGamma correction, positive flag; linear-growth payoffpricehead c0+c1 finite underGBM, full tails retained",
+  "accuracy": "Undiscounted radius1/100; all deterministic coefficient/grid/tail/kernel/quadrature/constant errors charged before statistical allowance",
+  "failure_per_selected_price": "1/3600",
+  "family_failure": "<=1/100 across all36 selectedprices; anysign-split components divide casefailureequally; no physical samplingexecutionclaimed",
+  "architectures": [
+    "exact7t",
+    "unitary8t"
+  ],
+  "selection": "All12baseline plus three identical greedy scalar-address searches atdeterministiclimits.001,.0025,.005; fullTcaps choicemethod/encoding/architecture; every proposed map retained; no globaloptimumclaim",
+  "zero_quantum_test": "Apply equally supplied continuous and finite moment/correction certificates; no quantum-savings label for analytical decisions",
+  "classical_costs": "Coefficient and moment setup, derivative-grid validation, norm/root generation andtableconstruction chargedseparately; reference-free doesnotimplyfreeclassicalpreprocessing or classicalinferiority",
+  "scope": "No newfinanciallaw, purchaseddata, physicallyobservedquantumspeedup or genericCPWA-firstclaim. Existingcappedcomparisonevidencepreserved separately.",
+  "source_protocol_sha256": "ae0953d7100403118432ad16279955cd2c98ac9c75c0d5de162eb7d801e6d4af"
+}

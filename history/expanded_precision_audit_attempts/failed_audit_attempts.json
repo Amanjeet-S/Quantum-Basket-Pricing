@@ -1,0 +1,17 @@
+{
+  "status": "two independent auditor input/variable defects corrected before any passing outcome",
+  "attempts": [
+    {
+      "source": "attempt1_proof_path_mismatch.py.txt",
+      "source_sha256": "483c502eb813274746999bc2b17632aa8e9cd0209dc990507a529d0091e42152",
+      "failure": "Assertion at line79: registered checked_smoothing_proof hash was incorrectly compared with assembled standalone proof; registered source is the unchanged proof fragment. No producer evidence change."
+    },
+    {
+      "source": "attempt2_tuple_unpacking_mismatch.py.txt",
+      "source_sha256": "7de70fb43ca53912da5736a6a2e26db202e5d1a841da7f3bc273088c5a179170",
+      "failure": "Assertion at line108: scalar key(table_bits,q) unpacked as(q,b); correct unpacking is(b,q). No producer evidence change."
+    }
+  ],
+  "scientific_inputs_changed": false,
+  "repository_writes": false
+}

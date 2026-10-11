@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "model_id": "n2_lambda0.4_scale3",
+      "methods": {
+        "shared_threshold": {
+          "A_T": 1632343,
+          "S0_T": 322,
+          "core_qubits": 25
+        },
+        "raw_payoff": {
+          "A_T": 1818882,
+          "S0_T": 658,
+          "core_qubits": 49
+        },
+        "numerical_conditional": {
+          "A_T": 1861906,
+          "S0_T": 518,
+          "core_qubits": 39
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.05_scale3over2",
+      "methods": {
+        "shared_threshold": {
+          "A_T": 3266979,
+          "S0_T": 602,
+          "core_qubits": 45
+        },
+        "raw_payoff": {
+          "A_T": 3453518,
+          "S0_T": 938,
+          "core_qubits": 69
+        },
+        "numerical_conditional": {
+          "A_T": 3448398,
+          "S0_T": 798,
+          "core_qubits": 59
+        }
+      }
+    },
+    {
+      "model_id": "n4_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "A_T": 3489327,
+          "S0_T": 602,
+          "core_qubits": 45
+        },
+        "raw_payoff": {
+          "A_T": 3672398,
+          "S0_T": 910,
+          "core_qubits": 67
+        },
+        "numerical_conditional": {
+          "A_T": 3722098,
+          "S0_T": 798,
+          "core_qubits": 59
+        }
+      }
+    },
+    {
+      "model_id": "n8_lambda0.2_scale3",
+      "methods": {
+        "shared_threshold": {
+          "A_T": 7949467,
+          "S0_T": 1162,
+          "core_qubits": 85
+        },
+        "raw_payoff": {
+          "A_T": 8144826,
+          "S0_T": 1498,
+          "core_qubits": 109
+        },
+        "numerical_conditional": {
+          "A_T": 8190710,
+          "S0_T": 1358,
+          "core_qubits": 99
+        }
+      }
+    }
+  ]
+}

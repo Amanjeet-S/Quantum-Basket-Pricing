@@ -1,0 +1,443 @@
+\section{Exact conjugation and complete charging of an unclean preparation}
+\label{app:cancellation-aware-preparation}
+
+The preparation-conjugated reflection and the parity-dependent sampling
+law are established amplitude-amplification constructions
+\citep{suzuki2020,rallfuller2023}. Cross-boundary cancellation is also
+established: Stamatopoulos et al.\ optimise the complete pricing circuit
+in Appendix B, and the author version of Carrera Vazquez and Woerner
+uses a spin-echo identity to reduce repeated preparation costs in
+Section IV, equations (19)--(25), and Figure 2.
+\footnote{The published record is \emph{Physical Review Applied}, 15,
+034027, DOI 10.1103/PhysRevApplied.15.034027. The detailed text actually
+consulted is arXiv:2005.07711v1, dated 15 May 2020, with a body date of
+19 May 2020. Its rotation-specific argument is not asserted to be
+identical to the inaccessible final text.}
+I derive the following identities for the exact finite financial
+circuits and charge the same transformation to every financial rival.
+They justify an implementation comparison, without a claim of priority
+for conjugation or amplitude estimation.
+
+\subsection{Registers, operator order and the transported invariant}
+
+Let $\mathcal H=\mathcal H_C\otimes\mathcal H_W$ be the financial
+Hilbert space. The core $C$ contains the original uniform input labels,
+any original comparison label and the good flag $g$. The work register
+$W$ contains arithmetic outputs, private evaluator work, constant-zero
+endpoint wires and any clean predicate scratch. Define
+\begin{equation}
+ \mathcal M=\mathcal H_C\otimes\operatorname{span}\{|0_W\rangle\},
+ \qquad |e\rangle=|0_C\rangle\otimes|0_W\rangle,
+ \qquad E_C=|0_C\rangle\langle0_C|\otimes I_W.
+ \label{eq:conjugation-clean-space}
+\end{equation}
+The desired logical zero reflection is the \emph{same} old core operator
+\begin{equation}
+ S_0=I-2E_C,
+ \qquad S_g=Z_g=I-2\Pi_g,
+ \qquad \Pi_g=|1_g\rangle\langle1_g|\otimes I_{\mathrm{other}}.
+ \label{eq:conjugation-reflections}
+\end{equation}
+Let $\widetilde S_0$ be the exact full unitary implemented by the
+retained ladder tape on its actual allocated wires. The tape may borrow
+scratch wires from $W$, and its established contract is
+\begin{equation}
+ \widetilde S_0x=S_0x\quad(x\in\mathcal M).
+ \label{eq:conjugation-physical-zero-reflection}
+\end{equation}
+Both versions retain this \emph{same actual tape}. On $\mathcal M$,
+its action is the rank-one reflection about $|e\rangle$, and all
+borrowed scratch is restored to zero. I make no assumption that its
+action equals the logical extension $I-2E_C$ on arbitrary dirty work.
+That extension would itself not be rank one on the whole Hilbert
+space. The distinction is necessary when asserting a full-operator
+conjugacy: its two sides must contain the same actual unitary, rather
+than replacing an invariant-space implementation by an unproved
+global extension.
+When a controlled ladder requires an additional scratch wire, I include
+it in $W$ and extend $A$, $B$, $U$ and the uncontrolled tape by the
+identity on that wire. The same zero-work space is thereby available
+for both constructions on a common conservative allocation.
+
+Let $H$ denote the exact tensor product of the retained input
+Hadamards, let $U$ compute the reversible arithmetic graph, and let
+$P$ be the exact clean XOR of its final predicate into $g$. Operator
+products act from right to left, so the retained chronological clean
+preparation is $H,U,P,U^\dagger$. I require the following checked
+finite-circuit properties:
+\begin{equation}
+ A=U^\dagger P U H,\qquad
+ A\mathcal M\subseteq\mathcal M,\qquad
+ A^\dagger\mathcal M\subseteq\mathcal M,\qquad
+ [U,S_g]=0.
+ \label{eq:conjugation-assumptions}
+\end{equation}
+The last property follows if no gate in $U$ acts on the flag. The
+cleanliness properties require $P$ to preserve the arithmetic output
+registers and return its own private scratch to zero, so that the
+emitted $U^\dagger$ restores every graph work register. Those properties
+must hold on the whole registered zero-work core subspace, including
+both flag values, rather than only on the single prepared input.
+Exact circuit reversibility is compatible with approximate financial
+tables: a table and its exact emitted adjoint cancel as finite
+operators, irrespective of their approximation error relative to a
+continuous financial function.
+
+Define the alternative preparation
+\begin{equation}
+ B=P U H=U A,\qquad
+ |\psi\rangle=A|e\rangle,\qquad
+ |\phi\rangle=B|e\rangle=U|\psi\rangle.
+ \label{eq:conjugation-preparations}
+\end{equation}
+The state $|\phi\rangle$ need not have clean arithmetic work. It is
+therefore incorrect to replace its transported invariant by
+$\mathcal M$ or to infer a reduction in the reflection core or allocated
+peak from the removal of its final cleanup.
+
+\begin{theorem}[Exact signal-preserving preparation conjugation]
+\label{thm:exact-preparation-conjugation}
+Under \eqref{eq:conjugation-assumptions} and the actual-tape clean-work
+contracts \eqref{eq:conjugation-physical-zero-reflection} and
+\eqref{eq:conjugation-actual-controlled-contract}, retain the
+conditional sign in
+\begin{equation}
+ Q_A=-A\widetilde S_0 A^\dagger S_g,\qquad
+ Q_B=-B\widetilde S_0 B^\dagger S_g.
+ \label{eq:conjugation-iterates}
+\end{equation}
+The global unitary identity is
+\begin{equation}
+ Q_B=U Q_A U^\dagger,\qquad
+ Q_B^j B|e\rangle=UQ_A^j A|e\rangle\quad(j\geq0).
+ \label{eq:conjugation-global-identity}
+\end{equation}
+The clean Grover subspace of dimension at most two
+$\mathcal V=\operatorname{span}\{|\psi\rangle,S_g|\psi\rangle\}$ is
+contained in $\mathcal M$. Its transported space
+$\mathcal V_B=U\mathcal V$ is invariant under $S_g$ and $Q_B$.
+Immediately before every zero reflection, $B^\dagger$ maps the
+relevant transported state back to $\mathcal M$. Consequently the old
+core reflection and its old clean scratch implementation are valid on
+this transported invariant, although terminal odd-degree work is dirty.
+
+For every integer $d\geq1$, the odd-degree good-flag observation and
+the even-degree core-zero observation have exactly the same
+probabilities for $A$ and $B$. Specifically, if
+$p=\langle\psi|\Pi_g|\psi\rangle$ and
+$\theta=\arcsin\sqrt p$, both probabilities are
+\begin{equation}
+ q_d(p)=T_d(\sqrt p)^2
+ =\begin{cases}
+   \sin^2(d\theta),&d\text{ odd},\\
+   \cos^2(d\theta),&d\text{ even}.
+  \end{cases}
+ \label{eq:conjugation-parity-signal}
+\end{equation}
+The same equality holds for the complete phase-register distribution
+of controlled quantum phase estimation, including an approximate
+inverse Fourier circuit applied identically to the phase register.
+\end{theorem}
+\begin{proof}
+Using $B=UA$ and $U^\dagger S_g=S_gU^\dagger$ gives
+\begin{equation}
+ -B\widetilde S_0B^\dagger S_g
+ =-U A\widetilde S_0A^\dagger U^\dagger S_g
+ =U(-A\widetilde S_0A^\dagger S_g)U^\dagger.
+ \label{eq:conjugation-identity-derivation}
+\end{equation}
+This is an identity of full operators, not merely an equality of
+expectations. Induction on $j$, cancelling every adjacent
+$U^\dagger U$, proves the second part of
+\eqref{eq:conjugation-global-identity}.
+
+Since $A|e\rangle\in\mathcal M$ and $S_g$ acts only on a core flag,
+$\mathcal V\subseteq\mathcal M$. On $\mathcal M$,
+\eqref{eq:conjugation-physical-zero-reflection} and invariance under
+$A^\dagger$ give
+$-A\widetilde S_0A^\dagger=2|\psi\rangle\langle\psi|-I$, so
+$\mathcal V$ is invariant under both reflections and their product.
+Commutation of $U$ and $S_g$ gives
+$\mathcal V_B=\operatorname{span}\{|\phi\rangle,S_g|\phi\rangle\}$
+and its invariance. If $x\in\mathcal V$ then
+\begin{equation}
+ B^\dagger Ux=A^\dagger x\in\mathcal M.
+ \label{eq:conjugation-restored-cleanliness}
+\end{equation}
+Thus work that is dirty during the prepared portion is clean again
+after $B^\dagger$, before $S_0$. The existing ladder scratch can be
+borrowed from that clean allocation at this point, provided the
+emitted inverse clears each borrowed wire and the reflection returns
+it to zero. An entangled superposition of phase-control branches does
+not change this conclusion: every branch belongs to the same linear
+subspace, and the inverse acts unconditionally.
+
+For $d=2k+1$, the two terminal states are
+$Q_A^k|\psi\rangle$ and $UQ_A^k|\psi\rangle$. Since
+$[U,\Pi_g]=0$, their good-flag probabilities agree. For $d=2k$,
+$k\geq1$, the chronological circuit is preparation, $k-1$ Grover
+iterations, $S_g$, then the preparation adjoint. Its terminal states
+are equal as full vectors:
+\begin{equation}
+ B^\dagger S_g Q_B^{k-1}B|e\rangle
+ =A^\dagger U^\dagger S_gUQ_A^{k-1}A|e\rangle
+ =A^\dagger S_gQ_A^{k-1}A|e\rangle\in\mathcal M.
+ \label{eq:conjugation-even-state}
+\end{equation}
+For a vector in $\mathcal M$, core-zero observation is precisely the
+rank-one $|e\rangle$ event.
+
+For $0<p<1$, define the orthonormal good and bad components
+$|g\rangle=\Pi_g|\psi\rangle/\sqrt p$ and
+$|b\rangle=(I-\Pi_g)|\psi\rangle/\sqrt{1-p}$. In that ordered basis,
+\begin{equation}
+ Q_A\big|_{\mathcal V}
+ =\begin{pmatrix}\cos2\theta&\sin2\theta\\
+                 -\sin2\theta&\cos2\theta\end{pmatrix},
+ \qquad
+ Q_A^k|\psi\rangle
+ =\sin((2k+1)\theta)|g\rangle+
+   \cos((2k+1)\theta)|b\rangle.
+ \label{eq:conjugation-grover-matrix}
+\end{equation}
+The second equality follows by induction using the angle-addition
+identities. Odd observation gives $\sin^2((2k+1)\theta)$; even
+core-zero amplitude is
+\begin{equation}
+ \langle\psi|S_g Q_A^{k-1}|\psi\rangle
+ =\cos\theta\cos((2k-1)\theta)
+  -\sin\theta\sin((2k-1)\theta)
+ =\cos(2k\theta).
+ \label{eq:conjugation-even-amplitude}
+\end{equation}
+Since $T_d(\cos x)=\cos(dx)$ and
+$\sqrt p=\cos(\pi/2-\theta)$, squaring proves
+\eqref{eq:conjugation-parity-signal}. At $p=0$, $Q_A|\psi\rangle
+=|\psi\rangle$, and at $p=1$, $Q_A|\psi\rangle=-|\psi\rangle$;
+direct evaluation gives respectively odd probabilities $0,1$ and
+even probabilities $1,1$. No normalisation of a vanishing component
+is used.
+
+For a phase-control qubit $c$, define
+$\operatorname{C}_c(V)=|0\rangle\langle0|_c\otimes I+
+|1\rangle\langle1|_c\otimes V$. The exact global identity gives
+\begin{equation}
+ \operatorname{C}_c(Q_B^j)
+ =(I_c\otimes U)\operatorname{C}_c(Q_A^j)(I_c\otimes U^\dagger).
+ \label{eq:conjugation-controlled}
+\end{equation}
+This identity is for mathematically controlled full operators. The
+actual controlled zero-reflection tape may borrow an extra scratch
+wire. It is not assumed globally equal to the controlled version of
+the uncontrolled tape on arbitrary dirty work. Let $R_{0,c}$ denote
+the actual controlled tape, with its checked restriction
+\begin{equation}
+ R_{0,c}(|z\rangle_c\otimes x)
+ =|z\rangle_c\otimes S_0^z x
+ \quad(z\in\{0,1\},\ x\in\mathcal M).
+ \label{eq:conjugation-actual-controlled-contract}
+\end{equation}
+Retain the same actual $R_{0,c}$ in both physical constructions:
+\begin{equation}
+ K_{A,c}=Z_c(I_c\otimes A)R_{0,c}(I_c\otimes A^\dagger)
+                   \operatorname C_c(S_g),\qquad
+ K_{B,c}=Z_c(I_c\otimes B)R_{0,c}(I_c\otimes B^\dagger)
+                   \operatorname C_c(S_g).
+ \label{eq:conjugation-actual-controlled-iterates}
+\end{equation}
+Commutation of $U$ with $S_g$, and of $I_c\otimes U$ with $Z_c$,
+gives the genuine full-tape identity
+\begin{equation}
+ K_{B,c}=(I_c\otimes U)K_{A,c}(I_c\otimes U^\dagger).
+ \label{eq:conjugation-actual-controlled-identity}
+\end{equation}
+On $\mathcal H_c\otimes\mathcal V$, the intermediate state after
+the unconditional $A^\dagger$ has zero work in both control branches,
+so \eqref{eq:conjugation-actual-controlled-contract} proves that
+$K_{A,c}$ equals $\operatorname C_c(Q_A)$ there. The same reasoning
+with \eqref{eq:conjugation-restored-cleanliness} proves equality of
+$K_{B,c}$ and $\operatorname C_c(Q_B)$ on
+$\mathcal H_c\otimes\mathcal V_B$. These are invariant subspaces,
+so repeated controlled iterates implement the required controlled
+powers on every reached state, including entangled control branches.
+
+For a register $R$ of controls, each factor in the actual
+controlled-power network obeys
+\eqref{eq:conjugation-actual-controlled-identity} with $I_R$, so
+successive conjugations cancel. Preparation and all actual controlled
+powers yield a state equal to $(I_R\otimes U)$ times the $A$ state.
+Every exact or approximate Fourier gate acts on $R$ alone and commutes
+with $I_R\otimes U$. Therefore this relation holds at terminal phase
+observation. For every outcome $y$,
+$|y\rangle\langle y|_R\otimes I$ commutes with $I_R\otimes U$,
+giving exactly equal outcome probabilities. This also proves equality
+of the reduced phase-register states. The minus in
+\eqref{eq:conjugation-iterates} is retained throughout: removing it
+inside a controlled operation changes relative phases and invalidates
+the asserted phase distribution.
+\end{proof}
+
+\subsection{Complete resource profiles and the stronger clean baseline}
+
+Let $F=T(U)=T(U^\dagger)$, $P_T=T(P)=T(P^\dagger)$ and let
+$h$ be the number of input Hadamards. For additive primitive profiles,
+write $\boldsymbol u$, $\boldsymbol u_{\mathrm{inv}}$,
+$\boldsymbol p$ and $\boldsymbol h$ for the complete emitted forward
+body, inverse body, predicate and input-Hadamard count vectors.
+A literal adjoint tape interchanges $T$ and $T^\dagger$, and $S$ and
+$S^\dagger$; a separately emitted exact inverse may use an equivalent
+decomposition and must retain its own complete profile. The retained
+two coherent architectures have equal combined forward/inverse body
+$T$ charges. Hence the exact retained and alternative profiles satisfy
+\begin{equation}
+ \boldsymbol a=\boldsymbol u+\boldsymbol u_{\mathrm{inv}}
+                  +\boldsymbol p+\boldsymbol h,
+ \qquad \boldsymbol b=\boldsymbol u+\boldsymbol p+\boldsymbol h,
+ \qquad a=2F+P_T,\qquad b=F+P_T.
+ \label{eq:conjugation-resource-profiles}
+\end{equation}
+The familiar shorthand $A=2F+P+H$ and $B=F+P+H$ denotes a
+composition of emitted profiles; $H$ contributes Clifford operations
+and zero $T$ gates. Any claimed improvement in a depth bound must use
+the complete removed inverse-body depth profile, not just its $T$ count.
+The old larger conservative depth upper bounds may instead be retained
+without a depth-improvement claim. The retained
+core and conservative peak are unchanged. No further zero-reflection
+optimisation, fresh financial precision choice or free arithmetic
+register is supplied by this identity.
+
+With $s=T(\widetilde S_0)$, the complete parity shot using $B$ has
+\begin{equation}
+ t_B(d)=\begin{cases}
+  db+(d-1)s/2,&d\text{ odd},\\
+  db+(d/2-1)s,&d\text{ even}.
+ \end{cases}
+ \label{eq:conjugation-parity-resource}
+\end{equation}
+The same preparation/adjoint count proof as the retained sampler
+applies because its old core reflection is justified by
+\eqref{eq:conjugation-restored-cleanliness}. Odd terminal work must be
+measured and conditionally reset after observation. I retain the
+declared full-allocation measurement/reset charge, not a charge for
+the core alone. Those operations have zero $T$ cost under the retained
+logical architecture but positive measurement, feedback and primitive
+operation counts. A coherent downstream consumer requiring clean work
+needs a final $U^\dagger$ and must pay its complete profile.
+
+For a fairer clean comparator, cancellation across the preparation
+boundary gives the exact full-operator identity
+\begin{equation}
+ A^\dagger S_g A
+ =H^\dagger U^\dagger P^\dagger U S_g U^\dagger P U H
+ =H^\dagger U^\dagger P^\dagger S_g P U H.
+ \label{eq:conjugation-cross-boundary}
+\end{equation}
+I denote the clean sampler with every such cancellation performed by
+$t_{A,\mathrm{cancel}}(d)$, retaining the same old reflection tape.
+There are $(d-1)/2$ disjoint pairs for odd degree and $d/2$ for even
+degree, each removing one $U,U^\dagger$ pair. Thus
+\begin{equation}
+ t_{A,\mathrm{cancel}}(d)=
+ \begin{cases}
+  t_A(d)-(d-1)F=t_B(d)+F,&d\text{ odd},\\
+  t_A(d)-dF=t_B(d),&d\text{ even}.
+ \end{cases}
+ \label{eq:conjugation-clean-baseline}
+\end{equation}
+In contrast, $t_A(d)-t_B(d)=dF$ against the old additive template.
+Most of that larger difference is therefore a standard cancellation
+benefit; it cannot honestly be attributed to a new pricing signal.
+These are exact costs of specified constructions, not lower bounds
+on every circuit with the same signal.
+
+For a complete nonzero-shot QPE plan, let $M=2^m$ be the phase-grid
+size, $R$ the number of independent repetitions, $\tau_{\mathrm{QFT}}$
+the complete emitted inverse-Fourier $T$ count, and
+$s_c=T(R_{0,c})$ under the old actual controlled-core tape, retaining
+its conditional phase and cleanup. Its correct action is required
+only on the clean invariant in
+\eqref{eq:conjugation-actual-controlled-contract}.
+The controlled Grover invocation is emitted as
+\begin{equation}
+ K_{B,c}
+ =Z_c(I_c\otimes B)R_{0,c}
+       (I_c\otimes B^\dagger)\operatorname C_c(S_g),
+ \qquad T(K_{B,c})=2b+s_c.
+ \label{eq:conjugation-controlled-resource}
+\end{equation}
+Here $\operatorname C(S_g)$ is the charged Clifford controlled-$Z$,
+and $Z_c$ supplies the conditional global minus. $B$ and its adjoint
+run unconditionally, so there is no assumption that controlling a
+financial arithmetic tape is free. On the relevant transported
+invariant, control zero gives $BB^\dagger=I$, and control one gives
+exactly $Q_B$.
+Both branches satisfy the zero-scratch condition before the controlled
+reflection on the relevant transported invariant. The complete clean
+QPE network, including its initial preparation, is the $B$ network
+followed by $U^\dagger$ on the financial register. To see this, the
+proof of \eqref{eq:conjugation-actual-controlled-identity} shows that
+the $B$ network
+has terminal state $(I_R\otimes U)$ times the clean network state;
+appending $I_R\otimes U^\dagger$ recovers the latter exactly. The
+same circuit results from cross-boundary cancellation in the complete
+$A$ network. This is a globally compiled construction. It does not
+assert that an isolated invocation of $\operatorname C(Q_A)$, without
+its adjacent preparation context, has the reduced cost
+$2b+s_c$.
+
+The full retained, alternative and cancellation-aware clean $T$
+charges are therefore
+\begin{align}
+ T_A^{\mathrm{QPE}}
+ &=R\{a+(M-1)(2a+s_c)+\tau_{\mathrm{QFT}}\},
+ \label{eq:conjugation-retained-qpe-cost}\\
+ T_B^{\mathrm{QPE}}
+ &=R\{b+(M-1)(2b+s_c)+\tau_{\mathrm{QFT}}\},
+ \label{eq:conjugation-dirty-qpe-cost}\\
+ T_{A,\mathrm{cancel}}^{\mathrm{QPE}}
+ &=R\{a+(M-1)(2b+s_c)+\tau_{\mathrm{QFT}}\}.
+ \label{eq:conjugation-clean-qpe-cost}
+\end{align}
+The differences are
+\begin{equation}
+ T_A^{\mathrm{QPE}}-T_B^{\mathrm{QPE}}=R(2M-1)F,
+ \qquad
+ T_{A,\mathrm{cancel}}^{\mathrm{QPE}}-T_B^{\mathrm{QPE}}=RF.
+ \label{eq:conjugation-qpe-difference}
+\end{equation}
+These formulae include one complete preparation, all $M-1$ controlled
+Grover invocations and the complete Fourier tape in each repetition.
+The full resource record must additionally retain phase Hadamards,
+Clifford controlled predicates, the conditional sign, all terminal
+observations, full-allocation resets and the old conservative peak
+plus phase and Fourier ancillas. Zero-shot prior decisions cost zero
+in all three versions. No result above reduces the financial
+discretisation allowance, changes the implemented good probability,
+improves the QPE confidence theorem or establishes physical runtime
+advantage.
+
+\subsection{Controller transfer and the scope of the contribution}
+
+The equality of every $q_d(p)$ in
+\eqref{eq:conjugation-parity-signal} is exact within each representation.
+For a frozen deterministic controller whose initial information,
+confidence allocation and decision policy are unchanged, common
+uniform variables therefore couple the $A$ and $B$ observations to
+give the same finite history and decisions. A budget-dependent degree
+policy must be frozen for this statement: reducing its charged costs
+and then rerunning the policy can change which degrees it chooses.
+Between different financial representations, separately rounded
+probabilities can differ, so the existing equal-signal same-history
+corollary remains conditional. The all-degree implementation lemma
+may be applied to the new $b_i$ and unchanged $s_i$ to compare their
+matched-degree shot charges, but it does not remove that statistical
+premise.
+
+The project-specific question is whether the checked financial
+representation remains cheaper after every rival receives this
+cancellation-aware compilation, identical finite financial
+certificates and complete estimator charges. A positive answer would
+strengthen the financial implementation evidence by surviving an
+established optimisation. It would not constitute a new generic
+quantum amplification law or establish theoretical priority for the
+conjugation identity.

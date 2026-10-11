@@ -1,0 +1,51 @@
+{
+  "schema": "qbp-chebyshev-standalone-layout-validation-v1",
+  "status": "passed",
+  "date": "2026-10-09",
+  "repair": "Added standalone LaTeX setup and the existing bibliography entry to the supporting proof; placed geometric variance/covariance definitions in a multiline main-paper display.",
+  "before_sha256": {
+    "chebyshev_estimator_proof.tex": "d0d78f2ce78eec4461f954428586d351bc5d5e659b5eabdaa9d00ed1be330388",
+    "generalisation_proofs.tex": "2ebe11e2f661259e2fa2286a83bd76c084ab835e8f07fdb2a3fa53534aa2277f",
+    "checks/audit_chebyshev_break_even.py": "da70fa0281c51f062a613cc8f3821d1cead82dde596859e41c62347e33420f89",
+    "supporting_proofs_index.md": "5be9e94ebc9f667c7498f60a15637b794e167712911c5c013230324af2418bfb"
+  },
+  "after_sha256": {
+    "chebyshev_estimator_proof.tex": "6a213023da52e05c23b37165e8071dff0009f5e620e1cbdcdb8d047f6f8ef66c",
+    "generalisation_proofs.tex": "3aad083b6aa8639bd152da50c8608bc5ade71587c0f2a2c6ded143b3d98786f2",
+    "checks/audit_chebyshev_break_even.py": "4f0791293c18894ee95498b023d0bac037c27649351fb7aed1e4f920365c5c69",
+    "supporting_proofs_index.md": "fab1948aa6615ea012f3b1cdbd15adc45f3e4c87556f358293430c284036da11"
+  },
+  "retained_mathematical_body_byte_identical": true,
+  "retained_proof_body_sha256": "d0d78f2ce78eec4461f954428586d351bc5d5e659b5eabdaa9d00ed1be330388",
+  "previous_audit_records_preserved": {
+    "results/chebyshev_math_audit.json": "bf0f0647ea2c9fd1ff864498420bb9ba881b039a1003bdcb4f2b44b5171f1838",
+    "results/chebyshev_break_even_audit.json": "840898a86e68c5897c719ef3a6c8cbc0409e7930c47a4e56f4199801b0728954",
+    "results/chebyshev_project_validation.json": "ca4508157e83a0eb8071c9a2dcaf2864da70a4c09acf1d3c46577887749334ae",
+    "results/chebyshev_resources.json": "171363b981fe436d5283ea2295d336749d51d5d69154dade3976b008d084d232"
+  },
+  "snapshot": "history/before_chebyshev_standalone_compile",
+  "native_compilation": {
+    "proof": {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/chebyshev_estimator_proof.tex",
+      "kind": "success",
+      "message": "The current source compiled successfully with the desktop editor's compiler."
+    },
+    "main": {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/generalisation_proofs.tex",
+      "kind": "success",
+      "message": "The current source compiled successfully with the desktop editor's compiler."
+    }
+  },
+  "new_break_even_replay": {
+    "path": "results/chebyshev_standalone_break_even_audit.json",
+    "sha256": "83a48169aef3747321e73e3f9d09a32c61075315fc2441c1cf07a4aa1fdb7c0f",
+    "checked_history_charge_identities": 400,
+    "checked_fixed_flag_resource_ratios_and_mean_identities": 4,
+    "checked_strict_threshold_examples": 4
+  },
+  "HEAD": "1a25d67c77e0013485dcdf70917a564097aa023c",
+  "git_index_sha256": "93cc5a228197014e0800c1e9b37969fdd4d1d16ec3c38bff334e46ec14c5d20d",
+  "commits_created": 0,
+  "index_mutations": 0,
+  "limitations": "No separately exported PDF, exact page count or independent rendered-layout check was produced. Mathematical statements, diagnostic results and quantum cost claims were not changed."
+}

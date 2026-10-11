@@ -1,0 +1,294 @@
+{
+  "schema": "qbp-residual-priority-and-classical-information-protocol-v1",
+  "date": "2026-10-08",
+  "status": "executed_and_independently_audited",
+  "registration_scope": "Retrospective reproducibility record of this bounded comparison, not a formal preregistration.",
+  "financial_cases": 36,
+  "original_models": 9,
+  "shared_inputs": "Original exact rational GBM law, no-arbitrage measure, conditional smoothing, positive weights, analytic Gaussian primitives and certified M2/M3/M4 norms.",
+  "Taylor_scope": "Degree cap 3, remainder moment cap 4; c0/c1 plus additional full Gaussian MGF queries and shifted C2/C3 kernels. Retain lower successful orders, not an infinite-series convergence claim.",
+  "conditioning_scope": "Published GBM geometric exercise-set lower plus AG upper at four strikes for each model. Certified roots/minima/endpoints, derived independent call-spread capbound. Not every published native cap or control-variate method.",
+  "new_data_acquired": false,
+  "price_inputs_used": false,
+  "quantum_caps_recomputed": false,
+  "new_outcomes": {
+    "Taylor_price_cent_successes": 33,
+    "Taylor_first_successful_orders": {
+      "1": 18,
+      "2": 9,
+      "3": 6,
+      "unresolved": 3
+    },
+    "conditioning_price_cent_successes": 0,
+    "complete_strike_optimisations": 36,
+    "price_transfer_cross_classification": {
+      "both_pass": 33,
+      "price_only": 0,
+      "grid_only": 0,
+      "neither": 3
+    },
+    "cases": [
+      {
+        "model_id": "n2_lambda0.05",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n2_lambda0.05",
+        "cap": "10",
+        "degree3_price_cent_certified": false,
+        "aggregate_R2_transfer_allocation_passed": false,
+        "first_successful_Taylor_order": null
+      },
+      {
+        "model_id": "n2_lambda0.05",
+        "cap": "25",
+        "degree3_price_cent_certified": false,
+        "aggregate_R2_transfer_allocation_passed": false,
+        "first_successful_Taylor_order": null
+      },
+      {
+        "model_id": "n2_lambda0.05",
+        "cap": null,
+        "degree3_price_cent_certified": false,
+        "aggregate_R2_transfer_allocation_passed": false,
+        "first_successful_Taylor_order": null
+      },
+      {
+        "model_id": "n2_lambda0.2",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n2_lambda0.2",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n2_lambda0.2",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n2_lambda0.2",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n2_lambda0.4",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n2_lambda0.4",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n2_lambda0.4",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n2_lambda0.4",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.05",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n4_lambda0.05",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n4_lambda0.05",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n4_lambda0.05",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n4_lambda0.2",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.2",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.2",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n4_lambda0.2",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n4_lambda0.4",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.4",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.4",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n4_lambda0.4",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.05",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.05",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n8_lambda0.05",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 3
+      },
+      {
+        "model_id": "n8_lambda0.05",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n8_lambda0.2",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.2",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.2",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 2
+      },
+      {
+        "model_id": "n8_lambda0.2",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.4",
+        "cap": "1",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.4",
+        "cap": "10",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.4",
+        "cap": "25",
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      },
+      {
+        "model_id": "n8_lambda0.4",
+        "cap": null,
+        "degree3_price_cent_certified": true,
+        "aggregate_R2_transfer_allocation_passed": true,
+        "first_successful_Taylor_order": 1
+      }
+    ]
+  },
+  "error_comparison_scope": "Price admission uses complete 0.01 radius. Grid admission uses the R2 transfer 0.005 allocation. Matching case-set is observed, not a generic logical implication.",
+  "timing_scope": "Separate whole-panel producer diagnostics with paid shared geometry and kernel work; imports, prior norm production, serialisation and full audits excluded. No ratio against joint incremental transport times.",
+  "source_versions": "Final Curran journal scan; final Olivares publisher HTML/OCR with formula limits and separate author precursor; accepted Caldana manuscript, final metadata; Ju/Dinge\u00e7 body gaps retained.",
+  "supporting_proofs": [
+    "abstract_transfer_reduction.tex",
+    "classical_price_bounds_proof.tex"
+  ],
+  "no_generic_theoretical_priority_claim": true,
+  "no_practical_quantum_advantage_claim": true
+}
