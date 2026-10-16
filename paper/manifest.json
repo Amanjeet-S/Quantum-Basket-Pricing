@@ -6,11 +6,11 @@
   "files": [
     {
       "path": "paper/generalisation_proofs.tex",
-      "sha256": "1ad203c64e1db0e482ff003eabd183c489505042d4918ae5c15c26f5fc9c4e7b"
+      "sha256": "87b64300fb6034a6f7c7cecfe9300bc757fa2f8801f8ca68a7c9212a615d6f64"
     },
     {
       "path": "paper/generalisation_proofs.pdf",
-      "sha256": "9ab3bf4895ad1079d073186ec79bca10984b1512cd1cdf0201411717cf397eb9",
+      "sha256": "d9e1e6d8d07fc1c6e276f221d168c87d689e6f4f6f8c4739a23faa563fbb15b2",
       "pages": 34,
       "source": "paper/generalisation_proofs.tex"
     },

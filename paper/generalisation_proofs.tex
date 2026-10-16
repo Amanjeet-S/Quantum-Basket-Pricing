@@ -30,21 +30,18 @@ pdfkeywords={quantum finance, basket pricing, Gaussian conditioning}}
 \begin{document}
 \maketitle
 \begin{abstract}
-Does analytical conditioning reduce the cost of quantum basket-option
-pricing when competing methods receive the same information and accuracy
-guarantees? Under a classical no-arbitrage lognormal model, I compare coherent
-pricing constructions for capped basket derivatives, charging state
-preparation, arithmetic, confidence and reflections. A guarded certificate
-combines Gaussian conditioning with payoff-boundary curvature and moment-based
-grid-error bounds. Across four synthetic stressed contracts, shared-threshold
-preparation lowers complete logical T-gate caps by 2.34 to 10.00 per cent
-relative to the cheaper equally optimised implemented rival. Deferring terminal
-cleanup saves only 0.097 to 0.195 per cent relative to cancellation-optimised
-clean phase estimation. Matched Chebyshev diagnostics favour numerical
-conditioning on the stipulated probability grid. Strong classical methods certify all
-40 tested prices. The gains concern implementation within a declared finite
-architecture and precision pool; practical quantum advantage remains
-unestablished.
+I study how payoff representation affects the quantum resources required
+to price capped basket derivatives under a classical no-arbitrage lognormal
+model. I derive pricing-error certificates from Gaussian conditioning,
+payoff-boundary curvature and moment bounds, and compare coherent pricing
+constructions under common information, accuracy and confidence requirements.
+Across four stressed synthetic contracts, shared-threshold preparation reduces
+complete logical T-gate upper bounds by 2.34 to 10.00 per cent relative to the
+cheaper equally optimised implemented rival, after charging state preparation,
+arithmetic and reflections. In matched Chebyshev diagnostics, numerical conditioning has the lower
+mean resource charge on the stipulated probability grid.
+Classical methods certify all 40 prices in the broader test set. The savings apply to the declared finite architecture and precision pool;
+they do not establish practical quantum advantage.
 \end{abstract}
 
 \smallskip

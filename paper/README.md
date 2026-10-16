@@ -12,4 +12,4 @@ The [capped-GBM companion](capped_gbm_companion.pdf) develops pricing, Greeks, n
 
 ## 3. Reproduction
 
-Use the [reproduction guide](../docs/reproducing_paper.md) before running the frozen source files. They retain their original relative paths and must be executed in a reconstructed workspace. The main abstract has been revised in a question-led style; its mathematical body is unchanged. The [previous source and PDF](../replication/history/before_abstract_style_revision/) remain available. The companion papers retain their previous source and export bytes.
+Use the [reproduction guide](../docs/reproducing_paper.md) before running the frozen source files. They retain their original relative paths and must be executed in a reconstructed workspace. The main abstract presents the setting, method, principal findings and scope directly; its mathematical body is unchanged. The [previous source and PDF](../replication/history/before_abstract_style_revision/) remain available. The companion papers retain their previous source and export bytes.
