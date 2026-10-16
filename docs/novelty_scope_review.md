@@ -14,4 +14,4 @@ Sharp Gaussian moduli have full proofs and interval checks, but are not selected
 
 ## 3 Earlier priority investigations
 
-The [full archived review](../history/before_documentation_consolidation/novelty_scope_review.md) preserves the detailed norm, curvature, moment-closure, transport and compiler investigations. Related exact mappings remain in [certificate_source_comparison.md](certificate_source_comparison.md), [norm_literature_comparison.md](norm_literature_comparison.md) and [residual_priority_review.md](residual_priority_review.md). Current source versions and unread final-text limits are indexed in [SOURCES.md](SOURCES.md).
+The [full archived review](../replication/history/before_documentation_consolidation/novelty_scope_review.md) preserves the detailed norm, curvature, moment-closure, transport and compiler investigations. Related exact mappings remain in [certificate_source_comparison.md](certificate_source_comparison.md), [norm_literature_comparison.md](norm_literature_comparison.md) and [residual_priority_review.md](residual_priority_review.md). Current source versions and unread final-text limits are indexed in [SOURCES.md](SOURCES.md).

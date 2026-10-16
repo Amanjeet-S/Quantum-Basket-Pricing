@@ -47,7 +47,7 @@ Differentiation of (1) under its finite integral gives
 \tag{3}
 \]
 
-The same bounds apply to \(\Psi\). At \(\lambda=.2\), \(L\approx1.994711402\) and \(C\approx6.049268113\). I use these intrinsic financial sensitivities in place of propagating one log-level error independently through eight CDF terms and large strike coefficients. The checked derivation and generator assumptions are retained in the [certificate review](../checks/kernel_certificate_review.md).
+The same bounds apply to \(\Psi\). At \(\lambda=.2\), \(L\approx1.994711402\) and \(C\approx6.049268113\). I use these intrinsic financial sensitivities in place of propagating one log-level error independently through eight CDF terms and large strike coefficients. The checked derivation and generator assumptions are retained in the [certificate review](reviews/checks/kernel_certificate_review.md).
 
 For a scalar probability table on [-1,1] with \(2^b\) cells, spacing \(\Delta=2/2^b\), fractional step \(\delta=2^{-q}\) and endpoint-generation enclosure \(\epsilon_K\), the implemented integer interpolation obeys
 
@@ -128,7 +128,7 @@ Q_{\rm interval}-Q_{\rm full}
 
 The full arithmetic certificate is also no larger throughout the searched widths: the interval strike-log error adds at least one fractional unit to each probability argument relative to the conservatively charged full bias constant. That allowance exceeds the difference between the two generator allowances. Full conditioning removes the strike-grid bias too. I require both perturbed-domain certificates to pass; arbitrary interval-domain feasibility does not prove full-domain feasibility in another financial model.
 
-The [checked argument](../checks/kernel_dominance_review.md) and [emitted-count audit](../results/kernel_dominance_audit.json) establish this mapping for all six retained interval configurations. This is an argument about assigned Toffoli and T counts in the selected constructor, rather than optimal quantum circuits. Integer ordering does not order binary popcounts, so it does not imply CNOT, depth, classical preprocessing or universal resource dominance. It does not determine complete estimator costs. I treat the cost identity as a checked project-specific argument and do not claim that it is a new literature theorem.
+The [checked argument](reviews/checks/kernel_dominance_review.md) and [emitted-count audit](../results/kernel_dominance_audit.json) establish this mapping for all six retained interval configurations. This is an argument about assigned Toffoli and T counts in the selected constructor, rather than optimal quantum circuits. Integer ordering does not order binary popcounts, so it does not imply CNOT, depth, classical preprocessing or universal resource dominance. It does not determine complete estimator costs. I treat the cost identity as a checked project-specific argument and do not claim that it is a new literature theorem.
 
 ## 7. Verification
 

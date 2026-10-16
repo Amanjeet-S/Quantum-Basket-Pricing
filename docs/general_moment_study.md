@@ -15,7 +15,7 @@ E[X^2]\leq\min\{1,c_F^2E[\Delta^2]/H^2\}
 \leq\min\{1,c_F^2E[(A-G)^2]/H^2\}.
 $$
 
-This statement requires neither Gaussian returns, affine logs, independent coordinates nor a particular quantum method. Its practical use requires a computable conservative moment bound. For a finite-law approximation with pointwise error at most η, the variance is at most min(1/4,(√E[X²]+η)²), using the same underlying finite law. I prove the conditioning and numerical-transfer steps explicitly in the [proof supplement](../papers/generalisation_proofs.tex). A continuous mean-bias allowance cannot silently replace that finite-law second moment.
+This statement requires neither Gaussian returns, affine logs, independent coordinates nor a particular quantum method. Its practical use requires a computable conservative moment bound. For a finite-law approximation with pointwise error at most η, the variance is at most min(1/4,(√E[X²]+η)²), using the same underlying finite law. I prove the conditioning and numerical-transfer steps explicitly in the [proof supplement](../paper/generalisation_proofs.tex). A continuous mean-bias allowance cannot silently replace that finite-law second moment.
 
 An affine-log-price model supplies an additional, computable route. Write ℓ_i=a_i+b_i·Y, let bars denote weighted averages, and define the joint transform Λ(v)=E[exp(v·Y)]. If P is an increasing [0,1]-valued log-kernel with global Lipschitz constant L, then X=P(logΣ_i w_i expℓ_i)−P(Σ_i w_iℓ_i) satisfies E[X²]≤min(1,L²M), where
 

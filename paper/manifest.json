@@ -1,0 +1,39 @@
+{
+  "schema": "qbp-paper-manifest-v1",
+  "author": "Amanjeet Singh",
+  "record_date": "2026-10-16",
+  "main_paper_status": "working paper",
+  "files": [
+    {
+      "path": "paper/generalisation_proofs.tex",
+      "sha256": "1ad203c64e1db0e482ff003eabd183c489505042d4918ae5c15c26f5fc9c4e7b"
+    },
+    {
+      "path": "paper/generalisation_proofs.pdf",
+      "sha256": "9ab3bf4895ad1079d073186ec79bca10984b1512cd1cdf0201411717cf397eb9",
+      "pages": 34,
+      "source": "paper/generalisation_proofs.tex"
+    },
+    {
+      "path": "paper/capped_gbm_companion.tex",
+      "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d"
+    },
+    {
+      "path": "paper/capped_gbm_companion.pdf",
+      "sha256": "ceb5b0f3148b1e429284888f24519c41052e1fe202c20c58753a8f6eff58879f",
+      "pages": 29,
+      "source": "paper/capped_gbm_companion.tex"
+    },
+    {
+      "path": "paper/constrained_hedging_companion.tex",
+      "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29"
+    },
+    {
+      "path": "paper/constrained_hedging_companion.pdf",
+      "sha256": "f1167d7bc5e8a8e3dc4d0cb4ae36160f4ad87fce9edec8a257b94233d66a4cd3",
+      "pages": 9,
+      "source": "paper/constrained_hedging_companion.tex"
+    }
+  ],
+  "scope": "Source and PDF inventory. The main abstract was revised in the style of the supplied research example; mathematical text after the abstract remains unchanged. Earlier source/export bytes remain in replication/history/before_abstract_style_revision. The inventory does not designate project completion or theoretical novelty."
+}

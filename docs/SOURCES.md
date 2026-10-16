@@ -2,7 +2,7 @@
 
 ## 1 Citation and access conventions
 
-I use the author–date style recorded in [reference_style.json](../results/reference_style.json): narrative/parenthetical citations and an alphabetised bibliography with journal details and DOI URLs. The [main paper](../papers/generalisation_proofs.tex) contains the bibliography and attribution at relevant claims.
+I use the author–date style recorded in [reference_style.json](../results/reference_style.json): narrative/parenthetical citations and an alphabetised bibliography with journal details and DOI URLs. The [main paper](../paper/generalisation_proofs.tex) contains the bibliography and attribution at relevant claims.
 
 I prefer published, peer-reviewed versions and record the version actually consulted. Published metadata does not establish that the final proof text was read. Author versions, abstracts and inaccessible bodies remain explicitly distinguished. A source comparison supports only the assumptions and material inspected.
 
@@ -24,13 +24,13 @@ I prefer published, peer-reviewed versions and record the version actually consu
 | Conditional valuation and controls | Asmussen (2018), final publisher introduction, and Nelson (1990), final author-hosted Sections 1–2/6 were read. Unread Blackwell proof text and limited basket-conditioning material remain explicitly partial. | [Projection/control ledger](../results/capped_gbm/conditioning/source_ledger.json) |
 | Gaussian inference and price uncertainty | Wishart (1928), Student (1908) and Clopper/Pearson (1934) final scans were consulted. Ledoit/Wolf (2004) was read in the author-hosted publisher-typeset article-in-press version. Merton’s NBER Working Paper 444 was read; published successor metadata was verified separately. These establish antecedents, not project theoretical priority. | [Calibration ledger](../results/capped_gbm/calibration/source_ledger.json) |
 | Constrained static mean-square hedging | Leung/Lorig (2016) is the closest published static-cost antecedent; its body was consulted in the identified 2015 author preprint. Czichowsky/Schweizer (2012), final publisher material, establishes the distinct dynamic fixed-capital setting. Boyd/Vandenberghe (2004), a published textbook, supplies convex/KKT foundations. The finite static derivations are checked specialisations. | [Hedging ledger](../results/capped_gbm/hedging/source_ledger.json) |
-| Finite statistical pricing | Hoeffding's final journal scan was consulted for the stated bounded-score inequalities. Independent-word assumptions and numerical enclosures are additional project obligations. | [Archived complete ledger](../history/before_documentation_consolidation/SOURCES.md) |
+| Finite statistical pricing | Hoeffding's final journal scan was consulted for the stated bounded-score inequalities. Independent-word assumptions and numerical enclosures are additional project obligations. | [Archived complete ledger](../replication/history/before_documentation_consolidation/SOURCES.md) |
 
 The originality classification is in [originality_assessment.md](originality_assessment.md). Generic smoothing, Stieltjes representation, reflection sampling and circuit cancellation are established. Exact project derivations, mathematical sharpness and numerical implementation findings do not by themselves prove theoretical priority.
 
 ## 3 Additional records and version limits
 
-The [full earlier ledger](../history/before_documentation_consolidation/SOURCES.md) preserves every previously recorded source, date, section, access limitation and licence statement. It includes architecture, classical integration, historical estimator and public reference-file consultations. Its original local filenames refer to the repository root.
+The [full earlier ledger](../replication/history/before_documentation_consolidation/SOURCES.md) preserves every previously recorded source, date, section, access limitation and licence statement. It includes architecture, classical integration, historical estimator and public reference-file consultations. Its original local filenames refer to the repository root.
 
 The present concise register is navigation, not a replacement for those records. In particular, no final-body reading is implied for the inaccessible Ju article, certain conditioning analyses, the Chen–Li–Neufeld journal successor or sources whose detailed text was consulted in an author version. Relevant limits remain attached to their source mappings and paper claims.
 

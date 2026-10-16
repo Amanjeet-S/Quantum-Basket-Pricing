@@ -2,7 +2,7 @@
 
 ## 1 Reading order
 
-I use the [main paper](../papers/generalisation_proofs.tex) for the financial question, essential derivations, comparison and interpretation. Its appendices retain the main theorem proofs. The documents below supply extended constructions and implementation details. I distinguish mathematical correctness, logical resource evidence and literature priority.
+I use the [main paper](../paper/generalisation_proofs.tex) for the financial question, essential derivations, comparison and interpretation. Its appendices retain the main theorem proofs. The documents below supply extended constructions and implementation details. I distinguish mathematical correctness, logical resource evidence and literature priority.
 
 The [originality assessment](originality_assessment.md) governs current claims. The paper is a working paper, not an original quantum theory or a completed demonstration of practical advantage.
 
@@ -11,17 +11,17 @@ The [originality assessment](originality_assessment.md) governs current claims. 
 | Object | Full derivation | Essential scope |
 | --- | --- | --- |
 | Risk-neutral model and no-arbitrage pricing | Main paper, financial model and measure-change appendix | Stipulated classical law, equivalent measure, admissible trading and discounted claim |
-| Derivative norms and positive threshold measures | [Joint norm proof](../papers/supporting/joint_norm_proof.tex) | Combined Gaussian derivatives, outward root isolation and operator sharpness |
-| Finite arithmetic and monetary transfer | [Integral value proof](../papers/supporting/integral_value_proof.tex) | Actual dyadic nodes, guards, interpolation, tails, masses and probability decoding |
-| Gaussian transport and financial moments | [Tensor transfer proof](../papers/supporting/tensor_transfer_proof.tex); main appendix | Residual-specific envelopes and factorised finite moments |
-| Curvature and auxiliary corrections | [Boundary value proof](../papers/supporting/boundary_value_proof.tex); [auxiliary quadrature proof](../papers/supporting/integral_auxiliary_quadrature_proof.tex) | Positive/signed kernels, full auxiliary allowances and stable opponents |
-| Price-independent mean information | [Correction-information proof](../papers/supporting/correction_information_proof.tex) | Shared geometric controls and finite ideal-mean priors |
-| Positive shared-threshold score | [Shared-threshold proof](../papers/supporting/shared_threshold_proof.tex) | Coupled event identity and its finite CDF/arithmetic obligations |
-| Projected raw payoff and matched stability | [Current supporting certificates](../papers/supporting/raw_payoff_proof.tex) | Common endpoints, separate scalar errors, label-dependent remainders and atoms |
-| Sharp Gaussian component moduli | Supporting certificates, “Sharp Gaussian component moduli”; [frozen fragment](../proof_sources/sharp_common_information_fragment.tex) | Exact extrema, finite shifts, attainment, certified roots and cap-specific uniform envelope |
-| Cancellation-aware preparation | Supporting certificates, “Exact conjugation”; [frozen fragment](../proof_sources/cancellation_aware_preparation_fragment.tex) | Actual uncontrolled/controlled scratch domains, conjugacy, complete charges and full resets |
-| Classical financial foundations | [Pricing/calibration companion](../papers/capped_gbm_companion.tex); [static-hedging companion](../papers/constrained_hedging_companion.tex) | Replication/PDE/Greeks, L² projection, Gaussian inference, funded physical loss, convexity/KKT and budget sensitivity; full proofs in their appendices |
-| Bounded Chebyshev controller | [Estimator proof](../papers/supporting/chebyshev_estimator_proof.tex); supporting certificates | Parity observations, exact-binomial confidence, discarded pilots and fresh fallback |
+| Derivative norms and positive threshold measures | [Joint norm proof](../paper/supporting/joint_norm_proof.tex) | Combined Gaussian derivatives, outward root isolation and operator sharpness |
+| Finite arithmetic and monetary transfer | [Integral value proof](../paper/supporting/integral_value_proof.tex) | Actual dyadic nodes, guards, interpolation, tails, masses and probability decoding |
+| Gaussian transport and financial moments | [Tensor transfer proof](../paper/supporting/tensor_transfer_proof.tex); main appendix | Residual-specific envelopes and factorised finite moments |
+| Curvature and auxiliary corrections | [Boundary value proof](../paper/supporting/boundary_value_proof.tex); [auxiliary quadrature proof](../paper/supporting/integral_auxiliary_quadrature_proof.tex) | Positive/signed kernels, full auxiliary allowances and stable opponents |
+| Price-independent mean information | [Correction-information proof](../paper/supporting/correction_information_proof.tex) | Shared geometric controls and finite ideal-mean priors |
+| Positive shared-threshold score | [Shared-threshold proof](../paper/supporting/shared_threshold_proof.tex) | Coupled event identity and its finite CDF/arithmetic obligations |
+| Projected raw payoff and matched stability | [Current supporting certificates](../paper/supporting/raw_payoff_proof.tex) | Common endpoints, separate scalar errors, label-dependent remainders and atoms |
+| Sharp Gaussian component moduli | Supporting certificates, “Sharp Gaussian component moduli”; [frozen fragment](../paper/supporting/fragments/sharp_common_information_fragment.tex) | Exact extrema, finite shifts, attainment, certified roots and cap-specific uniform envelope |
+| Cancellation-aware preparation | Supporting certificates, “Exact conjugation”; [frozen fragment](../paper/supporting/fragments/cancellation_aware_preparation_fragment.tex) | Actual uncontrolled/controlled scratch domains, conjugacy, complete charges and full resets |
+| Classical financial foundations | [Pricing/calibration companion](../paper/capped_gbm_companion.tex); [static-hedging companion](../paper/constrained_hedging_companion.tex) | Replication/PDE/Greeks, L² projection, Gaussian inference, funded physical loss, convexity/KKT and budget sensitivity; full proofs in their appendices |
+| Bounded Chebyshev controller | [Estimator proof](../paper/supporting/chebyshev_estimator_proof.tex); supporting certificates | Parity observations, exact-binomial confidence, discarded pilots and fresh fallback |
 
 The sharp moduli are not selected in the current frozen cost comparison. A small bound for a finite grid alone is not a complete financial-price certificate. The complete guarantees include representation, financial, numerical and statistical errors.
 
@@ -41,6 +41,6 @@ Primitive correctness reuses its separately retained audits; transformed resourc
 
 ## 4 Earlier studies and preservation
 
-The [archived full index](../history/before_documentation_consolidation/supporting_proofs_index.md) maps earlier precision searches, transport comparisons, signed loading, QSP applicability, classical screening and rejected configurations. Its historical filenames refer to the repository root. Lossless archive loading is implemented in [artifact_archive.py](../src/artifact_archive.py).
+The [archived full index](../replication/history/before_documentation_consolidation/supporting_proofs_index.md) maps earlier precision searches, transport comparisons, signed loading, QSP applicability, classical screening and rejected configurations. Its historical filenames refer to the repository root. Lossless archive loading is implemented in [artifact_archive.py](../src/artifact_archive.py).
 
 I retain those studies because they identify assumptions, adverse outcomes and limits. Their old “final” or “cheapest” descriptions refer to their recorded study families, not the current global ranking. Source versions are indexed separately in [SOURCES.md](SOURCES.md); raw or reconstructible licensed observations are excluded under [DATA_POLICY.md](DATA_POLICY.md).

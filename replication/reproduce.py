@@ -13,7 +13,7 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LAYOUT = ROOT / "tools" / "repository_layout.json"
+LAYOUT = ROOT / "replication" / "source_layout.json"
 SUMMARY = "_reproduction_workspace.json"
 
 

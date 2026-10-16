@@ -1,0 +1,73 @@
+{
+  "schema": "qbp-reference-layout-validation-v1",
+  "status": "passed",
+  "date": "2026-10-16",
+  "previous_revision": "058b1a6a450ec38b636fe2f364473ec3d16bf8f2",
+  "reference_repositories": [
+    "Monetary-Policy",
+    "Option-Exercise-Policy-Evaluation"
+  ],
+  "top_level_directories": [
+    "paper",
+    "src",
+    "scripts",
+    "tests",
+    "configs",
+    "data",
+    "docs",
+    "replication",
+    "results"
+  ],
+  "repository_checks": {
+    "local_links": 243,
+    "markdown_files": 58,
+    "paper_files": 6,
+    "python_files": 279,
+    "retained_files": 1223,
+    "tracked_files": 1254
+  },
+  "prior_current_files_verified_unchanged": 1226,
+  "companion_tests": {
+    "status": "passed",
+    "tests": 40,
+    "modules": [
+      {
+        "module": "test_capped_gbm.py",
+        "tests": 9,
+        "returncode": 0
+      },
+      {
+        "module": "test_conditioning_controls.py",
+        "tests": 9,
+        "returncode": 0
+      },
+      {
+        "module": "test_gbm_calibration.py",
+        "tests": 12,
+        "returncode": 0
+      },
+      {
+        "module": "test_gbm_hedging.py",
+        "tests": 10,
+        "returncode": 0
+      }
+    ],
+    "scope": "Four existing companion suites in the byte-exact isolated original layout."
+  },
+  "reconstruction_tool_tests": {
+    "status": "passed",
+    "tests": 8
+  },
+  "paper": {
+    "abstract_words": 133,
+    "pages": 34,
+    "mathematical_body_unchanged": true,
+    "compilation": "passed",
+    "stable_references": true,
+    "overfull_lines": 0,
+    "visual_pages_reviewed": 34,
+    "source_sha256": "1ad203c64e1db0e482ff003eabd183c489505042d4918ae5c15c26f5fc9c4e7b",
+    "pdf_sha256": "9ab3bf4895ad1079d073186ec79bca10984b1512cd1cdf0201411717cf397eb9"
+  },
+  "scope": "Folder roles and navigation follow the two reference repositories. Source-layout reconstruction and selected regressions were rerun. The main abstract and export were revised; scientific mathematics, results and prior source versions were retained. No new finance experiments or quantum-hardware tests were performed."
+}

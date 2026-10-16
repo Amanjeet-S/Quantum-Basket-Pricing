@@ -10,7 +10,12 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import reproduce
+import importlib.util
+
+_SPEC = importlib.util.spec_from_file_location(
+    "reproduce", Path(__file__).resolve().parents[1] / "replication/reproduce.py")
+reproduce = importlib.util.module_from_spec(_SPEC)
+_SPEC.loader.exec_module(reproduce)
 
 
 class ReproductionTests(unittest.TestCase):
@@ -19,9 +24,9 @@ class ReproductionTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.base = Path(temporary.name).resolve()
         self.root = self.base / "repository"
-        (self.root / "tools").mkdir(parents=True)
+        (self.root / "replication").mkdir(parents=True)
         (self.root / "src").mkdir()
-        self.layout = self.root / "tools/repository_layout.json"
+        self.layout = self.root / "replication/source_layout.json"
         self.payloads = {"src/model.py": b"print('retained')\n", "src/evidence.bin": b"\x00\xff\n"}
         for name, payload in self.payloads.items():
             (self.root / name).write_bytes(payload)
