@@ -6,7 +6,7 @@ My primary portfolio purpose is to demonstrate mathematical and computational pr
 
 The [preparation audit](PREPARATION.md) maps retained proofs and code to current entry requirements and published curricula, with specific remaining gaps and a [complete public module/descriptor register](results/preparation_review/module_descriptors.json), including unavailable and prior-cohort source limits. A novel quantum theory or practical quantum advantage is not required for this preparation purpose; mathematical understanding and reproducible financial computation are the priority.
 
-The [main paper](generalisation_proofs.tex) is a **working paper**. Its main text contains intuition and structural steps; appendices and [supporting proofs](supporting_proofs_index.md) retain full derivations. The present work does not establish an original quantum theory.
+The [main paper PDF](generalisation_proofs.pdf) is a **working paper** ([LaTeX source](generalisation_proofs.tex)). Its main text contains intuition and structural steps; appendices and [supporting proofs](supporting_proofs_index.md) retain full derivations. The present work does not establish an original quantum theory.
 
 ## 2 Current evidence
 
@@ -30,7 +30,7 @@ The separate [hedging companion](constrained_hedging_companion.tex) connects phy
 
 | Purpose | Entry point |
 | --- | --- |
-| Financial model, results and main argument | [Working paper](generalisation_proofs.tex) |
+| Financial model, results and main argument | [Working paper PDF](generalisation_proofs.pdf) and [LaTeX source](generalisation_proofs.tex) |
 | Mathematical preparation, curricula and gaps | [Preparation audit](PREPARATION.md) |
 | Classical one-asset pricing/PDE/Greek benchmark | [Companion paper](capped_gbm_companion.pdf) and [synthetic study](results/capped_gbm/study_manifest.json) |
 | Gaussian-return estimation and price uncertainty | [Calibration runner](run_calibration_study.py) and [synthetic evidence](results/capped_gbm/calibration/study_manifest.json) |

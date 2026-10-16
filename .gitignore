@@ -31,3 +31,4 @@ results/variance_oracle_checkpoint*.json
 
 # Persistent local research reconstruction; final synthetic evidence is installed separately.
 /work_in_progress/
+
