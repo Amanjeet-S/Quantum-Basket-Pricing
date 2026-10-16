@@ -32,3 +32,11 @@ results/variance_oracle_checkpoint*.json
 # Persistent local research reconstruction; final synthetic evidence is installed separately.
 /work_in_progress/
 
+
+# Local compatibility links keep existing document-editor sessions usable.
+/capped_gbm_companion.pdf
+/capped_gbm_companion.tex
+/constrained_hedging_companion.pdf
+/constrained_hedging_companion.tex
+/generalisation_proofs.pdf
+/generalisation_proofs.tex

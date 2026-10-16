@@ -1,0 +1,75 @@
+{
+  "schema": "qbp-repository-organisation-validation-v1",
+  "status": "passed",
+  "date": "2026-10-16",
+  "original_commit": "28ae40331fddd5ea118f002b94e0afe0c9a0fed6",
+  "layout_manifest_sha256": "8395678c0244bfa2d8fb02fcc7ad6ba65a2fa0dce1f7f6ad779d9195b5c5b8b9",
+  "original_files_preserved_byte_for_byte": 1223,
+  "original_root_files": 249,
+  "current_root_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "current_root_instruction_files": 0,
+  "ignored_local_editor_links": 6,
+  "python_syntax_files_checked": 278,
+  "local_markdown_links_checked": 211,
+  "new_broken_markdown_links": [],
+  "companion_tests": {
+    "status": "passed",
+    "tests": 40,
+    "modules": {
+      "test_capped_gbm.py": 9,
+      "test_conditioning_controls.py": 9,
+      "test_gbm_calibration.py": 12,
+      "test_gbm_hedging.py": 10
+    }
+  },
+  "reconstruction_tool_tests": {
+    "status": "passed",
+    "tests": 8
+  },
+  "paper_compilation": {
+    "generalisation_proofs.tex": "passed",
+    "capped_gbm_companion.tex": "passed",
+    "constrained_hedging_companion.tex": "passed"
+  },
+  "quantum_replay_checks": {
+    "sharp_gaussian_moduli": {
+      "status": "passed",
+      "precision_bits": 320,
+      "derivative_coefficients_checked": 8,
+      "finite_moduli_checked": 32,
+      "output_sha256": "72589e70c4d22e47bf70ce8382b019eb5c7649a40a6968aebf02dadb7d210807"
+    },
+    "deferred_resources": {
+      "status": "passed",
+      "checked_architecture_profiles": 808,
+      "checked_qpe_plans": 1616,
+      "checked_complete_variant_charges": 3232,
+      "retained_rejections": 12,
+      "registered_settings": 416,
+      "output_sha256": "c6433340fc0c2a9fec03c291748861545d26e720bd20e43471bf4f5c91053700"
+    },
+    "matched_chebyshev": {
+      "status": "passed",
+      "source_manifest_entries_checked": 9,
+      "histories": 1200,
+      "paired_mesh_seed_histories": 400,
+      "fresh_batches": 1968,
+      "replayed_u64_words": 196800,
+      "sampler_profiles": 157,
+      "512_bit_signal_floors": 77,
+      "fresh_half_alpha_plans": 12,
+      "output_sha256": "4a35acef05d1adf5bd9cec4cfe0ca140eb0eb963b25fffb362be9d5c4e83a25b"
+    },
+    "four_survivor_prepare_only": {
+      "status": "passed",
+      "verified_sources": 88,
+      "verified_synthetic_inputs": 6,
+      "experiment_executed": false,
+      "original_registration_sha256": "4dea1f09df9e8960a02949fad0bf1e4dd3304903585ed680c83fe8330cd9f405"
+    }
+  },
+  "scope": "Organisation and selected reproducibility checks only. The complete original tracked tree was reconstructed and verified in an isolated copy. Existing scientific files, source versions and retained adverse results were preserved. Historical defaults outside the documented commands were not made universally portable. No quantum hardware or new financial experiments were run."
+}

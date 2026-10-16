@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+data/private/
+*.pem
+*.key
+.DS_Store
+
+# Local expanded copy; complete portable results retained as deterministic gzip.
+results/variance_oracle_comparison.json
+results/variance_oracle_part_*.json
+results/variance_oracle_checkpoint*.json
+
+# Optional expanded canonical copy; lossless byte shards and manifest are retained.
+/results/higherdim_precision_comparison.json.gz
+
+# Optional canonical comparison; fundamental evidence and semantic hashes retained.
+/results/block_certificate_comparison.json.gz
+
+# Licensed observations belong outside version control; these are extra safeguards.
+/data/lseg/
+/data/refinitiv/
+/data/licensed/
+/data/derived_lseg/
+/exports/lseg/
+/exports/refinitiv/
+/outputs/licensed/
+/local_licensed_data/
+
+# Persistent local research reconstruction; final synthetic evidence is installed separately.
+/work_in_progress/
+
