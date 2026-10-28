@@ -1,0 +1,23 @@
+{
+  "schema":"qbp-gbm-certificate-informed-amendments-v1",
+  "status":"Informed development diagnostics, not prospective evidence selection",
+  "amendments":[
+    {
+      "trigger":"Tiny-cap input S=K=100,H=1e-15,T=1,r=q=0, sigma interval[1e-9,6e-9], absolute width1e-37 failed to refine at4096bits.",
+      "diagnosis":"Internal stationary-square endpoints were rounded to fixed output precision; higher working precision could not shrink this input uncertainty enough.",
+      "change":"Internal stationary-square dyadic precision now grows with working precision; final output width still checked independently.",
+      "retained_regression":"test_tiny_cap_refinement_regression; deterministic tiny_cap case"
+    },
+    {
+      "trigger":"Positive digital-strike quadrature at100digits for S=1,K=100,H=20,T=1,r=q=0 returned price5.707581387301107e-465 at sigma0.1 versus independent160digit call-spread5.704852282447851e-465, relative error about4.78e-4.",
+      "diagnosis":"Absolute quadrature stopping is inadequate when all integrand values are vastly below the current decimal precision scale.",
+      "change":"Factor out the maximum normal-CDF tail value before integrating the normalised positive integrand; retain the same mathematical integral and report relative diagnostic errors.",
+      "retained_regression":"deterministic small_tail case; the unscaled value5.707581387301107e-465 and independent reference5.704852282447851e-465 are quoted in this self-contained record"
+    },
+    {
+      "trigger":"Bridge reused monetary price width as dimensionless chi-squared quantile width.",
+      "diagnosis":"Rescaling the monetary contract could unnecessarily create a quantile lower endpoint0 and trigger abstention.",
+      "change":"Separate quantile_tolerance from absolute price width, retained explicitly in protocol and result."
+    }
+  ]
+}

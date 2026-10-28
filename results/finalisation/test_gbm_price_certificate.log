@@ -1,0 +1,28 @@
+test_abstention_does_not_allow_conditional_coverage_claim (test_gbm_price_certificate.CertificateTests.test_abstention_does_not_allow_conditional_coverage_claim) ... ok
+test_bad_inputs_rejected (test_gbm_price_certificate.CertificateTests.test_bad_inputs_rejected) ... ok
+test_binary_rounding_radius_adjacent_half_spacings (test_gbm_price_certificate.CertificateTests.test_binary_rounding_radius_adjacent_half_spacings) ... ok
+test_composition_does_not_require_independence (test_gbm_price_certificate.CertificateTests.test_composition_does_not_require_independence) ... ok
+test_constant_sample_abstains_with_all_attempts_counted (test_gbm_price_certificate.CertificateTests.test_constant_sample_abstains_with_all_attempts_counted) ... ok
+test_exact_decimal_and_binary_input_semantics (test_gbm_price_certificate.CertificateTests.test_exact_decimal_and_binary_input_semantics) ... ok
+test_exact_scatter_translation_and_scale (test_gbm_price_certificate.CertificateTests.test_exact_scatter_translation_and_scale) ... ok
+test_large_rounding_radius_abstains (test_gbm_price_certificate.CertificateTests.test_large_rounding_radius_abstains) ... ok
+test_nearly_equal_cdf_decision_retains_strict_rational_witness (test_gbm_price_certificate.CertificateTests.test_nearly_equal_cdf_decision_retains_strict_rational_witness) ... ok
+test_nonmonotone_image_requires_interior_maximum (test_gbm_price_certificate.CertificateTests.test_nonmonotone_image_requires_interior_maximum) ... ok
+test_quantile_increases_in_probability (test_gbm_price_certificate.CertificateTests.test_quantile_increases_in_probability) ... ok
+test_quantile_matches_exact_exponential_case (test_gbm_price_certificate.CertificateTests.test_quantile_matches_exact_exponential_case) ... ok
+test_resource_exhaustion_is_explicit (test_gbm_price_certificate.CertificateTests.test_resource_exhaustion_is_explicit) ... ok
+test_rounded_scatter_encloses_all_vertices (test_gbm_price_certificate.CertificateTests.test_rounded_scatter_encloses_all_vertices) ... ok
+test_scalar_price_reference (test_gbm_price_certificate.CertificateTests.test_scalar_price_reference) ... ok
+test_singleton_and_monotone_image (test_gbm_price_certificate.CertificateTests.test_singleton_and_monotone_image) ... ok
+test_tiny_cap_refinement_regression (test_gbm_price_certificate.CertificateTests.test_tiny_cap_refinement_regression) ... ok
+test_cli_status_fails_for_failed_verification (test_gbm_price_certificate.StudyRunnerGuardTests.test_cli_status_fails_for_failed_verification) ... ok
+test_existing_evidence_and_file_are_not_overwritten (test_gbm_price_certificate.StudyRunnerGuardTests.test_existing_evidence_and_file_are_not_overwritten) ... ok
+test_external_new_or_empty_directory_is_allowed (test_gbm_price_certificate.StudyRunnerGuardTests.test_external_new_or_empty_directory_is_allowed) ... ok
+test_numerical_status_excludes_statistical_misses (test_gbm_price_certificate.StudyRunnerGuardTests.test_numerical_status_excludes_statistical_misses) ... ok
+test_project_outputs_rejected_before_creation (test_gbm_price_certificate.StudyRunnerGuardTests.test_project_outputs_rejected_before_creation) ... ok
+test_symlink_into_project_rejected (test_gbm_price_certificate.StudyRunnerGuardTests.test_symlink_into_project_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 5.955s
+
+OK

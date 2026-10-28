@@ -1,0 +1,214 @@
+{
+  "schema": "qbp-companion-final-replay-comparison-v1",
+  "date": "2026-10-27",
+  "status": "passed",
+  "method": "Read-only comparison of existing fresh stage outputs with canonical retained results. No rerun and no canonical edits. Paths, execution dates, timing and rebuilt-binary hashes are metadata, not equality requirements.",
+  "summary": "Every scientific result file compared is byte-identical to its retained counterpart. All headline counts, exact certificate intervals, rankings and adverse outcomes are preserved. Only relocated provenance paths, the native platform description and rebuilt executable hashes differ.",
+  "byte_identical_files_by_stage_directory": {
+    "validated_calibration_replay": [
+      "deterministic_images.json",
+      "quantile_brackets.json",
+      "synthetic_bridge.json"
+    ],
+    "validated_hedging_replay": [
+      "fixed_risk_audit.json",
+      "positive_integrals.json",
+      "refined_hedges.json",
+      "slsqp_audit.json"
+    ],
+    "drift_uncertainty_replay": [
+      "bridge.json",
+      "confidence.json",
+      "primary.json"
+    ],
+    "native_comparison_replay": [
+      "amendment_history.json",
+      "analytic_comparison.csv",
+      "fallback_branch_comparison.csv",
+      "financial_identities.csv",
+      "high_precision_references.json",
+      "pde_comparison.csv",
+      "pde_refinement_summary.csv",
+      "protocol.json",
+      "python_binary64_integral_diagnostics.json",
+      "solver_crosscheck.csv"
+    ],
+    "native_trace_replay": [
+      "deep_cap_m16_n3.json",
+      "deep_cap_m2_n1.json",
+      "deep_cap_m32_n16.json",
+      "high_volatility_m16_n3.json",
+      "high_volatility_m2_n1.json",
+      "high_volatility_m32_n16.json",
+      "inside_spread_m16_n3.json",
+      "inside_spread_m2_n1.json",
+      "inside_spread_m32_n16.json",
+      "low_vol_short_dated_m16_n3.json",
+      "low_vol_short_dated_m2_n1.json",
+      "low_vol_short_dated_m32_n16.json",
+      "lower_kink_m16_n3.json",
+      "lower_kink_m2_n1.json",
+      "lower_kink_m32_n16.json",
+      "negative_rate_dividend_m16_n3.json",
+      "negative_rate_dividend_m2_n1.json",
+      "negative_rate_dividend_m32_n16.json",
+      "protocol.json",
+      "upper_kink_m16_n3.json",
+      "upper_kink_m2_n1.json",
+      "upper_kink_m32_n16.json"
+    ]
+  },
+  "metadata_normalised_equality": {
+    "validated_calibration_replay": {
+      "protocol.json": true,
+      "validation.json": true
+    },
+    "validated_hedging_replay": {
+      "protocol.json": true,
+      "validation.json": true
+    },
+    "drift_uncertainty_replay": {
+      "registration.json": true,
+      "validation.json": true,
+      "file_hashes_nonmetadata_equal": true
+    }
+  },
+  "validated_calibration": {
+    "deterministic_cases": 13,
+    "quantile_brackets": 12,
+    "synthetic_datasets": 180,
+    "returned_certificates": 180,
+    "abstentions": 0,
+    "true_price_containment": 165,
+    "near_stationary_datasets": 60,
+    "near_stationary_full_image_containment": 54,
+    "near_stationary_endpoint_only_containment": 0,
+    "exact_price_images_and_quantile_brackets": "Byte-identical deterministic_images.json and quantile_brackets.json; all 180 dataset records in synthetic_bridge.json are also byte-identical.",
+    "checks_pass": true
+  },
+  "validated_hedging": {
+    "fixed_risk_rows": 168,
+    "refined_rows": 126,
+    "slsqp_rows": 126,
+    "positive_integral_rows": 60,
+    "original_joint_feasibility": {
+      "certified_feasible": 75,
+      "certified_infeasible": 51,
+      "unresolved": 0
+    },
+    "original_budget_only_feasibility": {
+      "certified_feasible": 85,
+      "certified_infeasible": 41,
+      "unresolved": 0
+    },
+    "retained_primary_negative_expanded_quadratics": 3,
+    "retained_primary_arithmetic_floor_rows": 9,
+    "maximum_relative_optimality_gap_exact": "52656546090162/1221116561742910716233128770315779083441",
+    "exact_key_intervals": "Every fixed-risk, refined optimum/distance and SLSQP record is byte-identical; this includes all rare-tail optimum brackets. Positive-residual integral diagnostics are byte-identical.",
+    "failures": [],
+    "checks_pass": true
+  },
+  "drift_uncertainty": {
+    "primary_rows": 12,
+    "finite_grid_reference_rows": 12,
+    "dense_checks": 15420,
+    "confidence_rows": 30,
+    "bridge_rows": 3,
+    "bridge_dense_checks": 3084,
+    "bridge_true_risk_understatements": 0,
+    "bridge_robust_worse_at_true_drift_than_plugin": 3,
+    "confidence_contains_true_drift": 27,
+    "robust_worse_at_true_drift_than_centre": 10,
+    "robust_dense_worst_less_than_centre": 10,
+    "failures": [],
+    "all_checks_pass": true
+  },
+  "drift_exact_intervals_and_rankings": "primary.json, confidence.json and bridge.json are byte-identical, including confidence intervals, continuum bounds, mixture witnesses and all adverse rankings. Thus the 10/12 worst-risk improvement with matching true-risk deterioration, 27/30 truth containment and all 3 robust-versus-plug-in penalties reproduce exactly.",
+  "native_comparison": {
+    "status": "pass",
+    "analytic_output_rows": 120,
+    "pde_output_rows": 126,
+    "solver_output_rows": 21,
+    "baseline_diagnostic_failures": [
+      "python_integral:small_positive_volatility:gamma",
+      "python_integral:extremely_broad_strike_interval:delta",
+      "python_integral:extremely_broad_strike_interval:gamma",
+      "python_integral:extremely_broad_strike_interval:rho"
+    ],
+    "python_positive_integral_failed_output_rows": 4,
+    "all_compared_stable_methods_pass": false,
+    "maximum_cpp_scaled_analytic_error": 5.820766091346741e-09,
+    "scientific_manifest_equal_after_platform_and_executable_hash_exclusions": true,
+    "interpretation": "Native acceptance checks pass; all four stronger-Python derivative diagnostic failures remain visible. Every comparison CSV, high-precision reference and baseline diagnostic JSON is byte-identical."
+  },
+  "native_trace": {
+    "manifest_status": "fail",
+    "trace_count": 21,
+    "strict_range_failures": 4,
+    "failure_labels": [
+      "lower_kink:32:16:range",
+      "upper_kink:32:16:range",
+      "inside_spread:32:16:range",
+      "deep_cap:32:16:range"
+    ],
+    "residual_range_coverage_all": true,
+    "independent_exact_target_checks": 7,
+    "max_observed_range_excess": 1.0658141036401503e-14,
+    "max_grid_error_bound": 1.6465869040954609e-13,
+    "max_scalar_error_bound": 1.5591919740213548e-13,
+    "scientific_manifest_equal_after_executable_hash_exclusion": true,
+    "record_level_residual_coverage_all": true,
+    "interpretation": "The expected exit code is 1, preserving the four strict floating-point range overshoots. All 21 traces are byte-identical and every overshoot remains within its exact residual bound. This is successful reproduction of the retained adverse result, not universal strict-range success."
+  },
+  "observed_execution": {
+    "validated_calibration": {
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed"
+    },
+    "validated_hedging": {
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed"
+    },
+    "drift_uncertainty": {
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed"
+    },
+    "native_comparison": {
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed"
+    },
+    "native_trace": {
+      "exit_code": 1,
+      "expected_exit_codes": [
+        1
+      ],
+      "status": "passed"
+    }
+  },
+  "permitted_metadata_differences": {
+    "source_paths": "Canonical root versus the organised replay root; source hash values agree after relative-path normalisation.",
+    "dependent_metadata_hashes": "The relocated protocol/registration/validation documents necessarily change their own bytes and dependent manifest hashes; numerical files do not change.",
+    "native_platform": {
+      "retained": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "fresh": "macOS-27.2-arm64-arm-64bit-Mach-O"
+    },
+    "native_executable_sha256": {
+      "retained": "5b6e2427f65a705b23c8ad94f4f20c3a708e7993c913853e293a449f7984ee05",
+      "fresh": "804429e43a5430d9f8824387bd1c1b9f1b872612b037c58a4daff210c41bea5b"
+    },
+    "native_floating_point_representation_unchanged": true
+  },
+  "failures": []
+}

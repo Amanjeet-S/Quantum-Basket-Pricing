@@ -1,0 +1,62 @@
+{
+  "review_date": "2026-10-23",
+  "engine_sha256": "39f9b2b72a3a6ac28f826b77f7c50770734bbb48b0a86dacc1011a317b013b1a",
+  "independent_reference": "100-decimal mpmath piecewise-affine moments, not interval certificates",
+  "cases": [
+    {
+      "case": "ordinary",
+      "status": "certified",
+      "grid_nodes": 33,
+      "relative_gap_upper_exact": "3625188098688763248866925677927340146492790146310019547178442308610718484907044612836803382477879950622817917077999961042910857572254862069494325893/13197094557572781183038552033520302119285168059984907293666589050215229872970345596990572160981807170780049485169997492646874304533421127815273761472512",
+      "maximum_off_grid_risk_diagnostic": "28.10407448785754533422222436643956069995887676759500778169895818430086497170082292952467528551679673",
+      "exact_simplex_feasibility": true,
+      "true_cost_feasibility": true,
+      "independent_piecewise_grid_risk_containment": true,
+      "independent_mixture_dual_containment": true,
+      "off_grid_checks": 102,
+      "context_restored": true
+    },
+    {
+      "case": "zero_budget",
+      "status": "certified",
+      "grid_nodes": 33,
+      "relative_gap_upper_exact": "6669158714849977775763937197010822985449559904847729160492715404576444060320797463558410750962319891896426963488288018773372711232360802234641732063/24278331436421289651230483481472519524968295183246778913749064232277972659210798616295321538462653248310475303339415797340430101197780534749251661463552",
+      "maximum_off_grid_risk_diagnostic": "103.4299502076220192469644744369059580497379553374059883742451172587999542325038965241857641479913519",
+      "exact_simplex_feasibility": true,
+      "true_cost_feasibility": true,
+      "independent_piecewise_grid_risk_containment": true,
+      "independent_mixture_dual_containment": true,
+      "off_grid_checks": 102,
+      "context_restored": true
+    },
+    {
+      "case": "singleton",
+      "status": "certified",
+      "grid_nodes": 1,
+      "relative_gap_upper_exact": "3558677/56884551095445026331029882334437295771168282773612282686050977404397178945941",
+      "maximum_off_grid_risk_diagnostic": "15.72046628611665856798935640263220180481986833576951436993130488101757049809148335737655139318138747",
+      "exact_simplex_feasibility": true,
+      "true_cost_feasibility": true,
+      "independent_piecewise_grid_risk_containment": true,
+      "independent_mixture_dual_containment": true,
+      "off_grid_checks": 102,
+      "context_restored": true
+    },
+    {
+      "case": "unresolved_budget",
+      "status": "unresolved",
+      "grid_nodes": 3,
+      "relative_gap_upper_exact": "1922642275714918846195658334275192687420809635468842318977432956312660286753426998570248292373455785694016411185391785405425181624492853683445875956899/26394189115145562366077104067040604238570336119969814587333178100430459745940691193981144321963614341560098970339994985293748609066842255630547522945024",
+      "maximum_off_grid_risk_diagnostic": "28.10407448785754533422222436643956069995887676759500778169895818430086497170082292952467528551679673",
+      "exact_simplex_feasibility": true,
+      "true_cost_feasibility": true,
+      "independent_piecewise_grid_risk_containment": true,
+      "independent_mixture_dual_containment": true,
+      "off_grid_checks": 102,
+      "context_restored": true
+    }
+  ],
+  "known_sigma_interval_quantile_and_rounding_checks": true,
+  "mathematical_source_review": "No blocker found; density envelope, exact feasible candidate, probability mixture weak dual, strong-convexity and confidence theorem checked independently.",
+  "limitations": "No numerical uniform-curvature/distance certificate is claimed. Synthetic fixtures do not establish empirical coverage. Gaussian coverage remains conditional on the stated model."
+}

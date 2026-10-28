@@ -1,0 +1,14 @@
+test_accumulated_bound_matches_independent_rational_solves (test_cpp_residual_certificate.ResidualCertificateTests.test_accumulated_bound_matches_independent_rational_solves) ... ok
+test_exact_one_node_step (test_cpp_residual_certificate.ResidualCertificateTests.test_exact_one_node_step) ... ok
+test_invalid_trace_and_coefficients_are_rejected (test_cpp_residual_certificate.ResidualCertificateTests.test_invalid_trace_and_coefficients_are_rejected) ... ok
+test_one_node_perturbation_is_bounded (test_cpp_residual_certificate.ResidualCertificateTests.test_one_node_perturbation_is_bounded) ... ok
+test_outside_initial_range_does_not_imply_a_payoff_range_certificate (test_cpp_residual_certificate.ResidualCertificateTests.test_outside_initial_range_does_not_imply_a_payoff_range_certificate) ... ok
+test_overshoots_are_retained (test_cpp_residual_certificate.ResidualCertificateTests.test_overshoots_are_retained) ... ok
+test_partial_or_invalid_scalar_configuration_is_rejected (test_cpp_residual_certificate.ResidualCertificateTests.test_partial_or_invalid_scalar_configuration_is_rejected) ... ok
+test_scalar_bound_covers_interpolation_and_evaluation (test_cpp_residual_certificate.ResidualCertificateTests.test_scalar_bound_covers_interpolation_and_evaluation) ... ok
+test_upward_conversion_encloses_exact_bound (test_cpp_residual_certificate.ResidualCertificateTests.test_upward_conversion_encloses_exact_bound) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.004s
+
+OK

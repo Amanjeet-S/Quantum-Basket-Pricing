@@ -1,0 +1,249 @@
+{
+  "schema": "qbp-final-dividend-alignment-review-v1",
+  "review_date": "2026-10-27",
+  "reviewed_at_utc": "2026-10-27T12:26:26.777128+00:00",
+  "role": "Independent read-only evidence audit; no canonical edits or Git mutations.",
+  "paths": {
+    "canonical": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing",
+    "old_run": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-drift-20261023/canonical_study",
+    "aligned_run": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-drift-20261023/canonical_study_aligned"
+  },
+  "primary_and_confidence_unchanged": {
+    "primary": {
+      "deep_equal": true,
+      "byte_equal": true,
+      "sha256": "395c507f5926378c45bbaf72b2e4748516d9216e7b4b21e91f4ed516d3efa3b5",
+      "rows": 12
+    },
+    "confidence": {
+      "deep_equal": true,
+      "byte_equal": true,
+      "sha256": "e1554cc812ce6128b973aa8a19597acf216e2668cf3fac819da7b3946bac6efa",
+      "rows": 30
+    }
+  },
+  "bridge_exact_alignment": [
+    {
+      "dataset_zero_based": 0,
+      "dividend_exact": "1/100",
+      "volatility_exact": "1/5",
+      "dividend_matches_historical_inference": true,
+      "volatility_matches_historical_inference": true,
+      "full_interval_matches_historical_inference": true,
+      "old_dividend_exact": "5764607523034235/576460752303423488",
+      "status": "certified",
+      "robust_feasibility": true,
+      "robust_true_risk": "34.13032968567580366035749715184306102796010065890271768116676093843910882470316783784028451088112508925301536417167825202639491014107338961821153695741312998747416201502887619",
+      "plug_in_true_risk": "23.18374542998583538943779144219521755971358701183977484875400722908893725489743080601155159703253503119406436897408622439268228481516388835754851259889257022466519587403726444",
+      "robust_dense_maximum": "45.52682535301826800483920553323315730661269066750011740888225265083254276073894338217952674666385230233908693533115277000769769885370218567970016518502518873037050980983670371",
+      "plug_in_dense_maximum": "218.0522762540713094017448437358331055647560428192312527991193361112497851262887975843209943589829345849967133125298368560800005547171568264873454053284244274370048638054937975",
+      "true_risk_exceeds_continuum_upper": false
+    },
+    {
+      "dataset_zero_based": 1,
+      "dividend_exact": "1/100",
+      "volatility_exact": "1/5",
+      "dividend_matches_historical_inference": true,
+      "volatility_matches_historical_inference": true,
+      "full_interval_matches_historical_inference": true,
+      "old_dividend_exact": "5764607523034235/576460752303423488",
+      "status": "certified",
+      "robust_feasibility": true,
+      "robust_true_risk": "23.86004606414014503462564737308777244489040490207162699420446756136209181540833627515092012022068177111411845757995595066351279295205437912218545770728428226592882097440803084",
+      "plug_in_true_risk": "22.12531076899582367771360546701995398550001683564045961798959944230737796494456030488570096604493097431977375193126601367451146081617602710520384401864893620672984617740439496",
+      "robust_dense_maximum": "34.33610973741792809921049013857666327835893132671728513335141545369293269217081906984841000703711342986900962309824947466327278469053967269874114568307811318919696844750353568",
+      "plug_in_dense_maximum": "188.6487085237516816411652980845846599183163475165952408889765426089620410847568516784341517336148930460926778432991084587056188511282442443786466746077733322319705933695068966",
+      "true_risk_exceeds_continuum_upper": false
+    },
+    {
+      "dataset_zero_based": 2,
+      "dividend_exact": "1/100",
+      "volatility_exact": "1/5",
+      "dividend_matches_historical_inference": true,
+      "volatility_matches_historical_inference": true,
+      "full_interval_matches_historical_inference": true,
+      "old_dividend_exact": "5764607523034235/576460752303423488",
+      "status": "certified",
+      "robust_feasibility": true,
+      "robust_true_risk": "28.89483703485358848544899613274234987122807534786253955238281071670491869953036515945078146183486253567522688465374123338808592104804309099028079851124474047119480872081603648",
+      "plug_in_true_risk": "15.72756306966778788944723577697674272070141273834782463185573741968140561162740560278376458710783235440587337170811162168404334982631691640113400984548350168983946313160465367",
+      "robust_dense_maximum": "37.58667388011824254484193604299795136545505294882625333620798536837839787857098944747028603629527413100747777156423191069837711107028378163924645931115756953208706325095691544",
+      "plug_in_dense_maximum": "247.9285092468246256936602257493793560178370466317375463902509131445801518754270188218407098698573095534966703903567703442887786071054199949555021344268684317484206574144039651",
+      "true_risk_exceeds_continuum_upper": false
+    }
+  ],
+  "independently_rederived_counts": {
+    "primary_rows": 12,
+    "confidence_rows": 30,
+    "bridge_rows": 3,
+    "node_intervals": 204,
+    "retained_independent_node_checks": 204,
+    "retained_independent_node_checks_all_pass": true,
+    "retained_independent_mixture_duals_all_pass": true,
+    "mixture_duals": 12,
+    "finite_grid_optimum_brackets_all_pass": true,
+    "primary_dense_diagnostic_values": 15420,
+    "bridge_dense_diagnostic_values": 3084,
+    "primary_adverse_true_risk_cases": [
+      "lower_kink:width=3/100:budget=1",
+      "lower_kink:width=3/20:budget=1/2",
+      "lower_kink:width=3/20:budget=1",
+      "inside_spread:width=3/100:budget=1",
+      "inside_spread:width=3/20:budget=1/2",
+      "inside_spread:width=3/20:budget=1",
+      "high_volatility:width=3/100:budget=1/2",
+      "high_volatility:width=3/100:budget=1",
+      "high_volatility:width=3/20:budget=1/2",
+      "high_volatility:width=3/20:budget=1"
+    ],
+    "primary_improved_dense_worst_cases": [
+      "lower_kink:width=3/100:budget=1",
+      "lower_kink:width=3/20:budget=1/2",
+      "lower_kink:width=3/20:budget=1",
+      "inside_spread:width=3/100:budget=1",
+      "inside_spread:width=3/20:budget=1/2",
+      "inside_spread:width=3/20:budget=1",
+      "high_volatility:width=3/100:budget=1/2",
+      "high_volatility:width=3/100:budget=1",
+      "high_volatility:width=3/20:budget=1/2",
+      "high_volatility:width=3/20:budget=1"
+    ],
+    "confidence_contains_true_drift": 27,
+    "confidence_contained_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "bridge_adverse_true_risk_indices": [
+      0,
+      1,
+      2
+    ],
+    "bridge_understatement_indices": []
+  },
+  "old_and_aligned_counts_identical": true,
+  "certificate_elementary_exact_checks_all_pass": true,
+  "current_source_checks": [
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_hedging.py",
+      "sha256": "39f9b2b72a3a6ac28f826b77f7c50770734bbb48b0a86dacc1011a317b013b1a",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_references.py",
+      "sha256": "0658a11c34b23e1045736d74034847a5c27f9a2251bd13f20170756d09c53986",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/configs/drift_hedge_protocol.json",
+      "sha256": "f0b0a5dceeb4e6084f053339a3d096bafe86bece60f622e1391aaa85668951e4",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_drift_hedge_study.py",
+      "sha256": "652cb3bdb70637f151018b70c5e4c930448d802a2b5463c2f945f800fe1ddafd",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py",
+      "sha256": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_certificate.py",
+      "sha256": "6e8d40fd3f6a5f8c3b1b48be9d03ca967f3e7e82ec851634bb95f489314ddc80",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_references.py",
+      "sha256": "c30c7486d0d7b1d66952fe7a75f764b689f3e808a33e5fbce72d547aa4d42b1d",
+      "matches_before_after_registration": true
+    },
+    {
+      "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/study_manifest.json",
+      "sha256": "d3e88c040d9dad6e9a0f9cfaed3484ccef87a112bbaaca15c6ddcf2d27796b3e",
+      "matches_before_after_registration": true
+    }
+  ],
+  "output_checksum_checks": {
+    "canonical_study": {
+      "bridge.json": true,
+      "confidence.json": true,
+      "primary.json": true,
+      "registration.json": true,
+      "validation.json": true
+    },
+    "canonical_study_aligned": {
+      "bridge.json": true,
+      "confidence.json": true,
+      "primary.json": true,
+      "registration.json": true,
+      "validation.json": true
+    }
+  },
+  "preservation_archive": {
+    "path": "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/replication/history/drift_dividend_alignment/before_dividend_alignment.zip",
+    "sha256": "45d087a98912aa66a32c19d3f16813fddd5c88deb9c2b15bac6d70ac2d2d523e",
+    "zip_integrity_pass": true,
+    "old_result_records_match": {
+      "primary": true,
+      "confidence": true,
+      "bridge": true,
+      "validation": true,
+      "registration": true
+    },
+    "old_source_versions_match": {
+      "scripts/run_drift_hedge_study.py": true,
+      "configs/drift_hedge_protocol.json": true
+    }
+  },
+  "canonical_result_state_at_review": {
+    "primary": {
+      "matches_old": true,
+      "matches_aligned": true
+    },
+    "confidence": {
+      "matches_old": true,
+      "matches_aligned": true
+    },
+    "bridge": {
+      "matches_old": false,
+      "matches_aligned": true
+    },
+    "validation": {
+      "matches_old": false,
+      "matches_aligned": true
+    },
+    "registration": {
+      "matches_old": false,
+      "matches_aligned": true
+    }
+  },
+  "limits": "I rederived flags, counts and elementary certificate consistency using exact fractions from retained records, and verified hashes. I did not repeat the full independent 160-digit moment or minimax calculation. The dense-grid counts describe diagnostic evaluations reported by the study and reconstructed from retained grid-point counts; they are not new mathematical proofs or empirical coverage evidence.",
+  "failures": [],
+  "all_checks_pass": true
+}

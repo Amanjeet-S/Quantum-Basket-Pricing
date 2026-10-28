@@ -1,0 +1,72 @@
+{
+  "schema": "qbp-validated-calibration-stage-v1",
+  "date": "2026-10-18",
+  "status": "numerical verification passed; statistical containment misses retained",
+  "unit_tests": {
+    "count": 23,
+    "status": "passed",
+    "mathematical_and_regression": 17,
+    "evidence_output_status": 6
+  },
+  "built_in_latex_compile": "success",
+  "export_compile": "Three pdflatex passes; no final warnings or overfull boxes.",
+  "visual_review": "Rendered abstract, main new argument/results, and validated-proof pages inspected at 1400-pixel page scale; no layout defects observed.",
+  "paper_pages": 31,
+  "paper_author": "Amanjeet Singh",
+  "synthetic_containment": {
+    "attempts": 180,
+    "numerically_certified": 180,
+    "true_price_contained": 165,
+    "abstentions": 0,
+    "near_stationary_full": 54,
+    "near_stationary_endpoint_only": 0,
+    "near_stationary_attempts": 60
+  },
+  "scope": "Verified outward arithmetic under explicit Gaussian/rounding/known-contract premises; not empirical 95 per cent coverage, conditional-on-success coverage, quantum advantage or theoretical priority.",
+  "source_sha256": {
+    "src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "src/gbm_certificate_references.py": "81a0a6b8df8b32741d5bbe75214d22df5aecbc695e1f567d3c3af053fe5d0148",
+    "scripts/run_gbm_certificate_study.py": "aafdba14d7102f68325cf64daeb2915cf9d5957ce7c8efce19b76bdcd0591aeb",
+    "tests/test_gbm_price_certificate.py": "f4bf4e62dc0cc80e031820e33abc042a738b62e4c2396f2533e35c6656dce99f",
+    "configs/gbm_certificate_amendments.json": "8b1ac8934948574c3e5f71ecaf1f118d5a912e6f656f7a23c2d15a8d9e3fb65f",
+    "configs/environments/requirements-price-certificate.txt": "2f38d0b41540f1fea9a153e3640c723b4bf3a9ff05d6032f79c8f9a64ff8ace8",
+    "docs/validated_calibration.md": "468fc4f6d8659c65cf8d0c7236ab432d005664451c4b4bcf90f6f02321dc8ab2",
+    "paper/capped_gbm_companion.tex": "d22d447dbe4023d7b84f190469e662e5b416deaa29e124737dd99832e947840e",
+    "paper/capped_gbm_companion.pdf": "2da4e39019a3b0a4743d6f794f7f344d5d8c2d528bf05aca5cbf82899277d2a7"
+  },
+  "evidence_files": {
+    "deterministic_images.json": {
+      "sha256": "eab529de79060d2521cda06a3d5c59679d62d779e72002f3a0ed7d53e6ef7577",
+      "bytes": 102478
+    },
+    "final_theory_replay.json": {
+      "sha256": "8c50eea2b564f28c746f91688a478eec816f6f9fb919c2385938a1db9d3158d1",
+      "bytes": 1216
+    },
+    "protocol.json": {
+      "sha256": "a750d4174aabfdf063ec318d5c16f566f361ab01aa130b00813f558280c3c5cc",
+      "bytes": 1714
+    },
+    "quantile_brackets.json": {
+      "sha256": "53733702d48367f11eb128cccacb6348c26d14115985c93b1f45b417c1efc831",
+      "bytes": 24716
+    },
+    "source_record.json": {
+      "sha256": "78ebcc6e010af04d37ac76f1d4fd892de8c3ddba3a29e98ed04f1dec81065353",
+      "bytes": 2411
+    },
+    "synthetic_bridge.json": {
+      "sha256": "755bf36dd6b84be9516d6f6937c091f4c66065df07166b853a84dc291713bce8",
+      "bytes": 2025287
+    },
+    "validation.json": {
+      "sha256": "968d35ecd034542133f71de906e18dab3d19914e60ddb0290ea35e0354813d12",
+      "bytes": 7052
+    },
+    "validation_amendments.json": {
+      "sha256": "8b1ac8934948574c3e5f71ecaf1f118d5a912e6f656f7a23c2d15a8d9e3fb65f",
+      "bytes": 1860
+    }
+  },
+  "commits_staging_pushes": "None performed."
+}

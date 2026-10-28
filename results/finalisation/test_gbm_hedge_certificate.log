@@ -1,0 +1,26 @@
+test_empty_external_destination_is_accepted (test_gbm_hedge_certificate.EvidenceProtectionTests.test_empty_external_destination_is_accepted) ... ok
+test_existing_evidence_is_not_overwritten (test_gbm_hedge_certificate.EvidenceProtectionTests.test_existing_evidence_is_not_overwritten) ... ok
+test_existing_output_file_is_preserved (test_gbm_hedge_certificate.EvidenceProtectionTests.test_existing_output_file_is_preserved) ... ok
+test_failed_numerics_produce_failure_status (test_gbm_hedge_certificate.EvidenceProtectionTests.test_failed_numerics_produce_failure_status) ... ok
+test_internal_output_is_rejected_before_creation (test_gbm_hedge_certificate.EvidenceProtectionTests.test_internal_output_is_rejected_before_creation) ... ok
+test_symlink_output_into_project_is_rejected (test_gbm_hedge_certificate.EvidenceProtectionTests.test_symlink_output_into_project_is_rejected) ... ok
+test_budget_exhaustion_is_not_a_false_certificate (test_gbm_hedge_certificate.ValidatedHedgeTests.test_budget_exhaustion_is_not_a_false_certificate) ... ok
+test_directed_float_summaries_enclose_exact_endpoints (test_gbm_hedge_certificate.ValidatedHedgeTests.test_directed_float_summaries_enclose_exact_endpoints) ... ok
+test_eigenvalue_and_distance_bounds_are_verified (test_gbm_hedge_certificate.ValidatedHedgeTests.test_eigenvalue_and_distance_bounds_are_verified) ... ok
+test_fixed_risk_contains_independent_piecewise_moments (test_gbm_hedge_certificate.ValidatedHedgeTests.test_fixed_risk_contains_independent_piecewise_moments) ... ok
+test_invalid_precision_and_relative_tolerance_are_rejected (test_gbm_hedge_certificate.ValidatedHedgeTests.test_invalid_precision_and_relative_tolerance_are_rejected) ... ok
+test_malformed_inputs_are_rejected (test_gbm_hedge_certificate.ValidatedHedgeTests.test_malformed_inputs_are_rejected) ... ok
+test_negative_proposed_multipliers_are_explicitly_preserved (test_gbm_hedge_certificate.ValidatedHedgeTests.test_negative_proposed_multipliers_are_explicitly_preserved) ... ok
+test_original_outside_box_is_preserved_and_repaired (test_gbm_hedge_certificate.ValidatedHedgeTests.test_original_outside_box_is_preserved_and_repaired) ... ok
+test_precision_context_is_restored_on_success_and_failure (test_gbm_hedge_certificate.ValidatedHedgeTests.test_precision_context_is_restored_on_success_and_failure) ... ok
+test_refined_primal_dual_bounds_contain_independent_optimum (test_gbm_hedge_certificate.ValidatedHedgeTests.test_refined_primal_dual_bounds_contain_independent_optimum) ... ok
+test_short_dated_unit_call_retains_positive_tail_risk (test_gbm_hedge_certificate.ValidatedHedgeTests.test_short_dated_unit_call_retains_positive_tail_risk) ... ok
+test_unit_call_exact_fair_budget_violation_is_positive (test_gbm_hedge_certificate.ValidatedHedgeTests.test_unit_call_exact_fair_budget_violation_is_positive) ... ok
+test_unit_call_is_funding_feasible_at_double_budget (test_gbm_hedge_certificate.ValidatedHedgeTests.test_unit_call_is_funding_feasible_at_double_budget) ... ok
+test_unrestricted_signed_holdings_risk_is_supported (test_gbm_hedge_certificate.ValidatedHedgeTests.test_unrestricted_signed_holdings_risk_is_supported) ... ok
+test_zero_budget_is_exactly_cash_only (test_gbm_hedge_certificate.ValidatedHedgeTests.test_zero_budget_is_exactly_cash_only) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.025s
+
+OK

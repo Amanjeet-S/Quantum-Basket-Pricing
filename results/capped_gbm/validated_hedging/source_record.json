@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-20",
+  "actual_consultation": "Local source and mathematical review. No new external publication body read or retrieved.",
+  "sources": [
+    {
+      "path": "paper/constrained_hedging_companion.tex",
+      "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29",
+      "scope": "Financial accounting, objective and feasibility definitions; convexity/KKT theorem; truncated moments and final feasible-residual optimality bound; retained numerical-floor discussion.",
+      "retained_path": "replication/history/before_validated_hedging/constrained_hedging_companion.tex"
+    },
+    {
+      "path": "src/gbm_hedging.py",
+      "sha256": "e60f8c364434eae28e7a160ebe146eb6f5243005551998cc93cc162df9ab4b8a",
+      "scope": "Gaussian law, truncated moments and complete hedge_moments function; exact structure of the funded objective and gain definitions."
+    },
+    {
+      "path": "results/capped_gbm/hedging/source_ledger.json",
+      "sha256": "5cda6b1381c4fd92146984a55d0ed375c8fdffac01274af8260b57dae27038e9",
+      "scope": "Entire prior source/version ledger, inherited as historical provenance rather than a new article consultation."
+    },
+    {
+      "path": "results/capped_gbm/validated_calibration/source_record.json",
+      "scope": "Reused Arb publication metadata and installed-interface provenance, not a new consultation of the published article body."
+    }
+  ],
+  "research_status": "Project-specific applications of established moments and convex duality; no literature-priority or new-model claim."
+}

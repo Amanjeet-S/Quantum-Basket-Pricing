@@ -1,0 +1,61 @@
+{
+  "schema": "qbp-native-build-v1",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "builds": [
+    {
+      "argv": [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Icpp/include",
+        "cpp/src/capped_gbm.cpp",
+        "cpp/src/main.cpp",
+        "-o",
+        "/private/tmp/qbp-cpp-20261017/canonical_build/qbp_gbm"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Icpp/include",
+        "cpp/src/capped_gbm.cpp",
+        "cpp/tests/native_tests.cpp",
+        "-o",
+        "/private/tmp/qbp-cpp-20261017/canonical_build/qbp_native_tests"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    }
+  ],
+  "native_tests": {
+    "native_assertions": 564,
+    "status": "passed"
+  },
+  "source_sha256": {
+    "cpp/CMakeLists.txt": "ed37955a0e8ab9e3c32adae8cfb55b081836011e40999e695ee4d01daf4b5b9e",
+    "cpp/README.md": "9868334f859600a71abbc7acc7f3bcc10eb4c8dcfc6cb87a2ea886ab55444a47",
+    "cpp/include/qbp/capped_gbm.hpp": "6662ecd4386fa172099bdfea6dd4535d97e57f0ceb89819c681136daf6f23562",
+    "cpp/src/capped_gbm.cpp": "4b40c09f23451866eb16a563980d5c90952a7f035b6e9d8edb7ed5d835d92ac2",
+    "cpp/src/main.cpp": "efa7ca35c2a0c478f9a3ba3e40a1b38283752fddf9e7f3088eb2ae4439dacc6e",
+    "cpp/tests/native_tests.cpp": "f41bb8eb0c879ffd94804360eb0ca9c45a02a57675dd18a84a04299e2af29088"
+  },
+  "executables": {
+    "qbp_gbm": "5b6e2427f65a705b23c8ad94f4f20c3a708e7993c913853e293a449f7984ee05",
+    "qbp_native_tests": "d881027e5fa0f7dd7b9b65ab973e0a29f4fc6f911199e76d732fa4dee36c235f"
+  },
+  "cmake_status": "Not run: cmake/ctest unavailable in the executing environment.",
+  "scope": "Direct warning-enabled release build from installed source; native assertion count is not an independent experiment count."
+}

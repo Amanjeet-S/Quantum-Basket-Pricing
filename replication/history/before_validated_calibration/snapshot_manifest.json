@@ -1,0 +1,14 @@
+{
+  "capped_gbm_companion.tex": {
+    "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d",
+    "bytes": 137490
+  },
+  "capped_gbm_companion.pdf": {
+    "sha256": "ceb5b0f3148b1e429284888f24519c41052e1fe202c20c58753a8f6eff58879f",
+    "bytes": 520645
+  },
+  "manifest.json": {
+    "sha256": "65ad85e1997431af92efee44239ebbfb1540e21026854b1be71a001a6b6ff0aa",
+    "bytes": 1597
+  }
+}

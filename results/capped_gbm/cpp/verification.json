@@ -1,0 +1,191 @@
+{
+  "schema": "qbp-native-verification-v1",
+  "base_commit": "55e75429ec2b22e05d4a74178de54c1dee481be5",
+  "change_status": "Uncommitted native implementation and proof extension; no staging or push performed.",
+  "native_assertions": 564,
+  "python_unit_tests": {
+    "certificate": 9,
+    "reconstruction": 8,
+    "python": "3.14.6 (v3.14.6:c63aec69bd5, Jun 10 2026, 08:07:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "status": "passed"
+  },
+  "analytic_output_rows": 120,
+  "pde_output_rows": 126,
+  "grid_comparisons": 21,
+  "financial_identity_rows": 100,
+  "native_reference_comparisons": "passed declared tolerances",
+  "stronger_python_baseline_diagnostic_failures": [
+    "python_integral:small_positive_volatility:gamma",
+    "python_integral:extremely_broad_strike_interval:delta",
+    "python_integral:extremely_broad_strike_interval:gamma",
+    "python_integral:extremely_broad_strike_interval:rho"
+  ],
+  "strict_trace_range_status": "failed in four retained cases",
+  "exact_residual_range_coverage_all": true,
+  "max_observed_range_excess": 1.0658141036401503e-14,
+  "max_final_grid_residual_bound": 1.6465869040954609e-13,
+  "max_scalar_target_bound": 1.5591919740213548e-13,
+  "scope": "Synthetic numerical verification and exported-coefficient discrete error bounds; no all-method pass, continuous-price certificate, empirical validation, language speedup or quantum advantage claim.",
+  "source_sha256": {
+    "configs/cpp_pricing_amendment_history.json": "1994030509cd6d77e107a964297811ecea3736b352af7888ecbc815e3f1345bc",
+    "configs/environments/requirements-native.txt": "7aa9baaf7f1c2973f3e04f2fe43f804726acf9729dba59e66e5d3c43705118ca",
+    "cpp/CMakeLists.txt": "ed37955a0e8ab9e3c32adae8cfb55b081836011e40999e695ee4d01daf4b5b9e",
+    "cpp/README.md": "9868334f859600a71abbc7acc7f3bcc10eb4c8dcfc6cb87a2ea886ab55444a47",
+    "cpp/include/qbp/capped_gbm.hpp": "6662ecd4386fa172099bdfea6dd4535d97e57f0ceb89819c681136daf6f23562",
+    "cpp/src/capped_gbm.cpp": "4b40c09f23451866eb16a563980d5c90952a7f035b6e9d8edb7ed5d835d92ac2",
+    "cpp/src/main.cpp": "efa7ca35c2a0c478f9a3ba3e40a1b38283752fddf9e7f3088eb2ae4439dacc6e",
+    "cpp/tests/native_tests.cpp": "f41bb8eb0c879ffd94804360eb0ca9c45a02a57675dd18a84a04299e2af29088",
+    "docs/cpp_pricing.md": "ef013c7b86288db8c511feda790abb749b186442eb87c90e9a21f477d3540a76",
+    "scripts/certify_cpp_heat_trace.py": "319078971d06d88d5d0bc04956b0315d4c0fdc09fc798016eab4d512d43e3300",
+    "scripts/run_cpp_pricing_study.py": "0fb5306d11018405f2a2361502bd42e0883f9bdfa4a59c157c9add35752b19ce",
+    "src/capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa",
+    "src/cpp_residual_certificate.py": "76994ddc0b6541b48753cd21a0c948ffe0d0a9316a31e64e6277db3a2b79b04c",
+    "tests/test_cpp_residual_certificate.py": "f70906ccf5ef445ce0abe325f43142fa15f1b9319f02d64aff55bb1ba3265349"
+  },
+  "files": {
+    "build_record.json": {
+      "sha256": "e7f0bf98438902d7fbbc93ed373f9b8053e0c13cc75a55aabc110110d9b818be",
+      "bytes": 2162
+    },
+    "comparison/amendment_history.json": {
+      "sha256": "1994030509cd6d77e107a964297811ecea3736b352af7888ecbc815e3f1345bc",
+      "bytes": 14574
+    },
+    "comparison/analytic_comparison.csv": {
+      "sha256": "bb7df36d0eaaa1e3809bcd1853b959b9ef29eb043dd42f6c77ffaebb96df99fe",
+      "bytes": 63659
+    },
+    "comparison/fallback_branch_comparison.csv": {
+      "sha256": "0fffb49563f9cd0076963c4eba11b848c3c9a4b9de5dc6956f1235b33944d453",
+      "bytes": 895
+    },
+    "comparison/financial_identities.csv": {
+      "sha256": "21296419a7cac470dcfc18e9589dec3941f0b8c8b49c87db0eb71642cff9fe35",
+      "bytes": 9330
+    },
+    "comparison/high_precision_references.json": {
+      "sha256": "a6155c5c94df8f7c22725f3f0908c5b4f0316679f300d26fc66e756b646fb7b2",
+      "bytes": 41135
+    },
+    "comparison/pde_comparison.csv": {
+      "sha256": "122130e6538b15388fe893fbec886f6f77151b19e6c3ab8454b42da4cce059db",
+      "bytes": 52750
+    },
+    "comparison/pde_refinement_summary.csv": {
+      "sha256": "c784909d9abe589273f37d55fe0749170ed2082247c53091caa3c5087ec706a9",
+      "bytes": 3837
+    },
+    "comparison/protocol.json": {
+      "sha256": "40ca215f1caee194a5a09583a14b54645e8202d1ce81cd7882a76897da9e1878",
+      "bytes": 11156
+    },
+    "comparison/python_binary64_integral_diagnostics.json": {
+      "sha256": "c394992e39f13425397a59992fcbe99cd6ad028f514a0f22f106d6a9bd59b3d5",
+      "bytes": 27134
+    },
+    "comparison/solver_crosscheck.csv": {
+      "sha256": "5dfc4af2efcf3403f68d66dcec64cfcd2be19f05c15d1e8df9004a0c25147622",
+      "bytes": 2323
+    },
+    "comparison/study_manifest.json": {
+      "sha256": "d0c66abffa62fdfe4c686aaf6e56b1144b8553bb6a94bc7496be290200c92679",
+      "bytes": 3099
+    },
+    "initial_trace_audit.json": {
+      "sha256": "11de1414380b738914c6763850481e9cbb08e417398c15502353e8d942ff37f3",
+      "bytes": 12963
+    },
+    "traces/deep_cap_m16_n3.json": {
+      "sha256": "619a60c423c2a022f406bc0b6f7a5f83a50c6a29cfd7944cb289d983ca8a7616",
+      "bytes": 6618
+    },
+    "traces/deep_cap_m2_n1.json": {
+      "sha256": "e3e745d3d163be8fcc968ed00e1f8fe1c06fe8137daecffd7943a49044463657",
+      "bytes": 4409
+    },
+    "traces/deep_cap_m32_n16.json": {
+      "sha256": "cc0fda6ac9d7c4187cec0c41cfd3b1ba35eed47292f19965b23efeed844fd0bc",
+      "bytes": 23990
+    },
+    "traces/high_volatility_m16_n3.json": {
+      "sha256": "dea10d40ec87d302fe20691eca78377d6b40a11d79eabd3a7da267c31fc44aae",
+      "bytes": 6640
+    },
+    "traces/high_volatility_m2_n1.json": {
+      "sha256": "f1402727f09446f91c80ff8e6ac75275ca9d81117979dbe020dd11e3010822fe",
+      "bytes": 4443
+    },
+    "traces/high_volatility_m32_n16.json": {
+      "sha256": "682f65465213e86c3bc0d220081584e8a793cffe8aaa99a303719e9707d4050e",
+      "bytes": 24077
+    },
+    "traces/inside_spread_m16_n3.json": {
+      "sha256": "658100ff312a6705377266ab99e74562e04186be685eb1f1567e6781e878167b",
+      "bytes": 6627
+    },
+    "traces/inside_spread_m2_n1.json": {
+      "sha256": "79caab382a0b59356d38a09fb231fae959ca5cbcc9272dee99ad358ed8ada94b",
+      "bytes": 4434
+    },
+    "traces/inside_spread_m32_n16.json": {
+      "sha256": "47acc677fabb0a6ed82522a3be21d8bf35176f9622953739b8eeb76427afee83",
+      "bytes": 24068
+    },
+    "traces/low_vol_short_dated_m16_n3.json": {
+      "sha256": "8445c0bdacb7d75ebca22ac189901b0386a098ca1c5895f02cdbca219689fb2b",
+      "bytes": 6704
+    },
+    "traces/low_vol_short_dated_m2_n1.json": {
+      "sha256": "2d0f0b36144038f5d381e3ec9e98625dc40554880c70f5d81d8d6343b5b5af48",
+      "bytes": 4425
+    },
+    "traces/low_vol_short_dated_m32_n16.json": {
+      "sha256": "933de746b5175766d35a9b4c32f351268712646f8cc452372f28a0700d3abe8c",
+      "bytes": 23349
+    },
+    "traces/lower_kink_m16_n3.json": {
+      "sha256": "b9f955d68b7d0747f47b08de1cf04297e1b3b94b33a29df9dcf46daf623d0435",
+      "bytes": 6624
+    },
+    "traces/lower_kink_m2_n1.json": {
+      "sha256": "874c1b47048b41498425230fe95d5c2aefe19d37eae62e61375cf96e366b87a7",
+      "bytes": 4418
+    },
+    "traces/lower_kink_m32_n16.json": {
+      "sha256": "7b1b7dbb2fa0c9f3e82b431c68e6698e3fd716263ca38726974f27d541554e68",
+      "bytes": 24062
+    },
+    "traces/negative_rate_dividend_m16_n3.json": {
+      "sha256": "9e96d68030249f20ebf14679e5d97a8fc52512ccccaf394f3e7db3cdbeb46f27",
+      "bytes": 6640
+    },
+    "traces/negative_rate_dividend_m2_n1.json": {
+      "sha256": "6f9c0074fafd649b3e82d2ad3b8a7e15c5557909236926ff7dbfe747edf77069",
+      "bytes": 4451
+    },
+    "traces/negative_rate_dividend_m32_n16.json": {
+      "sha256": "9e403ccf2e3d1d9b623a5b952f06d2ec2f5ffcd14d370bfa4a860f296dbad3a0",
+      "bytes": 24036
+    },
+    "traces/protocol.json": {
+      "sha256": "66062b6cfdc2ba09f391752d02f584a8936d21173305baa55aae57ab540a08ae",
+      "bytes": 3096
+    },
+    "traces/study_manifest.json": {
+      "sha256": "5fca4f74d66a5ff7e63bf39a031647e6e44304f365ea440fba6148c13a576dc2",
+      "bytes": 11020
+    },
+    "traces/upper_kink_m16_n3.json": {
+      "sha256": "b4534e9ab5b6d0fc279d51d9197c6f5375d195d5512e63ac4b1d9992da069377",
+      "bytes": 6620
+    },
+    "traces/upper_kink_m2_n1.json": {
+      "sha256": "18be912ed802b5dfb36de7b96611bbeadc613003862ca471bd970e375ebfc6cd",
+      "bytes": 4424
+    },
+    "traces/upper_kink_m32_n16.json": {
+      "sha256": "dcd37ea4e68083a92bd60cec64d0e91141352a782c7cc2b40454411e83dbd291",
+      "bytes": 24060
+    }
+  }
+}

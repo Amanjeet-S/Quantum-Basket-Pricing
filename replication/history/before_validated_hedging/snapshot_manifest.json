@@ -1,0 +1,14 @@
+{
+  "constrained_hedging_companion.tex": {
+    "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29",
+    "bytes": 49576
+  },
+  "constrained_hedging_companion.pdf": {
+    "sha256": "f1167d7bc5e8a8e3dc4d0cb4ae36160f4ad87fce9edec8a257b94233d66a4cd3",
+    "bytes": 297771
+  },
+  "manifest.json": {
+    "sha256": "aeecd51208745121ad901157922d2ec8df77efd71296967fad15e752742d6473",
+    "bytes": 1708
+  }
+}

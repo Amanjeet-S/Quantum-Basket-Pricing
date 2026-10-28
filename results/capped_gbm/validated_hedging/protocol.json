@@ -1,0 +1,45 @@
+{
+  "schema": "qbp-validated-hedge-protocol-v1",
+  "reconstruction_date": "2026-10-20",
+  "design_status": "Informed reconstruction; interrupted temporary development and its outcomes were known. Fresh numerical verification follows unchanged declared cases/tolerances.",
+  "target": "Exact model risk and fair-price constraints at original binary64 primitive parameters, not exact printed decimals.",
+  "retained_cases": 7,
+  "physical_laws_per_case": 3,
+  "budget_multipliers": [
+    0,
+    0.25,
+    0.5,
+    1,
+    2,
+    4
+  ],
+  "expected_fixed_holding_rows": 168,
+  "expected_constrained_rows": 126,
+  "expected_slsqp_rows": 126,
+  "positive_integral_selection": "All21 no-hedge,21 unrestricted and9 archived primary-floor holdings; additionally9 refined floor holdings, total60.",
+  "interval_absolute_width": "1e-50",
+  "interval_relative_width_and_refined_gap": "1e-12",
+  "reference_digits": 160,
+  "positive_integral_digits": 100,
+  "positive_integral_relative_tolerance": "1e-70",
+  "qp_reference_feasibility_allowance": "1e-130 scaled; diagnostic reference only, not a true feasibility certificate.",
+  "archive_policy": "Preserve all original rows; report original, robustly repaired and refined portfolios separately. No negative-risk clipping.",
+  "price_accounting": "New certificates use exact transcendental fair prices; archived integration used computed binary64 quotes, so archived values need not lie in new exact-model risk intervals.",
+  "baseline_interpretation": "No-hedge and unrestricted are retained. The latter is a mathematical L2 relaxation, not necessarily an admissible trading strategy.",
+  "numerical_reference_scope": "Independent high-precision piecewise moments and positive integration under the same stipulated GBM; no empirical market or Monte Carlo tail validation.",
+  "source_hashes_before": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_certificate.py": "6e8d40fd3f6a5f8c3b1b48be9d03ca967f3e7e82ec851634bb95f489314ddc80",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_references.py": "c30c7486d0d7b1d66952fe7a75f764b689f3e808a33e5fbce72d547aa4d42b1d",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_hedge_certificate_study.py": "91f580d6700e7e3ea970c1e692b7dcb99004ad9463647467b6193a349e98272e",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/study_manifest.json": "d3e88c040d9dad6e9a0f9cfaed3484ccef87a112bbaaca15c6ddcf2d27796b3e",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/constrained_mse.csv": "c01054508608f198bc943c05891304a3bd6c09467200e432a37a4ea4d572df86",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/unconstrained.csv": "abf3b8485cdff4e9d1ee818c008a26b7535747599788a3ea7c85786de9c89b27",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/nohedge.csv": "715e2e87e0149e4d8da52a9f225602cb861aaa53fba38d75cca94e7d5ae057c8"
+  },
+  "environment": {
+    "python": "3.13.9",
+    "mpmath": "1.3.0",
+    "python_flint": "0.9.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-10-18",
+  "source_sha256": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+  "unit_tests_passed": 17,
+  "focused_quantile_replay": [
+    {
+      "degrees_freedom": 2,
+      "probability_exact": "0.025",
+      "strict_serialised_rational_witness": true,
+      "exponential_case_260_digit_reference_contained": true,
+      "precision_bits": 128,
+      "cdf_evaluations": 84
+    },
+    {
+      "degrees_freedom": 2,
+      "probability_exact": "0.975",
+      "strict_serialised_rational_witness": true,
+      "exponential_case_260_digit_reference_contained": true,
+      "precision_bits": 128,
+      "cdf_evaluations": 87
+    },
+    {
+      "degrees_freedom": 2,
+      "probability_exact": "0.63212055882855767840447622983853913255418886896823216549216319830253850425510019664285272565408035625337267472315600479175302420720987099137334641050590121690781",
+      "strict_serialised_rational_witness": true,
+      "exponential_case_260_digit_reference_contained": true,
+      "precision_bits": 1024,
+      "cdf_evaluations": 88
+    }
+  ],
+  "verdict": "No mathematical or scope blocker identified; coverage retains the stated latent-Gaussian and observation-cell premises."
+}

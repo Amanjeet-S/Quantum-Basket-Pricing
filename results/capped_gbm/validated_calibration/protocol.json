@@ -1,0 +1,36 @@
+{
+  "schema": "qbp-gbm-certificate-protocol-v1",
+  "source_hashes_before": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_gbm_certificate_study.py": "aafdba14d7102f68325cf64daeb2915cf9d5957ce7c8efce19b76bdcd0591aeb",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_certificate_references.py": "81a0a6b8df8b32741d5bbe75214d22df5aecbc695e1f567d3c3af053fe5d0148"
+  },
+  "study_type": "fixed synthetic numerical diagnostic; no empirical sample or exact RNG coverage claim",
+  "seed": 7362018,
+  "repetitions_per_case_size": 30,
+  "sample_sizes": [
+    25,
+    60
+  ],
+  "observation_interval_exact": "1/252",
+  "rounding": "exact nearest decimal6 with radius1/2000000 for each observation",
+  "alpha_exact": "1/20",
+  "absolute_price_width_relative_cap": "1e-22",
+  "standalone_quantile_width_exact": "1e-32",
+  "bridge_quantile_width_exact": "1e-24",
+  "reference_digits": [
+    100,
+    160
+  ],
+  "dense_scan_points": 1025,
+  "comparison_design": "Full image vs endpoint-only and dense scan; SciPy plug-in endpoints uncertified.",
+  "selection_record": "Adverse inputs chosen after inspecting existing binary64 K+H and extremum formulas; informed cases, not prospective random discovery.",
+  "coverage_denominator": "Every attempted dataset, including abstentions and unexpected errors.",
+  "input_semantics": "Decimal strings and fractions exact; binary64 inputs denote their exact stored value.",
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "mpmath": "1.3.0"
+  }
+}

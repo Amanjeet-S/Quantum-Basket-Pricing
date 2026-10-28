@@ -5,6 +5,7 @@
 \usepackage{url,xcolor,graphicx}
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Amanjeet Singh},pdftitle={Capped GBM pricing}}
 \setlength{\bibhang}{1.5em}
 \setlength{\bibsep}{2pt}
 \setlength{\emergencystretch}{1.5em}
@@ -16,29 +17,26 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \title{Capped GBM pricing\\[2mm]\large Replication, numerical convergence and parameter uncertainty}
 \author{Amanjeet Singh}
-\date{11 October 2026}
+\date{28 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-I connect no-arbitrage replication, martingale valuation and numerical
-pricing for a capped European claim under geometric Brownian motion.
-A heat-coordinate transformation permits a monotone backward-Euler scheme
-with unconditional stability and proved convergence for the kinked payoff.
-Explicit domain and central-difference bounds separate pricing and Greek
-errors. Exact terminal simulation supplies pathwise, likelihood-ratio and
-bounded mixed-gamma estimators. Conditional expectation is derived as an
-$L^2$ projection, including jointly transformed controls and independent-pilot
-error. Synthetic Gaussian-return estimation distinguishes physical drift
-from risk-neutral pricing and derives exact parameter pivots. A capped
-price can have an interior volatility maximum: confidence propagation must
-evaluate this stationary point, while endpoint-only propagation has zero
-coverage at that maximum. Statistical and numerical confidence allowances
-are composed explicitly. Synthetic experiments retain adverse control
-rankings, failed coarse quadrature and coverage fluctuations. The analytic
-call spread remains the strongest known-parameter baseline. Detailed proofs
-and reproducible code support the mathematical and computational foundations
-of the basket-pricing project without establishing empirical model validity
-or practical quantum advantage.
+\noindent
+The analytic call-spread representation of a capped European claim links
+no-arbitrage replication, numerical pricing and parameter uncertainty under
+geometric Brownian motion. I derive prices and five Greeks, prove stability
+and convergence of a monotone heat-coordinate backward-Euler scheme for the
+kinked payoff in exact arithmetic, and compare analytic, PDE and Monte Carlo
+calculations. Explicit domain, interpolation and bump-error bounds separate
+pricing and sensitivity errors. An $L^2$ projection argument links jointly conditioned controls to variance
+reduction, with the variance penalty from independent-pilot coefficients quantified explicitly. Gaussian-return inference distinguishes physical drift
+from risk-neutral valuation. Because capped prices can have an interior
+volatility maximum, endpoint-only propagation can omit admissible prices.
+I derive the maximum and propagate parameter intervals through the complete
+price image using exact scatter, bounded observation rounding and outward
+evaluation of quantiles and prices. Synthetic experiments retain adverse control
+rankings and coarse-quadrature failures. The analytic call spread remains
+the strongest known-parameter benchmark.
 \end{abstract}
 \noindent\begin{minipage}{\linewidth}
 \small\emergencystretch=2em
@@ -1041,8 +1039,8 @@ coverage under the stipulated model.
 The proof uses the sign of vega in \eqref{eq:cgbm-vega}; no monotonicity
 assumption is imposed on a capped claim. The synthetic comparison includes
 an interval straddling $\sigma_*$, for which endpoint-only propagation
-misses the upper price. At a true interior maximum, the exact
-endpoint-only interval has zero coverage, whereas the full image
+misses the upper price. At the true interior volatility maximum, endpoint-only propagation
+of the exact chi-squared interval has zero coverage, whereas the full image
 preserves the volatility interval's coverage. This is a financial consequence of changing
 convexity across the two strikes. The coverage statement is marginal,
 conditional on known contractual inputs and the model assumptions;
@@ -1056,8 +1054,35 @@ Conditional numerical price guarantees at the interval endpoints and included
 volatility maximum compose with statistical coverage to give at least
 $1-\alpha-\beta$ overall coverage (Appendix~\ref{app:cgbm-estimation}).
 A classical/quantum comparison must share estimation information and charge
-all required pricing calls; the floating-point experiment does not
-implement this certificate.
+all required pricing calls. The earlier floating-point experiment remains
+a diagnostic comparison rather than a validated certificate.
+
+I implement a validated bridge from rounded observations to a model-price
+interval (Appendix~\ref{app:cgbm-validated-calibration}). Exact rational
+scatter calculations retain observation-rounding error; outward
+chi-squared quantile brackets and price enclosures then replace
+uncertified floating-point evaluations. The maximum is evaluated at a
+clamped stationary volatility, including uncertain endpoint coincidences.
+The resulting guarantee concerns the stipulated Gaussian constant-diffusion
+model, with every other price input known. It separates parameter
+uncertainty from numerical enclosure width. A returned certificate has a
+joint failure probability at most $\alpha$; this is not conditional
+coverage after selecting successful computations. Resource exhaustion
+produces an explicit abstention rather than a false numerical guarantee.
+
+A separate certificate study retains 13 adverse price-image cases,
+12 chi-squared quantile brackets and 180 synthetic datasets, with 23
+independent implementation tests. Every dataset returns a numerical
+certificate, while true-price containment is 165/180. The SciPy full-image
+comparator gives the same count. In the near-stationary case, full-image
+propagation contains 54/60 targets and endpoint-only propagation none.
+These are diagnostics from approximate Gaussian generation and six-decimal
+observation rounding, not an empirical 95 per cent coverage guarantee.
+The gain is verified outward arithmetic, rather than increased observed
+coverage. Inputs, failures, exact bounds and informed implementation
+corrections are retained with the study.
+
+
 \subsection{Synthetic estimation and price-coverage evidence}
 
 I generate three-dimensional log returns using physical total drifts
@@ -2472,6 +2497,110 @@ require valid conditional guarantees, including numerical input/evaluation
 errors; the floating-point study does not establish them. This standard
 composition gives no Greek/basket extension or new quantum algorithm.
 
+\subsection{A validated bridge from rounded observations to price}
+\label{app:cgbm-validated-calibration}
+
+I retain the scalar observation law
+$X_i\overset{\mathrm{iid}}\sim N(a\delta,\sigma^2\delta)$, $n\geq2$,
+with known $\delta>0$, unknown $a$ and $\sigma>0$, and exact declared
+$0<\alpha<1$. All other contract inputs are fixed and known. The pricing
+target uses their exact supplied rational values; in particular,
+$J=K+H$ denotes the exact rational sum and is evaluated outwards. The code observes $z_i$, with proved
+rounding bounds $|X_i-z_i|\leq\epsilon_i$. For round-to-nearest binary64,
+half the larger adjacent representable gap is a valid radius, including
+at zero and for subnormal values; non-finite recorded observations are
+rejected. This radius covers one final rounding of an exact return;
+returns computed from rounded prices require a separately propagated
+observation-error bound. This distinguishes rounded observations from an exactly
+Gaussian law on finite binary values.
+The target is the exact supplied contract price, rather than a prediction
+interval for a future realised payoff. Physical drift is neither needed
+for this price certificate nor substituted into the risk-neutral
+expectation.
+
+Let $P=I_n-\mathbf1\mathbf1^\top/n$,
+$C_X=\|PX\|_2^2$, $C_z=\|Pz\|_2^2$ and
+$E^2=\sum_i\epsilon_i^2$. Since $P$ is an orthogonal projection,
+$\|P\|_2=1$. The reverse triangle inequality gives
+\begin{equation}
+ \begin{gathered}
+ |\sqrt{C_X}-\sqrt{C_z}|\leq\|P(X-z)\|_2\leq E,\\
+ \{\max(0,\sqrt{C_z}-E)\}^2\leq C_X
+ \leq(\sqrt{C_z}+E)^2.
+ \end{gathered}
+ \label{eq:cgbm-rounded-scatter}
+\end{equation}
+I accumulate $C_z$ and $E^2$ exactly as rational numbers and enclose the
+square roots outwards using integer square-root bounds: if
+$m=\lfloor 2^b\sqrt{x}\rfloor$, then
+$m/2^b\leq\sqrt{x}\leq(m+1)/2^b$. This gives $\underline C\leq C_X\leq\overline C$.
+An unresolved positive lower bound is not replaced by an arbitrary floor.
+
+The previously derived pivot is
+$Q=C_X/(\sigma^2\delta)\sim\chi^2_\nu$, $\nu=n-1$.
+Let $q_L=F_\nu^{-1}(\alpha/2)$ and
+$q_U=F_\nu^{-1}(1-\alpha/2)$. I bracket these quantiles by rational
+endpoints using outward evaluations of
+$F_\nu(x)=\gamma(\nu/2,x/2)/\Gamma(\nu/2)$.
+Strict proved inequalities $\overline F_\nu(b_-)<p$
+and $\underline F_\nu(b_+)>p$ enclose $F_\nu^{-1}(p)$.
+If the retained brackets satisfy $q_L^->0$, then on
+$\{q_L\leq Q\leq q_U\}$,
+\begin{equation}
+ \frac{\underline C}{\delta q_U^+}\leq\sigma^2\leq
+ \frac{\overline C}{\delta q_L^-}.
+ \label{eq:cgbm-validated-variance}
+\end{equation}
+Outward square roots give $I=[\ell,u]$. Numerical equality of a CDF
+estimate and its target never proves a bracket. Unresolved comparisons
+increase precision or produce an explicit abstention at the resource
+limit.
+
+For $\ell>0$, continuity on the compact interval $I$ gives attained
+extrema; the vega-sign proof already establishes their complete
+volatility image. It also gives the branch-free maximiser
+\begin{equation}
+ s_{\max}=\sqrt{\min\{u^2,\max(\ell^2,c_*)\}},\qquad
+ V(I)=[\min\{V(\ell),V(u)\},V(s_{\max})].
+ \label{eq:cgbm-clamped-maximum}
+\end{equation}
+Indeed, $c_*\leq\ell^2$ makes the price non-increasing on $I$,
+$c_*\geq u^2$ makes it non-decreasing, and otherwise
+$\sqrt{c_*}$ is its unique interior maximum. Exact endpoint coincidences
+are included. Clamping both endpoints of an enclosure for $c_*$ and
+taking outward square roots therefore encloses $s_{\max}$ without an
+unproved membership decision.
+
+I evaluate the call-spread formula with Arb midpoint-radius arithmetic
+\citep{johansson2017}, collecting its final term as
+$H D\Phi(d_{2,J})$. Inclusion-preserving arithmetic gives endpoint
+price enclosures $[L_\ell,U_\ell]$, $[L_u,U_u]$ and a price enclosure
+$[L_m,U_m]$ on the maximiser ball. Consequently
+\begin{equation}
+ \mathcal J=[\min(L_\ell,L_u),U_m]\supseteq V(I).
+ \label{eq:cgbm-validated-price-image}
+\end{equation}
+Cancellation can require more precision but cannot invalidate a proved
+enclosure. For fixed $\ell>0$, clamp is Lipschitz, square root is
+Lipschitz on $[\ell^2,u^2]$, and the pricing formula is continuous.
+Thus refinement shrinks numerical endpoint radii, rather than eliminating
+statistical uncertainty; a finite precision budget need not attain the
+requested width.
+
+Let $A$ denote successful return of a validated interval. On the pivot
+event, whose probability is $1-\alpha$, the rounding and numerical
+inclusions imply $V(\sigma)\in\mathcal J$ whenever $A$ occurs. Hence
+\begin{equation}
+ P\{A,\ V(\sigma)\notin\mathcal J\}\leq\alpha.
+ \label{eq:cgbm-validated-return-risk}
+\end{equation}
+This does not assert $1-\alpha$ coverage conditional on $A$.
+Returning the full financial range on every abstention would instead
+give unconditional coverage at least $1-\alpha$. Numerical failure
+allowance is zero for completed validated enclosures; the sampling and
+constant-diffusion hypotheses remain essential. The result does not
+certify market-model adequacy, Greeks or quantum advantage.
+
 \begin{thebibliography}{99}
 \bibitem[Asmussen(2018)]{asmussen2018}
 Asmussen, S. (2018). Conditional Monte Carlo for sums, with applications to insurance and finance. \emph{Annals of Actuarial Science}, 12(2), 455--478. \url{https://doi.org/10.1017/S1748499517000252}. Final publisher PDF consulted, Section 1, printed pages 455--456.
@@ -2489,6 +2618,9 @@ Clopper, C. J. and Pearson, E. S. (1934). The use of confidence or fiducial limi
 Giles, M. B. and Carter, R. (2006). Convergence analysis of Crank--Nicolson and Rannacher time-marching. \emph{Journal of Computational Finance}, 9(4), 89--112. \url{https://doi.org/10.21314/JCF.2006.152}. Final journal PDF consulted, Sections 1--3, printed pages 89--103, and Section 5, page 111.
 
 \bibitem[Hoeffding(1963)]{hoeffding1963} Hoeffding, W. (1963). Probability inequalities for sums of bounded random variables. \emph{Journal of the American Statistical Association}, 58(301), 13--30. \url{https://doi.org/10.1080/01621459.1963.10500830}. Earlier final-journal-scan consultation retained in the project source ledger, printed pages 13--16, particularly Theorem 2, equation (2.6).
+
+\bibitem[Johansson(2017)]{johansson2017}
+Johansson, F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. \emph{IEEE Transactions on Computers}, 66(8), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}. The installed python-flint 0.9.0 interfaces are checked here; the source record distinguishes this API review from the previously cited publication, whose body was not newly consulted.
 
 \bibitem[Ledoit and Wolf(2004)]{ledoitwolf2004}
 Ledoit, O. and Wolf, M. (2004). A well-conditioned estimator for large-dimensional covariance matrices. \emph{Journal of Multivariate Analysis}, 88(2), 365--411. \url{https://doi.org/10.1016/S0047-259X(03)00096-4}. Author-hosted publisher-typeset article-in-press version consulted, Sections 1 and 2.1, printed pages 365--369.

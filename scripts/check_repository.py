@@ -14,13 +14,13 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DIRECTORIES = {"paper", "src", "scripts", "tests", "configs", "data", "docs", "replication", "results"}
+DIRECTORIES = {"paper", "src", "scripts", "tests", "configs", "data", "docs", "replication", "results", "cpp"}
 ROOT_FILES = {"README.md", ".gitignore", "requirements.lock"}
 PAPERS = {f"paper/{name}.{suffix}" for name in (
     "generalisation_proofs", "capped_gbm_companion", "constrained_hedging_companion")
     for suffix in ("tex", "pdf")}
 GUIDES = ("README.md", "paper/README.md", "scripts/README.md", "replication/README.md",
-          "data/README.md", "configs/README.md", "docs/reproducing_paper.md")
+          "data/README.md", "configs/README.md", "cpp/README.md", "docs/reproducing_paper.md")
 
 
 def digest(path: Path) -> str:

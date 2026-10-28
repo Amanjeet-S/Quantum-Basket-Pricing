@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-20",
+  "command": "python -m unittest discover -s tests -p 'test_gbm_hedge_certificate.py' -v",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "source_sha256": "85984c66f501927568e3c91809d5548101012fb730f43f26d127d42f7de82d39",
+  "scope": "Canonical-source replay; numerical diagnostics and boundary/evidence-protection tests, independent of the mathematical proof."
+}

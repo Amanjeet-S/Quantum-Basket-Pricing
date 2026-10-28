@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/historical_replay_complete/check_matched_deferred_chebyshev.py", line 202, in <module>
+    main(p.parse_args())
+    ~~~~^^^^^^^^^^^^^^^^
+  File "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/historical_replay_complete/check_matched_deferred_chebyshev.py", line 50, in main
+    assert result['status']=='completed' and result['protocol_sha256']==sha(folder/'matched_chebyshev_protocol.json')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

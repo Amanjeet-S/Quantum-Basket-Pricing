@@ -1,0 +1,888 @@
+[
+  {
+    "case": "lower_kink",
+    "group": "existing",
+    "values": {
+      "price": 6.305737307416405,
+      "delta": 0.3375137966179678,
+      "gamma": 0.004026361868526253,
+      "vega": 8.052723737052506,
+      "rho": 27.44564235438037,
+      "theta": -1.2911278477186938
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 7.000774745931531e-14,
+      "delta": 3.747155881339202e-15,
+      "gamma": 5.3277429424097606e-17,
+      "vega": 1.0655485884819522e-13,
+      "rho": 4.4472333559323545e-13,
+      "theta": 1.8534863490279087e-14
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "upper_kink",
+    "group": "existing",
+    "values": {
+      "price": 12.913081534441751,
+      "delta": 0.28472534117092685,
+      "gamma": -0.0072590859143687745,
+      "vega": -20.906167433382077,
+      "rho": 21.25395940606947,
+      "theta": 1.794668370561236
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 1.4336400438399178e-13,
+      "delta": 3.1610862946221602e-15,
+      "gamma": 8.059204319864371e-17,
+      "vega": 2.3210508441209393e-13,
+      "rho": 5.22694359738651e-13,
+      "theta": 1.9924821465635968e-14
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "inside_spread",
+    "group": "existing",
+    "values": {
+      "price": 9.754705352964631,
+      "delta": 0.34015363737211834,
+      "gamma": -0.003183350876038709,
+      "vega": -7.703709120013676,
+      "rho": 27.662194757968383,
+      "theta": 0.3146740703716462
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 1.0829898481295597e-13,
+      "delta": 3.77646400120522e-15,
+      "gamma": 4.622161569075897e-17,
+      "vega": 1.1185630997163671e-13,
+      "rho": 5.237100249455301e-13,
+      "theta": 1.2539100220176473e-14
+    },
+    "integrand_evaluations": {
+      "price": 42,
+      "delta": 42,
+      "gamma": 42,
+      "vega": 42,
+      "rho": 42,
+      "theta": 42
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.5227586988632225,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "deep_cap",
+    "group": "existing",
+    "values": {
+      "price": 18.74034970317636,
+      "delta": 0.044831628519507845,
+      "gamma": -0.0027468843579794666,
+      "vega": -14.06404791285487,
+      "rho": -11.567289140055104,
+      "theta": 1.8251540711183525
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.0805967729993612e-13,
+      "delta": 4.977310621379943e-16,
+      "gamma": 3.0496542602114947e-17,
+      "vega": 1.5614229812282853e-13,
+      "rho": 2.876966472420152e-13,
+      "theta": 2.0263280732439355e-14
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "low_vol_short_dated",
+    "group": "existing",
+    "values": {
+      "price": 0.5861329122587356,
+      "delta": 0.5321098461886424,
+      "gamma": 0.29622613597938224,
+      "vega": 8.886784079381467,
+      "rho": 2.6312425853302748,
+      "theta": -6.378706152638402
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.1124760776589883e-13,
+      "delta": 5.9396173867560215e-15,
+      "gamma": 4.447065103918153e-15,
+      "vega": 1.3340871356854345e-13,
+      "rho": 4.02604455640286e-14,
+      "theta": 9.129774252029663e-14
+    },
+    "integrand_evaluations": {
+      "price": 126,
+      "delta": 168,
+      "gamma": 168,
+      "vega": 168,
+      "rho": 168,
+      "theta": 168
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.004991181602449839,
+      0.446510268020549,
+      0.888029354438648,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "negative_rate_dividend",
+    "group": "existing",
+    "values": {
+      "price": 6.024450105669215,
+      "delta": 0.2617680297682967,
+      "gamma": 0.002713457011697818,
+      "vega": 7.47896588849211,
+      "rho": 21.46119302000194,
+      "theta": 0.6239010998937169
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 6.68848321801942e-14,
+      "delta": 2.9062089375952638e-15,
+      "gamma": 3.113060697494128e-17,
+      "vega": 8.580373547468193e-14,
+      "rho": 3.720367706276969e-13,
+      "theta": 1.0266709238820214e-14
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "high_volatility",
+    "group": "existing",
+    "values": {
+      "price": 7.572863461876823,
+      "delta": 0.10622191604981719,
+      "gamma": -0.00036802738878499236,
+      "vega": -4.317881338919924,
+      "rho": 5.036437125711625,
+      "theta": 0.7270199809361395
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 8.40756737771822e-14,
+      "delta": 1.179300169183075e-15,
+      "gamma": 4.085924807217726e-18,
+      "vega": 4.793811280068199e-14,
+      "rho": 3.9221837969914873e-13,
+      "theta": 8.071543221978445e-15
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "deep_cap_large_spot",
+    "group": "stress",
+    "values": {
+      "price": 19.40891067097017,
+      "delta": 0.0,
+      "gamma": 0.0,
+      "vega": 0.0,
+      "rho": -19.40891067097017,
+      "theta": 0.5822673201291051
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.1548219509803978e-13,
+      "delta": 0.0,
+      "gamma": 0.0,
+      "vega": 0.0,
+      "rho": 2.1548219509803978e-13,
+      "theta": 6.464465852941193e-15
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "deep_cap_extreme_spot",
+    "group": "stress",
+    "values": {
+      "price": 19.40891067097017,
+      "delta": 0.0,
+      "gamma": 0.0,
+      "vega": 0.0,
+      "rho": -19.40891067097017,
+      "theta": 0.5822673201291051
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.1548219509803978e-13,
+      "delta": 0.0,
+      "gamma": 0.0,
+      "vega": 0.0,
+      "rho": 2.1548219509803978e-13,
+      "theta": 6.464465852941193e-15
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "narrow_cap",
+    "group": "stress",
+    "values": {
+      "price": 4.852227666774662e-09,
+      "delta": 1.9357587707961346e-10,
+      "gamma": -1.935758768376436e-12,
+      "vega": -3.871517536752872e-09,
+      "rho": 1.4505360041186686e-08,
+      "theta": 1.4556682951930023e-10
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 5.387054876376431e-23,
+      "delta": 2.1491239574579596e-24,
+      "gamma": 2.1491239547715547e-26,
+      "vega": 4.298247909543109e-23,
+      "rho": 2.6878294450956028e-22,
+      "theta": 1.6161164682857385e-24
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "cap_below_strike_ulp",
+    "group": "stress",
+    "values": {
+      "price": 4.852227667742541e-16,
+      "delta": 1.9357587707961344e-17,
+      "gamma": -1.9357587707961343e-19,
+      "vega": -3.871517541592268e-16,
+      "rho": 1.4505360040218807e-15,
+      "theta": 1.4556683003227627e-17
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 5.387054877450993e-30,
+      "delta": 2.1491239574579596e-31,
+      "gamma": 2.1491239574579595e-33,
+      "vega": 4.298247914915918e-30,
+      "rho": 2.6878294452030597e-29,
+      "theta": 1.616116463235298e-31
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "wide_cap",
+    "group": "stress",
+    "values": {
+      "price": 8.827321225352126,
+      "delta": 0.5734959790277754,
+      "gamma": 0.019357587707961352,
+      "vega": 38.71517541592269,
+      "rho": 48.52227667742541,
+      "theta": -4.753689862887256
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 9.806168071687851e-14,
+      "delta": 6.388908688094066e-15,
+      "gamma": 3.5909336315314357e-16,
+      "vega": 7.183060279110543e-13,
+      "rho": 7.369523820319211e-13,
+      "theta": 6.234878640508871e-14
+    },
+    "integrand_evaluations": {
+      "price": 189,
+      "delta": 189,
+      "gamma": 189,
+      "vega": 189,
+      "rho": 189,
+      "theta": 189
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.08685889009359742,
+      0.17371778018719483,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "deep_out_of_money",
+    "group": "stress",
+    "values": {
+      "price": 1.0878054564062606e-117,
+      "delta": 1.2571005588871468e-115,
+      "gamma": 1.4374627050195732e-113,
+      "vega": 2.874925410039146e-114,
+      "rho": 1.2462225043230842e-115,
+      "theta": -2.8997410795799675e-115
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 3.0567214451331263e-124,
+      "delta": 3.4008116773397505e-122,
+      "gamma": 3.741600604342628e-120,
+      "vega": 7.483201192199341e-121,
+      "rho": 3.4313788917910817e-122,
+      "theta": 7.552118347154656e-122
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "near_expiry_lower_kink",
+    "group": "stress",
+    "values": {
+      "price": 0.0007978945606698828,
+      "delta": 0.5000079787956069,
+      "gamma": 199.47114014087504,
+      "vega": 0.0039894228028175,
+      "rho": 4.999999998500003e-07,
+      "theta": -39895.22802019578
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 3.046669848909234e-16,
+      "delta": 5.582235001950236e-15,
+      "gamma": 3.550580021350078e-12,
+      "vega": 1.0385483163101553e-14,
+      "rho": 5.585280591549013e-21,
+      "theta": 1.038557626318643e-07
+    },
+    "integrand_evaluations": {
+      "price": 147,
+      "delta": 189,
+      "gamma": 231,
+      "vega": 147,
+      "rho": 189,
+      "theta": 147
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.0006581777937296493,
+      0.0013163555874592986,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "near_expiry_upper_kink",
+    "group": "stress",
+    "values": {
+      "price": 19.9990425445272,
+      "delta": 0.49999202110447805,
+      "gamma": -166.22595011732253,
+      "vega": -0.004787307363378889,
+      "rho": 3.999999998801016e-07,
+      "theta": 47872.473624214574
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.220339750339214e-13,
+      "delta": 5.5708564173943e-15,
+      "gamma": 2.7752365786260983e-12,
+      "vega": 1.2457317510413418e-14,
+      "rho": 8.905368946716618e-21,
+      "theta": 1.2457218890029976e-07
+    },
+    "integrand_evaluations": {
+      "price": 105,
+      "delta": 189,
+      "gamma": 231,
+      "vega": 147,
+      "rho": 189,
+      "theta": 147
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.9986836444125406,
+      0.9993418222062703,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "small_positive_volatility",
+    "group": "stress",
+    "values": {
+      "price": 1.9604300200659877,
+      "delta": 0.990049833749177,
+      "gamma": -1.0990126462709907e-13,
+      "vega": -1.0990125043929721e-13,
+      "rho": 97.0445533548517,
+      "theta": -1.921286766896374
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.3229752541300153e-14,
+      "delta": 1.1053256696436455e-14,
+      "gamma": 1.40721496156527e-12,
+      "vega": 2.0564442019921414e-10,
+      "rho": 1.1285551796150244e-12,
+      "theta": 2.2803405481159263e-14
+    },
+    "integrand_evaluations": {
+      "price": 252,
+      "delta": 378,
+      "gamma": 462,
+      "vega": 294,
+      "rho": 378,
+      "theta": 378
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.10311449359357028,
+      0.10640538256221853,
+      0.10969627153086677,
+      0.11298716049951502,
+      0.11627804946816327,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "negative_rate_high_dividend",
+    "group": "stress",
+    "values": {
+      "price": 2.5059203040360725,
+      "delta": 0.2023797138102957,
+      "gamma": 0.00950116028780577,
+      "vega": 19.00232057561154,
+      "rho": 17.7320510769935,
+      "theta": 0.6054082067708868
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.7821304194165203e-14,
+      "delta": 2.2468661798924006e-15,
+      "gamma": 1.0548406912176145e-16,
+      "vega": 2.109681382435229e-13,
+      "rho": 2.5250792218340525e-13,
+      "theta": 9.902696180403317e-15
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "very_high_volatility",
+    "group": "stress",
+    "values": {
+      "price": 0.2190201679400446,
+      "delta": 0.0012646852414838982,
+      "gamma": -6.32813919512977e-06,
+      "vega": -0.632813919512977,
+      "rho": -0.46275821895827407,
+      "theta": 0.13060401845782893
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 2.4316123330430606e-15,
+      "delta": 1.40408267399905e-17,
+      "gamma": 7.025645837465977e-20,
+      "vega": 7.025645837465978e-15,
+      "rho": 1.917847503521055e-14,
+      "theta": 1.4499958840045063e-15
+    },
+    "integrand_evaluations": {
+      "price": 21,
+      "delta": 21,
+      "gamma": 21,
+      "vega": 21,
+      "rho": 21,
+      "theta": 21
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "positive_integral_fallback",
+    "group": "stress",
+    "values": {
+      "price": 5.346161771541652e-14,
+      "delta": 2.8665139111337616e-07,
+      "gamma": 1.4867186852411323,
+      "vega": 0.00014867185365692674,
+      "rho": 2.866513762461904e-05,
+      "theta": -7.433592682846336e-13
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 1.4789719132999757e-19,
+      "delta": 1.1167183235887186e-19,
+      "gamma": 1.6516172687338754e-14,
+      "vega": 1.031449140675369e-10,
+      "rho": 1.1315075401827796e-17,
+      "theta": 5.157245703380016e-19
+    },
+    "integrand_evaluations": {
+      "price": 63,
+      "delta": 105,
+      "gamma": 147,
+      "vega": 63,
+      "rho": 105,
+      "theta": 63
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [],
+      "gamma": [],
+      "vega": [],
+      "rho": [],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      5.484814226016337e-08,
+      3.8393703912498796e-07,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  },
+  {
+    "case": "extremely_broad_strike_interval",
+    "group": "stress",
+    "values": {
+      "price": 99.99999960105349,
+      "delta": 0.49999682565412035,
+      "gamma": -398942.9150540144,
+      "vega": -39.89427652369373,
+      "rho": -50.00031703564161,
+      "theta": 1.9947138261846866e-07
+    },
+    "method": "binary64 log1p normalised log-strike integral; split at normal coordinates -12,-6,0,6,12; SciPy QUADPACK",
+    "arithmetic": "ordinary Python float and SciPy binary64; no higher precision in this comparator",
+    "estimated_quadrature_errors": {
+      "price": 3.871257031766306e-12,
+      "delta": 8.379641851738889e-07,
+      "gamma": 2.7395128978647705,
+      "vega": 7.596355539958464e-05,
+      "rho": 8.379642226797e-05,
+      "theta": 3.798177767461105e-13
+    },
+    "integrand_evaluations": {
+      "price": 357,
+      "delta": 1239,
+      "gamma": 3339,
+      "vega": 63,
+      "rho": 1239,
+      "theta": 63
+    },
+    "quadpack_messages": {
+      "price": [],
+      "delta": [
+        "The occurrence of roundoff error is detected, which prevents \n  the requested tolerance from being achieved.  The error may be \n  underestimated."
+      ],
+      "gamma": [
+        "Extremely bad integrand behavior occurs at some points of the\n  integration interval.",
+        "The occurrence of roundoff error is detected, which prevents \n  the requested tolerance from being achieved.  The error may be \n  underestimated."
+      ],
+      "vega": [],
+      "rho": [
+        "The occurrence of roundoff error is detected, which prevents \n  the requested tolerance from being achieved.  The error may be \n  underestimated."
+      ],
+      "theta": []
+    },
+    "normalised_log_strike_cuts": [
+      0.0,
+      0.9999999998274327,
+      0.9999999999137165,
+      1.0
+    ],
+    "error_estimate_scope": "diagnostic only, including the rho/theta combination of estimated integral errors; no directed rounding or rigorous enclosure"
+  }
+]

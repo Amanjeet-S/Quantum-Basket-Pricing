@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-20",
+  "engine_sha256": "6e8d40fd3f6a5f8c3b1b48be9d03ca967f3e7e82ec851634bb95f489314ddc80",
+  "verdict": "No mathematical or certificate-scope blocker found.",
+  "source_review": "Complete rebuilt module reviewed independently: three-gain moments, true-price dual signs, conservative rational candidate/repair, separate original box/budget classification, determinant/trace lower bound, gap/distance, directed float summaries and precision budgets.",
+  "focused_replay": {
+    "unit_call_kappa_one_infeasible": true,
+    "refined_robust_feasibility": true,
+    "zero_budget_with_outside_box_inputs": true,
+    "negative_raw_multipliers_preserved_but_safe_vector_nonnegative": true,
+    "exact_gap_distance_identity": true,
+    "outward_float_examples": "positive, negative, half-subnormal and overflow; passed",
+    "arb_context_restored": true
+  },
+  "unit_call_risk": {
+    "lower_exact_fraction": "2819443278166266207493201151305953759087/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+    "upper_exact_fraction": "5638886556332532414986402302611907518175/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "width_exact_fraction": "1/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "lower_float": 7.430782282034882e-43,
+    "upper_float": 7.430782282034884e-43,
+    "strictly_positive": true,
+    "float_summary_rule": "Outward binary64 summaries when finite; exact fraction endpoints are authoritative."
+  },
+  "refined_risk": {
+    "lower_exact_fraction": "5638886556332532414986402302611907518137/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "upper_exact_fraction": "2819443278166266207493201151305953759069/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+    "width_exact_fraction": "1/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "lower_float": 7.430782282034882e-43,
+    "upper_float": 7.430782282034884e-43,
+    "strictly_positive": true,
+    "float_summary_rule": "Outward binary64 summaries when finite; exact fraction endpoints are authoritative."
+  },
+  "relative_gap_upper": "62740773052090/5638886556332532414986402302611907518137",
+  "budget_violation": {
+    "lower_exact_fraction": "1301994587578631923400454811139249541251/1897137590064188545819787018382342682267975428761855001222473056385648716020711424",
+    "upper_exact_fraction": "1301994587578631923400454811139289640829/1897137590064188545819787018382342682267975428761855001222473056385648716020711424",
+    "width_exact_fraction": "20049789/948568795032094272909893509191171341133987714380927500611236528192824358010355712"
+  },
+  "scope": "Focused numerical replay supports the source review; it is not independent empirical validation or a proof of library implementation correctness."
+}

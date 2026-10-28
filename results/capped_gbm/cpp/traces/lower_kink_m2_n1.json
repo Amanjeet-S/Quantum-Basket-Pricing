@@ -1,0 +1,148 @@
+{
+  "contract": {
+    "spot": 100.0,
+    "strike": 100.0,
+    "cap": 20.0,
+    "maturity": 1.0,
+    "rate": 0.03,
+    "dividend": 0.01,
+    "volatility": 0.2
+  },
+  "native": {
+    "mode": "pde",
+    "values": {
+      "price": 8.820599400842175,
+      "delta": 0.04926357408491766,
+      "gamma": -0.0004733174195036405,
+      "vega": -0.9340752440634366,
+      "rho": -3.9201316196522424,
+      "theta": 0.26001622501414584
+    },
+    "analytic_same_bumps": {
+      "price": 6.3057373074164005,
+      "delta": 0.32498496159690793,
+      "gamma": 0.003982368591582963,
+      "vega": 8.159721150473496,
+      "rho": 27.42841714835982,
+      "theta": -1.293618801895001
+    },
+    "bumps": {
+      "spot": 10,
+      "volatility": 0.023453740125677056,
+      "rate": 0.011726870062838526,
+      "maturity": 0.05863435031419263
+    },
+    "domain_price_bound": 19.40891067097016,
+    "heat_min": 0,
+    "heat_max": 20,
+    "grid": {
+      "lower": -1.8,
+      "upper": 1.9823215567939547,
+      "intervals": 2,
+      "time_steps": 1,
+      "spacing": 1.8911607783969773,
+      "lambda": 0.005592076334675596,
+      "nodes": [
+        -1.8,
+        0.09116077839697723,
+        1.9823215567939547
+      ],
+      "values": [
+        0,
+        9.5495494092106,
+        20
+      ]
+    },
+    "heat_trace": [
+      [
+        0,
+        9.544511501033213,
+        20
+      ],
+      [
+        0,
+        9.5495494092106,
+        20
+      ]
+    ],
+    "derivative_convention": "central bumped prices on a fixed heat domain; calendar theta",
+    "floating_point": {
+      "long_double_digits": 53,
+      "double_digits": 53,
+      "long_double_bytes": 8
+    },
+    "numerical_error_certificate": false
+  },
+  "scalar_target_data": {
+    "left_index": 0,
+    "right_weight": 0.9517963890546373,
+    "discount": 0.9704455335485082,
+    "coordinate": -6.938893903907228e-18
+  },
+  "certificate": {
+    "schema": "qbp-exact-heat-trace-certificate-v1",
+    "target": "Exact backward-Euler recurrence defined by published binary64 lambda, cap and initial vector",
+    "steps": 1,
+    "interior_nodes": 1,
+    "initial_error": {
+      "numerator": "0",
+      "denominator": "1",
+      "upper_binary64": 0.0,
+      "finite_binary64_upper_bound": true
+    },
+    "step_residual_norms": [
+      {
+        "numerator": "135321969982982231",
+        "denominator": "162259276829213363391578010288128",
+        "upper_binary64": 8.339860291958278e-16,
+        "finite_binary64_upper_bound": true
+      }
+    ],
+    "final_grid_error_bound": {
+      "numerator": "135321969982982231",
+      "denominator": "162259276829213363391578010288128",
+      "upper_binary64": 8.339860291958278e-16,
+      "finite_binary64_upper_bound": true
+    },
+    "observed_range_violation": false,
+    "initial_range_valid": true,
+    "max_observed_range_excess": {
+      "numerator": "0",
+      "denominator": "1",
+      "upper_binary64": 0.0,
+      "finite_binary64_upper_bound": true
+    },
+    "range_excess_within_residual_bound": true,
+    "arithmetic": "Exact integer/Fraction operations on binary64 input values",
+    "limitations": "Excludes original-parameter/coordinate/payoff errors, continuum discretisation, finite-domain error and market-model adequacy.",
+    "scalar_price_error_bound": {
+      "numerator": "1499562069742685931424784024656217",
+      "denominator": "1461501637330902918203684832716283019655932542976",
+      "upper_binary64": 1.0260420046338721e-15,
+      "finite_binary64_upper_bound": true
+    },
+    "scalar_evaluation_mismatch": {
+      "numerator": "618580532487314448575140701255",
+      "denominator": "2854495385411919762116571938898990272765493248",
+      "upper_binary64": 2.1670398755892534e-16,
+      "finite_binary64_upper_bound": true
+    },
+    "scalar_target": "Discounted exact-scheme interpolation with the supplied binary64 index, weight and discount"
+  },
+  "independent_check": {
+    "grid_error": {
+      "numerator": "135321969982982231",
+      "denominator": "164074009353289804017127609335808",
+      "upper_binary64": 8.247617676703585e-16,
+      "finite_binary64_upper_bound": true
+    },
+    "scalar_error": {
+      "numerator": "723043326868838544041399191506763",
+      "denominator": "738923647384659236763795462245276337292095520768",
+      "upper_binary64": 9.785088478734882e-16,
+      "finite_binary64_upper_bound": true
+    },
+    "grid_bound_holds": true,
+    "scalar_bound_holds": true
+  }
+}

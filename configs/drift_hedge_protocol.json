@@ -1,0 +1,82 @@
+{
+  "schema": "qbp-drift-hedge-protocol-v1",
+  "design_date": "2026-10-23",
+  "design_status": "Written before the present numerical study outcomes. Informed methodological development uses the existing synthetic hedging study and known earlier numerical findings; not untouched preregistration.",
+  "data": "Synthetic constant-coefficient GBM only. Existing exact binary64 contract primitives; exact rational drift interval centres, half widths and budgets.",
+  "contracts": [
+    "lower_kink",
+    "inside_spread",
+    "high_volatility"
+  ],
+  "drift_centre": "3/50",
+  "drift_half_widths": [
+    "3/100",
+    "3/20"
+  ],
+  "budget_multipliers": [
+    "1/2",
+    "1"
+  ],
+  "expected_primary_rows": 12,
+  "known_volatility_scope": "One known common volatility under P and Q. Risk-neutral fair prices stay fixed as the physical total-return drift varies.",
+  "robust_method": "Rational grid proposals, outward node risk and finite-mixture weak-duality lower bound, with Gaussian-Holder cell inflation for a continuous-drift upper bound. Tests are not the proof of that bound.",
+  "relative_gap_tolerance": "1/200",
+  "cell_inflation_tolerance": "1/1000",
+  "initial_cells": 8,
+  "max_nodes": 513,
+  "precision_bits": 256,
+  "independent_reference_digits": 160,
+  "dense_drift_points": 257,
+  "finite_grid_reference": "Independent piecewise truncated-lognormal moment coefficients. SciPy epigraph proposals are refined at 160 digits by their active-set KKT equations. Numerical diagnostics only; exact feasibility and optimality claims come from interval certificates.",
+  "comparators": [
+    "same-budget centre-drift hedge",
+    "same-budget oracle hedge at the known synthetic true drift 0.03",
+    "no hedge",
+    "endpoint-only minimax diagnostic"
+  ],
+  "comparison_scope": "Compare worst risk over the same dense diagnostic drift grid and risk at true drift 0.03. Retain every adverse ranking. Robustness does not imply smaller risk at each drift, nor improved empirical performance.",
+  "confidence_diagnostics": {
+    "datasets": 30,
+    "observations_per_dataset": 252,
+    "observation_spacing": "1/252",
+    "true_drift": "3/50",
+    "known_volatility": "1/5",
+    "dividend": "1/100",
+    "alpha": "1/20",
+    "rounding_decimal_places": 6,
+    "seed": 2301026,
+    "scope": "Exact Gaussian pivot with known volatility, numerical quantile witnesses and rounding inclusion. Finite synthetic containment counts are diagnostics, not a demonstration of nominal coverage. No raw simulated increments retained."
+  },
+  "guards": "Fresh external output directory; preserve source hashes before/after; retain failures and unresolved records; exit nonzero on missing cases, failed checks or source changes. No change to existing study files.",
+  "inference_decision_bridge": {
+    "design_status": "Informed amendment written before bridge outcomes, 2026-10-23.",
+    "dataset_indices_zero_based": [
+      0,
+      1,
+      2
+    ],
+    "selection": "First three predetermined datasets, not selected by realised coverage or performance.",
+    "contract": "lower_kink",
+    "budget_multiplier": "1",
+    "comparators": [
+      "plug-in hedge at rounding-aware CI centre",
+      "oracle hedge at synthetic true drift 0.06",
+      "no hedge"
+    ],
+    "retained_outputs": "Full rounding-aware CI fed to robust hedge; all failures and unresolved outcomes retained. Independent true-drift risk and 257-point diagnostic drift risks, with the robust continuum certificate. Count successful true-risk understatements as a three-case diagnostic, not empirical nominal coverage evidence.",
+    "dividend_exact": "1/100"
+  },
+  "diagnostic_amendment": {
+    "date": "2026-10-23",
+    "status": "After first numerical replay; no case, tolerance, seed or portfolio selection changed. The first replay is preserved.",
+    "change": "Independently reconstruct every primary node-risk interval and exact finite-mixture dual at high precision, supplementing existing finite-grid optimum bracketing and focused tests."
+  },
+  "exact_input_alignment_amendment": {
+    "date": "2026-10-24",
+    "status": "Informed correction after initial outcomes; no cases, tolerances, seeds or selections changed.",
+    "finding": "Inference used exact decimal dividend 1/100 while the bridge inherited binary64 dividend from the original contract.",
+    "correction": "Bridge dividend now equals the exact inference dividend. Runner checks exact equality of dividend and known volatility before every bridge.",
+    "preservation": "Earlier source/protocol and result records are retained in replication/history/drift_dividend_alignment/before_dividend_alignment.zip.",
+    "discovered_on": "2026-10-23"
+  }
+}

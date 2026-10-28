@@ -1,0 +1,39 @@
+{
+  "schema": "qbp-drift-hedge-audit-v1",
+  "study_date": "2026-10-24",
+  "primary_rows": 12,
+  "finite_grid_reference_rows": 12,
+  "dense_checks": 15420,
+  "confidence_rows": 30,
+  "bridge_rows": 3,
+  "bridge_dense_checks": 3084,
+  "bridge_true_risk_understatements": 0,
+  "bridge_robust_worse_at_true_drift_than_plugin": 3,
+  "confidence_contains_true_drift": 27,
+  "robust_worse_at_true_drift_than_centre": 10,
+  "robust_dense_worst_less_than_centre": 10,
+  "sources_unchanged": true,
+  "source_hashes_before": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_hedging.py": "39f9b2b72a3a6ac28f826b77f7c50770734bbb48b0a86dacc1011a317b013b1a",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_references.py": "0658a11c34b23e1045736d74034847a5c27f9a2251bd13f20170756d09c53986",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/configs/drift_hedge_protocol.json": "f0b0a5dceeb4e6084f053339a3d096bafe86bece60f622e1391aaa85668951e4",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_drift_hedge_study.py": "652cb3bdb70637f151018b70c5e4c930448d802a2b5463c2f945f800fe1ddafd",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_certificate.py": "6e8d40fd3f6a5f8c3b1b48be9d03ca967f3e7e82ec851634bb95f489314ddc80",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_references.py": "c30c7486d0d7b1d66952fe7a75f764b689f3e808a33e5fbce72d547aa4d42b1d",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/study_manifest.json": "d3e88c040d9dad6e9a0f9cfaed3484ccef87a112bbaaca15c6ddcf2d27796b3e"
+  },
+  "source_hashes_after": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_hedging.py": "39f9b2b72a3a6ac28f826b77f7c50770734bbb48b0a86dacc1011a317b013b1a",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_drift_references.py": "0658a11c34b23e1045736d74034847a5c27f9a2251bd13f20170756d09c53986",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/configs/drift_hedge_protocol.json": "f0b0a5dceeb4e6084f053339a3d096bafe86bece60f622e1391aaa85668951e4",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_drift_hedge_study.py": "652cb3bdb70637f151018b70c5e4c930448d802a2b5463c2f945f800fe1ddafd",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_certificate.py": "6e8d40fd3f6a5f8c3b1b48be9d03ca967f3e7e82ec851634bb95f489314ddc80",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedge_references.py": "c30c7486d0d7b1d66952fe7a75f764b689f3e808a33e5fbce72d547aa4d42b1d",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/results/capped_gbm/hedging/study_manifest.json": "d3e88c040d9dad6e9a0f9cfaed3484ccef87a112bbaaca15c6ddcf2d27796b3e"
+  },
+  "failures": [],
+  "scope": "Synthetic known-volatility GBM. Dense values and high-precision optimisers are diagnostics; continuum and primal-dual bounds use retained interval certificates. No market validation or claim of risk improvement at every drift.",
+  "all_checks_pass": true
+}

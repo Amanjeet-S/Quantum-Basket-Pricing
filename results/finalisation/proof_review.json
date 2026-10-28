@@ -1,0 +1,392 @@
+{
+  "schema": "qbp-final-proof-review-v1",
+  "date": "2026-10-27",
+  "scope": "Complete source narrative/appendix review and retained evidence/source-version comparison. No proof-assistant formalisation and no new external literature search. Reviewed source bytes precede the archived presentation-only edits.",
+  "reviewed_predecessor_sources": {
+    "generalisation_proofs.tex": "87b64300fb6034a6f7c7cecfe9300bc757fa2f8801f8ca68a7c9212a615d6f64",
+    "capped_gbm_companion.tex": "d22d447dbe4023d7b84f190469e662e5b416deaa29e124737dd99832e947840e",
+    "constrained_hedging_companion.tex": "ab1ab148f5248221749b1b5db6da34e622d4b0c13c7b29470b52b8e03dea9acc"
+  },
+  "quantum": {
+    "headline_check": {
+      "paper_lines": [
+        38,
+        44,
+        1662,
+        1681
+      ],
+      "result": "pass",
+      "comparison": "Same cancellation-aware deferred preparation, full financial information, monetary radius 0.01, failure allowance 1/3600, both architectures, and the cheaper raw-payoff/numerical implemented rival within the retained finite pool.",
+      "rows": [
+        {
+          "model_id": "n2_lambda0.4_scale3",
+          "event_T_cap": 10467507700,
+          "strongest_implemented_rival": "raw_payoff",
+          "rival_T_cap": 11630271225,
+          "saving_per_cent": 9.997733522332364,
+          "rounded_per_cent": "10.00"
+        },
+        {
+          "model_id": "n4_lambda0.05_scale3over2",
+          "event_T_cap": 41861923075,
+          "strongest_implemented_rival": "numerical_conditional_price",
+          "rival_T_cap": 44122469300,
+          "saving_per_cent": 5.123344773906387,
+          "rounded_per_cent": "5.12"
+        },
+        {
+          "model_id": "n4_lambda0.2_scale3",
+          "event_T_cap": 44709494725,
+          "strongest_implemented_rival": "raw_payoff",
+          "rival_T_cap": 46988300100,
+          "saving_per_cent": 4.8497293371972825,
+          "rounded_per_cent": "4.85"
+        },
+        {
+          "model_id": "n8_lambda0.2_scale3",
+          "event_T_cap": 101750688975,
+          "strongest_implemented_rival": "raw_payoff",
+          "rival_T_cap": 104186984850,
+          "saving_per_cent": 2.3383879267718344,
+          "rounded_per_cent": "2.34"
+        }
+      ],
+      "registered_configurations": 416,
+      "admitted_architecture_plans": 808,
+      "canonical_plans": 1616,
+      "half_alpha_plans": 1616,
+      "rejected_configurations": 12,
+      "interpretation": "2.34 to 10.00 per cent is correct after rounding. These are sufficient ideal-logical caps under synthetic contracts, not price observations, physical runtimes, global optima or practical quantum advantage."
+    },
+    "mathematical_scope_checks": [
+      {
+        "lines": [
+          277,
+          340
+        ],
+        "result": "pass",
+        "claim": "The sharp positive-threshold theorem requires a finite nonnegative measure, positive common Gaussian scale and positive t. Point masses attain the uniform bound; the text excludes negative weights, infinite payoff mass and sharpness for a particular cap."
+      },
+      {
+        "lines": [
+          399,
+          436
+        ],
+        "result": "pass",
+        "claim": "The Gaussian price certificate is finite-order. Capped-payoff clipping, separate vanilla bounded higher falling derivatives, covariance-shifted tilts and finite Gaussian moments are explicit. Infinite Taylor convergence is not claimed."
+      },
+      {
+        "lines": [
+          472,
+          601
+        ],
+        "result": "pass",
+        "claim": "Sparse finite-kink boundary identity, convex positivity, signed norm bounds and auxiliary variance penalty have the necessary hypotheses and consistent decoders. Stable quadrature is retained as a strong implemented comparator, without an all-algorithms conclusion."
+      },
+      {
+        "lines": [
+          1459,
+          1619
+        ],
+        "result": "pass",
+        "claim": "Finite atoms, both CDF conventions, empty intervals, normal-label-dependent scale error, projection, clamp premises and true-gap smoothing path are explicitly separated. Sharp reusable envelopes are explicitly not selected in frozen T caps."
+      },
+      {
+        "lines": [
+          1627,
+          1655
+        ],
+        "result": "pass",
+        "claim": "Cancellation uses B=UA, U commuting with the flag, the same actual zero-reflection tape, separately justified controlled clean-work domains, full terminal measurement/reset and the conditional global minus. Supporting proof preserves the transported invariant and does not assert dirty-scratch off-domain equality."
+      },
+      {
+        "lines": [
+          2097,
+          2143,
+          2232,
+          2301
+        ],
+        "result": "pass",
+        "claim": "Reflection cost theorem is for positive integer degree, additive retained templates, Clifford good reflection and charged zero-T resets. Two affine conditions give all-degree dominance and sharp ratio. Same-history extension additionally requires identical implemented probability, initial information, tolerance, confidence and policy; fallbacks and non-reflection primitives require a separate comparison."
+      },
+      {
+        "lines": [
+          2147,
+          2227
+        ],
+        "result": "pass",
+        "claim": "Protected-cap monotonicity and same finite-pool ordering are distinguished from adaptive mean cost. Numerical conditioning wins every stipulated-mesh mean; paired histories are not actual financial flags or expected-runtime estimates."
+      },
+      {
+        "lines": [
+          2658,
+          2832
+        ],
+        "result": "pass",
+        "claim": "Positive raw measure masses, actual nodes within CDF cells, tail moment, dispersion-weighted derivative envelopes and degree-four finite-moment closure are retained. Cauchy refinement is correctly conditional on nonnegative measures and is not claimed as a new generic integration principle."
+      }
+    ],
+    "originality_consistency": {
+      "result": "pass",
+      "paths": [
+        "docs/originality_assessment.md",
+        "paper/generalisation_proofs.tex"
+      ],
+      "description": "Both classify reflection, coupling, smoothing, stability, cancellation, quadrature and transport tools as established. The retained contribution candidate is a project-specific guarded financial certificate, sharper component envelopes and fully charged comparative evidence. Neither original generic quantum theory, theoretical priority, practical advantage nor global algorithmic optimality is claimed."
+    },
+    "sources": {
+      "result": "pass",
+      "bibliography_entries": 28,
+      "unique_keys": 28,
+      "undefined_citation_keys": [],
+      "unused_bibliography_keys": [],
+      "consulted_version_caveats_preserved": [
+        "Chen: published successor metadata; detailed arXiv v6 consultation",
+        "Carrera Vazquez-Woerner: published APS metadata/abstract; detailed arXiv v1 consultation",
+        "Duchi: detailed author-version consultation",
+        "Caldana: accepted-manuscript consultation",
+        "Herman: explicitly unpublished supplemental preprint",
+        "Ju and Blair: incomplete full-text access retained",
+        "Imai-Tan: restricted final-page/abstract access retained"
+      ],
+      "ledger_paths": [
+        "docs/SOURCES.md",
+        "docs/qsp_source_ledger.md"
+      ],
+      "new_search_required": false,
+      "source_audit": "Independent child read-only audit returned no concrete source/version blockers."
+    }
+  },
+  "companions": {
+    "schema": "qbp-final-companions-audit-v1",
+    "audit_date": "2026-10-27",
+    "status": "No proof, model or numerical-evidence blocker found; two scope/provenance corrections and requested abstract formatting identified for root finalisation.",
+    "audit_mode": "Read-only canonical audit; only this stage report was written. No canonical edits, code execution, source changes or commits.",
+    "purpose": "Completed MSc mathematics/programming portfolio closeout; no new model, empirical sample or claim of theoretical priority required.",
+    "papers_audited": {
+      "paper/capped_gbm_companion.tex": {
+        "sha256": "d22d447dbe4023d7b84f190469e662e5b416deaa29e124737dd99832e947840e",
+        "abstract_words_whitespace": 170,
+        "latest_retained_stage_source_hash_matches": true,
+        "latest_pdf_stage_hash_matches": true
+      },
+      "paper/constrained_hedging_companion.tex": {
+        "sha256": "ab1ab148f5248221749b1b5db6da34e622d4b0c13c7b29470b52b8e03dea9acc",
+        "abstract_words_whitespace": 182,
+        "latest_retained_stage_source_hash_matches": true,
+        "latest_pdf_stage_hash_matches": true
+      }
+    },
+    "required_minimal_corrections": [
+      {
+        "id": "C1",
+        "kind": "claim-scope precision",
+        "priority": "P2",
+        "file": "paper/capped_gbm_companion.tex",
+        "lines": [
+          34,
+          36,
+          1045,
+          1047
+        ],
+        "issue": "The abstract and main prose say endpoint-only propagation has zero coverage at the true interior volatility maximum without specifying the interval construction. The proof correctly restricts the zero-probability endpoint-equality argument to the continuous chi-squared interval. An arbitrary random interval could put an endpoint exactly at the true maximum.",
+        "proof_correct_as_written_at_lines": [
+          2440,
+          2447
+        ],
+        "minimal_fix": "Qualify both summaries: At the true volatility maximum, endpoint-only propagation of the exact chi-squared interval has zero coverage. Keep the general full-image coverage proposition unchanged.",
+        "requires_new_calculation": false
+      },
+      {
+        "id": "C2",
+        "kind": "provenance manifest integrity",
+        "priority": "P2",
+        "file": "results/capped_gbm/validated_hedging/package_manifest.json",
+        "lines": [
+          12,
+          14
+        ],
+        "issue": "The paper_table_values.json hash and byte count describe its pre-redaction bytes.",
+        "expected_record": {
+          "sha256": "4974bd2f7d2d87a454fcace92239e3287f20037f60fd1730ae6d1a1de2f73b3d",
+          "bytes": 10899
+        },
+        "actual_file": {
+          "sha256": "9eb7253ca38ce30808de612581fd960ba6929f8960006242545110411f28d944",
+          "bytes": 10749
+        },
+        "cause_confirmed": "Replacing the two <private-stage> strings with the original visualisation-root prefix exactly reconstructs the expected 10899-byte file and SHA. Only the two provenance paths changed; numerical table records are identical.",
+        "minimal_fix": "Refresh this manifest entry to the current hash and bytes and document that private provenance paths were redacted.",
+        "manifest_current_sha256": "5172134ceb1f6b9923986b78cb45af52c8a55b142d69499c3ddd6313f8a8c151",
+        "parent_hash_propagation": "No current repository record referencing the manifest path or its current SHA was found. The stage closeout may record its replacement hash independently.",
+        "requires_new_calculation": false
+      },
+      {
+        "id": "C3",
+        "kind": "explicit requested formatting",
+        "priority": "P3",
+        "files": {
+          "paper/capped_gbm_companion.tex": 24,
+          "paper/constrained_hedging_companion.tex": 28
+        },
+        "issue": "Neither abstract body begins with an explicit no-indent instruction. Both are already within the requested 100\u2013200-word range.",
+        "minimal_fix": "Add an explicit no-indent instruction to each abstract first paragraph and inspect the final compiled abstract pages. Keep the abstracts concise."
+      }
+    ],
+    "checked_mathematics": [
+      {
+        "topic": "Physical versus pricing measure",
+        "result": "Coherent. The constant-diffusion change of measure changes drift and preserves sigma/covariance; physical drift is never inserted into risk-neutral premiums. Hedging uncertainty keeps prices, premium, sigma and feasible set fixed.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:1307",
+          "paper/capped_gbm_companion.tex:2362",
+          "paper/constrained_hedging_companion.tex:72",
+          "paper/constrained_hedging_companion.tex:414"
+        ]
+      },
+      {
+        "topic": "Replication and pricing",
+        "result": "Self-financing gain includes reinvested dividends, the admissible bounded-below class is explicit, the finite-horizon square-integrability calculation is valid, and call-spread Greeks have correct signs and units.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:1336",
+          "paper/capped_gbm_companion.tex:1423"
+        ]
+      },
+      {
+        "topic": "PDE stability and consistency",
+        "result": "The inverse maximum principle, affine lift, mollification and odd periodic extension justify the exact-arithmetic bound for the original kinked payoff. Domain and interpolation allowances are separate. The conservative order and bump rates follow from the displayed bounds. Floating-point DST/Thomas checks are explicitly not interval certificates.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:198",
+          "paper/capped_gbm_companion.tex:1460",
+          "paper/capped_gbm_companion.tex:1490",
+          "paper/capped_gbm_companion.tex:1548",
+          "paper/capped_gbm_companion.tex:1586"
+        ]
+      },
+      {
+        "topic": "Monte Carlo sensitivities",
+        "result": "Pathwise first derivatives use a valid dominating envelope; ordinary gamma uses the correct second density derivative; mixed gamma includes the density boundary contribution. Finite raw uncertainty ranges, Chebyshev gamma bound, independent-pair accounting and pilot/control limitations are consistent.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:325",
+          "paper/capped_gbm_companion.tex:1609",
+          "paper/capped_gbm_companion.tex:1636",
+          "paper/capped_gbm_companion.tex:1682",
+          "paper/capped_gbm_companion.tex:1716"
+        ]
+      },
+      {
+        "topic": "Projection and controls",
+        "result": "The L2 completeness/closedness construction, nearest point proof, L1 conditional extension, Jensen/tower identities, singular control geometry and independent-pilot excess-risk decomposition are valid. Joint projection and cost accounting are correctly distinguished from finite-pilot or runtime dominance.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:1773",
+          "paper/capped_gbm_companion.tex:1909",
+          "paper/capped_gbm_companion.tex:1981"
+        ]
+      },
+      {
+        "topic": "Gaussian inference and price image",
+        "result": "MLE rank failure, orthogonal-rotation Wishart/Student pivots, physical-drift correction, fixed-horizon drift floor and shrinkage limits are checked. The vega-sign factorisation identifies the unique possible interior maximum. Full image propagation preserves coverage. The zero-coverage summary needs C1, while its proof is correct.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:2151",
+          "paper/capped_gbm_companion.tex:2208",
+          "paper/capped_gbm_companion.tex:2321",
+          "paper/capped_gbm_companion.tex:2395"
+        ]
+      },
+      {
+        "topic": "Rounding, quantiles and statistical/numerical composition",
+        "result": "Scatter error follows from the centring projection/reverse triangle inequality; strict outward CDF inequalities correctly bracket quantiles; clamped maximum avoids uncertain membership branches. The returned certificate guarantee is joint success-and-exclusion, not conditional-on-success coverage. The separate randomized numerical composition uses valid conditional premises and a union bound.",
+        "anchors": [
+          "paper/capped_gbm_companion.tex:2459",
+          "paper/capped_gbm_companion.tex:2503",
+          "paper/capped_gbm_companion.tex:2593"
+        ]
+      },
+      {
+        "topic": "Funded hedging, convexity and KKT",
+        "result": "Total-return stock accounting is coherent. The loss is uncentred physical MSE with fixed risk-neutral capital. Positive definiteness, strict positive unrestricted risk, compact existence/uniqueness, finite face enumeration, polyhedral KKT including B=0 and budget shadow-price derivations are valid. The unrestricted benchmark is appropriately identified as a formal L2 relaxation.",
+        "anchors": [
+          "paper/constrained_hedging_companion.tex:612",
+          "paper/constrained_hedging_companion.tex:688",
+          "paper/constrained_hedging_companion.tex:718",
+          "paper/constrained_hedging_companion.tex:778",
+          "paper/constrained_hedging_companion.tex:797"
+        ]
+      },
+      {
+        "topic": "Validated hedging certificates",
+        "result": "The three-gain Gram representation, exact outward feasibility scaling, Lagrange weak-dual lower bound and determinant/trace holding-distance bound are valid. Stored, repaired and refined holdings and rounded-price versus exact-fair-price losses remain distinct.",
+        "anchors": [
+          "paper/constrained_hedging_companion.tex:882"
+        ]
+      },
+      {
+        "topic": "Robust drift continuum and mixture bounds",
+        "result": "The Gaussian density interpolation coefficient is T*t*(1-t)*(b-a)^2/(2*sigma^2). Holder gives the stated cell factor; the sharpness argument is valid only for arbitrary non-negative fixed losses and is correctly qualified. Compactness and uniform positive curvature prove uniqueness. Finite-mixture weights are exact non-negative optimization witnesses, not a financial prior; weak duality is sufficient.",
+        "anchors": [
+          "paper/constrained_hedging_companion.tex:996",
+          "paper/constrained_hedging_companion.tex:1051",
+          "paper/constrained_hedging_companion.tex:1105"
+        ]
+      },
+      {
+        "topic": "Historical/future inference bridge",
+        "result": "Known-volatility Gaussian inference, deterministic rounding enlargement and exact square/quantile checks imply the model-conditional joint error event. Loss denotes future population MSE at data-selected holdings, not a bound on realised squared error. Historical/future dividend and volatility alignment is disclosed.",
+        "anchors": [
+          "paper/constrained_hedging_companion.tex:518",
+          "paper/constrained_hedging_companion.tex:1140"
+        ]
+      }
+    ],
+    "evidence_and_baselines": {
+      "strongest_pricing_baseline": "Analytic call spread is explicitly dominant for the known-parameter one-asset model; no sampling or PDE superiority is claimed.",
+      "strongest_hedging_comparators": "Unrestricted two-instrument relaxation, cash only, same-constraint variance optimization, projection heuristic, SLSQP and independent high-precision constrained references are identified. The exact spread changes the instrument set and is correctly scoped.",
+      "adverse_findings_preserved": {
+        "drift_primary_worst_risk_improves": 10,
+        "drift_primary_total": 12,
+        "same_cases_true_risk_worsens": 10,
+        "confidence_truth_containment": 27,
+        "confidence_datasets": 30,
+        "bridge_robust_true_risk_worse_than_plugin": 3,
+        "bridge_total": 3,
+        "validated_price_containment": 165,
+        "validated_price_datasets": 180,
+        "near_stationary_full_image": 54,
+        "near_stationary_endpoint_only": 0,
+        "near_stationary_datasets": 60,
+        "conditioning_adverse_independent_pilots": 152,
+        "conditioning_total_independent_pilots": 672
+      },
+      "paper_table_checks": "Displayed drift bridge endpoints agree with retained exact rational intervals; displayed rare-tail optimum brackets and rounded-price distinctions agree with the table extraction. PDE finest-error table and conditioning/calibration summary counts agree with retained manifests.",
+      "integrity": {
+        "validated_calibration_stage_evidence_files_checked": 8,
+        "validated_calibration_mismatches": [],
+        "validated_hedging_package_files_checked": 11,
+        "validated_hedging_mismatches": [
+          "paper_table_values.json (C2)"
+        ],
+        "drift_package_files_checked": 14,
+        "drift_package_mismatches": [],
+        "validated_calibration_source_hashes_current_match": true,
+        "validated_hedging_source_hashes_current_match": true,
+        "drift_source_hashes_current_match": true
+      },
+      "figures": "Captions distinguish synthetic evidence, oracle comparisons and diagnostic grids from certified continuum bounds. Drift plot manifest records 160-digit independent diagnostics, retained full comparator curves and illustrative post-outcome panel selection. No graphics/table inconsistency identified in the checked numerical claims.",
+      "visual_qa_limit": "This read-only audit checked source/caption/evidence consistency and the retained successful compile/visual records; it did not newly render or inspect every PDF page."
+    },
+    "sources_and_writing": {
+      "source_check_scope": "Compared actual current bibliography descriptions against the retained source/version ledgers. No new external article body was retrieved or reread in this audit.",
+      "version_accuracy": "Merton 1980 names the NBER working-paper body and verified successor; Leung/Lorig names arXiv v2 and verified published successor; Ledoit/Wolf identifies the article-in-press version; Johansson distinguishes reused publication metadata from local API review; Goldfarb/Iyengar restricts consultation to final-journal Introduction pp. 1\u20132 through authorised Safari access. These distinctions are preserved in the paper bibliographies.",
+      "research_scope": "No unsupported theoretical novelty, empirical validation, conditional-on-success coverage or practical quantum advantage claim found apart from the overbroad zero-coverage summary identified in C1.",
+      "style": "Both papers retain numbered sections, continuous prose, keywords and British research register. No first-person plural, Unicode em dash, LaTeX em-dash sequence or bold paragraph-label issue found. Original source titles retain their official spelling. The authors name is confined to author metadata/title fields."
+    },
+    "unnecessary_extensions": "Unknown volatility robust hedging, empirical model validation, larger dimensions, further solver mechanisms and additional literature-priority research are outside this completed portfolio closeout. No frozen source or model change is recommended."
+  },
+  "resolutions": [
+    "British spelling serialisation in the main paper.",
+    "Qualify the zero-coverage summary as the exact chi-squared interval at the true interior volatility maximum.",
+    "Refresh one table-manifest checksum after two private-path redactions; numerical table bytes otherwise unchanged.",
+    "Concise, explicitly unindented abstracts in all three papers.",
+    "Recover exact registered matched protocol/input bindings and retain the original failed export audit; the unchanged checker now passes."
+  ]
+}

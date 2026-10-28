@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-23",
+  "sources": [
+    {
+      "authors": "D. Goldfarb and G. Iyengar",
+      "year": 2003,
+      "title": "Robust Portfolio Selection Problems",
+      "journal": "Mathematics of Operations Research",
+      "volume": 28,
+      "issue": 1,
+      "pages": "1-38",
+      "doi": "10.1287/moor.28.1.1.14260",
+      "status": "Published peer-reviewed journal article",
+      "version_consulted": "Final journal text, JSTOR institutional reader in Safari",
+      "access": "Existing authorised institutional access, at no additional cost",
+      "url": "https://www.jstor.org/stable/4126989",
+      "actual_scope": "Printed pages 1-2, Introduction; publisher metadata and abstract separately verified. No claim that later methods, proofs or experiments were read.",
+      "claim_used": "Confidence-region-based uncertainty sets and worst-case portfolio formulations predate this project; contextual antecedent only. The current derivative-loss certificate is separately derived and checked.",
+      "publication_metadata_url": "https://pubsonline.informs.org/doi/abs/10.1287/moor.28.1.1.14260"
+    }
+  ],
+  "retrieval_note": "Research-index CLI failed DNS resolution. Safari institutional reader supplied the final published material. No article text is included in the repository."
+}

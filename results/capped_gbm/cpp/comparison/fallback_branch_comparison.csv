@@ -1,0 +1,4 @@
+case,quantity,method,estimate,reference,relative_error_without_near_zero_suppression,relative_tolerance,relative_check_pass,cpp_price_method,required_cpp_branch_executed,scope
+positive_integral_fallback,price,cpp,5.3461617715416276e-14,5.346161771541629e-14,2.360903957437964e-16,1e-08,True,positive_digital_quadrature,True,additional informed check only for this disclosed branch-coverage contract
+positive_integral_fallback,price,python_positive_integral,5.346161771541652e-14,5.346161771541629e-14,4.3676723212602335e-15,1e-08,True,positive_digital_quadrature,True,additional informed check only for this disclosed branch-coverage contract
+positive_integral_fallback,price,python_original_call_spread,5.346160932570912e-14,5.346161771541629e-14,1.5692954173680007e-07,1e-08,False,positive_digital_quadrature,True,additional informed check only for this disclosed branch-coverage contract

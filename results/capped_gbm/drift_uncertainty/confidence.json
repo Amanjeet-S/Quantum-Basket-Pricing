@@ -1,0 +1,1682 @@
+[
+  {
+    "dataset_zero_based": 0,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "41831/42000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "140493/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-40213433552390404281024023450971062508206245226271312871544855165707388265738047/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "1217815792338093536632855017056454702417872473358221549582443922705020648985160763/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "18520090422727768207/18594318026299228028928",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 1,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-127397/252000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-97397/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-885657138103880364732574180075829634997966485627279588466194260354571218399751227/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "533225821996165193305400954235480379960937213862298525473973938178986371914099771/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-1044447843937117191/2066035336255469780992",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 2,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "2761/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "54849/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-610205850322248466475433739706568709700639265542824692954455833247247119412849723/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "32347084391111883662501655784189652210330577357870136839428494611452418836040051/72370055773322622139731865630429942408293740416025352524660990004945706024960000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "916636302764693405/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 3,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-15367/14000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-123303/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-1155613729400922742903755478547100166917944003470647759087497801795769814656707643/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "52653846139824563026843931152841969608191939203786070970534079347557555131428671/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-6803253190759790945/6198106008766409342976",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 4,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-10721/126000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "4279/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-693957906617320404012191934504024521301197403982780432797432880455220661352885307/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "724925053482725154025783199807285493657706295506797681142735318078336928960965691/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-1582096918292578529/18594318026299228028928",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 5,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-392893/252000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-362893/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-1366006146293731936922830465011245334738775358264606263313379115413397847569820731/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "52876813806313621115144669300064680220128341224971850626789083120159742744030267/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": false,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-14495459034750250075/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 6,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "115463/252000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "145463/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-446262344476152064411192157900674239666011040691381660612715059539543364269206587/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "972620615623893493626782976410635775292892658798196453327453138994014226044644411/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "1065028561407770215/2324289753287403503616",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 7,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "60877/126000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "75877/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-434880343954402749014165828733648370473746642667451273294399002336515528354131003/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "196800523229128561804761861115532328897031411364425368129153839239408412391943999/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "4492010060910217171/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 8,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "6259/8400000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "21777/100000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-315440803906111093434752357697186793523098653484843031487698504432353135130537019/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1103442156193934464603222776614123221435805046004735082452469694101204455183313979/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "865926318577446857/1162144876643701751808",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 9,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-4643/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-11787/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-730767126235026622698013054660301950758615807701881327725288576496486171079830587/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "688115833865018935339962079651008064200287891787696786214879622037071419234020411/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-770795752413757757/4648579506574807007232",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 10,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "55367/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "528303/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "246391459330318752088181528048170739123768348830396988400815275797791988095685573/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1665274419430364310126156662359480754082672048319975102340983474331349578409536571/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": false,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "36768019209076603181/18594318026299228028928",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 11,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "218651/252000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "248651/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-10382772463908467843093034565354164689413427141606442348193884144951397057464691/72370055773322622139731865630429942408293740416025352524660990004945706024960000",
+        "upper_exact_fraction": "1159313648502333861960649270177455897723568020949417055235321094909772663877233723/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "8066764676991848623/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 12,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "10313/10500000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "34689/125000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-207352507105865091137955829784858153039191537486488366224491082810466475896958011/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1211530452994180466900019304526451861919712162003089747715677115723091114416892987/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "6087654302260730957/6198106008766409342976",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 13,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-11153/84000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-3459/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-143139936124604170553704176047209287349841810189452969865930831675491295017086783/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "703183279477024705269454254075263578209694648542313264610514040156101115228417083/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-411459098614092881/3099053004383204671488",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 14,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-106199/126000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-91199/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-1039445315873585269845057887837134023364150891354843863214911980639830967345441851/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "379437644226460288192917246474175991594752808134734250725256217893726622968409147/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-2612100108728010583/3099053004383204671488",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 15,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "33331/36000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "263317/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-233034830648422956669793175600456978851334778616625363201680151638471583322565691/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1185848129451622601368181958710853036107568920872952750738488046895086006991285307/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "1912874070007787457/2066035336255469780992",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 16,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "18581/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "197229/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-352604636797106592969058163995053329698317696531982450642925039324642878817004603/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "213255664660587793013783394063251337052117200591519132659448631841782942299369279/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "6169699226499433657/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 17,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "106747/50400000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "112747/200000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "310496854734327930779556014623605582109034944090912245667159980744172894492595141/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1729379814834373488817531148934915597067938643580490359607328179277730484806446139/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": false,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "19691208120476949067/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 18,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "21677/14000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "210093/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "10156125265842140728229355027808177407966198103282332485619193877734823127634113/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "1469663586429256261679121909450350901998734690005989776368264167922231705952021563/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "14395357484446412209/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 19,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-15031/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-105279/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-179983531518802717485041668839661171029904153435251476836235741687009153954393919/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "518965302506031970612766790113004159809382932313320729758989490098511820541881403/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-9982059652389873775/18594318026299228028928",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 20,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-16591/28000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-119319/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-185063909434089965559250845806917352986966374012456456583466943185356342517346111/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "493563412929595730241720905276723250024071829427295831022833482606775877727120443/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-11017831519579465793/18594318026299228028928",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 21,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "23731/42000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "86193/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-79510373837304588102898426488294521235909746272173079292435772738392906637291327/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "upper_exact_fraction": "1021331090913522617523483001869837408779354968128712717477989334841593057127394363/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "21012710583849568291/37188636052598456057856",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 22,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-2173/4000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-106899/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-36113945794113326144874699390253530712682266546524256438337099141209842834639219/72370055773322622139731865630429942408293740416025352524660990004945706024960000",
+        "upper_exact_fraction": "516034315247212404416107649554971747141847035826471702981740720003311519447870523/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-5050718105377121969/9297159013149614014464",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 23,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "37621/63000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "45121/250000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-382900551395213775662303416244592064338989663613641063843561246265463275001703483/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "207196481740966356475134343613343590123982807175187410019321390453618863062429503/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "462633099915791561/774763251095801167872",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 24,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "37117/42000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "126351/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-252240034199268447520124519442132324817935729979528091127912061861034050058939451/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1166642925900777110517850614869177690140967969510050022812256136672523540254911547/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "456434999033824711/516508834063867445248",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 25,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-6121/9000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-35347/250000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-965247916191986251496297792599535724910047733993313870539003300637260382243351611/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "453635043908059306541677341711774290048855965496264243401164897896297208070499387/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-1405057174473019931/2066035336255469780992",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 26,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "78439/126000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "93439/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-371332197979848154513267277523567838045023909208139411242494187013172703893613627/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1047550762120197403524707856787742176913879790281438702697674011520384886420237371/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "2894047682772901145/4648579506574807007232",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 27,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "19679/252000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "49679/1000000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-619559680030950415386994083339301779756911231491595969768268266205386351916575803/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "159864656013819028530196210194401647040398493599596428834379986465634247679455039/361850278866613110698659328152149712041468702080126762623304950024728530124800000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "51862531843849325/664082786653543858176",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 28,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "64447/63000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "71947/250000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-188760639777698509510258713504400700834500875573611453160905674478195924019145787/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "1230122320322347048527716420806909314124402823915966660779262524055361666294705211/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "4755417883985529907/4648579506574807007232",
+    "raw_increments_retained": false
+  },
+  {
+    "dataset_zero_based": 29,
+    "certificate": {
+      "schema": "qbp-validated-known-sigma-drift-interval-v1",
+      "status": "certified",
+      "observations": 252,
+      "observed_log_return_mean_exact": "-16339/126000000",
+      "mean_rounding_radius_exact": "1/2000000",
+      "observation_spacing_exact": "1/252",
+      "volatility_exact": "1/5",
+      "dividend_exact": "1/100",
+      "alpha_exact": "1/20",
+      "nominal_coverage_exact": "19/20",
+      "drift_centre_exact": "-1339/500000",
+      "drift_centre_rounding_radius_exact": "63/500000",
+      "gaussian_half_width_upper_exact": "226948324599787780082959171769254129011477031827993144675082053487444229178543/578960446186580977117854925043439539266349923328202820197287920039565648199680",
+      "drift_interval": {
+        "lower_exact_fraction": "-714286655284046728571242615559612292123687115665641954321610152547609910175296571/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "upper_exact_fraction": "704596304815998829466732518751697722835216583823936159618558045985947680138554427/1809251394333065553493296640760748560207343510400633813116524750123642650624000000",
+        "width_exact_fraction": "709441480050022779018987567155655007479451849744789056970084099266778795156925499/904625697166532776746648320380374280103671755200316906558262375061821325312000000"
+      },
+      "chi_square_quantile": {
+        "schema": "qbp-validated-chi-square-quantile-v1",
+        "degrees_freedom": 1,
+        "probability_exact": "19/20",
+        "quantile": {
+          "lower_exact_fraction": "1307180699935114127201101743066200236141/340282366920938463463374607431768211456",
+          "upper_exact_fraction": "653590349967557063600550871533100118071/170141183460469231731687303715884105728",
+          "width_exact_fraction": "1/340282366920938463463374607431768211456"
+        },
+        "cdf_at_lower": {
+          "lower_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225971/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_exact_fraction": "110002484775450385652392435758253512460601774790374049959235247884146001225989/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "width_exact_fraction": "9/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "cdf_at_upper": {
+          "lower_exact_fraction": "859394412308206137909315904361355566098530639274838378716393623374969045215/904625697166532776746648320380374280103671755200316906558262375061821325312",
+          "upper_exact_fraction": "55001242387725192826196217879126756230305960913589656237849191895998018893771/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "width_exact_fraction": "11/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+        },
+        "strict_bracket_invariant": "F(lower) < probability < F(upper)",
+        "precision_bits": 256,
+        "cdf_evaluations": 134,
+        "requested_width_exact": "1/340282366920938463463374607431768211456",
+        "python_flint_version": "0.9.0"
+      },
+      "precision_bits": 256,
+      "sampling_premise": "Independent latent Gaussian log-return increments with known common sigma and equally spaced observations; each rounding cell contains its latent increment.",
+      "coverage_interpretation": "At least 1-alpha coverage under the sampling premise. This does not validate GBM or estimate volatility.",
+      "maturity_distinction": "Historical observation spacing enters inference; derivative maturity enters the subsequent hedge problem separately."
+    },
+    "contains_true_drift": true,
+    "latent_sample_mean_contained": true,
+    "latent_sample_mean_exact": "-344418143248640393/2656331146614175432704",
+    "raw_increments_retained": false
+  }
+]

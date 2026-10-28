@@ -1,0 +1,167 @@
+{
+  "schema": "qbp-matched-original-bindings-recovery-v1",
+  "status": "exact_recovery_verified_against_retained_originals",
+  "archive_name": "matched_replay_bindings.tar.gz",
+  "archive_sha256": "ae388304467bc7665655960934b800675e6d6348d42cbb085e52f58a16b22101",
+  "archive_members": {
+    "matched_chebyshev_protocol.json": "e91bf54c7e695f0c40517068191f6bb5b5ef06629e8ed2f08b9f275501fc93d2",
+    "matched_B_inputs.json": "fa35d236a7d919d7e6c51644e71752fa5be0002a38796800e43376a8ecfc0eb3"
+  },
+  "exported_sha256": {
+    "results/matched_deferred_chebyshev/matched_chebyshev_protocol.json": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+    "results/deferred_cleanup/matched_B_inputs.json": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+    "results/matched_deferred_chebyshev/matched_chebyshev_resources.json.gz": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4"
+  },
+  "reconstructed_checker_sha256": "3b7fd0b6565290c6a64ee3e8e2c2c696772607779c50b308f95808202bbd24df",
+  "scientific_source_sha256": {
+    "certified_scalar.py": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+    "chebyshev_controller.py": "b14c66374c9211dd4449018c0be704e80b98c6d21f502f396b80f6b0f875350a",
+    "chebyshev_resources.py": "d732a875e3787ec6c50eb7db3b8ef19e0f0213dc7f8770383f19808d4e96a88b",
+    "integral_pricing_budget.py": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+    "matched_deferred_chebyshev.py": "51c299f96c80a676d7a0eb007db9ed2c86a7bf3b60945697da31f3c0f7ff1f19",
+    "qft_synthesis.py": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+    "qpe_estimator.py": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+    "quantum_gates.py": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+    "reflections.py": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa"
+  },
+  "original_input_key": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/originality_step/deferred/matched_B_inputs.json",
+  "exported_input_key": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+  "original_deferred_protocol_sha256": "a98239659065170ba723ec1f46434378bfeca02e9a8e13840295d3719f836d6f",
+  "exported_deferred_protocol_sha256": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+  "authoritative_result_equal_to_original": true,
+  "provenance_chain": [
+    {
+      "original_relative_stage_path": "raw_payoff_step/resource_review/check_resources_independently.py",
+      "exported_repository_path": "scripts/audits/check_raw_payoff_resources_independent.py",
+      "original_sha256": "088284bee54b201396d767277e9dc8fc196dd06fc10fe9591d8587a22ce8214f",
+      "exported_sha256": "1e090225c21f8a12b85d80c69976118619d3f129a46b05cdf6667272011dc26f",
+      "exact_declared_byte_transform": [
+        {
+          "from": "import gzip,hashlib,json,sys,time",
+          "to": "import gzip,hashlib,json,os,sys,time",
+          "occurrences": 1
+        },
+        {
+          "from": "STAGE=Path('/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/raw_payoff_step/producer')",
+          "to": "STAGE=Path(os.environ['QBP_PRIVATE_STAGE'])/'raw_payoff_step'/'producer'",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "raw_payoff_step/resource_review/independent_resource_review.json",
+      "exported_repository_path": "results/raw_payoff_independent_resource_review.json",
+      "original_sha256": "971c08a502e552b4339b95751087b427708c13f72ac712041a92ba15e5d3abf7",
+      "exported_sha256": "ea071b016a497b02b51dafbdaac50fe6c95fbc7285d73c0438a85156167620ec",
+      "exact_declared_byte_transform": [
+        {
+          "from": "088284bee54b201396d767277e9dc8fc196dd06fc10fe9591d8587a22ce8214f",
+          "to": "1e090225c21f8a12b85d80c69976118619d3f129a46b05cdf6667272011dc26f",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "raw_payoff_step/resource_review/smoothing/raw_payoff_smoothing_protocol.json",
+      "exported_repository_path": "results/raw_payoff_smoothing/raw_payoff_smoothing_protocol.json",
+      "original_sha256": "33ea6d40a595bb82f88a1bc8de83cc9f465b338fce1af9291349faf5f85afcc5",
+      "exported_sha256": "7621f2c5ca573f0316318bef825b06aaf82b8676ddbf76e78b161baa043cc345",
+      "exact_declared_byte_transform": [
+        {
+          "from": "971c08a502e552b4339b95751087b427708c13f72ac712041a92ba15e5d3abf7",
+          "to": "ea071b016a497b02b51dafbdaac50fe6c95fbc7285d73c0438a85156167620ec",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "raw_payoff_step/resource_review/smoothing/raw_payoff_smoothing_resources.json",
+      "exported_repository_path": "results/raw_payoff_smoothing/raw_payoff_smoothing_resources.json",
+      "original_sha256": "5c94cf73d750418d67a89324bc6f490fed9aa28eee55ae6b69bfa67441b1c586",
+      "exported_sha256": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+      "exact_declared_byte_transform": [
+        {
+          "from": "33ea6d40a595bb82f88a1bc8de83cc9f465b338fce1af9291349faf5f85afcc5",
+          "to": "7621f2c5ca573f0316318bef825b06aaf82b8676ddbf76e78b161baa043cc345",
+          "occurrences": 1
+        },
+        {
+          "from": "971c08a502e552b4339b95751087b427708c13f72ac712041a92ba15e5d3abf7",
+          "to": "ea071b016a497b02b51dafbdaac50fe6c95fbc7285d73c0438a85156167620ec",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "common_shift_step/producer/common_shift_protocol.json",
+      "exported_repository_path": "results/common_shift/common_shift_protocol.json",
+      "original_sha256": "7a791202fdd7b6b42091a7d041c9eeec8a5f1578ceab9f346200d8da0096d035",
+      "exported_sha256": "6b47d063c2dc08a806d08cb7d059416ca23d92483469f0ae11e8784f91d37c09",
+      "exact_declared_byte_transform": [
+        {
+          "from": "5c94cf73d750418d67a89324bc6f490fed9aa28eee55ae6b69bfa67441b1c586",
+          "to": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "originality_step/deferred/deferred_cleanup_protocol.json",
+      "exported_repository_path": "results/deferred_cleanup/deferred_cleanup_protocol.json",
+      "original_sha256": "a98239659065170ba723ec1f46434378bfeca02e9a8e13840295d3719f836d6f",
+      "exported_sha256": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+      "exact_declared_byte_transform": [
+        {
+          "from": "7a791202fdd7b6b42091a7d041c9eeec8a5f1578ceab9f346200d8da0096d035",
+          "to": "6b47d063c2dc08a806d08cb7d059416ca23d92483469f0ae11e8784f91d37c09",
+          "occurrences": 1
+        },
+        {
+          "from": "5c94cf73d750418d67a89324bc6f490fed9aa28eee55ae6b69bfa67441b1c586",
+          "to": "7523ebba6ef42b69bb5c80e53b3537196ef7a2763a9ffdcf834f7a2f68c6fc13",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "originality_step/deferred/matched_B_inputs.json",
+      "exported_repository_path": "results/deferred_cleanup/matched_B_inputs.json",
+      "original_sha256": "fa35d236a7d919d7e6c51644e71752fa5be0002a38796800e43376a8ecfc0eb3",
+      "exported_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+      "exact_declared_byte_transform": [
+        {
+          "from": "a98239659065170ba723ec1f46434378bfeca02e9a8e13840295d3719f836d6f",
+          "to": "143589bd2b7acb3d90828fbf7508811773ab06645d6d1437ee2066080b44d81c",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    },
+    {
+      "original_relative_stage_path": "originality_step/deferred/matched_B/matched_chebyshev_protocol.json",
+      "exported_repository_path": "results/matched_deferred_chebyshev/matched_chebyshev_protocol.json",
+      "original_sha256": "e91bf54c7e695f0c40517068191f6bb5b5ef06629e8ed2f08b9f275501fc93d2",
+      "exported_sha256": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+      "exact_declared_byte_transform": [
+        {
+          "from": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312",
+          "to": "<private-stage>",
+          "occurrences": 2
+        },
+        {
+          "from": "fa35d236a7d919d7e6c51644e71752fa5be0002a38796800e43376a8ecfc0eb3",
+          "to": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+          "occurrences": 1
+        }
+      ],
+      "all_other_bytes_equal": true
+    }
+  ],
+  "scope": "Two exact original binding files, recovered from retained local originals and verified by pre-existing commitments. Current redacted exports differ only by the declared staging-path adaptation and recursively rebound provenance hashes. Scientific cases, controller settings, mathematical certificates, outcomes and all nine matched source premises are identical. The unchanged matched checker passed on these original bindings with the authoritative result and a freshly passed resource review. No assertion is bypassed; no new scientific result is generated. Personal absolute path metadata is retained only for historical byte verification."
+}

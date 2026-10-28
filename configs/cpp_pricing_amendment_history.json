@@ -1,0 +1,409 @@
+{
+  "record_type": "informed_design_amendment_history",
+  "interpretation": "This is an openly informed numerical development study. The initial outcomes were known before the subsequent comparator and stress cases were added. The initial protocol and observed summaries are retained here; separate temporary output folders are not required to interpret this supplied record.",
+  "initial_protocol_sha256": "0e3ee6a347d1532d955fdf62eab57114b2025279c3ae5ff8d197c29869a64f5a",
+  "initial_protocol": {
+    "data_status": "entirely synthetic; no market observations or licensed data",
+    "model": "risk-neutral GBM with continuous dividend yield; capped European call",
+    "quantities": [
+      "price",
+      "delta",
+      "gamma",
+      "vega",
+      "rho",
+      "theta"
+    ],
+    "greek_units": {
+      "delta": "per unit spot",
+      "gamma": "per unit spot squared",
+      "vega": "per unit volatility",
+      "rho": "per unit continuously compounded rate",
+      "theta": "per year of calendar time; minus maturity derivative"
+    },
+    "comparison_roles": {
+      "cpp_python_analytic": "cross-language consistency; shared formula is not an independent financial baseline",
+      "cpp_python_pde": "matched backward-Euler discretisation; distinct Thomas/DST implementations",
+      "analytic_reference": "closed-form dominant baseline for this specified model",
+      "mp_integral": "80-digit integral of digital calls over strikes, differentiated under the integral; separate numerical representation under the same GBM",
+      "mp_call_spread": "100-digit call-spread check on the quadrature reference"
+    },
+    "pde_meshes": [
+      {
+        "intervals": 64,
+        "time_steps": 512
+      },
+      {
+        "intervals": 128,
+        "time_steps": 1024
+      },
+      {
+        "intervals": 256,
+        "time_steps": 2048
+      }
+    ],
+    "pde_scope": "fixed nine-sigma domain, ordinary kinked payoff, identical finite bumps; numerical refinement is not a convergence proof or a complete error certificate",
+    "relative_error_rule": "report only when abs(reference)>1e-12*quantity_scale; otherwise null",
+    "quantity_scale_rule": "positive dimensional scales derived from discounted cap, spot, maturity and volatility, including the narrow-spread scale",
+    "analytic_cpp_tolerance": {
+      "absolute_scaled": 2e-11,
+      "relative": 2e-11
+    },
+    "analytic_reference_tolerance": {
+      "absolute_scaled": 1e-25,
+      "relative": 1e-25
+    },
+    "pde_implementation_tolerance": {
+      "absolute_scaled": 2e-09,
+      "relative": 2e-10
+    },
+    "pde_grid_tolerance": {
+      "absolute_cap_scaled": 2e-10,
+      "relative": 2e-11
+    },
+    "financial_identity_tolerance_scaled": 2e-10,
+    "limitations": [
+      "High-precision arithmetic and quadrature are numerical references, not outward-rounded certificates.",
+      "No empirical model validation or quantum advantage follows from these comparisons.",
+      "All failure rows are retained; a stress failure cannot be removed from the aggregate status.",
+      "Fixed-domain, finite-bump errors are separated from analytic bump bias.",
+      "These timing-free comparisons do not identify a language speedup."
+    ],
+    "contracts": [
+      {
+        "case": "lower_kink",
+        "group": "existing",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "upper_kink",
+        "group": "existing",
+        "parameters": {
+          "spot": 120.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "inside_spread",
+        "group": "existing",
+        "parameters": {
+          "spot": 110.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "deep_cap",
+        "group": "existing",
+        "parameters": {
+          "spot": 160.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "low_vol_short_dated",
+        "group": "existing",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 0.05,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.06
+        }
+      },
+      {
+        "case": "negative_rate_dividend",
+        "group": "existing",
+        "parameters": {
+          "spot": 105.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": -0.015,
+          "dividend": 0.045,
+          "volatility": 0.25
+        }
+      },
+      {
+        "case": "high_volatility",
+        "group": "existing",
+        "parameters": {
+          "spot": 95.0,
+          "strike": 100.0,
+          "cap": 30.0,
+          "maturity": 2.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.65
+        }
+      },
+      {
+        "case": "deep_cap_large_spot",
+        "group": "stress",
+        "parameters": {
+          "spot": 1000000000000.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "deep_cap_extreme_spot",
+        "group": "stress",
+        "parameters": {
+          "spot": 1e+16,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "narrow_cap",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 1e-08,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "cap_below_strike_ulp",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 1e-15,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "wide_cap",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 100000000.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "deep_out_of_money",
+        "group": "stress",
+        "parameters": {
+          "spot": 1.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "near_expiry_lower_kink",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1e-08,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "near_expiry_upper_kink",
+        "group": "stress",
+        "parameters": {
+          "spot": 120.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1e-08,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "small_positive_volatility",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.0001
+        }
+      },
+      {
+        "case": "negative_rate_high_dividend",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": -0.05,
+          "dividend": 0.08,
+          "volatility": 0.2
+        }
+      },
+      {
+        "case": "very_high_volatility",
+        "group": "stress",
+        "parameters": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 5.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 2.0
+        }
+      }
+    ]
+  },
+  "observed_development_stages": [
+    {
+      "phase": "initial_eighteen_contract_study",
+      "reason": "Baseline C++/Python subtractive call-spread study before adding the stable binary64 Python comparator.",
+      "protocol_sha256": "0e3ee6a347d1532d955fdf62eab57114b2025279c3ae5ff8d197c29869a64f5a",
+      "observed_case_count": 18,
+      "observed_analytic_quantity_count": 108,
+      "native_failures": [],
+      "stronger_python_integral_diagnostic_failures": [],
+      "original_python_maximum_scaled_analytic_error": 1.9947114020071632,
+      "native_executable_sha256": "3aa76ff298a4df75caa894be3a0b016b84027aa044f5bc5d8449529ced6b1397",
+      "runner_sha256": "7c908025cba9481178ee5bfc198a14f92933ce6945711546509c9a86ef5b6e3f"
+    },
+    {
+      "phase": "binary64_integral_added",
+      "reason": "Add the stable digital-strike representation in ordinary Python binary64 after observing cancellation in the original subtractive baseline.",
+      "protocol_sha256": "fa5a07f8fcfd41bcb7571979cb4f26063c4a3ba493d67a1eeac92e426094aa2c",
+      "observed_case_count": 18,
+      "observed_analytic_quantity_count": 108,
+      "native_failures": [],
+      "stronger_python_integral_diagnostic_failures": [
+        "python_integral:small_positive_volatility:gamma"
+      ],
+      "original_python_maximum_scaled_analytic_error": 1.9947114020071632,
+      "native_executable_sha256": "78a114d68226b5d96ec92db17f777266a17163266f1134fb36b85db403a54fa9",
+      "runner_sha256": "1208afac6183804a02166926764d4463527278b19ba88146241cc510ef1bf335"
+    },
+    {
+      "phase": "actual_fallback_branch_and_nearby_log1p",
+      "reason": "Add the previously unexecuted C++ fallback branch contract, and use log1p((S-K)/K) for nearby input values after observing a coordinate precision loss. Add the disclosed price-only 1e-8 relative check for this new contract.",
+      "protocol_sha256": "004badeafe022196a05f0513197d9616f292c4ee56a0d1118e96334848789d0b",
+      "observed_case_count": 19,
+      "observed_analytic_quantity_count": 114,
+      "native_failures": [],
+      "stronger_python_integral_diagnostic_failures": [
+        "python_integral:small_positive_volatility:gamma"
+      ],
+      "original_python_maximum_scaled_analytic_error": 1.9947114020071632,
+      "native_executable_sha256": "986652b284b8eac46c708b7f2c028e1e1f9ddcd2dfa570756e50793c3d154bbc",
+      "runner_sha256": "5a838dda699769346736de4e1f941f4e465cc892db7ae198f1a8b564e9002975"
+    },
+    {
+      "phase": "broad_strike_interval",
+      "reason": "Add the broad interval contract after independent review identified loss of an upper-strike normal coordinate. Native endpoint evaluation was corrected. All prior thresholds remain unchanged.",
+      "protocol_sha256": "5a2a74faa4b99d0019959d050b1e13d6d9ce3f9925a28ad26b86f2410ae9f2d5",
+      "observed_case_count": 20,
+      "observed_analytic_quantity_count": 120,
+      "native_failures": [],
+      "stronger_python_integral_diagnostic_failures": [
+        "python_integral:small_positive_volatility:gamma",
+        "python_integral:extremely_broad_strike_interval:delta",
+        "python_integral:extremely_broad_strike_interval:gamma",
+        "python_integral:extremely_broad_strike_interval:rho"
+      ],
+      "original_python_maximum_scaled_analytic_error": 1.9947114020071632,
+      "native_executable_sha256": "0a1dd84a8d00ea19bf879d8441f1c7c931b7b980deb581ea590fdbfa3f80826b",
+      "runner_sha256": "4bf380ddbfcea03f85061e6d4ff9d1524cd0315cce26bae3827aa1ac92b0f417"
+    },
+    {
+      "phase": "unsupported_fallback_range_rejection",
+      "reason": "Independent review found silent zero prices when cap/strike overflows or the normalised transition scale is subnormal/underflows. Those fallback regimes are now rejected explicitly. Both examples are retained as native regression assertions; the analytic comparison sample and tolerances remain unchanged. The trace allocation guard also counts the initial row.",
+      "cases": [
+        {
+          "spot": 1e-100,
+          "strike": 1e-100,
+          "cap": 1e+300,
+          "maturity": 1,
+          "rate": 0,
+          "dividend": 0,
+          "volatility": 1e-08
+        },
+        {
+          "spot": 1,
+          "strike": 1,
+          "cap": 1e+300,
+          "maturity": 1,
+          "rate": 0,
+          "dividend": 0,
+          "volatility": 1e-100
+        }
+      ],
+      "outcome": "explicit unsupported-range error; no clipped or zero price returned",
+      "native_assertions": 562
+    },
+    {
+      "phase": "recoverable_tail_underflow_rejection",
+      "reason": "Review reproduced representable price and Greeks lost by evaluating a normal tail before multiplication by enormous cash prefactors. Normal tail/density upper-bound checks now conservatively reject that unsupported scaled regime; positive discount and cash intermediates lost to underflow are also rejected. The analytic comparison sample and tolerances are unchanged. These range checks are not a floating-point enclosure.",
+      "case": {
+        "spot": 1e+300,
+        "strike": 1e+308,
+        "cap": 1e+307,
+        "maturity": 1,
+        "rate": 0,
+        "dividend": 0,
+        "volatility": 0.46
+      },
+      "outcome": "explicit unsupported-range error, retained in the native regression suite"
+    }
+  ],
+  "threshold_policy": "The initial eighteen contract tolerances are unchanged. The actual fallback contract has an additional explicitly introduced 1e-8 relative price requirement because its price lies below the general near-zero reporting floor. No baseline failures were deleted or reclassified as accurate results.",
+  "failure_role_explanation": "The initial stronger-baseline script treated its one Python diagnostic failure as aggregate fail. The final manifest distinguishes native implementation verification from comparator diagnostics and explicitly sets all_compared_stable_methods_pass=false when any stronger-baseline failure remains."
+}

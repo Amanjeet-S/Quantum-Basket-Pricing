@@ -1,0 +1,39 @@
+{
+  "schema": "qbp-paper-manifest-v1",
+  "author": "Amanjeet Singh",
+  "record_date": "2026-10-20",
+  "main_paper_status": "working paper",
+  "files": [
+    {
+      "path": "paper/generalisation_proofs.tex",
+      "sha256": "87b64300fb6034a6f7c7cecfe9300bc757fa2f8801f8ca68a7c9212a615d6f64"
+    },
+    {
+      "path": "paper/generalisation_proofs.pdf",
+      "sha256": "d9e1e6d8d07fc1c6e276f221d168c87d689e6f4f6f8c4739a23faa563fbb15b2",
+      "pages": 34,
+      "source": "paper/generalisation_proofs.tex"
+    },
+    {
+      "path": "paper/capped_gbm_companion.tex",
+      "sha256": "d22d447dbe4023d7b84f190469e662e5b416deaa29e124737dd99832e947840e"
+    },
+    {
+      "path": "paper/capped_gbm_companion.pdf",
+      "sha256": "2da4e39019a3b0a4743d6f794f7f344d5d8c2d528bf05aca5cbf82899277d2a7",
+      "pages": 31,
+      "source": "paper/capped_gbm_companion.tex"
+    },
+    {
+      "path": "paper/constrained_hedging_companion.tex",
+      "sha256": "1573f2dd9db307981f1ab79ba0a3171c5f7837cf6e6567ae8811e67a56cac937"
+    },
+    {
+      "path": "paper/constrained_hedging_companion.pdf",
+      "sha256": "3e248a690b1ca7bebef40ad362724e80642824bf88d089cf884a290981f7bfb4",
+      "pages": 11,
+      "source": "paper/constrained_hedging_companion.tex"
+    }
+  ],
+  "scope": "Source and PDF inventory. The capped-GBM companion includes the validated scalar parameter-to-price bridge. The hedging companion now includes exact-input feasibility, outward risk and primal-dual optimality bounds, with retained original/repaired/refined comparisons. Previous companion bytes remain in replication/history/before_validated_calibration and before_validated_hedging respectively. Main quantum paper bytes are unchanged. This inventory does not designate project completion or theoretical novelty."
+}

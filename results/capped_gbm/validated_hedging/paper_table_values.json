@@ -1,0 +1,154 @@
+{
+  "schema": "qbp-hedge-main-table-extraction-v1",
+  "source_sha256": {
+    "<private-stage>/qbp-hedge-20261020/canonical_study/fixed_risk_audit.json": "aca7cbf6f2dcadf54e8f6e5dc5601fa0897dddaa0dfdd95d19df6f5b075c2612",
+    "<private-stage>/qbp-hedge-20261020/canonical_study/refined_hedges.json": "a499e8900b112a8751a7eca5964faf4f09701c087fb4a8f8e028af68fb450a74",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_hedging.py": "e60f8c364434eae28e7a160ebe146eb6f5243005551998cc93cc162df9ab4b8a"
+  },
+  "rounding": "Certificate endpoints are rounded outwards using exact integer arithmetic to six significant decimal digits. Archived diagnostic point estimates use six significant digits with ordinary nearest decimal display and are not bounds.",
+  "rows": [
+    {
+      "case": "low_vol_short_dated",
+      "physical_total_return": "0.03",
+      "budget_multiplier": "1",
+      "source_row_zero_based": 75,
+      "original_expanded_quadratic_archived_string": "0.0",
+      "original_expanded_quadratic_6significant_approximate": "0",
+      "archived_residual_square_integral_string": "2.2383950139001713e-30",
+      "archived_residual_square_integral_6significant_approximate": "2.23840E-30",
+      "exact_fair_original_holding_risk": {
+        "lower_exact_fraction": "8491299343249065873678615425517467104026013783857871/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "upper_exact_fraction": "16982598686498131747357230851034934208052027567715743/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "2.23792e-30",
+        "upper_display_6significant_outward": "2.23793e-30"
+      },
+      "certified_optimum_bracket": {
+        "lower_exact_fraction": "18632760036360331973772105677173355/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+        "upper_exact_fraction": "610558280871455358116564385157889541721/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "1.60915e-43",
+        "upper_display_6significant_outward": "1.60916e-43"
+      },
+      "original_budget_status": "certified_infeasible",
+      "original_joint_feasibility_status": "certified_infeasible",
+      "kappa2_certified_optimum_bracket": {
+        "lower_exact_fraction": "18632760036360331973772105677173355/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+        "upper_exact_fraction": "1221116561742910716233128770315779083441/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "1.60915e-43",
+        "upper_display_6significant_outward": "1.60916e-43"
+      },
+      "kappa1_minus_kappa2_raw_interval": {
+        "lower_exact_fraction": "-52656546090161/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "upper_exact_fraction": "26328273045081/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "-6.93895e-69",
+        "upper_display_6significant_outward": "6.93895e-69"
+      },
+      "kappa1_minus_kappa2_monotonicity_intersected_interval": {
+        "lower_exact_fraction": "0",
+        "upper_exact_fraction": "26328273045081/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "0",
+        "upper_display_6significant_outward": "6.93895e-69"
+      },
+      "funding_penalty_strictly_positive_resolved": false,
+      "funding_penalty_zero_excluded": false,
+      "brackets_overlap": true
+    },
+    {
+      "case": "low_vol_short_dated",
+      "physical_total_return": "0.06",
+      "budget_multiplier": "1",
+      "source_row_zero_based": 81,
+      "original_expanded_quadratic_archived_string": "-2.220446049250313e-16",
+      "original_expanded_quadratic_6significant_approximate": "-2.22045E-16",
+      "archived_residual_square_integral_string": "1.6453135102875e-29",
+      "archived_residual_square_integral_6significant_approximate": "1.64531E-29",
+      "exact_fair_original_holding_risk": {
+        "lower_exact_fraction": "124616216913742169300748598701572270529789258769330389/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "upper_exact_fraction": "62308108456871084650374299350786135264894629384665195/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "1.64216e-29",
+        "upper_display_6significant_outward": "1.64217e-29"
+      },
+      "certified_optimum_bracket": {
+        "lower_exact_fraction": "2688830640951410491460038299499099/3618502788666131106986593281521497120414687020801267626233049500247285301248",
+        "upper_exact_fraction": "2819443278166266207493201151305953759069/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "7.43078e-43",
+        "upper_display_6significant_outward": "7.43079e-43"
+      },
+      "original_budget_status": "certified_infeasible",
+      "original_joint_feasibility_status": "certified_infeasible",
+      "kappa2_certified_optimum_bracket": {
+        "lower_exact_fraction": "2688830640951410491460038299499099/3618502788666131106986593281521497120414687020801267626233049500247285301248",
+        "upper_exact_fraction": "352430409770783275936650143913244219883/474284397516047136454946754595585670566993857190463750305618264096412179005177856",
+        "lower_display_6significant_outward": "7.43078e-43",
+        "upper_display_6significant_outward": "7.43079e-43"
+      },
+      "kappa1_minus_kappa2_raw_interval": {
+        "lower_exact_fraction": "-3921298315755/474284397516047136454946754595585670566993857190463750305618264096412179005177856",
+        "upper_exact_fraction": "31370386526045/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "-8.26783e-69",
+        "upper_display_6significant_outward": "8.26783e-69"
+      },
+      "kappa1_minus_kappa2_monotonicity_intersected_interval": {
+        "lower_exact_fraction": "0",
+        "upper_exact_fraction": "31370386526045/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "lower_display_6significant_outward": "0",
+        "upper_display_6significant_outward": "8.26783e-69"
+      },
+      "funding_penalty_strictly_positive_resolved": false,
+      "funding_penalty_zero_excluded": false,
+      "brackets_overlap": true
+    },
+    {
+      "case": "low_vol_short_dated",
+      "physical_total_return": "0.12",
+      "budget_multiplier": "1",
+      "source_row_zero_based": 87,
+      "original_expanded_quadratic_archived_string": "0.0",
+      "original_expanded_quadratic_6significant_approximate": "0",
+      "archived_residual_square_integral_string": "1.0388190977348874e-28",
+      "archived_residual_square_integral_6significant_approximate": "1.03882E-28",
+      "exact_fair_original_holding_risk": {
+        "lower_exact_fraction": "196573853216555103627707660844095751252318036094759243/1897137590064188545819787018382342682267975428761855001222473056385648716020711424",
+        "upper_exact_fraction": "786295412866220414510830643376383005009272144379036973/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "1.03616e-28",
+        "upper_display_6significant_outward": "1.03617e-28"
+      },
+      "certified_optimum_bracket": {
+        "lower_exact_fraction": "884151420958173879266414191750906897/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+        "upper_exact_fraction": "115887495047829766703207441032222083511795/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "1.52713e-41",
+        "upper_display_6significant_outward": "1.52714e-41"
+      },
+      "original_budget_status": "certified_infeasible",
+      "original_joint_feasibility_status": "certified_infeasible",
+      "kappa2_certified_optimum_bracket": {
+        "lower_exact_fraction": "884151420958173879266414191750906897/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+        "upper_exact_fraction": "115887495047829766703207441032222083508609/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "1.52713e-41",
+        "upper_display_6significant_outward": "1.52714e-41"
+      },
+      "kappa1_minus_kappa2_raw_interval": {
+        "lower_exact_fraction": "-91047214705025/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "upper_exact_fraction": "91047214708211/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "-1.19980e-68",
+        "upper_display_6significant_outward": "1.19980e-68"
+      },
+      "kappa1_minus_kappa2_monotonicity_intersected_interval": {
+        "lower_exact_fraction": "0",
+        "upper_exact_fraction": "91047214708211/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "lower_display_6significant_outward": "0",
+        "upper_display_6significant_outward": "1.19980e-68"
+      },
+      "funding_penalty_strictly_positive_resolved": false,
+      "funding_penalty_zero_excluded": false,
+      "brackets_overlap": true
+    }
+  ],
+  "interpretation_checks": {
+    "same_archived_holdings_used_for_original_risk": true,
+    "original_holdings_are_all_certified_infeasible": true,
+    "legacy_positive_integration_shown_wrong": false,
+    "legacy_integration_interpretation": "The archived residual-square integration uses frozen binary64 prices and arithmetic. The exact-fair original-holding certificate changes these transcendental quantities to their exact stipulated model values. Its small discrepancy with the archived diagnostic does not isolate integration error. The many-order reduction to the refined optimum also changes the holdings and must not be attributed to correcting integration alone.",
+    "kappa1_vs2_positive_funding_penalty_resolved": false,
+    "funding_penalty_interpretation": "All three optimality brackets overlap across kappa=1 and kappa=2. Their certified subtraction encloses zero. Feasible-set nesting establishes a nonnegative penalty, but the numerical evidence does not certify its strict positivity or size."
+  }
+}

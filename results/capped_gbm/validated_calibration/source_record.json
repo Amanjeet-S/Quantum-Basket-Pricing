@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-18",
+  "actual_consultation": "Local implementation and proof review only; no external publication body retrieved or reread in this step.",
+  "files": [
+    {
+      "path": "src/gbm_calibration.py",
+      "sha256": "c1f297f81718b393a81359e35b7be32197eb26739614acc83a6720f223386129"
+    },
+    {
+      "path": "src/capped_gbm.py",
+      "sha256": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+    },
+    {
+      "path": "paper/capped_gbm_companion.tex",
+      "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d",
+      "retained_consulted_copy": "replication/history/before_validated_calibration/capped_gbm_companion.tex"
+    },
+    {
+      "path": "results/capped_gbm/calibration/source_ledger.json",
+      "sha256": "79dc5d9ff2b7913ad26c8fa8a8285b6a0d7e8e72e85c486f81fb3ddec44742a3"
+    },
+    {
+      "path": "src/boundary_grid_certificate.py",
+      "sha256": "fe7ada516a74a0806b46ad7d08cdae208c75f110adc43951ae67702c82fe1087"
+    },
+    {
+      "path": "src/integral_value_certificate.py",
+      "sha256": "06e4533321c489669acbbc6e3796e1b09d80f45bf35d8d7dc3b7db9ce96a89a4"
+    }
+  ],
+  "scope": {
+    "src/gbm_calibration.py": "Entire module, including covariance estimates, interval pivots and capped-price image.",
+    "src/capped_gbm.py": "Contract validation, call-spread formula, Gaussian functions and heat-step functions.",
+    "paper/capped_gbm_companion.tex": "Physical estimation and volatility uncertainty section; Gaussian estimation appendix subsection on confidence price image and conditional numerical composition.",
+    "results/capped_gbm/calibration/source_ledger.json": "Entire retained publication/version ledger. Existing source version claims are inherited records, not newly performed readings.",
+    "src/boundary_grid_certificate.py": "Existing Arb ball, exact endpoint and outward dyadic conventions.",
+    "src/integral_value_certificate.py": "Existing Arb enclosure, scalar-ball and outward endpoint conventions."
+  },
+  "numerical_backend": {
+    "python_flint_version": "0.9.0",
+    "inspection": "Installed interfaces and exact endpoint conventions checked locally. The previously cited Johansson (2017) publication metadata are reused from the main quantum paper; no new article body was consulted or redistributed.",
+    "doi": "10.1109/TC.2017.2690633"
+  },
+  "proof_review": "final_theory_replay.json"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "qbp-helper-prepared-strict-matched-audit-v1",
+  "status": "passed",
+  "exit_code": 0,
+  "elapsed_seconds": 1.1294437919996199,
+  "helper_sha256": "503cbf5c4349713502934748f199150c3e273a673cbabb630e6851c9a48a75b4",
+  "checker_argv": [
+    "/opt/anaconda3/bin/python3.13",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/historical_replay_complete/check_matched_deferred_chebyshev.py",
+    "--repo",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/historical_replay_complete",
+    "--results",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/helper_prepared_final",
+    "--deferred-resources",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/historical_replay_complete/results/deferred_cleanup/deferred_cleanup_resources.json.gz",
+    "--deferred-review",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/resources.json",
+    "--input-evidence",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/helper_prepared_final/matched_B_inputs.json",
+    "--output",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/helper_prepared_final/matched_audit.json"
+  ],
+  "provenance_links_reconstructed": 8,
+  "scientific_sources_checked": 9,
+  "checker_modified": false,
+  "frozen_evidence_modified": false,
+  "counts": {
+    "histories": 1200,
+    "paired_mesh_seed_histories": 400,
+    "fresh_batches": 1968,
+    "replayed_u64_words": 196800,
+    "sampler_profiles": 157,
+    "512_bit_signal_floors": 77,
+    "fresh_half_alpha_plans": 12
+  }
+}

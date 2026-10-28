@@ -1,0 +1,80 @@
+{
+  "status": "pass",
+  "failures": [],
+  "stronger_python_baseline_status": "diagnostic_failures_retained",
+  "baseline_diagnostic_failures": [
+    "python_integral:small_positive_volatility:gamma",
+    "python_integral:extremely_broad_strike_interval:delta",
+    "python_integral:extremely_broad_strike_interval:gamma",
+    "python_integral:extremely_broad_strike_interval:rho"
+  ],
+  "all_compared_stable_methods_pass": false,
+  "analytic_output_rows": 120,
+  "pde_output_rows": 126,
+  "solver_output_rows": 21,
+  "maximum_cpp_scaled_analytic_error": 5.820766091346741e-09,
+  "maximum_python_scaled_analytic_error": 1.9947114020071632,
+  "maximum_python_positive_integral_scaled_analytic_error": 63.46525817643851,
+  "python_positive_integral_failed_output_rows": 4,
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.3.5",
+    "mpmath": "1.3.0",
+    "scipy": "1.16.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpp_floating_point": {
+      "long_double_digits": 53,
+      "double_digits": 53,
+      "long_double_bytes": 8
+    }
+  },
+  "executable_sha256": "5b6e2427f65a705b23c8ad94f4f20c3a708e7993c913853e293a449f7984ee05",
+  "amendment_history_sha256": "1994030509cd6d77e107a964297811ecea3736b352af7888ecbc815e3f1345bc",
+  "code_sha256": {
+    "run_cpp_pricing_study.py": "0fb5306d11018405f2a2361502bd42e0883f9bdfa4a59c157c9add35752b19ce",
+    "src/capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa"
+  },
+  "files": {
+    "amendment_history.json": {
+      "sha256": "1994030509cd6d77e107a964297811ecea3736b352af7888ecbc815e3f1345bc",
+      "bytes": 14574
+    },
+    "analytic_comparison.csv": {
+      "sha256": "bb7df36d0eaaa1e3809bcd1853b959b9ef29eb043dd42f6c77ffaebb96df99fe",
+      "bytes": 63659
+    },
+    "fallback_branch_comparison.csv": {
+      "sha256": "0fffb49563f9cd0076963c4eba11b848c3c9a4b9de5dc6956f1235b33944d453",
+      "bytes": 895
+    },
+    "financial_identities.csv": {
+      "sha256": "21296419a7cac470dcfc18e9589dec3941f0b8c8b49c87db0eb71642cff9fe35",
+      "bytes": 9330
+    },
+    "high_precision_references.json": {
+      "sha256": "a6155c5c94df8f7c22725f3f0908c5b4f0316679f300d26fc66e756b646fb7b2",
+      "bytes": 41135
+    },
+    "pde_comparison.csv": {
+      "sha256": "122130e6538b15388fe893fbec886f6f77151b19e6c3ab8454b42da4cce059db",
+      "bytes": 52750
+    },
+    "pde_refinement_summary.csv": {
+      "sha256": "c784909d9abe589273f37d55fe0749170ed2082247c53091caa3c5087ec706a9",
+      "bytes": 3837
+    },
+    "protocol.json": {
+      "sha256": "40ca215f1caee194a5a09583a14b54645e8202d1ce81cd7882a76897da9e1878",
+      "bytes": 11156
+    },
+    "python_binary64_integral_diagnostics.json": {
+      "sha256": "c394992e39f13425397a59992fcbe99cd6ad028f514a0f22f106d6a9bd59b3d5",
+      "bytes": 27134
+    },
+    "solver_crosscheck.csv": {
+      "sha256": "5dfc4af2efcf3403f68d66dcec64cfcd2be19f05c15d1e8df9004a0c25147622",
+      "bytes": 2323
+    }
+  },
+  "scope": "implementation verification and deterministic numerical stress study under specified GBM; no empirical validation or new pricing theory"
+}

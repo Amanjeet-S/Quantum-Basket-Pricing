@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-28",
+  "status": "passed",
+  "scope": "Abstract/date-only revision. All pages rendered; title pages inspected at reading resolution, the complete main-paper reflow checked in contact sheets, and companion pages after page 1 confirmed text-identical to the prior exports. No mathematical body, result, figure or reference change.",
+  "files": {
+    "generalisation_proofs": {
+      "pages": 34,
+      "abstract_whitespace_words": 136,
+      "first_line_indent_removed": true,
+      "keywords_and_JEL_preserved": true,
+      "stable_cross_references": true,
+      "overfull_boxes": 0,
+      "date": "28 October 2026",
+      "author": "Amanjeet Singh"
+    },
+    "capped_gbm_companion": {
+      "pages": 31,
+      "abstract_whitespace_words": 150,
+      "first_line_indent_removed": true,
+      "keywords_and_JEL_preserved": true,
+      "stable_cross_references": true,
+      "overfull_boxes": 0,
+      "date": "28 October 2026",
+      "author": "Amanjeet Singh"
+    },
+    "constrained_hedging_companion": {
+      "pages": 16,
+      "abstract_whitespace_words": 157,
+      "first_line_indent_removed": true,
+      "keywords_and_JEL_preserved": true,
+      "stable_cross_references": true,
+      "overfull_boxes": 0,
+      "date": "28 October 2026",
+      "author": "Amanjeet Singh"
+    }
+  }
+}

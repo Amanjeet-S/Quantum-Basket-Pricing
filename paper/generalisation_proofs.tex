@@ -26,22 +26,25 @@ pdfkeywords={quantum finance, basket pricing, Gaussian conditioning}}
 \title{Certified curvature corrections for quantum basket pricing\\[3mm]
 \large Sharp error envelopes and cancellation-aware resource comparisons}
 \author{Amanjeet Singh}
-\date{11 October 2026}
+\date{28 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-I study how payoff representation affects the quantum resources required
-to price capped basket derivatives under a classical no-arbitrage lognormal
-model. I derive pricing-error certificates from Gaussian conditioning,
-payoff-boundary curvature and moment bounds, and compare coherent pricing
-constructions under common information, accuracy and confidence requirements.
+\noindent
+Quantum resource bounds for capped basket pricing depend on how the payoff
+is represented coherently. Under a classical no-arbitrage lognormal model,
+I combine Gaussian conditioning, payoff-boundary curvature and moment bounds
+to certify pricing errors and compare coherent preparations under common
+information, accuracy and confidence requirements. Complete logical T-gate
+accounting includes state preparation, reversible arithmetic and reflections,
+with the same cancellation-aware optimisation applied to every eligible rival.
 Across four stressed synthetic contracts, shared-threshold preparation reduces
-complete logical T-gate upper bounds by 2.34 to 10.00 per cent relative to the
-cheaper equally optimised implemented rival, after charging state preparation,
-arithmetic and reflections. In matched Chebyshev diagnostics, numerical conditioning has the lower
-mean resource charge on the stipulated probability grid.
-Classical methods certify all 40 prices in the broader test set. The savings apply to the declared finite architecture and precision pool;
-they do not establish practical quantum advantage.
+the resulting upper bounds by 2.34 to 10.00 per cent relative to the cheaper
+equally optimised implemented rival. Matched Chebyshev diagnostics instead
+favour numerical conditioning in mean resource charge on the stipulated
+probability grid. Classical methods certify all 40 prices in the broader
+test set. These reductions concern a declared finite architecture and
+precision pool and do not establish practical quantum advantage.
 \end{abstract}
 
 \smallskip
@@ -2587,7 +2590,7 @@ The final endpoint has its own address, so saturation at the right endpoint
 does not wrap to the left.  The packed magnitudes, intermediate additions
 and input slices are checked against their actual widths.
 Outward endpoints are coarsened downwards and upwards to
-$2^{-384}\mathbb Z$ before serialization; the enlarged intervals determine
+$2^{-384}\mathbb Z$ before serialisation; the enlarged intervals determine
 all nodal errors.  Extreme Gaussian tails are not treated as exact zeros.
 
 For $x\geq a>0$, usable first and second derivative bounds are

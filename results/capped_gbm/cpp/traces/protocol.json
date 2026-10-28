@@ -1,0 +1,110 @@
+{
+  "reporting_amendment": "An initial run found four strict range overshoots. This version adds exact excess diagnostics and checks their residual coverage, without relaxing the strict range acceptance condition or removing failures.",
+  "schema": "qbp-native-trace-protocol-v1",
+  "cases": [
+    {
+      "name": "lower_kink",
+      "contract": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "name": "upper_kink",
+      "contract": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "name": "inside_spread",
+      "contract": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "name": "deep_cap",
+      "contract": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "name": "low_vol_short_dated",
+      "contract": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      }
+    },
+    {
+      "name": "negative_rate_dividend",
+      "contract": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      }
+    },
+    {
+      "name": "high_volatility",
+      "contract": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "intervals": 2,
+      "time_steps": 1
+    },
+    {
+      "intervals": 16,
+      "time_steps": 3
+    },
+    {
+      "intervals": 32,
+      "time_steps": 16
+    }
+  ],
+  "target": "Exact recurrence using binary64-parsed exported lambda, cap and initial vector; fixed Dirichlet boundaries 0/cap.",
+  "scalar_target": "Exact discrete final interpolation at the separately recorded binary64 index, weight and discount.",
+  "independent_check": "Exact rational Gaussian elimination on the one-interior-node, one-step meshes; compare both grid and scalar errors with exact residual bounds.",
+  "acceptance": "All dimensions/boundaries finite and valid; no observed range violations; all independent exact comparisons satisfy their rational bounds.",
+  "limitations": "No original-parameter, coordinate, payoff-construction, continuum, finite-domain, model or Greek certificate; largest meshes are trace audits, not exact target solves.",
+  "arithmetic": "Exact Fraction after parsing finite JSON values to binary64; upward-rounded finite binary64 summaries accompany exact fractions."
+}

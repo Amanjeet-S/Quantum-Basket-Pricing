@@ -1,0 +1,55 @@
+{
+  "schema": "qbp-validated-hedge-package-v1",
+  "files": {
+    "fixed_risk_audit.json": {
+      "sha256": "aca7cbf6f2dcadf54e8f6e5dc5601fa0897dddaa0dfdd95d19df6f5b075c2612",
+      "bytes": 391571
+    },
+    "mathematical_review.json": {
+      "sha256": "1e7e13e94530c7901a1ff1b55989467514ca1a0e1fac5be7280603f5ed0497d0",
+      "bytes": 2933
+    },
+    "paper_table_values.json": {
+      "sha256": "9eb7253ca38ce30808de612581fd960ba6929f8960006242545110411f28d944",
+      "bytes": 10749
+    },
+    "positive_integrals.json": {
+      "sha256": "1e8752c49ab757c8f51e3135186b4142fa7e569bb38ab4d66e158ef1d900bca8",
+      "bytes": 44944
+    },
+    "protocol.json": {
+      "sha256": "c201e28966b74d8481c1ca13314c25d46d459c7f5183192a6f97fd24603b302f",
+      "bytes": 3272
+    },
+    "refined_hedges.json": {
+      "sha256": "a499e8900b112a8751a7eca5964faf4f09701c087fb4a8f8e028af68fb450a74",
+      "bytes": 1807536
+    },
+    "slsqp_audit.json": {
+      "sha256": "0478855e5af8002f1560d4d5c75fbf4ef4d20906dc715527fa29df88b9652066",
+      "bytes": 383761
+    },
+    "source_record.json": {
+      "sha256": "89437224194bd4deb163f654736e37e85f42f5f755c1288a07314cc210d3858f",
+      "bytes": 1563
+    },
+    "stage_verification.json": {
+      "sha256": "824538ef100e411f299a966b1ba85129b174233cdfa99c67bfa132d08edaf65e",
+      "bytes": 1409
+    },
+    "unit_tests.json": {
+      "sha256": "50e9cf21bd08c23782d658522411d544bb9d7b06838180a4efb0863d17510fee",
+      "bytes": 414
+    },
+    "validation.json": {
+      "sha256": "5071d1b1bf6d6b5c3656b00097f041b5f76f318e19dd361699f6faf445687cd4",
+      "bytes": 28263
+    }
+  },
+  "provenance_amendment": {
+    "date": "2026-10-27",
+    "scope": "Refresh the paper_table_values.json inventory after two private stage paths were redacted; numerical table values and risk/solver evidence are unchanged.",
+    "prior_sha256": "4974bd2f7d2d87a454fcace92239e3287f20037f60fd1730ae6d1a1de2f73b3d",
+    "prior_bytes": 10899
+  }
+}

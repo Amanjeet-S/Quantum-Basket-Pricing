@@ -1,0 +1,850 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[british]{babel}
+\usepackage{url,xcolor,graphicx}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Constrained static hedging of a capped GBM claim},
+pdfauthor={Amanjeet Singh},pdfsubject={Physical loss and funding constraints},
+pdfkeywords={static hedging, mean-square loss, convex optimisation, KKT}}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\setlength{\bibhang}{1.5em}
+\setlength{\bibsep}{2pt}
+\setlength{\emergencystretch}{1.5em}
+\renewcommand{\bibfont}{\small}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\newtheorem{theorem}{Theorem}[section]
+\title{Constrained static hedging of a capped GBM claim}
+\author{Amanjeet Singh}
+\date{20 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+I study static hedging of a capped European claim under geometric Brownian
+motion with position and funding limits. Risk-neutral prices determine the
+initial premium and instrument costs, while the physical measure determines
+mean-square discounted terminal error. Dividends are reinvested explicitly.
+Closed truncated-lognormal moments yield a strictly convex quadratic loss
+and a unique constrained hedge. Complete optimality proofs include the
+zero-budget boundary, a finite active-set method, the distinction between
+variance and mean-square objectives, and budget shadow prices. I compare
+126 constrained hedges with unrestricted and cash-only baselines, a
+same-constraint variance optimiser, a projection heuristic and an independent
+general-purpose solver. Monte Carlo and separate residual-square integration
+check the risk calculations. Adverse heuristic rankings, small numerical
+violations and original cancellation cases remain visible. A validated
+extension resolves the arithmetic-floor cases with exactly feasible
+holdings and primal-dual risk bounds. Funding limits
+have an exact risk penalty; additional budget has a locally interpretable
+marginal value. The study provides a reproducible financial optimisation
+example with rigorous proofs, using synthetic inputs and established hedging
+foundations.
+\end{abstract}
+\noindent\begin{minipage}{\linewidth}
+\small\emergencystretch=2em
+\textit{Keywords:} static hedging; mean-square loss; physical measure;
+convex optimisation; funding constraints; KKT conditions; shadow prices.\par
+\smallskip\textit{JEL classification:} C61, C63, G13.\par
+\end{minipage}
+\section{Financial model and funded loss}
+\label{sec:h-model}
+
+I study how position and funding constraints alter static hedging of a
+capped claim under a classical geometric Brownian motion (GBM) model.
+Static quadratic hedging with pricing-measure cost constraints is
+established \citep{leunglorig2016}; I specialise it to a two-instrument
+basis and a fixed no-arbitrage premium. Fixed-capital mean-square loss
+also appears in constrained dynamic hedging \citep{czichowskyschweizer2012},
+but the existence proof here is finite-dimensional.
+\footnote{The closest static antecedent was read in its identified author
+preprint; its published successor metadata was verified. The source ledger
+records that distinction and the limited sections actually consulted.}
+The underlying GBM market remains dynamically complete. Residual risk
+arises from the restricted instrument set and static positions. Physical
+parameters are stipulated for synthetic comparisons.
+
+Let $S,K,H,T,\sigma>0$, let $r,q,\mu$ be finite constants, and set
+$J=K+H$, $D=e^{-rT}$ and $a=e^{(q-r)T}$. Under the physical measure,
+\begin{equation}
+ X=S\exp\{(\mu-q-\sigma^2/2)T+\sigma\sqrt T Z\},\qquad
+ Z\sim N(0,1),\qquad Y=D\min\{(X-K)^+,H\}.
+ \label{eq:h-physical-law}
+\end{equation}
+Here $\mu$ is the total-return drift. I price the contract under the
+stipulated equivalent measure $Q$, whose ex-dividend drift is $r-q$.
+For strike $A$, let
+\begin{align}
+ C_A&=S e^{-qT}\Phi(d_{1,A})-A D\Phi(d_{2,A}),\notag\\
+ d_{1,A}&=\frac{\log(S/A)+(r-q+\sigma^2/2)T}{\sigma\sqrt T},
+ \quad d_{2,A}=d_{1,A}-\sigma\sqrt T.
+ \label{eq:h-fair-premiums}
+\end{align}
+These classical prices follow \citet{blackscholes1973} and
+\citet{merton1973}. The received premium is $V_0=C_K-C_J>0$. Under $Q$, terminal stock has a strictly positive
+lognormal density on $(0,\infty)$. The non-negative call and capped
+payoffs are positive on sets of positive probability, so their finite
+discounted expectations give $C_K>0$ and $V_0>0$. I allow only the
+total-return stock, with dividends reinvested, and the vanilla call
+at $K$. Their initial costs and discounted gains are
+\begin{equation}
+ p=(S,C_K)^\top,\qquad
+ g=(aX-S,\ D(X-K)^+-C_K)^\top.
+ \label{eq:h-instruments}
+\end{equation}
+For fixed holdings $\theta=(\theta_s,\theta_c)^\top$, the initial bank
+balance is $V_0-p^\top\theta$. The self-financing portfolio's discounted
+terminal wealth is $V_0+\theta^\top g$, so the discounted liability
+residual and loss are
+\begin{equation}
+ R(\theta)=Y-V_0-\theta^\top g,\qquad
+ L(\theta)=\mathbb E_P[R(\theta)^2]
+ =c-2h^\top\theta+\theta^\top M\theta,
+ \label{eq:h-risk}
+\end{equation}
+where $M=\mathbb E_P[gg^\top]$, $h=\mathbb E_P[g(Y-V_0)]$ and
+$c=\mathbb E_P[(Y-V_0)^2]$. This is uncentred mean-square financial
+loss, including squared bias, rather than residual variance alone.
+It penalises discounted terminal surplus and shortfall symmetrically;
+the pricing premium is fixed, not chosen to minimise this loss.
+I impose the declared box and instrument-spend budget
+\begin{equation}
+ {\cal F}_B=\{\theta:0\leq\theta_s,\theta_c\leq1,\
+ p^\top\theta\leq B\},\qquad B=\kappa V_0,\quad \kappa\geq0.
+ \label{eq:h-feasible-set}
+\end{equation}
+For $\kappa\leq1$ the bank balance is non-negative; for $\kappa>1$
+borrowing may occur. These position bounds are modelling choices,
+not universal limits on optimal hedges.
+
+\section{Convexity and constrained optimality}
+
+The relevant convex optimality principles are established
+\citep{boydvandenberghe2004}. The following specialisation includes the
+zero-budget boundary, where strict feasibility fails.
+
+\begin{theorem}[Existence, uniqueness and optimality]
+\label{thm:h-constrained-optimum}
+The matrix $M$ is positive definite and $\mathcal F_B$ is nonempty
+and compact. The constrained hedge is unique. Its necessary and
+sufficient conditions are feasibility, non-negative multipliers
+$\ell,u\in\mathbb R^2$ and $\lambda\in\mathbb R$, and
+\begin{align}
+ 2(M\theta-h)-\ell+u+\lambda p&=0,\label{eq:h-kkt-stationarity}\\
+ \ell_i\theta_i=0,\quad u_i(\theta_i-1)&=0,\quad
+ \lambda(p^\top\theta-B)=0.\label{eq:h-kkt-complementarity}
+\end{align}
+These conditions also hold at $B=0$, although strict feasibility
+fails there. The optimum lies among at most sixteen candidates:
+the unconstrained stationary point, stationary points on five
+supporting lines and their ten pairwise intersections, retaining
+only well-defined feasible candidates.
+\end{theorem}
+
+Appendix~\ref{app:h-proofs} gives full proofs and closed Gaussian
+moment expressions for every objective coefficient. It also expresses
+risk as an integral of three squared affine residuals. No finite hedge
+in this instrument span replicates the capped claim exactly; apparent
+zero risk from subtracting nearly equal floating-point moments is
+therefore a numerical warning. A long call at $K$ and short call at
+$J$ would replicate the claim, but that second call is unavailable here.
+
+\section{Loss choice and the value of funding}
+\subsection{Variance minimisation and mean-square hedging}
+
+The financial objective also explains why variance-reduction controls
+cannot simply be reused as optimal hedges. Put $m=\mathbb E_Pg$,
+$e=\mathbb E_P(Y-V_0)$, $G=\operatorname{Cov}_P(g)$ and
+$k=\operatorname{Cov}_P(g,Y-V_0)$. With
+$\theta_v=G^{-1}k$, $\zeta=m^\top G^{-1}m$ and
+$\eta=e-m^\top\theta_v$, the unrestricted mean-square relaxation is
+\begin{equation}
+ \theta_M=M^{-1}h=\theta_v+\frac{G^{-1}m\,\eta}{1+\zeta},
+ \qquad L(\theta_v)-L(\theta_M)=\frac{\eta^2\zeta}{1+\zeta}.
+ \label{eq:h-centred-risk-gap}
+\end{equation}
+Under $P=Q$, $m=e=0$ and the objectives coincide; different measures
+permit, but do not force, a strict difference. This unrestricted
+$L^2$ benchmark can contain short positions and is not automatically
+admissible under the bounded-below wealth condition. Constraints add the
+exact penalty
+$L(\theta_B)-L(\theta_M)=(\theta_B-\theta_M)^\top
+M(\theta_B-\theta_M)$.
+
+\subsection{Budget shadow prices}
+
+The optimal risk $v(B)=\min_{\mathcal F_B}L$ is non-increasing
+and convex. Every budget multiplier yields the global supporting bound
+\begin{equation}
+ v(B')\geq v(B)-\lambda_B(B'-B),\qquad B'\geq0.
+ \label{eq:h-budget-shadow}
+\end{equation}
+On a regular active-set interval, $v'(B)=-\lambda_B$ and $v$ is
+quadratic or constant. At zero budget,
+$v'(0+)=-2\max\{0,h_s/S,h_c/C_K\}$: the initial marginal
+benefit of available budget is the largest positive loss-reduction/cost
+ratio; unhelpful spending is not required. The budget here permits spending; it does not require the entire
+amount to be invested.
+\section{Registered comparisons and numerical evidence}
+\label{sec:h-results}
+
+I retain the seven designed contracts in Table~\ref{tab:h-contracts}.
+The protocol was saved before outcomes, with physical total-return drifts
+$\mu\in\{0.03,0.06,0.12\}$ and budget multiples
+$\kappa\in\{0,0.25,0.5,1,2,4\}$. This gives 126 constrained
+mean-square comparisons. Rates are annualised; maturities are in years.
+The parameters are synthetic, with no licensed or empirical observations.
+The experiment assumes a known physical law; it does not fit $\mu$.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrrrrrrr}\toprule
+Contract & $S$ & $K$ & $H$ & $T$ & $r$ & $q$ & $\sigma$\\\midrule
+Lower kink & 100 & 100 & 20 & 1 & 0.03 & 0.01 & 0.2 \\
+Upper kink & 120 & 100 & 20 & 1 & 0.03 & 0.01 & 0.2 \\
+Inside spread & 110 & 100 & 20 & 1 & 0.03 & 0.01 & 0.2 \\
+Deep cap & 160 & 100 & 20 & 1 & 0.03 & 0.01 & 0.2 \\
+Short dated & 100 & 100 & 20 & 0.05 & 0.03 & 0.01 & 0.06 \\
+Negative rate/dividend & 105 & 100 & 20 & 1 & -0.015 & 0.045 & 0.25 \\
+High volatility & 95 & 100 & 30 & 2 & 0.03 & 0.01 & 0.65 \\
+\bottomrule\end{tabular}
+\caption{Designed one-asset inputs. Instrument costs and the received premium use $Q$; terminal loss uses the specified physical drift. No input is a market estimate.}
+\label{tab:h-contracts}\end{table}
+
+The analytic unconstrained solution is the strongest two-instrument
+relaxation, and cash-only financing is the no-hedge baseline.
+I compare the constrained solution with a separately solved
+centred-variance objective using the same constraints, a Euclidean
+projection heuristic, and SciPy's general-purpose SLSQP optimiser.
+The projection heuristic minimises distance from unrestricted
+variance-optimal holdings; it does not minimise financial loss.
+The exact call-spread reference uses an additional call and a short
+position, so it identifies the importance of the instrument restriction
+rather than superiority within a shared feasible set.
+
+Closed truncated moments determine objective coefficients.
+Independent adaptive normal integration, split at both payoff kinks,
+checks 168 mean/product coefficients. Risk is reported primarily by
+integrating the non-negative squared residual, with the expanded
+moment quadratic retained alongside it. I do not replace negative
+computed risks with zero or repair eigenvalues. The numerical mean-square
+matrix condition number reaches $42,337$, despite exact positive
+definiteness. Thus numerical representation remains a separate issue
+from the convexity proof.
+
+\begin{table}[tb]\centering\small
+\begin{tabular}{lrrrr}\toprule
+Contract & No hedge & Constrained & Unrestricted & Reduction (\%)\\\midrule
+Lower kink & 68.4032 & 15.7205 & 13.5707 & 77.02 \\
+Upper kink & 58.6954 & 24.9738 & 20.2983 & 57.45 \\
+Inside spread & 71.9973 & 22.9439 & 19.0941 & 68.13 \\
+Deep cap & 6.06651 & 5.23772 & 4.218 & 13.66 \\
+Short dated & 0.770884 & Unresolved & Unresolved & n/a \\
+Negative rate/dividend & 85.0105 & 24.4634 & 20.1739 & 71.22 \\
+High volatility & 151.748 & 77.0938 & 57.1103 & 49.20 \\
+\bottomrule\end{tabular}
+\caption{Population-risk diagnostics at $\mu=0.06$ and $B=V_0$. Losses are squared discounted monetary units. The percentage compares the constrained mean-square hedge with cash-only financing. Unrestricted holdings relax the box and budget. The original short-dated hedge calculations lie below a heuristic arithmetic floor and support neither a resolved risk ratio nor a zero-risk assertion; Section~\ref{sec:h-validated-risk} supplies the validated extension.}
+\label{tab:h-risk-comparison}\end{table}
+
+No registered optimiser failure or quadrature warning occurred.
+Maximum scaled primal violation is $1.88\times10^{-14}$; maximum
+negative multiplier magnitude is $2.84\times10^{-14}$.
+The largest stationarity and complementary-slackness residuals are
+$4.55\times10^{-13}$ and $2.76\times10^{-15}$ respectively.
+These are floating-point diagnostics, not exact feasibility or
+admissibility certificates. SLSQP's residual-square risks differ from
+the active-set values by between $-2.27\times10^{-13}$ and
+$1.59\times10^{-11}$, with maximum position difference
+$2.34\times10^{-7}$. The small negative comparison remains visible.
+Equation~\eqref{eq:h-kkt-risk-bound} states the exact prerequisites
+needed to translate residuals into a risk bound.
+
+Among the 117 constrained rows above the heuristic floor, reductions
+against the no-hedge baseline range from zero to $81.5868$ per cent.
+The largest same-constraint variance-objective penalty is $0.191175$
+squared monetary units, or $0.5982$ per cent of the mean-square
+optimum, for the negative-rate/dividend contract at $\mu=0.12$,
+$\kappa=0.5$. The distinction is mathematically substantive but
+quantitatively modest in this registered family. Euclidean projection
+has a largest penalty of $612.244$, illustrating why geometric
+closeness to an unconstrained holding is not a financial risk criterion.
+
+\begin{figure}[tb]
+\centering
+\definecolor{hedge0}{HTML}{0072B2}
+\definecolor{hedge1}{HTML}{D55E00}
+\definecolor{hedge2}{HTML}{009E73}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=13mm},
+width=0.45\textwidth,height=5.6cm,xmin=0,xmax=4,grid=major,
+grid style={gray!25},tick label style={font=\scriptsize},
+label style={font=\small},title style={font=\small},
+xlabel={Budget/premium $\kappa$}]
+\nextgroupplot[title={(a) Risk under funding limits},ylabel={$v(\kappa V_0)/L(0)$},
+ymin=0,ymax=1.05,legend style={font=\scriptsize,draw=none,fill=none,at={(.98,.98)},anchor=north east}]
+\addplot[color=hedge0,thick] coordinates {(0,1) (0.033333333,0.9258812958) (0.066666667,0.8555567) (0.1,0.7890262124) (0.13333333,0.726289833) (0.16666667,0.667347562) (0.2,0.6121993992) (0.23333333,0.5608453447) (0.26666667,0.5132853984) (0.3,0.4695195605) (0.33333333,0.4295478308) (0.36666667,0.3933702094) (0.4,0.3609866963) (0.43333333,0.3323972914) (0.46666667,0.3076019948) (0.5,0.2866008065) (0.53333333,0.2693937265) (0.56666667,0.2559807548) (0.6,0.2463618913) (0.63333333,0.2405371361) (0.66666667,0.2384263004) (0.7,0.2375189206) (0.73333333,0.2366219423) (0.76666667,0.2357353654) (0.8,0.2348591899) (0.83333333,0.2339934158) (0.86666667,0.2331380432) (0.9,0.2322930719) (0.93333333,0.2314585021) (0.96666667,0.2306343337) (1,0.2298205667) (1.0333333,0.2290172011) (1.0666667,0.2282242369) (1.1,0.2274416741) (1.1333333,0.2266695128) (1.1666667,0.2259077529) (1.2,0.2251563943) (1.2333333,0.2244154372) (1.2666667,0.2236848815) (1.3,0.2229647273) (1.3333333,0.2222549744) (1.3666667,0.2215556229) (1.4,0.2208666729) (1.4333333,0.2201881243) (1.4666667,0.2195199771) (1.5,0.2188622313) (1.5333333,0.2182148869) (1.5666667,0.217577944) (1.6,0.2169514024) (1.6333333,0.2163352623) (1.6666667,0.2157295235) (1.7,0.2151341862) (1.7333333,0.2145492503) (1.7666667,0.2139747159) (1.8,0.2134105828) (1.8333333,0.2128568512) (1.8666667,0.2123135209) (1.9,0.2117805921) (1.9333333,0.2112580647) (1.9666667,0.2107459387) (2,0.2102442141) (2.0333333,0.209752891) (2.0666667,0.2092719692) (2.1,0.2088014489) (2.1333333,0.2083413299) (2.1666667,0.2078916124) (2.2,0.2074522963) (2.2333333,0.2070233817) (2.2666667,0.2066048684) (2.3,0.2061967565) (2.3333333,0.2057990461) (2.3666667,0.2054117371) (2.4,0.2050348295) (2.4333333,0.2046683233) (2.4666667,0.2043122185) (2.5,0.2039665151) (2.5333333,0.2036312132) (2.5666667,0.2033063126) (2.6,0.2029918135) (2.6333333,0.2026877158) (2.6666667,0.2023940195) (2.7,0.2021107246) (2.7333333,0.2018378312) (2.7666667,0.2015753391) (2.8,0.2013232485) (2.8333333,0.2010815592) (2.8666667,0.2008502714) (2.9,0.200629385) (2.9333333,0.2004189001) (2.9666667,0.2002188165) (3,0.2000291343) (3.0333333,0.1998498536) (3.0666667,0.1996809743) (3.1,0.1995224964) (3.1333333,0.1993744199) (3.1666667,0.1992367448) (3.2,0.1991094711) (3.2333333,0.1989925989) (3.2666667,0.198886128) (3.3,0.1987900586) (3.3333333,0.1987043906) (3.3666667,0.198629124) (3.4,0.1985642588) (3.4333333,0.198509795) (3.4666667,0.1984657327) (3.5,0.1984320717) (3.5333333,0.1984088122) (3.5666667,0.1983959541) (3.6,0.1983931355) (3.6333333,0.1983931355) (3.6666667,0.1983931355) (3.7,0.1983931355) (3.7333333,0.1983931355) (3.7666667,0.1983931355) (3.8,0.1983931355) (3.8333333,0.1983931355) (3.8666667,0.1983931355) (3.9,0.1983931355) (3.9333333,0.1983931355) (3.9666667,0.1983931355) (4,0.1983931355)};
+\addlegendentry{Lower kink}
+\addplot[color=hedge0,dashed,forget plot] coordinates {(0,0.1983931355)(4,0.1983931355)};
+\addplot[color=hedge1,thick] coordinates {(0,1) (0.033333333,0.9219130792) (0.066666667,0.8484661204) (0.1,0.7796591234) (0.13333333,0.7154920884) (0.16666667,0.6559650152) (0.2,0.601077904) (0.23333333,0.5508307547) (0.26666667,0.5052235673) (0.3,0.4642563417) (0.33333333,0.4279290781) (0.36666667,0.3962417764) (0.4,0.3691944366) (0.43333333,0.3467870587) (0.46666667,0.3290196427) (0.5,0.3158921887) (0.53333333,0.3074046965) (0.56666667,0.3035571662) (0.6,0.302261248) (0.63333333,0.3009837864) (0.66666667,0.2997190126) (0.7,0.2984669266) (0.73333333,0.2972275285) (0.76666667,0.2960008182) (0.8,0.2947867957) (0.83333333,0.2935854611) (0.86666667,0.2923968143) (0.9,0.2912208554) (0.93333333,0.2900575843) (0.96666667,0.2889070011) (1,0.2877691056) (1.0333333,0.2866438981) (1.0666667,0.2855313783) (1.1,0.2844315464) (1.1333333,0.2833444023) (1.1666667,0.2822699461) (1.2,0.2812081777) (1.2333333,0.2801590972) (1.2666667,0.2791227045) (1.3,0.2780989996) (1.3333333,0.2770879826) (1.3666667,0.2760896534) (1.4,0.275104012) (1.4333333,0.2741310585) (1.4666667,0.2731707928) (1.5,0.272223215) (1.5333333,0.271288325) (1.5666667,0.2703661228) (1.6,0.2694566085) (1.6333333,0.268559782) (1.6666667,0.2676756434) (1.7,0.2668041926) (1.7333333,0.2659454296) (1.7666667,0.2650993545) (1.8,0.2642659672) (1.8333333,0.2634452677) (1.8666667,0.2626372561) (1.9,0.2618419323) (1.9333333,0.2610592964) (1.9666667,0.2602893483) (2,0.259532088) (2.0333333,0.2587875156) (2.0666667,0.258055631) (2.1,0.2573364343) (2.1333333,0.2566299254) (2.1666667,0.2559361043) (2.2,0.2552549711) (2.2333333,0.2545865257) (2.2666667,0.2539307682) (2.3,0.2532876985) (2.3333333,0.2526573166) (2.3666667,0.2520396226) (2.4,0.2514346164) (2.4333333,0.250842298) (2.4666667,0.2502626675) (2.5,0.2496957248) (2.5333333,0.24914147) (2.5666667,0.248599903) (2.6,0.2480710238) (2.6333333,0.2475548325) (2.6666667,0.247051329) (2.7,0.2465605134) (2.7333333,0.2460823856) (2.7666667,0.2456169456) (2.8,0.2451641935) (2.8333333,0.2447241292) (2.8666667,0.2442967527) (2.9,0.2438820641) (2.9333333,0.2434800634) (2.9666667,0.2430907504) (3,0.2427141253) (3.0333333,0.2423501881) (3.0666667,0.2419989387) (3.1,0.2416603771) (3.1333333,0.2413345033) (3.1666667,0.2410213174) (3.2,0.2407208194) (3.2333333,0.2404330091) (3.2666667,0.2401578868) (3.3,0.2398954522) (3.3333333,0.2396457055) (3.3666667,0.2394086466) (3.4,0.2391842756) (3.4333333,0.2389725924) (3.4666667,0.2387735971) (3.5,0.2385872896) (3.5333333,0.2384136699) (3.5666667,0.238252738) (3.6,0.238104494) (3.6333333,0.2379689379) (3.6666667,0.2378460696) (3.7,0.2377358891) (3.7333333,0.2376383964) (3.7666667,0.2375535916) (3.8,0.2374814747) (3.8333333,0.2374220455) (3.8666667,0.2373753043) (3.9,0.2373412508) (3.9333333,0.2373198852) (3.9666667,0.2373112074) (4,0.2373109928)};
+\addlegendentry{Negative rate/dividend}
+\addplot[color=hedge1,dashed,forget plot] coordinates {(0,0.2373109928)(4,0.2373109928)};
+\addplot[color=hedge2,thick] coordinates {(0,1) (0.033333333,0.930119223) (0.066666667,0.8679453333) (0.1,0.8134783307) (0.13333333,0.7667182154) (0.16666667,0.7276649874) (0.2,0.6963186465) (0.23333333,0.6726791929) (0.26666667,0.6567466265) (0.3,0.6462828058) (0.33333333,0.6362063827) (0.36666667,0.6263216275) (0.4,0.6166285402) (0.43333333,0.6071271207) (0.46666667,0.597817369) (0.5,0.5886992852) (0.53333333,0.5797728693) (0.56666667,0.5710381212) (0.6,0.5624950409) (0.63333333,0.5541436285) (0.66666667,0.5459838839) (0.7,0.5380158072) (0.73333333,0.5302573559) (0.76666667,0.5234030545) (0.8,0.5178094172) (0.83333333,0.513476444) (0.86666667,0.5104041348) (0.9,0.5085924897) (0.93333333,0.5080390114) (0.96666667,0.5080390114) (1,0.5080390114) (1.0333333,0.5080390114) (1.0666667,0.5080390114) (1.1,0.5080390114) (1.1333333,0.5080390114) (1.1666667,0.5080390114) (1.2,0.5080390114) (1.2333333,0.5080390114) (1.2666667,0.5080390114) (1.3,0.5080390114) (1.3333333,0.5080390114) (1.3666667,0.5080390114) (1.4,0.5080390114) (1.4333333,0.5080390114) (1.4666667,0.5080390114) (1.5,0.5080390114) (1.5333333,0.5080390114) (1.5666667,0.5080390114) (1.6,0.5080390114) (1.6333333,0.5080390114) (1.6666667,0.5080390114) (1.7,0.5080390114) (1.7333333,0.5080390114) (1.7666667,0.5080390114) (1.8,0.5080390114) (1.8333333,0.5080390114) (1.8666667,0.5080390114) (1.9,0.5080390114) (1.9333333,0.5080390114) (1.9666667,0.5080390114) (2,0.5080390114) (2.0333333,0.5080390114) (2.0666667,0.5080390114) (2.1,0.5080390114) (2.1333333,0.5080390114) (2.1666667,0.5080390114) (2.2,0.5080390114) (2.2333333,0.5080390114) (2.2666667,0.5080390114) (2.3,0.5080390114) (2.3333333,0.5080390114) (2.3666667,0.5080390114) (2.4,0.5080390114) (2.4333333,0.5080390114) (2.4666667,0.5080390114) (2.5,0.5080390114) (2.5333333,0.5080390114) (2.5666667,0.5080390114) (2.6,0.5080390114) (2.6333333,0.5080390114) (2.6666667,0.5080390114) (2.7,0.5080390114) (2.7333333,0.5080390114) (2.7666667,0.5080390114) (2.8,0.5080390114) (2.8333333,0.5080390114) (2.8666667,0.5080390114) (2.9,0.5080390114) (2.9333333,0.5080390114) (2.9666667,0.5080390114) (3,0.5080390114) (3.0333333,0.5080390114) (3.0666667,0.5080390114) (3.1,0.5080390114) (3.1333333,0.5080390114) (3.1666667,0.5080390114) (3.2,0.5080390114) (3.2333333,0.5080390114) (3.2666667,0.5080390114) (3.3,0.5080390114) (3.3333333,0.5080390114) (3.3666667,0.5080390114) (3.4,0.5080390114) (3.4333333,0.5080390114) (3.4666667,0.5080390114) (3.5,0.5080390114) (3.5333333,0.5080390114) (3.5666667,0.5080390114) (3.6,0.5080390114) (3.6333333,0.5080390114) (3.6666667,0.5080390114) (3.7,0.5080390114) (3.7333333,0.5080390114) (3.7666667,0.5080390114) (3.8,0.5080390114) (3.8333333,0.5080390114) (3.8666667,0.5080390114) (3.9,0.5080390114) (3.9333333,0.5080390114) (3.9666667,0.5080390114) (4,0.5080390114)};
+\addlegendentry{High volatility}
+\addplot[color=hedge2,dashed,forget plot] coordinates {(0,0.3763501797)(4,0.3763501797)};
+\addplot[gray,dotted,forget plot] coordinates {(0,1)(4,1)};
+\nextgroupplot[title={(b) Value of additional budget},ylabel={$\lambda_B V_0/L(0)$},ymin=0]
+\addplot[color=hedge0,thick] coordinates {(0,2.280472749) (0.033333333,2.166649501) (0.066666667,2.052826252) (0.1,1.939003004) (0.13333333,1.825179756) (0.16666667,1.711356508) (0.2,1.597533259) (0.23333333,1.483710011) (0.26666667,1.369886763) (0.3,1.256063515) (0.33333333,1.142240266) (0.36666667,1.028417018) (0.4,0.9145937698) (0.43333333,0.8007705215) (0.46666667,0.6869472733) (0.5,0.573124025) (0.53333333,0.4593007767) (0.56666667,0.3454775285) (0.6,0.2316542802) (0.63333333,0.117831032) (0.66666667,0.02737741319) (0.7,0.02706537076) (0.73333333,0.02675332834) (0.76666667,0.02644128591) (0.8,0.02612924349) (0.83333333,0.02581720106) (0.86666667,0.02550515864) (0.9,0.02519311621) (0.93333333,0.02488107378) (0.96666667,0.02456903136) (1,0.02425698893) (1.0333333,0.02394494651) (1.0666667,0.02363290408) (1.1,0.02332086166) (1.1333333,0.02300881923) (1.1666667,0.02269677681) (1.2,0.02238473438) (1.2333333,0.02207269195) (1.2666667,0.02176064953) (1.3,0.0214486071) (1.3333333,0.02113656468) (1.3666667,0.02082452225) (1.4,0.02051247983) (1.4333333,0.0202004374) (1.4666667,0.01988839497) (1.5,0.01957635255) (1.5333333,0.01926431012) (1.5666667,0.0189522677) (1.6,0.01864022527) (1.6333333,0.01832818285) (1.6666667,0.01801614042) (1.7,0.01770409799) (1.7333333,0.01739205557) (1.7666667,0.01708001314) (1.8,0.01676797072) (1.8333333,0.01645592829) (1.8666667,0.01614388587) (1.9,0.01583184344) (1.9333333,0.01551980101) (1.9666667,0.01520775859) (2,0.01489571616) (2.0333333,0.01458367374) (2.0666667,0.01427163131) (2.1,0.01395958889) (2.1333333,0.01364754646) (2.1666667,0.01333550403) (2.2,0.01302346161) (2.2333333,0.01271141918) (2.2666667,0.01239937676) (2.3,0.01208733433) (2.3333333,0.01177529191) (2.3666667,0.01146324948) (2.4,0.01115120706) (2.4333333,0.01083916463) (2.4666667,0.0105271222) (2.5,0.01021507978) (2.5333333,0.009903037352) (2.5666667,0.009590994927) (2.6,0.009278952501) (2.6333333,0.008966910075) (2.6666667,0.00865486765) (2.7,0.008342825224) (2.7333333,0.008030782798) (2.7666667,0.007718740373) (2.8,0.007406697947) (2.8333333,0.007094655521) (2.8666667,0.006782613096) (2.9,0.00647057067) (2.9333333,0.006158528244) (2.9666667,0.005846485819) (3,0.005534443393) (3.0333333,0.005222400967) (3.0666667,0.004910358542) (3.1,0.004598316116) (3.1333333,0.00428627369) (3.1666667,0.003974231264) (3.2,0.003662188839) (3.2333333,0.003350146413) (3.2666667,0.003038103987) (3.3,0.002726061562) (3.3333333,0.002414019136) (3.3666667,0.00210197671) (3.4,0.001789934285) (3.4333333,0.001477891859) (3.4666667,0.001165849433) (3.5,0.0008538070077) (3.5333333,0.000541764582) (3.5666667,0.0002297221564) (3.6,0) (3.6333333,0) (3.6666667,0) (3.7,0) (3.7333333,0) (3.7666667,0) (3.8,0) (3.8333333,0) (3.8666667,0) (3.9,0) (3.9333333,0) (3.9666667,0) (4,0)};
+\addplot[color=hedge1,thick] coordinates {(0,2.412207052) (0.033333333,2.273008194) (0.066666667,2.133809337) (0.1,1.99461048) (0.13333333,1.855411623) (0.16666667,1.716212766) (0.2,1.577013908) (0.23333333,1.437815051) (0.26666667,1.298616194) (0.3,1.159417337) (0.33333333,1.02021848) (0.36666667,0.8810196225) (0.4,0.7418207653) (0.43333333,0.6026219082) (0.46666667,0.463423051) (0.5,0.3242241938) (0.53333333,0.1850253366) (0.56666667,0.04582647942) (0.6,0.03851416697) (0.63333333,0.0381335318) (0.66666667,0.03775289664) (0.7,0.03737226148) (0.73333333,0.03699162632) (0.76666667,0.03661099115) (0.8,0.03623035599) (0.83333333,0.03584972083) (0.86666667,0.03546908567) (0.9,0.03508845051) (0.93333333,0.03470781534) (0.96666667,0.03432718018) (1,0.03394654502) (1.0333333,0.03356590986) (1.0666667,0.03318527469) (1.1,0.03280463953) (1.1333333,0.03242400437) (1.1666667,0.03204336921) (1.2,0.03166273404) (1.2333333,0.03128209888) (1.2666667,0.03090146372) (1.3,0.03052082856) (1.3333333,0.0301401934) (1.3666667,0.02975955823) (1.4,0.02937892307) (1.4333333,0.02899828791) (1.4666667,0.02861765275) (1.5,0.02823701758) (1.5333333,0.02785638242) (1.5666667,0.02747574726) (1.6,0.0270951121) (1.6333333,0.02671447694) (1.6666667,0.02633384177) (1.7,0.02595320661) (1.7333333,0.02557257145) (1.7666667,0.02519193629) (1.8,0.02481130112) (1.8333333,0.02443066596) (1.8666667,0.0240500308) (1.9,0.02366939564) (1.9333333,0.02328876047) (1.9666667,0.02290812531) (2,0.02252749015) (2.0333333,0.02214685499) (2.0666667,0.02176621983) (2.1,0.02138558466) (2.1333333,0.0210049495) (2.1666667,0.02062431434) (2.2,0.02024367918) (2.2333333,0.01986304401) (2.2666667,0.01948240885) (2.3,0.01910177369) (2.3333333,0.01872113853) (2.3666667,0.01834050336) (2.4,0.0179598682) (2.4333333,0.01757923304) (2.4666667,0.01719859788) (2.5,0.01681796272) (2.5333333,0.01643732755) (2.5666667,0.01605669239) (2.6,0.01567605723) (2.6333333,0.01529542207) (2.6666667,0.0149147869) (2.7,0.01453415174) (2.7333333,0.01415351658) (2.7666667,0.01377288142) (2.8,0.01339224626) (2.8333333,0.01301161109) (2.8666667,0.01263097593) (2.9,0.01225034077) (2.9333333,0.01186970561) (2.9666667,0.01148907044) (3,0.01110843528) (3.0333333,0.01072780012) (3.0666667,0.01034716496) (3.1,0.009966529794) (3.1333333,0.009585894632) (3.1666667,0.00920525947) (3.2,0.008824624308) (3.2333333,0.008443989145) (3.2666667,0.008063353983) (3.3,0.007682718821) (3.3333333,0.007302083658) (3.3666667,0.006921448496) (3.4,0.006540813334) (3.4333333,0.006160178172) (3.4666667,0.005779543009) (3.5,0.005398907847) (3.5333333,0.005018272685) (3.5666667,0.004637637522) (3.6,0.00425700236) (3.6333333,0.003876367198) (3.6666667,0.003495732036) (3.7,0.003115096873) (3.7333333,0.002734461711) (3.7666667,0.002353826549) (3.8,0.001973191386) (3.8333333,0.001592556224) (3.8666667,0.001211921062) (3.9,0.0008312858995) (3.9333333,0.0004506507373) (3.9666667,7.001557496e-05) (4,0)};
+\addplot[color=hedge2,thick] coordinates {(0,2.212026618) (0.033333333,1.980820001) (0.066666667,1.749613384) (0.1,1.518406768) (0.13333333,1.287200151) (0.16666667,1.055993534) (0.2,0.8247869173) (0.23333333,0.5935803005) (0.26666667,0.3623736838) (0.3,0.3051677094) (0.33333333,0.2994176739) (0.36666667,0.2936676384) (0.4,0.2879176029) (0.43333333,0.2821675674) (0.46666667,0.276417532) (0.5,0.2706674965) (0.53333333,0.264917461) (0.56666667,0.2591674255) (0.6,0.25341739) (0.63333333,0.2476673545) (0.66666667,0.241917319) (0.7,0.2361672835) (0.73333333,0.2245390032) (0.76666667,0.1867190807) (0.8,0.1488991581) (0.83333333,0.1110792356) (0.86666667,0.07325931308) (0.9,0.03543939055) (0.93333333,0) (0.96666667,0) (1,0) (1.0333333,0) (1.0666667,0) (1.1,0) (1.1333333,0) (1.1666667,0) (1.2,0) (1.2333333,0) (1.2666667,0) (1.3,0) (1.3333333,0) (1.3666667,0) (1.4,0) (1.4333333,0) (1.4666667,0) (1.5,0) (1.5333333,0) (1.5666667,0) (1.6,0) (1.6333333,0) (1.6666667,0) (1.7,0) (1.7333333,0) (1.7666667,0) (1.8,0) (1.8333333,0) (1.8666667,0) (1.9,0) (1.9333333,0) (1.9666667,0) (2,0) (2.0333333,0) (2.0666667,0) (2.1,0) (2.1333333,0) (2.1666667,0) (2.2,0) (2.2333333,0) (2.2666667,0) (2.3,0) (2.3333333,0) (2.3666667,0) (2.4,0) (2.4333333,0) (2.4666667,0) (2.5,0) (2.5333333,0) (2.5666667,0) (2.6,0) (2.6333333,0) (2.6666667,0) (2.7,0) (2.7333333,0) (2.7666667,0) (2.8,0) (2.8333333,0) (2.8666667,0) (2.9,0) (2.9333333,0) (2.9666667,0) (3,0) (3.0333333,0) (3.0666667,0) (3.1,0) (3.1333333,0) (3.1666667,0) (3.2,0) (3.2333333,0) (3.2666667,0) (3.3,0) (3.3333333,0) (3.3666667,0) (3.4,0) (3.4333333,0) (3.4666667,0) (3.5,0) (3.5333333,0) (3.5666667,0) (3.6,0) (3.6333333,0) (3.6666667,0) (3.7,0) (3.7333333,0) (3.7666667,0) (3.8,0) (3.8333333,0) (3.8666667,0) (3.9,0) (3.9333333,0) (3.9666667,0) (4,0)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{Funding and residual risk for three registered contractual scenarios at $\mu=0.06$. Solid curves use the constrained mean-square hedge; dashed horizontal levels give each two-instrument unrestricted relaxation. The dotted level is the cash-only baseline. The right panel shows the normalised budget multiplier, equal to the marginal reduction in normalised risk on regular active-set intervals. At zero I use the proved right derivative. A supplemental 121-point grid illustrates curvature and saturation; all seven contracts remain in the primary comparison. These are synthetic floating-point diagnostics.}
+\label{fig:h-budget-frontier}
+\end{figure}
+Figure~\ref{fig:h-budget-frontier} links the funding constraint to
+both residual risk and its local marginal value. I use two-dimensional
+curves because each panel varies one budget parameter. The supplemental
+grid adds resolution to the function, not further selected hedge trials.
+The primary tables retain every registered contract and physical law.
+
+I also evaluate all holdings on 65,536 independent normal paths per
+contract/physical-law regime, using seed 674193 plus
+$1009(3i+j)$ for zero-based contract and drift indices.
+The same paths compare the methods within a regime, yielding 420
+Monte Carlo rows. No path is used to fit a hedge and no raw paths
+are retained. The reported standard errors concern sample means of
+squared residuals and are asymptotic diagnostics. All residual fourth
+moments are finite under the stipulated lognormal law, supporting
+the usual independent-sample convergence assumptions; these standard
+errors are not finite-sample coverage certificates.
+The maximum absolute standardised discrepancy is $2.21075$.
+Two rows exceed $1.96$, but they use identical holdings and the same
+paths, so they are not independent observations or simultaneous
+coverage evidence.
+
+Three negative expanded-quadratic risks and nine heuristic-floor
+constrained rows remain in the archive. The floor is
+$128\epsilon_{\mathrm{mach}}$ times the sum of absolute quadratic
+terms; it is a diagnostic choice, not a proved roundoff bound.
+For the short-dated case the residual-square calculation gives values
+around $10^{-30}$--$10^{-28}$ for near-unit-call holdings, while
+moment subtraction can report zero or a negative number.
+The true two-instrument optimum is strictly positive by the proof.
+In that original floating-point study, numerical positivity alone did not resolve its magnitude: tiny
+coefficient/funding errors and rare unsampled tails can dominate
+these computed risks.
+
+\subsection{Validated loss and feasible numerical hedges}
+\label{sec:h-validated-risk}
+
+I resolve the arithmetic-floor cases using outward price, moment and
+optimality bounds while preserving the original computations.
+Each retained binary64 parameter and holding denotes its exact rational
+value. The new calculation uses exact model prices at those inputs;
+the archived implementation used rounded prices. I therefore distinguish
+an original holding, its explicitly feasible replacement and a refined
+holding, rather than attributing every difference to risk evaluation.
+The upper-strike call remains strictly positive even when its cost is
+lost in ordinary floating-point subtraction. Appendix~\ref{app:h-validated-risk}
+derives the feasibility and primal-dual certificates used to bound both
+risk and distance from the unique constrained optimum.
+
+
+I evaluate 168 stored portfolios and refine all 126 primary constrained
+hedges. Independent 160-digit piecewise moments and quadratic programmes
+agree with the outward risk and optimum bounds. Sixty scaled positive
+integrals check all 21 cash-only and 21 unrestricted holdings, the nine
+original floor holdings and their nine refined replacements. All refined
+hedges are exactly feasible and all certificates resolve at 256 bits;
+the largest certified relative optimality gap is below
+$4.32\times10^{-26}$. These comparisons check distinct representations
+of the stipulated model, rather than observed market performance.
+
+Of the original 126 primary holdings, 75 satisfy both exact box and
+fair-price budget constraints and 51 violate at least one. The budget-only
+split is 85/41; 17 have a box violation, with seven in both groups.
+The largest budget and box violations are below $1.89\times10^{-12}$
+monetary units and $3.37\times10^{-18}$ units respectively. For the stored
+SLSQP holdings the joint split is 86/40. These tiny violations matter for
+an exact certificate without implying a material trading loss. Feasibility
+repair can increase loss: at $\mu=0.12$, $\kappa=1$, the short-dated
+holding's repaired loss is about $1.05\times10^{-23}$, before refinement
+reduces it to the bound in Table~\ref{tab:h-validated-tail}.
+
+\begin{table}[tb]
+\centering\small
+\begin{tabular}{rrrr}
+\toprule
+$\mu$ & Archived quadratic & Original holding, fair-price loss
+ & Certified $v(V_0)$ interval \\
+\midrule
+0.03 & $0$ & $2.23792\times10^{-30}$ & $[1.60915,1.60916]\times10^{-43}$ \\
+0.06 & $-2.22045\times10^{-16}$ & $1.64216\times10^{-29}$ & $[7.43078,7.43079]\times10^{-43}$ \\
+0.12 & $0$ & $1.03616\times10^{-28}$ & $[1.52713,1.52714]\times10^{-41}$ \\
+\bottomrule
+\end{tabular}
+\caption{Short-dated contract at $\kappa=1$. Original holdings and primitive
+parameters retain their exact binary64 values. The middle risk column
+summarises outward evaluation at exact model prices; the final column
+rounds the certified optimum bracket outwards. The archived quadratic
+uses the original rounded coefficients. Refinement changes holdings;
+it is not merely a more accurate evaluation of the stored portfolio.
+Losses are squared discounted monetary units.}
+\label{tab:h-validated-tail}
+\end{table}
+
+At $\mu=0.06$, the archived positive integral is
+$1.64531\times10^{-29}$, close to the exact-fair-price risk
+$1.64216\times10^{-29}$ of that same stored holding. It therefore
+need not be an inaccurate integral of its implemented residual.
+The much smaller optimum follows after refinement. The upper-strike
+call costs about $6.86\times10^{-43}$ and rules out exact unit-call
+funding at $\kappa=1$. The current certificates do not resolve the much
+smaller difference between the optimal losses at $\kappa=1$ and
+$\kappa=2$. Nor can the original 65,536-path Monte Carlo experiment
+confirm an upper-tail contribution beyond 13 normal standard deviations.
+
+\section{Interpretation and reproducibility}
+
+The financial question is how much discounted terminal error remains
+when a fixed fair premium must fund a restricted static hedge.
+The exact argument separates initial valuation under $Q$, physical
+loss under $P$, funding feasibility and numerical error. Its useful
+project-specific conclusions are the loss distinction, the exact
+constraint penalty and the interpretable budget frontier. These are
+checked specialisations of established hedging and convex optimisation,
+with reproducible adverse comparisons.
+
+The engine is \path{gbm_hedging.py}. Its runner,
+\path{run_hedging_study.py}, reads
+\path{hedging_protocol.json} and writes a fresh result
+directory. Python 3.13, NumPy 2.3.5 and SciPy 1.16.3 reproduce the
+registered computations. Ten tests compare independent moment
+representations, active-set and general-purpose solutions, budget
+subgradients, dividend funding and cancellation cases.
+The source ledger records publication status, actual consulted versions
+and reading scope. Full derivations follow in the appendix.
+The validated extension is \path{src/gbm_hedge_certificate.py};
+\path{scripts/run_hedge_certificate_study.py} runs directly from the
+organised repository into a new external output directory. The existing
+certificate environment adds python-flint 0.9.0 and mpmath 1.3.0.
+Arb supplies outward arithmetic \citep{johansson2017}; 21 additional tests
+cover exact feasibility, optimality, arithmetic boundaries and evidence
+protection. The retained protocol, exact fractions, source hashes,
+independent comparisons and failures are in
+\path{results/capped_gbm/validated_hedging/}.
+This is informed development following the original adverse outcomes,
+not an untouched prospective experiment. The previous companion source
+and export are preserved in
+\path{replication/history/before_validated_hedging/}.
+The existing pricing/calibration companion and main quantum paper
+retain their previous evidence.
+
+\appendix
+\section{Moment, optimality and sensitivity proofs}
+\label{app:h-proofs}
+
+\subsection{Discounted financial accounting and exact moments}
+
+A fixed unit of the total-return stock has terminal value $e^{qT}X$;
+continuous dividends are reinvested, making the share count evolve
+mechanically as $e^{qt}$. A call pays $(X-K)^+$ and the
+bank balance accumulates at $r$. Thus discounted portfolio wealth is
+$a\theta_sX+D\theta_c(X-K)^++V_0-p^\top\theta
+=V_0+\theta^\top g$. For the constrained long-only positions,
+the available securities have non-negative prices. Discounted wealth
+is bounded below by the fixed initial bank balance, itself at least
+$V_0-B$. This proves admissibility on the finite horizon even when
+borrowing occurs. The unrestricted $L^2$ relaxation need not satisfy
+that condition. Expanding the squared residual gives \eqref{eq:h-risk}.
+All moments are finite because lognormal variables have every positive
+integer moment.
+
+Write $b=\log S+(\mu-q-\sigma^2/2)T$, $v=\sigma\sqrt T$ and
+$t_j=\mathbb E_PX^j=\exp(jb+j^2v^2/2)$. For $j=0,1,2$, define
+\begin{align}
+ T_j(l,u)&=\mathbb E_P[X^j{\bf1}_{\{l<X\leq u\}}]\notag\\
+ &=t_j\left[
+ \Phi\!\left(\frac{\log u-b-jv^2}{v}\right)-
+ \Phi\!\left(\frac{\log l-b-jv^2}{v}\right)\right].
+ \label{eq:h-truncated-moment}
+\end{align}
+The conventions $\log0=-\infty$ and $\log\infty=\infty$ cover tails.
+To derive this formula, integrate $e^{j(b+vz)}\varphi(z)$ over the
+corresponding normal interval. Completing the square,
+$jvz-z^2/2=-(z-jv)^2/2+j^2v^2/2$, gives the displayed Gaussian
+probability. Interval endpoints have zero probability.
+
+Let $F=\min\{(X-K)^+,H\}$ and $A=(X-K)^+$. Put
+$f_0=\mathbb EF$, $f_1=\mathbb EXF$, $f_2=\mathbb EF^2$ and
+$a_0=\mathbb EA$, $a_1=\mathbb EXA$, $a_2=\mathbb EA^2$.
+Splitting at $K,J$ gives
+\begin{align}
+ f_0&=T_1(K,J)-KT_0(K,J)+HT_0(J,\infty),\notag\\
+ f_1&=T_2(K,J)-KT_1(K,J)+HT_1(J,\infty),\notag\\
+ f_2&=T_2(K,J)-2KT_1(K,J)+K^2T_0(K,J)+H^2T_0(J,\infty),
+ \label{eq:h-capped-moments}\\
+ a_0&=T_1(K,\infty)-KT_0(K,\infty),\notag\\
+ a_1&=T_2(K,\infty)-KT_1(K,\infty),\notag\\
+ a_2&=T_2(K,\infty)-2KT_1(K,\infty)+K^2T_0(K,\infty),
+ \label{eq:h-call-moments}\\
+ z&=\mathbb EFA=T_2(K,J)-2KT_1(K,J)+K^2T_0(K,J)\notag\\
+ &\hspace{14mm}+H\{T_1(J,\infty)-KT_0(J,\infty)\}.
+ \label{eq:h-payoff-cross-moment}
+\end{align}
+Expansion of the instrument gains now supplies
+\begin{align}
+ m&=(at_1-S,\ Da_0-C_K)^\top,\notag\\
+ M_{ss}&=a^2t_2-2aSt_1+S^2,\notag\\
+ M_{cc}&=D^2a_2-2DC_Ka_0+C_K^2,\notag\\
+ M_{sc}&=aDa_1-aC_Kt_1-SDa_0+SC_K,\label{eq:h-gain-moments}\\
+ h_s&=aDf_1-SDf_0-V_0(at_1-S),\notag\\
+ h_c&=D^2z-DC_Kf_0-V_0(Da_0-C_K),\notag\\
+ c&=D^2f_2-2DV_0f_0+V_0^2,\qquad e=Df_0-V_0.
+ \label{eq:h-loss-moments}
+\end{align}
+
+There is a separate positive-integral representation. On the successive
+regions $(0,K)$, $(K,J)$ and $(J,\infty)$, write $R=A_iX+B_i$.
+The coefficients are
+\begin{align}
+ (A_1,A_2,A_3)&=(-a\theta_s,\ D(1-\theta_c)-a\theta_s,\
+ -D\theta_c-a\theta_s),\notag\\
+ B_1&=-V_0+S\theta_s+C_K\theta_c,\notag\\
+ B_2&=-DK(1-\theta_c)-V_0+S\theta_s+C_K\theta_c,\notag\\
+ B_3&=DH+DK\theta_c-V_0+S\theta_s+C_K\theta_c.
+ \label{eq:h-affine-residual}
+\end{align}
+Integrating $\sum_i{\bf1}_i(A_iX+B_i)^2$ against the positive
+lognormal density gives the same risk. This mathematical identity
+does not guarantee that either expanded floating-point calculation
+is free from cancellation.
+
+\subsection{Positive definiteness, existence and the risk penalty}
+
+The lognormal density is strictly positive on $(0,\infty)$.
+If $u^\top Mu=\mathbb E(u^\top g)^2=0$, continuity makes
+$u^\top g(x)=0$ on that whole interval. Below $K$, its affine slope
+is $au_s$, so $u_s=0$, and its constant is $-u_cC_K$, so
+$u_c=0$ because $C_K>0$. Thus $M\succ0$.
+For $G=\operatorname{Cov}(g)$, zero quadratic variance would instead
+make $u^\top g(x)$ constant. The below-$K$ slope again gives
+$u_s=0$, while the above-$K$ slope $Du_c$ gives $u_c=0$.
+Hence $G\succ0$ as well.
+
+The feasible set is closed, bounded and contains zero. Continuity
+therefore gives existence, and the positive-definite Hessian $2M$
+gives strict convexity and uniqueness. Completing the quadratic yields
+\begin{equation}
+ L(\theta)=c-h^\top M^{-1}h+
+ (\theta-\theta_M)^\top M(\theta-\theta_M),\qquad
+ \theta_M=M^{-1}h.
+ \label{eq:h-square-completion}
+\end{equation}
+This proves the constraint penalty stated in the main text.
+Nevertheless the unrestricted minimum is strictly positive. If any
+finite $\theta$ made $L=0$, continuity and positive density would
+make all three affine residuals identically zero. Their slopes
+in \eqref{eq:h-affine-residual} force, successively, $\theta_s=0$,
+$\theta_c=1$ and $\theta_c=0$, a contradiction. The unrestricted
+minimum is attained at $\theta_M$, so this is a strictly positive
+minimum, not merely positivity at each chosen hedge.
+
+\subsection{KKT necessity without a constraint qualification}
+
+Write the five inequalities as $A\theta\leq b(B)$, with rows
+$-e_s^\top,-e_c^\top,e_s^\top,e_c^\top,p^\top$ and right sides
+$0,0,1,1,B$. At a minimiser $\theta_*$, any direction $d$ with
+$A_Id\leq0$ for the active rows $I$ remains feasible for all sufficiently
+small positive steps: each inactive inequality has a positive slack.
+Differentiability gives $\nabla L(\theta_*)^\top d\geq0$.
+For completeness, let $K_I$ be the cone of the active row normals.
+This cone is closed in $\mathbb R^2$. Indeed any conic combination
+reduces to at most two independent normals: for dependent vectors,
+subtract a scalar multiple of a nonzero linear dependence from the
+non-negative coefficients until one coefficient vanishes, preserving
+all remaining non-negativity. Iteration terminates with independence.
+For a convergent sequence of conic combinations, choose a subsequence
+using the same independent normals, since there are finitely many
+choices. Their coefficients are continuous linear functions of the
+combination and hence have non-negative limits. The limit lies in
+$K_I$, proving closedness.
+
+If $w=-\nabla L(\theta_*)$ were outside $K_I$, let $k_0$ be its
+nearest point in that closed convex cone and set $d=w-k_0\ne0$.
+Existence follows by minimising distance on a sufficiently large compact ball.
+Projection optimality gives $d^\top(k-k_0)\leq0$ for every $k\in K_I$.
+Taking $k=0,2k_0$ gives $d^\top k_0=0$, hence $d^\top k\leq0$
+for every $k\in K_I$. Thus $A_Id\leq0$, but
+$\nabla L(\theta_*)^\top d=-w^\top d=-\|d\|^2<0$,
+contradicting the directional inequality. Therefore $w\in K_I$
+and has non-negative conic coefficients. These are the active
+multipliers satisfying $\nabla L+A_I^\top\lambda_I=0$; inactive
+multipliers are zero. This proves the polyhedral Farkas argument here
+and yields \eqref{eq:h-kkt-stationarity}--\eqref{eq:h-kkt-complementarity}.
+Conversely, for any feasible $\theta$, convexity gives
+$L(\theta)\geq L(\theta_*)+\nabla L(\theta_*)^\top(\theta-\theta_*)$.
+Stationarity and complementary slackness make the latter inner product
+non-negative, proving sufficiency. No strict feasible point is used.
+
+At $B=0$, positivity of $p$ makes zero the only feasible point.
+Set upper multipliers to zero and choose
+$\lambda\geq\max\{0,2h_s/S,2h_c/C_K\}$; then lower multipliers
+$\ell=\lambda p-2h$ are non-negative and all KKT equations hold.
+For $B>0$, sufficiently small positive positions also demonstrate
+strict feasibility, but necessity does not depend on that observation.
+
+For the exact candidate method, an interior optimum has
+$\theta=M^{-1}h$. A relative interior point of any nondegenerate face
+lies on one of the five supporting lines. Writing that line as
+$x_0+tv$, $v\ne0$, its restricted objective has positive second
+derivative $2v^\top Mv$, and its unique stationary parameter is
+\begin{equation}
+ t_*=\frac{v^\top(h-Mx_0)}{v^\top Mv}.
+ \label{eq:h-face-stationary}
+\end{equation}
+Keep this candidate only if feasible. Every vertex is an intersection
+of two independent active line normals. There are at most ten line
+pairs; parallel pairs have no unique intersection. These alternatives
+cover an optimum on every face, including the singleton at $B=0$.
+Testing at most $1+5+10=16$ candidates therefore finds the global
+minimum; duplicate candidates and empty faces can be discarded.
+
+\subsection{Why a variance control is a different financial hedge}
+
+Expanding means and covariances gives $M=G+mm^\top$ and
+$h=k+me$, hence
+\begin{equation}
+ L(\theta)=\operatorname{Var}(Y-\theta^\top g)
+ +(e-m^\top\theta)^2.
+ \label{eq:h-mean-variance-decomposition}
+\end{equation}
+The variance minimiser is $\theta_v=G^{-1}k$. The identity
+$(G+mm^\top)G^{-1}m=(1+\zeta)m$ shows directly that
+$\theta_v+G^{-1}m\eta/(1+\zeta)$ solves $M\theta=h$.
+Uniqueness proves \eqref{eq:h-centred-risk-gap}; substituting the
+difference into \eqref{eq:h-square-completion} gives
+$\eta^2(\zeta+\zeta^2)/(1+\zeta)^2=\eta^2\zeta/(1+\zeta)$.
+Under $P=Q$, fair discounted instrument gains and claim premia have
+zero means, so $m=e=0$. If the measures differ, equality can still
+hold when $\eta=0$; a strict discrepancy is not automatic.
+
+\subsection{Budget value, shadow prices and local sensitivity}
+
+Feasible-set inclusion makes $v$ non-increasing. For $B_1,B_2\geq0$,
+a convex combination of their optimisers is feasible at the same
+convex combination of budgets. Convexity of $L$ then gives
+$v(tB_1+(1-t)B_2)\leq tv(B_1)+(1-t)v(B_2)$ for $0\leq t\leq1$.
+This proves convexity of the value function.
+
+For any optimiser at $B$ and its KKT multipliers, the box multipliers
+give non-negative terms against any other box-feasible point.
+The budget term gives
+$L(\theta)\geq v(B)-\lambda_B(p^\top\theta-p^\top\theta_B)$.
+If $\lambda_B>0$, complementary slackness gives $p^\top\theta_B=B$;
+if it is zero, the term vanishes. For $\theta\in\mathcal F_{B'}$,
+the displayed bound is at least $v(B)-\lambda_B(B'-B)$.
+Minimising proves \eqref{eq:h-budget-shadow}. Thus $-\lambda_B$
+is a subgradient on the budget domain, even at a degenerate budget.
+
+For local differentiability, fix an active set $I$ with independent
+rows, strictly positive active multipliers and strictly inactive
+remaining constraints. Put $H_0=2M$. The matrix
+\begin{equation}
+ \begin{pmatrix}H_0&A_I^\top\\A_I&0\end{pmatrix}
+ \label{eq:h-kkt-system}
+\end{equation}
+is invertible: a null vector satisfies $H_0x+A_I^\top y=0$,
+$A_Ix=0$, so $x^\top H_0x=0$, hence $x=0$ and then $y=0$.
+The KKT solution is consequently affine in $B$. Strict inequalities
+persist on an open neighbourhood, making that affine solution the
+unique optimum there. If $I$ is nonempty, let $\dot b_I$ be the vector
+with one at the budget row when present and zero elsewhere. Then
+\begin{align}
+ \dot\theta&=H_0^{-1}A_I^\top
+ (A_IH_0^{-1}A_I^\top)^{-1}\dot b_I,\notag\\
+ v'&=-\lambda_B,\qquad v''=\dot\theta^\top H_0\dot\theta\geq0.
+ \label{eq:h-local-budget-sensitivity}
+\end{align}
+The first identity follows by differentiating the KKT system; the
+second uses $\nabla L^\top\dot\theta=-\lambda_I^\top\dot b_I$.
+For an empty active set, $\theta=\theta_M$ is locally constant.
+At active-set changes or dependent rows, this differentiability
+argument is not asserted; the global subgradient bound still holds.
+
+In the budget-only active regime, put $z_p=p^\top M^{-1}p>0$.
+Solving stationarity and $p^\top\theta=B$ explicitly gives
+\begin{align}
+ \theta&=\theta_M-\frac{p^\top\theta_M-B}{z_p}M^{-1}p,\notag\\
+ \lambda_B&=\frac{2(p^\top\theta_M-B)}{z_p},\notag\\
+ v(B)&=L(\theta_M)+\frac{(p^\top\theta_M-B)^2}{z_p}.
+ \label{eq:h-budget-only-regime}
+\end{align}
+These formulas apply only while the box is strictly inactive and
+$\lambda_B>0$.
+
+Finally, for sufficiently small $B>0$, write $\theta=Bz$.
+The upper bounds are then inactive on
+$z\geq0,\ p^\top z\leq1$, since $z_i\leq1/p_i$.
+On this compact set,
+$(L(Bz)-c)/B=-2h^\top z+Bz^\top Mz$ converges uniformly to
+$-2h^\top z$. Its minimum therefore tends to
+$-2\max\{0,h_s/S,h_c/C_K\}$, proving the right derivative at zero.
+No data-dependent active-set heuristic or estimated multiplier is
+needed for this exact financial sensitivity.
+
+\subsection{A bound from feasible KKT diagnostics}
+
+For any exactly feasible $\theta$ and non-negative multipliers
+$\lambda$, put $r_*=\nabla L(\theta)+A^\top\lambda$,
+$\varepsilon_c=\lambda^\top(b-A\theta)\geq0$ and
+$m_*=\lambda_{\min}(M)>0$. With $\delta=\theta_*-\theta$,
+quadratic expansion and feasibility give
+$L(\theta_*)\geq L(\theta)+r_*^\top\delta+
+m_*\|\delta\|^2-\varepsilon_c$. Completing the square and using
+the optimum's variational inequality yield
+\begin{equation}
+ m_*\|\theta-\theta_*\|^2
+ \leq L(\theta)-L(\theta_*)
+ \leq \varepsilon_c+\frac{\|r_*\|^2}{4m_*}.
+ \label{eq:h-kkt-risk-bound}
+\end{equation}
+The left inequality follows by expanding at $\theta_*$ and
+using $\nabla L(\theta_*)^\top(\theta-\theta_*)\geq0$.
+Floating-point feasibility, residuals and eigenvalues do not themselves
+prove the exact premises or certify this bound.
+
+\subsection{Outward feasibility and primal-dual certificates}
+\label{app:h-validated-risk}
+
+Primitive inputs and proposed holdings denote exact rationals, including
+stored binary64 values; prices and moments retain their exact
+transcendental targets. I evaluate them with outward arithmetic and
+increase precision until the retained sign and width tests are proved.
+An exhausted numerical budget is reported as unresolved.
+Midpoint coefficients supply candidate portfolios, not certified optima.
+
+Write $g_K=D(X-K)^+-C_K$ and $g_J=D(X-J)^+-C_J$.
+Since $Y-V_0=g_K-g_J$, the residual has the equivalent representation
+\begin{equation}
+ R(\theta)=-\theta_sg_s+(1-\theta_c)g_K-g_J,
+ \qquad L(\theta)=w^\top\Gamma w,
+ \quad w=(-\theta_s,1-\theta_c,-1)^\top,
+ \label{eq:h-stable-gain-risk}
+\end{equation}
+where $\Gamma=\mathbb E_P[(g_s,g_K,g_J)^\top(g_s,g_K,g_J)]$.
+The entries follow from \eqref{eq:h-truncated-moment} by expansion.
+For example, the call product vanishes below $J$ and equals
+$X^2-(K+J)X+KJ$ above it, so
+\begin{equation}
+ \mathbb E_P[(X-K)^+(X-J)^+]
+ =T_2(J,\infty)-(K+J)T_1(J,\infty)+KJ T_0(J,\infty).
+ \label{eq:h-upper-call-cross-moment}
+\end{equation}
+This retains the upper-tail contribution when $\theta_c$ is near one;
+$g_J$ is an algebraic auxiliary, not an additional tradable security.
+The original moment quadratic remains in the archive.
+
+Let $[C_-,C_+]$ and $[V_-,V_+]$ enclose $C_K,V_0$, with positive
+lower endpoints. Box an original rational holding to obtain
+$u\in[0,1]^2$, and set
+\begin{equation}
+ t=\begin{cases}1,&u=0,\\
+ \min\{1,\kappa V_-/(Su_s+C_+u_c)\},&u\ne0,
+ \end{cases}
+ \qquad \theta=tu.
+ \label{eq:h-outward-feasibility}
+\end{equation}
+The denominator is positive whenever $u\ne0$. Consequently
+$0\leq\theta\leq1$ and
+$S\theta_s+C_K\theta_c\leq S\theta_s+C_+\theta_c
+\leq\kappa V_-\leq\kappa V_0$.
+Thus the replacement is exactly feasible, including at zero budget.
+It can have greater loss than the original holding. Refinement and
+feasibility repair are separate operations and are reported separately.
+
+Use the true system $A\theta\leq b$ from
+\eqref{eq:h-feasible-set}. For any exact $\lambda\in\mathbb R^5_+$, put
+$z=h-A^\top\lambda/2$. Completing the square gives
+\begin{equation}
+ \begin{aligned}
+ L(x)+\lambda^\top(Ax-b)
+ &=(x-M^{-1}z)^\top M(x-M^{-1}z)+d(\lambda),\\
+ d(\lambda)&=c-\lambda^\top b-z^\top M^{-1}z.
+ \end{aligned}
+ \label{eq:h-certified-dual}
+\end{equation}
+For every feasible $x$, the left-hand side is at most $L(x)$;
+its infimum over all $x\in\mathbb R^2$ is $d(\lambda)$.
+Hence $d(\lambda)\leq v(B)$, without requiring exact KKT multipliers
+or strict feasibility. The choice $\lambda=0$ gives the unrestricted
+relaxation $c-h^\top M^{-1}h$. Its optimum is positive by the
+non-replication argument; a numerical lower endpoint must establish that
+positivity before it is reported as resolved.
+
+Suppose outward evaluation gives $L(\theta)\in[L_-,L_+]$,
+$d(\lambda)\in[d_-,d_+]$ and unrestricted loss in $[u_-,u_+]$.
+Then
+\begin{equation}
+ \underline v=\max\{0,d_-,u_-\}\leq v(B)\leq L(\theta)\leq L_+,
+ \qquad E=L_+-\underline v.
+ \label{eq:h-outward-value-gap}
+\end{equation}
+The independent zero lower bound follows from a squared loss; the raw
+dual enclosure is retained even if its lower endpoint is negative.
+This does not replace a negative computed risk by zero.
+If $M_{11}>0$, $\det M\geq\delta_->0$ and
+$\operatorname{tr}M\leq s_+$ are proved, then
+$m_-:=\delta_-/s_+\leq\lambda_{\min}(M)$:
+positive definiteness follows from Sylvester's criterion and
+$\lambda_{\max}(M)\leq\operatorname{tr}M$.
+For a feasible $\theta$, the segment
+$\theta_*+t(\theta-\theta_*)$ is feasible for $0\leq t\leq1$.
+Its right derivative at zero is non-negative by optimality, so
+$2(M\theta_*-h)^\top(\theta-\theta_*)\geq0$. Therefore
+$L(\theta)-v(B)=2(M\theta_*-h)^\top(\theta-\theta_*)
++(\theta-\theta_*)^\top M(\theta-\theta_*)$, which gives
+\begin{equation}
+ m_-\|\theta-\theta_*\|^2
+ \leq L(\theta)-v(B)\leq E.
+ \label{eq:h-outward-position-bound}
+\end{equation}
+All certificate endpoints are exact fractions; decimal displays are
+secondary summaries.
+
+For the distinct unit-call holding,
+\begin{equation}
+ R(0,1)=C_J-D(X-J)^+,\qquad
+ L(0,1)=D^2\mathbb E_P[((X-J)^+)^2]
+ -2DC_J\mathbb E_P[(X-J)^+]+C_J^2.
+ \label{eq:h-unit-call-tail-risk}
+\end{equation}
+Moreover $C_K-V_0=C_J>0$, so this holding is infeasible at $\kappa=1$.
+These identities neither describe a different near-unit-call holding nor
+establish that the original finite Monte Carlo run resolved the rare tail.
+They are checked applications of established GBM moments and convex
+duality, without a theoretical-priority claim.
+
+\begin{thebibliography}{99}
+\bibitem[Black and Scholes(1973)]{blackscholes1973}
+Black, F. and Scholes, M. (1973). The pricing of options and corporate liabilities. \emph{Journal of Political Economy}, 81(3), 637--654. \url{https://doi.org/10.1086/260062}. Final journal scan consulted, printed pages 637--644.
+
+\bibitem[Boyd and Vandenberghe(2004)]{boydvandenberghe2004}
+Boyd, S. and Vandenberghe, L. (2004). \emph{Convex Optimization}. Cambridge University Press. \url{https://doi.org/10.1017/CBO9780511804441}. Author-hosted published-book PDF consulted, Sections 4.2.3, 5.2.3, 5.5.2--5.5.3 and the Farkas lemma in Section 5.8, with the normal-cone definition in Exercise 2.38(c). This source is a textbook.
+
+\bibitem[Czichowsky and Schweizer(2012)]{czichowskyschweizer2012}
+Czichowsky, C. and Schweizer, M. (2012). Convex duality in mean-variance hedging under convex trading constraints. \emph{Advances in Applied Probability}, 44(4), 1084--1112. \url{https://doi.org/10.1239/aap/1354716590}. Final publisher PDF consulted, Introduction and Section 2, printed pages 1084--1088, and Theorem 4.1/proof, page 1095.
+
+\bibitem[Johansson(2017)]{johansson2017}
+Johansson, F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. \emph{IEEE Transactions on Computers}, 66(8), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}. Publication metadata is reused from the scalar-certificate source record; the local implementation is checked with python-flint 0.9.0. No new consultation of the article body is claimed.
+
+\bibitem[Leung and Lorig(2016)]{leunglorig2016}
+Leung, T. and Lorig, M. (2016). Optimal static quadratic hedging. \emph{Quantitative Finance}, 16(9), 1341--1355. \url{https://doi.org/10.1080/14697688.2016.1161229}. Published metadata/abstract verified; the consulted body is arXiv:1506.02074v2, posted 19 November 2015, Sections 2 and 3.2 and Appendix A, \url{https://arxiv.org/pdf/1506.02074v2}. The final journal body was not consulted.
+
+\bibitem[Merton(1973)]{merton1973}
+Merton, R. C. (1973). Theory of rational option pricing. \emph{The Bell Journal of Economics and Management Science}, 4(1), 141--183. \url{https://doi.org/10.2307/3003143}. Final journal PDF consulted, selected material in Sections 6--7, printed pages 162--166 and 168--171, particularly equation (44), page 170, and footnote 62, page 171.
+\end{thebibliography}
+\end{document}

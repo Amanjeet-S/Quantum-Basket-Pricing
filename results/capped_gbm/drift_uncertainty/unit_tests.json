@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-27",
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "command": "python -m unittest discover -s tests -p 'test_gbm_drift_hedging.py' -v",
+  "test_source_sha256": "0cfe843beb6c7befd7dfc6326bc43af92497478a08a85e182153b375864828cd",
+  "scope": "Canonical-source replay after the dividend-input alignment: 21 tests, zero failures/errors. Implementation checks do not replace mathematical proofs."
+}

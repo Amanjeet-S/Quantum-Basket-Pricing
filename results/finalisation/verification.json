@@ -1,0 +1,186 @@
+{
+  "schema": "qbp-final-project-verification-v1",
+  "completion_date": "2026-10-28",
+  "research_check_date": "2026-10-27",
+  "status": "complete_for_defined_MSc_portfolio_scope",
+  "publication_status": "unpublished project manuscripts",
+  "scope": "Cross-paper proof/claim/source-version review, fresh source workspaces, existing and new regression suites, native compilation, selected complete numerical reruns, strict quantum audits and rendered PDF inspection. This is not a proof-assistant formalisation, new global literature-priority review or rerun of every historical search.",
+  "historical_reconstruction": {
+    "files": 1223,
+    "bytes": 1107312438,
+    "layout_sha256": "a6647e608d0b2e219b3a744775607c87d6bd6d430777483ae35dd5fe32c0ca9e",
+    "original_copy_verified": true,
+    "all_copied_hashes_rechecked_after_tests": true
+  },
+  "tests": {
+    "historical": {
+      "count": 193,
+      "status": "passed",
+      "mpmath_version": "1.4.1",
+      "initial_environment_attempt": "A run with mpmath1.3.0 failed the prescribed optional synthesis import; corrected with the free pinned dependency in an isolated target. Frozen sources were unchanged.",
+      "log": "historical_tests.log",
+      "initial_log": "historical_tests_initial_environment.log"
+    },
+    "existing_organised": {
+      "count": 82,
+      "status": "passed",
+      "details": "existing_checks.json"
+    },
+    "installed_recovery_interface": {
+      "count": 12,
+      "status": "passed",
+      "log": "installed_recovery_tests.log"
+    },
+    "total_python_tests": 287,
+    "native_cpp_assertions": {
+      "count": 564,
+      "status": "passed",
+      "log": "native_tests.log"
+    }
+  },
+  "runtime": {
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.16.3",
+      "python-flint": "0.9.0",
+      "matplotlib": "3.10.6",
+      "mpmath": "1.3.0"
+    }
+  },
+  "fresh_studies": {
+    "status": "passed_with_retained_adverse_outcomes",
+    "numerical_files_byte_identical": 42,
+    "comparison": "companion_replay_comparison.json",
+    "native_strict_range_overshoots": 4,
+    "native_residual_bounds_cover_all_overshoots": true,
+    "trace_exit_code": 1,
+    "scope": "The expected trace exit 1 is an adverse strict-range result. Residual certification is for the exported-coefficient discrete system, excluding original-input and continuous financial-price error."
+  },
+  "quantum_checks": {
+    "sharp": "sharp_audit.json",
+    "resource_audit": {
+      "status": "passed",
+      "architecture_profiles": 808,
+      "qpe_plans": 1616,
+      "complete_variant_charges": 3232,
+      "retained_rejections": 12,
+      "report": "resource_audit.json"
+    },
+    "matched_audit": {
+      "status": "passed",
+      "histories": 1200,
+      "fresh_batches": 1968,
+      "report": "installed_recovery_integration.json",
+      "checker_modified": false,
+      "frozen_result_modified": false,
+      "original_export_failure_retained": "matched_initial_failure.log",
+      "resolution": "Exact original protocol/input commitments restored by the checked standard-library helper; all eight narrowly declared provenance transformations are inverted and original hashes verified. All nine scientific source premises and the fresh resource review remain required."
+    }
+  },
+  "paper_checks": {
+    "date": "2026-10-28",
+    "status": "passed",
+    "scope": "Abstract/date-only revision. All pages rendered; title pages inspected at reading resolution, the complete main-paper reflow checked in contact sheets, and companion pages after page 1 confirmed text-identical to the prior exports. No mathematical body, result, figure or reference change.",
+    "files": {
+      "generalisation_proofs": {
+        "pages": 34,
+        "abstract_whitespace_words": 136,
+        "first_line_indent_removed": true,
+        "keywords_and_JEL_preserved": true,
+        "stable_cross_references": true,
+        "overfull_boxes": 0,
+        "date": "28 October 2026",
+        "author": "Amanjeet Singh"
+      },
+      "capped_gbm_companion": {
+        "pages": 31,
+        "abstract_whitespace_words": 150,
+        "first_line_indent_removed": true,
+        "keywords_and_JEL_preserved": true,
+        "stable_cross_references": true,
+        "overfull_boxes": 0,
+        "date": "28 October 2026",
+        "author": "Amanjeet Singh"
+      },
+      "constrained_hedging_companion": {
+        "pages": 16,
+        "abstract_whitespace_words": 157,
+        "first_line_indent_removed": true,
+        "keywords_and_JEL_preserved": true,
+        "stable_cross_references": true,
+        "overfull_boxes": 0,
+        "date": "28 October 2026",
+        "author": "Amanjeet Singh"
+      }
+    }
+  },
+  "paper_manifest_sha256": "3c1676eee26d8bd594852dc0074fbef55ef4a9009228cca53e4af22e1bb7e3e7",
+  "proof_review": "proof_review.json",
+  "resolved_findings": [
+    "Qualified zero-coverage summary to exact chi-squared volatility intervals at the true interior maximum.",
+    "Corrected one provenance-only table manifest entry after private-path redaction; risk/solver outputs unchanged.",
+    "Recovered exact original matched protocol/input bindings without relaxing a checksum or audit assertion.",
+    "Concise, explicitly unindented abstracts; British spelling, JEL codes, numbered equations and source-version distinctions retained."
+  ],
+  "research_boundaries": [
+    "Financial experiments are synthetic; no LSEG observations or publisher article bodies are distributed.",
+    "No practical quantum advantage, generic original quantum theory, global algorithmic optimum or literature priority established.",
+    "Further sharp-envelope cost selection, empirical model validation, unknown-volatility robustness and dynamic hedging are optional research outside this project scope.",
+    "The portfolio is evidence of connected mathematical/computational work, not mastery of every programme module or a substitute for assessed preparation."
+  ],
+  "git": {
+    "head_before_and_after": "028a2c4711ca4cc49fa3b6921214eae49da53804",
+    "index_empty": true,
+    "commits_made": false,
+    "pushes_made": false,
+    "tracked_root_AGENTS_md": false
+  },
+  "repository_integrity_report": "repository_check.json",
+  "evidence_sha256": {
+    "companion_replay_comparison.json": "f88433e28c7debb4b5a27b3e87654cda46cbc01ef7d59629196ad722e8c62348",
+    "existing_checks.json": "388b74407d365d0fec330f593c4b2303a2c80d80096d4816d33b004eeb8c266e",
+    "historical_tests.log": "233ff4d5c56467f437aecac4df61ee8d856572ea336afd39ba270fa9d6ca3bb7",
+    "historical_tests_initial_environment.log": "567d624ce78433a896b184d6b3a07c6d60b973f9c2fb7d0193cdcf0da8f9438b",
+    "matched_audit.json": "5b45ed25528cbf38ac5e1e7cee9ead47b0087402eca3208048f96d2734d7ec96",
+    "matched_export_diagnosis.json": "44b8bb56ef257c60be2a5990fcbdba4914d1f505838c8664cfe07d863fe3ed49",
+    "matched_initial_failure.log": "1966b7104714206afef5e3781fc02decb4f516911475b13d5280daedee1fb1e9",
+    "native_tests.log": "d838a974e00b6a40386233eb44c789071a6fae1ad893e6163fcf62eecb169208",
+    "paper_checks.json": "b62aa56335f693c65f1401c9fb531e0878c982500201d4453e9f37177f5b58ee",
+    "proof_review.json": "58d089abc8448a1548cb76cffcb89292cc9a9fb54d89d6c9f7790009daaceaa6",
+    "recovery_strict_audit.json": "ffc18f065e6629986d6ac9941b912f9e994f8ccd1f16619e185932aa068e5e72",
+    "recovery_tests.json": "193ce64a17a2ac8429d2da9930f7f6e36a2f9e4de6e5662d3fda18e2358e296e",
+    "recovery_tests.log": "593ea7b2b0922dd5c5605a80a56dbab73ee0e960102797d8a237df9a2f6ac009",
+    "resource_audit.json": "1f1d38ed0f61ac6029d8e116f6e9a025ef2299f14aa31d06d28c4fdfd1f16f44",
+    "sharp_audit.json": "72589e70c4d22e47bf70ce8382b019eb5c7649a40a6968aebf02dadb7d210807",
+    "test_cpp_residual_certificate.log": "e05a47215b33e8262b419e3a363f0b2cb8b2a93982cd683d5da93ae0c6c3f449",
+    "test_gbm_drift_hedging.log": "485f6fb08e823bfa89f70a574a359d3f5dea897bacd0faa3a7e1f69751cc7d78",
+    "test_gbm_hedge_certificate.log": "0ea4be8f2757ec9ba7de7a2e01af61e31d0aec915d42dec9ae2b0c33944ff213",
+    "test_gbm_price_certificate.log": "025ff1837b001f84856ea4f4b3cfac3830f3e51b439098e655d87a2b26304d96",
+    "test_reproduce.log": "15d2ecc521ff33a88a9e2096efdf41aaa34645e292edfd12bbea9319c56292a3",
+    "installed_recovery_integration.json": "f1c1cdad70e2d06fc99071ace30d4dd7bdcd6358189420afa6d75c73572fbbc1",
+    "installed_recovery_tests.log": "18730ae66ed6dc63792f092b35863dc263f5cefb8e4b328f7cb418a695d34f1d",
+    "repository_check.json": "1588eadd8ac35f2bcc79f4dc53a290c629007b01a8ebfff525354e95f4c17dca",
+    "abstract_revision.json": "dc6bf1aa956464dc30ae2f06d58d946a0b592f1afbff062aa52b8409c9d0dffd"
+  },
+  "repository_check": {
+    "counts": {
+      "local_links": 348,
+      "markdown_files": 64,
+      "paper_files": 6,
+      "python_files": 298,
+      "retained_files": 1223,
+      "tracked_files": 1254
+    },
+    "errors": [],
+    "status": "passed"
+  },
+  "presentation_revision": {
+    "date": "2026-10-28",
+    "record": "abstract_revision.json",
+    "scope": "Only each abstract and displayed paper date change; mathematical body, numerical findings, figures and references are unchanged.",
+    "mathematical_body_unchanged": true,
+    "previous_source_exports_and_audits": "replication/history/before_distinct_abstracts/snapshot.zip"
+  }
+}

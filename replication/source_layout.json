@@ -235,13 +235,15 @@
     },
     {
       "original_path": "capped_gbm_companion.pdf",
-      "current_path": "paper/capped_gbm_companion.pdf",
-      "sha256": "ceb5b0f3148b1e429284888f24519c41052e1fe202c20c58753a8f6eff58879f"
+      "current_path": "replication/history/before_validated_calibration/capped_gbm_companion.pdf",
+      "sha256": "ceb5b0f3148b1e429284888f24519c41052e1fe202c20c58753a8f6eff58879f",
+      "display_path": "paper/capped_gbm_companion.pdf"
     },
     {
       "original_path": "capped_gbm_companion.tex",
-      "current_path": "paper/capped_gbm_companion.tex",
-      "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d"
+      "current_path": "replication/history/before_validated_calibration/capped_gbm_companion.tex",
+      "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d",
+      "display_path": "paper/capped_gbm_companion.tex"
     },
     {
       "original_path": "certificate_source_access.json",
@@ -1231,13 +1233,15 @@
     },
     {
       "original_path": "constrained_hedging_companion.pdf",
-      "current_path": "paper/constrained_hedging_companion.pdf",
-      "sha256": "f1167d7bc5e8a8e3dc4d0cb4ae36160f4ad87fce9edec8a257b94233d66a4cd3"
+      "current_path": "replication/history/before_validated_hedging/constrained_hedging_companion.pdf",
+      "sha256": "f1167d7bc5e8a8e3dc4d0cb4ae36160f4ad87fce9edec8a257b94233d66a4cd3",
+      "display_path": "paper/constrained_hedging_companion.pdf"
     },
     {
       "original_path": "constrained_hedging_companion.tex",
-      "current_path": "paper/constrained_hedging_companion.tex",
-      "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29"
+      "current_path": "replication/history/before_validated_hedging/constrained_hedging_companion.tex",
+      "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29",
+      "display_path": "paper/constrained_hedging_companion.tex"
     },
     {
       "original_path": "continuous_quadrature.py",

@@ -1,0 +1,396 @@
+{
+  "reporting_status": "First strict-range audit retained before adding exact excess magnitude/coverage diagnostics; its four failures were not removed or relaxed.",
+  "protocol": {
+    "schema": "qbp-native-trace-protocol-v1",
+    "cases": [
+      {
+        "name": "lower_kink",
+        "contract": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "name": "upper_kink",
+        "contract": {
+          "spot": 120.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "name": "inside_spread",
+        "contract": {
+          "spot": 110.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "name": "deep_cap",
+        "contract": {
+          "spot": 160.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.2
+        }
+      },
+      {
+        "name": "low_vol_short_dated",
+        "contract": {
+          "spot": 100.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 0.05,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.06
+        }
+      },
+      {
+        "name": "negative_rate_dividend",
+        "contract": {
+          "spot": 105.0,
+          "strike": 100.0,
+          "cap": 20.0,
+          "maturity": 1.0,
+          "rate": -0.015,
+          "dividend": 0.045,
+          "volatility": 0.25
+        }
+      },
+      {
+        "name": "high_volatility",
+        "contract": {
+          "spot": 95.0,
+          "strike": 100.0,
+          "cap": 30.0,
+          "maturity": 2.0,
+          "rate": 0.03,
+          "dividend": 0.01,
+          "volatility": 0.65
+        }
+      }
+    ],
+    "meshes": [
+      {
+        "intervals": 2,
+        "time_steps": 1
+      },
+      {
+        "intervals": 16,
+        "time_steps": 3
+      },
+      {
+        "intervals": 32,
+        "time_steps": 16
+      }
+    ],
+    "target": "Exact recurrence using binary64-parsed exported lambda, cap and initial vector; fixed Dirichlet boundaries 0/cap.",
+    "scalar_target": "Exact discrete final interpolation at the separately recorded binary64 index, weight and discount.",
+    "independent_check": "Exact rational Gaussian elimination on the one-interior-node, one-step meshes; compare both grid and scalar errors with exact residual bounds.",
+    "acceptance": "All dimensions/boundaries finite and valid; no observed range violations; all independent exact comparisons satisfy their rational bounds.",
+    "limitations": "No original-parameter, coordinate, payoff-construction, continuum, finite-domain, model or Greek certificate; largest meshes are trace audits, not exact target solves.",
+    "arithmetic": "Exact Fraction after parsing finite JSON values to binary64; upward-rounded finite binary64 summaries accompany exact fractions."
+  },
+  "manifest": {
+    "schema": "qbp-native-trace-study-v1",
+    "status": "fail",
+    "failures": [
+      "lower_kink:32:16:range",
+      "upper_kink:32:16:range",
+      "inside_spread:32:16:range",
+      "deep_cap:32:16:range"
+    ],
+    "records": [
+      {
+        "case": "lower_kink",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 8.339860291958278e-16,
+        "scalar_error_bound": 1.0260420046338721e-15,
+        "observed_range_violation": false
+      },
+      {
+        "case": "lower_kink",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 1.9757921951795188e-14,
+        "scalar_error_bound": 2.072226738092089e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "lower_kink",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 8.45556107082803e-14,
+        "scalar_error_bound": 8.299437559316309e-14,
+        "observed_range_violation": true
+      },
+      {
+        "case": "upper_kink",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 8.339860291958278e-16,
+        "scalar_error_bound": 1.2389060958857588e-15,
+        "observed_range_violation": false
+      },
+      {
+        "case": "upper_kink",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 1.9757921951795188e-14,
+        "scalar_error_bound": 2.2823474726254272e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "upper_kink",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 8.45556107082803e-14,
+        "scalar_error_bound": 8.613916601747387e-14,
+        "observed_range_violation": true
+      },
+      {
+        "case": "inside_spread",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 8.339860291958278e-16,
+        "scalar_error_bound": 3.4332519770852343e-15,
+        "observed_range_violation": false
+      },
+      {
+        "case": "inside_spread",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 1.9757921951795188e-14,
+        "scalar_error_bound": 2.5731514383403698e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "inside_spread",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 8.45556107082803e-14,
+        "scalar_error_bound": 8.849636905242314e-14,
+        "observed_range_violation": true
+      },
+      {
+        "case": "deep_cap",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 3.758680089070016e-15,
+        "scalar_error_bound": 4.559333691204366e-15,
+        "observed_range_violation": false
+      },
+      {
+        "case": "deep_cap",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 1.2390670529724923e-14,
+        "scalar_error_bound": 2.2734254907527376e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "deep_cap",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 9.77821940876034e-14,
+        "scalar_error_bound": 1.057335400448523e-13,
+        "observed_range_violation": true
+      },
+      {
+        "case": "low_vol_short_dated",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 3.7260647046480813e-16,
+        "scalar_error_bound": 8.702523625526636e-16,
+        "observed_range_violation": false
+      },
+      {
+        "case": "low_vol_short_dated",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 1.314364650984304e-14,
+        "scalar_error_bound": 1.5337504605002617e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "low_vol_short_dated",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 5.289609255061219e-14,
+        "scalar_error_bound": 5.460345113790009e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "negative_rate_dividend",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 3.6497313541658455e-16,
+        "scalar_error_bound": 6.047833041339477e-16,
+        "observed_range_violation": false
+      },
+      {
+        "case": "negative_rate_dividend",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 8.56348097201962e-15,
+        "scalar_error_bound": 9.662896988754036e-15,
+        "observed_range_violation": false
+      },
+      {
+        "case": "negative_rate_dividend",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 6.722687388874781e-14,
+        "scalar_error_bound": 6.942161406335475e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "high_volatility",
+        "intervals": 2,
+        "steps": 1,
+        "grid_error_bound": 6.549007939440655e-18,
+        "scalar_error_bound": 9.59163732859749e-18,
+        "observed_range_violation": false
+      },
+      {
+        "case": "high_volatility",
+        "intervals": 16,
+        "steps": 3,
+        "grid_error_bound": 2.8724756864784506e-14,
+        "scalar_error_bound": 2.7275685024347692e-14,
+        "observed_range_violation": false
+      },
+      {
+        "case": "high_volatility",
+        "intervals": 32,
+        "steps": 16,
+        "grid_error_bound": 1.6465869040954609e-13,
+        "scalar_error_bound": 1.5591919740213548e-13,
+        "observed_range_violation": false
+      }
+    ],
+    "trace_count": 21,
+    "independent_exact_target_checks": 7,
+    "max_grid_error_bound": 1.6465869040954609e-13,
+    "max_scalar_error_bound": 1.5591919740213548e-13,
+    "python": "3.13.9",
+    "source_sha256": {
+      "scripts/certify_cpp_heat_trace.py": "7c2a797a760599dc923d93f187b82bf63b46dd865470df47915b53586b16f518",
+      "src/capped_gbm.py": "bae5e119c04a0156360d1db3855779bf15df9adca53db6ab72d6edfb6ddc6efa",
+      "src/cpp_residual_certificate.py": "e92521975b047ff6eca8cadb3557bbc9dd14c5e4d4c3b8e2463b06ebb887599e",
+      "cpp/include/qbp/capped_gbm.hpp": "6662ecd4386fa172099bdfea6dd4535d97e57f0ceb89819c681136daf6f23562",
+      "cpp/src/capped_gbm.cpp": "4b40c09f23451866eb16a563980d5c90952a7f035b6e9d8edb7ed5d835d92ac2",
+      "cpp/src/main.cpp": "efa7ca35c2a0c478f9a3ba3e40a1b38283752fddf9e7f3088eb2ae4439dacc6e"
+    },
+    "executable_sha256": "5b6e2427f65a705b23c8ad94f4f20c3a708e7993c913853e293a449f7984ee05",
+    "files": {
+      "deep_cap_m16_n3.json": {
+        "sha256": "34eedd1eb09c0f4ce1a728847bc2dec550df3567efe290353559ee913e7d6a5b",
+        "bytes": 6374
+      },
+      "deep_cap_m2_n1.json": {
+        "sha256": "cd3bcf0506bad22ca9cfe31e5f0da1d2a5c865fc9bab83f82eab46aaf791744c",
+        "bytes": 4165
+      },
+      "deep_cap_m32_n16.json": {
+        "sha256": "2ee838805375d156ff1543fd5f50b3599841b1edf9f68dfde11c16bda0bcc8a3",
+        "bytes": 23713
+      },
+      "high_volatility_m16_n3.json": {
+        "sha256": "3d10df55fe39f2f9268d7d780aca6f57bc019aef0a7c57c9f20ee248aa610b12",
+        "bytes": 6396
+      },
+      "high_volatility_m2_n1.json": {
+        "sha256": "ab043a038b6e41a69541fc533a5fa555353094ca4734a4bbec289fb958ab5fc7",
+        "bytes": 4199
+      },
+      "high_volatility_m32_n16.json": {
+        "sha256": "cfa551c997c7be634a2dfaded0c622152dd733d57cc0d3580a86edb10881c69a",
+        "bytes": 23833
+      },
+      "inside_spread_m16_n3.json": {
+        "sha256": "ab8ce7dcab6782fc33fad53d5033282405124eede8f37303b2f5225aee115838",
+        "bytes": 6383
+      },
+      "inside_spread_m2_n1.json": {
+        "sha256": "339052300b7e15a9f13a2e49faaa22ea12564cebf4c45ac16e4c7af5c1b512af",
+        "bytes": 4190
+      },
+      "inside_spread_m32_n16.json": {
+        "sha256": "26da7ae1622f818352ee5af14e0894f0d5031a68d28cf22c62b4872ab9af5ef5",
+        "bytes": 23792
+      },
+      "low_vol_short_dated_m16_n3.json": {
+        "sha256": "f302c7135c9df6fb5a279adc0afba25be5aed454c81b311004fa2c3f654f6fef",
+        "bytes": 6460
+      },
+      "low_vol_short_dated_m2_n1.json": {
+        "sha256": "19590ba52a8233effc3a563c19726c986c2c9ba19f6199d181e77556a40ef523",
+        "bytes": 4181
+      },
+      "low_vol_short_dated_m32_n16.json": {
+        "sha256": "1d82374b801cf884f634ec33dfc7e2fd255f774e9e7864ad852d934365888040",
+        "bytes": 23105
+      },
+      "lower_kink_m16_n3.json": {
+        "sha256": "1058b625a466f61c1d6af4303854aa4f75069a495f003e3e79920b26b5a218e7",
+        "bytes": 6380
+      },
+      "lower_kink_m2_n1.json": {
+        "sha256": "7c5fb2b60bb9ba89e6fba9c03673f917df01743fd4881292028ba31063cf0469",
+        "bytes": 4174
+      },
+      "lower_kink_m32_n16.json": {
+        "sha256": "14afa1fb8cf767d23ac92e956572c29b8f6aeedbc34158a33aa84321b14f867c",
+        "bytes": 23786
+      },
+      "negative_rate_dividend_m16_n3.json": {
+        "sha256": "04d8844b20a7c4c0bf9c14f6b02c1a6f5049f4596d6504151a6b16f9315e7fc6",
+        "bytes": 6396
+      },
+      "negative_rate_dividend_m2_n1.json": {
+        "sha256": "278b894a2ec196936d4fc39e7f7476e4551a418b7e8abe5ef625a74d1a3c747f",
+        "bytes": 4207
+      },
+      "negative_rate_dividend_m32_n16.json": {
+        "sha256": "05bab2a4f283669972cba8ef5ae0cfc09ac61ba418417a32c8af9d3b866467c0",
+        "bytes": 23792
+      },
+      "protocol.json": {
+        "sha256": "7027243fc8c4e597c9a3018eee2b6e4bb8ed85844cf15b690f5738839c0b2c8a",
+        "bytes": 2861
+      },
+      "upper_kink_m16_n3.json": {
+        "sha256": "59c6a717f760241861f5dd718c9abf28d19dc382802c0b6d8b0139d7ba96979e",
+        "bytes": 6376
+      },
+      "upper_kink_m2_n1.json": {
+        "sha256": "b4f9a2690f0c6820638c8ac6dde9e2d9e63e959bdf3ed9c2ff2690195f58da6b",
+        "bytes": 4180
+      },
+      "upper_kink_m32_n16.json": {
+        "sha256": "63811cad2ab1688fbc39f66d4ba8736edcfe73850dd338a1970dc8b319329214",
+        "bytes": 23784
+      }
+    }
+  }
+}

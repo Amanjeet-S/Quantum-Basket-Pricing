@@ -1,0 +1,13 @@
+test_bad_later_hash_fails_before_output_creation (test_reproduce.ReproductionTests.test_bad_later_hash_fails_before_output_creation) ... ok
+test_duplicate_original_paths_are_rejected (test_reproduce.ReproductionTests.test_duplicate_original_paths_are_rejected) ... ok
+test_isolated_copy_preserves_bytes_and_records_summary (test_reproduce.ReproductionTests.test_isolated_copy_preserves_bytes_and_records_summary) ... ok
+test_nonempty_and_source_contained_outputs_are_rejected (test_reproduce.ReproductionTests.test_nonempty_and_source_contained_outputs_are_rejected) ... ok
+test_overlapping_original_file_paths_are_rejected (test_reproduce.ReproductionTests.test_overlapping_original_file_paths_are_rejected) ... ok
+test_symlink_source_is_rejected (test_reproduce.ReproductionTests.test_symlink_source_is_rejected) ... ok
+test_unsafe_paths_are_rejected (test_reproduce.ReproductionTests.test_unsafe_paths_are_rejected) ... ok
+test_verify_only_creates_no_files (test_reproduce.ReproductionTests.test_verify_only_creates_no_files) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.027s
+
+OK

@@ -1,0 +1,301 @@
+{
+  "schema": "qbp-existing-release-checks-v1",
+  "runtime": {
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.16.3",
+      "python-flint": "0.9.0",
+      "matplotlib": "3.10.6",
+      "mpmath": "1.3.0"
+    }
+  },
+  "checks": [
+    {
+      "name": "runtime",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-c",
+        "import sys,platform,importlib.metadata as m,json; print(json.dumps({\"python\":sys.version,\"platform\":platform.platform(),\"packages\":{x:m.version(x) for x in (\"numpy\",\"scipy\",\"python-flint\",\"matplotlib\",\"mpmath\")}},indent=2))"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.401,
+      "log_sha256": "9bfe13dcea9510cf090ae7e0c9017788236d33730381b15bcb3c7057ccc5c0e6"
+    },
+    {
+      "name": "fresh_repository",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/check_repository.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 5.535,
+      "log_sha256": "05eea970441642f9fabe91c74b2964e571567395471c72533b438157a44327e0"
+    },
+    {
+      "name": "test_reproduce",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_reproduce.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.14,
+      "log_sha256": "15d2ecc521ff33a88a9e2096efdf41aaa34645e292edfd12bbea9319c56292a3",
+      "unittest_count": 8
+    },
+    {
+      "name": "test_cpp_residual_certificate",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_cpp_residual_certificate.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.056,
+      "log_sha256": "e05a47215b33e8262b419e3a363f0b2cb8b2a93982cd683d5da93ae0c6c3f449",
+      "unittest_count": 9
+    },
+    {
+      "name": "test_gbm_price_certificate",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_gbm_price_certificate.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 6.527,
+      "log_sha256": "025ff1837b001f84856ea4f4b3cfac3830f3e51b439098e655d87a2b26304d96",
+      "unittest_count": 23
+    },
+    {
+      "name": "test_gbm_hedge_certificate",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_gbm_hedge_certificate.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.433,
+      "log_sha256": "0ea4be8f2757ec9ba7de7a2e01af61e31d0aec915d42dec9ae2b0c33944ff213",
+      "unittest_count": 21
+    },
+    {
+      "name": "test_gbm_drift_hedging",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_gbm_drift_hedging.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.918,
+      "log_sha256": "485f6fb08e823bfa89f70a574a359d3f5dea897bacd0faa3a7e1f69751cc7d78",
+      "unittest_count": 21
+    },
+    {
+      "name": "build_qbp_gbm",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Icpp/include",
+        "cpp/src/capped_gbm.cpp",
+        "cpp/src/main.cpp",
+        "-o",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_build/qbp_gbm"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 3.115,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "build_qbp_native_tests",
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Icpp/include",
+        "cpp/src/capped_gbm.cpp",
+        "cpp/tests/native_tests.cpp",
+        "-o",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_build/qbp_native_tests"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 1.153,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native_tests",
+      "command": [
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_build/qbp_native_tests"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 0.342,
+      "log_sha256": "d838a974e00b6a40386233eb44c789071a6fae1ad893e6163fcf62eecb169208"
+    },
+    {
+      "name": "validated_calibration",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/run_gbm_certificate_study.py",
+        "--output",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/validated_calibration_replay"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 8.466,
+      "log_sha256": "d50bff7ecf15e13fe0f1a389a41baa062587342fb5317fc3370afa70e4843ac8"
+    },
+    {
+      "name": "validated_hedging",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/run_hedge_certificate_study.py",
+        "--output",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/validated_hedging_replay"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 14.952,
+      "log_sha256": "06f85c7ee4447243a0fe902afb00152c269e4022558f7e66f8a71ba06dd7274e"
+    },
+    {
+      "name": "drift_uncertainty",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/run_drift_hedge_study.py",
+        "--output",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/drift_uncertainty_replay"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 8.841,
+      "log_sha256": "cf2dfbc6af8a6a1895f48ba81033cc6acad174a0557894e59893201d67e0f90e"
+    },
+    {
+      "name": "native_comparison",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/run_cpp_pricing_study.py",
+        "--executable",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_build/qbp_gbm",
+        "--output",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_comparison_replay"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "passed",
+      "seconds": 7.214,
+      "log_sha256": "c2ffe365affcf99deb4f87775d1d4689e01ca07a89d0446cc0b44b079a3ca9f8"
+    },
+    {
+      "name": "native_trace",
+      "command": [
+        "/opt/anaconda3/bin/python3.13",
+        "scripts/certify_cpp_heat_trace.py",
+        "--executable",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_build/qbp_gbm",
+        "--output",
+        "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/native_trace_replay"
+      ],
+      "exit_code": 1,
+      "expected_exit_codes": [
+        1
+      ],
+      "status": "passed",
+      "seconds": 0.302,
+      "log_sha256": "f2aa289298118cc47c366f9835b97564922f196d336d96882ca69bf931e2b195"
+    }
+  ],
+  "organised_unittest_count": 82,
+  "scope": "Fresh source workspaces using an existing numerical runtime; no fresh dependency installation and no assertion of byte-identical machine timings.",
+  "native_trace_interpretation": "Expected exit 1, four retained strict-range overshoots, all within exact exported-coefficient discrete residual bounds. This is an adverse outcome, not a passed strict-range test."
+}

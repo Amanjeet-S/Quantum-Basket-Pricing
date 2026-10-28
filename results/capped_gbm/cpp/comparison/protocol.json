@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "design_status": "informed amendment after the initial C++/Python subtraction study; not an untouched preregistration",
+  "amendment": {
+    "reason": "The first study exposed cancellation in the existing subtractive Python call-spread baseline. A binary64 Python/SciPy digital-strike integral was therefore added to compare against the stable mathematical representation in the same ordinary precision.",
+    "changes": "add six Python binary64 quadrature quantities and their high-precision errors; retain original contracts, meshes, thresholds and subtraction comparison; add two disclosed implementation stress contracts covering the otherwise unexecuted positive-integral C++ branch and an extremely broad strike interval",
+    "retained_record": "amendment_history.json contains the initial protocol, its hash and the observed outcomes motivating each amendment",
+    "binary64_implementation_development": "The first stronger-baseline run retained a small-volatility Gamma cancellation failure. A subsequently inspected actual-fallback contract exposed precision loss in log(S/K); the standard log1p((S-K)/K) expression for nearby spot and strike was therefore used. Earlier results remain retained. No tolerance was relaxed.",
+    "broad_interval_addition": "A numerical review then found loss of the upper-strike normal coordinate for K=1e-300, cap=spot=100, volatility=1e-8, rate=yield=0. The native endpoint evaluation was corrected and this additional informed stress case retained without changing any earlier tolerance. The direct binary64 integral is evaluated as written, with any resulting cancellation failures retained.",
+    "prior_record_status": "self-contained machine-readable history supplied with this study; initial outcomes informed this amendment",
+    "threshold_status": "original 2e-11 scaled absolute plus 2e-11 relative analytic tolerance unchanged for both C++ and stronger Python baseline"
+  },
+  "data_status": "entirely synthetic; no market observations or licensed data",
+  "model": "risk-neutral GBM with continuous dividend yield; capped European call",
+  "quantities": [
+    "price",
+    "delta",
+    "gamma",
+    "vega",
+    "rho",
+    "theta"
+  ],
+  "greek_units": {
+    "delta": "per unit spot",
+    "gamma": "per unit spot squared",
+    "vega": "per unit volatility",
+    "rho": "per unit continuously compounded rate",
+    "theta": "per year of calendar time; minus maturity derivative"
+  },
+  "comparison_roles": {
+    "cpp_python_analytic": "cross-language consistency; shared formula is not an independent financial baseline",
+    "python_binary64_integral": "ordinary binary64 SciPy quadrature of the same derived digital-strike representation; stronger stable Python baseline, not independent empirical evidence",
+    "cpp_python_pde": "matched backward-Euler discretisation; distinct Thomas/DST implementations",
+    "analytic_reference": "closed-form dominant baseline for this specified model",
+    "mp_integral": "80-digit integral of digital calls over strikes, differentiated under the integral; separate numerical representation under the same GBM",
+    "mp_call_spread": "100-digit call-spread check on the quadrature reference"
+  },
+  "pde_meshes": [
+    {
+      "intervals": 64,
+      "time_steps": 512
+    },
+    {
+      "intervals": 128,
+      "time_steps": 1024
+    },
+    {
+      "intervals": 256,
+      "time_steps": 2048
+    }
+  ],
+  "pde_scope": "fixed nine-sigma domain, ordinary kinked payoff, identical finite bumps; numerical refinement is not a convergence proof or a complete error certificate",
+  "relative_error_rule": "report only when abs(reference)>1e-12*quantity_scale; otherwise null",
+  "quantity_scale_rule": "positive dimensional scales derived from discounted cap, spot, maturity and volatility, including the narrow-spread scale",
+  "analytic_cpp_tolerance": {
+    "absolute_scaled": 2e-11,
+    "relative": 2e-11
+  },
+  "analytic_python_integral_tolerance": {
+    "absolute_scaled": 2e-11,
+    "relative": 2e-11
+  },
+  "fallback_branch_price_relative_tolerance": 1e-08,
+  "fallback_branch_check_scope": "additional informed price-only relative check for the new positive_integral_fallback contract; standard near-zero threshold would otherwise make the price check uninformative; no threshold changes to the original eighteen contracts",
+  "failure_roles": "Native/reference/PDE failures determine implementation status. Stronger Python integral failures remain explicit baseline diagnostics. The comparison does not claim that every method passed when baseline diagnostics fail.",
+  "analytic_reference_tolerance": {
+    "absolute_scaled": 1e-25,
+    "relative": 1e-25
+  },
+  "pde_implementation_tolerance": {
+    "absolute_scaled": 2e-09,
+    "relative": 2e-10
+  },
+  "pde_grid_tolerance": {
+    "absolute_cap_scaled": 2e-10,
+    "relative": 2e-11
+  },
+  "financial_identity_tolerance_scaled": 2e-10,
+  "limitations": [
+    "High-precision arithmetic and quadrature are numerical references, not outward-rounded certificates.",
+    "No empirical model validation or quantum advantage follows from these comparisons.",
+    "All failure rows are retained; a stress failure cannot be removed from the aggregate status.",
+    "Fixed-domain, finite-bump errors are separated from analytic bump bias.",
+    "These timing-free comparisons do not identify a language speedup.",
+    "The stronger Python baseline was added after observing the original subtraction failures; it is an informed amendment.",
+    "QUADPACK estimates are diagnostic error estimates and omit a proof of binary64 rounding error; they are not certificates."
+  ],
+  "contracts": [
+    {
+      "case": "lower_kink",
+      "group": "existing",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "upper_kink",
+      "group": "existing",
+      "parameters": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "inside_spread",
+      "group": "existing",
+      "parameters": {
+        "spot": 110.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "deep_cap",
+      "group": "existing",
+      "parameters": {
+        "spot": 160.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "low_vol_short_dated",
+      "group": "existing",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 0.05,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.06
+      }
+    },
+    {
+      "case": "negative_rate_dividend",
+      "group": "existing",
+      "parameters": {
+        "spot": 105.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.015,
+        "dividend": 0.045,
+        "volatility": 0.25
+      }
+    },
+    {
+      "case": "high_volatility",
+      "group": "existing",
+      "parameters": {
+        "spot": 95.0,
+        "strike": 100.0,
+        "cap": 30.0,
+        "maturity": 2.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.65
+      }
+    },
+    {
+      "case": "deep_cap_large_spot",
+      "group": "stress",
+      "parameters": {
+        "spot": 1000000000000.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "deep_cap_extreme_spot",
+      "group": "stress",
+      "parameters": {
+        "spot": 1e+16,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "narrow_cap",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 1e-08,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "cap_below_strike_ulp",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 1e-15,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "wide_cap",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 100000000.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "deep_out_of_money",
+      "group": "stress",
+      "parameters": {
+        "spot": 1.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "near_expiry_lower_kink",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1e-08,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "near_expiry_upper_kink",
+      "group": "stress",
+      "parameters": {
+        "spot": 120.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1e-08,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "small_positive_volatility",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 0.0001
+      }
+    },
+    {
+      "case": "negative_rate_high_dividend",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": -0.05,
+        "dividend": 0.08,
+        "volatility": 0.2
+      }
+    },
+    {
+      "case": "very_high_volatility",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 5.0,
+        "rate": 0.03,
+        "dividend": 0.01,
+        "volatility": 2.0
+      }
+    },
+    {
+      "case": "positive_integral_fallback",
+      "group": "stress",
+      "parameters": {
+        "spot": 99.999995,
+        "strike": 100.0,
+        "cap": 20.0,
+        "maturity": 1.0,
+        "rate": 0.0,
+        "dividend": 0.0,
+        "volatility": 1e-08
+      }
+    },
+    {
+      "case": "extremely_broad_strike_interval",
+      "group": "stress",
+      "parameters": {
+        "spot": 100.0,
+        "strike": 1e-300,
+        "cap": 100.0,
+        "maturity": 1.0,
+        "rate": 0.0,
+        "dividend": 0.0,
+        "volatility": 1e-08
+      }
+    }
+  ]
+}

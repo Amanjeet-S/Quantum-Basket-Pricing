@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-24",
+  "archive": "before_dividend_alignment.zip",
+  "sha256": "45d087a98912aa66a32c19d3f16813fddd5c88deb9c2b15bac6d70ac2d2d523e",
+  "scope": "Pre-correction runner, protocol and numerical/verification records preserved. The known historical/future dividend input is aligned in the current run; original cases, tolerances, seed and selections are unchanged.",
+  "paper_preserved_on": "2026-10-27",
+  "paper_archive": {
+    "path": "pre_alignment_paper.zip",
+    "sha256": "3d4e41326641bfd9472d45ba2e765b3a160cbdef27f12b1addfa2acb1664dbe5",
+    "scope": "Previous sixteen-page paper source/export and paper inventory, before the correction note and final alignment integration."
+  }
+}

@@ -1,15 +1,15 @@
 # Papers
 
-## 1. Main working paper
+## 1. Final project paper
 
-The [PDF](generalisation_proofs.pdf) and [LaTeX source](generalisation_proofs.tex) contain the quantum basket-pricing study. This manuscript remains a working paper. The [paper manifest](manifest.json) identifies the retained files; the repository reorganisation does not revise their scientific content.
+The [main PDF](generalisation_proofs.pdf) and [LaTeX source](generalisation_proofs.tex), dated 28 October 2026, are the final project paper for the defined MSc-portfolio scope. This is an unpublished research manuscript. Its finite logical-resource comparisons do not establish practical quantum advantage or a new generic quantum theory. The [manifest](manifest.json) identifies all three current source/export pairs; the [finalisation record](../docs/project_status.md) states what was checked.
 
-## 2. Classical companions and supporting material
+## 2. Classical companions
 
-The [capped-GBM companion](capped_gbm_companion.pdf) develops pricing, Greeks, numerical methods and statistical inference; its [source](capped_gbm_companion.tex) retains the derivations. The [hedging companion](constrained_hedging_companion.pdf) and [source](constrained_hedging_companion.tex) cover constrained static hedging.
+The [capped-GBM paper](capped_gbm_companion.pdf) and [source](capped_gbm_companion.tex) connect no-arbitrage replication, pricing/Greeks, PDE stability/convergence, conditional projection and validated parameter-to-price inference. The [hedging paper](constrained_hedging_companion.pdf) and [source](constrained_hedging_companion.tex) derive funded mean-square hedging, convexity/KKT conditions, outward optimality bounds and continuum drift-robust decisions. Both retain adverse results and model assumptions.
 
-[Supporting papers](supporting/) and [proof fragments](supporting/fragments/) retain additional mathematical arguments. [Figures](figures/) retain the associated visual assets. The [supporting index](../docs/supporting_proofs_index.md) supplies the detailed evidence map.
+## 3. Evidence and preservation
 
-## 3. Reproduction
+The [reproduction guide](../docs/reproducing_paper.md), [supporting proof index](../docs/supporting_proofs_index.md) and [source register](../docs/SOURCES.md) connect claims to code, evidence and consulted versions. [Supporting papers](supporting/), [proof fragments](supporting/fragments/) and [figures](figures/) retain the detailed material.
 
-Use the [reproduction guide](../docs/reproducing_paper.md) before running the frozen source files. They retain their original relative paths and must be executed in a reconstructed workspace. The main abstract presents the setting, method, principal findings and scope directly; its mathematical body is unchanged. The [previous source and PDF](../replication/history/before_abstract_style_revision/) remain available. The companion papers retain their previous source and export bytes.
+The [pre-finalisation snapshot](../replication/history/before_project_finalisation/) preserves the preceding three source/export pairs and navigation. [Earlier history](../replication/history/) and the [source layout](../replication/source_layout.json) preserve registered stage versions and their original execution paths.

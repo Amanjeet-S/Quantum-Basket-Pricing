@@ -6,8 +6,8 @@
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Constrained static hedging of a capped GBM claim},
-pdfauthor={Amanjeet Singh},pdfsubject={Physical loss and funding constraints},
-pdfkeywords={static hedging, mean-square loss, convex optimisation, KKT}}
+pdfauthor={Amanjeet Singh},pdfsubject={Physical loss, funding constraints and drift uncertainty},
+pdfkeywords={static hedging, mean-square loss, convex optimisation, drift uncertainty, robust hedging}}
 \usepackage{pgfplots}
 \usepgfplotslibrary{groupplots}
 \pgfplotsset{compat=1.18}
@@ -21,32 +21,33 @@ pdfkeywords={static hedging, mean-square loss, convex optimisation, KKT}}
 \newtheorem{theorem}{Theorem}[section]
 \title{Constrained static hedging of a capped GBM claim}
 \author{Amanjeet Singh}
-\date{11 October 2026}
+\date{28 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-I study static hedging of a capped European claim under geometric Brownian
-motion with position and funding limits. Risk-neutral prices determine the
-initial premium and instrument costs, while the physical measure determines
-mean-square discounted terminal error. Dividends are reinvested explicitly.
-Closed truncated-lognormal moments yield a strictly convex quadratic loss
-and a unique constrained hedge. Complete optimality proofs include the
-zero-budget boundary, a finite active-set method, the distinction between
-variance and mean-square objectives, and budget shadow prices. I compare
-126 constrained hedges with unrestricted and cash-only baselines, a
-same-constraint variance optimiser, a projection heuristic and an independent
-general-purpose solver. Monte Carlo and separate residual-square integration
-check the risk calculations. Adverse heuristic rankings, small numerical
-violations and unresolved cancellation cases remain visible. Funding limits
-have an exact risk penalty; additional budget has a locally interpretable
-marginal value. The study provides a reproducible financial optimisation
-example with rigorous proofs, using synthetic inputs and established hedging
-foundations.
+\noindent
+A capped European claim under geometric Brownian motion is hedged statically
+with a stock and one vanilla call under position and funding limits. Initial
+costs use risk-neutral prices, whereas physical probabilities determine
+mean-square discounted terminal error. Truncated-lognormal moments yield
+a strictly convex quadratic loss and a unique constrained hedge. I derive
+complete optimality conditions, including zero budget and funding shadow
+prices, and compare 126 hedges with unrestricted, cash-only and competing
+constrained methods. Outward feasibility and primal-dual bounds resolve
+arithmetic-floor cases. With known volatility and uncertain physical drift,
+Gaussian density interpolation bounds risk between grid points and gives
+a second-order multiplicative grid bound; finite-mixture dual certificates
+quantify the gap to the continuum minimax optimum. On the diagnostic drift
+grid, robustness lowers maximum loss in ten of twelve cases, with two ties,
+but raises true-drift loss in those same ten cases. The guarantees concern
+population mean-square loss under the stipulated model, separating funding
+constraints, drift uncertainty and numerical error.
 \end{abstract}
 \noindent\begin{minipage}{\linewidth}
 \small\emergencystretch=2em
 \textit{Keywords:} static hedging; mean-square loss; physical measure;
-convex optimisation; funding constraints; KKT conditions; shadow prices.\par
+convex optimisation; funding constraints; drift uncertainty; robust hedging;
+shadow prices.\par
 \smallskip\textit{JEL classification:} C61, C63, G13.\par
 \end{minipage}
 \section{Financial model and funded loss}
@@ -244,7 +245,7 @@ Short dated & 0.770884 & Unresolved & Unresolved & n/a \\
 Negative rate/dividend & 85.0105 & 24.4634 & 20.1739 & 71.22 \\
 High volatility & 151.748 & 77.0938 & 57.1103 & 49.20 \\
 \bottomrule\end{tabular}
-\caption{Population-risk diagnostics at $\mu=0.06$ and $B=V_0$. Losses are squared discounted monetary units. The percentage compares the constrained mean-square hedge with cash-only financing. Unrestricted holdings relax the box and budget. The short-dated hedge risks lie below a heuristic arithmetic floor and support neither a resolved risk ratio nor a zero-risk assertion.}
+\caption{Population-risk diagnostics at $\mu=0.06$ and $B=V_0$. Losses are squared discounted monetary units. The percentage compares the constrained mean-square hedge with cash-only financing. Unrestricted holdings relax the box and budget. The original short-dated hedge calculations lie below a heuristic arithmetic floor and support neither a resolved risk ratio nor a zero-risk assertion; Section~\ref{sec:h-validated-risk} supplies the validated extension.}
 \label{tab:h-risk-comparison}\end{table}
 
 No registered optimiser failure or quadrature warning occurred.
@@ -331,9 +332,232 @@ For the short-dated case the residual-square calculation gives values
 around $10^{-30}$--$10^{-28}$ for near-unit-call holdings, while
 moment subtraction can report zero or a negative number.
 The true two-instrument optimum is strictly positive by the proof.
-Numerical positivity alone does not resolve its magnitude: tiny
+In that original floating-point study, numerical positivity alone did not resolve its magnitude: tiny
 coefficient/funding errors and rare unsampled tails can dominate
 these computed risks.
+
+\subsection{Validated loss and feasible numerical hedges}
+\label{sec:h-validated-risk}
+
+I resolve the arithmetic-floor cases using outward price, moment and
+optimality bounds while preserving the original computations.
+Each retained binary64 parameter and holding denotes its exact rational
+value. The new calculation uses exact model prices at those inputs;
+the archived implementation used rounded prices. I therefore distinguish
+an original holding, its explicitly feasible replacement and a refined
+holding, rather than attributing every difference to risk evaluation.
+The upper-strike call remains strictly positive even when its cost is
+lost in ordinary floating-point subtraction. Appendix~\ref{app:h-validated-risk}
+derives the feasibility and primal-dual certificates used to bound both
+risk and distance from the unique constrained optimum.
+
+
+I evaluate 168 stored portfolios and refine all 126 primary constrained
+hedges. Independent 160-digit piecewise moments and quadratic programmes
+agree with the outward risk and optimum bounds. Sixty scaled positive
+integrals check all 21 cash-only and 21 unrestricted holdings, the nine
+original floor holdings and their nine refined replacements. All refined
+hedges are exactly feasible and all certificates resolve at 256 bits;
+the largest certified relative optimality gap is below
+$4.32\times10^{-26}$. These comparisons check distinct representations
+of the stipulated model, rather than observed market performance.
+
+Of the original 126 primary holdings, 75 satisfy both exact box and
+fair-price budget constraints and 51 violate at least one. The budget-only
+split is 85/41; 17 have a box violation, with seven in both groups.
+The largest budget and box violations are below $1.89\times10^{-12}$
+monetary units and $3.37\times10^{-18}$ units respectively. For the stored
+SLSQP holdings the joint split is 86/40. These tiny violations matter for
+an exact certificate without implying a material trading loss. Feasibility
+repair can increase loss: at $\mu=0.12$, $\kappa=1$, the short-dated
+holding's repaired loss is about $1.05\times10^{-23}$, before refinement
+reduces it to the bound in Table~\ref{tab:h-validated-tail}.
+
+\begin{table}[tb]
+\centering\small
+\begin{tabular}{rrrr}
+\toprule
+$\mu$ & Archived quadratic & Original holding, fair-price loss
+ & Certified $v(V_0)$ interval \\
+\midrule
+0.03 & $0$ & $2.23792\times10^{-30}$ & $[1.60915,1.60916]\times10^{-43}$ \\
+0.06 & $-2.22045\times10^{-16}$ & $1.64216\times10^{-29}$ & $[7.43078,7.43079]\times10^{-43}$ \\
+0.12 & $0$ & $1.03616\times10^{-28}$ & $[1.52713,1.52714]\times10^{-41}$ \\
+\bottomrule
+\end{tabular}
+\caption{Short-dated contract at $\kappa=1$. Original holdings and primitive
+parameters retain their exact binary64 values. The middle risk column
+summarises outward evaluation at exact model prices; the final column
+rounds the certified optimum bracket outwards. The archived quadratic
+uses the original rounded coefficients. Refinement changes holdings;
+it is not merely a more accurate evaluation of the stored portfolio.
+Losses are squared discounted monetary units.}
+\label{tab:h-validated-tail}
+\end{table}
+
+At $\mu=0.06$, the archived positive integral is
+$1.64531\times10^{-29}$, close to the exact-fair-price risk
+$1.64216\times10^{-29}$ of that same stored holding. It therefore
+need not be an inaccurate integral of its implemented residual.
+The much smaller optimum follows after refinement. The upper-strike
+call costs about $6.86\times10^{-43}$ and rules out exact unit-call
+funding at $\kappa=1$. The current certificates do not resolve the much
+smaller difference between the optimal losses at $\kappa=1$ and
+$\kappa=2$. Nor can the original 65,536-path Monte Carlo experiment
+confirm an upper-tail contribution beyond 13 normal standard deviations.
+
+\section{Hedging when the physical drift is uncertain}
+\label{sec:h-drift-robust}
+
+The preceding comparisons stipulate the physical drift. Historical mean
+returns are noisy even when volatility is known, so precision in numerical
+hedging does not establish precision about the physical law. I retain the
+same known volatility under $P$ and $Q$, and hold the no-arbitrage prices,
+premium and feasible set fixed. Only the physical total-return drift varies
+over a finite interval $I=[\mu_-,\mu_+]$. I minimise worst-case discounted
+mean-square loss,
+\begin{equation}
+ v_I=\min_{\theta\in\mathcal F_B}F_I(\theta),\qquad
+ F_I(\theta)=\sup_{\mu\in I}L_\mu(\theta).
+ \label{eq:h-robust-drift-target}
+\end{equation}
+This is uncertainty about the hedging criterion, rather than a change to
+risk-neutral pricing. It preserves the fixed static instrument restriction.
+
+Confidence-region-based robust portfolio formulations are established
+\citep{goldfarbiyengar2003}. I apply that principle to the fixed-premium
+hedging loss and explicitly control the numerical reduction to a finite grid.
+
+A finite drift grid can certify the whole interval. Let its ordered points
+include both endpoints and have largest spacing $\delta$, and put
+$\gamma=\exp\{T\delta^2/(8\sigma^2)\}$. Gaussian density interpolation and
+H\"older's inequality give, simultaneously for every feasible hedge,
+\begin{equation}
+ \max_jL_{\mu_j}(\theta)\leq F_I(\theta)
+ \leq\gamma\max_jL_{\mu_j}(\theta).
+ \label{eq:h-drift-grid-envelope}
+\end{equation}
+The worst drift need not be an endpoint. The factor bounds what a grid
+could miss, rather than assuming endpoint maximisation. If $d$ is a
+validated lower bound on the finite-grid optimum and $U$ is a validated
+upper bound on the grid loss of an exactly feasible candidate $\widehat\theta$,
+then
+\begin{equation}
+ d\leq v_I\leq F_I(\widehat\theta)\leq\gamma U,
+ \qquad F_I(\widehat\theta)-v_I\leq\gamma U-d.
+ \label{eq:h-drift-robust-bracket}
+\end{equation}
+Appendix~\ref{app:h-drift} proves this certificate, uniqueness of the robust
+hedge, second-order multiplicative grid convergence, and the finite-mixture
+dual lower bound. These are applications of established Gaussian,
+H\"older and convex-duality arguments, without a theoretical-priority claim.
+
+An independent historical Gaussian sample gives an exact finite-sample
+drift confidence interval when volatility is known. I enlarge it for
+specified observation-rounding radii and numerical quantile bounds.
+Under the stated historical/future model, the probability of both
+successful return and a reported upper bound below the chosen hedge's
+true future mean-square loss is at most $\alpha$. This is a joint error bound with possible computational
+non-return, not conditional coverage after selecting successful runs.
+Unknown volatility, changing physical drift and misspecified returns remain
+outside this experiment.
+
+
+\subsection{Synthetic comparisons and the cost of protection}
+
+I retain three original contracts, two drift half-widths ($0.03$ and
+$0.15$ around $0.06$), and two budgets ($\kappa=0.5,1$): 12 comparisons.
+The comparator set contains the centre-drift hedge, the oracle at the
+stipulated true drift $0.03$, cash-only financing, and an endpoint-only
+minimax proposal. Every trading comparator uses the same instruments,
+box and funding constraints. Independent 160-digit piecewise moments check
+204 node-risk intervals, 12 mixture duals and 12 finite-grid optimisers.
+A 257-point drift grid supplies 15,420 baseline-risk diagnostics.
+All certificates resolve; the largest relative continuum-optimality gap
+is below $0.084$ per cent, using 9 or 33 nodes at 256-bit precision.
+The confidence-based examples below use 65 nodes and satisfy the same bound.
+
+On the diagnostic drift grid, robustness reduces worst-case risk in
+10 of 12 cases, with two ties; the largest reduction is $35.22$ per cent.
+At the stipulated true drift, however, it increases risk in those same ten
+cases, by up to $37.38$ per cent. I retain both findings. The objective
+protects against an interval of physical laws; it does not minimise loss
+at every member of that interval. For the inside-spread contract with
+half-width $0.15$ and $\kappa=1$, the endpoint-only portfolio misses an
+interior loss increase of $0.218679$ squared monetary units at drift
+$-207/12800$. Even the robust portfolio's largest diagnostic loss is
+slightly above its endpoint maximum. Thus endpoint checks alone would
+not justify the reported continuum certificate.
+
+Figure~\ref{fig:h-drift-robustness} makes the distinction visible.
+Panel (a) is a separately declared admissible counterexample:
+$S=K=100$, $H=20$, $T=1$, $r=0.03$, $q=0.01$, $\sigma=0.01$,
+$\theta=(0,0.5)$ and $\mu\in[0.105,0.275]$ at $\kappa=1$.
+The losses at drifts $0.105,0.19,0.275$ are respectively
+$15.1172,68.0854,14.1002$. The middle value exceeds the endpoint
+maximum by a factor greater than $4.50$.
+
+\begin{figure}[tb]
+\centering
+\input{figures/drift_robustness.tex}
+\caption{Physical-drift risk, in squared discounted monetary units.
+Panel (a) displays the fixed admissible counterexample; the dashed line
+is its endpoint maximum, which fails to bound interior risk.
+Panel (b) displays the inside-spread contract with half-width $0.15$
+and $\kappa=1$. The vertical line marks the stipulated true drift $0.03$.
+The robust hedge protects worst-case loss while sacrificing performance
+there. Curves are independent 160-digit evaluations rendered at 257 points;
+they illustrate the argument, while the analytic cell factor supplies
+the continuum guarantee. Panel selection is illustrative after outcomes;
+all 12 primary comparisons remain retained.}
+\label{fig:h-drift-robustness}
+\end{figure}
+
+I also retain 30 fixed-seed historical datasets of 252 equally spaced
+returns, rounded to six decimal places. The known-volatility confidence
+interval contains the stipulated drift in 27 of 30 examples. This is a
+small synthetic diagnostic, not an empirical demonstration of nominal
+95 per cent coverage. I feed the first three predetermined intervals\footnote{Historical
+inference and the future hedge use identical exact dividend and volatility
+inputs. The protocol records the dividend-input alignment correction;
+the earlier execution and paper are preserved in the research history.}
+into the robust decision and compare 3,084 additional dense-grid risks.
+All three intervals contain the true drift $0.06$, and no reported
+continuum upper bound understates the corresponding true population loss.
+Table~\ref{tab:h-drift-bridge} records the trade-off: all three robust
+hedges have greater true-drift loss than plug-in hedges, while reducing
+their diagnostic worst-case loss. Each remains better than cash-only
+financing at the stipulated true drift.
+
+\begin{table}[tb]
+\centering\small
+\begin{tabular}{rcrrrr}
+\toprule
+Dataset & Drift interval & \multicolumn{2}{c}{True-drift loss}
+ & \multicolumn{2}{c}{Grid maximum} \\
+ & & Robust & Plug-in & Robust & Plug-in \\
+\midrule
+0 & $[-0.11113,0.67310]$ & 34.1303 & 23.1837 & 45.5268 & 218.0523 \\
+1 & $[-0.48952,0.29472]$ & 23.8600 & 22.1253 & 34.3361 & 188.6487 \\
+2 & $[-0.33727,0.44697]$ & 28.8948 & 15.7276 & 37.5867 & 247.9285 \\
+\bottomrule
+\end{tabular}
+\caption{Predetermined confidence-to-decision examples, with dataset indices
+starting at zero. Here $\sigma=0.2$, $\mu=0.06$, $\Delta=1/252$,
+$q=0.01$, $\alpha=0.05$ and $\kappa=1$. All losses are population
+expectations under the stipulated GBM law; grid maxima are numerical
+diagnostics. Interval displays are rounded summaries; exact rational
+endpoints define the actual decision.}
+\label{tab:h-drift-bridge}
+\end{table}
+
+The protocol was fixed before these current outcomes, with an explicitly
+recorded informed amendment selecting the first three inference examples.
+Pseudorandom Gaussian generation is a reproducible numerical design,
+not a certified continuous Gaussian sampler. The confidence guarantee
+follows from the model and proof. The study does not establish robustness
+to unknown volatility, changing drift or misspecified returns.
+
 
 \section{Interpretation and reproducibility}
 
@@ -355,6 +579,27 @@ representations, active-set and general-purpose solutions, budget
 subgradients, dividend funding and cancellation cases.
 The source ledger records publication status, actual consulted versions
 and reading scope. Full derivations follow in the appendix.
+The validated extension is \path{src/gbm_hedge_certificate.py};
+\path{scripts/run_hedge_certificate_study.py} runs directly from the
+organised repository into a new external output directory. The existing
+certificate environment adds python-flint 0.9.0 and mpmath 1.3.0.
+Arb supplies outward arithmetic \citep{johansson2017}; 21 additional tests
+cover exact feasibility, optimality, arithmetic boundaries and evidence
+protection. The retained protocol, exact fractions, source hashes,
+independent comparisons and failures are in
+\path{results/capped_gbm/validated_hedging/}.
+This is informed development following the original adverse outcomes,
+not an untouched prospective experiment. The previous companion source
+and export are preserved in
+\path{replication/history/before_validated_hedging/}.
+The drift extension is \path{src/gbm_drift_hedging.py};
+\path{scripts/run_drift_hedge_study.py} reads
+\path{configs/drift_hedge_protocol.json} directly from the organised tree.
+Its 21 additional tests cover exact mixture duality, interior-risk failure,
+zero budget, confidence rounding and numerical abstention. Retained
+certificates, independent comparisons and all adverse findings are in
+\path{results/capped_gbm/drift_uncertainty/}. The previous 11-page companion
+is preserved in \path{replication/history/before_drift_uncertainty/}.
 The existing pricing/calibration companion and main quantum paper
 retain their previous evidence.
 
@@ -632,6 +877,312 @@ using $\nabla L(\theta_*)^\top(\theta-\theta_*)\geq0$.
 Floating-point feasibility, residuals and eigenvalues do not themselves
 prove the exact premises or certify this bound.
 
+\subsection{Outward feasibility and primal-dual certificates}
+\label{app:h-validated-risk}
+
+Primitive inputs and proposed holdings denote exact rationals, including
+stored binary64 values; prices and moments retain their exact
+transcendental targets. I evaluate them with outward arithmetic and
+increase precision until the retained sign and width tests are proved.
+An exhausted numerical budget is reported as unresolved.
+Midpoint coefficients supply candidate portfolios, not certified optima.
+
+Write $g_K=D(X-K)^+-C_K$ and $g_J=D(X-J)^+-C_J$.
+Since $Y-V_0=g_K-g_J$, the residual has the equivalent representation
+\begin{equation}
+ R(\theta)=-\theta_sg_s+(1-\theta_c)g_K-g_J,
+ \qquad L(\theta)=w^\top\Gamma w,
+ \quad w=(-\theta_s,1-\theta_c,-1)^\top,
+ \label{eq:h-stable-gain-risk}
+\end{equation}
+where $\Gamma=\mathbb E_P[(g_s,g_K,g_J)^\top(g_s,g_K,g_J)]$.
+The entries follow from \eqref{eq:h-truncated-moment} by expansion.
+For example, the call product vanishes below $J$ and equals
+$X^2-(K+J)X+KJ$ above it, so
+\begin{equation}
+ \mathbb E_P[(X-K)^+(X-J)^+]
+ =T_2(J,\infty)-(K+J)T_1(J,\infty)+KJ T_0(J,\infty).
+ \label{eq:h-upper-call-cross-moment}
+\end{equation}
+This retains the upper-tail contribution when $\theta_c$ is near one;
+$g_J$ is an algebraic auxiliary, not an additional tradable security.
+The original moment quadratic remains in the archive.
+
+Let $[C_-,C_+]$ and $[V_-,V_+]$ enclose $C_K,V_0$, with positive
+lower endpoints. Box an original rational holding to obtain
+$u\in[0,1]^2$, and set
+\begin{equation}
+ t=\begin{cases}1,&u=0,\\
+ \min\{1,\kappa V_-/(Su_s+C_+u_c)\},&u\ne0,
+ \end{cases}
+ \qquad \theta=tu.
+ \label{eq:h-outward-feasibility}
+\end{equation}
+The denominator is positive whenever $u\ne0$. Consequently
+$0\leq\theta\leq1$ and
+$S\theta_s+C_K\theta_c\leq S\theta_s+C_+\theta_c
+\leq\kappa V_-\leq\kappa V_0$.
+Thus the replacement is exactly feasible, including at zero budget.
+It can have greater loss than the original holding. Refinement and
+feasibility repair are separate operations and are reported separately.
+
+Use the true system $A\theta\leq b$ from
+\eqref{eq:h-feasible-set}. For any exact $\lambda\in\mathbb R^5_+$, put
+$z=h-A^\top\lambda/2$. Completing the square gives
+\begin{equation}
+ \begin{aligned}
+ L(x)+\lambda^\top(Ax-b)
+ &=(x-M^{-1}z)^\top M(x-M^{-1}z)+d(\lambda),\\
+ d(\lambda)&=c-\lambda^\top b-z^\top M^{-1}z.
+ \end{aligned}
+ \label{eq:h-certified-dual}
+\end{equation}
+For every feasible $x$, the left-hand side is at most $L(x)$;
+its infimum over all $x\in\mathbb R^2$ is $d(\lambda)$.
+Hence $d(\lambda)\leq v(B)$, without requiring exact KKT multipliers
+or strict feasibility. The choice $\lambda=0$ gives the unrestricted
+relaxation $c-h^\top M^{-1}h$. Its optimum is positive by the
+non-replication argument; a numerical lower endpoint must establish that
+positivity before it is reported as resolved.
+
+Suppose outward evaluation gives $L(\theta)\in[L_-,L_+]$,
+$d(\lambda)\in[d_-,d_+]$ and unrestricted loss in $[u_-,u_+]$.
+Then
+\begin{equation}
+ \underline v=\max\{0,d_-,u_-\}\leq v(B)\leq L(\theta)\leq L_+,
+ \qquad E=L_+-\underline v.
+ \label{eq:h-outward-value-gap}
+\end{equation}
+The independent zero lower bound follows from a squared loss; the raw
+dual enclosure is retained even if its lower endpoint is negative.
+This does not replace a negative computed risk by zero.
+If $M_{11}>0$, $\det M\geq\delta_->0$ and
+$\operatorname{tr}M\leq s_+$ are proved, then
+$m_-:=\delta_-/s_+\leq\lambda_{\min}(M)$:
+positive definiteness follows from Sylvester's criterion and
+$\lambda_{\max}(M)\leq\operatorname{tr}M$.
+For a feasible $\theta$, the segment
+$\theta_*+t(\theta-\theta_*)$ is feasible for $0\leq t\leq1$.
+Its right derivative at zero is non-negative by optimality, so
+$2(M\theta_*-h)^\top(\theta-\theta_*)\geq0$. Therefore
+$L(\theta)-v(B)=2(M\theta_*-h)^\top(\theta-\theta_*)
++(\theta-\theta_*)^\top M(\theta-\theta_*)$, which gives
+\begin{equation}
+ m_-\|\theta-\theta_*\|^2
+ \leq L(\theta)-v(B)\leq E.
+ \label{eq:h-outward-position-bound}
+\end{equation}
+All certificate endpoints are exact fractions; decimal displays are
+secondary summaries.
+
+For the distinct unit-call holding,
+\begin{equation}
+ R(0,1)=C_J-D(X-J)^+,\qquad
+ L(0,1)=D^2\mathbb E_P[((X-J)^+)^2]
+ -2DC_J\mathbb E_P[(X-J)^+]+C_J^2.
+ \label{eq:h-unit-call-tail-risk}
+\end{equation}
+Moreover $C_K-V_0=C_J>0$, so this holding is infeasible at $\kappa=1$.
+These identities neither describe a different near-unit-call holding nor
+establish that the original finite Monte Carlo run resolved the rare tail.
+They are checked applications of established GBM moments and convex
+duality, without a theoretical-priority claim.
+
+\section{Physical-drift uncertainty: derivations and certificates}
+\label{app:h-drift}
+
+\subsection{Gaussian interpolation for a non-negative loss}
+
+Let $s^2=\sigma^2T$ and $m_\mu=\log S+(\mu-q-\sigma^2/2)T$.
+The log terminal price has the strictly positive normal density
+$f_\mu(y)=(2\pi s^2)^{-1/2}\exp\{-(y-m_\mu)^2/(2s^2)\}$.
+For $a<b$, $t\in[0,1]$ and $\mu=(1-t)a+tb$, expansion of the square gives
+\begin{equation}
+ f_\mu(y)=
+ \exp\!\left\{\frac{Tt(1-t)(b-a)^2}{2\sigma^2}\right\}
+ f_a(y)^{1-t}f_b(y)^t.
+ \label{eq:h-drift-density-identity}
+\end{equation}
+For any measurable $\ell:(0,\infty)\to[0,\infty)$ with finite endpoint
+expectations, apply H\"older with conjugate exponents $1/(1-t)$ and $1/t$
+to $(\ell(e^y)f_a(y))^{1-t}(\ell(e^y)f_b(y))^t$. For $0<t<1$ this yields
+\begin{align}
+ \mathbb E_\mu\ell(X)
+ &\leq\exp\!\left\{\frac{Tt(1-t)(b-a)^2}{2\sigma^2}\right\}
+   (\mathbb E_a\ell(X))^{1-t}(\mathbb E_b\ell(X))^t\notag\\
+ &\leq\exp\!\left\{\frac{T(b-a)^2}{8\sigma^2}\right\}
+   \max\{\mathbb E_a\ell(X),\mathbb E_b\ell(X)\}.
+ \label{eq:h-drift-cell-envelope}
+\end{align}
+The endpoint cases are identities. If an endpoint expectation vanishes,
+strict positivity of its density makes $\ell(e^y)=0$ almost everywhere;
+all the expectations then vanish and the bound still holds. This proves
+the result without dividing by a risk that might be zero. The fixed
+loss $\ell(x)=R(\theta;x)^2$ is independent of $\mu$: the prices,
+premium, instruments and holdings must be held fixed when applying the
+identity. Its expectations are finite because the residual grows at most
+linearly in $x$ and every lognormal second moment is finite. Applying the
+cell bound on each grid interval proves \eqref{eq:h-drift-grid-envelope}.
+A one-point grid is permitted only for a singleton drift interval, where
+$\gamma=1$.
+
+The cell factor is sharp for the stated class of arbitrary non-negative
+fixed losses, without asserting sharpness within the particular hedging
+residual family. Let $m=(m_a+m_b)/2$ and take
+$\ell_\varepsilon(x)={\bf1}_{\{|\log x-m|<\varepsilon\}}$.
+Symmetry gives $\mathbb E_a\ell_\varepsilon=\mathbb E_b\ell_\varepsilon$.
+Continuity of each Gaussian density gives
+\begin{equation}
+ \lim_{\varepsilon\downarrow0}
+ \frac{\mathbb E_{(a+b)/2}\ell_\varepsilon}
+      {\max\{\mathbb E_a\ell_\varepsilon,
+             \mathbb E_b\ell_\varepsilon\}}
+ =\frac{f_{(a+b)/2}(m)}{f_a(m)}
+ =\exp\!\left\{\frac{T(b-a)^2}{8\sigma^2}\right\}.
+ \label{eq:h-drift-cell-sharpness}
+\end{equation}
+Indeed each integral divided by $2\varepsilon$ tends to its positive
+density value at $m$. No smaller universal factor can therefore replace
+that in \eqref{eq:h-drift-cell-envelope}. This elementary specialisation
+makes no assertion of theoretical priority.
+
+\subsection{Convexity, uniqueness and discretisation error}
+
+The moment formulas in Appendix~\ref{app:h-proofs} are continuous in $\mu$.
+Thus $(\mu,\theta)\mapsto L_\mu(\theta)$ is continuous on the compact product
+$I\times\mathcal F_B$. Its maximum $F_I$ is continuous: uniform continuity
+of $L$ makes the difference of the maxima at two holdings no larger than
+$\sup_{\mu\in I}|L_\mu(\theta)-L_\mu(\eta)|$.
+The earlier positive-definiteness argument holds for every finite $\mu$.
+The variational identity
+$\lambda_{\min}(M_\mu)=\min_{\|u\|=1}u^\top M_\mu u$ and compactness
+therefore give
+\begin{equation}
+ m_*:=\min_{\mu\in I}\lambda_{\min}(M_\mu)>0.
+ \label{eq:h-drift-uniform-curvature}
+\end{equation}
+Indeed this minimum is attained on $I$ times the unit sphere, and a zero
+minimum would contradict positive definiteness at its attaining drift.
+For $0<t<1$, exact quadratic expansion gives
+\begin{align}
+ L_\mu(t\theta+(1-t)\eta)
+ &=tL_\mu(\theta)+(1-t)L_\mu(\eta)
+   -t(1-t)(\theta-\eta)^\top M_\mu(\theta-\eta)\notag\\
+ &\leq tF_I(\theta)+(1-t)F_I(\eta)
+   -m_*t(1-t)\|\theta-\eta\|^2.
+ \label{eq:h-drift-strong-convexity}
+\end{align}
+Taking the supremum on the left proves strong convexity of $F_I$.
+Its minimum on the nonempty compact convex feasible set is attained and
+unique, including the singleton set at zero budget. For its optimiser
+$\theta_I$, substitute $\eta=\theta_I$ and use minimality on the segment;
+after dividing by $t$ and taking $t\downarrow0$, this gives
+\begin{equation}
+ m_*\|\theta-\theta_I\|^2\leq F_I(\theta)-v_I.
+ \label{eq:h-drift-distance}
+\end{equation}
+A numerical distance certificate requires a separately validated lower
+bound on $m_*$; pointwise grid eigenvalues alone do not bound it uniformly.
+
+Let $v_G=\min_{\mathcal F_B}\max_jL_{\mu_j}$. Both grid and continuum
+minima exist. Evaluate the envelope at their respective optimisers to get
+\begin{equation}
+ v_G\leq v_I\leq\gamma v_G,\qquad
+ 0\leq v_I-v_G\leq(\gamma-1)v_G.
+ \label{eq:h-drift-grid-convergence}
+\end{equation}
+For $\delta\leq\delta_0$, the inequality $e^x-1\leq xe^x$ gives
+$\gamma-1\leq[T/(8\sigma^2)]e^{T\delta_0^2/(8\sigma^2)}\delta^2$.
+This is a multiplicative second-order grid bound; it does not assert
+second-order convergence of the holdings. A feasible numerical candidate
+with grid upper bound $U$ and any lower bound $d\leq v_G$ instead yields
+\eqref{eq:h-drift-robust-bracket}. Relative statements require a strictly
+positive lower bound. No division by zero or clipping of a negative
+computed squared-loss interval is justified.
+
+\subsection{Finite-mixture weak duality}
+
+Write the five true funding/box inequalities as $A\theta\leq b$.
+Choose exact weights $w_j\geq0$ with $\sum_jw_j=1$, and any exact
+$\lambda\in[0,\infty)^5$. These weights are an optimisation witness,
+not a financial prior or an assertion that a mixture law is itself GBM.
+Put $\overline M=\sum_jw_jM_{\mu_j}$,
+$\overline h=\sum_jw_jh_{\mu_j}$ and
+$\overline c=\sum_jw_jc_{\mu_j}$. The matrix $\overline M$ is positive
+definite, since at least one positive weight multiplies a positive-definite
+quadratic form. For every feasible $\theta$,
+\begin{align}
+ \max_jL_{\mu_j}(\theta)
+ &\geq\sum_jw_jL_{\mu_j}(\theta)
+      +\lambda^\top(A\theta-b)\notag\\
+ &=\overline c-\lambda^\top b
+   -z^\top\overline M^{-1}z
+   +(\theta-\overline M^{-1}z)^\top
+      \overline M(\theta-\overline M^{-1}z),\qquad
+ z=\overline h-\tfrac12A^\top\lambda.
+ \label{eq:h-drift-mixture-dual}
+\end{align}
+Dropping the last non-negative term and taking the infimum proves that
+$d(w,\lambda)=\overline c-\lambda^\top b-z^\top\overline M^{-1}z$
+is a lower bound on $v_G$ and hence $v_I$. No constraint qualification,
+optimiser convergence claim or strong-duality assertion is needed.
+Outward arithmetic evaluates this expression and each candidate grid loss
+at the true model costs. An exact rational mixture of approximate solver
+weights must be renormalised exactly; negative weights or multipliers
+cannot enter this witness. If the raw dual lower endpoint is negative,
+the independent mathematical bound $0$ may strengthen it, with both
+values retained. A numerical proposal solves a conservative nearby problem
+only; true feasibility, primal risk and dual bounds remain independently
+checked.
+
+\subsection{Known-volatility finite-sample drift uncertainty}
+
+Fix an integer $n\geq1$, spacing $\Delta>0$, and a known $\sigma>0$.
+Under the stipulated historical model, let independent logreturns satisfy
+\begin{equation}
+ H_i=(\mu-q-\sigma^2/2)\Delta+\sigma\sqrt\Delta\,Z_i,
+ \qquad Z_i\stackrel{\mathrm{iid}}\sim N(0,1).
+ \label{eq:h-drift-history}
+\end{equation}
+The future return is independent of this history conditional on the fixed
+model parameters. The exact unrounded estimate
+$\widetilde\mu=q+\sigma^2/2+(n\Delta)^{-1}\sum_iH_i$ satisfies
+$(n\Delta)(\widetilde\mu-\mu)^2/\sigma^2\sim\chi^2_1$.
+Suppose retained rational observations $r_i$ obey deterministic bounds
+$|r_i-H_i|\leq\rho_i$. For $0<\alpha<1$, choose a rational $Q>0$ with
+$\mathbb P(\chi^2_1>Q)\leq\alpha$ and a rational $w\geq0$ satisfying
+$w^2\geq\sigma^2Q/(n\Delta)$. Define
+\begin{align}
+ \widehat\mu&=q+\sigma^2/2+(n\Delta)^{-1}\sum_i r_i,\notag\\
+ \rho&=(n\Delta)^{-1}\sum_i\rho_i,\qquad
+ I=[\widehat\mu-\rho-w,\widehat\mu+\rho+w].
+ \label{eq:h-drift-rounded-ci}
+\end{align}
+The triangle inequality gives $|\widehat\mu-\widetilde\mu|\leq\rho$;
+therefore $\mathbb P_\mu(\mu\notin I)\leq\alpha$ exactly under this model.
+A certified quantile upper bound can be obtained by verifying
+$\operatorname{erfc}(\sqrt{Q/2})\leq\alpha$ with outward arithmetic.
+A rational square-root upper bound can be verified by exact squaring, so
+floating-point quantiles and square roots are not assumed exact.
+This is not the unknown-volatility Student interval, and a volatility
+confidence interval must not be substituted without a new argument.
+
+Let a measurable algorithm, using the history and any internal random
+numbers, either fail explicitly or return exactly feasible holdings
+$\widehat\theta$, an interval $I$, and an upper bound $U_I\geq F_I(\widehat\theta)$.
+On the event $\mu\in I$, this deterministic certificate implies
+$L_\mu(\widehat\theta)\leq U_I$, even though the holdings and interval
+were chosen from the history. Consequently
+\begin{equation}
+ \mathbb P_\mu\{\mathrm{success}\ \text{and}\
+ L_\mu(\widehat\theta)>U_I\}\leq\alpha.
+ \label{eq:h-drift-joint-guarantee}
+\end{equation}
+The claim is about the conditional future mean-square risk of the
+chosen holdings, not about a realised squared future error being below
+$U_I$. It gives no $1-\alpha$ coverage conditional on successful return
+unless that further selection issue is separately controlled.
+
 \begin{thebibliography}{99}
 \bibitem[Black and Scholes(1973)]{blackscholes1973}
 Black, F. and Scholes, M. (1973). The pricing of options and corporate liabilities. \emph{Journal of Political Economy}, 81(3), 637--654. \url{https://doi.org/10.1086/260062}. Final journal scan consulted, printed pages 637--644.
@@ -641,6 +1192,17 @@ Boyd, S. and Vandenberghe, L. (2004). \emph{Convex Optimization}. Cambridge Univ
 
 \bibitem[Czichowsky and Schweizer(2012)]{czichowskyschweizer2012}
 Czichowsky, C. and Schweizer, M. (2012). Convex duality in mean-variance hedging under convex trading constraints. \emph{Advances in Applied Probability}, 44(4), 1084--1112. \url{https://doi.org/10.1239/aap/1354716590}. Final publisher PDF consulted, Introduction and Section 2, printed pages 1084--1088, and Theorem 4.1/proof, page 1095.
+
+\bibitem[Goldfarb and Iyengar(2003)]{goldfarbiyengar2003}
+Goldfarb, D. and Iyengar, G. (2003). Robust portfolio selection problems.
+\emph{Mathematics of Operations Research}, 28(1), 1--38.
+\url{https://doi.org/10.1287/moor.28.1.1.14260}. Final journal text consulted
+through authorised institutional JSTOR access in Safari, printed pages 1--2,
+Introduction. Cited for the confidence-set robust-portfolio principle;
+later methods and proofs were not consulted.
+
+\bibitem[Johansson(2017)]{johansson2017}
+Johansson, F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. \emph{IEEE Transactions on Computers}, 66(8), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}. Publication metadata is reused from the scalar-certificate source record; the local implementation is checked with python-flint 0.9.0. No new consultation of the article body is claimed.
 
 \bibitem[Leung and Lorig(2016)]{leunglorig2016}
 Leung, T. and Lorig, M. (2016). Optimal static quadratic hedging. \emph{Quantitative Finance}, 16(9), 1341--1355. \url{https://doi.org/10.1080/14697688.2016.1161229}. Published metadata/abstract verified; the consulted body is arXiv:1506.02074v2, posted 19 November 2015, Sections 2 and 3.2 and Appendix A, \url{https://arxiv.org/pdf/1506.02074v2}. The final journal body was not consulted.

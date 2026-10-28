@@ -1,39 +1,41 @@
 {
   "schema": "qbp-paper-manifest-v1",
   "author": "Amanjeet Singh",
-  "record_date": "2026-10-16",
-  "main_paper_status": "working paper",
+  "record_date": "2026-10-28",
+  "main_paper_status": "final project paper; unpublished manuscript",
   "files": [
     {
       "path": "paper/generalisation_proofs.tex",
-      "sha256": "87b64300fb6034a6f7c7cecfe9300bc757fa2f8801f8ca68a7c9212a615d6f64"
+      "sha256": "a07f5e124549f74d18e9ab125cf6138559736d1b45ec6fd217c82aadd8a92a91"
     },
     {
       "path": "paper/generalisation_proofs.pdf",
-      "sha256": "d9e1e6d8d07fc1c6e276f221d168c87d689e6f4f6f8c4739a23faa563fbb15b2",
+      "sha256": "b451de16b4487b1e2e674cf8ab5fdcd3fe5259aac28aee215bcf3ed9803b6045",
       "pages": 34,
       "source": "paper/generalisation_proofs.tex"
     },
     {
       "path": "paper/capped_gbm_companion.tex",
-      "sha256": "658e561690cb94ab813295085277f227337dbfe1ec4d7b483f264d9b8888dc0d"
+      "sha256": "4cb3a7579ea004f2406aa5b01140e54278b2bb25c45c10124614bdd0f8cbebe2"
     },
     {
       "path": "paper/capped_gbm_companion.pdf",
-      "sha256": "ceb5b0f3148b1e429284888f24519c41052e1fe202c20c58753a8f6eff58879f",
-      "pages": 29,
+      "sha256": "cab02044648bcdfe49aadd916f40d089d8b40e812c8b0f3a9c8af82059a156be",
+      "pages": 31,
       "source": "paper/capped_gbm_companion.tex"
     },
     {
       "path": "paper/constrained_hedging_companion.tex",
-      "sha256": "3371ea12397b8e1f72a83bd171de580ff6a8f894cd5f2427810d85e58aa92d29"
+      "sha256": "6d4569d30fe3d63970ce7fbb8b1b602cd2fc697d168c9336d25e91cf3d9174a1"
     },
     {
       "path": "paper/constrained_hedging_companion.pdf",
-      "sha256": "f1167d7bc5e8a8e3dc4d0cb4ae36160f4ad87fce9edec8a257b94233d66a4cd3",
-      "pages": 9,
+      "sha256": "0f8d805b4b66373d17e2040a84964575ea99b68106a4de0791f287cccab2f846",
+      "pages": 16,
       "source": "paper/constrained_hedging_companion.tex"
     }
   ],
-  "scope": "Source and PDF inventory. The main abstract was revised in the style of the supplied research example; mathematical text after the abstract remains unchanged. Earlier source/export bytes remain in replication/history/before_abstract_style_revision. The inventory does not designate project completion or theoretical novelty."
+  "scope": "Final source/export inventory for the defined MSc-portfolio project. Finalisation checks proofs, retained claims, current-source hashes, selected fresh numerical studies, strict quantum resource/controller audits and PDF presentation. The preceding three paper pairs are preserved in replication/history/before_project_finalisation. Detailed scope and adverse outcomes are retained in results/finalisation/verification.json; this status does not imply peer review, empirical validation, theoretical priority or practical quantum advantage.",
+  "project_status": "complete for the defined MSc-portfolio scope",
+  "last_presentation_revision": "Distinct paper-specific abstracts and displayed dates of 28 October 2026; mathematical bodies and numerical evidence unchanged."
 }

@@ -1,0 +1,26 @@
+test_cell_inflation_uses_maturity_sigma_and_mesh (test_gbm_drift_hedging.DriftRobustTests.test_cell_inflation_uses_maturity_sigma_and_mesh) ... ok
+test_continuum_upper_covers_independent_interior_diagnostics (test_gbm_drift_hedging.DriftRobustTests.test_continuum_upper_covers_independent_interior_diagnostics) ... ok
+test_endpoints_can_miss_a_large_interior_capped_claim_risk (test_gbm_drift_hedging.DriftRobustTests.test_endpoints_can_miss_a_large_interior_capped_claim_risk) ... ok
+test_exact_mixture_simplex_and_nonnegative_multipliers (test_gbm_drift_hedging.DriftRobustTests.test_exact_mixture_simplex_and_nonnegative_multipliers) ... ok
+test_feasible_holdings_and_attained_bounds (test_gbm_drift_hedging.DriftRobustTests.test_feasible_holdings_and_attained_bounds) ... ok
+test_independent_finite_grid_optimum_is_bracketed (test_gbm_drift_hedging.DriftRobustTests.test_independent_finite_grid_optimum_is_bracketed) ... ok
+test_invalid_hedge_inputs_are_rejected (test_gbm_drift_hedging.DriftRobustTests.test_invalid_hedge_inputs_are_rejected) ... ok
+test_max_nodes_exhaustion_returns_unresolved_not_false_success (test_gbm_drift_hedging.DriftRobustTests.test_max_nodes_exhaustion_returns_unresolved_not_false_success) ... ok
+test_mixture_dual_matches_independent_high_precision_formula (test_gbm_drift_hedging.DriftRobustTests.test_mixture_dual_matches_independent_high_precision_formula) ... ok
+test_node_risks_contain_independent_piecewise_values (test_gbm_drift_hedging.DriftRobustTests.test_node_risks_contain_independent_piecewise_values) ... ok
+test_precision_context_restored_on_success_and_failure (test_gbm_drift_hedging.DriftRobustTests.test_precision_context_restored_on_success_and_failure) ... ok
+test_singleton_drift_matches_static_model (test_gbm_drift_hedging.DriftRobustTests.test_singleton_drift_matches_static_model) ... ok
+test_zero_budget_is_exact_no_hedge (test_gbm_drift_hedging.DriftRobustTests.test_zero_budget_is_exact_no_hedge) ... ok
+test_existing_evidence_is_not_overwritten (test_gbm_drift_hedging.EvidenceProtectionTests.test_existing_evidence_is_not_overwritten) ... ok
+test_internal_and_symlink_outputs_are_rejected (test_gbm_drift_hedging.EvidenceProtectionTests.test_internal_and_symlink_outputs_are_rejected) ... ok
+test_missing_rows_failure_or_source_mutation_cannot_pass (test_gbm_drift_hedging.EvidenceProtectionTests.test_missing_rows_failure_or_source_mutation_cannot_pass) ... ok
+test_drift_centre_includes_dividend_ito_correction_and_spacing (test_gbm_drift_hedging.KnownSigmaInferenceTests.test_drift_centre_includes_dividend_ito_correction_and_spacing) ... ok
+test_invalid_confidence_inputs_are_rejected (test_gbm_drift_hedging.KnownSigmaInferenceTests.test_invalid_confidence_inputs_are_rejected) ... ok
+test_one_observation_is_allowed_with_known_variance (test_gbm_drift_hedging.KnownSigmaInferenceTests.test_one_observation_is_allowed_with_known_variance) ... ok
+test_quantile_cdf_witnesses_and_independent_gaussian_half_width (test_gbm_drift_hedging.KnownSigmaInferenceTests.test_quantile_cdf_witnesses_and_independent_gaussian_half_width) ... ok
+test_rounding_cells_expand_mean_and_drift_interval_exactly (test_gbm_drift_hedging.KnownSigmaInferenceTests.test_rounding_cells_expand_mean_and_drift_interval_exactly) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.214s
+
+OK

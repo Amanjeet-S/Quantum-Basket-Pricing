@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-28",
+  "scope": "Only each abstract and displayed paper date change; mathematical body, numerical findings, figures and references are unchanged.",
+  "files": {
+    "generalisation_proofs": {
+      "words": 136,
+      "before_source_sha256": "ce10a05ca0101606ad7d93ca7919902a29f019e9f583872fcd50524e88def2c6",
+      "after_source_sha256": "a07f5e124549f74d18e9ab125cf6138559736d1b45ec6fd217c82aadd8a92a91",
+      "date": "28 October 2026",
+      "pages": 34,
+      "pdf_sha256": "b451de16b4487b1e2e674cf8ab5fdcd3fe5259aac28aee215bcf3ed9803b6045",
+      "changed_text_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "stable_cross_references": true,
+      "overfull_boxes": 0
+    },
+    "capped_gbm_companion": {
+      "words": 150,
+      "before_source_sha256": "dfcf0424240671de4c9781f067cfa77618b945b44391d9094efa9463d91292d1",
+      "after_source_sha256": "4cb3a7579ea004f2406aa5b01140e54278b2bb25c45c10124614bdd0f8cbebe2",
+      "date": "28 October 2026",
+      "pages": 31,
+      "pdf_sha256": "cab02044648bcdfe49aadd916f40d089d8b40e812c8b0f3a9c8af82059a156be",
+      "changed_text_pages": [
+        1
+      ],
+      "stable_cross_references": true,
+      "overfull_boxes": 0
+    },
+    "constrained_hedging_companion": {
+      "words": 157,
+      "before_source_sha256": "00a879002476a8a8298f7f70704e5145218c5d2aceb4eb26d59fa4ab04fea5d9",
+      "after_source_sha256": "6d4569d30fe3d63970ce7fbb8b1b602cd2fc697d168c9336d25e91cf3d9174a1",
+      "date": "28 October 2026",
+      "pages": 16,
+      "pdf_sha256": "0f8d805b4b66373d17e2040a84964575ea99b68106a4de0791f287cccab2f846",
+      "changed_text_pages": [
+        1
+      ],
+      "stable_cross_references": true,
+      "overfull_boxes": 0
+    }
+  },
+  "predecessor_archive_sha256": "1490032c4bf85c5d722a3acd2b21d0b6d743305a1298b4ca8d7e918c74de5045",
+  "review": "Distinct financial question, methods and results in each abstract; no repeated I study opening. Independent source/body review identified and corrected the capped-paper variance-penalty wording.",
+  "mathematical_body_unchanged": true,
+  "visual_status": "passed",
+  "numerical_studies_rerun": false,
+  "numerical_scope": "Presentation-only revision; previous scientific verification remains retained with its original dates."
+}

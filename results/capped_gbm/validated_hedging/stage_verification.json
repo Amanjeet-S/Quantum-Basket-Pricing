@@ -1,0 +1,34 @@
+{
+  "schema": "qbp-validated-hedge-stage-verification-v1",
+  "date": "2026-10-20",
+  "numerical_verification": true,
+  "fixed_risks": 168,
+  "refined_optimum_and_distance_comparisons": 126,
+  "slsqp_comparisons": 126,
+  "positive_integrals": 60,
+  "certificate_tests_passed": 21,
+  "reproduction_tests_passed": 8,
+  "repository_check": {
+    "status": "passed",
+    "retained_files": 1223,
+    "paper_files": 6,
+    "markdown_files": 62,
+    "local_links": 315,
+    "python_files": 291
+  },
+  "git_diff_check": "passed",
+  "head_unchanged": "55e7542",
+  "commits_created": 0,
+  "paper": {
+    "source": "paper/constrained_hedging_companion.tex",
+    "source_sha256": "1573f2dd9db307981f1ab79ba0a3171c5f7837cf6e6567ae8811e67a56cac937",
+    "pdf": "paper/constrained_hedging_companion.pdf",
+    "pdf_sha256": "3e248a690b1ca7bebef40ad362724e80642824bf88d089cf884a290981f7bfb4",
+    "pages": 11,
+    "abstract_words": 168,
+    "builtin_compile": "success",
+    "terminal_export": "two passes; no warnings or overfull boxes",
+    "visual_check": "All11 rendered pages inspected in contact sheet; title/keywords, funding figure, new table and certificate pages inspected at full resolution."
+  },
+  "scope": "Exact-input known-GBM feasibility/risk/optimality certificates, with diagnostic independent numerical comparisons. Original study and previous paper preserved. No empirical or quantum-superiority claim."
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "qbp-drift-stage-verification-v1",
+  "date": "2026-10-27",
+  "status": "passed",
+  "new_unit_tests": 21,
+  "existing_hedge_regressions": {
+    "checks": 21,
+    "last_replayed": "2026-10-23"
+  },
+  "primary_cases": 12,
+  "independent_node_intervals": 204,
+  "independent_mixture_duals": 12,
+  "independent_finite_grid_optimisers": 12,
+  "dense_risk_diagnostics": 18504,
+  "confidence_datasets": 30,
+  "confidence_contains_true_drift": 27,
+  "inference_to_decision_bridges": 3,
+  "maximum_relative_minimax_gap": "1598195773789592657543138700343455160927462549593797041697742376721136861097259449646373128054852346802473360549876098780384289070287419435639584635685/1919877178413434163829437117709974878869920144412411396656856051326575237001095053451685284697987069318168992801985382444311944967249864665944193098579968",
+  "adverse_findings": "Worst diagnostic-grid risk improves in 10/12 primary cases, with two ties, while true-drift risk worsens in the same ten cases. All three confidence-based robust hedges have worse true-drift risk than plug-in. Synthetic coverage 27/30 is retained without a nominal empirical-coverage claim.",
+  "endpoint_counterexample_interval_witness": "Exact funding feasibility and interior/endpoint risk ratio strictly greater than 4.5 verified.",
+  "repository_check": {
+    "status": "passed",
+    "retained_files": 1223,
+    "paper_files": 6,
+    "markdown_files": 63,
+    "local_links": 336,
+    "python_files": 296
+  },
+  "diff_check": "passed",
+  "git_commit_at_verification": "028a2c4711ca4cc49fa3b6921214eae49da53804",
+  "commits_created_by_this_step": 0,
+  "staged_changes": false,
+  "paper": {
+    "pages": 16,
+    "abstract_words": 182,
+    "builtin_compile": "success",
+    "export_log": "Two passes; no warnings or overfull/underfull boxes.",
+    "visual_check": "All 16 final pages rendered and inspected in contact sheet; title, colour figure, correction footnote and comparison table also inspected at full resolution.",
+    "source_sha256": "ab1ab148f5248221749b1b5db6da34e622d4b0c13c7b29470b52b8e03dea9acc",
+    "pdf_sha256": "7a391a05aa6e7259efa9fea6cb2be5d4a48564b041a6b1c103569df114c1cce7"
+  },
+  "scope": "Known-volatility constant-drift GBM. Exact continuum/primal-dual risk certificates are distinct from numerical reference diagnostics and the model-conditional probability theorem. No empirical market validation, quantum advantage or literature-priority claim.",
+  "input_alignment": {
+    "status": "passed",
+    "correction_run_date": "2026-10-24",
+    "final_audit_date": "2026-10-27",
+    "bridge_dividend_exact": "1/100",
+    "bridge_volatility_exact": "1/5",
+    "bridges_checked": 3,
+    "primary_and_confidence_files_byte_identical": true,
+    "displayed_bridge_losses_unchanged_at_four_decimals": true,
+    "earlier_execution_and_paper": "replication/history/drift_dividend_alignment/",
+    "independent_review": "alignment_review.json"
+  }
+}

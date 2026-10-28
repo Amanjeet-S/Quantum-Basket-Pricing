@@ -1,0 +1,199 @@
+{
+  "schema": "qbp-gbm-certificate-validation-v1",
+  "deterministic_cases": 13,
+  "quantile_brackets": 12,
+  "synthetic_datasets": 180,
+  "deterministic_reference_checks_pass": true,
+  "quantile_cdf_checks_pass": true,
+  "synthetic_summary": [
+    {
+      "case": "ordinary",
+      "contract": {
+        "spot": "100",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.2",
+      "observations": 25,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 27,
+        "true_price_contained": 27,
+        "scipy_parameter_contained": 27,
+        "scipy_full_image_contained": 27,
+        "scipy_endpoint_only_contained": 27,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    },
+    {
+      "case": "ordinary",
+      "contract": {
+        "spot": "100",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.2",
+      "observations": 60,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 27,
+        "true_price_contained": 27,
+        "scipy_parameter_contained": 27,
+        "scipy_full_image_contained": 27,
+        "scipy_endpoint_only_contained": 27,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    },
+    {
+      "case": "near_stationary",
+      "contract": {
+        "spot": "100",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.37725529392435916645611935329832849683402575402187160316207021023549270843452858",
+      "observations": 25,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 28,
+        "true_price_contained": 28,
+        "scipy_parameter_contained": 28,
+        "scipy_full_image_contained": 28,
+        "scipy_endpoint_only_contained": 0,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    },
+    {
+      "case": "near_stationary",
+      "contract": {
+        "spot": "100",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.37725529392435916645611935329832849683402575402187160316207021023549270843452858",
+      "observations": 60,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 26,
+        "true_price_contained": 26,
+        "scipy_parameter_contained": 26,
+        "scipy_full_image_contained": 26,
+        "scipy_endpoint_only_contained": 0,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    },
+    {
+      "case": "monotone_decreasing",
+      "contract": {
+        "spot": "160",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.3",
+      "observations": 25,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 28,
+        "true_price_contained": 28,
+        "scipy_parameter_contained": 28,
+        "scipy_full_image_contained": 28,
+        "scipy_endpoint_only_contained": 28,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    },
+    {
+      "case": "monotone_decreasing",
+      "contract": {
+        "spot": "160",
+        "strike": "100",
+        "cap": "20",
+        "maturity": "1",
+        "rate": "0.03",
+        "dividend": "0.01"
+      },
+      "true_sigma_exact": "0.3",
+      "observations": 60,
+      "counts": {
+        "attempts": 30,
+        "certified": 30,
+        "abstained": 0,
+        "unexpected_error": 0,
+        "true_volatility_contained": 29,
+        "true_price_contained": 29,
+        "scipy_parameter_contained": 29,
+        "scipy_full_image_contained": 29,
+        "scipy_endpoint_only_contained": 29,
+        "rounding_bound_checks": 30,
+        "reference_image_checks": 30
+      },
+      "denominator": 30,
+      "interpretation": "Numerical coverage diagnostic under approximate RNG, not exact Gaussian sampling evidence."
+    }
+  ],
+  "exact_composition_example": {
+    "alpha": "1/10",
+    "beta": "1/20",
+    "good_joint": "171/200",
+    "union_lower_bound": "17/20",
+    "bound_holds": true
+  },
+  "source_hashes_before": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_gbm_certificate_study.py": "aafdba14d7102f68325cf64daeb2915cf9d5957ce7c8efce19b76bdcd0591aeb",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_certificate_references.py": "81a0a6b8df8b32741d5bbe75214d22df5aecbc695e1f567d3c3af053fe5d0148"
+  },
+  "source_hashes_after": {
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_price_certificate.py": "99d210413e25f45230c3d2dc65cedb3e697cd21e7fa04e35226ec6c07a6c5668",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/scripts/run_gbm_certificate_study.py": "aafdba14d7102f68325cf64daeb2915cf9d5957ce7c8efce19b76bdcd0591aeb",
+    "/Users/amanjeetsingh/Projects/Quantum-Basket-Pricing/src/gbm_certificate_references.py": "81a0a6b8df8b32741d5bbe75214d22df5aecbc695e1f567d3c3af053fe5d0148"
+  },
+  "sources_unchanged": true,
+  "source_consultation": "Local calibration module and companion image/composition proofs; no new publication consultation.",
+  "certification_scope": "Exact declared arithmetic and GBM model, conditional on successful result. Supplied intervals do not certify own statistical coverage; rounded-data theorem assumes ideal iid Gaussian values within supplied radii. RNG draws approximate that law.",
+  "overall_numerical_verification": true
+}

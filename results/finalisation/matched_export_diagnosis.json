@@ -1,0 +1,124 @@
+{
+  "schema": "qbp-matched-replay-provenance-diagnosis-v1",
+  "status": "reproduction_blocked_by_retained_provenance_inconsistency",
+  "date": "2026-10-27",
+  "preserved_failed_log": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/matched.log",
+  "run_record": "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/quantum_replay/run_record.json",
+  "checks_completed": {
+    "sharp": {
+      "status": "passed",
+      "derivative_coefficients_checked": 8,
+      "finite_moduli_checked": 32,
+      "precision_bits": 320
+    },
+    "resources": {
+      "status": "passed",
+      "architecture_profiles": 808,
+      "qpe_plans": 1616,
+      "complete_variant_charges": 3232,
+      "retained_rejections": 12,
+      "registered_settings": 416
+    },
+    "matched": {
+      "status": "failed_before_history_replay",
+      "exit_code": 1,
+      "line": 50,
+      "failure": "result[protocol_sha256] does not equal SHA-256 of the retained protocol bytes",
+      "histories_replayed": 0
+    }
+  },
+  "mismatch": {
+    "result_status": "completed",
+    "declared_protocol_sha256": "e91bf54c7e695f0c40517068191f6bb5b5ef06629e8ed2f08b9f275501fc93d2",
+    "retained_protocol_actual_sha256": "27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d",
+    "retained_result_sha256": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4",
+    "summary_resources_sha256": "b0cfb3ae5e3314245620cc6e88fddfd9a0b132bc0bcd4f027cea9747f69fc1c4",
+    "summary_resource_hash_matches": true
+  },
+  "canonical_reconstruction_agreement": {
+    "matched_chebyshev_protocol.json": true,
+    "matched_chebyshev_resources.json.gz": true,
+    "matched_chebyshev_summary.json": true
+  },
+  "source_layout": "The manifest selects the same retained protocol SHA 27221f44cfc4c9cfce5504fe4cd6417ba39fde407294f03383f99eee4841353d, so reconstruction did not introduce the mismatch. The only Git version of this protocol also has that SHA; a protocol with the declared e91bf54c... SHA was not found among repository protocol copies.",
+  "additional_concrete_obstruction": {
+    "checker_lines": [
+      58,
+      61
+    ],
+    "registered_input_path": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+    "registered_input_path_is_absolute": false,
+    "expected_behavior": "The supplied-input relocation guard explicitly requires an absolute original protocol key. The current privacy placeholder is relative, so merely changing the top-level checksum would still fail. No such changes were made."
+  },
+  "independent_manifest_read_checks": {
+    "source_sha256": [
+      {
+        "registered_key": "certified_scalar.py",
+        "expected_sha256": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+        "actual_sha256": "2c860de9e30c11a33d31b3d35c7a861a68c009c2b2291d40b24b13f7b88b7392",
+        "matches": true
+      },
+      {
+        "registered_key": "chebyshev_controller.py",
+        "expected_sha256": "b14c66374c9211dd4449018c0be704e80b98c6d21f502f396b80f6b0f875350a",
+        "actual_sha256": "b14c66374c9211dd4449018c0be704e80b98c6d21f502f396b80f6b0f875350a",
+        "matches": true
+      },
+      {
+        "registered_key": "chebyshev_resources.py",
+        "expected_sha256": "d732a875e3787ec6c50eb7db3b8ef19e0f0213dc7f8770383f19808d4e96a88b",
+        "actual_sha256": "d732a875e3787ec6c50eb7db3b8ef19e0f0213dc7f8770383f19808d4e96a88b",
+        "matches": true
+      },
+      {
+        "registered_key": "integral_pricing_budget.py",
+        "expected_sha256": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+        "actual_sha256": "81a49bf4e8e2bfc68464edcd96f68e023795326a33261775c2f301b7ba4ad8bf",
+        "matches": true
+      },
+      {
+        "registered_key": "matched_deferred_chebyshev.py",
+        "expected_sha256": "51c299f96c80a676d7a0eb007db9ed2c86a7bf3b60945697da31f3c0f7ff1f19",
+        "actual_sha256": "51c299f96c80a676d7a0eb007db9ed2c86a7bf3b60945697da31f3c0f7ff1f19",
+        "matches": true
+      },
+      {
+        "registered_key": "qft_synthesis.py",
+        "expected_sha256": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+        "actual_sha256": "0e195e8eaa5ab625c45c8ab9af8f8a221197e4a6769b24d39caafc81644c1b65",
+        "matches": true
+      },
+      {
+        "registered_key": "qpe_estimator.py",
+        "expected_sha256": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+        "actual_sha256": "f115cce69a7cacd412ad5444f687d77da5f181d83a1f4d164eb288b3b3ee4953",
+        "matches": true
+      },
+      {
+        "registered_key": "quantum_gates.py",
+        "expected_sha256": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+        "actual_sha256": "e73b4ef9e47804ed0a5f26333bd82d70b370349960555289c168b1ed9e0839fd",
+        "matches": true
+      },
+      {
+        "registered_key": "reflections.py",
+        "expected_sha256": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa",
+        "actual_sha256": "319ed97fdc90de5fd193383d2483dd205231347f83a4df55ae375d6212a4c8fa",
+        "matches": true
+      }
+    ],
+    "evidence_sha256": [
+      {
+        "registered_key": "<private-stage>/originality_step/deferred/matched_B_inputs.json",
+        "expected_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+        "actual_sha256": "ef902e61d37b564dce70be9b58261babcd1e84870a8149e7f0d7a5e8d3ec7ac2",
+        "matches": true
+      }
+    ]
+  },
+  "interpretation": "All nine registered scientific source files and the supplied matched_B_inputs file have the expected checksums. The retained matched result/summary bytes agree between canonical repository and fresh reconstruction, and the result hash matches its summary. This isolates a provenance/replay obstruction before numerical history checks, rather than demonstrating an arithmetic or controller failure. Existing retained passing audit JSON is historical evidence and does not replace this failed fresh execution. The visible private-stage placeholder is consistent with metadata redaction; the exact original-byte transformation is not proved because the declared original protocol was not located.",
+  "necessary_fix": "Preserve the failure and retained bytes. Recover and bind the original protocol bytes if independently available, or introduce an explicitly versioned sanitised-export provenance record with verified semantic mapping and separate pre/post hashes, then make the portable checker validate that declared mapping and input key. Preserve frozen scientific outcomes and fail on unrelated changes. Do not overwrite historical hashes or relax the assertion merely to obtain a pass. Until a reviewed fix and successful rerun, describe two current independent checks as freshly passed and the matched replay as blocked.",
+  "frozen_outputs_changed": false,
+  "checker_or_protocol_patched": false,
+  "git_mutations": false
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "test_count": 12,
+  "argv": [
+    "/opt/anaconda3/bin/python3.13",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/Users/amanjeetsingh/.codex/visualizations/2026/10/04/01a10934-6a7e-78c3-8fec-9e6b79985312/qbp-finalisation-20261027/portable_recovery",
+    "-p",
+    "test_matched_replay_recovery.py",
+    "-v"
+  ],
+  "elapsed_seconds": 0.5188722500001859,
+  "helper_sha256": "503cbf5c4349713502934748f199150c3e273a673cbabb630e6851c9a48a75b4",
+  "test_source_sha256": "9f408276c2fb8cf44a18e21093d584408d9fb47e2dfae5cb1cedf02c8595e020",
+  "scope": "Preparation and fail-closed provenance checks only, including exact inverse replacement counts. Unit tests use an explicitly labelled resource-review interface fixture. Actual helper-prepared strict scientific audit is separately passed.",
+  "prior_failed_attempts": [
+    "Attempt 1 positive test used an older retained reviewer version; fixed fixture selection.",
+    "Attempt 2 positive test expected an unresolved macOS temporary path; corrected path equality to use resolve()."
+  ],
+  "final_installation_paths": {
+    "helper": "replication/prepare_matched_replay.py",
+    "test": "tests/test_matched_replay_recovery.py",
+    "archive": "replication/recovery/matched_replay_bindings.tar.gz",
+    "manifest": "replication/recovery/matched_replay_bindings_manifest.json"
+  }
+}

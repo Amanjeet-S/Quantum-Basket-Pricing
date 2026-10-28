@@ -1,0 +1,239 @@
+{
+  "contract": {
+    "spot": 105.0,
+    "strike": 100.0,
+    "cap": 20.0,
+    "maturity": 1.0,
+    "rate": -0.015,
+    "dividend": 0.045,
+    "volatility": 0.25
+  },
+  "native": {
+    "mode": "pde",
+    "values": {
+      "price": 6.0311210027265885,
+      "delta": 0.21019064073472696,
+      "gamma": -0.002005167651629991,
+      "vega": 2.3301626467274525,
+      "rho": 15.965675370875708,
+      "theta": 0.937664878531912
+    },
+    "analytic_same_bumps": {
+      "price": 6.024450105669225,
+      "delta": 0.25528898024787655,
+      "gamma": 0.002702717553920202,
+      "vega": 7.521560563060347,
+      "rho": 21.457601878410657,
+      "theta": 0.6236715650390872
+    },
+    "bumps": {
+      "spot": 10.5,
+      "volatility": 0.018429155852858085,
+      "rate": 0.007371662341143234,
+      "maturity": 0.03685831170571617
+    },
+    "domain_price_bound": 2.7571647261199852e-15,
+    "heat_min": 0,
+    "heat_max": 20,
+    "grid": {
+      "lower": -2.292459835830568,
+      "upper": 2.4323215567939545,
+      "intervals": 16,
+      "time_steps": 3,
+      "spacing": 0.29529883703903265,
+      "lambda": 0.11945526436036076,
+      "nodes": [
+        -2.292459835830568,
+        -1.9971609987915353,
+        -1.7018621617525027,
+        -1.40656332471347,
+        -1.1112644876744373,
+        -0.8159656506354047,
+        -0.520666813596372,
+        -0.22536797655733937,
+        0.06993086048169328,
+        0.3652296975207259,
+        0.6605285345597586,
+        0.9558273715987913,
+        1.2511262086378239,
+        1.5464250456768565,
+        1.8417238827158893,
+        2.137022719754922,
+        2.4323215567939545
+      ],
+      "values": [
+        0,
+        1.6468094463609138e-05,
+        0.0001347664054252616,
+        0.001051984708131692,
+        0.007857648734721596,
+        0.05524105236049905,
+        0.3552477984384938,
+        1.9779345485952524,
+        8.376697658956637,
+        17.1000989895103,
+        19.466960916586025,
+        19.916053691749255,
+        19.98796332592779,
+        19.998379639595868,
+        19.999791586878224,
+        19.99997445613223,
+        20
+      ]
+    },
+    "heat_trace": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7.243403111856642,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      [
+        0,
+        6.338756986268311e-07,
+        6.574137030578435e-06,
+        6.754869982911282e-05,
+        0.0006939960376519327,
+        0.007130116489238534,
+        0.07325482854386331,
+        0.7526202289525438,
+        7.732421470197121,
+        18.80595906503811,
+        19.88378034418936,
+        19.98868798547835,
+        19.99889896704104,
+        19.99989283318519,
+        19.999989570053494,
+        19.999998994348672,
+        20
+      ],
+      [
+        0,
+        4.303939031962603e-06,
+        3.9331206608611946e-05,
+        0.0003485788675135557,
+        0.003010424123754768,
+        0.025063864204271497,
+        0.1972467088871021,
+        1.4074070843817392,
+        8.09900738582137,
+        17.859421084369806,
+        19.69604853760988,
+        19.961110203567852,
+        19.995309026785765,
+        19.99945525856287,
+        19.999938406719025,
+        19.999993249477832,
+        20
+      ],
+      [
+        0,
+        1.6468094463609138e-05,
+        0.0001347664054252616,
+        0.001051984708131692,
+        0.007857648734721596,
+        0.05524105236049905,
+        0.3552477984384938,
+        1.9779345485952524,
+        8.376697658956637,
+        17.1000989895103,
+        19.466960916586025,
+        19.916053691749255,
+        19.98796332592779,
+        19.998379639595868,
+        19.999791586878224,
+        19.99997445613223,
+        20
+      ]
+    ],
+    "derivative_convention": "central bumped prices on a fixed heat domain; calendar theta",
+    "floating_point": {
+      "long_double_digits": 53,
+      "double_digits": 53,
+      "long_double_bytes": 8
+    },
+    "numerical_error_certificate": false
+  },
+  "scalar_target_data": {
+    "left_index": 7,
+    "right_weight": 0.619400139061823,
+    "discount": 1.015113064615719,
+    "coordinate": -0.04245983583056795
+  },
+  "certificate": {
+    "schema": "qbp-exact-heat-trace-certificate-v1",
+    "target": "Exact backward-Euler recurrence defined by published binary64 lambda, cap and initial vector",
+    "steps": 3,
+    "interior_nodes": 15,
+    "initial_error": {
+      "numerator": "0",
+      "denominator": "1",
+      "upper_binary64": 0.0,
+      "finite_binary64_upper_bound": true
+    },
+    "step_residual_norms": [
+      {
+        "numerator": "4741575022350775",
+        "denominator": "2535301200456458802993406410752",
+        "upper_binary64": 1.870221582152486e-15,
+        "finite_binary64_upper_bound": true
+      },
+      {
+        "numerator": "49683741224095347",
+        "denominator": "20282409603651670423947251286016",
+        "upper_binary64": 2.4495975673003975e-15,
+        "finite_binary64_upper_bound": true
+      },
+      {
+        "numerator": "43035843652338749",
+        "denominator": "10141204801825835211973625643008",
+        "upper_binary64": 4.243661822566735e-15,
+        "finite_binary64_upper_bound": true
+      }
+    ],
+    "final_grid_error_bound": {
+      "numerator": "173688028707579045",
+      "denominator": "20282409603651670423947251286016",
+      "upper_binary64": 8.56348097201962e-15,
+      "finite_binary64_upper_bound": true
+    },
+    "observed_range_violation": false,
+    "initial_range_valid": true,
+    "max_observed_range_excess": {
+      "numerator": "0",
+      "denominator": "1",
+      "upper_binary64": 0.0,
+      "finite_binary64_upper_bound": true
+    },
+    "range_excess_within_residual_bound": true,
+    "arithmetic": "Exact integer/Fraction operations on binary64 input values",
+    "limitations": "Excludes original-parameter/coordinate/payoff errors, continuum discretisation, finite-domain error and market-model adequacy.",
+    "scalar_price_error_bound": {
+      "numerator": "882646235651492147778355438819449",
+      "denominator": "91343852333181432387730302044767688728495783936",
+      "upper_binary64": 9.662896988754036e-15,
+      "finite_binary64_upper_bound": true
+    },
+    "scalar_evaluation_mismatch": {
+      "numerator": "88603132609461902168953864771119",
+      "denominator": "91343852333181432387730302044767688728495783936",
+      "upper_binary64": 9.699955754688054e-16,
+      "finite_binary64_upper_bound": true
+    },
+    "scalar_target": "Discounted exact-scheme interpolation with the supplied binary64 index, weight and discount"
+  },
+  "independent_check": null
+}
